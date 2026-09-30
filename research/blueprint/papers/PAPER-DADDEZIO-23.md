@@ -8,10 +8,19 @@ The machine-readable extraction is [PAPER-DADDEZIO-23.result.json](PAPER-DADDEZI
 - 70 items: 7 planned, 63 missing;
 - 6 routes:
   - one new Part II;
-  - two Part IIs coalesced with pending proposals of PAPER-TSUZUKI-23 and PAPER-ABE-18;
+  - two Part IIs coalesced with the accepted proposals of PAPER-TSUZUKI-23 and PAPER-ABE-18 (designs pending);
   - three sources of existing layers;
 - 17 prerequisite entries;
 - 9 recorded mistakes: 8 misprints and 1 gap.
+
+After the independent review (REV-PAPER-DADDEZIO-23, research/blueprint/reviews/REV-PAPER-DADDEZIO-23.md) the extraction has 70 items (7 planned, 63 missing) and 14 recorded mistakes, all confirmed. The review corrected it in place:
+- **Route 1** adds RD.5, the first stage downstream of RD.1, RD.2 and RD.3. It owns Kedlaya's full faithfulness, docility and semistable reduction.
+- **Route 3** moves from AnalyticNumberTheory AN.4, which is number-field only, to FunctionFieldArithmetic FA.5. Item 18 is restated for the curve case the paper uses.
+- **Route 6's brief** states the final theorems with their hypotheses.
+- **Items.** Remark 3.1.7 is no longer an item. Frobenius semisimplicity for abelian varieties over finite fields (item 71) is added. Twenty items gain statement, planned or note fixes.
+- **Five new findings (E10–E14)**, among them an error in the statement of Lemma 4.4.7 that affects nothing (E13).
+
+The two coalesced Part IIs below were accepted by the reviews of PAPER-TSUZUKI-23 (route 3) and PAPER-ABE-18 (route 2); their designs are pending. The sections below describe the extraction as submitted.
 
 ## Sources read
 
@@ -85,7 +94,7 @@ The machine-readable extraction is [PAPER-DADDEZIO-23.result.json](PAPER-DADDEZI
    - docility and semistable reduction;
    - Étesse's overconvergence of R^1f_crys.
 5. **Source of FiniteFlatGroupsAndIntegralPadicHodgeTheory [R07.2]** (2 missing). BBM's crystalline Dieudonné module of A[p^∞], and de Jong's full faithfulness for Barsotti–Tate groups.
-6. **Source of AnalyticNumberTheory [AN.4]** (1 missing). Serre's Chebotarev density for schemes, as PAPER-SCHMIDT-STIX-16 routed it.
+6. **Source of AnalyticNumberTheory [AN.4]** (1 missing). Serre's Chebotarev density for schemes, as PAPER-SCHMIDT-STIX-16 routed it. (Corrected by the review: AN.4 is number-field only, and that precedent was rejected. The route now goes to FunctionFieldArithmetic FA.5, for the curve case the paper uses.)
 
 ## Source issues (`sourceIssues` E1–E9)
 

@@ -1,0 +1,90 @@
+{
+ "redteam": "RT-PAPER-TEMKIN-17",
+ "findings": [
+  {
+   "finding": "RT-PAPER-TEMKIN-17/1",
+   "verdict": "confirmed",
+   "reason": "Checked. Temkin §4.1.4 (p. 121, the same in arXiv v2) defines universal P-resolvability by the existence of 'a P-alteration f : Y′ → Y such that Y′ is regular and Z′ = f⁻¹(Z) is an snc divisor'. By §4.1.2 an alteration is proper, surjective, maximally dominating and generically finite, not projective. Its source, Exposé X §3.3.3 (Travaux de Gabber, arXiv:1207.3648, p. 159), requires 'a surjective projective morphism f'. So §4.3.2, which obtains the first claim of Theorem 1.2.5 (a projective char(X)-alteration b) from Theorem 4.3.1(i), gives no projectivity with the definition as printed. The review's note derives projectivity from 4.3.1(ii), and the counterexample to that derivation holds. Take S = X = Spec of a regular two-dimensional excellent local ring (universally resolvable, Exposé X Remark 3.3.4), f = id, Z the closed point, a = b = f′ = id and W′ = Z′ = V(xy). These satisfy every conclusion of (ii), including Z′ = b⁻¹(Z) ∪ f′⁻¹(W′) and log smoothness, yet b⁻¹(Z) is a point. Medium is right. One adjustment to the fix: the new source issue should state the projective form of §4.1.4, as in Exposé X, and record that the step '(i) follows from (ii)' in the proof Temkin copies from Exposé X (proof of Theorem 3.5, p. 162) needs b⁻¹(Z) itself to be snc. The statement of (ii) does not give this, so the blueprint must take it from the construction behind (ii). It should not assert that the printed proof of 4.3.1(i) already delivers it."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/2",
+   "verdict": "confirmed",
+   "reason": "Checked. In the separable case Theorem 4.2.1 promises 'a separable projective P-alteration', and Step 4 (p. 122) takes a from Theorem 3.3.6 (p. 120), which gives only a P-alteration. Its field K′ comes from Theorem 3.2.12 (p. 118), whose proof works inside a maximal P-extension K̄. When char K = p ∈ P, a P-closed field is perfect, so K̄ contains K^{1/p^∞} and the finite subextensions chosen may be inseparable. The separable case is what Theorem 4.3.1(iii) needs: the proof of Exposé X Theorem 3.5, which Temkin's proof copies, uses 'Y is universally separably l′-resolvable … hence we can take c″ to be separable' (p. 164). The repair is right. If K is separably P-closed, its perfection is P-closed, because Frobenius twists of irreducible separable polynomials stay irreducible and separable over the perfect field. Also G_K = G_{K^perf}, with the same inertia and wild inertia, so K is separably P-tame and 3.2.12 and 3.3.6 run with a maximal separable P-extension. An equivalent, shorter repair replaces K′ by its maximal separable subextension. 'Affects: the proof' is right, and medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/3",
+   "verdict": "confirmed",
+   "reason": "Checked. flattening, normalization and semistable-curve-alteration are marked planned at AdicCoefficientsAndComparisons:L5. But L5 plans de Jong's Theorems 4.1 and 6.5 only 'in the field case and … over the valuation base', with 'the required finite-type scheme geometry'. Temkin needs more in all three cases:\n- flattening over an arbitrary qcqs base for a morphism that 'does not have to be of finite presentation' (Stacks 081R, proof of Lemma 3.1.6, p. 115);\n- normalization over noetherian universally Japanese schemes (Lemma 3.3.4, Theorem 3.3.6, pp. 119–120);\n- quasi-projective relative curves over a noetherian qe base with a separable alteration (Theorem 4.2.1, Steps 1–3). Exposé X Remark 3.4.1(i) says this is 'the only point that requires to use the stable modification theorem instead of de Jong's result'.\n'Planned' therefore overstates all three. Two refinements to the fix:\n- (a) The same Stacks 081R statement is already the missing item PAPER-BHATT-18/flatten-finite-type-scheme, which that paper's accepted route 6 sends to SchemeAndStackFoundations SF.4. Temkin's flattening item should be missing, in a source route to SF.4, coalescing with it.\n- (b) Cite L5's accepted decomposition node de-jong-5-8-curve-fibration-alteration (projective curve fibrations over integral excellent bases) as the base case in semistable-curve-alteration's note. The item itself stays missing and goes to the Part II with [Tem10].\nMedium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/4",
+   "verdict": "confirmed",
+   "reason": "Checked the sources. RS-25's owner record, accepted by REV-RS-25, keeps 'source-scoped alterations, modifications and proved resolution settings' in SF.4, and SF.4 says 'Resolution is a theorem only in a named proved setting'. The MotivesAndAlgebraicCycles packet requests Raynaud–Gruson platification from SF.4, and PAPER-BHATT-SCHOLZE-17's accepted route sends de Jong's alterations to SF.0/SF.4. A third accepted claim is PAPER-BHATT-18's route 6, which sends non-Noetherian flattening (Stacks 0815, 081R) to SF.4. SF.4 and L5 are unrelated in the atlas, so the double claim is real. Tau Ceti StableReduction layer 4 plans Lipman's theorem in the DVR-curve case, a special case the cossart-piltant item builds on. Adjustment: apply this with /3. Make flattening missing and route it to SF.4; send cossart-piltant to SF.4 as well, a proved resolution setting under RS-25, citing StableReduction layer 4 for the Lipman case, unless the maintainer decides that SF.4 gives it up. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/5",
+   "verdict": "confirmed",
+   "reason": "Checked. Route 2's reason says Krull-valued ramification 'has no owner', and henselian-ramification's note cites LocalFieldsRamification layers 2–3 only. But ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles plans the 'valuation-theoretic pro-p Sylow/tame comparison (4.2.1–4.2.2)'. Its draft packet node tame-quotient-of-a-henselian-valued-field states Gal(K^t/K) ≅ Hom(Γ ⊗ Z_(p)/Γ, μ_(p)) and that P is the unique p-Sylow subgroup, for Γ of any rank. Tau Ceti LocalFieldsRamification layer 4 proves wild inertia pro-p Sylow for local fields, and ProfiniteProPGroups layer 2 owns profinite Sylow theory. Temkin §2.2.6 (p. 104) is this statement over k^u. The fix is right, and either owner is acyclic. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/6",
+   "verdict": "confirmed",
+   "reason": "Checked. Temkin defines k^h and k^u through the henselization and strict henselization of k° (§§2.2.3, 2.3.1), and Lemmas 2.3.2 and 2.3.11 cite EGA IV 18.6.8 and 18.6.14. Neither library has a henselization, only HenselianLocalRing and HenselianRing. Tau Ceti ModularCurves 4D says 'This layer owns the required general scheme-level API: strict henselisation and completion of strict henselisations'. Route 2's brief would construct them again. The fix is right. For the orchestrator: the draft ClassicalAdicEtaleCohomology H1 packet also requests strict henselization from SchemeAndStackFoundations SF.2, so there is a third claim to consolidate, with ModularCurves 4D as the owner. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/7",
+   "verdict": "confirmed",
+   "reason": "Checked. The review's reason says 'nothing in the atlas owns Riemann–Zariski spaces of pointed schemes (DiamondEtaleCohomology:C5's Zariski–Riemann models are for strictly totally disconnected spaces)'. But ClassicalAdicEtaleCohomology H1:henselian makes 'the affinoid henselian-pair theorem and Zariski–Riemann argument' proof tasks, and its draft node zariski-riemann-space-as-limit states Huber's lemma. C5 says 'Construct the Zariski–Riemann models and their limit/cohomology comparisons, including the henselian-ring result cited as Huber [Hub93b]'. PAPER-SCHOLZE-17's accepted item 442 plans the same statement at H1:henselian and C5. For X = Spec A with a dominant point, Temkin's RZ_K(X) → Val_K(X) (Lemma 3.1.3) is exactly this. Adjustment: the link must run H1:henselian → the Part II. H1:henselian → L5 is an atlas edge and the Part II imports L5, so a link the other way would close a cycle. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/8",
+   "verdict": "confirmed",
+   "reason": "Every cited declaration exists at the pins:\n- Tau Ceti f790474: TauCeti.ValuationSpectrum ('A point of Spv A is a ValuativeRel A'), with continuous_comap, and in AdicSpace/PatchPresentation.lean ValuationSpectrum.compactSpace_patchTopology and the SpectralSpace instance.\n- Mathlib 082e2d3: compactSpace_withConstructibleTopology (Topology/Spectral/ConstructibleTopology.lean:142), ValuationSubring.ofPrime and idealOfLE with the bijection lemmas, and IntermediateField.linearDisjoint_of_isPurelyInseparable_of_isSeparable (FieldTheory/PurelyInseparable/Tower.lean:99).\nThe rz-space note and route 1's brief call 'planned' what is built. The fix's status change is wrong, though: each of absolute-rz, composed-valuations and split-towers states more than the libraries give (the identification Spv K ≅ Val_K with compactness of Val_K(X)′ and openness of ψ_{L/K}; the chains of composed valuations; the existence of separable distillations). By PROTOCOL §16 an item is library only when a library states it. The right fix keeps the three items missing and cites these declarations in their notes, or splits each into a library item and a missing one. The correction of the rz-space note and of route 1's brief stands. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/9",
+   "verdict": "confirmed",
+   "reason": "The five notions are used as the finding quotes: 'a qe scheme S' (Theorem 1.2.5, p. 99), 'a noetherian universally Japanese integral scheme' (Lemma 3.3.4 and Theorem 3.3.6, p. 119), Galois alterations through Y/G (§3.3.1, p. 118) and '(X̄, T̄)/G' (Step 10, p. 123). No item defines them. No stage mentions quasi-excellence. Japaneseness is planned only for k[X] (AlgebraicCurves layer 2). ModularCurves 0C plans quotients only for free actions, and Tau Ceti's NormalizationFinite.lean records that it has no IsNagata, IsJapanese or IsExcellent. Two corrections to the fix:\n- (a) Mathlib 082e2d3 has IsRegularLocalRing (RingTheory/RegularLocalRing/Defs.lean:51) and IsRegularRing (:92, a Noetherian ring whose localizations at primes are regular local). So the regular-scheme item should be planned at ModularCurves 4D and cite these classes as its base, with only the scheme-level predicate missing.\n- (b) AlgebraicModuliForArithmeticGeometry R09.7a already plans 'Define simple normal-crossings boundary divisors', and CR.5 asks to extend existing boundary data rather than use a fresh predicate. So the snc item should cite R09.7a and route only its extension to regular noetherian schemes, with the Exposé X convention.\nMedium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/10",
+   "verdict": "confirmed",
+   "reason": "Step 10 of Theorem 4.2.1 (p. 123) says '(S̄, W̄) → (S, W) is a Kummer étale morphism of log regular log schemes, and hence the composition (X̄, T̄) → (S̄, W̄) → (S, W) is log regular'. This uses three results:\n- the log form of Abhyankar's lemma;\n- Kato's theorem that a log smooth scheme over a log regular one is log regular;\n- the log smoothness of the semistable multipointed curve.\nNo item states any of them, and no stage plans them. The Abhyankar arguments in the atlas are LPV.5, AlgebraicCurves layer 8 and IG.5, and CR.5 plans only the definitions and chart criteria of log smoothness. The fix is right. Kato, Toric singularities (1994), is already a prerequisite, so only Grothendieck–Murre (LNM 208) or SGA 1 Exposé XIII §5 needs adding. Medium is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/11",
+   "verdict": "confirmed",
+   "reason": "The four uses are as stated: constructible compactness (proof of Lemma 3.1.3, p. 113), openness and constructibility of images (proof of Lemma 3.1.6, p. 115), and valuation rings dominating local rings (p. 115). No item states them. The Mathlib 082e2d3 declarations exist:\n- LocalSubring.exists_le_valuationSubring (RingTheory/Valuation/LocalSubring.lean:118);\n- Flat.generalizingMap and isOpenMap_of_generalizingMap (AlgebraicGeometry/Morphisms/UniversallyOpen.lean:131, 107);\n- Scheme.Hom.isConstructible_image (AlgebraicGeometry/Morphisms/FinitePresentation.lean:161);\n- compactSpace_withConstructibleTopology, which applies to schemes since Mathlib makes every scheme quasi-sober and prespectral.\nThe library statuses in the fix are justified. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/12",
+   "verdict": "confirmed",
+   "reason": "Checked. The proof of Lemma 3.2.10 (p. 117, the same in arXiv v2) takes f from Chevalley's theorem [EGA IV 18.4.6(ii)] and later uses 'f(t) is the minimal polynomial of a over K', which that theorem does not give. The counterexample is valid. With K = L = Q, O_x = O_y = Z_(p), a = 0 and f = t(t − 1), f′(0) = −1 is a unit, but A = Z_(p)[t, f′(t)⁻¹]/(f) ≅ Z_(p) × Z_(p) → Q kills the idempotent t. The repair works. The minimal polynomial g of a lies in O_x[t] because O_x is integrally closed, and f = gh by Gauss's lemma. Since f′(a) = g′(a)h(a) is a unit, the argument runs with g. The lemma stands, so 'affects: nothing' is right. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/13",
+   "verdict": "confirmed",
+   "reason": "All three checked, and all three passages are also in arXiv v2.\n- (a) §3.1.7 (p. 115) says p : Val_K(X) → Val_K 'is injective if and only if X is separated', and §3.1 allows non-dominant situations. For the affine line with doubled origin over F_p and the rational point t = 1, Val_{F_p}(X) is a single point, so p is injective although X is not separated. Only the 'if' holds.\n- (b) The proof of Lemma 3.2.10 says 'By the first part of the theorem' for the lemma.\n- (c) Step 10 (p. 123, page image checked) prints 'the composition … is log regular', where log smoothness of the composition (with (X̄, T̄) log regular) is meant, and '(X′, T′) → (X, S) is log smooth' for (S, W). T̄ is never defined.\nThe fix is right. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/14",
+   "verdict": "confirmed",
+   "reason": "Checked. Exposé X §3.3.3 begins 'Let X be a noetherian scheme and let l be a prime invertible on X', and Theorem 3.4 assumes S universally l′-resolvable. So l is invertible on S there, that is, char(S) ⊆ {l}′. E1's review reason ('the Sylow trick needed tameness only over X, so char(X) ⊆ {ℓ}′ sufficed there') misstates the source's hypothesis, and Temkin's version with char(X) ⊆ P is more general than its source. The fix is right. Low is right: it corrects the record, not the mathematics."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/15",
+   "verdict": "confirmed",
+   "reason": "Crossref for 10.1016/j.jalgebra.2019.02.017 gives Cossart–Piltant, 'Resolution of singularities of arithmetical threefolds', J. Algebra 529 (2019) 268–535; arXiv 1412.0868 was last revised in January 2019. Temkin calls [CP14] a preprint (Remarks 1.2.3, 1.2.6), so 'unpublished at the time' is right as history, but the prerequisite should cite the published version. §4.3.2 uses 'S is universally resolvable by [CP14]', the embedded universal form, not bare desingularization, so the restatement is right. One adjustment: state the restated item with 'projective' only if the design job confirms that Cossart–Piltant's resolution is projective (compare /1, since §4.1.4 as printed does not require it); otherwise state universal resolvability exactly as §4.1.4 does. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/16",
+   "verdict": "confirmed",
+   "reason": "§2.2.5 (p. 104) reads 'the p′-torsion group G = |l^×|/|k^×|. In particular, [l : k] = [l̃ : k̃]·|G|', the quotient of value groups. The item's '|l^×/k^×|' reads as the quotient of multiplicative groups, which is infinite for any nontrivial l/k. The fix is right; the formula is for finite tame extensions of a henselian k. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-TEMKIN-17/17",
+   "verdict": "confirmed",
+   "reason": "Checked. finite-height's note says Abhyankar's inequality is 'Used without citation', and route 2 plans it as new. PAPER-SCHOLZE-17's accepted item 503 plans the general inequality ([Bou98, VI.10.3, Cor. 1]) at DiamondEtaleCohomology C8, whose packet lists it as an open gap, and Temkin uses it on p. 112. So two owners would plan it. Both choices are acyclic. The natural owner is the general-valued-fields Part II, with C8, whose own node covers only complete algebraically closed fields, importing it through a link Part II → C8. The fixer or orchestrator may choose; the finding itself is right. Low is right."
+  }
+ ]
+}

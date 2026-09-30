@@ -1,0 +1,62 @@
+{
+ "paper": "PAPER-GROSS-ZAGIER-86",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The chapter-to-layer mapping (Chapters II and III to GZ.7, Chapter IV to GZ.6, Chapter V to GZ.8 and GZ.5) matches the stage descriptions of GrossZagierAndArithmeticHeights, whose README names 'Gross–Zagier, Chapters II–IV' as a primary source, and it is acyclic in the stage graph. As submitted the route had four defects, all corrected in place. (a) Weight: GZ.0–GZ.9 are weight two, but fifteen weight-2k > 2 statements of Chapters I, IV §5 and V §4 were routed to GZ.6/GZ.8; they moved to route 8, and Theorem IV.5.6 was split so that its k = 1 case (used in Chapter V §3) stays here. (b) Owners: the claim that 'no other layer plans' the classical analytic inputs is false. The accepted routes of PAPER-DUKE-IMAMOGLU-TOTH-16 put non-holomorphic Eisenstein series, their Fourier expansions and the resolvent kernel in AutomorphicSpectralTheory and the partial zeta functions and genus factorization in AnalyticNumberTheory AN.4; PAPER-ZHANG-21 puts the K-Bessel kernels in AL.0; QM.3's packet has E₂* and Poincaré series; ER.7's packet plans Kronecker's first limit formula. Those items moved to routes 3, 4, 9, 10 and 11 or became planned. (c) Order: the Legendre function Q_{s−1} was planned in GZ.7 (items 64, 65, 108) and in GZ.6 (item 258), although GZ.6 consumes it and sits upstream of GZ.7; it now has one owner (route 9). (d) The Hecke-algebra faithfulness and pairing of V §1 (items 276, 277) belong to ModularCurvesPartII (route 5). The route now has 168 items. Two points remain for the design job and the maintainer: GZ.5's definite identity (items 309, 310) uses Theorem IV.5.6 and Proposition IV.4.4 from GZ.6, which is downstream of GZ.5; and the stage graph lacks edges from CM.5, HE.2, AN.4, MP.5, ER.7, QM.3 and AS.2 into GZ.6/GZ.7 (the review checked by reachability that adding them creates no cycle). Eichler's connecting-ideal theorem (item 166) has no general owner in the atlas; it stays here, but a quaternion-order layer (GeometryOfNumbersAndQuadraticArithmetic GN.2 is the nearest) would be its natural home."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. CM.5 owns the reduction of CM elliptic curves and the supersingular case, so Deuring's classification, the reduction of CM curves and the structure of End at a non-split prime (items 128, 129, 147) belong there; CM.5 must state Deuring's classification for all elliptic curves in characteristic p. The route also named CM.3 for Kronecker's congruence (item 122), but nothing in CM.3's description or its RS-04 narrowing covers modular polynomials, and the congruence describes the bad fibres of X₀(N); it moved to route 5. The dictionary between CM points, positive-definite forms of discriminant D and ideal classes, added in review, joins CM.1, which identifies isomorphism classes of CM curves with ideal classes."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The route sent the theta series θ_𝒜 and its modularity to GeometryOfNumbersAndQuadraticArithmetic GN.3, but the GN packet and README say 'MetaplecticAutomorphicForms owns theta', and the accepted route of PAPER-LI-23 follows that. The route now names MetaplecticAutomorphicForms MP.5–MP.6 and carries both copies of the definition (items 19 and 177, now both missing), the modularity statement (178), its proof by the SL₂(ℤ) transformation law and Poisson summation over an ideal lattice (194, 195), and the conjugation symmetry r_{𝒞⁻¹} = r_𝒞 added in review. Poisson summation for lattices is imported from AL.0."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The route named AnalyticNumberTheory AN.1, which the accepted restructuring RS-07 dropped (Mathlib supplies Dirichlet L-functions and their functional equation, with the root number unevaluated). AN.4 keeps the Dedekind/Hecke comparison, from which root number +1 for ε_D, Gauss's sign and L(1,ε) follow. The partial zeta function of an ideal class, its expression through E(τ_𝒜,s) and the genus-character factorization (items 95, 96, 172) join from route 1, following the accepted route 6 of PAPER-DUKE-IMAMOGLU-TOTH-16. The class number formula (item 229) is planned in AN.4 and stays as a planned item."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. R13.5 ('Bad fibres and regular/semistable models') owns the regular model of X₀(N), but its text limits it to the cases its proof needs, so it must add Gross–Zagier's case: arbitrary N, Katz–Mazur 13.4.7 for Γ₀(pⁿM), and the corrected singular locus of Proposition III.(1.4) (E62, from Edixhoven 1990). The route now also carries the fibre at p | N (item 121), Kronecker's congruence (122), the Atkin–Lehner involutions and the group W (items 3 and 57, at R14.1), the modular polynomial and the function field of X₀(N) (added in review, at R12.6), and the faithfulness of the Hecke algebra and the perfect pairing of Chapter V §1 (items 276, 277, at R12.5 and R14.2, whose packet nodes state the Γ₁(N) versions)."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. Conjecture V.(2.3) and the N = 11 and N = 65 examples are statements about the Heegner index in BSD, which BSD.5 ('Rational leading-term quotient and Heegner index formula') owns. The review recomputed the N = 11 and N = 65 tables independently; all values agree with print. Whether Conjecture (2.3) has since been proved was not checked; a design job that uses it as a test must look this up."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Nothing in the atlas plans Goldfeld's effective bound, and the brief's statements match pp. 231–232. But the extraction's claim that nothing plans class-number lower bounds is false: accepted routes put Siegel's lower bound in AnalyticNumberTheory AN.3/AN.4 (PAPER-DUKE-IMAMOGLU-TOTH-16 route 6, PAPER-BINYAMINI-22 route 5). The effective bound continues that direction, so the route is now a Part II of AnalyticNumberTheory rather than a new roadmap. The brief is rewritten. Goldfeld's method (L(f,s)L(f⊗χ_D,s) with a zero of order ≥ 3, and the symmetric square) is described correctly. Oesterlé's Bourbaki exposé proves C = 7000 with the curve of (7.4); C = 55 is proved in Oesterlé 1988, and the class-number-3 result needs Montgomery–Weinberger. Buhler–Gross–Zagier certifies rank 3 for conductor 5077. The imports are named by title and id, with Mathlib in place of the retired AN.1."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. A Part II is justified: nothing accepted plans complex heights of Heegner cycles, higher Green's functions or weight-2k Gross–Zagier formulas, and the parent roadmap is weight two. But PAPER-LI-23 and PAPER-BRUINIER-EHLEN-YANG-21 already propose the Part II HigherGreenFunctionCMValues of the same parent, and both say to keep exactly one; their reviews rejected only details of the brief. The route is coalesced with it (same id, parent, title and area). It now also carries the weight-2k > 2 items of Chapter IV §5 and item 50. The brief is rewritten to state Sturm's lemma in weight 2k and Theorems IV.5.5, IV.5.6 (k ≥ 2) and IV.5.8 with the corrections E38, E42, E43 and E46. It records that Conjecture (4.4) is now proved at individual CM points in level one (Li 2023), with earlier cases by Mellit, Viazovska and Bruinier–Ehlen–Yang, and that the height interpretation is S.-W. Zhang's 1997 theorem."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. The Legendre function Q_ν (items 64, 65, 108, 258), the point-pair invariants and E_N (66, 70), and the non-holomorphic Eisenstein series of level M with character with their Fourier expansions through V_s(t) (179, 185, 192, 207–209, 212–217, 265) belong with the classical Eisenstein series, resolvent kernel and Whittaker/Bessel functions that the accepted route 2 of PAPER-DUKE-IMAMOGLU-TOTH-16 puts in AutomorphicSpectralTheory AS.0–AS.2. This gives each object one owner, and GZ.6/GZ.7 import them."
+  },
+  {
+   "route": 10,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. The integral representation of K_ν and the tabulated K-Bessel integral (items 219, 266) are the statements of PAPER-ZHANG-21/98, whose accepted route 2 puts them in AutomorphicLFunctionsAndLocalFactors AL.0. (DIT-16's route puts other Bessel functions in AS.0; the design jobs should reconcile the two owners of K_ν.)"
+  },
+  {
+   "route": 11,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Hecke's-trick Poincaré series of weight 2 and the weight-2 Eisenstein series E_{2,s} with E = E₂* (items 262, 264) extend the QSeries QM.3 packet nodes for holomorphic Poincaré series and for E₂*."
+  }
+ ],
+ "notes": "Accept, corrected in place. Nine parallel readers checked all 319 items, the 59 recorded mistakes, the eight routes and the prerequisites against the published GDZ scan (1400 px page images). 86 items were corrected, 16 added (one by splitting Theorem IV.5.6), and 45 rerouted; the file now has 335 items (149 planned, 24 library, 162 missing) and 11 routes, all accepted. All 59 recorded mistakes are confirmed; 17 more were found, among them that Proposition III.(1.4) omits singular points (corrected in print by Edixhoven 1990) and that the fourth line of Corollary V.(1.3) is unproved when the sign is +1. The main routing changes: the classical analytic inputs go to their existing owners (AutomorphicSpectralTheory, AL.0, QM.3, MP.5–MP.6, AN.4) instead of GZ.6/GZ.7; the weight-2k > 2 material joins the proposed Part II HigherGreenFunctionCMValues; the class-number application becomes a Part II of AnalyticNumberTheory. Details in research/blueprint/reviews/REV-PAPER-GROSS-ZAGIER-86.md."
+}

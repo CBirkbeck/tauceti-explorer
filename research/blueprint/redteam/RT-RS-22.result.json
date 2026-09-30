@@ -1,0 +1,316 @@
+{
+  "redteam": "RT-RS-22",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-22",
+  "summary": "No actionable finding in the accepted RS-22 restructuring. Checked every member target, all eight directed overlap leads, all thirteen links and the existing local decomposition. Keeping the two geometric settings is justified; all stage descriptions and existing edges survive, the retitle applies, and no RS-22 edge closes a cycle in the checked unions.",
+  "checked": [
+    "Read accepted RS-22 JSON/report, REV-RS-22, family file, both full member documents and all thirteen atlas stage contracts at commit 41a10fab7633fe914c47c89b90c2cfe7056d418e. Independent of author codex-c83e7a and reviewer cc-442dc5.",
+    "Tested the four unordered overlap pairs represented by eight leads: global-curve Hecke versus Fargues-Fontaine Hecke, global Frobenius shtukas versus Hecke correspondences, global versus framed local shtuka moduli, and global Galois versus local Weil Drinfeld descent. None authorizes replacing either construction with the other.",
+    "Checked the empty ownership-transfer list against the all-keep decision. All eight GS and five HS target lists and qualifications remain, and the only roadmap-title clarification does not change a stage ID or description.",
+    "Read every added-link supplier and all seven external consumers: FA.4/FA.6, EDC.5, SF.1, VS1, Satake GS3:fusion, ClassFieldTheory Layer 9, ES0, ES1:finite-ramification, ES6:functoriality, ES7:parabolic/GLn-comparison/equal-characteristic and ET.6a.",
+    "Read additional boundary contracts: BG2:uniformization, DM.7, Satake GS4:classical-Satake-comparison, LP2:semisimple-characters, ES7:function-field-automorphic and ET.2b. Neither trace-to-spherical-function comparison nor a finite-wild local parameter theorem supplies classical global Satake or general global parameter reconstruction.",
+    "Read all thirteen reviewed coverage entries. Directly read CategoryTheory.ExactPairing, including monoidal-category context and both triangle equations, at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean:68-115; read Condensed.freeForgetAdjunction and ring/universe context in Mathlib/Condensed/Module.lean:32-57. These abstract carriers do not construct the geometric kernels or Weil action.",
+    "Downloaded the two primary PDFs on 2026-09-30 and confirmed both hashes match RS-22's record. Read V. Lafforgue v10 Lemma 8.2 and Remarks 8.3-8.4 (printed 107-108), and FS IV.7 (printed 164-166), including the latter proof and its restriction to locally constant perfect objects for equivalence.",
+    "Read FS IX.2 Proposition IX.2.1 through Corollary IX.2.4, IX.3.1 with proof and following admissibility discussion, and IX.5.1 with proof. Verified that HS's retained solid/continuous/pro-p interfaces and downstream uniform-wild owner are compatible with these source scopes; this is not a complete proof audit of the whole roadmap.",
+    "Inspected all thirteen integrated HS node statements/hypotheses/proof outlines, thirteen links, all five partial coverage entries, five gaps and review metadata. The stale HS4 uniform-wild assignment and parameter-level diagram content are explicitly separated from the current README's owners; RS-22 does not certify the partial packet complete.",
+    "Verified thirteen unique non-self link pairs and all endpoint resolutions; compared all eleven native external family edges to seven consumers, plus every internal edge. Applying RS-22 preserves every atlas stage ID, description and existing edge.",
+    "Ran check_restructure.check against the pinned target/family/atlas: no errors. Actual application after other accepted proposals adds nine links, skips none; the other four proposed handoffs already exist. The HS roadmap title updates as requested.",
+    "Ran return-path checks for each proposed edge in native stageEdges plus in-registry requires plus RS-22 (3517 edges), then all twenty-five accepted link maps (4124), then all twenty-seven applied restructuring proposals (7007): no return path in any union.",
+    "Compared applied neighboring ownership/layer records: none reassigns an RS-22 member target. Retained the known late HS3 realization-return granularity issue without inventing a reverse coarse edge or claiming the comparison proved.",
+    "Refreshed main through 4c3ef31c6f7a8471b16963d682d3e16c754cc801; target/family/review, atlas, coverage, applied restructurings, accepted-link inputs, integrated HS packet and campaign/upstream documents unchanged."
+  ],
+  "findings": [],
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 4412,
+    "date": "2026-09-30",
+    "atlasCommit": "41a10fab7633fe914c47c89b90c2cfe7056d418e",
+    "targetBlob": "48043033f542345201945e0b39b2240fd3b6e51a",
+    "reportBlob": "4716d22512bffed355f4eba429804c2a9e9653d7",
+    "reviewBlob": "404e0bafd9a830bfd0267863a3517e596a7f1f9e",
+    "integratedHSBlob": "21dc6b84cd93b807b5f1ad2aeaa97f2826f6bc7d",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "sourceChecks": [
+    {
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "accessed": "2026-09-30",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "locators": [
+        "IV.7, printed 164-166",
+        "IX.2.1-IX.2.4, printed 322-323",
+        "IX.3.1 and following discussion, printed 324-325",
+        "IX.5.1, printed 327-328"
+      ],
+      "scope": "Local divisor/Weil descent, retained Hecke/cohomology qualifications, and downstream uniform-wild statement; unread imports are not certified."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1209.5352v10",
+      "accessed": "2026-09-30",
+      "sha256": "b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295",
+      "locators": [
+        "Lemma 8.2 and Remarks 8.3-8.4, printed 107-108"
+      ],
+      "scope": "Statement, inverse-functor discussion and specialization scope; not the full following Drinfeld proof or full global Langlands proof."
+    }
+  ],
+  "stageChecks": [
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "action": "keep",
+      "assessment": "Global-curve Bun_G, levels, deformations/HN bounded opens, automorphisms, central degree, torsor-class adelic comparison and nonsplit descent remain. Fargues-Fontaine BG2 is not a replacement."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+      "action": "keep",
+      "assessment": "Classical Beilinson-Drinfeld geometry, bounded Hecke stacks, fusion, rational ell-adic Satake, pinning/commutativity/half twists and nonsplit descent remain. The Fargues-Fontaine Satake and trace-comparison stages do not construct this equivalence."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+      "action": "keep",
+      "assessment": "Global Frobenius-modification direction, bounds, levels, partial Frobenius, HN truncations, central lattices, stabilizer-qualified representability and local-model maps remain. DM.7 is only an optional specialized realization."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+      "action": "keep",
+      "assessment": "Stack-specific bounded compact-support IC, transition maps/colimit, Hecke correspondences and Hecke-finite/cuspidal comparison remain. EDC.5 supplies scheme IC, not this whole stack construction; FA.6 supplies the automorphic object."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+      "action": "keep",
+      "assessment": "Classical partial-Frobenius descent, its Hecke-finite application, global Galois product action, independence and coalescence remain. VS1's local divisor/Weil theorem is not substituted."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+      "action": "keep",
+      "assessment": "Global excursions, relations, continuous semisimple reconstruction, cuspidal generalized-eigenspace decomposition, nonsplit projection and unramified comparison remain. Local parameter algebra does not by itself supply global Galois reconstruction or surjectivity."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "action": "keep",
+      "assessment": "Independent Laurent Lafforgue GL_n compactification, boundary/negligible cohomology, induction, trace route and both directions remain, with finite-order determinant/central character and separate twists."
+    },
+    {
+      "stage": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "action": "keep",
+      "assessment": "Global restriction versus local parameter, uniformization and nearby-cycle comparison maps remain extra proof obligations. HS2/HS3 supply local endpoints; ES7 supplies only the specialized equal-characteristic realization, not general ramified-G compatibility or monodromy recovery."
+    },
+    {
+      "stage": "HeckeStacksAndLocalShtukas:HS0",
+      "action": "keep",
+      "assessment": "Two Fargues-Fontaine bundles with meromorphic off-divisor isomorphism, source/target/leg maps, bounds, descent, chains/collisions and group compatibilities remain. Relative-fibre properties are not promoted to global-map representability."
+    },
+    {
+      "stage": "HeckeStacksAndLocalShtukas:HS1",
+      "action": "keep",
+      "assessment": "Actual Satake kernels and solid relative-homology construction, preservation/scalar-extension/unit/composition and continuous local Weil action remain. VS1, completed Satake and solid/lisse suppliers stay prerequisites; no early global-Langlands dependency added."
+    },
+    {
+      "stage": "HeckeStacksAndLocalShtukas:HS2",
+      "action": "keep",
+      "assessment": "Framed b,b-prime fibres, two local-group actions, levels/transition maps, bounded representability/local spatiality, reflex descent and justified inverse limits remain. General bounds are not reduced to minuscule classical examples; comparison proofs remain."
+    },
+    {
+      "stage": "HeckeStacksAndLocalShtukas:HS3",
+      "action": "keep",
+      "assessment": "Ordered coefficient and level limits, compact-support complexes, commuting actions, fibre/base-change comparison, source-range compactness/admissibility, duality and level-change maps remain. No finite-dimensional infinite-level claim or index-division without invertibility."
+    },
+    {
+      "stage": "HeckeStacksAndLocalShtukas:HS4",
+      "action": "keep",
+      "assessment": "Permutation, dual-leg creation/annihilation, triangles, iterated modification and finite-set coherence remain. HS4 supplies geometric group diagrams; parameter identities and uniform wild cutoff stay downstream in ES6/7 and ES1 respectively."
+    }
+  ],
+  "linkChecks": [
+    {
+      "index": 1,
+      "source": "FunctionFieldArithmetic:FA.6",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+      "assessment": "FA.6 defines fixed-level, fixed-central-character cusp spaces; GS.3 must still construct their shtuka-sector comparison.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 2,
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+      "assessment": "FA.4 supplies the rank-one reciprocity map and Frobenius normalization used by GS.5.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 3,
+      "source": "FunctionFieldArithmetic:FA.4",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+      "assessment": "The independent GL_n route also needs FA.4's rank-one base case; GS.5 is not substituted for GS.6.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 4,
+      "source": "EtaleDualityAndPerverseSheaves:EDC.5",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+      "assessment": "EDC.5 is scheme-level perverse/IC theory. GS.3 retains stack descent, truncation and support-control obligations.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 5,
+      "source": "SchemeAndStackFoundations:SF.1",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+      "assessment": "SF.1 supplies common stack/descent interfaces; GS.2 retains its stabilizer and finite-type proofs.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 6,
+      "source": "HeckeStacksAndLocalShtukas:HS2",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "assessment": "HS2 provides local moduli endpoints, not the global uniformization theorem.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 7,
+      "source": "HeckeStacksAndLocalShtukas:HS3",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "assessment": "HS3 provides local complexes/actions, not their identification with global nearby-cycle cohomology.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 8,
+      "source": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "assessment": "ES7:equal-characteristic supplies a source-scoped D-elliptic realization. General-G ramified compatibility stays GS.7; direction is late local-to-global comparison, never an early global prerequisite.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 9,
+      "source": "VStackSheavesAndLisseCategories:VS1",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "assessment": "VS1 explicitly owns FS IV.7; HS1 applies it in the actual solid/lisse Hecke construction.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 10,
+      "source": "GeometricSatakeAndFusion:GS3:fusion",
+      "target": "HeckeStacksAndLocalShtukas:HS4",
+      "assessment": "GS3:fusion supplies finite-set/collision coherence for the same Satake kernels; HS4 constructs action-level and dual-leg diagrams.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 11,
+      "source": "HeckeStacksAndLocalShtukas:HS4",
+      "target": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+      "assessment": "Current HS4 text exports continuous Hecke data; ES1 owns the uniform subgroup theorem. Stale integrated HS4 node is explicitly rejected by the proposal.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 12,
+      "source": "HeckeStacksAndLocalShtukas:HS4",
+      "target": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "assessment": "HS4 geometric maps feed downstream parameter identities with the consumer's coefficient and constituent hypotheses intact.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    },
+    {
+      "index": 13,
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "assessment": "ClassFieldTheory Layer 9 supplies carrier and Weil topology for every nonarchimedean local field. The link does not import an equal-characteristic reciprocity isomorphism excluded by that anchor.",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three tested graph unions"
+    }
+  ],
+  "externalConsumers": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+    "ExcursionOperatorsAndSpectralAction:ES0",
+    "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+    "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+    "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison",
+    "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic",
+    "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+  ],
+  "externalEdges": [
+    [
+      "HeckeStacksAndLocalShtukas:HS1",
+      "ExcursionOperatorsAndSpectralAction:ES0"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS1",
+      "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS2",
+      "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS2",
+      "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS2",
+      "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS3",
+      "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS3",
+      "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS4",
+      "ExcursionOperatorsAndSpectralAction:ES0"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS4",
+      "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS4",
+      "ExcursionOperatorsAndSpectralAction:ES6:functoriality"
+    ],
+    [
+      "HeckeStacksAndLocalShtukas:HS4",
+      "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
+    ]
+  ],
+  "graphChecks": {
+    "native_requires_proposal": {
+      "edges": 3517,
+      "returnPaths": []
+    },
+    "accepted_links": {
+      "edges": 4124,
+      "returnPaths": []
+    },
+    "accepted_restructurings": {
+      "edges": 7007,
+      "returnPaths": []
+    }
+  },
+  "applicationCheck": {
+    "check_restructure": "ok",
+    "newLinks": 9,
+    "skippedLinks": [],
+    "retitledRoadmap": "Hecke correspondences on the Fargues–Fontaine curve and local shtuka cohomology",
+    "allStageIdsDescriptionsEdgesPreserved": true
+  },
+  "limitations": [
+    "No exhaustive full-source proof closure of global or local Langlands, classical Satake, stack IC or general-G ramified compatibility.",
+    "Other library absence/status claims are attributed to the reviewed audit; this is not a new exhaustive library search.",
+    "The cycle result excludes a cycle involving an RS-22 edge in the stated unions; it does not certify every unrelated or future proof-level dependency.",
+    "Existing HS3 realization returns, ET.2b geometric reuse, current-source versus old-decomposition reconciliation and coefficient/support qualifications remain later blueprint obligations as explicitly recorded by RS-22.",
+    "No Lean deliverable or compilation and no new implementation claim."
+  ]
+}

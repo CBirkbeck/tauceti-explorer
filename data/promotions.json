@@ -91,11 +91,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "3a101decb456ef5e",
+   "promotedAt": "2026-09-30T15:51:15Z",
+   "review": "cc465045d7ce6621",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-   "sha256": "aba604fdc3648ca75b6b90c3393a858df8ef584e362295304ae999beb6ce28ed",
+   "sha256": "d4886e72af1e327e4b7b2879d98bf43e9057f3fb00ca855909628efde951b481",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
    ]
@@ -211,11 +211,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "a79887192a1bb470",
+   "promotedAt": "2026-09-30T16:10:01Z",
+   "review": "c2e39fbcfc8a58a6",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "sha256": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249",
+   "sha256": "74925da742d5828e63f80d0a8531e544aef6552be6b06b4b901c680418c49d0b",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
    ]
@@ -231,21 +231,21 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "9545a51adea31e6d",
+   "promotedAt": "2026-09-30T16:04:33Z",
+   "review": "ac201af3bf74f230",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "sha256": "e753c513d03d5191f484342a954f519022c39daffd6c100db4082ba07de37dfe",
+   "sha256": "a934c23ef2b81aa62bb653bd65f1fb1b6315a75f4b04bc2d79f0c040560972cf",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "657add8f5544ff3c",
+   "promotedAt": "2026-09-30T15:58:23Z",
+   "review": "a9b861e89b5361a1",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "sha256": "6c8de93ad421f59bff577fa558047627baa60ea47d152997e43dd24b14d7d78c",
+   "sha256": "a0cb77d38e12e53c186d2befbf5ebf88990e98188c5063b889d30aa20ae51301",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
@@ -547,6 +547,39 @@
     "data/restructure/RS-08.md"
    ]
   },
+  "research/blueprint/restructure/RS-10.result.json": {
+   "promotedAt": "2026-09-29T20:54:09Z",
+   "review": "3491115dc2027c6c",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-10~2",
+   "sha256": "27320f6a8626f9028a0dd4675b4e45daae959da7ccbcb02877aa4326ab0ab474",
+   "to": [
+    "data/restructure/RS-10.result.json",
+    "data/restructure/RS-10.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-11.result.json": {
+   "promotedAt": "2026-09-29T19:34:27Z",
+   "review": "24f03dc66d9dd011",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-11",
+   "sha256": "3a909467c198cbc752cc92e43c487d683dccc67a3966f4370b2b5dda93590824",
+   "to": [
+    "data/restructure/RS-11.result.json",
+    "data/restructure/RS-11.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-12.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "28f03990c5f15152",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-12~3",
+   "sha256": "d42a1b1577649392607a9e1565fa7ddea3ab30f853ff82540954699d75ef0b18",
+   "to": [
+    "data/restructure/RS-12.result.json",
+    "data/restructure/RS-12.md"
+   ]
+  },
   "research/blueprint/restructure/RS-13.result.json": {
    "promotedAt": "2026-09-23T12:23:19Z",
    "review": "b4686d1c18162521",
@@ -624,6 +657,28 @@
     "data/restructure/RS-19.md"
    ]
   },
+  "research/blueprint/restructure/RS-20.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "1675f72dcf362866",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-20~3",
+   "sha256": "94b054ac2d67c1ebac0d28b357257dd45c5982a846242f0366d876f024e28974",
+   "to": [
+    "data/restructure/RS-20.result.json",
+    "data/restructure/RS-20.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-21.result.json": {
+   "promotedAt": "2026-09-29T20:00:16Z",
+   "review": "2b3a2628d659695c",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-21",
+   "sha256": "7fea0b8ec706a954a77917a9648a2e07c43ceb52dca4263020167f87b7e38d6a",
+   "to": [
+    "data/restructure/RS-21.result.json",
+    "data/restructure/RS-21.md"
+   ]
+  },
   "research/blueprint/restructure/RS-22.result.json": {
    "promotedAt": "2026-09-23T12:27:07Z",
    "review": "4a3b82ea20dd39ae",
@@ -633,6 +688,17 @@
    "to": [
     "data/restructure/RS-22.result.json",
     "data/restructure/RS-22.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-23.result.json": {
+   "promotedAt": "2026-09-29T19:29:01Z",
+   "review": "7addabbfafa64452",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-23",
+   "sha256": "412e0a564dc41e311e8913fe8591f7ca0c91393da200885a3c7b988f6342747d",
+   "to": [
+    "data/restructure/RS-23.result.json",
+    "data/restructure/RS-23.md"
    ]
   },
   "research/blueprint/restructure/RS-24.result.json": {
@@ -666,6 +732,17 @@
    "to": [
     "data/restructure/RS-26.result.json",
     "data/restructure/RS-26.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-27.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "99adda31eac602a9",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-27",
+   "sha256": "b9139d1012b7d39c1c7f5d630f2d231c3387a3ae247e14966966c6ab9e72bdf2",
+   "to": [
+    "data/restructure/RS-27.result.json",
+    "data/restructure/RS-27.md"
    ]
   },
   "research/blueprint/restructure/RS-28.result.json": {
@@ -721,6 +798,17 @@
    "to": [
     "data/restructure/RS-32.result.json",
     "data/restructure/RS-32.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-33.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "951019e1a00e0076",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-33",
+   "sha256": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f",
+   "to": [
+    "data/restructure/RS-33.result.json",
+    "data/restructure/RS-33.md"
    ]
   }
  },

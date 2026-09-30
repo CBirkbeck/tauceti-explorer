@@ -1,0 +1,35 @@
+{
+  "redteam": "RT-PAPER-SKINNER-20",
+  "findings": [
+    {
+      "finding": "RT-PAPER-SKINNER-20/1",
+      "verdict": "confirmed",
+      "reason": "Freshly read Burungale–Skinner–Wan arXiv:2603.20886v2, sections 1.2–1.4, 2.1.1, Theorem 2.3/Remark 2.4, sections 3 and 4.1, including page images. The authors explicitly repair Skinner's Lemma 2.2.2. Theorem 1.1 applies because M_f is totally real and dim A_f = [M_f:Q]. A non-torsion algebraic Mordell–Weil generator has nonzero logarithm in each eigendifferential; finite p-primary Sha and the rational Kummer comparison then give injectivity on the one-dimensional lambda Selmer space. For the Heegner tensor, first compare the epsilon_f projector and differential with the image of the rational Hodge-divisor point, clearing denominators, rather than applying the theorem to an arbitrary tensor. Retain E5/E6 as historical omissions with a known public-preprint repair; update items, notes and the brief, restore A/E under their original hypotheses, and retain B(e). Use the actual supplier ID DiophantineApproximationAndTranscendence:DT.3 for a missing analytic-subgroup/endomorphism-stable source request, GZ.9 for the RM/Heegner application, and RankOneConverse for assembly. This does not prove logarithmic independence in higher rank or nonvanishing for arbitrary cohomology classes."
+    },
+    {
+      "finding": "RT-PAPER-SKINNER-20/2",
+      "verdict": "confirmed",
+      "reason": "Items 5, 10, 19 and 59 currently substitute editorial fragments for their promised mathematical contracts. Read published Skinner pp. 329–331, 337–338 and 350–352: the source supplies full A/E hypotheses and conclusions, the p-power Kummer/Selmer/Sha objects and exact sequence, and the auxiliary-field deduction. Restore those complete statements at their stable IDs, with the local-vanishing and finite-S qualifications retained. Put editorial discussion in notes; apply finding /1's known repair consistently instead of adding a new logarithm assumption to A/E. E's derivative-nonvanishing input remains separate from the logarithm repair."
+    },
+    {
+      "finding": "RT-PAPER-SKINNER-20/3",
+      "verdict": "confirmed",
+      "reason": "Published p. 340 and its page image explicitly use an indefinite quaternion algebra, its Shimura curve and Brooks section 2.8's rational normalization. Item 68 instead lists R18.3, whose actual contract constructs definite forms on a finite double-coset set. Retain R17.3 for transfer; import the curve from R18.1, cohomology from R18.4 where required, and the quotient/differential comparison from GZ.3. Record the precise M_f normalization as a source request or missing adapter if those contracts do not supply it, rather than marking the entire strengthened statement planned. Import HE.1's existing quaternionic CM-point and Hodge-divisor construction; RankOneConverse owns Skinner's normalization comparison, not a duplicate construction."
+    },
+    {
+      "finding": "RT-PAPER-SKINNER-20/4",
+      "verdict": "confirmed",
+      "reason": "Item 74 explicitly needs a Cassels–Tate theorem and says it is unplanned; no separate pairing item occurs among the 78 items. Freshly read Poonen–Stoll's corrected author version, section 1 p. 2 and image: the elliptic pairing is alternating and nondegenerate modulo the maximal divisible subgroup. Read Selmer L1/L2 and ArithmeticStatistics' existing pairing/adjointness gap; generic Selmer duality does not state this Sha theorem. Add source-qualified pairing, kernel and alternation items and the finite odd-p square-order consequence, as a shared source/extension request at SelmerIwasawaCohomology:L1–L2 importing ArithmeticGaloisDuality and coordinating the existing statistics request. Theorem C's assembly imports it. Exclude a finite cyclic Selmer alternative using the finite p-primary Sha pairing; do not assume global Sha finiteness in advance. Do not export unconditional alternation for arbitrary principally polarized abelian varieties."
+    },
+    {
+      "finding": "RT-PAPER-SKINNER-20/5",
+      "verdict": "confirmed",
+      "reason": "Item 64 bundles modularity, local components, isogeny invariance and the converse, but its only planned supplier is R29.6. Read that contract and published pp. 330–331: modularity supplies the weight-two form, parametrization and L-function comparison, not Skinner's new arithmetic-to-analytic rank implication. Split/import R29.5–R29.6 and item 63's actual local dictionary, state the rank/Sha-finiteness isogeny comparison explicitly, and route the missing application exactly once to the already designated RankOneConverse. Do not extend modularity into a converse owner or create another roadmap."
+    },
+    {
+      "finding": "RT-PAPER-SKINNER-20/6",
+      "verdict": "confirmed",
+      "reason": "Verified the prerequisite, items 46–47/49, both routing descriptions, and the source locators. Published p. 353 reference [23] gives Serre 123–201. Skinner arXiv v1 p. 16 writes Sigma,Hida, cites the older theorem numbering and section 6, and uses the smaller coefficient rings; published p. 346 writes Sigma, theorem 1.2 and section 7.5 over the unramified extension. Item 46's current statement uses the latter notation but its note calls it the former. Correct the pages and stale note, and use publication notation consistently or give an explicit version dictionary. Published p. 339 defines the kernel of restriction at the displayed prime: strict at p, relaxed at p-bar. Correct the brief/report accordingly, preserving the published coefficient rings and useful version comparison."
+    }
+  ]
+}

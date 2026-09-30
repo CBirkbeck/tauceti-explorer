@@ -1,0 +1,1824 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
+  "summary": "No supported error, omission, duplicate or library-claim finding in the reviewed link map: checked every emitted and already-recorded link, every overlap, both endpoint contracts, catalogue candidates and the pinned library interfaces. The scope restrictions and remaining comparison obligations are preserved.",
+  "checked": [
+    "Read the accepted link packet and its independent REV-LINK report at explorer commit 6480cbe61a8cc144b1e67a6d23a8faad23a5aa39; checked 91 emitted links (17 explicit, 74 inferred), eight alreadyRecorded entries and all eleven overlaps individually.",
+    "Read in full the 82 distinct endpoint/overlap stages across 41 owners, including all fifteen ClassFieldTheory stages; read the focal roadmap scope, ownership and consumer sections. Checked direction, coefficient category, field regime, theorem strength and outstanding comparison obligations, rather than treating a shared topic as a prerequisite.",
+    "Located all 223 evidence occurrences: 208 in the named stage description, fifteen only in the owning roadmap document. Read the latter in their actual document context and checked the named stage separately. No quote was unmatched and no endpoint was unknown.",
+    "Checked the 91 emitted source–target pairs against every current link packet: no duplicate. Verified all eight alreadyRecorded pairs still exist in the named GlobalQuadraticForms, EllipticCurves, NumberFieldArithmetic and LocalFieldsRamification packets.",
+    "Checked acyclicity of the recorded atlas stageEdges plus these 91 emitted links: all 2,079 graph vertices processed, 3,599 distinct edges. This includes virtual UPSTREAM vertices; it does not assert acyclicity of unpromoted roadmap prerequisite lists.",
+    "Screened all 2,028 stage descriptions and all 221 roadmap documents in the checker world (atlas plus proposed definitions) for class-field, Artin, Weil, Tate–Nakayama, ray/ring/Hilbert-class, Brauer-invariant, local/global-duality/reciprocity and norm-index language. The screen yielded 71 matching stages and 52 matching documents. Read all matching-stage contexts, including thirty outside the endpoint set, and the matching-document contexts for all seventeen owners without an endpoint, in addition to the document-only evidence contexts. Deepened fifteen plausible or contextual cases to full-stage reads, listed below.",
+    "Compared the accepted examined roster with the current world: the additional active RiemannianGeometry, SeveralComplexVariablesKahlerGeometry and SymplecticContactGeometry roadmaps yield no supported CFT interface. Excluded retired FoundationsAndLibraryIntegration. Historical coverage counts are evaluated at their review snapshot, not treated as current-count assertions.",
+    "Read the five pinned Lean source interfaces listed below, including standing variables and typeclass assumptions. Checked relevant existing AUDIT-03 positive/negative scope distinctions for CFT0, CFT1, CFT5 and CFT14; no independent global library absence claim is inferred from a name search.",
+    "Tested mixed-characteristic duality versus prime-to-residue-characteristic equal-characteristic existence; coefficient twists and primitive-root comparisons; Weil topology versus subspace topology; real places and relative Brauer kernels; non-surjectivity of H2(I_L)→H2(C_L); abelian-only norm identities; conductor multiplicities and signs; quadratic-over-Q ring class fields versus general CM order quotients; quadratic versus higher-power Hilbert reciprocity.",
+    "Tested possible reversed QFI dependencies, forbidden Chebotarev inputs, a number-field CFT12 transfer to function fields, a bare invariant-name transfer to Brauer–Manin pairings, torus versus finite-module duality, and generic reciprocity language in downstream Euler/Heegner systems. The reviewed map avoids these unsupported transfers.",
+    "Ran scripts/check_links.py on the target: zero errors and zero warnings. No Lean compiled; no Lake setup, update or cache operation. The accepted target is read-only in this change."
+  ],
+  "findings": [],
+  "provenance": {
+    "worker": "Codex",
+    "session": "codex-5ebb6f",
+    "date": "2026-09-30",
+    "issue": 4349,
+    "claimComment": 5912229502,
+    "explorerCommit": "6480cbe61a8cc144b1e67a6d23a8faad23a5aa39",
+    "targetSha256": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db"
+  },
+  "inputManifest": [
+    {
+      "path": "data/atlas.json",
+      "sha256": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56"
+    },
+    {
+      "path": "data/library-coverage.json",
+      "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+    },
+    {
+      "path": "data/roadmap-retirements.json",
+      "sha256": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_Completed_EffectiveBounds.json",
+      "sha256": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_Completed_IntegralLattices.json",
+      "sha256": "9b8c9bf41dff4973e615a11719d921b1933dc8589e6e3fafa06075658de09342"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_Completed_OrthogonalL2Bases.json",
+      "sha256": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_AdicSpaces.json",
+      "sha256": "43ec8b83183c85b01f454cb423613b9dcf2ddfbeb56731f6502fc7479392a425"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json",
+      "sha256": "a568f32f0eedd94ce7d555e5a64d78cc3076ffd949450db0156ed5c39b88e2e5"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json",
+      "sha256": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json",
+      "sha256": "b9aebaab48508ccf646ab6cb80981d9427350530c1f59a1bc7266a8e45e380c4"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_BelyiMaps.json",
+      "sha256": "c9bccf3001eac2dfd1053c7b7d06adf05ae63e27ee1d1a8e5cb444739a32e561"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_Chebotarev.json",
+      "sha256": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json",
+      "sha256": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json",
+      "sha256": "d84a7560dbb5594914e4962eb165c9b7da71d156ea415b8d76b07f388d4358fc"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_Exchangeability.json",
+      "sha256": "0384a3338d43b332eed0adfb4435586c512f0d04066320ba8f6f334adbc3fbb6"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_GlobalQuadraticForms.json",
+      "sha256": "c37f30a724b44d7d9e6b7af1e1ea750c63fbdd432d09743fd258e16c84b5e1e2"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json",
+      "sha256": "aba604fdc3648ca75b6b90c3393a858df8ef584e362295304ae999beb6ce28ed"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json",
+      "sha256": "976784eb1ffbbb0942a42d54330a0f366d9533aac4d13290b9517a561e4d8c9d"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
+      "sha256": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json",
+      "sha256": "9bb6e685f8c22294c78db649bde4a517f3eee906057f788d167a9d920377ac5e"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json",
+      "sha256": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json",
+      "sha256": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_PolynomialGaloisGroups.json",
+      "sha256": "4b78f20e28e1bbb02a169408974bf473498dd9e06301403fccf38516475a14ba"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteCohomology.json",
+      "sha256": "d5e74653ccbaa422020ff09974b65861a3dfbc08401c18c4ff1fa62813147f2d"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json",
+      "sha256": "5257102d6493feb70a585e0ad03eb44acafa986e12e2e21db4c7c81d4e56f1ba"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory.json",
+      "sha256": "25465cbe6da416772ffe36bd3acebeb50aad1a9f6095a73080b5f84dd62c16f9"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json",
+      "sha256": "8448d80d5d72f622db4bb519e64dc02263c2095ec43dcfb4669b2432dd4346dc"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups.json",
+      "sha256": "c7f0aaf1f56e65dad43a5512c406f6dd74a6b5870c10a3bfcf9cdffd5afbfaea"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_InductionRestriction.json",
+      "sha256": "908d2470c4b39f3fadd88301336d91fbc4c92c0e22194ffbd9b2bd34b491f485"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json",
+      "sha256": "eee20df0852e22579519a2f142d0df8bcccb9d158912745a18c66ec72d316f30"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "sha256": "91978785257c6264af75b237ec5da4942aaa7d237ff9992b6dc3df06924a2568"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json",
+      "sha256": "81428ee5abd4b1b98ef5fe5f6c8f72303fcb4e67219b03fb64c1ac1d089f6d67"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json",
+      "sha256": "d86b01675ad9213460ea78a0c02f29da4586d8775d3ba302e8a6922a1adee5f5"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json",
+      "sha256": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json",
+      "sha256": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json",
+      "sha256": "e753c513d03d5191f484342a954f519022c39daffd6c100db4082ba07de37dfe"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_StandardDistributions.json",
+      "sha256": "52ac723f9244df972e0fc29e72514b9930eced4e02cd0ebe4f529abe8e9db42a"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_UniversalCovers.json",
+      "sha256": "866e1a3f219d0fa909b516f3e171ac5c48a0683dbfcf26fae2ee751498a31e40"
+    },
+    {
+      "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json",
+      "sha256": "6c8de93ad421f59bff577fa558047627baa60ea47d152997e43dd24b14d7d78c"
+    },
+    {
+      "path": "research/blueprint/reserved-ids.json",
+      "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
+    },
+    {
+      "path": "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
+      "sha256": "dd15d71bf834c0cca00569ca9b965117cc61ed3de5831e513b490a0de928a27d"
+    },
+    {
+      "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+      "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
+    },
+    {
+      "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+      "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
+    },
+    {
+      "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+      "sha256": "96c7f3748a9ab51161a2bbdaea0134e6c220069d455e51045e9ae381bdbe6318"
+    },
+    {
+      "path": "research/blueprint/roadmaps/QWittVectors.json",
+      "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
+    },
+    {
+      "path": "research/blueprint/roadmaps/RiemannianGeometry.json",
+      "sha256": "3aec9b2953af4092b5f7f57386b6ec4999a9d1492473ea3a22ea6549e2e0f330"
+    },
+    {
+      "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+      "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
+    },
+    {
+      "path": "research/blueprint/roadmaps/SeveralComplexVariablesKahlerGeometry.json",
+      "sha256": "12997cd6f572823cf0d1999720393b8a9b2fc3873063f9398eab8fe18adbcf83"
+    },
+    {
+      "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+      "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
+    },
+    {
+      "path": "research/blueprint/roadmaps/SymplecticContactGeometry.json",
+      "sha256": "b7d8a4ff61e81a9a362950fc229b0af4c450bd10eac94d9d761540f2c21f9f6f"
+    }
+  ],
+  "libraryChecks": [
+    {
+      "library": "mathlib",
+      "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "path": "Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean",
+      "lines": "40–63, 110–148",
+      "sha256": "296dabdbf04196374a3378c9d1c9ad80b74adb25961757954b92181c71fc620f",
+      "checked": "Finite-group integer-degree Tate cohomology carrier; this does not prove a Tate–Nakayama theorem."
+    },
+    {
+      "library": "TauCeti",
+      "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+      "path": "TauCeti/RepresentationTheory/Homological/TateCohomology/LowDegree.lean",
+      "lines": "21–100, 289–319",
+      "sha256": "1c896a85d09d70431a5cb128f6e6548b6738d0bebe9f61c4b538cc5f6f6591be",
+      "checked": "H0IsoNormQuotient and HNegTwoAddEquivAbelianization, including finite-group and integral trivial-coefficient hypotheses."
+    },
+    {
+      "library": "TauCeti",
+      "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+      "path": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
+      "lines": "90–135",
+      "sha256": "b9242e9ca9a44b5d25a5606a1c0432867712c4174f4e81f5c05e0cf39f928375",
+      "checked": "Formation abbreviates SmoothDiscreteTopRep for a compact totally disconnected topological group; continuity is part of the carrier."
+    },
+    {
+      "library": "TauCeti",
+      "commit": "f790474821cf4256814db967cb154e7af3d0c369",
+      "path": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+      "lines": "54–122",
+      "sha256": "fcffa1eefea0e732912088db2bba1daa9614ddb02f31637f79aea02a28bd1ad3",
+      "checked": "UnitsCoeff and KummerCoeff have discrete coefficient topology and a proved continuous, generally nontrivial Galois action."
+    },
+    {
+      "library": "mathlib",
+      "commit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "path": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+      "lines": "97–122",
+      "sha256": "24ffbf256f6f6f7a2617901323c2d532e2d7871c826a8b11f0580b283e994302",
+      "checked": "legendreSym.quadratic_reciprocity has prime, oddness and distinctness assumptions; the elementary result does not supply the planned Hilbert-product derivation."
+    }
+  ],
+  "fullStageReads": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-2-class-formations-and-fundamental-classes",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+    "AnalyticNumberTheory:AN.4",
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisDuality:R02.4",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "ArithmeticKTheory:N.7",
+    "AutomorphicPadicLFunctions:L0",
+    "ClassicalArithmeticCompletion:CA.1",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+    "EulerSystemsAndKolyvaginSystems:ES.1",
+    "EulerSystemsCyclotomicMainConjecture:L1",
+    "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+    "FunctionFieldArithmetic:FA.4",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+    "GeneralizedHeegnerCycles:GH.1",
+    "GrossZagierAndArithmeticHeights:GZ.0",
+    "HeckeStacksAndLocalShtukas:HS1",
+    "HeegnerPointEulerSystems:HE.0",
+    "HeightsRationalPointsAndObstructions:RP.2",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+    "IgusaVarietiesAndTorsionConcentration:IG.5",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "IntegralIwasawaTheory:I.2",
+    "IntegralIwasawaTheory:L1",
+    "K2SymbolsBrauer:T.7",
+    "KTheoryLowDegrees:U.4",
+    "LanglandsParameterStacks:LP0",
+    "MordellLawrenceVenkatesh:LV.1",
+    "MotivicEtaleKTheory:M.3",
+    "PadicLocalLanglandsForGL2Qp:R30.3",
+    "ShimuraVarieties:V4",
+    "TorsionCohomologyInfrastructure:TC.4",
+    "VectorBundlesAndIsocrystals:VB0",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-7-the-auxiliary-prime-and-the-crossing-data",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+    "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7c-the-cup-norm-theorem",
+    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+    "HeegnerPointEulerSystems:HE.1",
+    "HeegnerPointEulerSystems:HE.5",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+    "PadicHodgeRegulators:L1",
+    "SelmerIwasawaCohomology:L1",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.6",
+    "FunctionFieldArithmetic:FA.6",
+    "ShimuraVarieties:V5",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+    "PotentialModularityAndCompatibleSystems:R24.3"
+  ],
+  "linkChecks": [
+    {
+      "id": "CFT-L01",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L02",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-1-formations-and-finite-normal-layers",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L03",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L04",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L05",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L06",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L07",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 4,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L08",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L09",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L10",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L11",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L12",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L13",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L14",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L15",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L16",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L17",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L18",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L19",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L20",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L21",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L22",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L23",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L24",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L25",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L26",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L27",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L28",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L29",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L30",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L31",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L32",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L33",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L34",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L35",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L36",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L37",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L38",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L39",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L40",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-1-the-splitting-dictionary",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L41",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L42",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L48",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L49",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L50",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L51",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L52",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L53",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L55",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-4-the-abstract-artin-map",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L56",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "FunctionFieldArithmetic:FA.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L57",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "ArithmeticGaloisDuality:D7",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L58",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L59",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "ArithmeticGaloisDuality:R02.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L60",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "MordellLawrenceVenkatesh:LV.1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L61",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "MordellLawrenceVenkatesh:LV.1",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L62",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "HeegnerPointEulerSystems:HE.0",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L63",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "EulerSystemsAndKolyvaginSystems:ES.1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L64",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "ShimuraVarieties:V4",
+      "stageLocalEvidenceOccurrences": 3,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L65",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "target": "ArithmeticGaloisRepresentations:R01.2",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L66",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L67",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L68",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "K2SymbolsBrauer:T.7",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L69",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "K2SymbolsBrauer:T.7",
+      "stageLocalEvidenceOccurrences": 1,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L70",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "HeightsRationalPointsAndObstructions:RP.2",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L71",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "target": "LanglandsParameterStacks:LP0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L75",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "IntegralIwasawaTheory:I.2",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L76",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "target": "IntegralIwasawaTheory:L1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L77",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "EulerSystemsCyclotomicMainConjecture:L1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L78",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "ClassicalArithmeticCompletion:CA.1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L79",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "AutomorphicPadicLFunctions:L0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L80",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "KTheoryLowDegrees:U.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L81",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L82",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "MotivicEtaleKTheory:M.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L83",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "target": "MotivicEtaleKTheory:M.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L85",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L86",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L87",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L88",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L89",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L90",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "GrossZagierAndArithmeticHeights:GZ.0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L91",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "GeneralizedHeegnerCycles:GH.1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L92",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "ArithmeticKTheory:N.7",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L93",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "AnalyticNumberTheory:AN.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L94",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "IgusaVarietiesAndTorsionConcentration:IG.5",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L95",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "target": "TorsionCohomologyInfrastructure:TC.4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L96",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "target": "HeckeStacksAndLocalShtukas:HS1",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L97",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "target": "PadicLocalLanglandsForGL2Qp:R30.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L98",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-4-finite-adeles",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "stageLocalEvidenceOccurrences": 1,
+      "documentOnlyEvidenceOccurrences": 1,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L101",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "VectorBundlesAndIsocrystals:VB0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L102",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L103",
+      "section": "links",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "target": "HeegnerPointEulerSystems:HE.0",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L43",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L44",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L45",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L46",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-14-hilbert-reciprocity-and-quadratic-reciprocity",
+      "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L47",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "target": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L84",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L99",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    },
+    {
+      "id": "CFT-L100",
+      "section": "alreadyRecorded",
+      "source": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "stageLocalEvidenceOccurrences": 2,
+      "documentOnlyEvidenceOccurrences": 0,
+      "outcome": "Supported within the stated endpoint contracts; no finding."
+    }
+  ],
+  "overlapChecks": [
+    {
+      "id": "CFT-O01",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O02",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O03",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O04",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O05",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O06",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O07",
+      "recommendation": "rescope",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O08",
+      "recommendation": "rescope",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O09",
+      "recommendation": "rescope",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O10",
+      "recommendation": "rescope",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    },
+    {
+      "id": "CFT-O11",
+      "recommendation": "keep",
+      "outcome": "Supported with the frozen-interface and scope qualifications in the reviewed proposal."
+    }
+  ],
+  "catalogueStageCandidates": [
+    {
+      "stageId": "ArithmeticGaloisDuality:D7",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "ArithmeticGaloisDuality:R02.4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "AutomorphicCongruences:L2",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "AutomorphicGaloisRepresentationsPartII:AG2.5",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "ClassicalArithmeticCompletion:CA.1",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.6",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "EulerSystemsAndKolyvaginSystems:ES.0",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "EulerSystemsAndKolyvaginSystems:ES.7",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "ExcursionOperatorsAndSpectralAction:ES6",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "FoundationsAndLibraryIntegration:LI.4",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "FunctionFieldArithmetic:FA.4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "FunctionFieldArithmetic:FA.6",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "GeneralizedHeegnerCycles:GH.1",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.0",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.1",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "HeegnerPointEulerSystems:HE.5",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.3",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "HigherLocalFieldsAndHigherClassFieldTheory:HL.7",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "IntegralIwasawaTheory:I.2",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "IntegralIwasawaTheory:L1",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "K2SymbolsBrauer:T.7",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "KTheoryLowDegrees:U.4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "LanglandsParameterStacks:LP0",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "ModularIwasawaMainConjectures:L6",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.2",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.3",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "PadicHodgeRegulators:L1",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "SelmerIwasawaCohomology:L1",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "ShimuraVarieties:V4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "ShimuraVarieties:V5",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "TorsionCohomologyInfrastructure:TC.4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "VectorBundlesAndIsocrystals:VB0",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-6-abel-and-perron-summation",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/Chebotarev#layer-8-the-cyclic-fixed-field-fibre",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-3-admissible-systems-of-local-invariants",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-4-the-relative-discriminant",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-8-the-intrinsic-label-prefix-and-the-invariant-suite",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6e-the-two-hasse-invariants-agree-and-both-are-the-invariant-map",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-2-complete-reducibility",
+      "endpointAlreadyRead": false
+    },
+    {
+      "stageId": "MordellLawrenceVenkatesh:LV.1",
+      "endpointAlreadyRead": true
+    },
+    {
+      "stageId": "SeveralComplexVariablesKahlerGeometry:CV.4",
+      "endpointAlreadyRead": false
+    }
+  ],
+  "catalogueDocumentCandidates": [
+    {
+      "roadmapId": "ArithmeticGaloisDuality",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "ArithmeticGaloisRepresentations",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "AutomorphicCongruences",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "AutomorphicGaloisRepresentationsPartII",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "AutomorphicPadicLFunctions",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "ClassicalArithmeticCompletion",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "ColemanPowerSeries",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "ComplexMultiplicationAndExplicitReciprocity",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "EulerSystemsAndKolyvaginSystems",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "ExcursionOperatorsAndSpectralAction",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "FoundationsAndLibraryIntegration",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "FunctionFieldArithmetic",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "GL2AutomorphicRepresentationsAndTransfer",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "GeneralizedHeegnerCycles",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "GlobalGaloisDeformations",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "GrossZagierAndArithmeticHeights",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "HeegnerPointEulerSystems",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "HeightsRationalPointsAndObstructions",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "HigherLocalFieldsAndHigherClassFieldTheory",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "IntegralIwasawaTheory",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "K2SymbolsBrauer",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "KTheoryLowDegrees",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "LanglandsParameterStacks",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "ModularIwasawaMainConjectures",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "MotivicEtaleKTheory",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "PadicHodgeRegulators",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "PadicMeasuresIwasawaAlgebras",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "PotentialModularityAndCompatibleSystems",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "SelmerIwasawaCohomology",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "ShimuraVarieties",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "TorsionCohomologyInfrastructure",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "VectorBundlesAndIsocrystals",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/BelyiMaps",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Chebotarev",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalNumberFields",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ModularForms",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+      "hasEndpoint": true
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+      "hasEndpoint": false
+    },
+    {
+      "roadmapId": "MordellLawrenceVenkatesh",
+      "hasEndpoint": true
+    }
+  ],
+  "limits": [
+    "Catalogue completeness is an evidence-based search over this frozen world, not a claim to have read all 221 roadmap documents in full.",
+    "Unpromoted definitions are included to resolve and inspect references, not endorsed as accepted roadmap content.",
+    "This red team assesses the link map, not the mathematical correctness of every unrelated assertion in its endpoint roadmaps."
+  ]
+}

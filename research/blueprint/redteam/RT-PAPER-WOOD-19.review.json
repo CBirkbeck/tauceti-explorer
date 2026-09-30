@@ -1,0 +1,25 @@
+{
+  "redteam": "RT-PAPER-WOOD-19",
+  "findings": [
+    {
+      "finding": "RT-PAPER-WOOD-19/1",
+      "verdict": "confirmed",
+      "reason": "The unchanged extraction states /298 without a characteristic restriction or an explicit dependency on /34. I independently read Wood's published Definition 3.1, p.388, which imposes char(K) not dividing |F|, and the conjecture context pp.410–411; /34 correctly records that domain. The proposed witness is valid: {(a,-a): a in C3} together with the swap generates an admissible good S3 inside C3 wreath C2, but characteristic 3 divides its order. Tame inertia does not supply the missing group-order condition. Add gcd(q,|G′|)=1 for the function-field input and an explicit /34 dependency to the corrected conjecture and its ST.3 explanation. Retain its generator condition and conjectural status. This repairs the extracted API's scope; it does not establish a new counterexample to a proved result. The F5(t),S3 boundary case only passes this domain condition, not the conjecture itself. Source: https://par.nsf.gov/servlets/purl/10152050 ."
+    },
+    {
+      "finding": "RT-PAPER-WOOD-19/2",
+      "verdict": "confirmed",
+      "reason": "Item /315's arbitrary finite-group arithmetic component interface is not supplied by its recorded /77 and /255 prerequisites: /77 explicitly limits its scheme construction to centerless involution-generated groups; /255 is braid algebra. Independently read Seguin §§2.2.2–2.2.6 and §2.3.3 (pp.4–9): the required covers may be disconnected, infinity is marked and unramified, listed punctures may have trivial monodromy, and all product-one orbits occur. The existence reference in §2.2.6 is Emsalem Theorem 3, with Kanev alternatives; these are absent from the extraction's prerequisite list. Section 6, p.23, confirms that the bounded-core proof uses proper-monodromy power blocks, including C2 blocks inside S3. Add the exact moduli/component/Galois-action contract under existing IG.5, importing IG.3 and R09.4 foundations, and rewire /315–319. Preserve the narrower /77 contract. Record the primary construction references as cited through Seguin until their proofs are actually read; this verification does not certify those proofs. No extra roadmap or restriction to full monodromy is justified. Source: https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf ."
+    },
+    {
+      "finding": "RT-PAPER-WOOD-19/3",
+      "verdict": "confirmed",
+      "reason": "The final Review section of PAPER-WOOD-19.md prints 378–428 and infers no recorded library commit from the missing libraryPins key. Independently fetched the matching published PDF: the first and last content pages are 377 and 427, respectively, followed by a blank page. The unchanged result's parityContinuation.pins records Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Correct the range and identify that metadata location. The same wording also occurs in the original independent review report; any later correction there should preserve its historical scope. This verdict verifies pagination and the existence of recorded pins, not a new audit of all 31 declarations or a claim about which revision the earlier reviewer actually inspected. Source: https://par.nsf.gov/servlets/purl/10152050 ."
+    },
+    {
+      "finding": "RT-PAPER-WOOD-19/4",
+      "verdict": "confirmed",
+      "reason": "The extraction has ten sourceIssues, including E1 marked as affecting a stated result, but no sourceVersions key. PROTOCOL §18 explicitly requires the collation list alongside sourceIssues. Existing source, previousSourceRecord, report and issue locators identify the published article, arXiv 1702.04644v2, and the author-hosted lifting.pdf; therefore this is a metadata normalization omission, not missing source access. Populate the prescribed list from the actual historical read records, preserving version-specific URLs, hashes, dates and the distinction between a companion author copy and a collated published text. Do not substitute this verification's date for earlier readings or discard failed-fetch history. I checked the current schema and independently reran check_paper.py successfully, so no current checker failure is alleged. No edit to the separate errata file is needed for this finding."
+    }
+  ]
+}

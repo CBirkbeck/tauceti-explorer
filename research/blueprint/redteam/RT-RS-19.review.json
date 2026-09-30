@@ -1,0 +1,8 @@
+{
+ "redteam": "RT-RS-19",
+ "reviewer": "Claude Code — cc-c2c06b",
+ "date": "2026-09-30",
+ "inputRevision": "4a5b1f9c",
+ "findings": [],
+ "notes": "The red team reports no findings, so there is nothing to confirm or reject. I tested the clean result and every claim I tested holds. RS-19 has 28 layer decisions (24 keep, 4 drop: ET.2, ET.2a, ET.2a:duality-perversity, ET.2a:pure-decomposition), 13 owner entries and 4 links; its data/restructure copy is byte-identical and check_restructure.py passes. In the production assembly (2840 stages, 8007 edges) all 4 links are live and a depth-first search finds no cycle. The 4 dropped stages carry restructured.action 'drop'. For every native consumer of a dropped stage, each named supplier reaches it: 9 supplier-to-consumer paths, as the red team counted. The two members' native edges to outside stages (69 edges to 34 stages in 11 roadmaps, none from a dropped stage) are all live. On the native atlas none of the 4 links exists, so applying RS-19 alone adds all four, as the red team says. In production, accepted link maps supply three of them earlier, so the restructurings record counts 1. That is consistent, not a discrepancy. The EDC decomposition in data/decompositions has 2 nodes (parents EDC.6 and EDC.2), 7 links, 13 coverage entries, 3 gaps and status partial, as stated. No packet, decomposition or reserved id refers to a dropped ET.2/ET.2a stage. The pinned files the red team read are abstract interfaces: Mathlib's TStructure (Triangulated/TStructure/Basic.lean:55) with Heart.lean, and Tau Ceti's IsInvolutiveDual/dualityEquivalence (CategoryTheory/InvolutiveDual.lean:49, :64). That supports its conclusion that they do not supply the geometric constructions."
+}

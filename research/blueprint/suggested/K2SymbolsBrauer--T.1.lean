@@ -1,226 +1,251 @@
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/K2SymbolsBrauer--T.1.md` is definitive. These
-statements suggest Lean forms so that contributors and reviewers can converge on
-names and signatures. They claim no implementation.
+Independent review REV-K2SymbolsBrauer--T.1, Codex codex-5ebb6f, 2026-09-29.
+The current plan and verdict are in the packet K2SymbolsBrauer--T.1.json and
+research/blueprint/reviews/REV-K2SymbolsBrauer--T.1.md. The original companion
+README still needs regeneration by its owner. This file is a partial suggested
+interface, not an implementation or an assertion that the plan is closed.
 
-BP-K2SymbolsBrauer--T.1: partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-No Lean toolchain at those commits was available in this session, so elaboration
-has not been established.
+No existing build at both pins was available; elaboration was not attempted.
 
-A warning the reviewed audit makes and this file respects: every Tau Ceti
-declaration whose name contains "Steinberg" is a Frobenius or graph-twisted
-endomorphism of a group of Lie type, the Steinberg representation of GL₂ over a
-finite field, or the quaternion Steinberg relation. None of them is the group
-below, and none is reused here.
-
-Objects another roadmap owns appear as `variable`s: the K-theory space and the
-plus construction (GeneralAlgebraicKTheory K.2, StableHomotopyKTheory H.3), and
-the indecomposable K₃ (K3BlochGroups V.2).
+Signatures needing missing carriers are comments below. They do not use a
+vacuous proposition, a self-map, or an arbitrary type to stand for that carrier.
+Group homology uses trivial integral representation coefficients. Natural-number
+homotopy degree n is represented by the coordinate type Fin n at this baseline.
 -/
 import Mathlib.Algebra.Group.Commutator
-import Mathlib.Algebra.Group.Subgroup.Basic
-import Mathlib.Algebra.Group.Units.Defs
-import Mathlib.Algebra.RingQuot
-import Mathlib.Data.ZMod.Defs
-import Mathlib.GroupTheory.GroupExtension.Defs
 import Mathlib.GroupTheory.IsPerfect
 import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.Subgroup.Center
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
-import Mathlib.LinearAlgebra.TensorAlgebra.Basic
-import Mathlib.RepresentationTheory.Homological.GroupHomology.LowDegree
-import Mathlib.Topology.Homotopy.HomotopyGroup
 
 noncomputable section
+universe u v
 
 namespace TauCeti.Steinberg
 
-/-! ## T.1:classical The Steinberg group -/
-
-variable (R : Type*) [Ring R] (n : ℕ)
-
-/-- The generators `x_ij(r)`, indexed by a pair of distinct indices and a ring
-element. The distinctness is data, not a side condition to be forgotten. -/
-structure Gen (n : ℕ) (R : Type*) where
+/-- Indices and the ring parameter of a Steinberg generator. -/
+structure Gen (n : ℕ) (R : Type u) where
   i : Fin n
   j : Fin n
   hij : i ≠ j
   val : R
 
-/-- The Steinberg relations, as words in the free group on the generators. -/
-def relations (n : ℕ) (R : Type*) [Ring R] : Set (FreeGroup (Gen n R)) := by sorry
+/-- Intended relators: additivity, nonchaining commutators, forward chaining
+coefficient r*s, and reverse chaining coefficient -(s*r). Opposite-root
+commutators are deliberately not prescribed. -/
+def relations (n : ℕ) (R : Type u) [Ring R] : Set (FreeGroup (Gen n R)) := by
+  sorry
 
-/-- T.1/steinberg-group-finite-rank: `St_n(R)` for `n ≥ 3`. No definition is
-given for `n = 2`. -/
-def Steinberg (n : ℕ) (hn : 3 ≤ n) (R : Type*) [Ring R] : Type :=
+/-- Finite-rank presentation, with the source's n >= 3 convention. -/
+abbrev Steinberg (n : ℕ) (_hn : 3 ≤ n) (R : Type u) [Ring R] : Type u :=
   PresentedGroup (relations n R)
 
-instance (hn : 3 ≤ n) : Group (Steinberg n hn R) := by sorry
+variable {R : Type u} [Ring R] {n : ℕ}
 
-def x (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r : R) : Steinberg n hn R := by sorry
+def x (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r : R) : Steinberg n hn R := by
+  sorry
 
 @[simp] theorem x_zero (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) :
-    x R n hn hij 0 = 1 := by sorry
+    x (R := R) hn hij 0 = 1 := by
+  sorry
+
+@[simp] theorem x_inv (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r : R) :
+    (x hn hij r)⁻¹ = x hn hij (-r) := by
+  sorry
 
 theorem x_add (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r s : R) :
-    x R n hn hij r * x R n hn hij s = x R n hn hij (r + s) := by sorry
-
-/-- The first commutator relation: disjoint indices commute. -/
-theorem commutator_disjoint (hn : 3 ≤ n) {i j k l : Fin n} (hij : i ≠ j) (hkl : k ≠ l)
-    (hjk : j ≠ k) (hil : i ≠ l) (r s : R) :
-    ⁅x R n hn hij r, x R n hn hkl s⁆ = 1 := by sorry
-
-/-- T.1/elementary-matrices-satisfy: the surjection onto the elementary group. -/
-def toElementary (hn : 3 ≤ n) : Steinberg n hn R →* Matrix.GeneralLinearGroup (Fin n) R := by
+    x hn hij r * x hn hij s = x hn hij (r + s) := by
   sorry
 
-/-- T.1/stabilisation: the stable Steinberg group. -/
-def StableSteinberg (R : Type*) [Ring R] : Type := by sorry
-
-instance : Group (StableSteinberg R) := by sorry
-
-def phi : StableSteinberg R →* StableSteinberg R := by sorry
-
-theorem phi_surjective : Function.Surjective (phi R) := by sorry
-
-/-- T.1/k2-definition: classical `K₂`. -/
-def K2 (R : Type*) [Ring R] : Subgroup (StableSteinberg R) := (phi R).ker
-
-/-- T.1/k2-is-centre: Steinberg's theorem. -/
-theorem K2_eq_center : K2 R = Subgroup.center (StableSteinberg R) := by sorry
-
-instance : CommGroup (K2 R) := by sorry
-
-/-! ### Universal central extensions -/
-
-variable {G X : Type*} [Group G] [Group X]
-
-/-- T.1/central-extension: the centrality predicate the pinned `GroupExtension`
-does not carry. -/
-def IsCentral (f : X →* G) : Prop := f.ker ≤ Subgroup.center X
-
-/-- T.1/universal-central-extension. -/
-def IsUniversalCentralExtension (f : X →* G) : Prop := by sorry
-
-/-- T.1/uce-perfect: both groups are perfect. -/
-theorem uce_isPerfect {f : X →* G} (h : IsUniversalCentralExtension f) :
-    Group.IsPerfect X ∧ Group.IsPerfect G := by sorry
-
-/-- At most one homomorphism over `G` out of a perfect central extension. -/
-theorem uce_hom_unique (hX : Group.IsPerfect X) : True := by sorry
-
-/-- T.1/hopf-formula. -/
-theorem hopf_formula : True := by sorry
-
-/-- T.1/recognition-theorem: a central extension is universal exactly when its
-first and second homology vanish. -/
-theorem recognition {f : X →* G} (hG : Group.IsPerfect G) (hf : IsCentral f) :
-    IsUniversalCentralExtension f ↔ True := by sorry
-
-/-- T.1/steinberg-is-uce. -/
-theorem steinberg_isUniversal : IsUniversalCentralExtension (phi R) := by sorry
-
-/-- T.1/finite-rank-splitting: for `n ≥ 5`. -/
-theorem finite_rank_split (hn : 5 ≤ n) : True := by sorry
-
-/-! ## T.1:plus -/
-
-/-- T.1/k2-h2-elementary: `K₂(R) ≃ H₂(E(R), ℤ)`. -/
-def k2EquivH2 : K2 R ≃* K2 R := by sorry
-
-/-- T.1/k2-pi2: and with the second homotopy group of the K-theory space. -/
-theorem k2_eq_pi2 : True := by sorry
-
-/-! ## T.2:symbols -/
-
-section Symbols
-
-variable {F : Type*} [Field F]
-
-/-- T.2/star-product: the commutator of lifts of two commuting matrices. -/
-def starProduct (A B : Matrix.GeneralLinearGroup (Fin 3) F) (h : A * B = B * A) :
-    K2 F := by sorry
-
-/-- The words `w_ij(r)` and `h_ij(r)`. -/
-def w (r : Fˣ) : StableSteinberg F := by sorry
-
-def h (r : Fˣ) : StableSteinberg F := by sorry
-
-/-- T.2/steinberg-symbol. -/
-def symbol (r s : Fˣ) : K2 F := by sorry
-
-@[simp] theorem symbol_one_left (s : Fˣ) : symbol (1 : Fˣ) s = 1 := by sorry
-
-theorem symbol_mul_left (r r' s : Fˣ) : symbol (r * r') s = symbol r s * symbol r' s := by sorry
-
-/-- T.2/steinberg-identity. -/
-theorem symbol_one_sub (r : Fˣ) (h : (1 : F) - r ≠ 0) : True := by sorry
-
-theorem symbol_neg_self (r : Fˣ) : symbol r (-r) = 1 := by sorry
-
-/-- T.2/symbol-consequences: skew-symmetry, and the value of `{a,a}`, which is
-`{a,-1}` and is **not** trivial in general. -/
-theorem symbol_skew (r s : Fˣ) : symbol r s * symbol s r = 1 := by sorry
-
-theorem symbol_self (r : Fˣ) : symbol r r = symbol r (-1) := by sorry
-
-/-- T.2/matsumoto: the presentation. -/
-theorem matsumoto : True := by sorry
-
-/-- T.2/k2-finite-field. -/
-theorem k2_finiteField (F : Type*) [Field F] [Fintype F] : Nonempty (K2 F ≃ Unit) := by sorry
-
-end Symbols
-
-/-! ### Milnor K-theory -/
-
-section MilnorK
-
-variable (F : Type*) [Field F]
-
-/-- The homogeneous Steinberg relation inside the tensor algebra. -/
-def steinbergRel : TensorAlgebra ℤ (Additive Fˣ) → TensorAlgebra ℤ (Additive Fˣ) → Prop := by
+theorem commutator_nonchaining (hn : 3 ≤ n) {i j k l : Fin n}
+    (hij : i ≠ j) (hkl : k ≠ l) (hjk : j ≠ k) (hil : i ≠ l) (r s : R) :
+    ⁅x hn hij r, x hn hkl s⁆ = 1 := by
   sorry
 
-/-- T.2/milnor-k-theory: the graded ring. -/
-def MilnorK : Type := RingQuot (steinbergRel F)
+theorem commutator_forward (hn : 3 ≤ n) {i j k : Fin n}
+    (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k) (r s : R) :
+    ⁅x hn hij r, x hn hjk s⁆ = x hn hik (r * s) := by
+  sorry
 
-instance : Ring (MilnorK F) := by sorry
+theorem commutator_reverse (hn : 3 ≤ n) {i j k : Fin n}
+    (hij : i ≠ j) (hki : k ≠ i) (hkj : k ≠ j) (r s : R) :
+    ⁅x hn hij r, x hn hki s⁆ = x hn hkj (-(s * r)) := by
+  sorry
 
-/-- The degree-`n` part. -/
-def MilnorK.grade (n : ℕ) : Type := by sorry
+/-- Keep both word indices, including the reversed indices in the middle factor. -/
+def w (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r : Rˣ) : Steinberg n hn R :=
+  x hn hij (r : R) * x hn hij.symm (-((r⁻¹ : Rˣ) : R)) * x hn hij (r : R)
 
-/-- The symbol of an `n`-tuple. -/
-def MilnorK.symbol {n : ℕ} (x : Fin n → Fˣ) : MilnorK.grade F n := by sorry
+def h (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) (r : Rˣ) : Steinberg n hn R :=
+  w hn hij r * w hn hij (-1 : Rˣ)
 
-theorem MilnorK.symbol_steinberg {n : ℕ} (x : Fin n → Fˣ) (i : Fin n) : True := by sorry
+/-- Finite perfectness follows by choosing a third index for each generator. -/
+theorem finite_isPerfect (hn : 3 ≤ n) : Group.IsPerfect (Steinberg n hn R) := by
+  sorry
 
-/-- T.2/milnor-alternating. -/
-theorem MilnorK.symbol_alternating {n : ℕ} (x : Fin n → Fˣ) (sigma : Equiv.Perm (Fin n)) :
-    True := by sorry
+/-
+Missing OWNER carriers and their intended interfaces, not definitions in this file:
 
-/-- T.2/milnor-examples: a finite field has no higher Milnor K-theory. -/
-theorem MilnorK.finiteField [Fintype F] (n : ℕ) (hn : 2 ≤ n) : True := by sorry
+KTheoryLowDegrees U.1 supplies Elementary n R and StableElementary R as the
+actual elementary subgroups of finite/stable GL, including general-ring matrix
+units, rank embeddings and Whitehead block factorization. General-ring bridges
+and a group colimit are gaps in the packet.
 
-/- The Dennis-Stein symbols are not in this part either: the roadmap assigns them
-to `T.6`, whose packet owns them.
+  toElementary (hn : 3 ≤ n) : Steinberg n hn R →* Elementary n R
+  toElementary_x : toElementary hn (x hn hij r) = elementary hij r
+  toElementary_surjective : Function.Surjective (toElementary hn)
+  stabilise : Steinberg n hn R →* Steinberg (n+1) (...) R
+  stableLift : (compatible finite-stage homomorphisms) → (StableSteinberg R →* G)
+  phi : StableSteinberg R →* StableElementary R
+  classicalK2 R := (phi (R := R)).ker
+  K2_eq_center : classicalK2 R = Subgroup.center (StableSteinberg R)
+  stable_isPerfect : Group.IsPerfect (StableSteinberg R)
 
-The higher tame symbols and the specialisation maps are **not** in this part:
-the roadmap assigns higher Milnor residues, specialisation with a uniformiser and
-their product signs to `T.3:localization-comparison`, whose packet owns them. -/
+For phi, surjectivity and centrality are mathematical assertions to prove.
+Its codomain is E(R), not St(R). Classical K2 is not assumed trivial.
+The longer exact sequence uses the imported U.2 quotient GL(R)/E(R).
+-/
 
-/-- T.2/graded-map: to Quillen K-theory. Its degree-two part is Matsumoto's
-isomorphism; no isomorphism is asserted in higher degree. -/
-def milnorToQuillen (n : ℕ) : MilnorK.grade F n → MilnorK.grade F n := by sorry
+section CentralExtensions
+variable {X G Y : Type u} [Group X] [Group G] [Group Y]
 
-theorem milnorToQuillen_two_bijective : True := by sorry
+/-- Kernel centrality. Surjectivity is a separate part of an extension. -/
+def IsCentral (p : X →* G) : Prop := p.ker ≤ Subgroup.center X
 
-theorem milnorToQuillen_three_not_bijective : True := by sorry
+/-- Maps over G retain the actual projection square. -/
+structure HomOver (p : X →* G) (q : Y →* G) where
+  hom : X →* Y
+  over : q.comp hom = p
 
-end MilnorK
+/-- Universality in the chosen common universe of central extensions over G.
+The quantified target need not have the same marked kernel as p. -/
+def IsUniversalCentralExtension (p : X →* G) : Prop :=
+  Function.Surjective p ∧ IsCentral p ∧
+    ∀ (Y : Type u) [Group Y] (q : Y →* G),
+      Function.Surjective q → IsCentral q → ∃! f : X →* Y, q.comp f = p
 
+theorem uce_isPerfect {p : X →* G} (hp : IsUniversalCentralExtension p) :
+    Group.IsPerfect X ∧ Group.IsPerfect G := by
+  sorry
+
+theorem perfect_source_rigidity {p : X →* G} {q : Y →* G}
+    (hX : Group.IsPerfect X) (hq : IsCentral q)
+    (f g : X →* Y) (hf : q.comp f = p) (hg : q.comp g = p) : f = g := by
+  sorry
+
+/-- A generic instance of the star construction with actual central/surjective
+projection data; its inputs are in the quotient elementary group when applied
+to phi. It is not defined on arbitrary general-linear matrices. -/
+def centralStar (p : X →* G) (hp : Function.Surjective p) (hc : IsCentral p)
+    (A B : G) (hAB : Commute A B) : p.ker := by
+  sorry
+
+theorem centralStar_self (p : X →* G) (hp : Function.Surjective p)
+    (hc : IsCentral p) (A : G) : centralStar p hp hc A A (Commute.refl A) = 1 := by
+  sorry
+
+/-
+Remaining central-extension signatures require the owners' coefficient/quotient
+models, rather than an invented carrier:
+
+  relationProjection : F/[S,F] →* F/S
+  commutatorProjection : [F,F]/[S,F] →* [G,G]
+  hopf : H2(trivial integral representation of G) ≃+
+         Additive ((S ∩ [F,F])/[S,F])
+  recognition (hp_surj) (hp_central) :
+    IsUniversalCentralExtension p ↔
+      (H1(trivial integral representation of X) = 0 ∧
+       H2(trivial integral representation of X) = 0)
+  finite_split (hn : 5 ≤ n) (q : Y →* Steinberg n (...) R)
+    (hq_surj) (hq_central) : ∃ s, q.comp s = MonoidHom.id _
+  finite_kernel_central (injective on finite kernel under stabilization) :
+    IsCentral (toElementary hn)
+
+No finite-rank centrality conclusion follows from finite_split alone.
+The full classification uses H2 COHOMOLOGY with trivial action on a fixed
+abelian kernel, whereas hopf uses H2 HOMOLOGY with integral coefficients.
+-/
+end CentralExtensions
+
+/-
+Stable comparison interfaces (all require missing carriers/maps):
+
+  steinberg_isUniversal : IsUniversalCentralExtension (phi (R := R))
+  k2EquivH2 : Additive (classicalK2 R) ≃+
+    (groupHomology.H2 (trivial integral representation of StableElementary R))
+  k2EquivPi2 : Additive (classicalK2 R) ≃+
+    HomotopyGroup (Fin 2) (BGLPlus R) (zeroBasepoint R)
+
+The cover BE(R)+ -> BGL(R)+ and its chosen natural Hurewicz map are needed;
+IV.1.7.1/Exercise IV.1.8 are the K2 locators, not the K3 exercise/corollary.
+
+Symbol interfaces over arbitrary associative unital R:
+
+  commutingSymbol (r s : Rˣ) (hrs : Commute r s) : classicalK2 R
+  symbol_eq_commutator : symbol r s hrs = [h_ij(r),h_ik(s)]
+  symbol_mul_left (r1 r2 s pairwise commuting) :
+    symbol (r1*r2) s = symbol r1 s * symbol r2 s
+  symbol_one_sub (r s : Rˣ) (hs : (s : R)=1-(r : R)) : symbol r s = 1
+  symbol_negative (r : Rˣ) : symbol r (-r) = 1
+  symbol_self : symbol r r = symbol r (-1)
+
+The negative-unit identity is specialized FROM the universal Laurent ring;
+no injection of arbitrary-ring K2 into a localization is assumed.
+
+Milnor/Quillen signatures, commented because neither missing graded carrier
+may be represented by a self-map or a vacuous theorem:
+
+  milnorSymbol (F : Type u) [Field F] (n : ℕ) (a : Fin n → Fˣ) : MilnorK F n
+  milnorSymbol_product : concatenate symbols = their graded product
+  milnorLift : a degree-one unit map killing Steinberg products extends uniquely
+  matsumoto : MilnorK F 2 ≃+ Additive (classicalK2 F)
+  finite_field_K2 [Finite F] : Subsingleton (classicalK2 F)
+  rational_restriction : Function.Injective (K2.map (F →+* F(t)))
+  extension_kernel_torsion : every element of ker(K2.map(F→L)) has finite order
+  milnor_permutation : symbol (a ∘ permutation) = sign • symbol a
+  milnor_finite [Finite F] (hn : 2 ≤ n) : Subsingleton (MilnorK F n)
+  milnor_algclosed [IsAlgClosed F] (hn : 2 ≤ n) : uniquely divisible (MilnorK F n)
+  milnor_real (hn : 1 ≤ n) : MilnorK ℝ n ≃+ (Z/2 plus a divisible subgroup)
+  milnor_number_field (hn : 3 ≤ n) : MilnorK F n ≃+ (Z/2)^(real places)
+  milnor_global_positive_char (hn : 3 ≤ n) : Subsingleton (MilnorK F n)
+  milnorToQuillen n : MilnorK F n →+ QuillenK F n
+  milnorToQuillen_symbol : the image is the ordered product of unit classes
+  milnorToQuillen_degree_two : Function.Bijective (milnorToQuillen 2)
+  milnorToQuillen_degree_three : MilnorK F 3 →+ QuillenK F 3
+
+K.7 supplies the products and comparison with classical degree-two symbols;
+V.2 consumes the integral degree-three component, proves its injectivity and
+constructs its cokernel. V.2 is not a prerequisite for constructing that map.
+-/
+
+/-! Representative tests in addition to the packet's full object-level tests. -/
+example (r s : R) :
+    ⁅x (n := 3) (by decide) (i := 0) (j := 1) (by decide) r,
+      x (n := 3) (by decide) (i := 1) (j := 2) (by decide) s⁆ =
+      x (n := 3) (by decide) (i := 0) (j := 2) (by decide) (r*s) := by
+  sorry
+
+example (r s : R) :
+    ⁅x (n := 3) (by decide) (i := 0) (j := 1) (by decide) r,
+      x (n := 3) (by decide) (i := 2) (j := 0) (by decide) s⁆ =
+      x (n := 3) (by decide) (i := 2) (j := 1) (by decide) (-(s*r)) := by
+  sorry
+
+example : x (R := ℤ) (n := 3) (by decide) (i := 0) (j := 1) (by decide) 0 = 1 := by
+  sorry
+
+/-
+Counterexample-sensitive tests awaiting the missing owners:
+* R=M_2(Z), r=E12, s=E21 distinguishes reverse s*r from r*s.
+* C4 -> C2 is central and nonsplit; C2 x C2 -> C2 is split.
+* Killing b in Free(a,b)->Z leaves a nonzero RELATION kernel detected by b's
+  exponent sum, though H2(Z;Z) is zero.
+* The elementary pair e01(1),e12(1) is not a legal star input.
+* h12(2) over Q has diagonal image (1,2,1/2), preserving both indices.
+* K0^M(C)=Z and K1^M(C)=C× exclude unique divisibility in degrees 0 and 1.
+* In C(t), {t,t}={t,-1} has residue -1 at t=0. The presence of i does not
+  annihilate this integral repeated-entry symbol.
+* Over Q, degree three is injective Z/2 -> Z/48 and fails surjectivity.
+-/
 end TauCeti.Steinberg

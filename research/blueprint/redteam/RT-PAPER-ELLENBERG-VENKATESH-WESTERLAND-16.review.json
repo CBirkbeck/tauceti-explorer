@@ -1,0 +1,85 @@
+{
+  "redteam": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+  "findings": [
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the current route memberships and dependsOn fields. Route 2 consumes route 1 through 15→12, 16→10/14 and 65→14, while route 1 consumes route 2 through 18→15/16 and 69→65/68/124, besides naming IG as its parent. The item DAG therefore does not establish route acyclicity. Move the shared Hurwitz vocabulary to the existing IG.3/IG.5 owners, importing the surface/configuration suppliers at their actual owners. Coordinate with finding 3: moving /22 to IG while retaining /22→/18 would recreate the cycle. Prove concatenation on braid-orbit words directly from the block inclusions of braid groups, then let the later topological gluing /18 consume that algebraic operation. Recompute item, stage and route dependencies after all moves; do not merely change route membership."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. /137 is routed to IG and depends on the GSp definition /100 in ArithmeticStatistics. In the reverse direction, /99→/137, /87→/63, /116→/131–133 and /134→/133 give actual return edges. The atlas prerequisite lists contain neither reciprocal import, and the partial ST.5 packet already consumes these monodromy arguments. Moving the application-specific multiplier quotient /137 to ST.5 with /96 and /99 removes the observed IG→statistics edge. Record the actual IG.0/IG.5 and Hurwitz-stability inputs as stage contracts for ST.5; the general arithmetic fundamental-group sequence remains an IG import. Recheck the quotient graph together with finding 1."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed as shared foundational work, not an identification of all stabilization operators. EVW §§2.1–2.3 and 3.3–3.4, printed pp.738–740 and743–745, use the same Hurwitz tuple action and orbit monoid already assigned to IG.3/IG.5 by their descriptions and WOOD-19/134,/255. LWZB24's IG routes explicitly expect that ownership. Use arbitrary tuples with separately imposed product and generation constraints so the disc and product-one applications share one construction. Move /11–14,/17,/22,/24 to those owners. For /22 remove the dependence on Part II /18 by supplying the elementary concatenation proof at IG.3; otherwise the proposed repair is cyclic. Keep the homology-ring identification /23 and EVW's sum U_D and its nonsplitting kernel/cokernel theorem /25–26 in the stability extension. Wood's product of central power blocks is not EVW's sum, so those theorems are not interchangeable."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an insufficiently separated comparison contract. /69 already imports /68 and the route brief says to import tame comparison; the defect is not absence of every comparison dependency. Its bundled proof still contains the ordered-to-unordered Artin/specialization comparison (7.8.2), pp.769–770, whose owner is IG.5 in WOOD-19/86,/259. Expose or reference that shared comparison under IG.5, with compatible coefficient maps, exact S_n invariants for auxiliary prime L>n and the tame/base hypotheses. Keep the n-uniform homological stability and cell-bound assembly in /69 in the Part II. The fixed-n comparison alone does not provide that stability, and no Frobenius-equivariant stabilization follows."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed with scope corrections. EVW pp.738–739 and759 use the punctured-disc mapping class group and its action; LL24/51,/113 already assign the general surface/mapping-class vocabulary to MappingClassGroupsAndCanonicalRepresentations, and GeometricTopology Layer 3 owns the compact-manifold diffeomorphism-group interface. Import these and expose the disc adapter. EVW needs boundary pointwise fixed but punctures permitted to permute: do not substitute LL24's pure group, whose punctures are fixed individually. LL24/113's hyperbolicity restriction also does not settle every small-n disc case. Use the compact disc with marked interior points for the GeometricTopology input; its text explicitly postpones the noncompact topology. Keep the half-twist/Artin identification, the peripheral-loop comparison and the exact arc-complex/stabilizer proofs as separately owned adapters until proved."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. I read Basic.lean definitions TauCeti.IsAspherical and TauCeti.IsEilenbergMacLaneSpaceOne and Covering.lean theorem IsCoveringMap.isEilenbergMacLaneSpaceOne_totalSpace, including its proof. The theorem assumes a covering map, a path-connected total space, a chosen basepoint equality and asphericity of the base; its group is the range of the induced fundamental-group map. Cite these generic carriers and theorem rather than rebuilding them. Correct the suggested status: the generic theorem is library; the concrete Hurwitz-component corollary still needs the missing Conf_n asphericity, component-cover construction and identification with a subgroup of B_n. Do not mark that entire unconstructed specialization library. Keep /9 and the required adapters missing."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed against AlgebraicCurves Layers 3 and10 and EVW pp.775,779. The affine divisor-class exact sequence specializes to the single degree-one place at infinity, and the odd-degree squarefree hyperelliptic genus formula is already planned upstream. Import these rather than rebuild them in /83 and /96. The correction must distinguish Cl^0(F), the upstream divisor class group, from the rational points of a Picard scheme: the latter identification also uses the curve/Picard/Jacobian dictionary, so Layer 3 alone is not the complete scheme-level supplier. Retain a clearly labelled specialization/compatibility wrapper if needed; remove only its claim to be a new proof of the general class-group bridge. The family S_n and torsion-local-system assembly remain statistical adapters."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The proof of Lemma 7.4 at p.767 explicitly uses SGA1 XII5.1; the proof of Proposition7.8 at pp.769–770 explicitly uses SGA4 XI4.4. /65,/69 and the prerequisites do not give either exact imported statement. Add separate source-scoped contracts for finite-coefficient Artin comparison and finite algebraic/analytic covers, and the corresponding dependency edges. SF.2 is the recorded integration owner for the CohomologicalPointCounting ComplexComparison supplier; its status is requires_declaration_and_proof_verification, not a proved library theorem. Correct the other proposed ownership claim: C4 currently promises Chow/GAGA and curve connectedness, not the full Riemann-existence equivalence for arbitrary finite-type schemes. IG.3 explicitly consumes Riemann existence for curves. Record the punctured-complex-curve instance needed here, with its precise supplier or a missing extension request; do not silently label the broader equivalence planned merely from the C4 name."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed, but the proposed Aut(A)-quotient is wrong for this consumer. EVW p.779 explicitly invokes Katz–Lang (2.4), and /97 has no supplier for this classification. I read Katz–Lang printed pp.295–296 (author-hosted scan, PDF12–13), including the displayed formula: H^1_et of the curve with constant abelian coefficients identifies with Hom from the appropriate Jacobian torsion. Connected torsors correspond to surjections. For a cover with its specified A-action, retain Sur(Jac(C)[ell^k],A); quotienting by Aut(A) forgets the chosen action and changes the counting problem. Only after the hyperelliptic involution is accounted for does EVW's unmarked fibre become Sur/±1, as /97/E10 already require. Add this geometric Kummer/abelian fundamental-group contract and /97's edge, importing the existing Jacobian/Abel–Jacobi owner. Keep the general contract reusable and state the basepoint, smooth proper connected curve and prime-to-characteristic hypotheses; the statistical fibre identification is its application."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. EVW p.780 supplies both steps immediately before Lemma8.9, whereas /135 only explicitly supplies Sp reduction. A map to A killed by ell^k factors uniquely through T/ell^k. In a symplectic basis h_0=diag(qI,I) has multiplier q; every finite-level multiplier-q matrix is hbar_0 sbar with sbar symplectic, so lifting sbar through the existing smooth Sp reduction gives the required fixed-multiplier lift. This also identifies the orbit actions used in /106. Record that short adapter with q a unit, the torsion quotient and its dependency on the Sp-reduction supplier. GSp_q is a coset for q≠1, so do not call this a homomorphism of groups."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a supported-domain/source-expansion gap, not as a counterexample to positive proportions. The published abstract (p.729, also checked as an image) omits the congruence condition; p.730 explicitly discusses a different distribution when q≡1 mod ell. The displayed proof through Proposition8.3 and Theorem8.8 uses moment one and ell∤q(q−1). E11 records the characteristic restrictions but not this additional discrepancy. For A=F_ell^2 and g≥2, independent ordered covectors are classified under Sp by their alternating pairing a∈F_ell (Witt extension); all ell values occur. If q≡1 mod ell, the finite-level multiplier coset is Sp itself, so all these orbits are rational; −I preserves each. I independently enumerated the ell=3,g=2 case: three transvection orbits of sizes 1920,2160,2160. Thus the written moment-one proof cannot simply be reused. The count does not refute positive masses for the modified distribution, nor does it establish a fixed-q limiting moment: it gives a different main term, with the existing large-q error. Record the currently proved domain or supply the modified-distribution and positive-mass argument (including any required Garton input). Do not say the abstract is false or that the authors claimed CL itself at q≡1. The current arXiv listing includes the congruence restriction; the bounded search found no correction to this discrepancy and establishes no novelty claim."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the rendered published p.754 and the proof immediately below Proposition4.13. The closing parenthesis for max is missing after the second degree term. The proof puts max(deg H_0(M),deg H_1(M)) outside the additive expression and then uses q−i+A_1 i≤A_1 q. /43 already states that intended bound. Record a misprint affecting nothing mathematically; describe the unmatched parenthesis precisely rather than treating the malformed expression as an intentional alternative theorem."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed from published pp.757–759, including the image of p.757, and the prior review's correction table. Lemma5.4 computes the differential; the connectivity assertion is the unnumbered proposition on p.757 and the first assertion of Proposition5.6 on p.759. Correct /51 accordingly. Cite Lemma5.4 for the differential part of /54, retaining the preceding row-identification discussion and Proposition5.1 proof for the rest. Replacing Proposition by Lemma at the same number did not repair the original locator."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a shared elementary supplier. EVW p.769 and KP25/019 use the same horizontal-boundary valuation argument. I also read KP's published pp.312–314, especially footnote3, and v1 p.7 Remark2.2: flat horizontal components over a characteristic-zero domain have characteristic-zero generic residue fields, so finite covers are tame there. Import that step once, retaining the compactification and regularity hypotheses. Correct the suggested route repair: a new IG→InverseGaloisPartIITameSpecialization edge would be a parent/extension back-edge. Factor the shared tame-cover/valuation lemma into the common IG.1 foundation (or an already lower common owner), and have both the KP extension and EVW's IG.5 adapter consume it. Leave that reconciliation to the scoped fix/design work; no claim is made that generic-point tameness alone proves the entire specialization theorem."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed as version/attribution bookkeeping, without re-reviewing the supporting papers' mathematical errors. The extraction has no sourceVersions, although E11,E17,E18,E19 affect a stated result; §18 requires that version record. The source/prerequisite entries do contain full hashes and reading dates. The current REGISTER places E15–E19 under the EVW title even though their locators name Achter–Pries or Vasiu; scripts/errata.py groups extraction findings by the extracted paper's default citation. Add the exact recorded versions with attributed historical read dates, never claim a fresh reading from copied metadata. Give each supporting-source locator its full author/title, and leave a maintainer note for source-aware register grouping. AP's author copy and Vasiu's preprint must remain identified as such until publication collation is actually done; an EVW publisher check cannot stand in for either."
+    },
+    {
+      "finding": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The report still calls E12 a Proposition8.9 finding although the JSON and published p.782 say Lemma8.9. Its two complete-coverage sentences and the JSON summary also claim every numbered statement is itemized, but there is no Conjecture1.5 item; published p.733 labels it explicitly and remainingWork treats it as context. Fix the stale locator and qualify all coverage claims, including the JSON summary. If a context item is added instead, mark it visibly conjectural and keep it out of proved dependency chains. Do not create an ordinary missing theorem that downstream users could mistake for an established input."
+    }
+  ]
+}

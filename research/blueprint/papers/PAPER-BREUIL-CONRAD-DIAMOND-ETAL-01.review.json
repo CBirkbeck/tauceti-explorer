@@ -1,0 +1,52 @@
+{
+ "paper": "PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept, with the brief corrected in place. Nothing in the atlas plans the wild 3-adic types, the deformation problems cut out by group schemes with descent data killed by 3, the Breuil-module computations over F′_{±1}, F′_{±3}, F′_i, or the mod-3/mod-5 switching over Q with prescribed 3-adic behaviour. The paper's goal is Theorem A, so a Part II of EllipticCurveModularity is the right direction, beside its accepted sibling Part IIs. The brief gives the final theorems and makes the design state that it re-proves R27.6's and R29.6's statements rather than re-planning them. It conflated the I₃-condition of Theorems 2.1.2 and 2.1.4 with the G₃-condition of Theorem 2.1.6, which is now fixed. Its imports now name the owners of σ_τ (route 7), Tate's theorem (R07.1), Ekedahl's theorem (IG.2) and local Tate duality (Tau Ceti ClassFieldTheory layer 5)."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. R29.6 states the final theorem and its equivalent Frobenius formulation. The introduction's six equivalent forms of modularity and Theorem A are the statement it must match; the proof goes to route 1."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. R26.1 fixes the statement of Serre's conjecture, including 'modular' and 'strongly modular'. Theorem B is the ℓ = 5, cyclotomic-determinant case of R27.6."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. §§4.1–4.2 (models with descent data, sup and inf after Raynaud, Σ-filtrations, Ext¹ injectivity) and §5 (ℓ-torsion Breuil modules, the monodromy operator, base change, descent data as semilinear operators) belong to the finite flat group scheme layers: R07.1 for models and closures, and R07.4 for the classification by semilinear algebra with descent data. Tate's full-faithfulness theorem (added item) belongs with R07.1's ℓ-divisible groups. R07.4 as written plans Breuil–Kisin modules, so the §5 items are missing, not planned (corrected). The accepted Part II WeightZeroCrystallineLiftingRings (PAPER-BOXER-CALEGARI-GEE-ETAL-25 route 7) also plans torsion Breuil modules in its layer 1. The two designs must settle one owner, and the finite flat group scheme roadmap is the foundational choice."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. R^D is the Barsotti–Tate case of Kisin's potentially semistable ring with fixed inertial type (R08.3), and Conjecture 1.1.1 is Kisin's characterisation of its points. The functors D^S with tangent spaces H¹_S are local conditions of the kind R08.6 exports. 'Weakly of type' and '(weakly) acceptable' are the missing refinements."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. Theorems 1.4.1–1.4.2 are potentially Barsotti–Tate lifting theorems under residual modularity, of the kind R22.5 plans. The §10 corrigenda repair [CDT, §6.2], which such a proof uses."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept, as corrected. The extraction routed σ_τ and Lemma 1.2.1 to GL2AutomorphicRepresentationsAndTransfer R16.3, which plans the local Langlands correspondence but not types. The accepted Part II SmoothRepresentationsPartII owns types, and PAPER-NEWTON-THORNE-21-B route 3 (accepted) added Henniart's GL₂ types there with the multiplicity-one detection property. The route is now a Part II coalescing with it, with a brief naming exactly what BCDT add: extended types on Ũ₀(ℓ), the wild cases, and Lemma 1.2.1 in [CDT]'s normalisation."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. Admittance through Jordan–Hölder constituents of reductions of σ_τ, and Conjecture 1.3.1 (admittance ⇔ R^D ≠ 0, simple admittance ⇔ acceptability), are the multiplicity-one precursor of Breuil–Mézard, whose local support and multiplicity statements R30.5 is the only atlas stage to plan. The irreducible mod-ℓ representations of GL₂(Z_ℓ), U₀(ℓ) and Ũ₀(ℓ) were cited as planned in R07.5, a Galois-side layer. They are now missing and routed with R30.2, the smooth mod-p category of GL₂(Q_p)."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept (added by the review). IG.2 plans Hilbert irreducibility over number fields and the specialisation of regular Galois covers; Ekedahl's effective version with local conditions ([E, Thm. 1.3]), used in the proof of Theorem 2.2.1, refines it."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-f805bf (29 September 2026), of the extraction by Claude Code cc-fb70e5 (issue #4510); cc-f805bf appears nowhere in the extraction's files. The published PDF was read from the Internet Archive's copy of the AMS URL (https://web.archive.org/web/2023id_/https://www.ams.org/journals/jams/2001-14-04/S0894-0347-01-00370-8/S0894-0347-01-00370-8.pdf); the AMS site itself served a Cloudflare challenge. The copy has 97 pp. and SHA-256 1e34130e…4cf2, matching the recorded hash. Breuil's author copy (https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/STW.pdf, 80 pp.) was compared at every misprint and repeats all twelve. The whole text was read, §§1–10; the reviewer did not redo most of the Breuil-module computations of §§7–9, only those behind E9–E11 and the §3 admittance counts for τ₁ and τ′_i. All 88 numbered statements of the paper appear in item locators with the right pages, except [CDT]'s Theorem 6.1.1, which is cited only. Eight sourceIssues (E1–E8) were confirmed on 300-dpi page images. Four misprints were added and confirmed: E9 (§6.4 uniformiser α/β for (α − 1)/β), E10 (§7.4 γ̂₃(e₁)), E11 (proof of Lemma 7.2.6) and E12 (Theorem 4.6.3, ρ for ρ_N). Crossref lists no update. Corrections in place: two item statements (descent-data cocycle, uniformiser of F′₋₃); five planned→missing statuses (breuil-modules, thm-5-1-3, thm-5-6-1, mod-l-reps-compact, conj-1-3-1), after reading R07.4, R07.5 and R30.5; two added missing items for cited theorems the proofs rest on (Tate [T, Thm. 4]; Ekedahl [E, Thm. 1.3]); route 7 re-targeted to SmoothRepresentationsPartII; route 8 now names R30.2; route 9 added; route 1's brief corrected. No item has library status, and a search of the pinned declaration index (Breuil, Barsotti–Tate, p-divisible, descent datum, Weil–Deligne, deformation, Hilbert irreducibility, Serre weight, Langlands–Tunnell) found nothing that provides an item. The partial infrastructure it did find (Cartier duality of finite locally free group schemes, Mathlib's groupCohomology, the complex GL₂(F_q) character table) provides none of them. Every cited layer's description was read. The remaining planned citations hold: R19.1, R26.1, R27.6, R29.6, R07.1 (closure), R07.4 (descent data), R08.3 and R08.6. scripts/check_paper.py passes."
+}

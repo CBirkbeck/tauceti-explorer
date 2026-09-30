@@ -18,12 +18,13 @@ Three files were used:
 * the e-print archive of v2, sha256 `8704c071cf1029ba386764f13841d3871ea79d49c2b2af920086da4789dbd088`,
   whose two files are `macaulayfication.tex` (2045 lines) and `bibliography.ltb`;
 * the compiled arXiv PDF of v2, sha256 `a07d62e6ef1e4c2126c172426391e97031d28006b92ccb6c5f3afd9c2ddb07b9`;
-* the author's copy of the published version,
+* the author's manuscript dated 28 July 2020,
   `https://webusers.imj-prg.fr/~kestutis.cesnavicius/macaulayfication.pdf`, sha256
-  `55ded201a17ae161400c1989d67ad7a09356c23f87b2e88eef2e763632939ac6`, read 2026-09-23, whose entry on the
-  author's publications page carries the Duke reference.
+  `55ded201a17ae161400c1989d67ad7a09356c23f87b2e88eef2e763632939ac6`, read 2026-09-23. The author's
+  publications page lists it under the Duke reference, but it is the author's own typesetting, earlier than
+  arXiv v2, and not the Duke text (corrected by FIX-RT-PAPER-CESNAVICIUS-21; see the end of this report).
 
-**Version check.** The two PDFs were compared word by word after extracting their text from the PDF
+**Version check.** The two PDFs, both produced by the author, were compared word by word after extracting their text from the PDF
 content streams — not from a lossy text layer. Apart from line breaking and hyphenation they agree: no
 statement, hypothesis or reference differs, and both carry the two misprints recorded below. The
 `numberingbase` counter of the class is an alias for `subsection`, so theorems, propositions, lemmas,
@@ -135,7 +136,7 @@ Three findings, all new.
 
 * **E1** (misprint, affects nothing) — Corollary 1.11 ends "such that X̄ \\ X is a (possibly nonreduced)
   divisor **in X**"; it must be "in **X̄**", since X̄ \\ X is disjoint from X. This is not an artefact of
-  text extraction: in the content stream of the published PDF each overlined X is a letter preceded by an
+  text extraction: in the content stream of the author's manuscript PDF each overlined X is a letter preceded by an
   explicitly drawn rule, and the rule is present before the first X of "X̄ \\ X" and **absent** before the
   final X. The LaTeX of the final arXiv version likewise has `\ov{X}` twice and a bare `$X$` here.
 * **E2** (misprint, affects nothing) — §1.13 prints "an inductive construction of an
@@ -229,3 +230,29 @@ The changes:
   - the §1.12 names (Honsen, Mordasini, Heinrich);
   - the Ogoma and Heitmann references;
   - the Cuong link.
+
+## Fixes (FIX-RT-PAPER-CESNAVICIUS-21, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5020. This fix applies the six findings of
+`RT-PAPER-CESNAVICIUS-21` that the verifier confirmed, following the verifier's corrections where it
+changed an owner. The full record is `research/blueprint/redteam/RT-PAPER-CESNAVICIUS-21.fixes.md`.
+
+- **Items: 81 became 84** (3 library, 5 planned, 76 missing).
+  - Item 16 was split. Item 16 now carries the module-level (S_n) and Cohen–Macaulay notions, planned in
+    R03.3. New item 84 carries the sheaf-level support, (S_n) and Cohen–Macaulay predicates for coherent
+    modules and schemes; it is missing and on route 3 (SF.0).
+  - New item 85: the ascent of formal-fibre properties and of quasi-excellence along finite type (EGA IV₂
+    7.4.4, 7.8.3(ii)). It is on route 4 (R03.3).
+  - New item 86: dim Bl_I(Supp M) ≤ dim Supp M (Herrmann–Ikeda–Orbanz 12.14). It is on route 2.
+- **The ring-level dualizing complexes moved to R03.3.** Items 39, 79 and 80 left route 5 (AS.1) for
+  route 4, as an explicit extension of R03.3's contract. Route 5 now carries only the scheme-level item
+  52. Route 2 no longer depends on AnalyticStacks.
+- **Route 1 names its imports by the ids the queue creates.**
+  - Commutative algebra for deformation theory and patching, Part II
+    (DeformationAndDerivedPatchingAlgebraPartII), from route 2, is now a prerequisite.
+  - The avoidance lemma comes from the arithmetic-presentation continuation inside
+    DESIGN-SchemeAndStackFoundationsPartII.
+  - Route 6's brief now carries only its own case.
+- **What was read.** The file earlier called "the author's copy of the published version" is the
+  author's manuscript dated 28 July 2020. No one has read the Duke text. `sourceVersions` now records the
+  manuscript and arXiv v2, and E1–E9 are scoped to them.

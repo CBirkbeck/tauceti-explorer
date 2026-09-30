@@ -2,7 +2,7 @@
 
 Chao Li and Yifeng Liu, *Chow groups and L-derivatives of automorphic motives for unitary groups*, [Ann. of Math. (2) 194 (2021), 817–901](https://doi.org/10.4007/annals.2021.194.3.6); arXiv [2006.06139](https://arxiv.org/abs/2006.06139).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1115). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-LI-LIU-21.result.json](PAPER-LI-LIU-21.result.json): 81 items (14 planned, 67 missing), 7 routes, 21 prerequisite entries and 9 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1115). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-LI-LIU-21.result.json](PAPER-LI-LIU-21.result.json): 81 items (14 planned, 67 missing), 7 routes, 21 prerequisite entries and 9 recorded source issues. The independent review ([REV-PAPER-LI-LIU-21](../reviews/REV-PAPER-LI-LIU-21.md), 30 September 2026) corrected it in place. The file now has 85 items (9 planned, 76 missing), 9 routes and 20 source issues, and this report describes the corrected state.
 
 **Source.** The typeset Annals PDF is paywalled, so two versions were read in full on 2026-09-22.
 - **The authors' final version**, [AIPF.pdf](https://www.math.columbia.edu/~chaoli/AIPF.pdf) on Chao Li's homepage: dated 20 October 2021, 67 pages, SHA-256 `6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566`. It post-dates the journal revision (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, online 2 November 2021) and matches the published bibliographic data. Locators are its pages.
@@ -30,20 +30,23 @@ The doubling method (§3) supplies the analytic side:
 ## What the atlas already has
 
 - **Library.** Nothing. Mathlib 082e2d3 and Tau Ceti f790474 have no Chow groups, Weil representations, Shimura varieties, Green currents, cycle class maps or K-theory with supports; name searches for each found nothing. For the Fourier transform the reviewed audit counts only a partial start in AL.0 (Mathlib's generic `Fourier.fourierIntegral`, with no p-adic theorems).
-- **Planned** (14 items):
+- **Planned** (9 items, after the review):
   - AutomorphicLFunctionsAndLocalFactors AL.0: local Fourier transforms and self-dual measures.
-  - MetaplecticAutomorphicForms MP.2–MP.3: the Weil representation of unitary dual pairs.
-  - AutomorphicPadicLFunctions L4: the doubling embedding, Siegel Eisenstein series and local doubling zeta integrals. L4 is written for the Eischen–Harris–Li–Skinner setting; the brief asks the design job to check it covers U(r, r) × U(r, r) ⊆ U(2r, 2r).
+  - MetaplecticAutomorphicForms MP.2–MP.4: the Weil representation of unitary dual pairs, local and adelic.
+  - AutomorphicPadicLFunctions L4: the doubling embedding, Siegel Eisenstein series and local doubling zeta integrals. L4 is written for the Eischen–Harris–Li–Skinner setting. Yamana's good sections, the Siegel–Weil sections and the normalization Z^♮ are not planned there, and are now missing items 82–83.
   - ModularityAndLanglandsExtensions ML.4: Arthur's multiplicity formula (KMSW, Mok).
-  - AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5: the Galois representations ρ_{Π_j} and their purity.
-  - ShimuraVarieties V1/V6: the unitary Shimura varieties.
+  - AutomorphicGaloisRepresentationsPartII AG2.2/AG2.5: the Galois representations ρ_{Π_j} and their purity. The consequence H¹(E_u, ρ^c_{Π_j}(r)) = 0 is missing (item 84).
+  - ShimuraVarieties V1/V2/V6: Shimura varieties of abelian type in general. The unitary datum itself is missing (item 85).
   - Cohomology:
-    - EtaleDualityAndPerverseSheaves EDC.3: cycle classes with support;
-    - ArithmeticGaloisDuality R02.2: Hochschild–Serre;
+    - EtaleDualityAndPerverseSheaves EDC.3 and MotivesAndAlgebraicCycles MC.2: cycle classes and their de Rham comparison;
     - WeightsInEtaleCohomology R34.5: weights;
     - LefschetzPencilsAndVanishingCycles LPV.7: the weight spectral sequence of a strictly semistable model.
-  - K-theory: SchemeKTheoryOperations S.6–S.7 (Gillet–Soulé K-groups with supports) and MotivicEtaleKTheory M.8 (Gillet's Chern classes).
-  - IgusaVarietiesAndTorsionConcentration IG.1, IG.4, IG.5: Igusa varieties, and the Caraiani–Scholze concentration and trace results.
+  - The review found five further items that the extraction had marked planned, but no layer plans as stated:
+    - the étale Hochschild–Serre spectral sequence (R02.2 is group cohomology);
+    - Gillet–Soulé K-theory with supports (S.6–S.7);
+    - Gillet's Chern classes with supports (M.8);
+    - the Igusa varieties and Caraiani–Scholze results for this compact datum (IG.1, IG.4, IG.5).
+    They are missing now and routed as sources to those owners.
 - **Not in the atlas.**
   - Beilinson's ℓ-adic height pairing and local indices for higher-codimension cycles.
   - Kudla's generating functions in Chow groups and arithmetic theta lifting.
@@ -53,7 +56,7 @@ The doubling method (§3) supplies the analytic side:
 
 ## Routes
 
-1. **Part II of GrossZagierAndArithmeticHeights: `UnitaryArithmeticInnerProductFormula`** (50 items). This is the candidate proposed by PAPER-LI-LIU-22. It takes:
+1. **Part II of GrossZagierAndArithmeticHeights: `UnitaryArithmeticInnerProductFormula`** (53 items). This is the candidate proposed by PAPER-LI-LIU-22. It takes:
    - the conjecture and main results;
    - the running notation;
    - the doubling side: the doubling L-function, Proposition 3.7 (with the final constant), the Siegel–Weil measure, Proposition 3.10, Proposition 3.13 and Lemmas A.1–A.2;
@@ -65,54 +68,87 @@ The doubling method (§3) supplies the analytic side:
    - Green currents and the Kudla–Millson comparison;
    - Lemma 11.1.
 
-   The brief makes this paper the main line of the Part II and the sequel its extension. Beilinson's local indices (Appendix B) are planned there as a general tool, since this is their first consumer. The generic-fibre special cycles sit here, as in PAPER-LI-LIU-22; their integral models go to route 3.
+   It also takes the review's items 82–84: the doubling normalizations, Remark 3.5, and the H¹ vanishing.
+
+   The brief makes this paper the main line of the Part II and the sequel its extension. Beilinson's local index is also planned by the proposed SelmerComplexesAndPadicHeights (PAPER-DISEGNI-LIU-24 route 2), which is upstream of this design. The brief asks for the index to be defined once, there, with the global pairing and the regular-model computations of Appendix B kept here or moved with it. The generic-fibre special cycles sit here, as in PAPER-LI-LIU-22; their integral models go to route 3.
 2. **Part II of PELModuli: `UnitaryRapoportZinkSpacesAndRSZModels`** (7 items), the PAPER-LI-ZHANG-22-B candidate:
    - the moduli interpretation of X′_L;
    - the change of complex embedding;
    - admissible CM types and 𝒴;
    - the Drinfeld-level models 𝒳_m;
    - the smooth and strictly semistable inert models, with the special-fibre decomposition Y° ∪ Y•;
-   - the uniformization (8.2).
+   - the uniformization (8.2);
+   - the unitary Shimura datum of X_L (item 85, split from item 29 by the review).
 3. **Part II of GrossZagierAndArithmeticHeights: `UnitaryKudlaRapoportCycles`** (4 items), the PAPER-LI-ZHANG-22-B candidate:
    - the moduli description of special cycles (Lemma 5.4);
    - integral special cycles with their K-theory classes and uniformization (8.3);
    - the two Li–Zhang identities used in §§8–9.
 4. **Source of MetaplecticAutomorphicForms MP.3** (2 items). Proposition 3.6 (doubling multiplicity one and theta dichotomy), and the Hecke compatibility of the local theta correspondence at almost unramified and split places.
-5. **Source of IgusaVarietiesAndTorsionConcentration IG.5/IG.7** (2 items). The Newton strata of 𝒳_m ⊗ k and Lemma 7.3, whose generalization PAPER-LI-LIU-22 routes to the same stages.
-6. **Source of SchemeAndStackFoundations SF.2** (1 item). Absolute purity, where PAPER-CESNAVICIUS-19 routes its absolute-purity input.
-7. **Source of MotivesAndAlgebraicCycles MC.7** (1 item). The equivariant Beilinson–Bloch conjecture (1.1) and Beilinson's positivity conjecture, for MC.7's register of cycle conjectures.
+5. **Source of IgusaVarietiesAndTorsionConcentration IG.0, IG.1, IG.4, IG.5, IG.7** (4 items). The route takes Lemma 7.3, whose generalization PAPER-LI-LIU-22 routes to the same roadmap, and its inputs:
+   - the Newton strata of 𝒳_m ⊗ k;
+   - Harris–Taylor's and Mantovan's Igusa varieties;
+   - Caraiani–Scholze Corollary 6.1.4 and Theorem 5.5.7 in the compact case.
 
-## Source issues (`sourceIssues` E1–E9)
+   The IG layers plan these only for their own datum. Lemma 7.3 has rational coefficients, so it is recorded at IG.5 with IG.7 as the consumer.
+6. **Source of SchemeAndStackFoundations SF.2** (2 items). Absolute purity, where PAPER-CESNAVICIUS-19 routes its absolute-purity input, and the étale Hochschild–Serre spectral sequence over p-adic and finite fields.
+7. **Source of MotivesAndAlgebraicCycles MC.7** (1 item). The equivariant Beilinson–Bloch conjecture (1.1) and Beilinson's positivity conjecture, for MC.7's register of cycle conjectures.
+8. **Source of SchemeKTheoryOperations S.6/S.7** (1 item, added by the review). Gillet–Soulé's K_0 with supports on regular schemes over O_K, with its codimension filtration, [GS87, Prop. 5.5], the map (B.3) and the comparison with Quillen K-theory.
+9. **Source of MotivicEtaleKTheory M.8** (1 item, added by the review). Gillet's ℓ-adic Chern classes with supports and their agreement with refined cycle classes.
+
+## Source issues (`sourceIssues` E1–E20)
+
+E1–E9 were recorded by the extraction and E10–E11 on 22 September from the authors' errata. The review confirmed all eleven, settled E3 and added E12–E20. Each entry carries the review's verdict.
 
 **Corrected in the final version, still in arXiv v5.**
 - **E1** (error, affects a stated result).
-  - **The problem.** v5 prints C_r = (−1)^r 2^{r(r−1)} π^{r²}Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)), from an archimedean zeta integral (−1)^r π^{r²}⋯ attributed to Harris–Li–Sun and Garrett.
-  - **The correction.** The final version uses Eischen–Liu: Z(0) = (−1)^r 2^{−2r²}·2^{r²−r}π^{r²}⋯, hence C_r = (−1)^r 2^{−2r}π^{r²}⋯. The sequel also uses 2^{−2r}.
-  - **Check.** Rederived: ⟨φ^0, φ^0⟩ = 2^{−2r²} for the self-dual measure, and the normalization L(1/2, π_v)/b_{2r,v}(0) contributes 2^{r²−r}.
+  - **The problem.** v5 prints C_r = (−1)^r 2^{r(r−1)} π^{r²}Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)).
+  - **The correction.** The final version has 2^{−2r}, via Eischen–Liu, and the sequel agrees.
   - **Reach.** It changes Theorem 1.7(1), Proposition 3.7, Lemma 11.1(2) and Corollary 1.9 by 2^{r(r+1)[F:Q]}.
-- **E2** (gap, affects the proof).
-  - **The problem.** In the v5 proof of Proposition 10.1, η is an arbitrary current with dd^c η = δ(Z_{T₂})^c, from the ∂∂̄-lemma. It is then wedged with the singular Green current of Z_{T₁} and integrated by parts, which is not defined in general.
-  - **The correction.** The final version takes η = −g^♥_{T₂}(…)^c and notes that η + g^KM_{T₂} is smooth.
-- **E9** (citation gap, affects the proof). v5's Lemma B.8 cites Gillet's Prop. 2.35, which covers only Z₁ = Z₂. The final version adds footnote 22 explaining that the proof extends.
+  - The Annals text was not read, so its agreement with the final version is inferred.
+- **E2** (gap, affects the proof). In the v5 proof of Proposition 10.1, η is an arbitrary current with dd^c η = δ(Z_{T₂})^c. The final version takes η = −g^♥_{T₂}(…)^c, which makes η + g^KM_{T₂} smooth.
+- **E9** (citation gap, affects the proof). v5's Lemma B.8 cites Gillet's Prop. 2.35, which covers only Z₁ = Z₂. The final version adds footnote 22.
 
-**New.**
-- **E3** (gap, affects a stated result).
-  - **The problem.** Proposition 9.1 computes the local index at an almost self-dual place by Li–Zhang Theorem 10.5.1. Li–Zhang say that theorem "is conditional on Conjecture 10.4.1", a Kudla–Rapoport conjecture on the auxiliary space Ñ¹_n "which from now on we assume to hold". This holds in both their arXiv v3 and their final version.
-  - **Reach.** |S_π| is odd, so every application of Theorems 1.5 and 1.7 and Corollary 1.9 passes through such a place. Li–Liu state no such hypothesis, and the sequel (Prop. 4.27(2)) inherits the same dependence.
-  - **Repair.** Li–Rapoport–Zhang, arXiv:2404.02214 (to appear in Crelle), Theorem 14.6.2, prove the structure result "conjectured by Kudla and Rapoport, … see also [LZ, Conj. 10.4.1]". That should make the theorems unconditional (apart from Hypotheses 4.5 and 6.6). Whether it gives every part used in Li–Zhang §10.5, in particular the blow-up description, was not checked line by line.
-- **E4** (misprint). Proof of Lemma 7.3: "d = n − j = 2r − 1 − j" should read d = n − 1 − j.
-- **E5** (misprints). V^m or V for V^r in the proof of Lemma 5.4, in Lemma 6.4(1), and in the proofs of Propositions 8.1 and 9.1.
-- **E6** (misprints). Proposition B.10 has supp(c_i) for supp(c₁). Corollary B.15 has H^{2d}(𝒳, Q_ℓ(d)) for H^{2r}(𝒳, Q_ℓ(r)), three times.
-- **E7** (misprint). Proof of Lemma A.2: after summing over i the region still carries the index i. It should be the union A^m_0 × B^m_{−2N} × B^{n−2m}_{−N}.
-- **E8** (misprint). Proof of Theorem 1.5: the reduction "R_π ⊆ R ⊆ V^fin_F" should read R ⊆ V^spl_F, as §11 assumes.
+**The authors' own errata** (Disegni–Liu 2024, §4.10).
+- **E10** (error, affects a stated result). χ^R_{π^∨} was identified with (χ^R_π)^c; the two agree only on real Hecke coefficients.
+  - **What it breaks.** Proposition 6.10(1) is false as printed. The Hecke elements belong outside 𝔪^R_{π^∨}.
+  - **Beyond the authors' remark.** The review also records the same substitution in Lemma 11.1 and the normalisations of §11.
+  - **The main theorems are unaffected.**
+- **E11** (error, affects the proof). Two formulae in the proof of Lemma 4.4 are false in general, as Shah (arXiv:2310.01677) found. The lemma still holds, by Disegni–Liu's argument.
 
-**Also checked and correct:**
+**E3: a conditional input, now discharged** (gap, affects the proof).
+- **The problem.** Proposition 9.1 uses Li–Zhang Theorem 10.5.1, which Li–Zhang prove assuming their Conjecture 10.4.1. Since |S_π| is odd, every application of Theorems 1.5 and 1.7 and Corollary 1.9 passes through such a place, and as published they rested on this unstated hypothesis.
+- **The repair.** The review checked each use in Li–Zhang §§10.4–10.5 against Li–Rapoport–Zhang (arXiv:2404.02214v2), Theorem 14.6.2 and Corollary 16.1.5. Every use is covered: regularity, the finite flat π₁, π₂ an isomorphism off the centre, the reduced exceptional divisor ⊔P_Λ, and the intersection numbers. The blow-up ideal and the scheme-theoretic preimage are never used. With that citation the theorems hold as stated.
+
+**Found by the review.**
+- **E12** (error, affects the proof).
+  - **The problem.** The proofs of Proposition 6.9(2) and Lemma 8.3 claim that restriction to the geometric fibre is injective on H^{2r} over a p-adic field. The term H²(E_u, H^{2r−2}) survives: π*β ∪ h^{r−1} is a nonzero class in the kernel.
+  - **The repair.** The square of an element of (S^R)^0 ∖ 𝔪 does the job.
+- **E13** (gap, affects a stated result).
+  - **The problem.** Lemma 8.3's "by definition" step does not follow: Definition 6.2(2) concerns the arithmetic cohomology, not the geometric.
+  - **The repair.** Every element of (S^R)^0 is ℓ-tempered, because H^{2r}(𝒳_L) injects into the geometric H^{2r}. So Definition 6.3 should take one Hecke factor from (S^R)^0.
+- **E14** (error, affects the proof). The proof of Corollary B.15 calls H^{2r} ⊗_Q L finitely generated over S_L, which fails for countable S. The conclusion holds by a basis argument.
+- **Misprints.**
+  - **E15:** Proposition 3.6(3) prints "irreducible" for "zero or irreducible".
+  - **E16:** (G3) prints e_{r+1} for e_{m+1}.
+  - **E17:** Proposition 3.13 prints ∈ for ⊆, and its proof has Ψ ∈ S(V^{2r}_reg) for S(Herm°_{2r}(F)).
+  - **E18:** p.38 prints r for m.
+  - **E20:** p.30 prints ρ[π^∞] for ρ[π̃^∞].
+- **E19** (error, affects nothing). X_L is called smooth at every level, which holds for neat levels.
+
+**Misprints recorded by the extraction:** E4–E8.
+- **E4:** d = n − j for n − 1 − j.
+- **E5:** V^m or V for V^r, in four places.
+- **E6:** supp(c_i), and H^{2d} for H^{2r} four times in Corollary B.15.
+- **E7:** a free index i after summation, where the display should read ⩽ over the union of shells.
+- **E8:** R ⊆ V^fin_F for R ⊆ V^spl_F.
+
+**Also checked and correct.**
 - The sign (−1)^r and the positivity of C_r^{[F:Q]} in Corollary 1.9.
-- The agreement of (9.2) with (9.3) and with Li–Zhang Remark 10.5.4. Here q_u in log q_u/(q_u^r − 1) is the residue cardinality of E_u, and q in (q + 1)/(q^{2r} − 1) is that of F; the text layer loses the underline on u̲.
+- The agreement of (9.2) with (9.3) and with Li–Zhang Remark 10.5.4. Here q_{u̲} is the residue cardinality of F_{u̲}, and q_u = q_{u̲}² that of E_u.
 - The exponent bookkeeping in Lemmas A.1–A.2.
 - The induction m_j = m_{j+1} + 2 in Proposition B.14.
 
-**Not the paper's errors.** Footnote 20 corrects a sign in Liu 2011 Theorem 4.20: the constant is Π γ^{2n}_{V_v} = 1, not Π γ_{V_v} = −1, which Garcia–Sankaran reprove by another method. Crossref records no correction notice or update relation for the Annals article.
+**Not the paper's errors.** Footnote 20 corrects a sign in Liu 2011 Theorem 4.20. Crossref records no correction notice or update relation for the Annals article (re-checked 2026-09-30).
 
 ## Prerequisites not yet covered
 
@@ -135,3 +171,4 @@ Links and reasons are in the JSON.
 - The three Part II ids are those in the merged PAPER-LI-ZHANG-22-B and PAPER-LI-LIU-22 routes, with identical titles and parents.
 - Bibliographic data follow the paper's reference list. The Annals DOI and the LTXZZ volume and pages were confirmed on Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+- After the review: `check_paper.py` ok (85 items, 9 routes, 20 source issues), `check_errata.versions_checked` clean (sourceVersions added).

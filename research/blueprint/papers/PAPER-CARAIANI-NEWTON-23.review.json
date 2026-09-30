@@ -1,0 +1,47 @@
+{
+ "paper": "PAPER-CARAIANI-NEWTON-23",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept, with Allen–Khare–Thorne's Taylor–Wiles data (akt-tw-primes) added and the brief's imports completed. PA.1 and PA.2 plan local–global compatibility at p only in the Fontaine–Laffaille and Borel-ordinary cases of ACC+ (PA.2: 'Construct the local ordinary-parts functor in the coefficient regime of ACC+ §§5.2–5.3'), and nothing in the atlas plans P-ordinary Hida theory for the Siegel parabolic, the Bruhat-filtration computation of §2.3, degree shifting at deep auxiliary level, Theorems 4.2.15 and 4.3.1, or the potentially Barsotti–Tate lifting theorem 5.2. So a Part II of PotentialAutomorphyInfrastructure is right, and it is distinct from its accepted sibling WeightZeroCrystallineAutomorphyLifting, whose brief imports Theorems 4.2.15, 4.3.1, Lemma 5.3.3, Proposition 5.4.2 and Corollary 5.4.3 from this paper; this route owns them. The brief states Theorems 4.2.15, 4.3.1 and 5.2 as the paper does (checked on pp.71–74). It now names PA.2 as the imported Borel case, PadicFamilies L0a, R03.3/R03.6, R17.4, ML.5 and route 7, and it records source issue E12: Lemma 5.6.5 is false for d = 3 with projective image A₄, so the design must state it with that exception and either restrict Theorem 5.2 there or supply another choice of the auxiliary places v₀, v₀′."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept, with Lemmas 6.1.4, 6.2.2 and 7.1.1 moved to route 8 and the imports corrected. No layer plans modularity of elliptic curves over a field other than Q, mod-3/mod-5 switching with prescribed reduction types over CM fields, or the imaginary quadratic points of X(ns3°,b5), X(b3,ns5), X(ns3°,ns5) and X(s3,ns5). ModularityAndLanglandsExtensions ML.1 organizes 'modularity over totally real/CM fields with source-scoped restrictions' but is a registry that owns none of this mathematics (as the accepted reviews of PAPER-CALEGARI-GERAGHTY-18 and PAPER-KHARE-WINTENBERGER-09-I treat it), so the proof goes here and ML.1 registers Theorems 1.1, 1.2, 6.1 and 7.1; the brief now says so. The brief states Theorems 6.1, 7.1 and Corollaries 6.1.1, 6.1.2, 7.1.2 exactly (checked on pp.87–93). The imports now name Tau Ceti ModularCurves 5C (the twisted curve Y(ρ̄), over Q only, extended here to L) and layer 9, with the Cartan-level compactifications planned here since layer 10 and R13.4a do not reach them; GlobalNumberFields layer 1 for weak approximation; R17.4; and the accepted Part II EllipticCurveModularityPartIIGL2TypeAbelianVarieties for the Q-curves of Corollaries 7.2.5 and 7.3.4. I rechecked the §7 models and points (the points of Propositions 7.2.1, 7.3.3 and 7.4.3 and the torsion divisors of 7.4.4 lie on the curves, w₁ preserves C₁, the factorisation on p.94 holds), but not the Magma computations, which the brief rightly treats as certificates to reproduce."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as a source route. ED.4 (classical Chabauty–Coleman over Q, rank r < g) and ED.5 (Mordell–Weil sieve with reduction maps from a finite-index Jacobian subgroup and an exhaustive candidate certificate) are the layers Box's relative symmetric-square Chabauty and its sieve criterion widen. The set-up item was cited as planned there; neither layer names symmetric powers, so it is now missing and stays in this route, so all three items are missing."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. L7 plans fixed Hodge-type potentially semistable rings with determinant constraints and 'ordinary deformation functors with a full invariant flag and specified graded characters', L8 the ordinary-flag versus determinant-ordinary comparison and R08.4 'the connectedness and component comparisons' of Barsotti–Tate rings. The semistable-ordinary ring R^△ and Lemma 3.3.2, Lemma 3.3.6, Snowden's two components (Proposition 5.3.2) and unique generalisation for the Barsotti–Tate ring (Lemma 5.3.3, from CEGS25) belong in those layers. semistable-ordinary is now also cited at L7."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. IHG.1 plans Cayley–Hamilton algebras, generalized matrix algebras, reducibility ideals and 'the lattice constructions used by congruence arguments'; the §3.2 idempotent lifting over a Henselian base, the local idempotent and the integral local lift (Proposition 3.2.4) are such a construction. Mathlib lifts idempotents only across a nilpotent kernel, so Lemma 3.2.1 stays missing."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. ALS.3 plans Hecke correspondences on complexes 'with their coherence data' and ALS.6 the tower API (re-exporting CompletedCohomologyPartII CC.2/CC.4/CC.7); the adelic limit spaces, the comparison with Newton–Thorne's discrete set-up and the projection formulas of §2.1 fit there. lem-2-1-6 is now also cited at ALS.6."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Added by the review; accept. Theorem 2.1.28 was cited as planned at IG.7, but IG.7 exports ACC+ Theorem 4.3.3 for ρ_m 'of length at most two' and with [F⁺:Q] > 1, while the paper uses the form without both hypotheses from Koshikawa [Kos21, Thm. 1.4], needed when F⁺ = Q. It widens the owning layer, so it is a source for IG.7."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Added by the review; accept. ArithmeticGaloisRepresentations R01.4 plans 'the finite-subgroup facts of GL₂/PGL₂ used in the source arguments, including dihedral and exceptional images, normal subgroups, and behaviour under restriction to cyclotomic fields', and G7 holds the decomposed-generic API; Lemmas 6.1.4, 6.2.2 and 7.1.1 are such facts, as the accepted ACC+ item 300 was routed. Goursat's lemma itself is in Mathlib."
+  }
+ ],
+ "notes": "Review by Claude Code, session cc-f805bf, 29 September 2026, of the extraction by cc-fb70e5. Read arXiv:2301.10509v3 (SHA-256 57abc79a…d0c3, matching the recorded hash; 106 pages, the latest version; no published version found on Crossref), with every item locator and every source issue checked, the main theorems and the key arguments of §§4.2, 5.4–5.6, 6 and 7 read, and formulas checked on 300-dpi page images. Items: 166 → 169. Added blght-lemma-3-3 (planned, R03.3/R03.6), solvable-base-change-descent (planned, R17.4/ML.5) and akt-tw-primes (missing, route 1); Corollary 2.3.10 folded into lem-2-3-8. Corrected chi-character (a quotient by |·|_p, not a product), lem-4-1-5 (G̃^{S̄₁}), prop-5-4-2 (C_a contains x), patching-axioms (Assumption 5.4.1 (1)–(2) as printed), sub-lemma-1-twist, lem-5-6-5 (the corrected statement), and the locators of lem-2-3-15, local-rings-5-3 and E7. Statuses: thm-2-1-28 (Koshikawa removes the IG.7 hypotheses) and relative-symmetric-chabauty (ED.4/ED.5 name no symmetric powers) changed from planned to missing; the other 34 planned citations hold, several with an added layer; goursat now also cites Subgroup.goursatFst_prod_goursatSnd_le. Final counts: 1 library, 36 planned, 132 missing. Routes: all six accepted, with the briefs of routes 1 and 2 corrected; routes 7 (IG.7) and 8 (R01.4/G7) added and accepted. Source issues: E1–E11 confirmed on page images. New: E12, an error — Lemma 5.6.5 is false when d = 3 and the projective image is A₄ (counterexample 2T twisted by a cubic character, p ≥ 5), leaving a gap in the proof of Theorem 5.2 for p ≡ 1 mod 3 and [F₁(ζ_p):F₁] = 3; Theorems 1.1, 1.2, 6.1 and 7.1 use p = 3, 5 and are unaffected. E13–E17 are misprints (Lemma 3.3.2's graded pieces, 'Prop. 3.2.1', GL_n(Q̄_p) for GL₂(k), 'places of K', r̄_{E,p} for r̄_{E,p_i}). E12, E14 and the others checked there read the same in arXiv v1 and v2. Not rechecked: the Magma computations of §7 and the cited results of ACC+18, AKT23, NT16, CS24, Kos21 and Box21 beyond the statements the paper quotes. scripts/check_paper.py reports ok."
+}

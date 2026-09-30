@@ -576,6 +576,11 @@ The extraction follows these rules:
 - Every definition, construction and key theorem the paper uses or proves on
   the way to its main results is an item, and so is each main result. Coverage
   is complete (section 0). Split multi-part results.
+- A result the paper cites from elsewhere is one item, with its status and
+  route. The extraction does not decompose or prove it. Proving missing items
+  and closing their prerequisites (section 3) is the work of the blueprint of
+  the roadmap each item is routed to. Open proof closure, API outlines or
+  supplier audits never keep an extraction `partial`.
 - An item is `library` when Mathlib or Tau Ceti has it at the pinned commits
   (cite the declarations, read at the pinned commit), `planned` when a layer of
   the atlas plans it (name the layer: `data/atlas.json`, or a new roadmap in
@@ -675,6 +680,26 @@ the owning packet, or a note for the maintainer when it needs a new roadmap),
 and writes `research/blueprint/redteam/RT-<x>.fixes.md`: what was changed for
 each finding, or why not. A fix to an audit is merged into the library audit by
 the orchestrator.
+
+A finding about a roadmap's plan (a layer's statement, hypotheses, sources or
+prerequisites, or the reuse of declarations the libraries already have) is
+fixed in that roadmap's blueprint, never in `content/campaign/` or `data/`,
+which are the atlas's reviewed base: an accepted packet replaces the base
+decomposition of the layers it covers (section 8).
+
+- **Finished blueprint.** The fix job lists the blueprint's packet, reader
+  document and suggested file among its deliverables and edits them.
+- **Blueprint not written yet.** The finding is handed to the blueprint or
+  design job that will write it: that job's issue lists the finding, and its
+  review checks it.
+
+A fix to a file that goes live only after review (a packet, a link map or a
+restructuring proposal) is reviewed by an independent `REV-FIX-RT-<x>`, which
+records its verdict in the file's `review` object as a blueprint review does.
+An accepted file is promoted; one sent back gets another round,
+`FIX-RT-<x>~<n>`, with its own review. A fix job that finished before it could
+edit a finished blueprint (it could only describe the change) also gets
+another round, which applies the change it described.
 
 ## 18. Mistakes in published sources
 

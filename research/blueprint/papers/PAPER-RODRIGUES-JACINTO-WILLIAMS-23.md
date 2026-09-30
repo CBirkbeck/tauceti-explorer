@@ -105,7 +105,7 @@ Each planned item's note names the packet node that realises it, or quotes the s
 
 ## The routes
 
-All ten missing items are small, and each lies in the stated direction of a layer of a roadmap built from these notes. So every route is a **source** route; no new roadmap or Part II is proposed.
+All ten missing items (nine after the review, which found Vandiver's conjecture planned) are small, and each lies in the stated direction of a layer of a roadmap built from these notes. So every route is a **source** route; no new roadmap or Part II is proposed.
 
 A source route also names the planned items that a layer's text covers but its packet has not yet decomposed into nodes. The paper is the natural blueprint source for those nodes.
 
@@ -125,7 +125,7 @@ A source route also names the planned items that a layer's text covers but its p
    - Theorems 10.2 and 10.13, the Coleman map, and Theorem 10.15 with its sign corrected;
    - the Λ(Γ)-linearity of the Coleman map, Theorem 12.17(ii), and Lemmas 12.20–12.22;
    - the splitting C_{∞,1} = ℤ_p(1) × C_{∞,1}^+ that the proof uses without proof, and Theorems 12.23(i) and 11.9.
-4. **IntegralIwasawaTheory** (L0–L4; 34 items). These layers are titled after "the notes", and only L0 has nodes (11, in the I.8 packet). The one missing item is the statement of Vandiver's conjecture (Remark 13.17, item 462): L3 defines Vandiver(p), and the conjecture belongs there as a stated proposition only. The planned items are the Galois-module side:
+4. **IntegralIwasawaTheory** (L0–L4; 33 items after the review). These layers are titled after "the notes", and only L0 has nodes (11, in the I.8 packet). No item here is missing: the statement of Vandiver's conjecture (Remark 13.17, item 462) is planned at packet node ArithmeticKTheory:N.7/vandiver-separation, and L3 defines Vandiver(p) and uses it only as a named hypothesis (corrected by the review). The planned items are the Galois-module side:
    - 𝒳_∞, 𝒴_∞ and their Λ-action, the class field theory sequence (13-1), and Leopoldt for ℚ(µ_{p^n}) with its rank corrected;
    - control (Propositions 13.15, A.5–A.8), Corollary 13.16 and Theorem 13.11;
    - Corollary A.13, Ferrero–Washington, and Greenberg's Conjecture A.15, stated for p-parts.
@@ -135,7 +135,7 @@ A source route also names the planned items that a layer's text covers but its p
    - Greenberg–Stevens' trivial zeros;
    - Schneider's theorem that the p-adic Main Conjecture implies p-adic BSD when the p-adic height is nondegenerate (item 37).
 
-   L5 is charged to state "the Greenberg and Coates–Perrin-Riou conjectural generalizations from RJW as mathematical propositions with all their inputs", and these statements join it. **Its blueprint must add their inputs, the p-adic height pairing and the ℒ-invariant, which no atlas layer builds.** Also named: the Main Conjecture for elliptic curves (§2.2.2) and the Coates–Perrin-Riou existence conjecture.
+   L5 is charged to state "the Greenberg and Coates–Perrin-Riou conjectural generalizations from RJW as mathematical propositions with all their inputs", and these statements join it. **Its blueprint imports their inputs: the p-adic height pairing from SelmerIwasawaCohomology, Part II: p-adic height pairings and bi-extensions of cycles (SelmerComplexesAndPadicHeights, accepted in the review of PAPER-DISEGNI-LIU-24), and the Tate period for the ℒ-invariant from Tau Ceti EllipticCurves Layer 4; it defines the ℒ-invariant itself.** (Corrected by the review; the extraction said no atlas layer builds these.) Also named: the Main Conjecture for elliptic curves (§2.2.2) and the Coates–Perrin-Riou existence conjecture.
 7. **LocallyAnalyticDistributions** (L3; 3 items): weight space as p − 1 discs, Amice's description of measures on ℤ_p^×, and the Mellin transform of §5.3.
 
 ## Mistakes in the paper
@@ -214,3 +214,45 @@ These were noticed while checking statuses. They are recorded here, not fixed, s
 - Every planned stage id is an atlas stage id, and every cited packet node id exists.
 - Every library citation was read at the pinned commits, and all 247 cited names resolve in the pinned Mathlib and Tau Ceti trees, checked by name and namespace.
 - Every source issue was checked at the published text and the arXiv v2 LaTeX. Rendered page images were used where the extracted text was garbled, and small numerical checks were run where a formula was in question (Lemmas 5.5, 5.9, 5.10, Remark 5.3(i) at n = 2, Theorem A.3's example).
+
+## Corrections by the independent review
+
+REV-PAPER-RODRIGUES-JACINTO-WILLIAMS-23 (Claude Code, session `cc-f805bf`, 29 September 2026) made these changes. After them the extraction has 540 items (72 library, 459 planned, 9 missing) and 110 source issues.
+
+- **Source issues.** A `review` verdict is added to each of E1–E103; all 103 are confirmed at their locators in the published text (page images for every formula in question). E60's correction now leads with Rubin's c̃_m, since the smoothed family (ξ_m^a − 1)/(ξ_m − 1) fails Definition 10.16's p-relation at n = 0, and it spells out the multiplicative norm relations.
+- **Seven new issues**, E104–E110, all confirmed on page images:
+  - E104 (gap): the proof of Lemma 5.10 sums a divergent geometric series.
+  - E105 (misprint): Lemma 10.11(iii) works modulo 𝔭_1ℤ_p⟦T⟧ where 𝒪_{K_1}⟦T⟧ is meant.
+  - E106 (gap): §12.1, 'fixes 1 ∈ µ_{p−1}, so it stabilises 𝒰_{∞,1}'.
+  - E107 (gap): the proof of Proposition 11.5 needs I(Γ) to be principal.
+  - E108 (gap): the proof of Corollary 13.16(iii) says 'by definition' where the order of closure and intersection must be exchanged.
+  - E109 (misprint): Appendix A defines r_2 as the number of complex embeddings.
+  - E110 (misprint): B.2.1 writes v_p(α) for v_p(α_p).
+- **Statuses.**
+  - Item 147 (principal augmentation ideal of a finite cyclic group ring) is library: Mathlib `Rep.FiniteCyclicGroup.leftRegular.range_applyAsHom_sub_eq_ker_linearCombination`.
+  - Item 462 (Vandiver's conjecture) is planned at ArithmeticKTheory:N.7/vandiver-separation, and leaves route 4.
+- **New item 540**, the norm compatibility of the cyclotomic unit groups that Definition 11.8 needs. It is planned at ColemanPowerSeries:L4 and added to route 3.
+- **Statements.**
+  - Item 3: A_0 = xζ_p/2 is not a pseudomeasure (E54).
+  - Items 1, 2 and 241: the conventions of E35, E36 and E44.
+  - Item 222: the compatible choice of roots of unity in the Gauss-sum factorisation.
+  - Item 247: the parity argument no longer repeats the k = 1 slip of E34.
+  - Item 262: an integral domain.
+  - Items 286–288: a broken sentence.
+  - Item 351: stated at finite level.
+  - Item 355: the Euler system is Rubin's c̃_m.
+  - Item 456: n = 0 is not trivial.
+  - Item 489: cites E109.
+  - Item 506: finiteness hypothesis.
+  - Item 507: p odd dropped; the lemma holds for p = 2.
+  - Item 522: in the θ-critical case Bellaïche's function vanishes at classical characters and does not satisfy Theorem B.1's formula.
+- **Locators.** Items 140–150 are on printed pp. 130–131, not 131–132. Also corrected: items 242 (Remark 3.47 is on p. 135), 373, 404, 405 (p. 182) and 534 (§13.5.3 is on p. 198).
+- **Notes.**
+  - Item 446 cited a node that does not exist; it now cites EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture.
+  - Dangling 'E/E4' and 'E/E6' references in items 333 and 351 are fixed.
+  - Nearest library results are added to items 42, 74, 87 and 369.
+  - Item 457 is marked as the same statement as item 500.
+- **Routes.**
+  - Route 4's reason no longer claims a missing item.
+  - Route 6's reason no longer says that no atlas layer builds the p-adic height. The accepted Part II SelmerComplexesAndPadicHeights plans Nekovář's height, and Tau Ceti EllipticCurves Layer 4 has the Tate curve.
+

@@ -1,0 +1,47 @@
+{
+ "paper": "PAPER-SCHOLZE-15",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "R07.6's text plans 'the deformation-theoretic tangent and obstruction calculations', the roadmap README (ownership paragraph) makes R07.6 the owner of deformations of finite flat/p-divisible groups over nilpotent bases, and R07.6 alone in that roadmap depends on DerivedDeRhamCohomology DD.0–DD.1, which supply the cotangent complexes behind the co-Lie complexes ℓ̌_H, ℓ̌_G of Theorem 3.2.1. The stage graph runs R07.6 → A4 → T0 → T3, so the consumer (Corollary 3.2.2 in T3) sits downstream; no cycle. I searched stages, packets, decompositions and the Mathlib/Tau Ceti baseline: nothing plans Illusie's obstruction theory for group schemes. Overlap to record: PAPER-PILLONI-20's accepted route 11 names Illusie LNM 283 as a source for R07.1–R07.2 and routes a consequence of Th. VII.4.2.5 to R07.1; plan the theorem once, here (itemChanges, item 27)."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "The route's stages are the right owners, but its reason and the notes of items 30 and 57 name the wrong one. Item 28 (Corollary 3.2.2, the explicit-constant lifting lemma behind canonical subgroups, uniform in p = 2) belongs in T3 ('existence, uniqueness ... of canonical subgroups', 'independent proofs for the p = 2 estimates'). Items 30 and 57 do not belong in T3, whose text takes 'the Hasse neighbourhoods R2/H2/C6' as input. They belong in T0, which is also named: T0 plans 'the relevant Hodge ideal' and the extension 'to semi-abelian degeneration charts with the explicit toric/abelian pieces', and the accepted route 8 of PAPER-PILLONI-20 already gives T0 'Ha(G) = det V^⋆ ... for a BT_1 G over any F_p-scheme'. Ha(A/S) is the case G = A[p], and Lemma 3.3.2 sits in the situation of Proposition 3.3.1, which T0 plans (item 56). The route reason's claim that nothing supplies the Siegel Ha is true of R2/H2/C6 but not of T0 after PILLONI-20. Accept with the note corrections in itemChanges (items 30, 57). The planned items (29, 31–35 in T3; 39–41, 61 in T3/T4; 56 in T0/T2; 59 in T2) are all planned in stages the route names; T3/T4 are written for BHW's Hilbert case, but PerfectoidShimuraVarieties S1 ('The Siegel construction') depends on T3–T4, which is the extraction's reading and I accept it. The route reason and the notes of items 30 and 57 were corrected in place."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "As corrected in place, the route now carries item 80 only (Proposition 5.1.1, the holomorphic discrete series π_k of Sp_{2n}(ℝ) and U(n,n)) to AF.1/AF.4. That is where the accepted routes of PAPER-PILLONI-20 (13), PAPER-CALEGARI-GERAGHTY-20 (10) and PAPER-BOXER-PILLONI-26 (14) put discrete series and their Harish-Chandra parameters. The original route also sent item 81 to AF.5. That item is a statement on the minimal compactification of a Shimura variety, which AutomorphicFormsOnReductiveGroups (upstream of all Shimura-variety roadmaps) cannot state, so it moved to route 6."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Planned items only. PerfectoidShimuraVarieties names 'Scholze's construction for Siegel/Hodge type' as a selected source, and there is no PerfectoidShimuraVarieties packet or decomposition (checked research/blueprint/packets and data/decompositions). Every item names at least one of S0–S3 in its planned list, and the stage texts cover them. S0 covers the p-level towers and limits (26, 58). S1 covers the anticanonical tower, Frobenius-approximating transition maps, perfectoidness, the covering by translates, the minimal compactification and the closedness of the boundary (38–54, 59, 61–63, 65, 66). S2 covers Hodge type (68–70, and 114's use of Theorem 4.1.1 for unitary similitude groups). S3 covers the period map and π_HT*ω (64, 65, 67, 69, 71). If the Lagrangian-J correction in newIssues is adopted, S1/S2 should state Theorems 3.3.18(i)/4.1.1(i) for Lagrangian J."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Planned items only. The TC README's source table maps §§2–5 to TC.0–TC.4 and the named suppliers, and there is no TC packet. Every listed item names one of TC.0–TC.4 in its planned list, and the stage texts cover them: TC.0 the bounded-function extension theorem and Hartogs; TC.1 the ω ≅ π_HT*ω_Fl lattice comparison and approximation; TC.2 the completed/torsion comparison and amplitude; TC.3 the Levi Satake identities and factor extraction with nilpotent coefficients; TC.4 the specialization output. One caveat, which the extraction raises itself: TC's summary says the target is 'not an additional requirement to formalize its final Galois-representation theorem', and TC.4 says 'No new terminal claim about all Galois representations of all groups is part of this layer'. So calling Theorem 5.4.1, Corollaries 5.4.3–5.4.4 and Theorem 1.0.3 (items 3, 109, 111, 112) planned rests on reading that as a statement of scope. I accept that reading. IgusaVarietiesAndTorsionConcentration IG.6 depends on TC.4 for 'lower-rank torsion Galois systems', which is exactly Corollary 5.4.3, and three accepted extractions (PAPER-ALLEN-ETAL-23/69 and /72, PAPER-CARAIANI-NEWTON-23/thm-2-1-24, PAPER-CARAIANI-SCHOLZE-24/2) mark the theorem planned in TC.2–TC.4/IHG.5. The design job for TC should state Theorem 5.4.1 explicitly and use the corrected proof steps in newIssues (the new-ℓ condition before Lemma 5.3.6, the kernel containment in Corollary 5.4.2)."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Added in review. Item 81 joins the Part II IntegralCoherentHeckeComplexes (parent AutomorphicBundles), which PAPER-CALEGARI-GERAGHTY-18 proposes. The item says that the Hecke eigensystems on holomorphic cusp forms H^0(X*_K, ω^k ⊗ ℐ) are those of cuspidal π with π_∞ ≅ π_k, semisimple by the Petersson product. Three accepted extractions join that Part II with the same dictionary, and planning it once there avoids a second owner."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Added in review. The compactly supported torsion primitive comparison used in Theorem 4.2.1 goes with Scholze 2013 Theorem 5.1. The accepted routes of PAPER-SCHOLZE-13 (1) and PAPER-ZAVYALOV-25 (7) already send that theorem to PadicHodgeTheory P8, and the P7 packet records that no stage owns Scholze 2013 §5 yet."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Added in review. Clozel's result says that a regular L-algebraic cuspidal representation of GL_n contributes to cuspidal cohomology with the matching coefficients. That is the characteristic-zero comparison of Betti and relative Lie algebra cohomology with automorphic forms which ALS.5 plans, consuming AutomorphicSpectralTheory AS.5 and AF.4's cohomological representations."
+  }
+ ],
+ "notes": "Independent review by Claude Code, session cc-48533a (issue #4504); the extraction is by cc-39fac3. Read: the published Annals text (SHA-256 ebac854f…cbd16) and arXiv v2 (e15abf4e…3ab285) with its TeX source. The extraction was corrected in place:\n- 64 item corrections to locators, statements, statuses and notes;\n- 13 items added (/115–/127): 11 planned, and 2 missing, both routed;\n- route 3 split, three routes added (6–8), and route 2's reason corrected;\n- E1–E11 confirmed, with E2, E4 and E7 reworded;\n- 35 new mistakes recorded (E12–E46), each with the review's verdict.\nScope question left for the maintainer. TorsionCohomologyInfrastructure's summary says its target is 'not an additional requirement to formalize its final Galois-representation theorem'. Against that, TC.3 plans the determinant extraction 'at the arithmetic point of use', IG.6 depends on TC.4 for lower-rank torsion Galois systems, and CompletedCohomologyPartII CC.8 assigns torsion Galois determinants to TC/IHG. The review keeps Theorem 5.4.1, Theorem 1.0.3 and Corollaries 5.4.3–5.4.4 planned in TC.3–TC.4 with IHG.5. It recommends that the TC design state Theorem 5.4.1 explicitly, with the corrected proof steps (E39, E44, E45). Prerequisites: all five DOIs match Crossref, and none of the papers is an atlas source. Four are already requested by other extractions (FGL, Shin's appendix, Morel, Caraiani–Le Hung), and PAPER-PILLONI-20 already asks for Illusie LNM 283, so the maintainer should merge these requests. Morel is cited only as an alternative ('cf. also') in Remark 5.4.6."
+}

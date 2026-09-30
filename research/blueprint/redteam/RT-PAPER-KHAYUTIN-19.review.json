@@ -1,0 +1,60 @@
+{
+  "redteam": "RT-PAPER-KHAYUTIN-19",
+  "findings": [
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against published Lemma A.6 and Corollary A.7, pp. 258–260, arXiv v3 source, and items 104/119. For Z_2+2Z_2[sqrt(-2)], all unit norms are a^2+8b^2 (a odd), hence 1 modulo 8; odd scalar squares supply all of 1+8Z_2. For Z_2+4Z_2[i] the same argument uses a^2+16b^2. The primitive reduced forms of discriminants -16 and -32 give class numbers 1 and 2, respectively. The corrected nonmaximal dyadic cases are right, including the split etale case under 'unramified': with t=v_2(f), norm images are maximal for t=1 and d_E-valuation 0 or 2; 1+4Z_2 for t=2 and d_E-valuation 0; 1+8Z_2 otherwise. The wild INDEX depends on t and v_2(d_E), not merely whether 2 ramifies; this does not mean those data determine E_2 itself. Keep the abstract local-index genus formulas and record the faulty dyadic evaluation as a source error. Independent residue checks covered all eight quadratic etale square classes modulo 64; no claim is made to repeat the red team's 3000-discriminant scan."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a corrected rescaling witness. Published pp. 235–237 and item 87 omit k_0 from the local-density argument. Take Q=x^2+3y^2, f=1, k_0=2, k_1=1, k_2=3, and the canonical representative l=2 modulo 3. The left side includes (1,1), whereas rho_Q(2;3)=0; a sufficiently large disc meets the remaining size hypotheses (e.g. theta_l=3/4, eta=1/10, delta=4). CRT requires rho_Q(k_0 k_1 l;k_1 k_2). The Proposition 9.25 proof separately needs (R/k_0)^theta_l <= (A/k_0^2)^(1-3eta). Use A=10^12, R=10^7, k_0=10^5, theta_l=3/4, eta=1/10: both printed curvature assumptions hold, but 10^(3/2)>10^(7/5) violates the rescaled one. Unlike the proposed witness, k_0 is integral and theta_l is admissible. This establishes a proof gap, not a counterexample to the conclusion of 9.25. For the application of 9.26, k^2<=A^eta gives the repaired curvature inequality; p. 245 already has the correct rho_Q(m;(D_0D_1)^2). Retain the separate E25 rescaling repair."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed against published pp. 218–219, v3 Lemma 112 and item 74. For n>=1 and a in A_p intersect K_p, the index is (p+1)p^(2n-1), by counting two oppositely directed length-n paths from the common midpoint. For a translating the midpoint a positive distance it is p^(2n). Exact GL_2 congruence counts for p=2,3,5 and n=1,2 independently check the centered case. Correct the proposed fix at n=0: the two subgroups coincide, so the ratio is 1 for every a. Thus use p^(2n) when n=0 or a is not in K_p, and (1+1/p)p^(2n) otherwise. The bound between p^(2n) and (3/2)p^(2n) suffices for the application; the upper bound on the denominator measure used on p. 219 still has the needed direction."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed against published pp. 162/172, v3 and item 8, but the 'nothing downstream' assessment of compactness is too strong. Multiplication by rational -1 makes every idele class have positive infinite component; a rational multiplier between two positive representatives must be positive. This proves the claimed positive quotient is the entire double-coset target, not an index-two subgroup. Valuation parity maps both the full and positive-infinite idele square-class groups onto the infinite discrete direct sum over finite primes, proving noncompactness in both quaternion signatures. Use locally compact abelian groups and a bijective double-coset norm map. Also repair p. 254/footnote 11 and item 123, which explicitly rely on the same false compact-fibre assertion. A replacement is available from the volume definition in section 7.2: conjugation by xi_1 preserves Haar measure on G(A)^+ (the semisimple adjoint determinant has absolute value one locally), so the simply connected Hecke volume equals m_{G(A)^+}(Omega intersect c Omega c^-1)^-1, c=ctr(xi). It factors through c directly; no compactness of the fibre is needed. Record compactness as a proof error at that use, not merely an innocuous misprint."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Published pp. 171, 176, 178 and 238 explicitly use the one-coordinate adelic equidistribution/tightness input. A search of all 124 item statements gives no such standalone theorem; notes of items 1/27 and the route-1 import sentence do not supply its statement. The prerequisite array has Duke, Iwaniec, EMV and Zhang, but not Lin68. The neighboring Duke–Imamoglu–Toth extraction's item 53 and route 1 concern the modular-surface genus statement, not arbitrary quaternionic adelic packets. Add the precise rank-one imported theorem, including the CM/archimedean normalization, fixed split prime, growing discriminant, probability normalization, tightness and G(A)^+-invariance of limit measures. Identify its source and bridge to GN.4 without re-proving or duplicating that owner's split surface input; add Linnik's cited book. This review verifies the missing interface and its uses, not a new proof of Linnik's theorem."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed with the disjunctive qualification. The published conclusion, pp. 253–256, and item 124 require overlap of (2-1/theta_l)/3 and 1/(2+2/(1-theta)); at theta_l=2/3 and theta=1/2 both equal 1/6, with no room for the positive margins. Huxley's endpoint gives 18/131<1/6, so choose theta_l strictly between 131/208 and 2/3; alternatively a theta<1/2 allows a sufficiently close theta_l>2/3. Huxley is not indispensable if the Ramanujan improvement is supplied, but the current brief supplies neither gap-closing choice and omits the small-norm/entropy assembly. Extend it using items 123/124 and the exact overlap inequality. Add the missing Linnik, Siegel, Hecke–Landau, Conrey–Iwaniec, matrix-coefficient/Jacquet–Langlands and entropy references identified in the paper and item notes. Distinguish alternative exponent inputs from simultaneous prerequisites; do not claim that either strict improvement suffices with arbitrarily poor value of the other exponent."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a reuse and ownership defect, with a narrower library comparison. I read the three cited declarations at Tau Ceti f790474 and the reviewed Multiquadratic audit (layers 2–3 built). The principal-genus theorem is about the narrow maximal-order class group; the two-rank theorem assumes an imaginary quadratic field with squarefree radicand; genusCharFun is a product of prime-discriminant characters. They supply the maximal-order algebra after the imaginary narrow/ordinary and character-evaluation adapters, not the arbitrary-order theorem verbatim. In particular item 104's local norm classification does not become any one of these three declarations at f=1; its nonmaximal clause does not even have f=1 in its domain. Cite relevant near misses per item, not all three as exact specializations. Route the nine genus items 101–107/119/120 to the existing MultiquadraticPartII direction and explicitly import the built theory (or document an approved HE.0 import interface). Preserve HE.0's local-different items 36 and 37 as well as 10–15 and 114: the proposed 'keep only' list accidentally drops them. HE.0's current dependency contract does not name Multiquadratic."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed metadata defect, with a count correction: exactly five, not six, existing issues have affects='a stated result' (E13/E30/E31/E32/E34), matching the five collation requests. sourceVersions is absent; source.read still says print was inaccessible, while readSections and every searched list append the later published reading. I fetched print and the v3 PDF/source archive and reproduced all three hashes; arXiv dates v2 to 18 October 2017 and v3 to 22 October 2018. Add structured version records with dates attributable to the actual reader (this verification read the relevant passages on 30 September 2026), identify archive versus PDF hashes, and update both source.read and searched prose so historical limitations are not presented as current. The earlier review's 23 September reading can be retained with attribution. Regenerate the collation worklist through its normal authorized workflow, not as an extra file in this review PR."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed all six subpoints at the published locators and named source-issue/item records. Theorem 8.7 on p. 203 restricts ctr(xi) at p_1; p. 238 Lemma 10.1 asks for all xi although its proof uses only Xi_1. Restrict the sufficient criterion to Xi_1 (both primes), and the item-123 correlation estimate to the p_1 condition actually proved. On p. 248 the proof factor omega log omega disagrees with the |omega|^2 supplied by Lemma 10.11. Equations (56)–(57), pp. 254–255, put the epsilon loss on the stronger-decay side; use 1-theta-epsilon and take epsilon small relative to the existing epsilon_1 margin. Definition 2.4(2) needs the conjugated ball consistent with Definition 2.1/Remark 2.5, in addition to E7's volume normalization. The p. 179 proof needs (G times G)(Q_S)^+ in E12. For E13, epsilon=7^3*3 cannot be a cube of a Q_7 uniformizer because unit cubes mod 7 are only 1 and 6. Keep the matrix-entry repair epsilon*pi^(-k)*beta, not an always-available root normalization."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the item statements, review report and published pp. 185/188/194/241/245–246/253–255. Item 92 includes Lemma 5.10, which the separately added item 117 repeats while denying its presence in 92; retain the richer item 117 and remove that duplication/stale note. E25's repair is not propagated consistently into 96/100/123: use theta_l curvature exponent 1-16eta and 0<eta<1/8 consistently (also in all later statements using that same eta). Lemma 10.4 gives A proportional to sqrt(|D|), so the originally asserted X<=A is indeed the wrong scale; shrinking eta preserves the final strict large-norm margin. The no-exceptional-zero input at p. 253 is the upper bound on L'/L, not a substitute for Siegel's ineffective class-number bound. Correct item 91's explanation and explicitly retain the ineffective o(1) in 124. In item 46 take the fibre over pi_W^0(gamma_0), since gamma_0 is a point of G, not of W. Also apply findings 4/9 to item 123's separate compactness and xi-scope defects."
+    },
+    {
+      "finding": "RT-PAPER-KHAYUTIN-19/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed that the cited ownership is only partial. Printed p. 159 and item 6 include classification of Q-forms of PGL_2 and the quotient identity (5). I read QuadraticFormInvariants layers 2/7 and AA.1/AA.3: quaternion norm/splitting and reduction-theoretic class-set finiteness do not state either missing comparison. Hilbert 90 gives surjectivity of B^x(F)->G(F) for Q and Q_v; the adelic statement additionally needs compatible integral lifts outside finitely many places, not just a product of unrestricted local lifts. Split the covered quaternion/class-set content from missing classification and central-quotient comparisons, or mark the combined item missing with explicit partial-coverage notes; do not invent a 'partly planned' status value. AA.1 is a suitable source interface for the adelic central quotient. The classification of all forms still needs an explicit source/owner, or an expressly narrowed scope to G=B^x/Z; AA.1's existing prose alone is not a classification theorem."
+    }
+  ]
+}

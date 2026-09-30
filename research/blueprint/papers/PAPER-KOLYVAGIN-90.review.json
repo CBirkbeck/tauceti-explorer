@@ -1,0 +1,52 @@
+{
+ "paper": "PAPER-KOLYVAGIN-90",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The stages are right for the steps of Kolyvagin's method in Rubin's form. The universal Euler system and its freeness, δ_L and the induced modules, the derivative classes and their local behaviour, the congruence, and the Chapter IX variants are system objects, derivative maps and descent arguments. The EulerSystemsAndKolyvaginSystems README gives ES exactly these ('This roadmap owns only the extra auxiliary-prime conditions, system objects, regulator/derivative maps, core vertices and descent arguments'). As submitted the route carried 70 items, and fifteen did not belong. (a) Lemma B.3.2, Proposition B.3.3 and Corollaries B.3.4–B.3.5 are the packet nodes SelmerIwasawaCohomology:L3/iwasawa-cohomology and L3/universal-norms-unramified, which cite Rubin App. B §3. Proposition IV.6.1 is planned there too. Proposition IV.4.5(ii)–(iii) is in Tau Ceti at the pinned commit (TauCeti.ContCohomology.DiscreteShortExact.explicitDelta0_apply, explicitDelta0_res, explicitCor_delta0). (b) Remark II.2.7, the Selmer form of Leopoldt's conjecture, goes to SelmerIwasawaCohomology L4 (route 6). (c) Lemma IV.3.3 and Remark IV.3.5 are generic completed-group-ring algebra, which the ES README sends to 'Mathlib or the corresponding algebra owner'. They go to PadicMeasuresIwasawaAlgebras L1/L6 (route 7). (d) Example IX.6.2 builds a specific Euler system, so it goes to EulerSystemsCyclotomicMainConjecture L0 (route 3). (e) Three items were deleted. Two are the Introduction's one-sentence history (Flach's classes, elliptic units), which nothing on the way to the main results uses. The third is Remark B.2.6, an unused illustration whose printed claim is false (E5). The route gains three missing items: the general-χ derivative classes of IX §4 and Remark IX.4.4 (HE.4 plans only the Heegner case d = 2), and Appendix A Corollary 2.6, the source of the 2b error term of Chapter V §3. It now has 58 items."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. Six items fit KatoEulerSystems L3/L4. Proposition III.5.1 is the local exp* image in L4's integral bound. Corollary III.5.6 goes through Rohrlich's twist nonvanishing, which L4 names ('the analytic twist-nonvanishing theorem … including the cyclotomic-family theorem used in Kato's argument'). Corollary III.5.18 goes with Theorem III.5.11(ii), already planned in L4. Proposition III.5.8(i)–(ii) and Remark III.5.10 verify the hypotheses for Kato's classes, which L4 plans ('after verifying the representation-theoretic and local hypotheses for these actual classes'). They are now planned there and stay in the route as planned items Rubin is a good source for. Three items moved. Remark III.5.9 is Serre's open-image theorem, the theorem of g-serre-open-image, which is planned in HeegnerPointEulerSystems HE.7; one theorem cannot be planned under one item and missing under another, so it is planned there too. Proposition III.5.14(b), the split-multiplicative property of the Coleman map, goes with Proposition III.5.14(a) to PadicHodgeRegulators L3/L4 (route 8). Corollary III.5.17, Greenberg's no-finite-submodule theorem for Z_∞, goes to ModularIwasawaMainConjectures L0, which defines that module (route 9)."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The route sent Theorem IX.1.2 (|A_L^χ| = [E_L^χ : C_{L,χ}] for even χ) to L1/L3. That theorem is planned: L4's packet node greither-gras-conjecture plans the class-number equality for real abelian fields (Greither, Theorem 4.14 and Corollary 4.15). The route now carries what L0 owns. Example IX.1.1 is the cyclotomic Euler system c̃_m = (ζ_m − 1)(ζ_m^{-1} − 1) twisted by χ^{-1}, and L0 says 'Construct the cyclotomic example from actual norm-compatible cyclotomic p-units … Prove both the p-power norm relation and the auxiliary-prime Euler-factor relation'. Example IX.6.2 is the Euler system for Z_p built from the classes of III §4.1 (moved from route 1). The route also takes Iwasawa's theorem that Y_∞^χ is torsion-free of Λ-rank one, which the proof of Theorem III.2.7 cites ([Iw3] Theorem 25), to L2 (Iwasawa divisibility); this item was added in review. The stages are now L0 and L2."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected in place. The Gross items are the steps of the clean-case Heegner argument. The ±-eigenspace dimensions (Proposition 8.1) and the §9 Čebotarev and Kummer-duality argument over L = K(E_p) belong to HE.5 ('finite/singular relation at every auxiliary prime … auxiliary-prime existence by Chebotarev applied to the actual residual representation and the finite extensions cutting out the classes'), with HE.3 for the Kummer classes. HE.6/HE.7 own the rank-one descent and its all-prime strengthening: Proposition 2.1 for almost all p, the finiteness of divisibility of y_K, and the classes d(n) in Ш. Mazur's semistable-image theorem sits with HE.7's open-image bounds, consistently with g-serre-open-image. No roadmap plans Mazur's theorem itself (Tau Ceti ModularCurves Layer 10 excludes it), and HE.7 is its nearest consumer. Corrected in place: the pairing formula (7.6) and the dimension of H¹(K_λ,E)_p are Rubin's Lemma I.4.7 and the local duality of SelmerIwasawaCohomology L1. Both are planned (ES.1, L1), so they leave the route. The isotropy (7.4), the reduction of eigenspaces (3.4), the absence of p-torsion over K and the §9 set-up are planned in HE.4–HE.6 and stay as planned items Gross is a good source for. Proposition 2.1 (Ш), Proposition 2.3 and Claims 10.1 and 10.3 join the route as missing: HE.6 plans the Kolyvagin bound only under Howard's hypotheses (p ∤ DN, surjectivity onto GL₂(ℤ_p)), while Gross needs only mod-p surjectivity and allows p | N. The unramified cohomology of E and the component group (Milne) joins it with HE.3's local conditions. Two minor points do not change the route. g-sec11-question-subgroup is Gross's open question ('What subgroup of Ш(E/K)_p can be constructed in this manner?'), which would be better as a note than as an item. g-sec12-bertolini-darmon fits HE.8 only loosely, but no HE layer fits better. The route has 25 items."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. Gross's Conjecture 1.2(2), #Ш(E/K) = (I_K/(c·∏m_p))², is the Heegner-index form of the rank-one BSD formula. That is BSD.5's 'Rational leading-term quotient and Heegner index formula', which 'Relate[s] the height of a non-torsion Heegner point to the squared index' and separates index bounds from the exact formula. The X₀(37)/w₃₇ example (curve 37a) is a rank-one test curve of the kind BSD.9 plans ('Test rank-zero and rank-one curves with known rational points'). Both items are missing and routed once."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Remark II.2.7 says that for T = O the Selmer group S_{Σp}(K,W*) is finite if and only if Leopoldt's conjecture holds for K. SelmerIwasawaCohomology L4 plans Corollary I.6.4, one direction of it ('Recover R06's class-group and p-ramified modules from the Selmer groups of Tate twists'), and the ES README sends Selmer carriers there."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Lemma IV.3.3(i)–(ii) and Remark IV.3.5 are generic completed-group-ring algebra. The lemma gives finite-index restriction and coinduction for R[[G]] and the Ext¹ vanishing. The remark gives self-injectivity of (O/M)[G] for finite G and its failure for (O/M)[[Γ]]. PadicMeasuresIwasawaAlgebras L1 plans 'restriction/induction and finite-index norm maps, and their projection formulas', and the ES README names PadicMeasuresIwasawaAlgebras L6 as the owner of self-injective Artinian reductions."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Proposition III.5.14(b) says that in the split multiplicative case the image of Col_∞ lies in the augmentation ideal. The Coleman map itself (Proposition III.5.14(a)) is planned in PadicHodgeRegulators L3, and the non-crystalline case is L4 ('Signed and noncrystalline extensions'). KatoEulerSystems L3 only consumes the map."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept. Added in review. Corollary III.5.17 is Greenberg's theorem that the dual Selmer group X = Z_∞ has no nonzero finite submodule. ModularIwasawaMainConjectures L0 defines X and proves its structure ('Its dual X is compact … Prove finite generation and torsion under the hypotheses of the relevant theorem'), and the extraction plans X itself there. Neither Kato layer mentions finite submodules."
+  }
+ ],
+ "notes": "Accept. The extraction reads Kolyvagin's non-public article through Rubin's Euler systems (1999 draft) and Gross's exposition, as the maintainer asked, and its coverage and routing are sound. Corrected in place: 90 items (160 field changes), 11 items added, 3 deleted, four routes added and five reshaped. The corrected file has 411 items (304 planned, 14 library, 93 missing), 9 routes (all accepted) and 51 recorded mistakes. The review found Rubin's final version of the book (xi+227 pp., the published pagination): 13 of the 32 Rubin issues are corrected there, and the rest stand. All 39 recorded mistakes are confirmed; 12 are new. The E25 correction now follows the author's own form of Theorem 9.3.3. Prerequisites: Kato 2004 is removed (already an atlas source), Serre 1972 is narrowed to §4, and Greenberg 1989 and Rohrlich 1984 are added. Details in research/blueprint/reviews/REV-PAPER-KOLYVAGIN-90.md."
+}

@@ -1,0 +1,47 @@
+{
+ "paper": "PAPER-MASSER-ZANNIER-20",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected. LD.6 plans Pila–Wilkie counting outside the algebraic part, definability of uniformisation, applications 'from separate Galois-orbit bounds, definability of uniformization and functional-transcendence theorems', and source-scoped André–Oort cases, so it owns Pila's blocks, Ax–Lindemann and the weakly special geometry. PAPER-TSIMERMAN-18's accepted route 1 is the precedent: it classes hyperbolic Ax–Lindemann for A_g and special and weakly special subvarieties as planned in LD.6. Corrected in place: item 21 (Pila–Tsimerman, Theorem 6.1) is planned there; items 22 and 23 join from route 2; item 65 leaves for route 8, since LD.6 takes Galois-orbit bounds as inputs. LD.6's only inputs are LD.0, DT.0 and SF.0, so the links PELModuli:M5 → LD.6, ShimuraData:D5 → LD.6 and ModularCurvesPartII:R12.1 → LD.6 are needed; none closes a cycle."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected. As submitted it sent weakly special subvarieties of A_g and Gao's lemma (items 22, 23) to ShimuraData D4, but A_g is downstream of D4 (D4 → D5 → PELModuli M5), and MOK-PILA-TSIMERMAN-19's accepted review rejected the same placement. Corrected in place: the route keeps only D1 and item 4, narrowed to the Mumford–Tate definition of Hodge genericity and its consequences (simple, End = Z), which continue D1's Hodge structures; the special-subvariety characterization moved to item 22, in route 1."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as corrected. R01.6 owns Tate modules, and the definition of (p-)Galois genericity (item 5) belongs there. As submitted the route also took Serre's open image for End = Z (item 24), which rests on Faltings' theorems in R28.4 while R01.6 → R28.4 is an atlas edge, so it would close a cycle; Deligne's open monodromy (item 25), which needs A_g (PELModuli M2, M5), not upstream of R01.6; and the Cadoret and Pink implications (item 6). R28.6 plans its isogeny results 'without requiring the full Serre open-image theorem', so no existing layer downstream of R28.4 owns them. Corrected in place: items 6, 24 and 25 moved to route 7, whose brief now imports R28.4 and PELModuli."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept. IG.2 plans Hilbert irreducibility over number fields with full-group specialization; Serre's Frattini form and thin sets and Cohen's count of integral points in thin sets are the quantitative refinement Lemma 5.1 uses (p. 659), and no stage mentions thin sets. Cohen's theorem uses the large sieve, planned in SieveMethodsAndPrimePatterns SV.2, which is unrelated to IG.2 in the atlas: the blueprint needs the link SV.2 → IG.2, which closes no cycle, or a self-contained proof."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. Φ_m is the integral plane model of Y₀(m) in the (j, j′)-plane, and R13.4 constructs the integral coarse curves with Γ₀-level and their degeneracy correspondences, with R12.1–R12.3 and Tau Ceti ModularCurves 9e among its ancestors. No stage plans modular polynomials (the Φ_N of Tau Ceti ModularCurves layer 5 is the cyclotomic polynomial), so nothing Tau Ceti is re-planned. PAPER-GROSS-ZAGIER-86 sends Kronecker's congruence for Φ_m to CM.3/CM.5; CM should import Φ_m from here through the link R13.4 → CM.3, which closes no cycle."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. The route coalesces exactly with PAPER-TSIMERMAN-18's accepted route 10 (same parent, id, title and area), so its items join DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII; R28 is qualitative and no stage plans the Masser–Wüstholz estimates. The brief matches Lemma 2.2, Lemma 4.4 and [25, Lemmas 8.4 and 8.6]. Corrected in place: item 70 (the degree and Rosati-length inequalities of [27, Lemmas 2.2 and 2.3] behind Lemma 4.2) joins item 15. RICHARD-YAFAEV-25's accepted route 1 sent Masser–Wüstholz refinements to R28.4; the design should keep all such estimates here."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept as corrected. Nothing in the atlas or in other extractions owns isogeny classes in A_g against the Jacobian locus or a hypersurface; the only other 'Jacobian locus' item (BOXER-CALEGARI-GEE-PILLONI-25) is a different object. Corrected in place: the brief states the 16-torsion as the remark after Theorem 1.1, adds Theorem 1.3's last sentence (D(Ã, Ψ) = 2^{16g⁴} is attained over Q) and imports Siegel sets (AA.3, V0), Siegel modular forms (AutomorphicBundles B4–B5, ShimuraVarieties V2), R28.4 and PELModuli; items 6, 24 and 25 join from route 3, and items 71 and 72 are added."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept. Added in review for item 65, the Galois-orbit lower bound for CM points, which LD.6 takes as an input and no layer plans. PAPER-TSIMERMAN-18, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 and PAPER-YUAN-ZHANG-18 route exactly this bound, with the averaged Colmez formula it needs, to 'Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds', and all three routes were accepted; the parent, id, title and area are theirs, so the item joins that design."
+  }
+ ],
+ "notes": "Accept, after corrections made in place. The text read is the version of record, Annals of Mathematics 191 (2020), 635–674, freely available from the journal (SHA-256 8b76bfac…4b60, matching the record); no arXiv version exists, and sourceVersions now records the reading, so collation.py classifies the paper as read in its published form. All five recorded misprints are confirmed on the page images. Seven mistakes are added (E6–E12): a gap in the §3.3 sketch for the families j = n + in0, where the bound 2d³ + 1 ignores that every m with ψ(m) ≤ d must be avoided at once (E10); Lemma 5.5's conclusion, which must be ord(ϕ) > W for its use (E11); the display defining D(A), which repeats E1 and gives determinant 0 instead of 4 for Z[i] (E9); the §1.3 citations [25], [26] for [26], [27] (E6); a sign in the matrix after (42) (E7); the sum Σψ(m) ≤ Σd in §3.1 (E8); and a word slip on p. 635 (E12). None affects a stated result. Routes 2 and 3 placed items upstream of what they need and are corrected in place; all eight routes are accepted, one of them (route 8) new. Four items are added (69–72), and thirty-two existing items are corrected, among them items 21 and 65, which change status. The result has 72 items (56 missing, 13 planned, 3 library). For the orchestrator: links needed, none closing a cycle: PELModuli:M5, ShimuraData:D5 and ModularCurvesPartII:R12.1 → LD.6; SieveMethodsAndPrimePatterns:SV.2 → IG.2; ModularCurvesPartII:R13.4 → ComplexMultiplicationAndExplicitReciprocity:CM.3. Weakly special subvarieties are claimed both by LD.6 (TSIMERMAN-18) and by MOK-PILA-TSIMERMAN-19's Part II; one owner should be chosen. Details in research/blueprint/reviews/REV-PAPER-MASSER-ZANNIER-20.md."
+}

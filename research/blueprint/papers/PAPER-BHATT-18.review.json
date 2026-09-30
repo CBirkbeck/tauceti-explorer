@@ -1,0 +1,52 @@
+{
+ "paper": "PAPER-BHATT-18",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected. P0 plans almost modules, adjoints, almost-flat and almost finite étale algebras and 'the uniform bounds needed for each limit argument', and forbids discarding a derived inverse-limit term, so it is the home of the §3 almost-pro items and the three Remark 4.3 cone items. P1 plans tilts and the sharp map, P2 rational localization and all-degree almost acyclicity, and P3 almost purity. EnhancedDerivedSheaves E1, E2 and E5:animation are ancestors of P0 and P2 on the assembled atlas. Corrected in place: Remark 2.5 is folded into derived-rational, and two items are added, tilt (planned in P1) and algebra-adjoint (the (−)_!! properties Proposition 5.2 uses, for P0). derived-rational uses DD.1's derived completion, so the route needs the link DerivedDeRhamCohomology:DD.1 → PerfectoidSpaces:P2, which closes no cycle."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept as corrected. Q3 is André's flatness lemma and owns the absolutely integrally closed extension of Bhatt–Scholze Theorem 7.14; Q0:integral-algebra plans general integral perfectoid rings. P0–P3 are ancestors of Q3, so Bhatt's geometric proof (root disc, rational neighbourhoods, approximation) can be planned there. Corrected in place: neighborhood-flat and extension-flat no longer depend on the derived presentation or derived completion, which Remark 2.5 says the proof does not need, and Remark 2.4, an attribution, is no longer an item."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept. DD.1 plans derived completion with its Koszul model and 'complete flatness and complete faithful-flat descent', which is Proposition 5.1 (complete-flat, complete-faithful). Nothing under Mathlib/RingTheory/Flat at 082e2d37 states it."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected. E1 plans the derived tensor product and the ringed pullback and pushforward adjunctions (obstruction, cohomology-base-change-map, splitting-through-comparison); E2 plans enhanced inverse limits (tower-roos, pro-zero-roos, module-tower-milnor and the new definition pro-tower); E5:animation plans simplicial commutative algebra (simplicial-perfection). Corrected in place: the proposed owners name the layer. module-tower-milnor's almost clause made an E2 item depend on P0, a descendant of E2; the clause moved to rlim-iso. CompletedCohomologyPartII CC.2 and ArithmeticGaloisDuality D7 also plan derived inverse limits and the Milnor sequence. Both are descendants of E2, so they should import E2's construction; the item notes record this for the orchestrator."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. Lemma 5.3 (hom-pro, hom-lim-one) is an Artin–Rees consequence for finite modules over a Noetherian ring, the kind of adic-completion adapter that PAPER-ANDRE-18-B's accepted route 7 placed in R03.1; Artin–Rees, Krull and the Tau Ceti controlled lift are library items. hom-pro uses pro-tower from E2, and R03.1 is not a descendant of E2: add the link EnhancedDerivedSheaves:E2 → DeformationAndDerivedPatchingAlgebra:R03.1, which closes no cycle, or state the ℕ-indexed notion in R03.1."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept as corrected. As submitted, the route re-planned Tau Ceti StableReduction against the owner records of the accepted RS-27. SF.2 was asked for proper coherent finiteness, which is layer 2's coherent pushforward under proper morphisms, and SF.4 for single ownership of the finite-type-ideal blowup, strict transform and charts, which layer 4 plans. It also said that R2 imports SF.4, although R2 reaches SF.4 (R2 → R3 → AlgebraicModuliForArithmeticGeometry:R09.6 → AbelianSchemesAndArithmeticModuli:A0 → A1 → NeronModelsAndSemistableAbelianVarieties:R11.1 → SF.4), so that import would close a cycle. Corrected in place: admissible-blowup is planned by layer 4, and SF.4 imports it through the link layer 4 → SF.4, which closes no cycle. proper-cohomology, a corollary of planned inputs, moved to route 9. strict-transform states the module version and imports the scheme one. SF.2 leaves the route, and formal-domination joins it from route 7. The SF.4 request records that AdicCoefficientsAndComparisons L5, which also plans flattening by blowup, should import it."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "Accept as corrected. The integral generic-fibre map belongs in R2's direction (admissible blowups and the adic generic-fibre functor). But as submitted both items needed descendants of R2. formal-domination used SF.4's modification results. generic-fiber-map assumed perfectoid sheafiness, although R2 reaches P2 and P3 through R3. Corrected in place: formal-domination moved to SF.4 (route 6), and generic-fiber-map is stated for p-adically complete, p-torsionfree A with (A[1/p],A) sheafy. The perfectoid instance, with sheafiness from P2, and the composition with formal-domination are now steps of perfectoid-proper-split."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Accept as corrected. The parent, title and area match PAPER-ANDRE-18-B's accepted route 4, so the items join DESIGN-PerfectoidSpacesPartII. Nothing in the atlas plans a Riemann extension theorem or a quantitative Hebbarkeitssatz. The brief states Theorem 4.2's three assertions with c = p^k m and Remark 4.3's uniformity. Corrected in place: the brief cites PAPER-ANDRE-18-B's accepted brief, not PAPER-ANDRE-18's returned one, and Remark 1.8, which is exposition, moved from the items into the brief."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Accept as corrected. The id, title and area match PAPER-ANDRE-18-B's accepted route 1, so the items merge into DESIGN-DirectSummandsAndBigCohenMacaulay. No other layer plans a direct-summand theorem: PAPER-BHATT-ETAL-23's accepted route 10 defines splinters but proves neither theorem. The brief states Theorems 1.1 and 1.2 exactly. Corrected in place: all nineteen items now name the roadmap as proposedOwner (fifteen still said RegularRingSplittings). proper-cohomology joins. The reductions and the perfect-cone obstruction steps, which the extraction left inside G5, are items. The brief names its imports with their titles, including StableReduction layers 2 and 4, and cites PAPER-BHATT-ETAL-23's accepted route."
+  }
+ ],
+ "notes": "Verdict accept after in-place corrections. The texts read are arXiv:1608.08882v2 (SHA-256 08578ca1…6430, matching the record) and v1 (ffbb6696…3b94), and, for E4–E8, André's arXiv:1609.00345v1 and published Appendix A. The published Inventiones text is still unobtainable (G1), so the findings stay scoped to v2, and sourceVersions now says so: collation.py classifies the paper as read in preprint. All ten recorded mistakes are confirmed. Fifteen are added (E11–E25). Among them are two gaps in the reductions of the main proofs: Theorem 5.4's proof uses p-adic completeness it never arranged (E14, with a counterexample to the displayed isomorphism), and Theorem 6.1's proof omits the mixed-characteristic and completion reductions that v1 made (E15). One further addition is a misprint in Proposition 5.2(1) (K for K°, E13). Five remark items (Remarks 1.3, 1.8, 2.4, 2.5 and 5.5) are removed; their content moved to briefs, reasons and notes. Eight items are added: tilt, pro-tower, algebra-adjoint, cohen-structure, residue-field-extension, derived-local-reduction, perfect-cone-detection and perfect-cone-limit. The result has 89 items (65 missing, 14 planned, 10 library). Thirty-eight items have statement, proof-step, prerequisite, locator or note fixes, and six more only a corrected owner; admissible-blowup is now planned by StableReduction layer 4. Routes 6 and 7 re-planned Tau Ceti content and closed cycles through R2; both are corrected in place, and all nine routes are accepted. For the orchestrator: three links are needed, each closing no cycle: DD.1 → P2, E2 → R03.1 (or a direct statement in R03.1) and StableReduction layer 4 → SF.4. CC.2 and D7 should import E2's derived inverse limit, and AdicCoefficientsAndComparisons L5 SF.4's flattening. E4–E8 are André's misprints: E5–E8 duplicate PAPER-ANDRE-18-B/E11, E1, E2 and E10, and E4 is missing there. Details in research/blueprint/reviews/REV-PAPER-BHATT-18.md."
+}

@@ -1,0 +1,55 @@
+{
+ "redteam": "RT-PAPER-KOYMANS-MILOVIC-21",
+ "protocol": "redteam-v1",
+ "status": "complete",
+ "target": "PAPER-KOYMANS-MILOVIC-21",
+ "summary": "PAPER-KOYMANS-MILOVIC-21 extracts Koymans–Milovic, Joint distribution of spins (Duke Math. J. 170 (2021), read as arXiv v1). It has 28 items (2 library, 5 planned, 21 missing), 5 routes and 8 source issues. Routes 1–4 survive the later narrowings of ST.2, ST.3 and CA.1. They are consistent with the Bhargava–Gross–Wang and Koymans–Pagano extractions, and the prerequisites cover every source used in a proof. Two findings, one medium and one low. (1, medium) Route 5 sends Conjecture C_n and Corollary 2.2 to AnalyticNumberTheory:AN.6 as 'the conjecture register'. The accepted RS-07 had dropped AN.6 the day before the extraction, and the AN packet closes it with no nodes. So the two items have no live owner, and none of RS-07's successor layers takes conjectural character-sum bounds. They belong with their only consumers, the spin sieve of route 1 at SV.5, stated as explicit hypotheses. (2, low) There is no sourceVersions list.",
+ "checked": [
+  "Independence: the extraction is by Claude Code cc-fb70e5 (issue #1318) and its review by Claude Code cc-442dc5. This worker (Claude Code, cc-c2c06b) did neither.",
+  "Downloaded arXiv 1809.09597v1 on 2026-09-30; its SHA-256 matches d56a738a…f433. Searched the text for Burgess and for unconditional cases. Every theorem is stated under Conjecture C_{|S|n} or C_{tn}, and the paper never invokes Burgess, so no unconditional input is missing.",
+  "Read all five routes and their reasons, and the statuses of all 28 items, in the repository at d4afbc98. All 11 cited stage ids exist in the assembled atlas (2840 stages, 8007 edges). Restructurings: AN.6 was dropped by RS-07 (finding 1). ST.2 and ST.3 were narrowed by RS-07; route 2's geometric sieve fits ST.2's 'uniform tail estimates', and the governing-field and 16-rank items fit ST.3's 'class-group asymptotics'. CA.1 was narrowed by RS-03 and still keeps 'power-residue/Hilbert-symbol extensions, including the place 2, infinite places', which covers route 3. GN.4 and SV.5 are unchanged.",
+  "Consistency with neighbouring extractions. PAPER-BHARGAVA-GROSS-WANG-17 routes its geometric-sieve tail estimate to ST.2, as route 2 does. PAPER-KOYMANS-PAGANO's Smith-method Part II brief imports 'ST.3 (class-group distributions, governing fields, 2^k-ranks)' 'through PAPER-KOYMANS-MILOVIC-21', which matches route 2. Its Rédei and 'Pellian spin symbol' items are algebraic identities in that Part II, not the analytic spin theorems of route 1. Searched every other extraction for spins, governing fields, 8- and 16-ranks, FIMR, bilinear sieves and Widmer: no duplicate owner.",
+  "Statuses: Tau Ceti f790474 has only the definitional API NumberField.Set.HasNaturalDensity (ArithmeticDirichletSeries/NaturalDensity.lean:61), not Chebotarev's natural-density theorem, so item 7's planned status (Chebotarev Layer 14) is right. The two library items were verified by the review. No stage mentions Burgess or short character sums.",
+  "Prerequisites: the ten listed cover every reference used in a proof. The two paper references not listed, Cohn–Lagarias [4] and Smith [10], are cited only in the introduction.",
+  "Source issues: did not re-verify E1–E8 against the text; the review confirmed them at their locators, and all affect nothing."
+ ],
+ "findings": [
+  {
+   "id": "RT-PAPER-KOYMANS-MILOVIC-21/1",
+   "kind": "error",
+   "severity": "medium",
+   "where": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json: route 5 (source AnalyticNumberTheory, stages ['AnalyticNumberTheory:AN.6']), its reason, and items PAPER-KOYMANS-MILOVIC-21/11 (Conjecture C_n) and /12 (Corollary 2.2), whose notes say 'Routed to AnalyticNumberTheory AN.6 (the conjecture register)'",
+   "claim": "Route 5 sends Conjecture C_n (FIMR's short real character sum conjecture) and its arithmetic-progression form, Corollary 2.2, to AnalyticNumberTheory:AN.6 as 'the statement register for conjectural analytic inputs'. The accepted RS-07 had already dropped AN.6: 'This is an export/register stage, not a separate mathematical construction.' RS-07 was accepted on 2026-09-21, before this extraction (2026-09-22) and its review (2026-09-23), and the review accepted route 5 unchanged. The AN packet closes AN.6 with no nodes, so the two items have no live owner. RS-07 redistributed AN.6's contents by type: zero-free regions to AN.2, RH/GRH and density statements to AN.3, conditional continuation statements to AN.4, distribution hypotheses to SV.3 and prime tuples to SV.4. A conjectural bound for short character sums is none of these. AN.4's narrowed text keeps only 'conditional general-continuation statements from AN.6'. The only consumers of C_n in the atlas are this paper's type I/type II spin sieve and Theorems 1–2, which route 1 already sends to SieveMethodsAndPrimePatterns:SV.5. SV.5 'owns advanced sieves as separate developments with their own bilinear … inputs'. No stage in the atlas mentions Burgess or short character sums.",
+   "evidence": "research/blueprint/restructure/RS-07.result.json layers['AnalyticNumberTheory:AN.6']: {'action': 'drop', 'suppliedBy': ['AnalyticNumberTheory:AN.2', 'AnalyticNumberTheory:AN.3', 'AnalyticNumberTheory:AN.4', 'SieveMethodsAndPrimePatterns:SV.3', 'SieveMethodsAndPrimePatterns:SV.4', 'UPSTREAM:Mathlib-RiemannHypothesis'], 'reason': 'This is an export/register stage, not a separate mathematical construction. Attach zero-free contracts to AN.2, density/explicit-formula and RH/GRH statements to AN.3, general conditional analytic statements to AN.4, distribution hypotheses to SV.3 and prime-tuple statements to SV.4 …'}. RS-07 layers['AnalyticNumberTheory:AN.4'].keeps: '… Retain conditional general-continuation statements from AN.6 as visible hypotheses, not theorems.' REV-RS-07 committed 2026-09-21 17:35 UTC (#947). The extraction was committed 2026-09-22 13:43 UTC (#1901) and REV-PAPER-KOYMANS-MILOVIC-21 on 2026-09-23 15:49 UTC (#2361), whose report says '5. AN.6: accept. Conjecture C_n and Corollary 2.2 belong in the register of conjectural inputs.' research/blueprint/packets/AnalyticNumberTheory--AN.0.json coverage AN.6: status 'closed', note 'Dropped by accepted RS-07; consumer bookkeeping is supplied by AN.2/3/4, SV.3/4 and the baseline RH predicate. No process nodes.' Route 5 reason: 'AN.6 maintains the statement register for conjectural analytic inputs (RH, GRH, prime tuples) …'. SV.5 stage text: 'Add beta/weighted sieves, Chen-type and affine-sieve routes as separate developments with their own bilinear, parity-breaking and expansion inputs.' Source (arXiv v1 pp. 6–7): 'The following is a conjecture on short character sums appearing in [5]. It is essential for the …', then Conjecture C_n and Corollary 2.2. Every theorem assumes it: 'Assume Conjecture C_{|S|n} holds true …' (p. 2).",
+   "fix": "Remove route 5. Add items 11 and 12 to route 1 (source SieveMethodsAndPrimePatterns:SV.5). Its reason should say that SV.5 states FIMR's Conjecture C_n and Corollary 2.2 as explicit, named hypotheses of the spin sieve, the way SV.3 'treats stronger distribution assumptions as explicit conditions', not as theorems. Keep Burgess's unconditional case n = 3 (δ = 1/48, per FIMR) as a remark in the statement. Rewrite the notes of items 11 and 12. Correct the route-5 paragraph of REV-PAPER-KOYMANS-MILOVIC-21.md and the paper's report. Re-run check_paper.py."
+  },
+  {
+   "id": "RT-PAPER-KOYMANS-MILOVIC-21/2",
+   "kind": "other",
+   "severity": "low",
+   "where": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json: top level (no sourceVersions)",
+   "claim": "The extraction records eight source issues, all read in arXiv v1, but has no sourceVersions list. §18 asks a file with source findings to record what was read. What was read is recorded only in the free text of readSections, which gives the arXiv v1 hash and says the Duke version was not accessible. All eight issues affect nothing, so the checker does not require the list.",
+   "evidence": "`'sourceVersions' in result` is False. readSections: 'PDF https://arxiv.org/pdf/1809.09597v1, SHA-256 d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433. It is the only public version. The Duke version (2021, 33 printed pages) was not accessible …'. I downloaded arXiv v1 on 2026-09-30 and its SHA-256 matches. PROTOCOL.md §18: 'The file therefore records what was read, alongside sourceIssues'.",
+   "fix": "Add 'sourceVersions': [{'kind': 'preprint', 'url': 'https://arxiv.org/pdf/1809.09597v1', 'read': '2026-09-22', 'sha256': 'd56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433'}, {'kind': 'published', 'citation': 'Duke Math. J. 170 (2021), no. 8, 1723–1755, doi 10.1215/00127094-2020-0068: not openly accessible, not read', 'read': '2026-09-22'}]. Re-run check_paper.py."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1809.09597v1",
+   "read": "2026-09-30",
+   "sha256": "d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433"
+  }
+ ],
+ "provenance": {
+  "agent": "Claude Code",
+  "session": "cc-c2c06b",
+  "issue": 4186,
+  "date": "2026-09-30",
+  "inputRevision": "d4afbc98a4f6b289d730897edbd18171f5cafb67",
+  "baseline": {
+   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  }
+ }
+}

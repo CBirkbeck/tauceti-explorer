@@ -1,7 +1,7 @@
 {
   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
   "protocol": "links-v1",
-  "summary": "Five prerequisite links to CharacterTheory and QuadraticFormInvariants, plus a checked reference to the existing QuiverRepresentations link, with three scoped overlaps. Independent review confirms all six original dependencies and removes one duplicate proposal and distinguishes documentary ownership from results already supplied at the pinned TauCeti baseline: radical quotient, semisimple image bicommutant, Brauer group/base change, finite separable splitting and the real classification. Consumer adapters and source-text corrections remain explicit; no implementation completion claim is inferred from a roadmap.",
+  "summary": "Six prerequisite links to CharacterTheory, QuadraticFormInvariants and QuiverRepresentations, with three scoped overlaps. Independent review confirmed all six original dependencies but moved the QuiverRepresentations Layer 3 pair to alreadyRecorded, deferring to a partial, unreviewed QuiverRepresentations research packet with no promoted counterpart, so that research proposal never became an atlas edge. The confirmed red-team fix (FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras) restores it here as a sixth link, scoped to A/J(A); the five reviewed links and three overlaps are unchanged. The review distinguishes documentary ownership from results already supplied at the pinned TauCeti baseline: radical quotient, semisimple image bicommutant, Brauer group/base change, finite separable splitting and the real classification. Consumer adapters and source-text corrections remain explicit; no implementation completion claim is inferred from a roadmap.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
@@ -82,6 +82,23 @@
           "quote": "Each `σ ∈ Gal(L/K)` moves `φ` by a\n      `σ`-semilinear automorphism of `M_n(L)`, Skolem-Noether makes that automorphism\n      inner, and the chosen conjugators multiply up to the cocycle. This is the only step\n      of the comparison that uses Skolem-Noether."
         }
       ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "reason": "For a finite-dimensional k-algebra A, apply the algebra Wedderburn presentation and canonical block/simple-module indexing to A/J(A). The quiver owner must still prove the passage between simple A-modules and simple A/J(A)-modules and the lifting/projective-cover results; a semisimple-ring primitive-idempotent theorem does not by itself provide those results for A. The target explicitly assigns the Wedderburn side to this supplier. Scope of the export (red-team finding RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras/1, independently confirmed): SemisimpleAlgebras Layer 2 supplies to QuiverRepresentations Layer 3 only the Wedderburn presentation and the canonical block/simple-module indexing dictionary, applied to the semisimple quotient A/J(A) of a finite-dimensional k-algebra A, never to A itself. Semisimplicity of A/J(A) is not supplied by this link: it is the pinned Tau Ceti radical-quotient API (TauCeti.isNilpotent_jacobson and TauCeti.isSemisimpleRing_quotient_jacobson in TauCeti/RingTheory/Jacobson/FiniteDimensional.lean at f790474), the shared subproblem of this packet's Layer 0 / Quiver Layer 3 overlap. Over a general field the division rings of the blocks are retained; only over [IsAlgClosed k] are the blocks matrix algebras over k. QuiverRepresentations keeps the transport between simple A-modules and simple A/J(A)-modules, primitive-idempotent lifting, semiperfectness, projective covers, basic algebras and Morita reduction, and the Gabriel presentation. This link does not ask SemisimpleAlgebras to reprove Mathlib's Wedderburn existence theorem.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+          "quote": "the\n  chosen index is in bijection with isomorphism classes of simple `R`-modules (via Layer 1.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
+        }
+      ],
+      "origin": "restored-from-alreadyRecorded-by-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
     }
   ],
   "overlaps": [
@@ -344,7 +361,7 @@
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight", "result": "none", "note": "Layers 6 and 7 read in full. Ring-level isotypic objects are imported through an enveloping-algebra dictionary; central characters use the highest-weight line, not unrestricted Schur scalarity."},
-    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "links", "note": "Layer 3 read in full. Wedderburn dictionary link and radical-package overlap; general-algebra idempotent lifting and projective covers are not supplied by the semisimple special case."},
+    {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations", "result": "links", "note": "Layer 3 read in full. Wedderburn dictionary link and radical-package overlap; general-algebra idempotent lifting and projective covers are not supplied by the semisimple special case. The QuiverRepresentations research packet also lists the Wedderburn-dictionary edge, but it is partial and unreviewed; the edge is carried in this packet's links (restored by FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras), with the alreadyRecorded entry kept as superseded provenance."},
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl", "result": "overlap", "note": "Layers 8 and 9 read in full. Simple-module density is too narrow for the semisimple image bicommutant theorem. The diagram Brauer algebra is not a field Brauer group."},
@@ -449,7 +466,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
     "date": "2026-09-23",
-    "notes": "Accepted after correcting stale baseline claims, separable-closure adapter scope and overlap recommendations. Five edges retained; one valid Quiver edge deduplicated into alreadyRecorded; three overlaps checked with six new literal quotations. All eight own stages considered in completeness searches. No additional direct edge justified by the available source contracts. G1-G4 and documentary G6 remain owner-level corrections; G5 now records existing baseline reuse. See the report for exact hypotheses, library pins and validation limits.",
+    "notes": "Accepted after correcting stale baseline claims, separable-closure adapter scope and overlap recommendations. Five edges retained; one valid Quiver edge deduplicated into alreadyRecorded; three overlaps checked with six new literal quotations. That review said removing the Quiver proposal removed no graph edge, but its only other host is a partial, unreviewed QuiverRepresentations research packet with no promoted counterpart, so the pair was not in the atlas (red-team finding RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras/1, independently confirmed): a research proposal is not a promoted graph edge. The fix restores it to links as a sixth link; see redteamFix and the fixes report. The removed entry below is history. This review's status and date are historical and do not represent a review of the revised packet, which needs renewed independent acceptance before promotion. All eight own stages considered in completeness searches. No additional direct edge justified by the available source contracts. G1-G4 and documentary G6 remain owner-level corrections; G5 now records existing baseline reuse. See the report for exact hypotheses, library pins and validation limits.",
     "removed": [
       {
         "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
@@ -485,7 +502,31 @@
           "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
           "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
         }
-      ]
+      ],
+      "state": "superseded; restored-to-links",
+      "supersededNote": "Provenance only. The file named here is a partial QuiverRepresentations research packet with no review and no promoted data/links counterpart, so recording the pair only here left it out of the atlas (red-team finding RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras/1, independently confirmed). FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras restores the pair to this packet's links with the same evidence. Deduplicate again only after a reviewed, promoted QuiverRepresentations packet actually carries the edge; this entry does not accept or promote that packet."
     }
-  ]
+  ],
+  "redteamFix": {
+    "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+    "finding": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras/1",
+    "verification": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.review.json",
+    "agent": "Claude Code",
+    "session": "cc-f805bf",
+    "date": "2026-09-30",
+    "base": "e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d",
+    "scope": "Restore exactly the one confirmed link SemisimpleAlgebras Layer 2 -> QuiverRepresentations Layer 3 as inferred, with alreadyRecorded[0]'s raw two-sided quotations and reason plus the verifier-endorsed A/J(A) scope and quiver-owned obligations; keep alreadyRecorded[0] as superseded provenance; correct the summary, the Quiver examined note and the review narrative. The five original links, three overlaps, inputClarifications, provenance, reviewBaseline and other examined entries are unchanged; review status, date, removed and added are historical. The QuiverRepresentations packet and the promoted data/links copy are not edited; promotion is the normal reviewed intake operation.",
+    "validation": {
+      "stages": 2840,
+      "edgesBefore": 8252,
+      "edgesAfter": 8253,
+      "repeatEdges": 8253,
+      "requiresFilled": true,
+      "researchUnionEdges": 8361,
+      "acyclic": true,
+      "literalQuotesRechecked": 2,
+      "original5LinksUnchanged": true,
+      "checkLinks": "0 errors, 0 warnings"
+    }
+  }
 }

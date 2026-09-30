@@ -1,0 +1,65 @@
+{
+  "redteam": "RT-PAPER-GAN-ICHINO-18",
+  "findings": [
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/1",
+      "verdict": "confirmed",
+      "reason": "Checked the eight named extraction items, routes 1–2, the full Part II brief and MP.2–MP.6. Route 2 really uses the local parabolic preimages and chi_psi that route 1 owns; kudla-filtration is already planned at MP.3. The parameter-label and global-character clauses also exceed the local prerequisite layer. Gan–Ichino, published pp. 988–989, makes these constructions explicit. Move the local cover-induction construction to MP.3, retain a separately routed adelic construction, state the unramified computations in Satake data, and separate the square-change identity for Weil representations from the later packet-label and globalization consequences. This repairs an item-level dependency reversal; it is not evidence of an already assembled stage-graph cycle. Keep the higher packet classification in the Part II."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/2",
+      "verdict": "confirmed",
+      "reason": "Read published pp. 982–983 and 1002 and searched all 104 item statements and the prerequisites. The epsilon-factor comparison and the functional-equation implication needed by lemma-4-3 are not stated by llc-gln-padic, llc-gln-arch or rev-analytic-properties-of-partial-standard. The latter concerns partial L-functions only. AL.2 explicitly owns the global GL_m functional equation, and ET.6 explicitly owns finite-place L/epsilon compatibility. Add these planned inputs, add the archimedean compatibility to the existing missing archimedean item, and add the complete metaplectic L-function/comparison to route 1. Specify analytic continuation from the Euler-product region, including ramified and archimedean factors: a product notation alone does not define its value at 1/2. Keep the m=1 exception and the normalizations explicit."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/3",
+      "verdict": "confirmed",
+      "reason": "Both current statuses and their review notes reproduce the reported mismatch. The review report explicitly left statuses unchanged. ML.4 does not state the square L-function analytic inputs, and AL.4 requires a supplied eigenvalue bound. Published pp. 967 and 978 exhibit the uses. A current catalogue search found no stage supplying the omitted automorphic square-factor theory or this metaplectic exponent bound. Route selfdual-types as missing source material to ML.4, explicitly importing AL.3's existing Rankin–Selberg theory. Split the cover-specific parameter adapter and convergence/nonvanishing bound from AL.4's reusable Euler-product construction. The bound must have an independent source/proof, such as the stable-range/unitarity route; do not obtain it from Theorem 1.1 whose proof consumes it. Existing source issue E5 already records the holomorphy-versus-nonvanishing distinction."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/4",
+      "verdict": "confirmed",
+      "reason": "Published p. 980 invokes unitarity of pi_{phi_v}; p. 989 gives the narrower principal-series criterion. The current rmk-5-3 note describes the additional argument, but no item states its conclusion. PAPER-JIANG-ZHANG-20/tadic-unitary-dual is missing source material routed to ET.6, with that route accepted; treat it as an assigned input, not an already built theorem. Add the almost-everywhere unitarity lemma and its dependencies to route 1. Correct the proposed proof outline to retain the unramified quadratic-twist case x + pi*i/log(q), as well as the four-exponent blocks ±x ± iy. The original review explicitly calls for change of additive character by a nonsquare unit in the former case. Neither the real/pure-imaginary criterion nor GL_2 blocks alone accounts for that case."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/5",
+      "verdict": "confirmed",
+      "reason": "Checked the GI items and route 1 against GAN-SAVIN-23-B items 91, 113, 117, 118, routes 1 and 3, and their accepted review. Independently read Gan–Savin's published pp. 28–30 and 33 and GI pp. 1003–1005. The shared weak-containment/closure argument and Poincare construction have competing construction owners. Put the abstract API in SmoothRepresentationsPartIIUnitaryDual and coordinate one common Poincare-series construction, with the GI globalization layer a suitable host. Preserve the separate Whittaker/period, support, convergence and cuspidality hypotheses and the consumer-specific isolation arguments. Only the abstract API is generalized to locally compact groups; the other split-group isolation theorems are not. Use Fell closure and relative isolation. Do not literally export an increasing-index subsequence assertion: sigma may occur just once among the summands while all later summands equal a different isolated representation. A closure formulation, or sequences allowing repetition, gives the needed valid statement."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/6",
+      "verdict": "confirmed",
+      "reason": "Checked all three named items, their routing and accepted reviews. The source route of GAN-SAVIN-23 assigns the linear p-adic classification to SR.3, whereas the two Part II briefs each claim to construct it. Read Ban–Jantzen's author copy, introduction, Theorem 1.1, Definition 2.1 and Remarks 4.2 and 4.5: the finite topological central-cover theorem includes the linear case and the multiplicity-one assertion. Route the common theorem to SR.3 in characteristic zero, with the topological-cover hypotheses; the source expressly uses characteristic zero for uniqueness of unipotent lifting. Keep it missing/source-routed until that generality is actually planned. Retain the metaplectic standard-module adapter in GI. Split the CFK item: its archimedean classification and realization by convergent intertwining integrals do not follow from this p-adic quotient theorem and must keep their own sources and owners."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/7",
+      "verdict": "confirmed",
+      "reason": "The item states four consequences, while the route-1 brief only names the formula; neither states the identity or regularized Siegel–Weil input. GI pp. 997–998 and 1002 use them. Gan–Qiu–Takeda arXiv:1207.4709v3, section 1.7, distinguishes the boundary value from a residue; Theorems 1.3–1.4 and sections 11.2–11.5 also display the first-occurrence/cuspidality and local-factor qualifications. Add source-qualified formula and regularization items. Correct the proposed schematic identity by retaining these hypotheses, choosing the exact measures and normalized local integrals, and distinguishing complete L times normalized factors from partial L times omitted-place factors. The GI equal-rank case is the boundary case, not directly GQT Theorem 1.3's strict second-term range. Do not assert a universal local nonvanishing equivalence without the source's place/range restrictions. Share the general doubling machinery with its existing owner."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/8",
+      "verdict": "confirmed",
+      "reason": "The current GI strong-multiplicity-one item is source-routed to AL.3. GAN-SAVIN-23-B/56 independently assigns the same isobaric theorem to its new G_2 roadmap, and the CFK route-1 brief says that the Jacquet–Shalika classification is built there. Those routes have accepted reviews. This is a real ownership conflict even though GI's own route is consistent. Keep AL.3 as supplier, record the two downstream imports for the relevant design jobs, and preserve their application-specific comparison steps. The correction must not broaden strong multiplicity one to arbitrary automorphic representations."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/9",
+      "verdict": "confirmed",
+      "reason": "Checked GI mvw-involution/stable-range-local and routes 1–2, EHLS mvw-143 and route 1, and ICHINO-PRASANNA-23/085 and route 5, including their accepted reviews. The reusable MVW input and stable-range nonvanishing are assigned twice. Keep a shared MP.3 input and explicit application adapters. Qualify the proposed generalization: state the exact symplectic/metaplectic and unitary cases required, with their field and category hypotheses, rather than an unqualified theorem for all type-I groups. EHLS's GU similitude/central-character twist is an additional compatibility to prove, not automatically the isometry-group theorem. Separate stable-range nonvanishing from Li's unitarity and rank-classification bijection, which remain in the GI Part II. Takeda–Trias, Theorem A and its introduction, supplies an accessible check of the metaplectic MVW scope."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/10",
+      "verdict": "confirmed",
+      "reason": "Independently read Ishimoto arXiv:2301.12143v2, pp. 21–22 (Theorems 3.11–3.14) and p. 51, where the proof of Theorem 3.12 is completed. Theorem 3.14(2) gives the full near-equivalence decomposition for inner forms of odd SO; only the multiplicity-formula clause is restricted to generic parameters. This resolves the exact open check in amf-nonsplit and the brief's fourth correction. Route both proved inputs to ML.4 while retaining the packet-labelling/normalization comparison with GI (5.3). Preserve the historical statement of what GI assumed. This review verifies the arXiv v2 text, not the IMRN version, and does not mark the atlas proof complete before that comparison is supplied."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/11",
+      "verdict": "confirmed",
+      "reason": "Read GI's published p. 1004, the matching arXiv v3 p. 31, and Prasad–Schulze-Pillot's accessible IAS copy, Lemma 4.4 on p. 14. That lemma assumes a supercuspidal representation; the S_0 test functions in GI are principal-series wave packets. The current psp-lemma note recognizes the distinction, but E1–E7 record no corresponding citation gap. Add a narrowly scoped proof-gap entry and the local nonzero-projection lemma needed to select and normalize the S_0 functions. Its proof must justify nonzero Whittaker projection on the selected Bernstein component; retain this as an explicit construction rather than treating genericity as the cited supercuspidal lemma. The v_0 and unramified cases use their separate arguments. This is not a new counterexample to Proposition A.2 or a reopening of E7. Record fresh correction searches and the actual source versions."
+    },
+    {
+      "finding": "RT-PAPER-GAN-ICHINO-18/12",
+      "verdict": "confirmed",
+      "reason": "The top-level sourceVersions field is absent. Running scripts.check_errata.versions_checked on the actual extraction and sourceIssues reproduces the reported error. E7, whose affects field is 'a stated result', triggers this rule; E5 alone would not. Independently downloaded the published PDF and arXiv v3/v1 and reproduced all three full SHA-256 values in the proposed fix. Move the existing version/read-date evidence into structured sourceVersions without misrepresenting those historical reads as new ones. The v1 download was hash-checked in this verification, not reread mathematically. check_paper.py passing does not discharge the separate section-18 source-version requirement."
+    }
+  ]
+}

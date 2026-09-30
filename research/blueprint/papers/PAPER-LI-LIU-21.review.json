@@ -1,0 +1,52 @@
+{
+ "paper": "PAPER-LI-LIU-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Part II of GrossZagierAndArithmeticHeights (atlas title 'Gross–Zagier formulas and arithmetic heights'; the route title extends it exactly), area arithmeticgeometry, now 53 items. The id UnitaryArithmeticInnerProductFormula is the one PAPER-LI-LIU-22 route 3 proposed (accepted). make_queue keys part-ii routes by parent, so this lands in DESIGN-GrossZagierAndArithmeticHeightsPartII together with the other proposals for that parent, route 3 of this paper included. GZ plans only rank-one height formulas, and nothing else plans Beilinson–Bloch heights of arithmetic theta lifts or the doubling comparison with L′(1/2, π). The brief states Theorems 1.5 and 1.7 and Corollary 1.9 with their hypotheses (F ≠ Q, V^ram_F = ∅, 2-adic places split, Hypotheses 4.5 and 6.6) and the corrected C_r, and it names its imports. Corrected in place: the doubling normalizations (items 82–83) and the H¹ vanishing (item 84) are planned here. The K-theory, Chern-class and Hochschild–Serre inputs go to their owners as sources (routes 6, 8 and 9). E3 is settled by Li–Rapoport–Zhang. Beilinson's local index is also planned by the proposed SelmerComplexesAndPadicHeights (PAPER-DISEGNI-LIU-24 route 2), which is upstream of this design, and is to be defined once, there."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Part II of PELModuli (atlas title 'Siegel and PEL moduli problems'), area arithmeticgeometry. It takes items 35–41: the moduli interpretation of X′_L, Lemma 5.5, 𝒴, the Drinfeld-level models, the smooth and strictly semistable inert models, and the uniformization (8.2). All of these are moduli-theoretic. It also takes item 85, the unitary Shimura datum of X_L split from item 29, whose model over E comes from the moduli interpretation of X′_L = X_L ⊗_E Y. The id is shared with the accepted routes of PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-22, PAPER-LI-ZHANG-22-B, PAPER-LIU-ETAL-22 and PAPER-ZHANG-21, and lands in DESIGN-PELModuliPartII. Corrected in place: the brief now states the results exactly and names the PELModuli layers M1–M4 it extends. Footnote 19 stays a named hypothesis until it is checked."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Part II of GrossZagierAndArithmeticHeights, items 42–45: the special cycles on X′_L, the integral special cycles with their F^m K^Z_0 classes and uniformization (8.3), ^K𝒩(x), and the two Euler-characteristic identities. The id is shared with the accepted routes of PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-22, PAPER-LI-ZHANG-22-B and PAPER-ZHANG-21, and lands in the same design job as route 1. Corrected in place: the brief now states both identities in the paper's normalization, keeping u̲. It also records that Li–Rapoport–Zhang Theorem 14.6.2 and Corollary 16.1.5 supply every part of Li–Zhang Conjecture 10.4.1 that the almost self-dual identity uses."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "MetaplecticAutomorphicForms MP.3 ('Dual pairs and local theta modules') plans see-saw identities and first-occurrence statements, and names full Howe duality as a source-qualified extension. Item 17 (Proposition 3.6, with (3) corrected by E15) and item 50 (Hecke compatibility of theta at almost unramified and split places) are local theta results of that kind. The note reaches BP-MetaplecticAutomorphicForms, which is split into --MP.0 and --MP.8, both pending. The reason now records the Howe-duality and Gan–Ichino inputs."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "IgusaVarietiesAndTorsionConcentration plans IG.0–IG.7 for Caraiani–Scholze's noncompact PEL datum. Lemma 7.3 (item 81) and its inputs belong to that direction. The extraction marked items 77 (Igusa varieties of the first kind and Mantovan's) and 78 (Caraiani–Scholze Corollary 6.1.4 and Theorem 5.5.7 in the compact case) as planned at IG.1 and IG.4/IG.5, but those layers do not plan them for this compact Harris–Taylor-type datum with Drinfeld level at u. They are now missing and travel with this route, which also names IG.0, IG.1 and IG.4. IG.7 is stated mod ℓ while Lemma 7.3 has rational coefficients, so the reason says to record the lemma at IG.5 with IG.7 as its consumer. Lands in BP-IgusaVarietiesAndTorsionConcentration (pending)."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "SchemeAndStackFoundations SF.2 exists and owns étale cohomology with localization and proper and smooth base change. Its ownership of absolute purity comes from the accepted PAPER-CESNAVICIUS-19 route 3, not from its stage text; the reason now says so. EDC.2 excludes Gabber's theorem. The étale Hochschild–Serre spectral sequence for varieties over p-adic and finite fields (item 72) states nothing that ArithmeticGaloisDuality R02.2 or D7 plan, since those treat group cohomology, so it joins this route. BP-SchemeAndStackFoundations is claimed externally (#642): the note reaches that worker only if the issue's brief is refreshed."
+  },
+  {
+   "route": 7,
+   "verdict": "accept",
+   "reason": "MotivesAndAlgebraicCycles MC.7 ('Cycle conjectures and proven special cases') plans typed conjectures and a register of proved cases, and does not let a conjecture supply an unconditional downstream theorem. Item 1 (the equivariant Beilinson–Bloch conjecture and Beilinson's height positivity) fits. The reason now adds the link to the Selmer-side statement at PeriodsAndSpecialValues PS.6 (PAPER-LIU-ETAL-22 route 21). It also asks for Theorems 1.5 and 1.7 to be registered only under Hypotheses 4.5 and 6.6. BP-MotivesAndAlgebraicCycles is done with a partial packet, so the note reaches work through its continuation round."
+  },
+  {
+   "route": 8,
+   "verdict": "accept",
+   "reason": "Added by this review. SchemeKTheoryOperations (a campaign roadmap) has S.6 (products with supports, Adams operations) and S.7 (Chern classes, γ-filtration, Chow comparison in the regular setting). The extraction marked item 75 as planned by S.6/S.7, but neither layer names the objects the item needs: Gillet–Soulé's K_0 of complexes with support, its codimension filtration, [GS87, Prop. 5.5] on regular schemes over O_K, the map (B.3), and the comparison with Quillen K-theory with supports. So the item is missing, and those layers are its natural owner. The paper is a source for them, fixing the consumer's exact statements."
+  },
+  {
+   "route": 9,
+   "verdict": "accept",
+   "reason": "Added by this review. MotivicEtaleKTheory M.8 (a campaign roadmap) plans étale Chern classes compatible with products. The extraction marked item 76, Gillet's ℓ-adic Chern classes with supports on regular schemes over O_K and their agreement with refined cycle classes [Gil81, Def. 2.34(ii), Prop. 2.35, Thm. 3.1], as planned there. M.8 does not plan supports, so the item is missing, and M.8 is its natural owner."
+  }
+ ],
+ "notes": "Independent review REV-PAPER-LI-LIU-21 (#1116) by Claude Code, session cc-58621d, 30 September 2026. The extraction is by cc-fb70e5, and this session wrote none of the files reviewed. As the maintainer asked on #1116, it continues from the merged checkpoint (ChatGPT, #2841) and settles E3. It reuses the closed full review on branch cc-7b31c4-rev-liliu (PR #2844) where that review held up. Both texts were re-read at every locator: the authors' final version and arXiv v5, whose hashes match the record. Rendered pages were used where glyphs matter (pp.5, 12, 20, 30, 44 and 52). The Li–Zhang, Li–Rapoport–Zhang and Disegni–Liu texts were read at the cited places. Verdict: accept, with the extraction corrected in place. The corrections are: (1) Items. 44 items were corrected and 4 split off (82–83 from 14, 84 from 26, 85 from 29). Items 72, 75, 76, 77 and 78 were marked planned but are now missing, because no layer plans them as stated. The planned lists of items 12 (MP.4), 29 (V2) and 71 (MC.2) were extended. The E10 correction is propagated to items 51, 53, 55, 58, 59 and 63, and the u̲ notation to items 44, 45, 57 and 59. The count is now 85 items: 9 planned and 76 missing. (2) sourceIssues. E1–E11 are confirmed, with corrections to E1 (known), E3, E6 (four places, not three), E7 (⩽ for =; the union is not a fundamental domain), E9 (𝒳, locators), E10 (affects a stated result; verbatim quotes; §11) and E11 (quotes, locators). E3 is settled: every use of Li–Zhang Conjecture 10.4.1 in their §§10.4–10.5 is supplied by Li–Rapoport–Zhang Theorem 14.6.2 with Corollary 16.1.5. So E3 now affects the proof, not a stated result, and stays new. Nine new issues were added, E12–E20. E12 (error): the proofs of Proposition 6.9(2) and Lemma 8.3 claim that restriction to the geometric fibre over a p-adic field is injective on H^{2r}, which is false. E13 (gap): Lemma 8.3's 'by definition' step does not follow from Definition 6.2(2); it is repaired by taking one factor of each Hecke element from (S^R)^0, a change carried into items 48, 56 and 57. E14 (error): the proof of Corollary B.15 claims finite generation over S_L. E15–E18 and E20 are misprints, and E19 is smoothness of X_L at non-neat level. None changes the main theorems. (3) sourceVersions was added, as check_errata requires. (4) Routes. All seven are accepted, with corrected briefs and reasons, and two source routes (8, 9) were added for items 75 and 76. Library: nothing is at the pins, Mathlib 082e2d3 and Tau Ceti f790474. The partial starts are VectorFourier.fourierIntegral, AlgebraicGeometry.Scheme.EllAdicCohomology and groupCohomology.H1InfRes; Hochschild–Serre is a TODO in GroupCohomology/Basic.lean. For the maintainer: (a) PAPER-LI-ZHANG-22-B/98 says no proof of Li–Zhang Conjecture 10.4.1 was found, and PAPER-LI-LIU-22/E4 records the same conditional input for the sequel; both should be reconciled with E3 here. (b) The sequel keeps products of two elements of (S^R)^{⟨ℓ⟩} in its admissible sextuples (PAPER-LI-LIU-22 item 65), so E12–E13 probably apply to its analogue of Lemma 8.3. The §11 part of E10 may apply to its analogue of Lemma 11.1. (c) [Ram, Thm. A] (pp.31, 35, 42) and Matsushima's formula (p.31) are cited inputs with no item and no atlas owner. (d) BP-SchemeAndStackFoundations is external (#642), so route 6's note needs a brief refresh to reach its worker."
+}

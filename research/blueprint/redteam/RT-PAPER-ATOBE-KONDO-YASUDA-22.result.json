@@ -1,0 +1,42 @@
+{
+  "redteam": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-ATOBE-KONDO-YASUDA-22",
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-09-30",
+  "inputCommit": "09ca34c62c39d003a300b9ed1ab46c478592ea96",
+  "summary": "One high finding reverses the accepted review's erroneous rejection of E3: the n=m=2 primed model has trivial unipotent character, so the extraction's repeated-parameter eigenfunction counterexample is valid. One low finding supplies the missing sourceVersions list. No further library-status or ownership error was established. The full published paper was reread; all 13 cited declarations match the pinned statements.",
+  "checked": [
+    "Independence confirmed: this session did neither PAPER-ATOBE-KONDO-YASUDA-22 nor REV-PAPER-ATOBE-KONDO-YASUDA-22. Read the full issue after bot-confirmed claim. Input JSON/report and review hashes are in the accompanying report.",
+    "Read all 56 published AKY pages, proofs, examples and bibliography from the Cambridge PDF on 2026-09-30; SHA256 51bf4f6b80543d4c03c6e9fd68463115cd94e87fc6bf16df3f6289c087e29004. Visually inspected rendered p.47. Checked arXiv version history and searched for applicable public corrections. No new complete arXiv comparison is claimed.",
+    "Read all 161 item statements/statuses/locators, 126 API contracts, 126 proposed tests, 19 source issues/verdicts, eight routes and four Part II briefs; detailed extraction counterarguments/foundational proofs and the independent review. Read the later collation review and kept its existing quotation defect separate from this mathematical finding.",
+    "Targeted Lapid–Mao reading: printed pp.910–913,917–918,922–925, including Corollary 3.13 and 3.15 and their exact model hypotheses, from the publisher PDF SHA256 afce78685f510593429179b4a49b86e6c097405f56b12bfc12b30e8fe7391535. Not a full reading of that source or recursive verification of its cited proofs. The compact-induction inclusion supports AKY extraction E1; the perturbation does not refute the main newform dimension theorem.",
+    "Read all 13 declaration statements/typeclass contexts for eight library credits at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: PID torsion decomposition; Artinian radical; local-field compact balls; four weighted-polynomial grading declarations; Baer extension and injectivity; noncommutative Jacobson criterion; two nilpotent-unit declarations; Nakayama surjectivity. Searched both pinned libraries and the declaration index for the missing assemblies; read finite-index Mackey scope at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. No new erroneous credit established.",
+    "Inspected reviewed coverage for local-field Layer 0, AL.0/2/3, R16.2; SR.0/2/3/4/5 and ET.6 stage descriptions; relevant upstream QuiverRepresentations, InductionRestriction and LocalFieldsRamification material. Cross-searched paper/roadmap/packet/link material, including Ciubotaru–Harris, Cai–Friedberg–Kaplan, Lipnowski–Tsimerman and Schiffmann. No duplicate Part II owner established. Early derivative/classification imports and candidate-ID status remain explicit.",
+    "Structural audit: 161 unique items, 143 missing, 10 planned, 8 library; all 153 nonlibrary items routed exactly once; 302 recorded internal edges resolve and are acyclic. The unchanged extraction passes check_paper.py. This is not a proof that every possible edge is recorded.",
+    "Independent exact-arithmetic Hecke diagnostic passed 4374 assertions for q=4,9, three nonzero rational x values and all a,b from −5 to 5, including negative a−b and the central inverse. Symbolic proof covers all q and nonzero complex x. Historical extraction diagnostics were not all rerun ; 126 tests were reviewed as specifications, not Lean-executed.",
+    "Ran check_redteam.py, intake.py check-files on both deliverables, JSON parsing and git diff --cached --check. No Lean deliverable required or compiled; no build/cache/LSP started. Only the assigned result and report changed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json: sourceIssues[E3].review and verification; embedded review in the paper report; papers/PAPER-ATOBE-KONDO-YASUDA-22.review.json; reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md, The rejected mistake; consumers /formal-spherical, /spherical-collision, /spherical-span, G4 and Speh-integrals route",
+      "claim": "The accepted review incorrectly rejects the extraction's repeated-parameter counterexample to Lemma 8.10. It imposes the generic GL2 Whittaker support wall and symmetric Schur family on the actual degenerate primed model, which has trivial unipotent character when n=m=2. Both the review's boundary argument and its zero-derivative argument use the wrong function.",
+      "evidence": "Published AKY p.47, formal-family definition immediately before Lemma 8.10: “Here, we note that Ψ(u) = 1 for u ∈ U′.” For n=m=2, G′=GL2, P′=B′, L′=GL1×GL1, N′=U′, Ψ|N′=1, V′=1, and the displayed family is F_(x1,x2)(a,b)=q^(-(a-b)/2)x1^a x2^b for ALL a,b∈Z. At x1=x2=x≠0, set F=F_(x,x) and H=(a-b)F. The q+1 right cosets of K′diag(varpi,1)K′ give Tf(a,b)=q f(a+1,b)+f(a,b+1); F and H both have eigenvalue 2 sqrt(q)x. The central generator and its inverse act by x² and x^(-2). H(1)=0 but H(diag(varpi,1))=q^(-1/2)x≠0. There is no a≥b support restriction, and F_(xe^t,xe^(-t))=F exp(t(a-b)) has derivative H. The printed equal-parameter spanning set has just F. Publisher PDF read and p.47 rendered on 2026-09-30, SHA256 51bf4f6b80543d4c03c6e9fd68463115cd94e87fc6bf16df3f6289c087e29004; exact symbolic proof and 4374 rational checks are in the report.",
+      "fix": "Independently verify the degenerate-model calculation, replace the rejected E3 verdict and its justification, and synchronize the extraction verification/embedded review and original review artifacts. Preserve /spherical-collision, the corrected /spherical-span target, G4 and the route's open all-parameter repair; do not erase them to match the erroneous rejection. E13 may refer to this defect with precise scope, without claiming that this example establishes a general direct-integral failure or disproves the main newform theorem. Coordinate the already-recorded E3 literal-quotation repair with its separate collation job."
+    },
+    {
+      "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22/2",
+      "kind": "missing",
+      "severity": "low",
+      "where": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json: absent top-level sourceVersions",
+      "claim": "The extraction records 19 sourceIssues, including quoted stated results, but lacks the sourceVersions list prescribed by PROTOCOL §18. Version provenance exists elsewhere but is not in the standard collation record.",
+      "evidence": "PROTOCOL §18 says the file records what was read “alongside sourceIssues” and gives the sourceVersions schema. The result has no such key. Its source/continuation records identify the published Cambridge article and arXiv 2110.09070v4, dates and hashes; the accepted review additionally distinguishes a download-stamped byte hash from normalized text. The unchanged extraction passes check_paper.py, so this is not a claim of a current checker failure or lack of a published reading.",
+      "fix": "Populate sourceVersions with the published and preprint copies actually used, preserving recorded historical dates, URLs, hashes and targeted-reading scope. Retain the Cambridge stamp explanation and distinguish byte hashes from normalized text hashes. Any fresh red-team download should be separately dated, not retroactively attributed to an earlier worker. Do not re-scope the findings to a preprint merely because stamped byte hashes differ."
+    }
+  ]
+}
