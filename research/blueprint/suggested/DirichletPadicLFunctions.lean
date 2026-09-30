@@ -12129,3 +12129,66 @@ end Quintic
 end SuggestedIntegralUnitCongruenceTests
 end
 end DirichletPadic
+
+/-! ## Tame measures under compatible continuous field extension
+The existing formal numerator/series maps and tame Amice identity are reused
+without duplicate declarations. The comparison below is on every continuous
+test and assumes an actual continuous scalar action and the p-adic scalar tower. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+variable {p : ℕ} [Fact p.Prime] {K L : Type*} [NormedField K] [NormedField L]
+  [Algebra ℤ_[p] K] [Algebra ℤ_[p] L]
+  [IsBoundedSMul ℤ_[p] K] [IsBoundedSMul ℤ_[p] L]
+  [IsUltrametricDist K] [IsUltrametricDist L]
+  [CompleteSpace K] [CompleteSpace L]
+  [Algebra K L] [ContinuousSMul K L] [IsScalarTower ℤ_[p] K L]
+  {D : ℕ} [NeZero D]
+local notation "iMap" => (ContinuousMap.mk (algebraMap K L) (continuous_algebraMap K L) : C(K,L))
+
+theorem algebraMap_tameMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(ℤ_[p],K)) :
+    algebraMap K L (tameMeasure η hDK hpD f) =
+      tameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((iMap).comp f) := sorry
+
+namespace SuggestedTameFieldComparisonTests
+-- mass_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) :
+    algebraMap K L (tameMeasure η hDK hpD 1) =
+      tameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD 1 := sorry
+-- mahler_test_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) (n : ℕ) :
+    algebraMap K L (tameMeasure η hDK hpD
+      ((mahler n : C(ℤ_[p],ℤ_[p])) • (1 : C(ℤ_[p],K)))) =
+      tameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD
+      ((mahler n : C(ℤ_[p],ℤ_[p])) • (1 : C(ℤ_[p],L))) := sorry
+-- modulus_one_after_extension
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(ℤ_[p],K)) :
+    algebraMap K L (tameMeasure η hDK hpD f)=0 ∧
+      tameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((iMap).comp f)=0 := sorry
+end SuggestedTameFieldComparisonTests
+end
+end DirichletPadic
+
+namespace SuggestedTameFieldComparisonTests
+open DirichletPadic
+noncomputable section
+variable {L : Type*} [NormedField L] [IsUltrametricDist L] [CompleteSpace L]
+  [Algebra ℤ_[2] L] [IsBoundedSMul ℤ_[2] L] [IsBoundedSMul ℤ_[2] ℚ_[2]]
+  [Algebra ℚ_[2] L] [ContinuousSMul ℚ_[2] L] [IsScalarTower ℤ_[2] ℚ_[2] L]
+-- dyadic_quadratic_mass_in_extension
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : L)) (hpD : ¬2∣3) :
+    tameMeasure (η.ringHomComp (algebraMap ℚ_[2] L)) hD hpD 1=1/3 := sorry
+-- dyadic_quadratic_second_mahler_in_extension
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : L)) (hpD : ¬2∣3) :
+    tameMeasure (η.ringHomComp (algebraMap ℚ_[2] L)) hD hpD
+      ((mahler 2 : C(ℤ_[2],ℤ_[2])) • (1 : C(ℤ_[2],L))) = -1/9 := sorry
+end
+end SuggestedTameFieldComparisonTests
