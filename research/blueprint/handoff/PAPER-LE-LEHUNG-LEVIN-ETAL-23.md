@@ -1,3 +1,57 @@
+# LLHLM23 — current handoff: equal-characteristic Cohen normalization
+
+Codex — codex-a71f92; issue #1254; claim confirmation5911407669;
+30 September2026. Partial checkpoint:864 items
+(164 library,48 planned,652 missing),27 routes,126 unreviewed source findings,
+11 gaps and1,903 acyclic internal edges.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L154–L161 import the actual pinned finite-type perfect-field smoothness,
+  native H1/formal-smoothness criterion and polynomial cotangent coordinates,
+  complete-ring lifting, minimal-prime parameter sets, linear topological
+  Nakayama, finite-free completion, integral dimension inequality and
+  finite-dimensional endomorphism theorem.
+- Z183–Z185 give the finite-support H1 union argument, arbitrary perfect-base
+  field formal smoothness and an equal-characteristic coefficient-field section.
+  No EssFiniteType assumption is made on the whole residue field.
+  Reuse the existing complete-ring lifting theorem; do not reconstruct its tower.
+- Z186–Z189 give parameters without regularity, power-cofinal completion,
+  coefficient-field finiteness of the quotient and finite parameter evaluation.
+  Use L158 directly; PadicMeasuresIwasawaAlgebras:L5 retains its general
+  compact/arithmetic module packaging.
+- Z190 proves injectivity through the kernel quotient before any dimension
+  equality for injective integral maps. Z191 proves fraction-field finiteness,
+  allowing inseparability. Z178 now imports this chain.
+- E125/E126 record current Stacks031X/031J notation slips; they await review.
+
+## Resume here
+
+1. The source-level032D Case I branch needed by Z178 is decomposed. The nine
+   adapters and their native-carrier transports remain unimplemented.
+   Do not restart by assuming the pinned perfect-field instance handles an
+   arbitrary residue field; use Z184 and L156.
+2. Continue the full finite-type07PH reduction and0381's extra transcendental-
+   field formulation. The mixed-characteristic032D branch remains distinct
+   and open; check which consumers actually need it before expanding it.
+3. Preserve all other analytic/homological, global, source, definition-API
+   and ownership gaps, E60/Z99's characteristic-zero repair, scalar
+   prime/Hodge boundaries and the Appendix B certificates.
+4. The field supplier lives at SF.0/SF.4, coefficient adapters at R03.1,
+   parameter/dimension adapters at R03.3. Only early atom-level imports are
+   intended; no new whole-roadmap dependency or route is introduced.
+
+All847 inherited item IDs/statuses/statements/locators, all124 prior
+source findings and all prior sourceData are preserved. Only Z178's outline,
+dependencies and note change among inherited item objects. Every missing
+item is routed once. Paper/intake/source-version, preservation/routing/DAG,
+3,302 exact finite diagnostics and whitespace checks passed.
+No Lean deliverable or compilation. No scratch file is needed to resume;
+all source URLs/hashes and arguments are in the result and report.
+
+---
+
 # LLHLM23 — current handoff: nonzero characteristic-p formal fibres
 
 Codex — codex-rtOQ9t; issue #1254; claim confirmation 5910921748;
