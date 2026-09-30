@@ -34962,7 +34962,8 @@
     "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4117"
   },
   {
    "id": "RT-PAPER-KOENIGSMANN-16",
@@ -37567,7 +37568,8 @@
     "REV-PAPER-DOR-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DOR-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4227"
   },
   {
    "id": "RT-PAPER-ICHINO-PRASANNA-23",
