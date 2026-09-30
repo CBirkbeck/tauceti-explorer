@@ -211,11 +211,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "a79887192a1bb470",
+   "promotedAt": "2026-09-30T16:10:01Z",
+   "review": "c2e39fbcfc8a58a6",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "sha256": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249",
+   "sha256": "74925da742d5828e63f80d0a8531e544aef6552be6b06b4b901c680418c49d0b",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
    ]

@@ -368,7 +368,7 @@
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
   "roadmapEdges": 1715,
-  "stageEdges": 8303,
+  "stageEdges": 8304,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -493,8 +493,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30272825,
-  "htmlSha256": "c688bae5251ba2812e2efb23aed15dcd925560342b5cadd14386dc5ec4ee9755",
+  "htmlBytes": 30275787,
+  "htmlSha256": "efbbdcfaa5eaa86805e27158489d5a9f864f55667900800f853f92cbbba638ee",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -644,7 +644,7 @@
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json": "eee20df0852e22579519a2f142d0df8bcccb9d158912745a18c66ec72d316f30",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json": "81428ee5abd4b1b98ef5fe5f6c8f72303fcb4e67219b03fb64c1ac1d089f6d67",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json": "d86b01675ad9213460ea78a0c02f29da4586d8775d3ba302e8a6922a1adee5f5",
-    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249",
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": "74925da742d5828e63f80d0a8531e544aef6552be6b06b4b901c680418c49d0b",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f",
     "data/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": "a934c23ef2b81aa62bb653bd65f1fb1b6315a75f4b04bc2d79f0c040560972cf",
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": "a0cb77d38e12e53c186d2befbf5ebf88990e98188c5063b889d30aa20ae51301",
