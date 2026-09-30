@@ -5601,260 +5601,268 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-HabiroRings",
-  "date": "2026-09-25",
-  "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Three checkers read Wagner's arXiv:2510.04782v2 (TeX e-print, SHA-256 9c338455…, equal to the packet's hash, and PDF) and the companion arXiv:2410.23078v5, which the packet had not obtained although it is public, against every node: HR.1–HR.2, HR.3–HR.4, and HR.5–HR.7 with the packet-level items. They opened every pinned declaration they cite at Mathlib 082e2d3 and Tau Ceti f790474 and read every supplier stage in data/atlas.json. The coordinator merged the overlapping corrections and checked the node graph and the stage graph for cycles against every packet on main. Of the 27 original nodes, 21 were corrected and 6 removed as registers or notes, and 29 nodes were added. Main corrections: the Frobenius congruence of a Λ-ring is ψ^p(x) ≡ x^p mod p, not ψ^p ≡ id; all excerpts were paraphrases with the mathematics written in words and are now literal; HR.4 is decomposed from the companion paper (truncated big Witt vectors, q-Witt vectors, étale base change, the finite stages); Theorem 2.9 needs R étale; Lemma 2.12's ℓ-adic step claims Φ_m irreducible mod ℓ, which is false, and is corrected; Corollary 2.13 holds for Δ = disc F exactly; the requests to StableHomotopyKTheory H.3 and HabiroCohomologyFoundations HQ.8 were wrong, the HQ.4 prerequisite of HR.4 closed a stage cycle, and the empty baseline now holds 54 declarations, each read at the pin. Every test has a section-12 kind and every request has neededBy. Twelve source issues are recorded, all confirmed. The suggested Lean file was rewritten; the old one stated 87 items as True and used Prop-valued and Unit placeholders. The new file states 131 of the 164 API items, 73 of the 81 tests as examples, and 19 of the 33 theorem nodes on honest carriers. These include Λ-rings with the Frobenius congruence as a real field, the colimit perfection, big Witt vectors with ghost maps, q-Witt vectors and relative q-Witt rings as quotients, and the finite relative Habiro rings and their limit as ordinary rings. Everything needing derived or ∞-categorical carriers is a comment naming its supplier. It elaborates with exit code 0 against Mathlib 082e2d3 and the Tau Ceti f790474 sources, and its only warnings mark the declarations left unproved. Formalising it found eight statement corrections, applied here. Part (b) of the divisor lemma needs two distinct elements. Habiro completion is extended to D(A[q]), which the API uses. The index sets are the positive integers. Change of roots is independence of the compatible system, not a Galois action. 'Relatively perfect' is now defined. A tautological clause is dropped. The limit's universal property holds for every B. Companion Corollary 2.52, which an HR.7 test uses, is now a node. check_blueprint.py --index: 0 errors, 0 warnings. The packet stays partial: eight gaps and 18 requests remain. Three stage cycles through HabiroCohomologyFoundations HQ.3–HQ.5 are closed by the HQ.1 packet's edges into HR.6 and are recorded as a restructure note for the orchestrator.",
-  "checked": [
-   {
-    "nodeId": "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
-    "verdict": "corrected",
-    "note": "Frobenius congruence was wrong (ψ^p ≡ id fails for toric ℤ[x]); now ψ^p(x) ≡ x^p, with Λ-maps, δ_p for PR.0, literal q-Witt 2.31 and 1.22(e) excerpts and six kinded tests."
-   },
-   {
-    "nodeId": "HabiroRings:HR.1/perfectly-covered",
-    "verdict": "corrected",
-    "note": "Locator was '§1.1' and the excerpt came from a commented-out TeX draft; now 1.22(e), p.12, with the three descriptions proved from q-Witt footnote (2.3) and the non-example ℤ[x,y]/(xy)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.1/the-etale-frobenius-lift",
-    "verdict": "corrected",
-    "note": "Proof now closes through Mathlib's formally smooth/unramified adic lifting and the new relative-Frobenius lemma; tests recomputed (ℤ[i][1/2] at 3 and 5, ℤ[2^(1/3),1/6] at 5). A tautological clause dropped from frobLift_self (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.1/morphisms-of-pairs",
-    "verdict": "corrected",
-    "note": "Was a 'comparison' register of naturality claims; now the definition of the category of pairs, the register content moved to the HR.1 coverage note."
-   },
-   {
-    "nodeId": "HabiroRings:HR.1/the-colimit-perfection",
-    "verdict": "added",
-    "note": "Colimit perfection with its universal property, needed for description (iii) of perfect covering (q-Witt Remark 2.47)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.1/relative-frobenius-of-an-etale-algebra",
-    "verdict": "added",
-    "note": "The Stacks 0EBS input hidden in 'where it becomes classical' (2.7); not in either pinned library."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/habiro-complete-modules",
-    "verdict": "corrected",
-    "note": "Now B.1 only (derived form over A[q^{±1}]); cofinality and adjointness moved to the B.2 node, excerpts literal, tests include Rr^∧_H = 0 and ℤ[[q−1]]/(q+1) = ℤ_2 versus H/(q+1) = ℤ. Habiro completion extended to D(A[q]), which the API and HR.5 use (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/the-detection-results",
-    "verdict": "corrected",
-    "note": "Was four statements never read; now exactly Corollary B.4 (degree bounds and staticity), the result HR.4/the-etale-lift consumes."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/the-monoidal-structure",
-    "verdict": "corrected",
-    "note": "Dropped the unneeded detection prerequisite and the unrelated H.3 (plus construction) for H.6; fixed the smashing/idempotent confusion; tests recomputed (Tor_1 case, H ⊗ H not complete)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/the-solid-comparison-is-bounded-below",
-    "verdict": "corrected",
-    "note": "Was a register of readings not asserted; now Lemma B.8 as stated (bounded-below closure and monoidality), with the depth-30 VS2 dependency flagged for a substage."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/the-two-term-resolution",
-    "verdict": "added",
-    "note": "Two-term resolution of Rr from B.2's proof, with the misprinted first arrow corrected."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/completeness-via-the-factorial-tower",
-    "verdict": "added",
-    "note": "B.2 (a)⇔(b)⇔(c) with the left adjoint, idempotence and the unit for A = ℤ."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/completeness-on-homotopy-groups",
-    "verdict": "added",
-    "note": "B.2 (a)⇔(d), completeness on homotopy modules."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/the-derived-nakayama-lemma",
-    "verdict": "added",
-    "note": "B.3 with B.5: derived Nakayama and joint conservativity."
-   },
-   {
-    "nodeId": "HabiroRings:HR.2/habiro-complete-solid-spectra",
-    "verdict": "added",
-    "note": "B.6–B.7 embedding into solid spectra, which B.8 is about; supplier gap recorded."
-   },
-   {
-    "nodeId": "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
-    "verdict": "corrected",
-    "note": "Recast as a lemma; 'surviving intersections are the prime edges' was false (m = 4, {1, 4}); p-adic disjointness added; arithmetic imported from HC.4 nodes; E0 removed; literal excerpts. Part (b) requires two distinct elements (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.3/the-complete-descent-corollary",
-    "verdict": "corrected",
-    "note": "Statement kept to the source; proof by unravelling the limit over P; HR.2 prerequisite replaced by the descent equivalence; the 'no licence' caution moved into its hypotheses; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroRings:HR.3/the-morphism-level-statement",
-    "verdict": "corrected",
-    "note": "Now the equivalence CAlg(D̂_{(q^m−1)}) ≃ lim_P CAlg(D̂_S) that the proof of Corollary 2.4 establishes, with joint conservativity and both Kan-extension reductions, ordered before the corollary."
-   },
-   {
-    "nodeId": "HabiroRings:HR.3/the-general-descent-principle",
-    "verdict": "added",
-    "note": "Setup 2.1 and Lemma 2.2 were missing; the corollary cannot be proved without them, and E5:abstract does not own them."
-   },
-   {
-    "nodeId": "HabiroRings:HR.3/the-fracture-square-pieces",
-    "verdict": "added",
-    "note": "Remark 2.5, where the stage text's p-adic disjointness is used; supplies HR.5's ℓ-adic step and HQ.4's fracture squares."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/relative-q-witt-rings",
-    "verdict": "corrected",
-    "note": "Rewritten from Definitions 2.40–2.42, 2.44, Lemma 2.46 and Remark 2.47; the HQ.4 prerequisite (a stage cycle) removed; API and tests replaced. 'Relatively perfect' defined in the cyclic-map item (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/there-is-no-restriction-map",
-    "verdict": "corrected",
-    "note": "A genuine theorem (q-Witt 2.14), kept as a theorem with its exact hypotheses (m = p^α, p·1_R ≠ 0); the interface rule moved to the transition node and coverage."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/the-etale-lift",
-    "verdict": "corrected",
-    "note": "Hypothesis corrected to étale R; proof steps from the source; staticity by derived Nakayama with the 'modulo p' misprint recorded; the limit clause moved to its own node; planet renamed."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/the-transitions-are-frobenius",
-    "verdict": "corrected",
-    "note": "Proof of the composition law and of the F_{m/d} identification by joint injectivity of ghost maps; the prerequisite on the no-restriction node dropped (naming only)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/truncated-big-witt-vectors",
-    "verdict": "added",
-    "note": "q-W_m(R) is a quotient of W_m(R)[q] and neither library nor any stage has truncation-set big Witt vectors."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/q-witt-vectors",
-    "verdict": "added",
-    "note": "The absolute q-Witt vectors (Definition 2.8, Lemma 2.9, 2.13, Lemma 2.23), on which the relative ones are built."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/the-lambda-ring-comparison-maps",
-    "verdict": "added",
-    "note": "s_m and c_m (2.31–2.37), needed because Definition 2.40 tensors along c_m."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
-    "verdict": "added",
-    "note": "Proposition 2.48 with Lemma 2.50: the étaleness Theorem 2.9 starts from."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/ghost-maps-and-etale-base-change",
-    "verdict": "added",
-    "note": "Corollary 2.51, which identifies both sides of the comparison modulo Φ_d(q)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/an-isomorphism-with-the-naive-quotient-forces-a-frobenius-lift",
-    "verdict": "added",
-    "note": "q-Witt v5 Corollary 2.52, used by HR.7's naive-completion test and stated by no node (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/the-finite-relative-habiro-rings",
-    "verdict": "added",
-    "note": "The construction 2.7 of H_{R/A,m} and its transitions was missing as a node."
-   },
-   {
-    "nodeId": "HabiroRings:HR.4/the-limit-of-the-finite-stages-is-static",
-    "verdict": "added",
-    "note": "Theorem 2.9's last clause, via HR.2's Corollary B.4, which is what the stage text's staticity requirement refers to."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/the-relative-habiro-ring",
-    "verdict": "corrected",
-    "note": "Statement made exact (2.7, footnote (2.1), Theorem 2.9 via Corollary B.4); base change split off; excerpts literal; API and tests with kinds. The coordinator made it import the finite stages and the staticity theorem from HR.4 instead of repeating them. The universal property of the limit holds for every A[q]-algebra B (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/the-equaliser-presentation",
-    "verdict": "corrected",
-    "note": "The canonical arrow does not re-expand; the target factors carry ζ_{pm}; prerequisites now include the roots node, the Taylor lemma and B.3; ordinary-ring form is Mathlib's eqLocus."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/roots-choices-and-substitutions",
-    "verdict": "corrected",
-    "note": "Order reversed: the maps of 2.11 are built before Lemma 2.12; HC.3 nodes cited; full coefficient algebra and change of choice made precise; tests with recomputed values. The change-of-roots API item restated as independence of the root system (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/the-ell-adic-taylor-comparison",
-    "verdict": "added",
-    "note": "The corrected ℓ-adic and rational Taylor comparison that replaces the false p. 18 line."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/untwisted-relative-habiro-rings",
-    "verdict": "added",
-    "note": "The positive side of Remark 2.8 (R = A, toric, Z[1/N]), needed for H_{Z/Z} ≅ H and the HR.7 tests."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5/completed-base-change",
-    "verdict": "added",
-    "note": "Stage-required base change, derived from Theorem 2.9 and q-Witt v5 Lemma 2.46, with the toric non-example."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5-number-field-comparison/the-classical-ring",
-    "verdict": "corrected",
-    "note": "Adds the missing step H_{Z/Z} ≅ H and the identification of the projections with HC.3's Taylor maps; excerpts literal."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
-    "verdict": "corrected",
-    "note": "Hypothesis is Δ = disc F exactly (no 6); étaleness lemma added; prerequisite is Lemma 2.12, not the classical ring; HB.6 nodes cited."
-   },
-   {
-    "nodeId": "HabiroRings:HR.5-number-field-comparison/the-inverted-discriminant-ring-is-etale",
-    "verdict": "added",
-    "note": "O_F[1/Δ] étale over Z, used silently by Corollary 2.13; closed by Mathlib declarations."
-   },
-   {
-    "nodeId": "HabiroRings:HR.6/the-degree-zero-identification",
-    "verdict": "corrected",
-    "note": "Now states Corollary 3.13 at p. 27 with its hypotheses and proof; prerequisites are HQ nodes; HQ.3 citation slip recorded."
-   },
-   {
-    "nodeId": "HabiroRings:HR.6/completed-scalar-extension",
-    "verdict": "added",
-    "note": "Replaces the register node the-module-interfaces for the exports: completed scalar extension, perfect complexes, Pic."
-   },
-   {
-    "nodeId": "HabiroRings:HR.6/the-transported-regulator",
-    "verdict": "added",
-    "note": "HB.7's K3-indexed modules transported along Corollary 2.13's isomorphism (6·disc F | Δ)."
-   },
-   {
-    "nodeId": "HabiroRings:HR.6/the-q-minus-one-completion-is-not-injective",
-    "verdict": "added",
-    "note": "The (q−1)-completion map with a ring-level kernel for Z[1/p]."
-   },
-   {
-    "nodeId": "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion",
-    "verdict": "added",
-    "note": "Wagner's asserted vanishing of the regulator after (q−1)-completion, with its gap."
-   },
-   {
-    "nodeId": "HabiroRings:HR.7/phi-five-over-f-eleven",
-    "verdict": "added",
-    "note": "Φ_5 over F_11, recomputed, with Hensel lifts; realises the HR.7 splitting test."
-   },
-   {
-    "nodeId": "HabiroRings:HR.7/inverting-a-prime",
-    "verdict": "added",
-    "note": "R = Z[1/p] with HC.5's component decomposition; realises the localisation test."
-   },
-   {
-    "nodeId": "HabiroRings:HR.7/constant-families-do-not-glue",
-    "verdict": "added",
-    "note": "Constant families fail to glue over Z[∛2][1/6]; realises the constant-family check."
-   },
-   {
-    "nodeId": "HabiroRings:HR.7/the-stage-is-not-the-naive-completion",
-    "verdict": "added",
-    "note": "H_{R/Z,m} ≇ R[q]^∧ for R = Z[∛2][1/6], 5 | m, via q-Witt v5 Corollary 2.52; realises the finite étale test. Now cites the new HR.4 node for q-Witt Corollary 2.52 (found formalising the Lean file)."
-   }
-  ]
- }
+  "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2",
+  "date": "2026-09-30",
+  "notes": "Independent review of FIX-RT-AREA-etale~2 (Codex codex-rtOQ9t, issue #5155, PR #5255). This session did no part of either fix round, the red team or its verification. It follows the qualified verdicts of RT-AREA-etale.review.json. Also follows independent-review-REV-HabiroRings (2026-09-25, accepted; archived verbatim in reviewHistory). Round 2 changed no node here: only coverage notes, the restructure notes (the accepted RS-10 interim ownership of the truncation-set big Witt vectors, and the resolved restriction-obstruction concern, which I checked in the HQ packet: HQ.4 imports HR.4/there-is-no-restriction-map in proof step 1) and two sourceVersions records (hashes verified). These implement /27 and /32 on the HR side without transferring anything to the absent QW stages. check_blueprint with the pinned index: 50 nodes, 0 errors, 0 warnings. No correction was needed. Report: research/blueprint/reviews/REV-FIX-RT-AREA-etale~2.md."
+ },
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-HabiroRings",
+   "date": "2026-09-25",
+   "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Three checkers read Wagner's arXiv:2510.04782v2 (TeX e-print, SHA-256 9c338455…, equal to the packet's hash, and PDF) and the companion arXiv:2410.23078v5, which the packet had not obtained although it is public, against every node: HR.1–HR.2, HR.3–HR.4, and HR.5–HR.7 with the packet-level items. They opened every pinned declaration they cite at Mathlib 082e2d3 and Tau Ceti f790474 and read every supplier stage in data/atlas.json. The coordinator merged the overlapping corrections and checked the node graph and the stage graph for cycles against every packet on main. Of the 27 original nodes, 21 were corrected and 6 removed as registers or notes, and 29 nodes were added. Main corrections: the Frobenius congruence of a Λ-ring is ψ^p(x) ≡ x^p mod p, not ψ^p ≡ id; all excerpts were paraphrases with the mathematics written in words and are now literal; HR.4 is decomposed from the companion paper (truncated big Witt vectors, q-Witt vectors, étale base change, the finite stages); Theorem 2.9 needs R étale; Lemma 2.12's ℓ-adic step claims Φ_m irreducible mod ℓ, which is false, and is corrected; Corollary 2.13 holds for Δ = disc F exactly; the requests to StableHomotopyKTheory H.3 and HabiroCohomologyFoundations HQ.8 were wrong, the HQ.4 prerequisite of HR.4 closed a stage cycle, and the empty baseline now holds 54 declarations, each read at the pin. Every test has a section-12 kind and every request has neededBy. Twelve source issues are recorded, all confirmed. The suggested Lean file was rewritten; the old one stated 87 items as True and used Prop-valued and Unit placeholders. The new file states 131 of the 164 API items, 73 of the 81 tests as examples, and 19 of the 33 theorem nodes on honest carriers. These include Λ-rings with the Frobenius congruence as a real field, the colimit perfection, big Witt vectors with ghost maps, q-Witt vectors and relative q-Witt rings as quotients, and the finite relative Habiro rings and their limit as ordinary rings. Everything needing derived or ∞-categorical carriers is a comment naming its supplier. It elaborates with exit code 0 against Mathlib 082e2d3 and the Tau Ceti f790474 sources, and its only warnings mark the declarations left unproved. Formalising it found eight statement corrections, applied here. Part (b) of the divisor lemma needs two distinct elements. Habiro completion is extended to D(A[q]), which the API uses. The index sets are the positive integers. Change of roots is independence of the compatible system, not a Galois action. 'Relatively perfect' is now defined. A tautological clause is dropped. The limit's universal property holds for every B. Companion Corollary 2.52, which an HR.7 test uses, is now a node. check_blueprint.py --index: 0 errors, 0 warnings. The packet stays partial: eight gaps and 18 requests remain. Three stage cycles through HabiroCohomologyFoundations HQ.3–HQ.5 are closed by the HQ.1 packet's edges into HR.6 and are recorded as a restructure note for the orchestrator.",
+   "checked": [
+    {
+     "nodeId": "HabiroRings:HR.1/lambda-rings-with-commuting-adams-operations",
+     "verdict": "corrected",
+     "note": "Frobenius congruence was wrong (ψ^p ≡ id fails for toric ℤ[x]); now ψ^p(x) ≡ x^p, with Λ-maps, δ_p for PR.0, literal q-Witt 2.31 and 1.22(e) excerpts and six kinded tests."
+    },
+    {
+     "nodeId": "HabiroRings:HR.1/perfectly-covered",
+     "verdict": "corrected",
+     "note": "Locator was '§1.1' and the excerpt came from a commented-out TeX draft; now 1.22(e), p.12, with the three descriptions proved from q-Witt footnote (2.3) and the non-example ℤ[x,y]/(xy)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.1/the-etale-frobenius-lift",
+     "verdict": "corrected",
+     "note": "Proof now closes through Mathlib's formally smooth/unramified adic lifting and the new relative-Frobenius lemma; tests recomputed (ℤ[i][1/2] at 3 and 5, ℤ[2^(1/3),1/6] at 5). A tautological clause dropped from frobLift_self (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.1/morphisms-of-pairs",
+     "verdict": "corrected",
+     "note": "Was a 'comparison' register of naturality claims; now the definition of the category of pairs, the register content moved to the HR.1 coverage note."
+    },
+    {
+     "nodeId": "HabiroRings:HR.1/the-colimit-perfection",
+     "verdict": "added",
+     "note": "Colimit perfection with its universal property, needed for description (iii) of perfect covering (q-Witt Remark 2.47)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.1/relative-frobenius-of-an-etale-algebra",
+     "verdict": "added",
+     "note": "The Stacks 0EBS input hidden in 'where it becomes classical' (2.7); not in either pinned library."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/habiro-complete-modules",
+     "verdict": "corrected",
+     "note": "Now B.1 only (derived form over A[q^{±1}]); cofinality and adjointness moved to the B.2 node, excerpts literal, tests include Rr^∧_H = 0 and ℤ[[q−1]]/(q+1) = ℤ_2 versus H/(q+1) = ℤ. Habiro completion extended to D(A[q]), which the API and HR.5 use (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/the-detection-results",
+     "verdict": "corrected",
+     "note": "Was four statements never read; now exactly Corollary B.4 (degree bounds and staticity), the result HR.4/the-etale-lift consumes."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/the-monoidal-structure",
+     "verdict": "corrected",
+     "note": "Dropped the unneeded detection prerequisite and the unrelated H.3 (plus construction) for H.6; fixed the smashing/idempotent confusion; tests recomputed (Tor_1 case, H ⊗ H not complete)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/the-solid-comparison-is-bounded-below",
+     "verdict": "corrected",
+     "note": "Was a register of readings not asserted; now Lemma B.8 as stated (bounded-below closure and monoidality), with the depth-30 VS2 dependency flagged for a substage."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/the-two-term-resolution",
+     "verdict": "added",
+     "note": "Two-term resolution of Rr from B.2's proof, with the misprinted first arrow corrected."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/completeness-via-the-factorial-tower",
+     "verdict": "added",
+     "note": "B.2 (a)⇔(b)⇔(c) with the left adjoint, idempotence and the unit for A = ℤ."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/completeness-on-homotopy-groups",
+     "verdict": "added",
+     "note": "B.2 (a)⇔(d), completeness on homotopy modules."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/the-derived-nakayama-lemma",
+     "verdict": "added",
+     "note": "B.3 with B.5: derived Nakayama and joint conservativity."
+    },
+    {
+     "nodeId": "HabiroRings:HR.2/habiro-complete-solid-spectra",
+     "verdict": "added",
+     "note": "B.6–B.7 embedding into solid spectra, which B.8 is about; supplier gap recorded."
+    },
+    {
+     "nodeId": "HabiroRings:HR.3/the-divisor-poset-and-its-intersections",
+     "verdict": "corrected",
+     "note": "Recast as a lemma; 'surviving intersections are the prime edges' was false (m = 4, {1, 4}); p-adic disjointness added; arithmetic imported from HC.4 nodes; E0 removed; literal excerpts. Part (b) requires two distinct elements (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.3/the-complete-descent-corollary",
+     "verdict": "corrected",
+     "note": "Statement kept to the source; proof by unravelling the limit over P; HR.2 prerequisite replaced by the descent equivalence; the 'no licence' caution moved into its hypotheses; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroRings:HR.3/the-morphism-level-statement",
+     "verdict": "corrected",
+     "note": "Now the equivalence CAlg(D̂_{(q^m−1)}) ≃ lim_P CAlg(D̂_S) that the proof of Corollary 2.4 establishes, with joint conservativity and both Kan-extension reductions, ordered before the corollary."
+    },
+    {
+     "nodeId": "HabiroRings:HR.3/the-general-descent-principle",
+     "verdict": "added",
+     "note": "Setup 2.1 and Lemma 2.2 were missing; the corollary cannot be proved without them, and E5:abstract does not own them."
+    },
+    {
+     "nodeId": "HabiroRings:HR.3/the-fracture-square-pieces",
+     "verdict": "added",
+     "note": "Remark 2.5, where the stage text's p-adic disjointness is used; supplies HR.5's ℓ-adic step and HQ.4's fracture squares."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/relative-q-witt-rings",
+     "verdict": "corrected",
+     "note": "Rewritten from Definitions 2.40–2.42, 2.44, Lemma 2.46 and Remark 2.47; the HQ.4 prerequisite (a stage cycle) removed; API and tests replaced. 'Relatively perfect' defined in the cyclic-map item (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/there-is-no-restriction-map",
+     "verdict": "corrected",
+     "note": "A genuine theorem (q-Witt 2.14), kept as a theorem with its exact hypotheses (m = p^α, p·1_R ≠ 0); the interface rule moved to the transition node and coverage."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/the-etale-lift",
+     "verdict": "corrected",
+     "note": "Hypothesis corrected to étale R; proof steps from the source; staticity by derived Nakayama with the 'modulo p' misprint recorded; the limit clause moved to its own node; planet renamed."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/the-transitions-are-frobenius",
+     "verdict": "corrected",
+     "note": "Proof of the composition law and of the F_{m/d} identification by joint injectivity of ghost maps; the prerequisite on the no-restriction node dropped (naming only)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/truncated-big-witt-vectors",
+     "verdict": "added",
+     "note": "q-W_m(R) is a quotient of W_m(R)[q] and neither library nor any stage has truncation-set big Witt vectors."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/q-witt-vectors",
+     "verdict": "added",
+     "note": "The absolute q-Witt vectors (Definition 2.8, Lemma 2.9, 2.13, Lemma 2.23), on which the relative ones are built."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/the-lambda-ring-comparison-maps",
+     "verdict": "added",
+     "note": "s_m and c_m (2.31–2.37), needed because Definition 2.40 tensors along c_m."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/q-witt-vectors-of-etale-maps",
+     "verdict": "added",
+     "note": "Proposition 2.48 with Lemma 2.50: the étaleness Theorem 2.9 starts from."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/ghost-maps-and-etale-base-change",
+     "verdict": "added",
+     "note": "Corollary 2.51, which identifies both sides of the comparison modulo Φ_d(q)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/an-isomorphism-with-the-naive-quotient-forces-a-frobenius-lift",
+     "verdict": "added",
+     "note": "q-Witt v5 Corollary 2.52, used by HR.7's naive-completion test and stated by no node (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/the-finite-relative-habiro-rings",
+     "verdict": "added",
+     "note": "The construction 2.7 of H_{R/A,m} and its transitions was missing as a node."
+    },
+    {
+     "nodeId": "HabiroRings:HR.4/the-limit-of-the-finite-stages-is-static",
+     "verdict": "added",
+     "note": "Theorem 2.9's last clause, via HR.2's Corollary B.4, which is what the stage text's staticity requirement refers to."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/the-relative-habiro-ring",
+     "verdict": "corrected",
+     "note": "Statement made exact (2.7, footnote (2.1), Theorem 2.9 via Corollary B.4); base change split off; excerpts literal; API and tests with kinds. The coordinator made it import the finite stages and the staticity theorem from HR.4 instead of repeating them. The universal property of the limit holds for every A[q]-algebra B (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/the-equaliser-presentation",
+     "verdict": "corrected",
+     "note": "The canonical arrow does not re-expand; the target factors carry ζ_{pm}; prerequisites now include the roots node, the Taylor lemma and B.3; ordinary-ring form is Mathlib's eqLocus."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/roots-choices-and-substitutions",
+     "verdict": "corrected",
+     "note": "Order reversed: the maps of 2.11 are built before Lemma 2.12; HC.3 nodes cited; full coefficient algebra and change of choice made precise; tests with recomputed values. The change-of-roots API item restated as independence of the root system (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/the-ell-adic-taylor-comparison",
+     "verdict": "added",
+     "note": "The corrected ℓ-adic and rational Taylor comparison that replaces the false p. 18 line."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/untwisted-relative-habiro-rings",
+     "verdict": "added",
+     "note": "The positive side of Remark 2.8 (R = A, toric, Z[1/N]), needed for H_{Z/Z} ≅ H and the HR.7 tests."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5/completed-base-change",
+     "verdict": "added",
+     "note": "Stage-required base change, derived from Theorem 2.9 and q-Witt v5 Lemma 2.46, with the toric non-example."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5-number-field-comparison/the-classical-ring",
+     "verdict": "corrected",
+     "note": "Adds the missing step H_{Z/Z} ≅ H and the identification of the projections with HC.3's Taylor maps; excerpts literal."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5-number-field-comparison/the-number-field-ring",
+     "verdict": "corrected",
+     "note": "Hypothesis is Δ = disc F exactly (no 6); étaleness lemma added; prerequisite is Lemma 2.12, not the classical ring; HB.6 nodes cited."
+    },
+    {
+     "nodeId": "HabiroRings:HR.5-number-field-comparison/the-inverted-discriminant-ring-is-etale",
+     "verdict": "added",
+     "note": "O_F[1/Δ] étale over Z, used silently by Corollary 2.13; closed by Mathlib declarations."
+    },
+    {
+     "nodeId": "HabiroRings:HR.6/the-degree-zero-identification",
+     "verdict": "corrected",
+     "note": "Now states Corollary 3.13 at p. 27 with its hypotheses and proof; prerequisites are HQ nodes; HQ.3 citation slip recorded."
+    },
+    {
+     "nodeId": "HabiroRings:HR.6/completed-scalar-extension",
+     "verdict": "added",
+     "note": "Replaces the register node the-module-interfaces for the exports: completed scalar extension, perfect complexes, Pic."
+    },
+    {
+     "nodeId": "HabiroRings:HR.6/the-transported-regulator",
+     "verdict": "added",
+     "note": "HB.7's K3-indexed modules transported along Corollary 2.13's isomorphism (6·disc F | Δ)."
+    },
+    {
+     "nodeId": "HabiroRings:HR.6/the-q-minus-one-completion-is-not-injective",
+     "verdict": "added",
+     "note": "The (q−1)-completion map with a ring-level kernel for Z[1/p]."
+    },
+    {
+     "nodeId": "HabiroRings:HR.6/the-regulator-dies-after-q-minus-one-completion",
+     "verdict": "added",
+     "note": "Wagner's asserted vanishing of the regulator after (q−1)-completion, with its gap."
+    },
+    {
+     "nodeId": "HabiroRings:HR.7/phi-five-over-f-eleven",
+     "verdict": "added",
+     "note": "Φ_5 over F_11, recomputed, with Hensel lifts; realises the HR.7 splitting test."
+    },
+    {
+     "nodeId": "HabiroRings:HR.7/inverting-a-prime",
+     "verdict": "added",
+     "note": "R = Z[1/p] with HC.5's component decomposition; realises the localisation test."
+    },
+    {
+     "nodeId": "HabiroRings:HR.7/constant-families-do-not-glue",
+     "verdict": "added",
+     "note": "Constant families fail to glue over Z[∛2][1/6]; realises the constant-family check."
+    },
+    {
+     "nodeId": "HabiroRings:HR.7/the-stage-is-not-the-naive-completion",
+     "verdict": "added",
+     "note": "H_{R/Z,m} ≇ R[q]^∧ for R = Z[∛2][1/6], 5 | m, via q-Witt v5 Corollary 2.52; realises the finite étale test. Now cites the new HR.4 node for q-Witt Corollary 2.52 (found formalising the Lean file)."
+    }
+   ]
+  }
+ ]
 }
