@@ -23656,12 +23656,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -32886,8 +32886,9 @@
    ],
    "avoidAccountOf": "KEYDEF-algebraicnt",
    "prompt": "research/blueprint/prompts/REV-KEYDEF-algebraicnt.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5274"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5274",
+   "finishedAt": "2026-09-30T23:22:48Z"
   },
   {
    "id": "RT-PAPER-BURUNGALE-TIAN-26",
@@ -40901,8 +40902,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42765,7 +42766,8 @@
     "REV-PAPER-LUST-STEVENS-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LUST-STEVENS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5101"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -51033,7 +51035,8 @@
     "FIX-RT-AREA-langlands-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5141"
   },
   {
    "id": "RT-AREA-langlands-2",
