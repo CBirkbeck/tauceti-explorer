@@ -38,6 +38,49 @@ layers of the atlas, and the remaining 31 each have exactly one route: 28 go to 
 Peterzil–Starchenko, Klingler–Ullmo–Yafaev, Hwang–To, André, Deligne, Ochiai, Mok, Pila–Wilkie, Seidenberg and Kazhdan
 are recorded as items with their own prerequisite entries and are not decomposed here.
 
+## Fixes from the red team (FIX-RT-PAPER-MOK-PILA-TSIMERMAN-19)
+
+Applied by Claude Code, session `cc-c2c06b`, on 1 October 2026. The fixes apply the 13 confirmed findings of RT-PAPER-MOK-PILA-TSIMERMAN-19. The extraction now has **49 items (8 planned, 41 missing)** and the same three routes.
+
+**The published version.** The fix job read the published article (*Ann. of Math.* **189** (2019), 945–978, <https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p07-s.pdf>, SHA-256 `1eab0797…762a0ab`) for the passages the findings concern.
+- **New theorem.** Its Theorem 1.2 is the new 2-sorted inequality.
+- **Renumbering.**
+  - arXiv v3 Theorems 1.2–1.4 are published 1.3–1.5.
+  - v3 Theorems 12.3 and 12.5 are published 12.1 and 12.2.
+  - v3 §9.1 is published §9.2.
+- **Extra hypothesis.** Published Theorems 1.1 and 9.1 add that W is the full restriction of one irreducible Ŵ.
+- **Locators.** Changed items now give both versions' locators.
+
+**Statements corrected.**
+- **Item 20:** the adjoint Hodge structure has weight 0, not 2. This was a preprint misprint, corrected in print; it is recorded as E12.
+- **Item 41:** the jet compactification removes the locus (constant jet, s = 0). It is functorial only for maps that preserve nonconstant jets (E13).
+- **Item 32:** "p₂ is a function of p₁" means rank(p₁, p₂) = rank(p₁), propagating errata E7.
+- **Item 43:** derivatives are recovered algebraically from the formal matrix r, and differential Ax–Schanuel is applied with rank(z) = dim(z), propagating errata E6.
+- **Items 30, 31 and 33:**
+  - The printed proof of Lemma 11.1 is invalid (errata E4). Finite-order determination is now an unresolved prerequisite.
+  - Theorem 11.3 needs the compatibility du = v₁ ∘ dw (errata E5), and uniformized loci carry it.
+- **Item 16:** Hwang–To growth is stated for positive-dimensional analytic subvarieties of Ω and applied upstairs. On a quotient it is false. The printed "γ·W ∩ X ∩ B(R)" is recorded as E14. Hwang–To's exact hypotheses must still be read from the primary paper.
+- **Item 22:** freeness holds for the effective image of G in Aut(Ω̂), since −I ∈ SL₂ fixes every jet. In the expected-dimension terms, dim G means the dimension of that image.
+- **Items 13, 14 and 29:** the stabilizer lemmas are restated as steps of the contradiction argument, under its hypotheses.
+- **Items 18, 19 and 31:** jet maps keep the arity fixed.
+- **Items 4 and 5:** "a basis of modular functions" becomes finitely many generators of the modular function field (errata E3).
+
+**Items added.**
+- **45:** the smallest weakly special envelope.
+- **46:** the 2-sorted Theorem 1.2.
+- **47:** Theorem A.
+- **48:** the highest-weight tangent orbit (VMRT).
+- **49:** Ochiai's Theorem B.
+
+All five go to the Part II, and item 23 consumes 47–49.
+
+**Prerequisites.**
+- The Mok entry is now his 1999 Contemp. Math. article ([23], §(2.3)), not his 1989 book.
+- The compactification sources are separated.
+- The DOIs of Scanlon, Bertrand–Zudilin and Daw–Ren are corrected.
+
+**The Part II brief** now records these as binding design obligations. "Errata E3–E7" refers to the separate errata file `research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json`, not to this file's own `sourceIssues`, which use the same numbers for other misprints.
+
 ## What the paper proves
 
 Let `Ω` be a Hermitian bounded symmetric domain for a semisimple group `G`, `Γ ⊂ G(ℤ)` of finite index,
@@ -62,13 +105,13 @@ where `Ω̂` is the compact dual.
   on `dim W − dim U` and on `dim U`.
 * **With derivatives (Theorem 9.1).** The same statement in the jet spaces `J^{nd,r}_kΩ × J^{nd,r}_kX`, with the
   expected-dimension condition now `dim W < dim U + dim G`, because by Lemma 9.2 the Zariski closure of the jet graph
-  is its `G(ℂ)`-orbit. Two corollaries: a basis of modular functions together with its partial derivatives to order
+  is its `G(ℂ)`-orbit. Two corollaries: finitely many generators of the modular function field together with their partial derivatives to order
   `k ≥ 2` has transcendence degree `dim G` over `ℂ` and over `ℂ(z)` (Theorem 1.2, generalising Bertrand–Zudilin), and
   restricted to a variety `V` not inside a proper weakly special subvariety the degree is at least `dim G + dim V`
   (Theorem 1.3).
 * **Schwarzians.** To make this work the paper develops the Schwarzian differential equation of a Hermitian symmetric
   domain: with `𝔤 = 𝔫⁻ ⊕ 𝔨_ℂ ⊕ 𝔫⁺` and `Ω̂ = G_ℂ/B`, set `W_m := G · id_m(o) ⊂ J_mΩ̂`. Then `B` fixes `id₁(o)`
-  exactly on `N⁻`, `G` acts freely on `id₂(o)`, and a map with `J₃F ∘ id₃ ⊂ W₃` is a `G(ℂ)`-translate; in the ball
+  exactly on `N⁻`, the effective image of `G` acts freely on `id₂(o)`, and a map with `J₃F ∘ id₃ ⊂ W₃` is a `G(ℂ)`-translate; in the ball
   order 2 suffices, by the Fundamental Theorem of Projective Geometry, and in rank at least 2 order 1 suffices, by
   Ochiai's theorem. The Schwarzian variety `S_k(Ω̂) = G\J_kΩ̂`, the map `ψ_k` and the connection formula then show
   that the Schwarzian of an automorphic function is algebraic, so `q` is characterised up to `G(ℂ)` by an algebraic
@@ -165,9 +208,9 @@ layer that owns its neighbours. The Part II then imports it, which matters becau
 Thirteen entries. Peterzil–Starchenko supply the definable GAGA theorems; Klingler–Ullmo–Yafaev the definability of
 `q` on a Siegel set, the volume bound of their Lemma 5.8, and the Ax–Lindemann theorem this generalises; Pila–Wilkie
 the counting theorem; Hwang–To the exponential volume growth; André and Deligne the Zariski density of monodromy;
-Ochiai the characterisation of automorphisms of S-structures (Theorem B) and Mok's book the local holomorphic
-Fundamental Theorem of Projective Geometry (Theorem A), as well as the alternative compactification route to
-Lemma 3.3; Ax the original theorem; Pila–Tsimerman the `j`-function case with derivatives that Theorems 1.2 and 1.3
+Ochiai the characterisation of automorphisms of S-structures (Theorem B) and Mok's 1999 Contemp. Math. article the
+local holomorphic Fundamental Theorem of Projective Geometry (Theorem A; corrected by the fix job, which had cited
+Mok's 1989 book), while the alternative compactification route to Lemma 3.3 cites a 2017 preprint of Mok and Mok–Zhong; Ax the original theorem; Pila–Tsimerman the `j`-function case with derivatives that Theorems 1.2 and 1.3
 generalise; Scanlon the general theory of algebraic differential equations from covering maps and the form of
 Seidenberg's embedding theorem used here; Bertrand–Zudilin the Siegel case of Theorem 1.2; Kazhdan the theorem that a
 conjugate of an arithmetic variety is arithmetic; and Daw–Ren and Bakker–Tsimerman the downstream applications to
