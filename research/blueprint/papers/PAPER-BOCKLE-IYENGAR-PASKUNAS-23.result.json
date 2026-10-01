@@ -9,7 +9,7 @@
   "doi": "10.1017/fmp.2023.25",
   "arxiv": "2110.01638",
   "url": "https://doi.org/10.1017/fmp.2023.25",
-  "version": "The published article (open access, CC BY; received 6 December 2021, revised 19 August 2023, accepted 9 September 2023, published 26 October 2023), read in full; arXiv v2 (22 August 2023, the revised version after the referee report) read in full from its TeX source and PDF and compared statement by statement: numbering and statements agree, and every source issue below is present in both. The Corrigendum corrects only an affiliation. Locators give the page of the published article, then the arXiv v2 page; equation numbers are the published ones.",
+  "version": "The published article (open access, CC BY; received 6 December 2021, revised 19 August 2023, accepted 9 September 2023, published 26 October 2023), read in full; arXiv v2 (22 August 2023, the revised version after the referee report) read in full from its TeX source and PDF and compared statement by statement: numbering and statements agree, and the original source issues E1–E9 are present in both. The Corrigendum corrects only an affiliation. Locators give the page of the published article, then the arXiv v2 page; equation numbers are the published ones.",
   "readSections": [
    "§1 Introduction",
    "§2 Geometric invariant theory",
@@ -42,7 +42,42 @@
     "sha256": "f31855e4a7dfa12e45f739daed18061f18b370ed1ecec312fd5116d0434c2b46",
     "read": "the Corrigendum (affiliation only)"
    }
-  ]
+  ],
+  "fixReading": {
+   "job": "FIX-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+   "session": "codex-5ebb6f",
+   "accessed": "2026-10-01",
+   "atlasChecked": "e236453f6eb8bd7f94773ac63f42921b3b35fd40",
+   "scope": "Targeted correction of five confirmed findings; not a new full-paper extraction or a rereading of every inherited source issue. Publisher pp. 8/24 additionally inspected as page images. Cambridge PDFs have per-download stamps, so hashes differ from the original reader.",
+   "suppliersRead": [
+    {
+     "url": "https://www.numdam.org/item/10.5802/jep.119.pdf",
+     "sha256": "0da254e0c562727b3cbd816087b1426beb8860b8aea5277a33d82e088cb791a6",
+     "scope": "Emerton–Paškūnas selected §3.4 minimal-element definition, §§5.3–5.4 density/capture statements and argument, Definition 6.8 and Proposition 6.9."
+    },
+    {
+     "url": "https://arxiv.org/pdf/1608.07236v3",
+     "sha256": "1218464b8de9df1ff37d0c7b3d543850df670bb5ce4b802271d9a930015a97af",
+     "scope": "Galatius–Venkatesh pp. 79–80, Lemma 7.3, Definition 7.4, Lemma 7.5 and proof; selected §5 model/tangent statements."
+    },
+    {
+     "url": "https://arxiv.org/pdf/2108.13135v1",
+     "sha256": "507322bfe6913335ced9d19d0e590c8c6e73493b5b9872705294b8ae43543aa6",
+     "scope": "Cai §3.1.2 model/functor definitions, Proposition 3.9, Lemma 3.10, pro-representability statement and local extension paragraph in §3.1.3."
+    },
+    {
+     "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050509423000828",
+     "sha256": "5def0f0925e669e401ce09f9fcfb3617108fdf267f6ab81e5bd7bd8ba5c7f40c",
+     "scope": "Böckle–Juschka pp. 17–18, Corollary 3.3.4 and Lemma 3.3.5 statement and beginning of proof; no claim to reading the whole supplier."
+    },
+    {
+     "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508624000039",
+     "sha256": "bd729c6b14cb4c2e666234e0735588b493e940e43427754236093b75c40dd764",
+     "scope": "Full one-page Corrigendum: affiliation only."
+    }
+   ],
+   "libraryScope": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Reviewed DGAInfinity Layer 8 and R03/P7/P8 coverage plus actual owning layer texts. Bounded Hochschild/derived-deformation/benign searches in both pinned trees found no matching item; no positive new library implementation claim. DGAInfinity is a planned carrier only."
+  }
  },
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -50,16 +85,16 @@
   "atlasChecked": "a79a97d (tauceti-explorer main, 22 September 2026)",
   "note": "Declarations read at the pinned commits: Mathlib/RingTheory/Regular/RegularSequence.lean:146 (RingTheory.Sequence.IsRegular), Mathlib/RingTheory/RegularLocalRing/Defs.lean:51 (IsRegularLocalRing, a definition only), Mathlib/RingTheory/Jacobson/Ring.lean:60 and :671 (IsJacobsonRing, RingHom.FiniteType.isJacobsonRing), Mathlib/RingTheory/Ideal/GoingDown.lean:154 (Algebra.HasGoingDown.of_flat), Mathlib/RingTheory/PolynomialLaw/Basic.lean:77 (PolynomialLaw), Mathlib/RingTheory/UniqueFactorizationDomain/Defs.lean:133 (UniqueFactorizationMonoid). Neither library has complete-intersection or Cohen–Macaulay predicates, Serre's normality criterion, excellence, catenarity, determinant laws, Cayley–Hamilton algebras, GIT over a base, Galois deformation functors or pseudodeformation rings, local Galois cohomology with Euler characteristic, or patched modules; Tau Ceti has abstract class formations (TauCeti/NumberTheory/ClassFieldTheory/Formation/), Kummer theory (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean) and Krull dimension of finite-type algebras over a field (TauCeti/RingTheory/KrullDimension/FiniteType.lean), none of which states an item. The declaration index was searched for Jacobson, Catenary, Excellent, CohenMacaulay, CompleteIntersection, Serre, Regular, PolynomialLaw, Determinant, CayleyHamilton, Deformation, Schlessinger, Pseudo, GaloisCohomology, EulerCharacteristic and ArtinMap. No item is a library item; the four general notions the paper takes from the libraries (Krull dimension, regular sequences, regular local rings, UFDs) are cited in the notes."
  },
- "summary": "Böckle, Iyengar and Paškūnas determine the geometry of the unrestricted framed deformation ring R^□_ρ̄ of any ρ̄: G_F → GL_d(k), for every finite F/Q_p and every d. It is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p], so every ρ̄ lifts to characteristic zero, absolutely irreducibly (Theorem 1.1). Its irreducible components are the Spec R^{□,χ}_ρ̄, indexed by characters χ of μ_{p^∞}(F) through R_{det ρ̄} → R^□_ρ̄, which is flat; each R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ is a normal complete-intersection domain, and they are factorial for absolutely irreducible ρ̄ except when d = 2, F = Q_3, ρ̄ ≅ ρ̄(1) (Theorems 1.2 and 1.4, Corollary 1.3). The fixed-determinant rings R^{□,ψ}_ρ̄ are normal complete-intersection domains (Theorem 1.5), and for p ∤ 2d the crystalline, potentially crystabelline and potentially crystalline supercuspidal points are Zariski dense (Theorem 1.6). The method: the generic-matrices space X^gen over the pseudodeformation space X^ps, GIT over a base (Seshadri), fibre-dimension bounds from local duality, and Böckle–Juschka's equidimensionality of R^ps/ϖ give dim X̄^gen ≤ d² + d²[F:Q_p]. Completions at closed points identify local rings of X^gen with framed rings over local fields, and density of the Kummer-irreducible and absolutely irreducible loci with codimension bounds gives normality by Serre's criterion. The density theorem combines the components with the patched module of CEGGPS and Emerton–Paškūnas. In the atlas, LocalGaloisDeformationRings R08.1 plans the unrestricted rings but none of these theorems, and no layer plans the CEGGPS module. The paper's own theory therefore becomes a Part II of LocalGaloisDeformationRings, and §6 a Part II of CompletedCohomologyAndLocalGlobalCompatibility in the direction of R31.5. General inputs go as sources to R08.1, DeformationAndDerivedPatchingAlgebra R03.1/R03.3, IntegralHeckeAndGaloisDeterminants IHG.1, ArithmeticGaloisDuality D7 and PadicHodgeTheory R06.2. Seven misprints and two errors are recorded: the proof of Lemma 6.5 needs an unramified twist, and some numerical bounds need d ≥ 2. No stated result is affected.",
+ "summary": "Böckle, Iyengar and Paškūnas determine the geometry of the unrestricted framed deformation ring R^□_ρ̄ of any ρ̄: G_F → GL_d(k), for every finite F/Q_p and every d. It is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p], so every ρ̄ lifts to characteristic zero, absolutely irreducibly (Theorem 1.1). Its irreducible components are the Spec R^{□,χ}_ρ̄, indexed by characters χ of μ_{p^∞}(F) through R_{det ρ̄} → R^□_ρ̄, which is flat; each R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ is a normal complete-intersection domain, and they are factorial for absolutely irreducible ρ̄ except when d = 2, F = Q_3, ρ̄ ≅ ρ̄(1) (Theorems 1.2 and 1.4, Corollary 1.3). The fixed-determinant rings R^{□,ψ}_ρ̄ are normal complete-intersection domains (Theorem 1.5), and for p ∤ 2d the crystalline, potentially crystabelline and potentially crystalline supercuspidal points are Zariski dense (Theorem 1.6). The method: the generic-matrices space X^gen over the pseudodeformation space X^ps, GIT over a base (Seshadri), fibre-dimension bounds from local duality, and Böckle–Juschka's equidimensionality of R^ps/ϖ give dim X̄^gen ≤ d² + d²[F:Q_p]. Completions at closed points identify local rings of X^gen with framed rings over local fields, and density of the Kummer-irreducible and absolutely irreducible loci with codimension bounds gives normality by Serre's criterion. The density theorem combines the components with the patched module of CEGGPS and Emerton–Paškūnas. In the atlas, LocalGaloisDeformationRings R08.1 plans the unrestricted rings but none of these theorems, and no layer plans the CEGGPS module. The paper's own theory therefore becomes a Part II of LocalGaloisDeformationRings, and §6 a Part II of CompletedCohomologyAndLocalGlobalCompatibility in the direction of R31.5. General inputs go as sources to R08.1, DeformationAndDerivedPatchingAlgebra R03.1/R03.3, IntegralHeckeAndGaloisDeterminants IHG.1, ArithmeticGaloisDuality D7 and PadicHodgeTheory R06.2. Seven misprints and four errors are recorded. E10 corrects geometric-fibre closedness after base change; E11 corrects the stated auxiliary Lemma 3.35 with finite residue extension. Its closed-point applications satisfy that hypothesis and the main theorems stand. The extraction also records Hochschild–Ext inputs, the local framed derived homotopy-discreteness consequence, and the restricted density variants of Remark 6.2.",
  "items": [
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/001",
    "kind": "definition",
    "name": "Seshadri's setting: a reductive group scheme acting on a closed invariant subscheme of affine space, and its GIT quotient",
-   "statement": "Let R be a Noetherian ring, S = Spec R and G a reductive group scheme over S (an affine group scheme, smooth over S, with connected reductive geometric fibres; in the application G = GL_d or G_m^r over S). Let V be a free R-module of finite rank r with a G-module structure, V̌ = Hom_R(V, R), and X a closed G-invariant subscheme of Spec Sym(V̌) = A^r_S, with ring of functions B. The GIT quotient X//G is Spec B^G, and for a geometric point y = Spec κ of X//G the fibre X_y is identified with a closed G-invariant subscheme of X.",
+   "statement": "Let R be a Noetherian ring, S = Spec R and G a reductive group scheme over S (an affine group scheme, smooth over S, with connected reductive geometric fibres; in the application G = GL_d or G_m^r over S). Let V be a free R-module of finite rank r with a G-module structure, V̌ = Hom_R(V, R), and X a closed G-invariant subscheme of Spec Sym(V̌) = A^r_S, with ring of functions B. The GIT quotient X//G is Spec B^G, and for a geometric point y = Spec κ of X//G the fibre X_y = X ×_{X//G} Spec κ has a closed G_κ-invariant immersion into X ×_S Spec κ, where G_κ = G ×_S Spec κ. The projection X_y → X need not be a closed immersion.",
    "locator": "§2, pp. 7–8 (arXiv v2 pp. 8–9)",
    "status": "missing",
-   "note": "Seshadri, Geometric reductivity over arbitrary base (1977). LanglandsParameterStacks LP2:integral-invariants and LP3 plan reductive invariant theory for Weil-group parameters with ℓ ≠ p (FS VIII), not Seshadri's theory over an arbitrary Noetherian base; the Part II should share the GL_d case with LP3 where the hypotheses allow."
+   "note": "Seshadri, Geometric reductivity over arbitrary base (1977). LanglandsParameterStacks LP2:integral-invariants and LP3 plan reductive invariant theory for Weil-group parameters with ℓ ≠ p (FS VIII), not Seshadri's theory over an arbitrary Noetherian base; the Part II should share the GL_d case with LP3 where the hypotheses allow. The last sentence corrects the published p. 8 sentence; see source issue E10."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/002",
@@ -74,7 +109,7 @@
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/003",
    "kind": "theorem",
    "name": "Lemma 2.1: irreducible components of X are G-invariant",
-   "statement": "In the setting of item 001, every irreducible component Z of X, with its reduced subscheme structure, is G-invariant: the action map G ×_S X → X carries G ×_S Z into Z.",
+   "statement": "In the setting of item 001, every irreducible component Z of X, with its reduced subscheme structure, is G-invariant: the action map G ×_S X → X carries G ×_S Z into Z. Applying the same lemma over Spec κ to X_y gives G_κ-invariance of each reduced irreducible component of the geometric fibre; this is the application used in Lemma 2.2.",
    "locator": "Lemma 2.1, p. 8 (arXiv v2 p. 9)",
    "status": "missing",
    "note": "Proof: for Z = V(𝔭), the kernel of B → O(G) ⊗_R B/𝔭 is contained in 𝔭, and O(G) ⊗_R B/𝔭 is a domain because G → S is smooth with geometrically integral fibres, so the kernel is a prime contained in the minimal prime 𝔭."
@@ -83,7 +118,7 @@
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/004",
    "kind": "theorem",
    "name": "Lemma 2.2: the dimension of a GIT fibre is bounded by a tangent space at a point of its closed orbit",
-   "statement": "In the setting of item 001, let y = Spec κ be a geometric point of X//G and x ∈ X_y(κ) a point whose orbit G·x is closed in X_y. Then dim X_y ≤ dim_κ T_x(X_y).",
+   "statement": "In the setting of item 001, let y = Spec κ be a geometric point of X//G and x ∈ X_y(κ) a point whose orbit G_κ·x is closed in X_y. Then dim X_y ≤ dim_κ T_x(X_y).",
    "locator": "Lemma 2.2, p. 8 (arXiv v2 p. 9)",
    "status": "missing"
   },
@@ -301,7 +336,7 @@
    "statement": "Let x ∈ X^gen_{y,σ} be the point of ρ_σ. Then dim T_x(X^gen_{y,σ}) = dim 𝔫 + (dim 𝔫)[F:Q_p] + Σ_{1≤i<j≤r} dim Hom_{G_F}(ρ_{σ(i)}, ρ_{σ(j)}(1)) ≤ dim 𝔫 + (dim 𝔫)[F:Q_p] + Σ_{i=1}^{k} (n_i choose 2).",
    "locator": "Proposition 3.11, p. 13 (arXiv v2 p. 15); Remark 3.12 (sharp when char κ = p and ζ_p ∈ F)",
    "status": "missing",
-   "note": "Proof: identify T_x with Z^1-type data of Hom and Ext^1 between the blocks via Lemma 3.6, then apply the Euler characteristic and local duality (items 024, 025)."
+   "note": "Proof: use the coefficient cochains and derivations in item 150 and the Cartan–Eilenberg Hochschild–Ext comparison in item 151. Equation (11), p. 14, computes dim Z¹(E_y, Hom_κ(U,V)) = dim Hom_κ(U,V) − dim Hom_{E_y}(U,V) + dim Ext¹_{E_y}(U,V); Lemma 3.6 passes to continuous G_F-module extensions, then items 024–025 supply Euler characteristic and local duality. Import the ordinary Hochschild carrier (149) from DGAInfinity Layer 8, with the coefficient extension identified explicitly in 150–151."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/027",
@@ -494,9 +529,10 @@
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/049",
    "kind": "theorem",
    "name": "Lemma 3.35: completion after base change to κ(𝔭) in characteristic p",
-   "statement": "Let R be a complete local Noetherian k-algebra with residue field k, A a finitely generated R-algebra, 𝔭 ∈ Spec A with image in P_1R, and 𝔮 the kernel of B := κ(𝔭) ⊗_k A → κ(𝔭), x ⊗ a ↦ x(a + 𝔭). Then B̂_𝔮 ≅ Â_𝔭⟦T⟧; in particular A_𝔭 is regular (resp. a complete intersection) if and only if B̂_𝔮 is.",
+   "statement": "Let k be a finite field and R a complete local Noetherian k-algebra with residue field k, A a finitely generated R-algebra, 𝔭 ∈ Spec A with image 𝔭′ = 𝔭 ∩ R in P_1R and with κ(𝔭) a finite extension of κ(𝔭′), and 𝔮 the kernel of B := κ(𝔭) ⊗_k A → κ(𝔭), x ⊗ a ↦ x(a + 𝔭). Then B̂_𝔮 ≅ Â_𝔭⟦T⟧; in particular A_𝔭 is regular (resp. a complete intersection) if and only if B̂_𝔮 is.",
    "locator": "Lemma 3.35, p. 24 (arXiv v2 p. 27)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Corrected hypothesis, not present in published Lemma 3.35: see E11. Here k is the finite residue field of the paper, so κ(𝔭′) and its finite extension κ(𝔭) are characteristic-p local fields. Closed points of the inverse image of the punctured spectrum have the required finiteness by Lemma 3.18(3); Corollary 3.38 and Proposition 4.9 use such closed points. Items 050 and 051 retain their separate local-field/finite-extension hypotheses."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/050",
@@ -583,7 +619,7 @@
    "statement": "Let p be a prime, F a finite extension of Q_p with absolute Galois group G_F, L a finite extension of Q_p such that Hom_{Q_p-alg}(F, L) has [F:Q_p] elements, O its ring of integers, ϖ a uniformiser and k the residue field; let d ≥ 1 and ρ̄: G_F → GL_d(k) a continuous representation all of whose irreducible subquotients are absolutely irreducible, R^□_ρ̄ its framed deformation ring, D̄ its pseudo-character (determinant law), R^ps the universal deformation ring of D̄ and R_{det ρ̄} the universal deformation ring of the character det ρ̄. Then R^□_ρ̄ is a local complete intersection, flat over O and of relative dimension d² + d²[F:Q_p], and R^□_ρ̄/ϖ is a complete intersection of dimension d² + d²[F:Q_p]. In particular R^□_ρ̄[1/p] ≠ 0, so every continuous ρ̄: G_F → GL_d(k) has a lift to characteristic zero.",
    "locator": "Theorem 1.1, p. 2 (arXiv v2 p. 2); Corollary 3.45, p. 27 (arXiv v2 p. 30)",
    "status": "missing",
-   "note": "The first main theorem. R^□_ρ̄ is the completion of A^gen at the closed point of ρ̄ (Proposition 3.34), so Corollary 3.38 applies."
+   "note": "The first main theorem. R^□_ρ̄ is the completion of A^gen at the closed point of ρ̄ (Proposition 3.34), so Corollary 3.38 applies. The introduction immediately after Theorem 1.1 also draws the derived homotopy-discreteness consequence, now split into items 152–154."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/060",
@@ -1331,9 +1367,9 @@
    "kind": "theorem",
    "name": "Theorem 6.1 (Theorem 1.6): Zariski density of crystalline, potentially crystabelline and potentially crystalline supercuspidal points",
    "statement": "Let p be a prime, F a finite extension of Q_p with absolute Galois group G_F, L a finite extension of Q_p such that Hom_{Q_p-alg}(F, L) has [F:Q_p] elements, O its ring of integers, ϖ a uniformiser and k the residue field; let d ≥ 1 and ρ̄: G_F → GL_d(k) a continuous representation all of whose irreducible subquotients are absolutely irreducible, R^□_ρ̄ its framed deformation ring, D̄ its pseudo-character (determinant law), R^ps the universal deformation ring of D̄ and R_{det ρ̄} the universal deformation ring of the character det ρ̄. Assume p ∤ 2d, and let Σ be any of Σ^cris, Σ^prnc_k or Σ^spcd_k (k regular). Then Σ is Zariski dense in X^□ = Spec R^□_ρ̄ (equivalently in Spec R^□_ρ̄[1/p]).",
-   "locator": "Theorem 6.1, p. 46 (arXiv v2 p. 51); Theorem 1.6, p. 3; Remark 6.2, p. 46",
+   "locator": "Theorem 6.1, p. 46 (arXiv v2 p. 51); Theorem 1.6, p. 3",
    "status": "missing",
-   "note": "Proved as Emerton–Paškūnas Theorems 5.1 and 5.3, with Theorem 6.8 in place of their faithfulness hypothesis. Remark 6.10: the sequel (Böckle–Iyengar–Paškūnas, PNAS 2023) proves density of Σ^cris in (Spf R^□_ρ̄)^rig for all p using the Emerton–Gee stack; Σ^prnc_k and Σ^spcd_k are not dense there, and this section is the only known method for them."
+   "note": "Proved as Emerton–Paškūnas Theorems 5.1 and 5.3, with Theorem 6.8 in place of their faithfulness hypothesis. Remark 6.10: the sequel (Böckle–Iyengar–Paškūnas, PNAS 2023) proves density of Σ^cris in (Spf R^□_ρ̄)^rig for all p using the Emerton–Gee stack; Σ^prnc_k and Σ^spcd_k are not dense there, and this section is the only known method for them. The additional variants in Remark 6.2 are separately recorded in items 155–160; the crystalline weights vary, whereas the principal-series and supercuspidal families have fixed regular weights."
   },
   {
    "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/148",
@@ -1343,13 +1379,124 @@
    "locator": "Remark 1.7, p. 4 (arXiv v2 p. 5)",
    "status": "missing",
    "note": "Added by REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23: the only numbered statement of the paper that no item locator covered. It is not commentary - it is the transfer statement that carries every §1 theorem from the framed to the versal and universal deformation rings, with its two named inputs, and the atlas consumers of this paper will want the unframed form."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/149",
+   "kind": "construction",
+   "name": "Ordinary associative specialization of the planned Hochschild cochain carrier",
+   "statement": "For a field κ and a unital associative κ-algebra A, use the degree-zero DG-algebra specialization of Hochschild cochains, Cⁿ(A,A) = Hom_κ(A^{⊗_κ n}, A), n ≥ 0, with the bar/Hochschild differential. This carrier, including normalized cochains for strict units, is the DGAInfinity Layer 8 construction; coefficients other than A are a separate extension in item 150.",
+   "locator": "§3.2, proof of Proposition 3.11, p. 14, equation (11); DGAInfinity Layer 8",
+   "status": "planned",
+   "note": "Planned refers only to the ordinary specialization of the existing carrier, not an implemented object or a planned arbitrary-bimodule comparison. Import this carrier once; do not construct a competing carrier in the local Part II.",
+   "planned": [
+    "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality"
+   ]
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/150",
+   "kind": "definition",
+   "name": "Hom-bimodule Hochschild cochains, cocycles and inner derivations",
+   "statement": "Let κ be a field, A a finite-dimensional unital associative κ-algebra, and U,V finite-dimensional left A-modules. Put M = Hom_κ(U,V), with (a·f·b)(u) = a·f(b·u). The coefficient cochains are Cⁿ(A,M) = Hom_κ(A^{⊗_κ n},M), with C⁰ = M, d⁰(m)(a) = a·m − m·a and d¹(D)(a,b) = a·D(b) − D(ab) + D(a)·b. Thus Z¹(A,M) consists of κ-linear derivations D(ab) = a·D(b) + D(a)·b, B¹(A,M) consists of inner derivations d⁰(m), HH⁰(A,M) = ker d⁰ and HH¹(A,M) = Z¹/B¹.",
+   "locator": "§3.2, proof of Proposition 3.11, p. 14, equation (11), citing [15, Proposition IX.4.4.1 and Corollary IX.4.4.4]",
+   "status": "missing",
+   "note": "A = E_y and U,V are the representation blocks in this application. The general coefficient extension belongs with DGAInfinity Layer 8; that layer does not explicitly promise arbitrary Hom-bimodule coefficients. Route 6 imports this named extension and item 151; if an extension beyond the anchor is required, its owner is a DGAInfinity Part II, to be assigned by the design job, not a second local cochain carrier. Supplier proof closure is deferred to that blueprint."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/151",
+   "kind": "theorem",
+   "name": "Cartan–Eilenberg Hochschild–Ext comparison in degrees zero and one",
+   "statement": "Under the hypotheses and bimodule convention of item 150, HH⁰(A,Hom_κ(U,V)) ≅ Hom_A(U,V) and HH¹(A,Hom_κ(U,V)) ≅ Ext¹_A(U,V), naturally in U and V. Consequently dim_κ Z¹(A,Hom_κ(U,V)) = dim_κ Hom_κ(U,V) − dim_κ Hom_A(U,V) + dim_κ Ext¹_A(U,V). The finite-dimensionality hypotheses make every dimension in this formula finite.",
+   "locator": "§3.2, p. 14, equation (11); [15] Cartan–Eilenberg, Homological Algebra, Proposition IX.4.4.1 and Corollary IX.4.4.4",
+   "status": "missing",
+   "note": "Named supplier theorem used before Lemma 3.6 and local Tate duality in /026. The generic coefficient comparison belongs to the DGAInfinity coefficient extension in 150, imported by route 6. The source paper states this comparison; the book proof has not been read or closed by this fix."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/152",
+   "kind": "definition",
+   "name": "Local framed derived deformation functor and its pro-simplicial representing ring",
+   "statement": "In the local GL_d setting of item 059, evaluate deformations of ρ̄ on simplicial Artinian O-algebras A augmented to k. Use a continuous pro-classifying space B G_F and the homotopy-invariant BG(A) model of Cai §3.1.2, for G = GL_d. The unframed mapping functor consists of maps B G_F → BG(A) over BG(k) at ρ̄. Its framed version is the homotopy fibre of evaluation at the base point over the specified frame. Its pro-simplicial Artinian representing object is the local framed derived deformation ring 𝓡^□_ρ̄. On discrete Artinian A, π₀ of the framed functor is the ordinary framed deformation functor, and the associated complete ring lim_α π₀𝓡^□_{ρ̄,α} is R^□_ρ̄.",
+   "locator": "§1, p. 2, paragraph following Theorem 1.1, references [26] and [12]; Cai, arXiv:2108.13135v1, §3.1.2 Definitions 3.4–3.7, Proposition 3.9, Lemma 3.10, and local extension in §3.1.3",
+   "status": "missing",
+   "note": "Use the framed local model even when ρ̄ is reducible; no scalar-endomorphism or absolute-irreducibility assumption is added. Its relative tangent groups are t⁰ = Z¹(G_F,ad ρ̄), tⁱ = H^{i+1}(G_F,ad ρ̄) for i > 0, and zero for i < 0. The generic simplicial, representability and coefficient-base comparison machinery is a named GV/Cai import. It is distinct from perfect complexes or derived patching modules in R03/P7/P8."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/153",
+   "kind": "theorem",
+   "name": "Galatius–Venkatesh homotopy-discreteness criterion",
+   "statement": "Let 𝓡 = (𝓡_α) be a pro-simplicial Artinian algebra over W(k) in the Galatius–Venkatesh setting, with finite-dimensional tangent groups tⁱ(𝓡), zero outside i = 0,1, and b_i = dim_k tⁱ(𝓡). Then 𝓡 is homotopy discrete if and only if its associated complete ring lim_α π₀𝓡_α has a presentation W(k)⟦X₁,…,X_{b₀}⟧/(Y₁,…,Y_{b₁}), with Y₁,…,Y_{b₁} a regular sequence contained in (p,𝔪²). Homotopy discrete means that 𝓡 → π₀𝓡 induces an equivalence of represented derived functors after cofibrant replacements.",
+   "locator": "[26] Galatius–Venkatesh, Derived Galois deformation rings, arXiv:1608.07236v3, §7.5 Definition 7.4 and Lemma 7.5, p. 80; imported by BIP §1, p. 2",
+   "status": "missing",
+   "note": "Preserve tangent-amplitude, finiteness, regular-sequence and minimal-presentation hypotheses. This is not a criterion for every ring loosely called a complete intersection. The O-coefficient/framed comparison for 152 is an explicit supplier obligation from GV/Cai; do not silently identify O with W(k). No termwise assertion π_n(𝓡_α) = 0 is made."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/154",
+   "kind": "theorem",
+   "name": "Theorem 1.1 consequence: the local framed derived ring is homotopy discrete",
+   "statement": "For the local framed derived object of item 152, in the hypotheses of item 059, the complete-intersection presentation of R^□_ρ̄ with its tangent/obstruction dimensions, together with the GV/Cai local framed and coefficient comparisons and criterion 153, makes 𝓡^□_ρ̄ homotopy discrete. Its positive homotopy pro-groups vanish, and its degree-zero associated complete ring is the ordinary R^□_ρ̄. Equivalently its derived represented functor is equivalent to that represented by its ordinary degree-zero pro-ring.",
+   "locator": "§1, p. 2, paragraph immediately following Theorem 1.1, explicitly citing [26, Lemma 7.5] and [12]",
+   "status": "missing",
+   "note": "The local consequence is routed exactly once to the components/normality Part II. Positive homotopy groups are interpreted in the pro/represented-functor sense of the sources, not as vanishing at every Artinian approximation. The generic imports and proof closure belong to the subsequent blueprint; this extraction does not formalize them."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/155",
+   "kind": "definition",
+   "name": "Benign crystalline points",
+   "statement": "For a crystalline representation r of G_F with regular labelled Hodge–Tate weights k, let f = [F₀:Q_p], where F₀ is the maximal unramified subfield of F. It is benign in the sense of Emerton–Paškūnas Definition 6.8 if the eigenvalues of the linearization of φ^f are pairwise distinct, every refinement is non-critical, and the ratio of any two distinct eigenvalues is neither p^f nor p^{−f}. Let Σ^benign be these crystalline points in X^□, with regular weights allowed to vary.",
+   "locator": "Remark 6.2, p. 46; [25] Emerton–Paškūnas Definition 6.8, p. 368",
+   "status": "missing",
+   "note": "Refinement and non-criticality use the conventions referred to in [25, §6.8], namely Breuil–Hellmann–Schraen §2.3/Nakamura Definition 2.8. These are named supplier notions. Condition on eigenvalue ratios is essential; [25] explicitly uses a more restrictive benign notion than BHS."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/156",
+   "kind": "theorem",
+   "name": "Remark 6.2: density of benign crystalline points",
+   "statement": "Under the hypotheses of item 147, including p ∤ 2d, the crystalline family Σ^cris may be restricted to its benign subset Σ^benign (item 155) and is still Zariski dense in Spec R^□_ρ̄. The regular labelled Hodge–Tate weights vary; this is not density of one fixed-weight crystalline deformation locus in the unrestricted ring.",
+   "locator": "Remark 6.2, p. 46; [25] Definition 6.8 and Proposition 6.9, p. 368, with the density arguments used in §6",
+   "status": "missing",
+   "note": "A remark-level strengthening of Theorem 6.1. Proposition 6.9 supplies the nonempty open benign locus on each fixed-regular-weight crystalline patched component; the global density argument varies weights and uses the faithful patched support. Import its supplier hypotheses before transporting to X^□."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/157",
+   "kind": "definition",
+   "name": "Potentially crystalline points with a prescribed inertial type",
+   "statement": "For an inertial type τ of dimension d (a smooth finite-image representation of I_F over a sufficiently large coefficient field which extends to W_F), let Σ^τ be the characteristic-zero points x of X^□ for which ρ^□_x is potentially crystalline, WD(ρ^□_x)|_{I_F} ≅ τ, and the labelled Hodge–Tate weights are regular. Here N = 0 and the weights vary. For an individual weight k, use the corresponding potentially crystalline quotient R^{□,τ,k}_ρ̄; its nonempty locus and the components of X^□ meeting the union over k are the type-compatible target data.",
+   "locator": "Remark 6.2, p. 46 (prescribed-type variant); [25] density/capture framework, §5.3; potentially semistable quotients imported from R08.3",
+   "status": "missing",
+   "note": "The remark does not specify an arbitrary-type all-components theorem. Keep τ compatible with the residual representation and determinant components and track nonempty type support. A fixed τ and k quotient need not have dense image in the unrestricted ring."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/158",
+   "kind": "construction",
+   "name": "Remark 6.2: adapting crystalline density to prescribed inertial type",
+   "statement": "In the p ∤ 2d setting of item 147, Remark 6.2 proposes replacing the crystalline condition by a prescribed inertial type. Apply the capture and patched-support method to the type family Σ^τ of item 157, with regular weights varying. The construction must record the admissible τ, its nonempty potentially crystalline support, and the compatible irreducible components actually reached before asserting density on that target; an assertion on all of X^□ additionally requires that every component is reached.",
+   "locator": "Remark 6.2, p. 46; [25] §5.3 for the density/capture method",
+   "status": "missing",
+   "note": "Recorded as a source-bound construction, not a fully specified universal theorem for every τ. The design job must resolve the type-support/component coverage hypotheses from the supplier method. In [25, §5.3] the supercuspidal simple types vary; its fixed auxiliary-place inertial data are not a proof that an arbitrary fixed local τ meets every unrestricted component. This qualification prevents an unrestricted fixed-type density claim."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/159",
+   "kind": "definition",
+   "name": "Generalized fixed-regular-weight supercuspidal family from a minimal stratum",
+   "statement": "Fix regular labelled Hodge–Tate weights k and an extension E/F of degree d containing an element minimal over F in the sense of [25, Definition 3.12]: e(E/F) is coprime to v_E(α), and the residue of ϖ_F^{−v_E(α)}α^{e(E/F)} generates k_E/k_F. Identify GL_d(F) with Aut_F(E) and use the hereditary order attached to the powers of 𝔭_E. Let Σ^{sc,E}_k be the potentially crystalline points of weight k whose smooth local Langlands representation is supercuspidal containing one of the minimal simple strata [𝔄,n₀,0,α], E = F[α], used in the capture family of [25, §3.4 and §5.3], with the associated simple characters/types and sufficiently deep n₀ ≥ 2m. The strata and conductors vary.",
+   "locator": "Remark 6.2, p. 46; [25] §3.4 Definition 3.12, pp. 354–356, and §5.3, pp. 362–364",
+   "status": "missing",
+   "note": "All unramified and totally ramified E/F satisfy the minimal-element existence condition; not every mixed extension does ([25, Example 3.15]). When E/F is tame the supplier describes WD via induction of a character with additional minimality restrictions. For a wild extension use the simple-stratum definition; do not identify all supercuspidals with induction from arbitrary characters of W_E. Import types from smooth representation theory and WD/LL from their existing owners."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/160",
+   "kind": "theorem",
+   "name": "Remark 6.2: ramified minimal-stratum supercuspidal density variant",
+   "statement": "Under the hypotheses of item 147, including p ∤ 2d and a fixed regular labelled weight k, the supercuspidal family may use a totally ramified extension E/F of degree d instead of the unramified E in item 131, with Σ^{sc,E}_k understood in the minimal-stratum/simple-type sense of item 159. The same capture and faithful patched-support argument gives Zariski density in X^□. The supplier permits extensions containing a minimal element as in 159; that condition is retained for any more general E/F.",
+   "locator": "Remark 6.2, p. 46; [25] §5.3 and §5.4 Theorem 5.3, pp. 362–365",
+   "status": "missing",
+   "note": "Remark-level variant. Emerton–Paškūnas Theorem 5.3 gives density of Σ(k) ∩ Σsc ∩ V(𝔞) in V(𝔞), 𝔞 = Ann_{R∞} M∞, under its p ∤ 2d, regular-weight and potentially-diagonalizable-lift hypotheses. BIP imports Emerton–Gee lifts and proves faithfulness (Theorem 6.8), then transports support to X^□. Retain those comparisons in the blueprint; the result is not a theorem about arbitrary wildly ramified induced characters."
   }
  ],
  "prerequisites": [
   {
    "citation": "Gebhard Böckle and Ann-Kristin Juschka, Equidimensionality of universal pseudodeformation rings in characteristic p for absolute Galois groups of p-adic fields, Forum Math. Sigma 11 (2023), e102",
    "link": "https://doi.org/10.1017/fms.2023.82",
-   "why": "Equidimensionality of R^ps/ϖ of dimension 1 + d²[F:Q_p] and the bound on the special locus (Theorems 5.4.1, 5.5.1), the definition of special points and Lemmas 5.1.1–5.1.6, formal smoothness Lemma 3.4.2, and local duality and the Euler characteristic over local-field coefficients (Theorem 3.4.1). The whole dimension count of §3 rests on it; the paper cites the July 2023 preprint."
+   "why": "Equidimensionality of R^ps/ϖ of dimension 1 + d²[F:Q_p] and the bound on the special locus (Theorems 5.4.1, 5.5.1), the definition of special points and Lemmas 5.1.1–5.1.6, formal smoothness Lemma 3.4.2, and local duality and the Euler characteristic over local-field coefficients (Theorem 3.4.1). The whole dimension count of §3 rests on it; the paper cites the July 2023 preprint. Corollary 3.3.4 and Lemma 3.3.5, pp. 17–19, supply the characteristic-p local-field diagonal-completion argument used by corrected BIP Lemma 3.35."
   },
   {
    "citation": "Gaëtan Chenevier, The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings, in Automorphic forms and Galois representations, Vol. 1, LMS Lecture Note Ser. 414, CUP (2014), 221–285",
@@ -1384,7 +1531,7 @@
   {
    "citation": "Matthew Emerton and Vytautas Paškūnas, On the density of supercuspidal points of fixed regular weight in local deformation rings and global Hecke algebras, J. Éc. polytech. Math. 7 (2020), 337–371",
    "link": "https://doi.org/10.5802/jep.119",
-   "why": "Theorem 6.12 (the supports of the M_∞(ξ) close up to a union of components) and Theorems 5.1, 5.3, whose proofs Theorem 6.1 follows."
+   "why": "Theorem 6.12 (the supports of the M_∞(ξ) close up to a union of components) and Theorems 5.1, 5.3, whose proofs Theorem 6.1 follows. Remark 6.2 also uses Definition 6.8/Proposition 6.9 (benign points), §3.4 Definition 3.12 (minimal elements), and §§5.3–5.4 (simple-type capture and density, including totally ramified extensions). Preserve the annihilator-supported target of Theorem 5.3; a fixed auxiliary-place type is not an arbitrary fixed local-type density assertion."
   },
   {
    "citation": "Matthew Emerton and Toby Gee, Moduli stacks of étale (φ, Γ)-modules and the existence of crystalline lifts, Annals of Mathematics Studies 215, Princeton University Press (2023)",
@@ -1440,6 +1587,21 @@
    "citation": "Mark Kisin, Overconvergent modular forms and the Fontaine–Mazur conjecture, Invent. Math. 153 (2003), 373–454",
    "link": "https://doi.org/10.1007/s00222-003-0293-8",
    "why": "Proposition 9.5, the model for Proposition 3.41 (completions of deformation rings at characteristic-zero points)."
+  },
+  {
+   "citation": "Henri Cartan and Samuel Eilenberg, Homological Algebra, Princeton University Press (1956), Chapter IX",
+   "link": "https://doi.org/10.1515/9781400883844",
+   "why": "BIP [15], Proposition IX.4.4.1 and Corollary IX.4.4.4, cited in Proposition 3.11, p. 14, equation (11): HH⁰/HH¹ with Hom-bimodule coefficients identify with Hom/Ext¹ (150–151). Imported comparison; book proof closure is deferred."
+  },
+  {
+   "citation": "Søren Galatius and Akshay Venkatesh, Derived Galois deformation rings, Adv. Math. 327 (2018), 470–623; arXiv:1608.07236v3",
+   "link": "https://arxiv.org/abs/1608.07236v3",
+   "why": "BIP [26], Definition 7.4 and Lemma 7.5 (§7.5, p. 80 in v3): tangent-amplitude/complete-intersection criterion for homotopy-discreteness, with Definition 7.4 interpreted at pro-represented-functor level. Named generic import for the local framed consequence 154; coefficient/framing comparisons explicit."
+  },
+  {
+   "citation": "Yichang Cai, Derived deformation rings allowing congruences, arXiv:2108.13135v1 (30 August 2021)",
+   "link": "https://arxiv.org/abs/2108.13135v1",
+   "why": "BIP [12]; §3.1.2 Definitions 3.4–3.7, Proposition 3.9 and Lemma 3.10, and local extension in §3.1.3: homotopy-invariant simplicial GL_d model, framed functor, degree-zero ordinary comparison, tangent groups and local framed pro-representability even for reducible residual representations (152–154)."
   }
  ],
  "routes": [
@@ -1467,7 +1629,7 @@
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/007",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/052"
    ],
-   "reason": "Böckle–Iyengar–Paškūnas use a body of general commutative algebra that DeformationAndDerivedPatchingAlgebra owns: R03.3 ('regular sequences, depth, Cohen–Macaulay rings … the exact complete-intersection criteria used in patching … dimension formulas under the local maps actually used … hypotheses on catenarity and excellence') and R03.1 (completed tensor products over O). The paper proves or quotes, in exactly the generality its deformation rings need: dominant maps of Jacobson universally catenary schemes (Lemma 3.14), residue fields at coheight-one primes (Lemma 3.17), the Jacobson and dimension lemma over a punctured spectrum (Lemma 3.18, with the counterexamples of Remarks 3.19–3.20), completion after base change to κ(𝔭) or an O-Cohen ring (Lemmas 3.35–3.37), density under flat maps (Lemma 3.54), Serre's criterion, excellence, Grothendieck's parafactoriality theorem, the fibrewise flatness criterion, and the minimal primes of completed tensor products (CEGGPS A.2, Hu–Paškūnas A.1/A.5, BLGHT 3.3(5)). None is specific to Galois representations, so they belong in those layers, not in a deformation-ring roadmap. The complete-intersection criterion and regularity under completion are recorded as planned items the paper is a good source for."
+   "reason": "Böckle–Iyengar–Paškūnas use a body of general commutative algebra that DeformationAndDerivedPatchingAlgebra owns: R03.3 ('regular sequences, depth, Cohen–Macaulay rings … the exact complete-intersection criteria used in patching … dimension formulas under the local maps actually used … hypotheses on catenarity and excellence') and R03.1 (completed tensor products over O). The paper proves or quotes, in exactly the generality its deformation rings need: dominant maps of Jacobson universally catenary schemes (Lemma 3.14), residue fields at coheight-one primes (Lemma 3.17), the Jacobson and dimension lemma over a punctured spectrum (Lemma 3.18, with the counterexamples of Remarks 3.19–3.20), completion after base change to κ(𝔭) or an O-Cohen ring (Lemmas 3.35–3.37), density under flat maps (Lemma 3.54), Serre's criterion, excellence, Grothendieck's parafactoriality theorem, the fibrewise flatness criterion, and the minimal primes of completed tensor products (CEGGPS A.2, Hu–Paškūnas A.1/A.5, BLGHT 3.3(5)). None is specific to Galois representations, so they belong in those layers, not in a deformation-ring roadmap. The complete-intersection criterion and regularity under completion are recorded as planned items the paper is a good source for. Lemma 3.35 is supplied only with κ(𝔭) finite over κ(𝔭∩R), as corrected in /049 and E11; closed-point applications satisfy this by Lemma 3.18(3). Lemmas 3.36–3.37 keep their distinct hypotheses."
   },
   {
    "route": "source",
@@ -1628,9 +1790,14 @@
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/128",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/129",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/130",
-    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/148"
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/148",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/150",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/151",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/152",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/153",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/154"
    ],
-   "brief": "Final theorems (Böckle–Iyengar–Paškūnas, Forum Math. Pi 11 (2023) e30), for every finite F/Q_p, every d ≥ 1 and every continuous ρ̄: G_F → GL_d(k) whose irreducible subquotients are absolutely irreducible, L large enough: (1) Theorem 1.1 — R^□_ρ̄ is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p], and R^□_ρ̄/ϖ is a complete intersection of dimension d² + d²[F:Q_p]; so every ρ̄ lifts to characteristic zero, and absolutely irreducibly (Corollaries 3.45, 3.61). (2) Theorem 1.2 — R_{det ρ̄} → R^□_ρ̄ is flat and induces bijections on irreducible components and on π_0 of the generic fibres; the components are the Spec R^{□,χ}_ρ̄ for χ: μ_{p^∞}(F) → O^×, and R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are normal domains and complete intersections. (3) Corollary 1.3 — R^□_ρ̄ is reduced and R^□_ρ̄[1/p] is normal. (4) Theorem 1.4 — for ρ̄ absolutely irreducible, R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are factorial except when d = 2, F = Q_3 and ρ̄ ≅ ρ̄(1), where they are not; Corollary 4.23 gives factoriality for d = 2, [F:Q_p] ≥ 4 and d ≥ 3, [F:Q_p] ≥ 3. (5) Theorem 1.5 — for ψ lifting det ρ̄, R^{□,ψ}_ρ̄ and R^{□,ψ}_ρ̄/ϖ are normal domains and complete intersections of dimensions dim R^□_ρ̄ − dim R_{det ρ̄} + 1 and dim R^□_ρ̄ − dim R_{det ρ̄}, and R^{□,ψ}_ρ̄ is O-flat. (6) Proposition 1.12 — absolutely irreducible points are dense in Spec R^□_ρ̄[1/p] and Kummer-irreducible points in Spec R^□_ρ̄/ϖ. Also the same complete-intersection statements at every closed point of X^gen and for representations over local fields (Corollaries 3.38, 3.44), for A^gen, A^{gen,χ}, A^{gen,ψ} (Corollaries 3.40, 4.6, 5.8, Proposition 4.26), and the consequences for R^ps (Corollaries 4.27–4.29, 5.10–5.11, Lemma 4.30).\n\nCover, in the paper's order: GIT over a Noetherian base after Seshadri (unique closed orbit in geometric fibres, closed images of invariant closed sets, G-invariance of irreducible components, the tangent-space bound of Lemma 2.2); the generic-matrices space X^gen = Spec A^gen over X^ps with its GL_d-action, Lemmas 3.2–3.4, and the adequate homeomorphism X^gen//GL_d → X^ps (Wang-Erickson Theorem 2.20, Alper) as a stated input; the fibre bounds of §3.2 (Hom and Ext^1 over E_y, the block subschemes X^gen_{y,σ}, the tangent formula of Proposition 3.11, Proposition 3.15, Corollary 3.16); Böckle–Juschka's equidimensionality of R^ps/ϖ of dimension 1 + d²[F:Q_p] and their bound on the special locus, as a stated input from that prerequisite paper; the invariant-subscheme lemmas 3.21 and 3.23; the strata X̄^ps_𝒫 and the count of §3.4 ending in Theorem 3.31, dim X̄^gen ≤ d² + d²[F:Q_p]; completions (Proposition 3.34) and the complete-intersection theorems (Corollaries 3.38–3.45); the maximally reducible semisimple locus (§3.6); density of the Kummer-irreducible and absolutely irreducible loci with the codimension bounds of Propositions 3.53 and 3.58, with the appendix on Kummer-irreducible points (Definition A.1 to Proposition A.9); the component rings R^{□,χ} and Proposition 4.3; regularity in codimension one (Lemma 4.8, Propositions 4.9–4.13, including the d = 2, F = Q_p and F = Q_2 cases); normality and components (Propositions 4.14–Corollary 4.22); factoriality (Corollaries 4.23–4.25, with Chenevier's F = Q_2 and Böckle's F = Q_3 computations as stated inputs); the pseudodeformation corollaries 4.26–4.30 (Paškūnas–Tung Theorem A.1 as a stated input); and §5 (Corollary 5.4 to Proposition 5.12).\n\nImport, never re-plan: Local Galois deformation rings and their components (LocalGaloisDeformationRings) R08.1, for framed representability, presentations over the coefficient rings Λ, completions at P_1-points, the rank-one ring and the twisting argument of §5 — routed there as sources by this extraction; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.1 and R03.3, for complete intersections, regular sequences, the Jacobson and dimension lemmas 3.14–3.18, the completion lemmas 3.35–3.37, Serre's criterion, excellence, Grothendieck's parafactoriality and the fibrewise flatness criterion — routed there as sources; Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants) IHG.0–IHG.1, for determinant laws, the Cayley–Hamilton quotient and the generic-matrices algebra of Lemma 3.1 — routed there as a source; Global Galois deformation rings (GlobalGaloisDeformations) R04.1, for the pseudodeformation functor; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) D7 and Tau Ceti ClassFieldTheory Layers 5 and 7, for local duality, the Euler characteristic and the Artin map; Tau Ceti ModularCurves Layer 4D, for regularity under completion; and Parameter stacks, invariant theory and spectral coefficients (LanglandsParameterStacks) LP3, with which the GL_d invariant theory should be shared where its hypotheses allow.\n\nTests: d = 1, where R^□_ρ̄ = R_{det ρ̄} and every statement is Lemma 4.1; ρ̄ trivial of dimension 2 (Example 3.22, and Iyengar's explicit components for the trivial representation); the non-factorial ring O⟦x_1, …, x_9⟧/(x_1x_2 − x_3x_4) of Remark 4.24; d = 2, F = Q_3, ρ̄ ≅ ρ̄(1); and the cautionary Remarks 3.19–3.20. Consumers: the density Part II proposed by this extraction (CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity), Paškūnas–Quast's generalisation to generalised reductive groups (PAPER-PASKUNAS-QUAST-26, not yet extracted), which should extend this Part II, and the sequel Böckle–Iyengar–Paškūnas, Zariski density of crystalline points (PNAS 2023).",
+   "brief": "Final theorems (Böckle–Iyengar–Paškūnas, Forum Math. Pi 11 (2023) e30), for every finite F/Q_p, every d ≥ 1 and every continuous ρ̄: G_F → GL_d(k) whose irreducible subquotients are absolutely irreducible, L large enough: (1) Theorem 1.1 — R^□_ρ̄ is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p], and R^□_ρ̄/ϖ is a complete intersection of dimension d² + d²[F:Q_p]; so every ρ̄ lifts to characteristic zero, and absolutely irreducibly (Corollaries 3.45, 3.61). (2) Theorem 1.2 — R_{det ρ̄} → R^□_ρ̄ is flat and induces bijections on irreducible components and on π_0 of the generic fibres; the components are the Spec R^{□,χ}_ρ̄ for χ: μ_{p^∞}(F) → O^×, and R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are normal domains and complete intersections. (3) Corollary 1.3 — R^□_ρ̄ is reduced and R^□_ρ̄[1/p] is normal. (4) Theorem 1.4 — for ρ̄ absolutely irreducible, R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ are factorial except when d = 2, F = Q_3 and ρ̄ ≅ ρ̄(1), where they are not; Corollary 4.23 gives factoriality for d = 2, [F:Q_p] ≥ 4 and d ≥ 3, [F:Q_p] ≥ 3. (5) Theorem 1.5 — for ψ lifting det ρ̄, R^{□,ψ}_ρ̄ and R^{□,ψ}_ρ̄/ϖ are normal domains and complete intersections of dimensions dim R^□_ρ̄ − dim R_{det ρ̄} + 1 and dim R^□_ρ̄ − dim R_{det ρ̄}, and R^{□,ψ}_ρ̄ is O-flat. (6) Proposition 1.12 — absolutely irreducible points are dense in Spec R^□_ρ̄[1/p] and Kummer-irreducible points in Spec R^□_ρ̄/ϖ. Also the same complete-intersection statements at every closed point of X^gen and for representations over local fields (Corollaries 3.38, 3.44), for A^gen, A^{gen,χ}, A^{gen,ψ} (Corollaries 3.40, 4.6, 5.8, Proposition 4.26), and the consequences for R^ps (Corollaries 4.27–4.29, 5.10–5.11, Lemma 4.30).\n\nCover, in the paper's order: GIT over a Noetherian base after Seshadri (unique closed orbit in geometric fibres, closed images of invariant closed sets, G-invariance of irreducible components, the tangent-space bound of Lemma 2.2); the generic-matrices space X^gen = Spec A^gen over X^ps with its GL_d-action, Lemmas 3.2–3.4, and the adequate homeomorphism X^gen//GL_d → X^ps (Wang-Erickson Theorem 2.20, Alper) as a stated input; the fibre bounds of §3.2 (Hom and Ext^1 over E_y, the block subschemes X^gen_{y,σ}, the tangent formula of Proposition 3.11, Proposition 3.15, Corollary 3.16); Böckle–Juschka's equidimensionality of R^ps/ϖ of dimension 1 + d²[F:Q_p] and their bound on the special locus, as a stated input from that prerequisite paper; the invariant-subscheme lemmas 3.21 and 3.23; the strata X̄^ps_𝒫 and the count of §3.4 ending in Theorem 3.31, dim X̄^gen ≤ d² + d²[F:Q_p]; completions (Proposition 3.34) and the complete-intersection theorems (Corollaries 3.38–3.45); the maximally reducible semisimple locus (§3.6); density of the Kummer-irreducible and absolutely irreducible loci with the codimension bounds of Propositions 3.53 and 3.58, with the appendix on Kummer-irreducible points (Definition A.1 to Proposition A.9); the component rings R^{□,χ} and Proposition 4.3; regularity in codimension one (Lemma 4.8, Propositions 4.9–4.13, including the d = 2, F = Q_p and F = Q_2 cases); normality and components (Propositions 4.14–Corollary 4.22); factoriality (Corollaries 4.23–4.25, with Chenevier's F = Q_2 and Böckle's F = Q_3 computations as stated inputs); the pseudodeformation corollaries 4.26–4.30 (Paškūnas–Tung Theorem A.1 as a stated input); and §5 (Corollary 5.4 to Proposition 5.12).\n\nImport, never re-plan: Local Galois deformation rings and their components (LocalGaloisDeformationRings) R08.1, for framed representability, presentations over the coefficient rings Λ, completions at P_1-points, the rank-one ring and the twisting argument of §5 — routed there as sources by this extraction; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.1 and R03.3, for complete intersections, regular sequences, the Jacobson and dimension lemmas 3.14–3.18, the completion lemmas 3.35–3.37, Serre's criterion, excellence, Grothendieck's parafactoriality and the fibrewise flatness criterion — routed there as sources; Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants) IHG.0–IHG.1, for determinant laws, the Cayley–Hamilton quotient and the generic-matrices algebra of Lemma 3.1 — routed there as a source; Global Galois deformation rings (GlobalGaloisDeformations) R04.1, for the pseudodeformation functor; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) D7 and Tau Ceti ClassFieldTheory Layers 5 and 7, for local duality, the Euler characteristic and the Artin map; Tau Ceti ModularCurves Layer 4D, for regularity under completion; and Parameter stacks, invariant theory and spectral coefficients (LanglandsParameterStacks) LP3, with which the GL_d invariant theory should be shared where its hypotheses allow.\n\nTests: d = 1, where R^□_ρ̄ = R_{det ρ̄} and every statement is Lemma 4.1; ρ̄ trivial of dimension 2 (Example 3.22, and Iyengar's explicit components for the trivial representation); the non-factorial ring O⟦x_1, …, x_9⟧/(x_1x_2 − x_3x_4) of Remark 4.24; d = 2, F = Q_3, ρ̄ ≅ ρ̄(1); and the cautionary Remarks 3.19–3.20. Consumers: the density Part II proposed by this extraction (CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity), Paškūnas–Quast's generalisation to generalised reductive groups (PAPER-PASKUNAS-QUAST-26, not yet extracted), which should extend this Part II, and the sequel Böckle–Iyengar–Paškūnas, Zariski density of crystalline points (PNAS 2023).\n\nConfirmed red-team corrections: in GIT, X_y is closed in X ×_S Spec κ and all actions on that fibre are by G_κ; apply Lemma 2.1 after base change. Import Lemma 3.35 only with finite residue extension (049/E11). For the tangent calculation /026, import the Hochschild carrier from DG/A∞ algebras and homotopical algebra (tauceti:TauCetiRoadmap/DGAInfinity), Layer 8, and the Hom-bimodule coefficient extension and Cartan–Eilenberg IX.4.4.1/IX.4.4.4 comparison (150–151). The general coefficient comparison belongs with that DGAInfinity owner, through a Part II if required, and is a named import here; no competing local Hochschild carrier. For the Theorem 1.1 consequence, cover the local framed derived deformation object (152), import Galatius–Venkatesh Definition 7.4/Lemma 7.5 and Cai local framed models with the O/W(k) coefficient comparison explicit (153), and prove the local homotopy-discreteness/π₀ comparison (154). Preserve tangent finiteness/amplitude and regular-sequence hypotheses and use pro-homotopy, not termwise vanishing. Perfect complexes and derived patching in R03/P7/P8 do not supply this functor. Supplier proof closure is work for the subsequent blueprint.",
    "reason": "LocalGaloisDeformationRings plans the local rings used by Kisin and Khare–Wintenberger: R08.1 the unrestricted framed rings with their representability, tangent/obstruction theory and fixed determinant, R08.2–R08.6 local conditions, L7–L8 local models. No layer determines the geometry of the unrestricted framed ring in arbitrary dimension — complete intersection, flatness over R_{det ρ̄}, irreducible components, normality, factoriality, density of irreducible loci — and the paper's method (GIT over a base, the generic-matrices space over R^ps, Böckle–Juschka's equidimensionality, fibre-dimension counts, completions at closed points) is planned nowhere. It is new layers in that roadmap's direction, consumed by the same consumers (patching, potential automorphy), so it is a Part II; the reusable general inputs go as sources to R08.1, R03.1/R03.3, IHG.1, D7 and R06.2, so the Part II builds on them instead of re-planning them."
   },
   {
@@ -1653,9 +1820,15 @@
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/144",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/145",
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/146",
-    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/147"
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/147",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/155",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/156",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/157",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/158",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/159",
+    "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/160"
    ],
-   "brief": "Final theorems (Böckle–Iyengar–Paškūnas §6), for F/Q_p finite, ρ̄: G_F → GL_d(k) and p ∤ 2d: Theorem 6.8 — R^□_ρ̄ acts faithfully on the patched module M_∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin; Theorem 6.1 — each of Σ^cris (crystalline lifts with regular Hodge–Tate weights), Σ^prnc_k (potentially crystabelline lifts of fixed regular weight k) and Σ^spcd_k (potentially crystalline lifts of fixed regular weight whose Weil–Deligne representation is irreducible and induced from an unramified extension of degree d) is Zariski dense in Spec R^□_ρ̄.\n\nCover, in order: the Taylor–Wiles–Kisin patching construction of CEGGPS for GL_d(F), through definite unitary groups over a CM field — R_∞ formally smooth over R^loc, M_∞ with its GL_d(F)-action, finite generation over R_∞⟦K⟧, the central character and projectivity of M_∞ ⊗_{R_{det ρ̄},x} O (CEGGPS §4.22, Corollary 4.26) and the support of M_∞(ξ) in crystalline and potentially semistable rings (Lemma 4.18) — with the potential-diagonalisability hypothesis explicit and Emerton–Gee's Theorem 1.2.2, which removes it, as a source-bound input; Emerton–Paškūnas's theorem that the closure of the supports of the M_∞(ξ) is a union of irreducible components (Theorem 6.12) and their density arguments (Theorems 5.1, 5.3); the density of locally algebraic vectors (Dospinescu–Paškūnas–Schraen Corollary 7.8, Schneider–Teitelbaum Corollary 2.2); the modules M_∞(V) and the Banach representations Π(M); the sets Σ; then Lemmas 6.3–6.7 (with Lemma 6.5 in its corrected form), Theorem 6.8 and Theorem 6.1.\n\nImport, never re-plan: the other Part II proposed by this extraction (LocalGaloisDeformationRingsPartIIComponentsAndNormality), for the components R^{□,χ}_ρ̄, their normality and the reducedness of R^□_ρ̄; Local Galois deformation rings and their components (LocalGaloisDeformationRings) R08.3 and L7, for Kisin's potentially semistable rings; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.5, R03.6 and P8, for abstract patching and support, and R03.1 with this extraction's source route, for completed tensor products; Completed cohomology and p-adic local–global compatibility over Q (CompletedCohomologyAndLocalGlobalCompatibility) R31.5, the GL_2(Q_p) patched completed module, as the model and test case; Completed cohomology, homology and arithmetic towers — Part II (CompletedCohomologyPartII) CC.1–CC.3 and CC.8, for completed homology of unitary towers; Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) PA.4, for Taylor–Wiles auxiliary primes and ultraproducts; P-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras) L1, for O⟦K⟧; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.0–SR.2 and Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6, for principal series, supercuspidal types and the local Langlands correspondence with Weil–Deligne parameters; P-adic Hodge theory and geometric comparison (PadicHodgeTheory) R06.2–R06.3, with this extraction's source route for crystalline characters; and Tau Ceti ClassFieldTheory Layer 7 for the Artin map.\n\nTests: d = 1, where density of crystalline characters follows from class field theory; d = 2, F = Q_p, against CompletedCohomologyAndLocalGlobalCompatibility R31.5 and Colmez–Dospinescu–Paškūnas. Later extensions: the sequel (Böckle–Iyengar–Paškūnas, PNAS 2023) removes p ∤ 2d for Σ^cris through the Emerton–Gee stack; Remark 6.9's question whether R_∞ acts faithfully stays open.",
+   "brief": "Final theorems (Böckle–Iyengar–Paškūnas §6), for F/Q_p finite, ρ̄: G_F → GL_d(k) and p ∤ 2d: Theorem 6.8 — R^□_ρ̄ acts faithfully on the patched module M_∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin; Theorem 6.1 — each of Σ^cris (crystalline lifts with regular Hodge–Tate weights), Σ^prnc_k (potentially crystabelline lifts of fixed regular weight k) and Σ^spcd_k (potentially crystalline lifts of fixed regular weight whose Weil–Deligne representation is irreducible and induced from an unramified extension of degree d) is Zariski dense in Spec R^□_ρ̄.\n\nCover, in order: the Taylor–Wiles–Kisin patching construction of CEGGPS for GL_d(F), through definite unitary groups over a CM field — R_∞ formally smooth over R^loc, M_∞ with its GL_d(F)-action, finite generation over R_∞⟦K⟧, the central character and projectivity of M_∞ ⊗_{R_{det ρ̄},x} O (CEGGPS §4.22, Corollary 4.26) and the support of M_∞(ξ) in crystalline and potentially semistable rings (Lemma 4.18) — with the potential-diagonalisability hypothesis explicit and Emerton–Gee's Theorem 1.2.2, which removes it, as a source-bound input; Emerton–Paškūnas's theorem that the closure of the supports of the M_∞(ξ) is a union of irreducible components (Theorem 6.12) and their density arguments (Theorems 5.1, 5.3); the density of locally algebraic vectors (Dospinescu–Paškūnas–Schraen Corollary 7.8, Schneider–Teitelbaum Corollary 2.2); the modules M_∞(V) and the Banach representations Π(M); the sets Σ; then Lemmas 6.3–6.7 (with Lemma 6.5 in its corrected form), Theorem 6.8 and Theorem 6.1.\n\nImport, never re-plan: the other Part II proposed by this extraction (LocalGaloisDeformationRingsPartIIComponentsAndNormality), for the components R^{□,χ}_ρ̄, their normality and the reducedness of R^□_ρ̄; Local Galois deformation rings and their components (LocalGaloisDeformationRings) R08.3 and L7, for Kisin's potentially semistable rings; Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.5, R03.6 and P8, for abstract patching and support, and R03.1 with this extraction's source route, for completed tensor products; Completed cohomology and p-adic local–global compatibility over Q (CompletedCohomologyAndLocalGlobalCompatibility) R31.5, the GL_2(Q_p) patched completed module, as the model and test case; Completed cohomology, homology and arithmetic towers — Part II (CompletedCohomologyPartII) CC.1–CC.3 and CC.8, for completed homology of unitary towers; Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) PA.4, for Taylor–Wiles auxiliary primes and ultraproducts; P-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras) L1, for O⟦K⟧; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.0–SR.2 and Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.6, for principal series, supercuspidal types and the local Langlands correspondence with Weil–Deligne parameters; P-adic Hodge theory and geometric comparison (PadicHodgeTheory) R06.2–R06.3, with this extraction's source route for crystalline characters; and Tau Ceti ClassFieldTheory Layer 7 for the Artin map.\n\nTests: d = 1, where density of crystalline characters follows from class field theory; d = 2, F = Q_p, against CompletedCohomologyAndLocalGlobalCompatibility R31.5 and Colmez–Dospinescu–Paškūnas. Later extensions: the sequel (Böckle–Iyengar–Paškūnas, PNAS 2023) removes p ∤ 2d for Σ^cris through the Emerton–Gee stack; Remark 6.9's question whether R_∞ acts faithfully stays open.\n\nSeparately cover Remark 6.2 (155–160), retaining p ∤ 2d throughout: define benign by Emerton–Paškūnas Definition 6.8 (distinct φ^f eigenvalues, all refinements non-critical, ratios not p^{±f}), and strengthen crystalline density to benign points with regular weights varying. Record the prescribed-inertial-type construction with potentially crystalline N = 0, compatible τ, varying regular weights, nonempty type support and explicit component coverage; do not state density for every τ on all unrestricted X^□ or for fixed τ and fixed weight. Resolve its precise target during design from the capture/support method. Define the generalized supercuspidal set using the minimal-stratum family of [25, §3.4/§5.3] and extend the fixed-regular-weight density variant to totally ramified degree-d E/F; any more general E retains existence of a minimal element. Use simple types for wild E, not unrestricted character induction. Import [25, Definition 6.8, Proposition 6.9, §§5.3–5.4, Theorem 5.3], refinements/non-criticality from its stated suppliers, and the existing smooth-representation/LL and p-adic Hodge owners. Track the annihilator-supported target in EP Theorem 5.3 and the Emerton–Gee/faithfulness steps transferring it to X^□.",
    "reason": "Theorems 6.1 and 6.8 rest on the patched module M_∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin for GL_d(F) and on Emerton–Paškūnas's support theorem, which no layer plans: CompletedCohomologyAndLocalGlobalCompatibility R31.5 patches completed cohomology for the GL_2 lifting theorem over Q, and DeformationAndDerivedPatchingAlgebra R03.5 and P8 give abstract patching only. The CEGGPS module is the direct generalisation of R31.5's 'patched completed module' to GL_d(F), and §6 with Emerton–Paškūnas is its first application, so it is a Part II in R31.5's direction. It is not part of the other Part II, whose content is purely local and which it imports, and it is not a new roadmap, since R31.5 already owns patched completed modules and their support."
   }
  ],
@@ -1848,6 +2021,52 @@
     "reason": "Confirmed verbatim: Lemma 3.30 ends 'In particular, d^2 + d^2[F:Q_p] - dim Y >= 1 + l_{P_max}[F:Q_p] >= 1 + 2[F:Q_p]', and the paper fixes rhobar: G_F -> GL_d(k) with no hypothesis d >= 2. For d = 1 the maximal partition has l_{P_max} = 1 and the last inequality fails, exactly as the entry says; the same final step appears in Lemmas A.7 and A.8. Classifying this as an error affecting nothing is right, since every application has d >= 2, but the inequalities as printed are false at d = 1.",
     "by": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
    }
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E10",
+   "kind": "error",
+   "locator": "Published version of record, §2, p. 8, sentence between Lemmas 2.1 and 2.2; DOI 10.1017/fmp.2023.25, publisher PDF read 2026-10-01 (sourceVersions)",
+   "printed": "The source describes the subscheme of X as closed and G-invariant.",
+   "correction": "For y = Spec κ → X//G, the geometric fibre X_y is closed and G_κ-invariant in X ×_S Spec κ. Apply Lemma 2.1 over κ and use G_κ-orbits in Lemma 2.2.",
+   "reason": "Take an algebraically closed field k, S = Spec k, X = A¹_k and G = G_m acting trivially, so X//G = X. At the geometric generic point Spec overline{k(t)}, X_y is Spec overline{k(t)}. Its image in X is the nonclosed generic point, so X_y → X is not a closed immersion. After base change to Spec overline{k(t)}, its defining equation in the affine line is T − t, a closed immersion. Lemma 2.2 and its tangent inequality remain valid after this correction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Published article, pp. 8 and 24, downloaded and read 2026-10-01; E10/E11 not corrected in this artifact.",
+    "Cambridge Corrigendum DOI 10.1017/fmp.2024.3, full one-page text read 2026-10-01: affiliation only.",
+    "arXiv 2110.01638 version listing checked 2026-10-01: v1 (4 October 2021), v2 (22 August 2023); no later listed version. This fix does not newly collate the preprint statements.",
+    "Ashwin Iyengar author papers page https://ashwiniyengar.github.io/papers/ checked 2026-10-01; no correction to these two passages listed.",
+    "Targeted searches on cambridge.org/arxiv.org and the author page for the title, Lemma 3.35, correction and errata; none located. New means no prior published correction found in this bounded search."
+   ],
+   "verificationLead": "Confirmed red-team finding RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/1 and its independent verifier; this new sourceIssues entry awaits its own review verdict."
+  },
+  {
+   "id": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E11",
+   "kind": "error",
+   "locator": "Published version of record, Lemma 3.35 and proof, p. 24; DOI 10.1017/fmp.2023.25, publisher PDF read 2026-10-01 (sourceVersions)",
+   "printed": "The source asserts that κ(𝔭) is finite over κ(𝔭′).",
+   "correction": "Add the hypothesis κ(𝔭)/κ(𝔭′) finite, 𝔭′ = 𝔭∩R, to the statement of Lemma 3.35. Alternatively restrict to closed points over the punctured spectrum. Then κ(𝔭) is a characteristic-p local field and the one-variable diagonal completion applies. Keep Lemmas 3.36–3.37 separate.",
+   "reason": "Let k = F_p, R = k⟦t⟧, A = R[x], 𝔭 = (0), 𝔭′ = (0) ∈ P₁R and K = κ(𝔭) = k((t))(x). The residue extension is transcendental, although A is finite type over R; Â_𝔭 = K. For B = K⊗_k A and its diagonal kernel 𝔮, the two K-valued K-linear derivations on B obtained by differentiating the second factor in t and in x detect 1⊗t − t⊗1 and 1⊗x − x⊗1 independently. They factor through 𝔮/𝔮², so its K-dimension is at least two; the same cotangent space is detected in the 𝔮-adic completion. K⟦T⟧ has cotangent dimension one, contradicting the asserted isomorphism. The applications in Corollary 3.38 (p. 25) and Proposition 4.9 (pp. 36–37) use closed points, where Lemma 3.18(3), p. 16, supplies the missing finiteness. This corrects an auxiliary stated lemma, not the main theorems.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published article, pp. 8 and 24, downloaded and read 2026-10-01; E10/E11 not corrected in this artifact.",
+    "Cambridge Corrigendum DOI 10.1017/fmp.2024.3, full one-page text read 2026-10-01: affiliation only.",
+    "arXiv 2110.01638 version listing checked 2026-10-01: v1 (4 October 2021), v2 (22 August 2023); no later listed version. This fix does not newly collate the preprint statements.",
+    "Ashwin Iyengar author papers page https://ashwiniyengar.github.io/papers/ checked 2026-10-01; no correction to these two passages listed.",
+    "Targeted searches on cambridge.org/arxiv.org and the author page for the title, Lemma 3.35, correction and errata; none located. New means no prior published correction found in this bounded search."
+   ],
+   "verificationLead": "Confirmed red-team finding RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/2 and its independent verifier; this new sourceIssues entry awaits its own review verdict."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508623000252",
+   "citation": "Böckle–Iyengar–Paškūnas, Forum Math. Pi 11 (2023), e30, DOI 10.1017/fmp.2023.25, version of record",
+   "read": "2026-10-01",
+   "sha256": "ef73cfba6c47b2f597ebbab66c1bcec8a62060a4fc767351bfc250c622a3f93d",
+   "scope": "Fix reading: pp. 2, 8, 13–14, 16, 24–25, 36–37, 46 and bibliography. E10/E11 scoped to this published artifact; the earlier full-paper and arXiv readings remain recorded separately."
   }
  ]
 }

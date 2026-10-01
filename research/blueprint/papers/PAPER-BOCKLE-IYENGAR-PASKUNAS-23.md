@@ -4,10 +4,10 @@ Issue #1382. Claude Code, session cc-442dc5. The extraction is complete. Impleme
 
 Gebhard Böckle, Ashwin Iyengar and Vytautas Paškūnas, *On local Galois deformation rings*, Forum Math. Pi 11 (2023), e30 (doi 10.1017/fmp.2023.25; arXiv 2110.01638); Corrigendum, Forum Math. Pi 12 (2024), e5.
 
-The result has **147 items: 11 planned and 136 missing**. No item is in Mathlib or Tau Ceti. The routes are:
+The corrected result has **160 items: 12 planned and 148 missing**. No item is in Mathlib or Tau Ceti. The routes are:
 
-- a **Part II of LocalGaloisDeformationRings** (96 items), for the paper's own theory of the unrestricted framed ring (§§2–5 and the appendix);
-- a **Part II of CompletedCohomologyAndLocalGlobalCompatibility** (14 items), for the patching-based density theorem of §6;
+- a **Part II of LocalGaloisDeformationRings** (102 items), for the paper's own theory of the unrestricted framed ring (§§2–5 and the appendix);
+- a **Part II of CompletedCohomologyAndLocalGlobalCompatibility** (20 items), for the patching-based density theorem of §6;
 - **five source routes**, for general inputs that existing layers own:
   - DeformationAndDerivedPatchingAlgebra R03.1/R03.3 (13 missing and 2 planned items);
   - LocalGaloisDeformationRings R08.1 (9 missing and 1 planned);
@@ -15,7 +15,7 @@ The result has **147 items: 11 planned and 136 missing**. No item is in Mathlib 
   - ArithmeticGaloisDuality D7 (1 missing and 1 planned);
   - PadicHodgeTheory R06.2 (1 missing).
 
-Seven misprints and two errors are recorded under `sourceIssues`. No stated result is affected.
+Seven misprints and four errors are recorded under `sourceIssues`. The two added errors correct geometric-fibre closedness and the stated auxiliary Lemma 3.35; the main theorems remain intact. The 22 September full-paper reading and the independent review below are preserved as historical records. The 1 October fix adds items 149–160 and E10–E11; its source reading is described at the end.
 
 ## What the paper proves
 
@@ -29,6 +29,7 @@ Fix a finite extension F/Q_p and a coefficient field L/Q_p with ring of integers
 **The main theorems:**
 
 - **Theorem 1.1.** R^□_ρ̄ is a local complete intersection, flat over O, of relative dimension d² + d²[F:Q_p]. Consequently every ρ̄ lifts to characteristic zero, and the lift can be taken absolutely irreducible (Corollary 3.61).
+- **Derived consequence of Theorem 1.1.** The local framed derived deformation ring is homotopy discrete: positive homotopy pro-groups vanish and its degree-zero associated complete ring recovers R^□_ρ̄ (items 152–154). This uses the framed local model of Cai and Galatius–Venkatesh Lemma 7.5, with tangent-amplitude, presentation and coefficient comparisons explicit; it is distinct from perfect-complex patching.
 - **Theorem 1.2.** The map R_{det ρ̄} → R^□_ρ̄ is flat. It induces bijections on irreducible components and on the connected components of the generic fibres.
   - The components are the Spec R^{□,χ}_ρ̄, one for each character χ: μ → O^×.
   - Each R^{□,χ}_ρ̄ and R^{□,χ}_ρ̄/ϖ is a normal domain and a complete intersection.
@@ -43,7 +44,7 @@ Fix a finite extension F/Q_p and a coefficient field L/Q_p with ring of integers
 1. **The generic-matrices space (§3.1).** Let E = R^ps⟦G_F⟧/CH(D^u) be the Cayley–Hamilton quotient, a finite R^ps-module. Procesi's generic matrices give A^gen, and with it X^gen = Spec A^gen. X^gen parametrises Cayley–Hamilton representations E → M_d(B).
    - R^□_ρ̄ is a completion of A^gen.
    - X^gen//GL_d → X^ps is an adequate homeomorphism (Wang-Erickson; Alper).
-2. **Fibre dimensions (§§2 and 3.2).** GIT over a base (Seshadri) bounds the fibres X^gen_y by a tangent space at the closed orbit (Lemma 2.2). The tangent space is computed with Hom and Ext^1 between the blocks of a parabolic, and with local duality and the Euler characteristic (Proposition 3.11). Those are needed also with coefficients in local fields of characteristic p.
+2. **Fibre dimensions (§§2 and 3.2).** GIT over a base (Seshadri) bounds the fibres X^gen_y by a tangent space at the closed orbit (Lemma 2.2). On a geometric fibre the acting group is G_κ and the closed immersion is into X ×_S Spec κ. The tangent space uses Hochschild cochains with the Hom bimodule: Cartan–Eilenberg IX.4.4.1/IX.4.4.4 identifies HH⁰ and HH¹ with Hom and Ext¹ between the blocks, producing equation (11). Lemma 3.6 then passes to Galois extensions, followed by local duality and the Euler characteristic (Proposition 3.11). Those are needed also with coefficients in local fields of characteristic p.
 3. **The dimension count (§§3.3–3.4).** A commutative-algebra lemma on Jacobson schemes over a punctured spectrum (Lemma 3.18) turns fibre bounds into dimension bounds. Combined with Böckle–Juschka's equidimensionality of R^ps/ϖ, of dimension 1 + d²[F:Q_p], and summed over the strata of reducible pseudo-characters, this gives dim X̄^gen ≤ d² + d²[F:Q_p] (Theorem 3.31).
 4. **Completions (§3.5).** The completion of X^gen at any closed point is a framed deformation ring over a coefficient ring Λ (Proposition 3.34). The residue field there may be finite, p-adic, or a local field of characteristic p, in which case Λ is an O-Cohen ring. Mazur's presentation then turns the dimension bound into complete intersection (Corollaries 3.38–3.45).
 5. **Density of irreducible loci (§3.7 and the appendix).** The absolutely irreducible locus (generic fibre) and the Kummer-irreducible locus (special fibre) are dense, with complements of large codimension. Kummer-irreducible points are new; they refine Böckle–Juschka's non-special points, and H^2(G_F, ad^0 ρ_x) = 0 there.
@@ -51,7 +52,7 @@ Fix a finite extension F/Q_p and a coefficient field L/Q_p with ring of integers
    - Special cases need separate arguments: d = 2 with F = Q_p (Lemmas 4.11–4.12, and Corollary 3.49 for F = Q_2), and the factoriality exceptions (Chenevier's computation for Q_2, Böckle's for Q_3).
    - Factoriality in general follows from Grothendieck's parafactoriality theorem.
 7. **Fixed determinant (§5).** A twist by d-th roots of characters (Proposition 5.1) relates R^{□,χ} to R^{□,ψ}. The fibrewise flatness criterion gives flatness of R_{det ρ̄} → R^□_ρ̄.
-8. **Density of p-adic Hodge theoretic points (§6).** The patched module M_∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin is used. Knowing the components shows that R^□_ρ̄ acts faithfully on M_∞ (Theorem 6.8). The density arguments of Emerton–Paškūnas then apply (Theorem 6.1).
+8. **Density of p-adic Hodge theoretic points (§6).** The patched module M_∞ of Caraiani–Emerton–Gee–Geraghty–Paškūnas–Shin is used. Knowing the components shows that R^□_ρ̄ acts faithfully on M_∞ (Theorem 6.8). The density arguments of Emerton–Paškūnas then apply (Theorem 6.1). Remark 6.2 additionally allows benign crystalline points (regular weights varying), a prescribed-type construction with its supported components tracked, and ramified minimal-stratum supercuspidal families of fixed regular weight (items 155–160).
 
 ## Sources inspected
 
@@ -69,9 +70,9 @@ All sources were accessed on 22 September 2026.
 
 ## Mistakes found (`sourceIssues`)
 
-All nine are new, and every one is present in both arXiv v2 and the published article.
+The original nine entries E1–E9 were read in both arXiv v2 and the published article and confirmed by the independent review below. E10–E11 were added by the 1 October fix against the published artifact only; their independent source-issue review remains pending. No prior correction to those two passages was found in the bounded search recorded in the JSON.
 
-**The two errors:**
+**Errors:**
 
 - **E7 (proof of Lemma 6.5, p. 48).** The proof constructs ψ(x) = σ(xϖ_F^{−v(x)})^a and then asserts "ψκ^{−1} ≡ 1 (mod ϖ)".
   - Since ψ(ϖ_F) = 1, ψκ^{−1}(ϖ_F) = κ(ϖ_F)^{−1}, which need not be ≡ 1. For example, take F = Q_p and κ unramified with κ(p) a Teichmüller lift of some λ ≠ 1; then ψ is trivial.
@@ -80,6 +81,9 @@ All nine are new, and every one is present in both arXiv v2 and the published ar
 - **E9 (Lemma 3.30, Lemmas A.7–A.8, Proposition A.9).** The final numerical steps "≥ 1 + 2[F:Q_p]", "½d²[F:Q_p] ≥ 2" and "d[F:Q_p] ≥ 2" need d ≥ 2, but the paper allows d = 1.
   - For d = 1, the codimension of Y in X̄^gen = X̄^ps is 1 + [F:Q_p].
   - Every consequence drawn from these bounds still holds, since for d = 1 the loci involved are empty. Reach: "nothing".
+
+- **E10 (p. 8, between Lemmas 2.1 and 2.2).** A geometric fibre is closed and G_κ-invariant in X ×_S Spec κ; its map to X need not be closed. A trivial G_m-action on A¹ and its geometric generic point provide the counterexample. Apply Lemma 2.1 over κ. Lemma 2.2’s tangent inequality is unchanged. Reach: "the proof".
+- **E11 (Lemma 3.35, p. 24).** Add κ(𝔭) finite over κ(𝔭∩R). Finite type alone does not imply this: R = F_p⟦t⟧, A = R[x], 𝔭 = (0) has residue field K = F_p((t))(x). The diagonal completion has at least two independent cotangent directions, in t and x, while Â_𝔭⟦T⟧ = K⟦T⟧ has one. Closed-point applications in Corollary 3.38 and Proposition 4.9 satisfy the corrected hypothesis by Lemma 3.18(3). Reach: "a stated result", specifically this auxiliary lemma; the main theorems stand.
 
 **Misprints**, all with reach "nothing":
 
@@ -147,7 +151,7 @@ Tau Ceti has class formations, Kummer theory and Krull dimension of finite-type 
   - Tau Ceti ModularCurves Layer 4D plans regularity under completion (item 052).
 - **Planned nowhere** (searched for "pseudodeformation", "Procesi", "Seshadri", "generic matri", "patched module", "Emerton", "definite unitary"):
   - the generic-matrices space;
-  - GIT over a base;
+  - GIT over a base, with closed geometric fibres and invariant components after base change to κ;
   - Böckle–Juschka's equidimensionality;
   - local duality with coefficients in local fields of characteristic p;
   - every theorem of the paper;
@@ -166,7 +170,7 @@ Tau Ceti has class formations, Kummer theory and Krull dimension of finite-type 
 - dominant maps of Jacobson universally catenary schemes (Lemma 3.14);
 - residue fields at coheight-one primes (Lemma 3.17);
 - the Jacobson and dimension lemma over a punctured spectrum (Lemma 3.18, with the counterexamples of Remarks 3.19–3.20 as tests);
-- completion after base change to κ(𝔭) or an O-Cohen ring (Lemmas 3.35–3.37);
+- completion after base change to κ(𝔭) with κ(𝔭)/κ(𝔭∩R) finite (corrected Lemma 3.35, E11), or under the separate O-Cohen-ring/finite-residue-field hypotheses of Lemmas 3.36–3.37;
 - density under flat maps (Lemma 3.54);
 - Serre's criterion, excellence and Grothendieck's parafactoriality theorem;
 - the fibrewise flatness criterion (Matsumura 23.1);
@@ -192,13 +196,13 @@ The Galois-specific Lemmas 3.2–3.4 stay in the Part II.
 
 **5. Source: PadicHodgeTheory R06.2** (item 139). Conrad's classification of crystalline characters (Proposition B.4). R06.2 plans D_cris, but no layer states this.
 
-**6. Part II: "Local Galois deformation rings and their components, Part II: complete intersection, irreducible components and normality of unrestricted framed deformation rings in every dimension"** (`LocalGaloisDeformationRingsPartIIComponentsAndNormality`, area `langlands`, 96 items). It takes everything in §§2–5 and the appendix that is not a general input.
+**6. Part II: "Local Galois deformation rings and their components, Part II: complete intersection, irreducible components and normality of unrestricted framed deformation rings in every dimension"** (`LocalGaloisDeformationRingsPartIIComponentsAndNormality`, area `langlands`, 102 items). It takes everything in §§2–5 and the appendix that is not a general input.
 
 - **Content:**
-  - GIT over a base;
+  - GIT over a base, with closed geometric fibres and invariant components after base change to κ;
   - the space X^gen;
-  - the fibre bounds and the dimension count;
-  - completions and complete intersection;
+  - the fibre bounds and the dimension count, importing the Hom-coefficient Hochschild–Ext comparison (150–151);
+  - corrected completions and complete intersection, and the local framed derived homotopy-discreteness consequence (152–154);
   - density of the irreducible loci and Kummer irreducibility;
   - components, normality and factoriality;
   - the pseudodeformation corollaries;
@@ -208,28 +212,32 @@ The Galois-specific Lemmas 3.2–3.4 stay in the Part II.
   - Wang-Erickson's adequate homeomorphism;
   - Böckle–Juschka's equidimensionality;
   - Chenevier's Q_2 and Böckle's Q_3 computations;
-  - Paškūnas–Tung Theorem A.1.
+  - Paškūnas–Tung Theorem A.1;
+  - Cartan–Eilenberg IX.4.4.1/IX.4.4.4, using the DGAInfinity carrier and its named Hom-coefficient extension;
+  - Galatius–Venkatesh Definition 7.4/Lemma 7.5 and Cai’s local framed simplicial model and degree-zero comparison.
 - **Why a Part II.** LocalGaloisDeformationRings owns the local rings and their components, but it plans them only as needed by Kisin and Khare–Wintenberger. The geometry of the unrestricted ring in all dimensions is new layers in its direction, with the same consumers.
 - **Imports** (named in the brief):
   - R08.1 and the R03.x, IHG.x and D7 sources above;
   - GlobalGaloisDeformations R04.1;
   - Tau Ceti ClassFieldTheory Layers 5 and 7;
   - ModularCurves Layer 4D;
-  - LanglandsParameterStacks LP3, to be shared where its hypotheses allow.
+  - LanglandsParameterStacks LP3, to be shared where its hypotheses allow;
+  - Tau Ceti DGAInfinity Layer 8 for the ordinary Hochschild carrier (149). The Hom-coefficient extension and generic comparison belong with that owner through an extension if needed; the local Part II imports them rather than constructing another carrier. GV/Cai are named generic imports, not results of R03/P7/P8.
 - **Tests:**
   - d = 1;
   - trivial ρ̄ of dimension 2 (Example 3.22);
   - Remark 4.24's non-factorial ring O⟦x_1, …, x_9⟧/(x_1x_2 − x_3x_4);
   - the Q_3 exception.
 
-**7. Part II: "Completed cohomology and p-adic local–global compatibility over Q, Part II: the patched module for GL_d over p-adic fields and Zariski density of potentially semistable points"** (`CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity`, area `langlands`, 14 items). It takes §6:
+**7. Part II: "Completed cohomology and p-adic local–global compatibility over Q, Part II: the patched module for GL_d over p-adic fields and Zariski density of potentially semistable points"** (`CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity`, area `langlands`, 20 items). It takes §6:
 
 - the CEGGPS patched module and its properties;
 - Emerton–Gee's potentially diagonalisable lifts, as a source-bound input;
 - Emerton–Paškūnas's support theorem;
 - the density of locally algebraic vectors (Dospinescu–Paškūnas–Schraen);
 - the sets Σ;
-- Lemmas 6.3–6.7 and Theorems 6.8 and 6.1.
+- Lemmas 6.3–6.7 and Theorems 6.8 and 6.1;
+- Remark 6.2’s separate variants (155–160). Benign means distinct eigenvalues of φ^f, every refinement non-critical, and no ratio p^{±f}, as in [25, Definition 6.8]; crystalline weights vary. The prescribed-inertial-type construction records compatible τ, varying weights, nonempty type support and the components reached: the remark does not supply an unrestricted theorem for arbitrary τ, nor density for fixed τ and fixed weight. The supercuspidal variant uses a totally ramified degree-d extension, or one containing a minimal element, in the simple-stratum sense of [25, §3.4/§5.3], with fixed regular weight and varying simple types/conductors. For wild extensions it is not arbitrary induction of characters. Track [25, Theorem 5.3]’s annihilator-supported target, then BIP’s Emerton–Gee and faithfulness comparisons.
 
 Why here:
 
@@ -268,6 +276,10 @@ These are listed in the result with links and reasons:
   - Emerton–Gee (2023);
   - Dospinescu–Paškūnas–Schraen (2025);
   - the sequel, Böckle–Iyengar–Paškūnas, Zariski density of crystalline points (PNAS 2023).
+- **Generic cohomology and derived inputs:**
+  - Cartan–Eilenberg, *Homological Algebra*, IX.4.4.1 and IX.4.4.4;
+  - Galatius–Venkatesh, *Derived Galois deformation rings*, Definition 7.4 and Lemma 7.5;
+  - Cai, *Derived deformation rings allowing congruences*, §3.1.2 and its local extension in §3.1.3.
 - **Specific inputs:**
   - Paškūnas–Tung (2021);
   - Hu–Paškūnas (2019);
@@ -307,3 +319,16 @@ which the paper nowhere excludes.
 of Theorem 5.6, where 4.18 is **Corollary** 4.18. That instance is now part of E8. All five survive into
 the published text; in that PDF's text layer the citation words and numbers are interleaved with
 mathematics, so a naive search under-reports them (my first pass wrongly suggested three had been fixed).
+
+
+## Confirmed red-team corrections (1 October 2026)
+
+FIX-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23, issue #5523; Codex, session `codex-5ebb6f`. All five confirmed findings are addressed. Items 001/003/004 use the correct geometric base change; item 049 has finite residue extension; 026 names its Hochschild input; 059 names its derived consequence; and 147 no longer uses a Remark 6.2 locator as a substitute for extracting the variants. The seven routes remain, every missing item is routed once, and the existing E1–E9 review history is preserved.
+
+The added planned item 149 is only the ordinary specialization of the Hochschild carrier in [DGAInfinity Layer 8](../atlas/roadmaps/tauceti_TauCetiRoadmap_DGAInfinity.json). Its general Hom-coefficient extension (150) and comparison (151) are named missing imports with the same generic owner. The design job must arrange any required DGAInfinity extension; it must not assign generic Hochschild constructions to a competing local roadmap. The local derived object and consequence (152/154) go to route 6 once, with the exact generic criterion (153) imported. No supplier proof closure or implementation is claimed at extraction time.
+
+The fix reread selected passages of the [published BIP article](https://doi.org/10.1017/fmp.2023.25): pp. 2, 8, 13–14, 16, 24–25, 36–37, 46 and the bibliography. Pages 8 and 24 were also inspected as images. The downloaded artifact has SHA-256 `ef73cfba6c47b2f597ebbab66c1bcec8a62060a4fc767351bfc250c622a3f93d`; the publisher’s download stamp explains the difference from the original hash. The full one-page corrigendum again changes only an affiliation. E10/E11 are scoped to this published version; this fix does not claim a new preprint collation. The JSON records the publisher artifact under `sourceVersions` and dates/scope/hashes under `source.fixReading`.
+
+Selected supplier readings were [Galatius–Venkatesh v3, pp. 79–80](https://arxiv.org/abs/1608.07236v3), [Cai v1, §3.1.2 and the local extension in §3.1.3](https://arxiv.org/abs/2108.13135v1), [Emerton–Paškūnas, selected §3.4, §§5.3–5.4, Definition 6.8 and Proposition 6.9](https://doi.org/10.5802/jep.119), and [Böckle–Juschka, pp. 17–18](https://doi.org/10.1017/fms.2023.82). Cartan–Eilenberg’s exact locator and comparison were read in BIP; the book proof remains a named supplier obligation. These are targeted readings, not new full readings of those suppliers.
+
+The reviewed coverage and actual layer texts of DGAInfinity, local deformation theory and R03/P7/P8 were checked at atlas input `e236453f6eb8bd7f94773ac63f42921b3b35fd40`. Bounded searches in the two pinned library trees found no matching added item. The correction makes no new positive implementation claim. No Lean file is a deliverable and Lean was not run.
