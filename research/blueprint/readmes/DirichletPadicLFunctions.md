@@ -39612,3 +39612,695 @@ Exact controls compare1,012 independently computed least periods with actual pos
 All73 captured inputs are unchanged from5390. The exact four predecessor outputs and whole issue body are preserved; owners, policies, source versions and reviewed library audit remain at captured blobs. Fresh pinned native periodic-point and rational-circle declarations and proofs have been read.
 
 The separate partial signature file also compiled with zero errors and 4,081 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 40 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb.
+
+
+## Gamma logarithms on the native integral rational circle
+
+Twenty-seven L3 nodes descend the source Phi and corrected Gamma mean to the native periodic rational-circle domain, prove that it is exactly the integral rational classes, and supply evaluation, uniqueness and quotient distribution APIs. All1,262 predecessor nodes,937baseline records,20findings and six source versions remain whole.
+
+Uses the fully read Gross–Koblitz1979 published575–577 and the preceding native circle, intrinsic function and corrected-distribution proofs. Reads native quotient representative inverse laws and coe-negation, and the full periodic-point apply/iterate/map proof chain. All73 captured owner, policy, source and library-audit inputs remain unchanged. Kubert1979 body remains unread and no result from it is used.
+
+### A native circle period gives an integer difference
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-period-integer` — `DirichletPadic.grossKoblitz_circle_period_integer`
+
+For any rational q and natural p,d, a d-periodic class[q] under multiplication by p satisfies(p^d−1)q∈Z, with no integrality assumption.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The native scalar-iterate theorem identifies the d-th iterate on the circle with the class of p^d*q.
+2. Apply the preceding positive-representative comparison and the native toIocMod equality criterion. Negating its integer witness gives exactly(p^d−1)q=n. Complete circle_period_integer also permits d=0 and does not require primality; this removes the integrality hypothesis that would make the converse domain comparison circular.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff`, `mathlib:smul_iterate_apply`, `mathlib:AddCircle.coe_nsmul`, `mathlib:toIocMod_eq_toIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.unrestricted_integer_difference` (computation): The integral difference for q=−2/13 and period3 is −4.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Periodic rational classes have integral representatives
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic-integral` — `DirichletPadic.grossKoblitz_circle_periodic_integral`
+
+If[q] is an actual periodic point of T_p, then q is p-adically integral.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Choose a positive circle period d and obtain the integer n=(p^d−1)q using the preceding unrestricted criterion.
+2. The established denominator-unit theorem says M=p^d−1 is a native Z_p unit, so its Q_p norm is1. Cast M*q=n into Q_p and take norms.
+3. Every integer n has p-adic norm at most1. Multiplicativity and norm(M)=1 imply norm(q)≤1. Complete circle_periodic_integral handles signed numerators and proves actual integrality rather than introducing an assumed lift.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-period-integer`, `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.periodic_implies_integral` (compatibility): A periodic class represented by 2/13 has an integral rational representative.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.preperiodic_third_excluded` (non-example): The class1/3 is preperiodic, and is excluded from the periodic quotient domain.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The native periodic domain is the integral rational circle
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-iff-periodic` — `DirichletPadic.grossKoblitz_integral_iff_periodic`
+
+For every rational q, norm(q in Q_p)≤1 if and only if[q] belongs to the native periodic-point set of T_p.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The preceding checkpoint constructs a positive circle period from any integral rational, using its prime-to-p reduced denominator.
+2. The new converse derives integrality from a positive native circle period. Complete integral_iff_periodic combines the two directions and excludes merely preperiodic classes such as1/p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.negative_domain_iff` (characterisation): For −2/13 the native domain test is exactly rational integrality.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.zero_class_in_domain` (degenerate): The zero class is in the native periodic domain.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The positive representative of a periodic class is integral
+
+`DirichletPadicLFunctions:L3/gross-koblitz-representative-integral` — `DirichletPadic.grossKoblitz_representative_integral`
+
+For every z in D_p, the native rational representative r(z) in(0,1] is p-adically integral.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The inverse law of the existing quotient-to-interval equivalence says the class of r(z) is z.
+2. Transport the actual periodic-point membership of z across that equality and apply circle_periodic_integral. Complete representative_integral supplies the exact proof argument needed to evaluate actual Gamma; the zero-class representative remains1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic-integral`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.positive_representative_integral` (compatibility): The native interval representative of any periodic class is 3-adically integral.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.zero_representative_one` (degenerate): The positive interval representative of the zero class is1.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Class invariance of the intrinsic Phi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-source-phi-circle-eq` — `DirichletPadic.grossKoblitz_sourcePhi_circle_eq`
+
+If integral rationals a,b have the same native Q/Z class, then Phi(a)=Phi(b).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Use the circle representative equivalence and native fractional-part equality criterion to write b=a+n for an integer n.
+2. Apply the preceding integer-translation law with the actual integrality certificates. Complete sourcePhi_circle_eq shows that rational representative choice disappears before defining the quotient value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-translation`, `mathlib:toIocMod_eq_toIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_rational_class_invariance` (compatibility): The prior intrinsic rational function agrees on the equal classes 2/13 and −11/13.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Class invariance of the intrinsic Mean
+
+`DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-circle-eq` — `DirichletPadic.grossKoblitz_orbitMean_circle_eq`
+
+If integral rationals a,b have the same native Q/Z class, then Mean(a)=Mean(b).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Use the circle representative equivalence and native fractional-part equality criterion to write b=a+n for an integer n.
+2. Apply the preceding integer-translation law with the actual integrality certificates. Complete orbitMean_circle_eq shows that rational representative choice disappears before defining the quotient value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-translation`, `mathlib:toIocMod_eq_toIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_rational_class_invariance` (compatibility): The prior intrinsic rational function agrees on the equal classes 2/13 and −11/13.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The quotient source Gamma logarithm
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi` — `DirichletPadic.grossKoblitzCirclePhi`
+
+Define Phi_bar on the actual native domain D_p by evaluating the preceding intrinsic Phi at the existing positive representative r(z), with representative_integral supplying its norm certificate.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Take the actual native quotient point z, not a selected rational plus an assumed equivalence relation.
+2. The existing interval equivalence supplies r(z) and representative_integral supplies its actual p-adic integrality. Evaluate the preceding named intrinsic function. Complete circlePhi gives a genuine function D_p→K; its rational-evaluation and uniqueness APIs follow from proved class invariance.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-source-phi`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `mathlib:Function.periodicPts`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Uses:**
+
+- Gross–Koblitz1979 Section3 on the domain(Q/Z)_p: Provides an actual function on native integral rational classes, with the positive representative convention fixed.
+- DirichletPadicLFunctions:L3 corrected distribution and rational-class consumers: Allows evaluation, reflection, Frobenius and finite division relations directly on quotient points. Source and normalized functions have distinct distribution statements.
+
+**API:**
+
+- `grossKoblitzCirclePhi_eval` (characterisation): For z in D_p and any integral rational q with[q]=z, Phi_bar(z)=Phi(q).
+- `grossKoblitzCirclePhi_apply` (simp): The canonical point of D_p represented by an integral q evaluates under Phi_bar to its intrinsic rational value.
+- `grossKoblitzCirclePhi_unique` (characterisation): Any function F:D_p→K with the same intrinsic values on every integral rational class equals Phi_bar.
+- `grossKoblitzCirclePhi_neg` (relation): With the logarithm laws, Phi_bar(−z)=−Phi_bar(z) for every z in the native domain.
+- `grossKoblitzCirclePhi_zero` (simp): With the root-vanishing logarithm law, Phi_bar(0)=0 on the native domain.
+- `grossKoblitzCirclePhi_frobenius` (relation): For every actual quotient point z, Phi_bar(p*z)=Phi_bar(z).
+- `grossKoblitzCirclePhi_distribution` (relation): Let f>0 be a native circle period of[q] and every[(q+h)/m], and d,d_h their native minimal periods. Then sum_(0≤h<m)(f/d_h)*Phi_bar([(q+h)/m])=(f/d)*Phi_bar([q]).
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_negative_representative` (compatibility): Equal rational classes give the same quotient value, including negative representatives.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_zero_value` (degenerate): The integer class has quotient value zero.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_zero_log_consumer` (degenerate): The abstract zero logarithm gives zero on the quotient function.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_half_value` (degenerate): The self-negative half class has quotient value zero in Q3.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Evaluation of Phi_bar at any rational representative
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-eval` — `DirichletPadic.grossKoblitzCirclePhi_eval`
+
+For z in D_p and any integral rational q with[q]=z, Phi_bar(z)=Phi(q).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Unfold the quotient function only once to obtain its value at r(z).
+2. The native representative inverse law gives[r(z)]=z=[q]. Apply the preceding intrinsic class-invariance theorem. Complete circlePhi_eval does not require q itself to lie in(0,1].
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-circle-eq`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_evaluate_class` (compatibility): Any periodic quotient point equal to the 2/13 class evaluates to the intrinsic rational value.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Evaluation after inclusion of an integral rational
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-apply` — `DirichletPadic.grossKoblitzCirclePhi_apply`
+
+The canonical point of D_p represented by an integral q evaluates under Phi_bar to its intrinsic rational value.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The earlier circle_periodic theorem constructs the actual membership certificate for[q].
+2. Apply the preceding general evaluation theorem with reflexive equality of classes. Complete circlePhi_apply is the standard simplification API for arbitrary signed representatives.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_canonical_inclusion` (computation): The canonical inclusion of the rational2/13 class evaluates correctly.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Uniqueness of the quotient descent for Phi_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-unique` — `DirichletPadic.grossKoblitzCirclePhi_unique`
+
+Any function F:D_p→K with the same intrinsic values on every integral rational class equals Phi_bar.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. For an arbitrary z, use r(z) with representative_integral to obtain its canonical integral rational inclusion.
+2. The native representative inverse law identifies that point with z by subtype extensionality. Apply the assumed value formula for F; the other side is the quotient definition. Complete circlePhi_unique proves uniqueness of this prescribed-value descent only.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_descent_unique` (characterisation): A function with the same rational-class evaluations is the unique quotient descent.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The quotient Gamma orbit mean
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean` — `DirichletPadic.grossKoblitzCircleMean`
+
+Define Mean_bar on the actual native domain D_p by evaluating the preceding intrinsic Mean at the existing positive representative r(z), with representative_integral supplying its norm certificate.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Take the actual native quotient point z, not a selected rational plus an assumed equivalence relation.
+2. The existing interval equivalence supplies r(z) and representative_integral supplies its actual p-adic integrality. Evaluate the preceding named intrinsic function. Complete circleMean gives a genuine function D_p→K; its rational-evaluation and uniqueness APIs follow from proved class invariance.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `mathlib:Function.periodicPts`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Uses:**
+
+- Gross–Koblitz1979 Section3 on the domain(Q/Z)_p: Provides an actual function on native integral rational classes, with the positive representative convention fixed.
+- DirichletPadicLFunctions:L3 corrected distribution and rational-class consumers: Allows evaluation, reflection, Frobenius and finite division relations directly on quotient points. Source and normalized functions have distinct distribution statements.
+
+**API:**
+
+- `grossKoblitzCircleMean_eval` (characterisation): For z in D_p and any integral rational q with[q]=z, Mean_bar(z)=Mean(q).
+- `grossKoblitzCircleMean_apply` (simp): The canonical point of D_p represented by an integral q evaluates under Mean_bar to its intrinsic rational value.
+- `grossKoblitzCircleMean_unique` (characterisation): Any function F:D_p→K with the same intrinsic values on every integral rational class equals Mean_bar.
+- `grossKoblitzCircleMean_neg` (relation): With the logarithm laws, Mean_bar(−z)=−Mean_bar(z) for every z in the native domain.
+- `grossKoblitzCircleMean_zero` (simp): With the root-vanishing logarithm law, Mean_bar(0)=0 on the native domain.
+- `grossKoblitzCircleMean_frobenius` (relation): For every actual quotient point z, Mean_bar(p*z)=Mean_bar(z).
+- `grossKoblitzCircleMean_div` (relation): Mean_bar(z)=Phi_bar(z)/Function.minimalPeriod(T_p,z).
+- `grossKoblitzCircleMean_mul` (relation): In characteristic zero, Function.minimalPeriod(T_p,z)*Mean_bar(z)=Phi_bar(z).
+- `grossKoblitzCircleMean_distribution` (relation): For integral q and positive m prime to p, sum_(0≤h<m)Mean_bar([(q+h)/m])=Mean_bar([q]).
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_negative_representative` (compatibility): Equal rational classes give the same quotient value, including negative representatives.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_zero_value` (degenerate): The integer class has quotient value zero.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_zero_log_consumer` (degenerate): The abstract zero logarithm gives zero on the quotient function.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_half_value` (degenerate): The self-negative half class has quotient value zero in Q3.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Evaluation of Mean_bar at any rational representative
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-eval` — `DirichletPadic.grossKoblitzCircleMean_eval`
+
+For z in D_p and any integral rational q with[q]=z, Mean_bar(z)=Mean(q).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Unfold the quotient function only once to obtain its value at r(z).
+2. The native representative inverse law gives[r(z)]=z=[q]. Apply the preceding intrinsic class-invariance theorem. Complete circleMean_eval does not require q itself to lie in(0,1].
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-circle-eq`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_evaluate_class` (compatibility): Any periodic quotient point equal to the 2/13 class evaluates to the intrinsic rational value.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Evaluation after inclusion of an integral rational
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-apply` — `DirichletPadic.grossKoblitzCircleMean_apply`
+
+The canonical point of D_p represented by an integral q evaluates under Mean_bar to its intrinsic rational value.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The earlier circle_periodic theorem constructs the actual membership certificate for[q].
+2. Apply the preceding general evaluation theorem with reflexive equality of classes. Complete circleMean_apply is the standard simplification API for arbitrary signed representatives.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_canonical_inclusion` (computation): The canonical inclusion of the rational2/13 class evaluates correctly.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Uniqueness of the quotient descent for Mean_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-unique` — `DirichletPadic.grossKoblitzCircleMean_unique`
+
+Any function F:D_p→K with the same intrinsic values on every integral rational class equals Mean_bar.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. For an arbitrary z, use r(z) with representative_integral to obtain its canonical integral rational inclusion.
+2. The native representative inverse law identifies that point with z by subtype extensionality. Apply the assumed value formula for F; the other side is the quotient definition. Complete circleMean_unique proves uniqueness of this prescribed-value descent only.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_descent_unique` (characterisation): A function with the same rational-class evaluations is the unique quotient descent.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Negation preserves the native integral-class domain
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-neg-mem` — `DirichletPadic.grossKoblitz_circle_neg_mem`
+
+For z in D_p, the native negative class−z also belongs to D_p.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Use the actual integral positive representative q=r(z). Its negative is integral because the p-adic norm is invariant under negation.
+2. The earlier circle_periodic theorem supplies membership for[−q]. The native coe-negation law and representative inverse equality identify this with−z. Complete circle_neg_mem constructs the proof for the actual domain subtype.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`, `mathlib:AddCircle.coe_neg`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.native_domain_closed_under_neg` (structure): Negating any periodic class stays in the actual domain.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Multiplication by p preserves the native domain
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-frobenius-mem` — `DirichletPadic.grossKoblitz_circle_frobenius_mem`
+
+For z in D_p, the actual class p*z belongs to D_p.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Unpack the existing positive-period witness of z.
+2. The fully read native IsPeriodicPt.apply transports that same period to T_p(z). Reassemble the periodicPts witness; complete circle_frobenius_mem is the concrete membership API used in the quotient function signatures and requires no primality assumption.
+
+**Prerequisites:** `mathlib:Function.IsPeriodicPt.apply`, `mathlib:Function.periodicPts`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.native_domain_closed_under_p` (structure): Multiplication by3 preserves the actual periodic-point domain.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Multiplication by p preserves rational integrality
+
+`DirichletPadicLFunctions:L3/gross-koblitz-rational-frobenius-integral` — `DirichletPadic.grossKoblitz_rational_frobenius_integral`
+
+If q is p-adically integral, then pq is p-adically integral.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The native p-adic integer p has Q_p norm at most1, as does the supplied rational q.
+2. Use norm multiplicativity and multiply these nonnegative bounds. Complete rational_frobenius_integral gives the actual rational certificate used when comparing quotient Frobenius with intrinsic rational Frobenius.
+
+**Prerequisites:** `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.rational_rotation_integral` (compatibility): Multiplication by3 preserves integrality of an arbitrary rational.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Oddness of Phi_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-neg` — `DirichletPadic.grossKoblitzCirclePhi_neg`
+
+With the logarithm laws, Phi_bar(−z)=−Phi_bar(z) for every z in the native domain.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Represent z by the integral q=r(z); the native coe-negation law identifies−z with[−q].
+2. Evaluate the quotient function at−q and apply the preceding intrinsic oddness theorem. The value at q is the quotient definition. Complete circlePhi_neg includes the zero class and all primes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-neg-mem`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-neg`, `mathlib:AddCircle.coe_neg`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_negative_class` (compatibility): Reflection gives oddness on the actual quotient classes.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Vanishing of Phi_bar at the zero class
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-zero` — `DirichletPadic.grossKoblitzCirclePhi_zero`
+
+With the root-vanishing logarithm law, Phi_bar(0)=0 on the native domain.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The integral rational0 defines the actual zero periodic class.
+2. Evaluate the quotient function using q=0 and apply the preceding intrinsic integer-vanishing theorem. Its positive Gamma representative is1 and Gamma(1)=−1 is torsion. Complete circlePhi_zero therefore respects the endpoint convention.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-integer`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_negative_integer` (degenerate): The class of the negative integer−2 has value zero.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Frobenius invariance of Phi_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-frobenius` — `DirichletPadic.grossKoblitzCirclePhi_frobenius`
+
+For every actual quotient point z, Phi_bar(p*z)=Phi_bar(z).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Use q=r(z) and construct integrality of pq. Native coe-nsmul identifies[pq] with p*z.
+2. Apply quotient evaluation at pq and the preceding intrinsic Frobenius law; evaluation at q is the definition. Complete circlePhi_frobenius uses the constructed native membership certificate and holds for an arbitrary logarithm consumer.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-frobenius-mem`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-frobenius-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-frobenius`, `mathlib:AddCircle.coe_nsmul`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circlePhi_circle_rotation` (computation): Multiplication by3 rotates2/13 to6/13 and preserves the quotient value.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Oddness of Mean_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-neg` — `DirichletPadic.grossKoblitzCircleMean_neg`
+
+With the logarithm laws, Mean_bar(−z)=−Mean_bar(z) for every z in the native domain.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Represent z by the integral q=r(z); the native coe-negation law identifies−z with[−q].
+2. Evaluate the quotient function at−q and apply the preceding intrinsic oddness theorem. The value at q is the quotient definition. Complete circleMean_neg includes the zero class and all primes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-neg-mem`, `DirichletPadicLFunctions:L3/gross-koblitz-representative-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-neg`, `mathlib:AddCircle.coe_neg`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_negative_class` (compatibility): Reflection gives oddness on the actual quotient classes.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Vanishing of Mean_bar at the zero class
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-zero` — `DirichletPadic.grossKoblitzCircleMean_zero`
+
+With the root-vanishing logarithm law, Mean_bar(0)=0 on the native domain.
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. The integral rational0 defines the actual zero periodic class.
+2. Evaluate the quotient function using q=0 and apply the preceding intrinsic integer-vanishing theorem. Its positive Gamma representative is1 and Gamma(1)=−1 is torsion. Complete circleMean_zero therefore respects the endpoint convention.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-integer`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_negative_integer` (degenerate): The class of the negative integer−2 has value zero.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Frobenius invariance of Mean_bar
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-frobenius` — `DirichletPadic.grossKoblitzCircleMean_frobenius`
+
+For every actual quotient point z, Mean_bar(p*z)=Mean_bar(z).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Use q=r(z) and construct integrality of pq. Native coe-nsmul identifies[pq] with p*z.
+2. Apply quotient evaluation at pq and the preceding intrinsic Frobenius law; evaluation at q is the definition. Complete circleMean_frobenius uses the constructed native membership certificate and holds for an arbitrary logarithm consumer.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-eval`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-frobenius-mem`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-frobenius-integral`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-frobenius`, `mathlib:AddCircle.coe_nsmul`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.circleMean_circle_rotation` (computation): Multiplication by3 rotates2/13 to6/13 and preserves the quotient value.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The quotient mean divided by its native period
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-div` — `DirichletPadic.grossKoblitzCircleMean_div`
+
+Mean_bar(z)=Phi_bar(z)/Function.minimalPeriod(T_p,z).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Both quotient functions use the same actual representative r(z). Apply the preceding intrinsic quotient formula at that representative.
+2. The native representative inverse law identifies[r(z)] with z, hence their native minimal periods are equal. Complete circleMean_div divides in K and never asserts that this period is a Z_p unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-div`, `mathlib:QuotientAddGroup.equivIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_mean_divides_three` (computation): The quotient mean at2/13 divides the source value by3 in Q3.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### Recovering the quotient source value from its mean
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-mul` — `DirichletPadic.grossKoblitzCircleMean_mul`
+
+In characteristic zero, Function.minimalPeriod(T_p,z)*Mean_bar(z)=Phi_bar(z).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Native periodic-point membership gives positive minimal period; characteristic zero makes its cast nonzero in K.
+2. Use circleMean_div and field cancellation. Complete circleMean_mul works when the period is divisible by p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-div`, `mathlib:Function.minimalPeriod_pos_of_mem_periodicPts`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_mean_recovers_source` (compatibility): Multiplying the quotient mean at2/13 by3 recovers the source value.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The quotient Gamma mean distribution
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-distribution` — `DirichletPadic.grossKoblitzCircleMean_distribution`
+
+For integral q and positive m prime to p, sum_(0≤h<m)Mean_bar([(q+h)/m])=Mean_bar([q]).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Construct every displayed quotient point using the actual affine-integrality certificate and the integral-to-periodic theorem.
+2. Evaluate each quotient value at the displayed rational representative. Apply the preceding intrinsic mean distribution and evaluate the input quotient point.
+3. Complete circleMean_distribution gives the identity for every integral representative q, and those classes exhaust D_p by the domain comparison. The enumeration of the full m-division fiber as a native finite type is still a separate planned step.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-apply`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-iff-periodic`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality`, `DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-distribution`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_negative_distribution` (computation): The quotient mean satisfies the halving relation at the negative class−2/13.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_zero_distribution` (degenerate): The zero-class halving preimages0 and1/2 both have zero quotient mean.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+### The period-weighted quotient source distribution
+
+`DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-distribution` — `DirichletPadic.grossKoblitzCirclePhi_distribution`
+
+Let f>0 be a native circle period of[q] and every[(q+h)/m], and d,d_h their native minimal periods. Then sum_(0≤h<m)(f/d_h)*Phi_bar([(q+h)/m])=(f/d)*Phi_bar([q]).
+
+**Hypotheses:** The prime p may be2. The domain is the actual native subtype D_p=Function.periodicPts(T_p) inside AddCircle(1:Q)=Q/Z, where T_p(z)=p*z. It is not a replacement quotient, a new generic periodic-point object, or all rational classes. Its equality with the classes of p-adically integral rationals is proved here. Write r(z) for the rational coordinate of the native QuotientAddGroup.equivIocMod equivalence into(0,1]. This is an existing native representative map, not a new definition. Every r(z) for z in D_p is p-adically integral; the zero class has representative1. Input rational representatives q carry their exact norm(q in Q_p)≤1 certificates. Gamma is the existing actual Morita Gamma. K is a field, iota:Z_p→K a ring homomorphism and ell:K→K the supplied Coleman logarithm consumer. Negation, zero and distribution laws require multiplicativity on nonzero inputs and vanishing on roots of unity of positive order. Pure evaluation, uniqueness and Frobenius laws hold for any ell. Mean multiplication and its distribution require characteristic zero. The quotient source function Phi_bar(z) evaluates the preceding intrinsic unnormalized Phi at r(z). The quotient mean Mean_bar(z) evaluates the separately named intrinsic mean at the same representative. Translation invariance proves evaluation at any other integral rational representative and uniqueness of each descent. This uniqueness concerns a function with prescribed values on rational classes, not a universal ordinary-distribution theorem. For division formulas m is positive, prime to p and a native Z_p unit. The displayed classes are[(q+h)/m] for0≤h<m, with actual affine-integrality certificates. The source formula also has a positive f that is a native circle period of[q] and each displayed preimage. The mean identity needs no supplied periods. General finite-fiber enumeration and Kubert universality remain outside this checkpoint. No general integral-valued or pZ_p-valued mean is asserted.
+
+**Proof:**
+
+1. Evaluate every quotient value at its displayed rational representative, with actual affine-integrality proofs.
+2. Convert each supplied native circle-period certificate to the actual integral Gamma orbit certificate by the preceding circle/orbit equivalence.
+3. Apply the intrinsic weighted source distribution. Complete circlePhi_distribution retains all period factors; passage to Q/Z does not make the invalid unweighted source identity true.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-apply`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality`, `DirichletPadicLFunctions:L3/gross-koblitz-source-phi-distribution`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_weighted_certificate` (computation): The p7 finite certificate retains the least-period weight4 at the short preimage orbit.
+- `SuggestedGrossKoblitzQuotientFunctionsTests.quotient_unweighted_failure` (non-example): Passing to quotient classes does not remove the source period weights.
+
+**Acceptance:** The typed tests pin the actual native domain, evaluation, signs, zero class or weighted versus normalized distribution. Complete native consumer proofs are retained; the blueprint remains unchecked and no new source verdict is asserted.
+
+**Source:** Section3, published575–577/PDF7–9: least-period Gamma logarithm, relations(3.4)–(3.6), and the paragraph using the domain(Q/Z)_p. The complete pages have been read in the retained scan. These nodes give actual quotient functions on the native periodic rational-circle domain, prove its equality with the integral rational classes, and descend the already proved representative and distribution laws. Source Phi and its corrected normalized mean remain distinct. The source motivates the quotient domain; the native period characterization and descent proofs are the stated formalization route. No Kubert body result or universal ordinary-distribution assertion is used.
+
+**Remaining:** The source Phi and corrected mean now have unique actual quotient descents on the native periodic-point subtype of Q/Z; this domain is proved equivalent to integral rational representatives. Their evaluation, zero, oddness, Frobenius and weighted or normalized distribution laws are established. Next identify the displayed division classes with the complete native m-division fiber and read Kubert1979 to assess the universal odd-distribution claim. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness is a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat, external Stickelberger and remaining Ferrero–Greenberg/L3 source routes. Both RD.6 Dwork interfaces and the Coleman/LAD logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.
+
+### Gamma logarithms on the native integral rational circle validation
+
+All 1262 predecessor nodes, 937 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 27 nodes, 27 named suggested declarations and 38 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1549 reachable nodes, 7133 edges and 1102 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. New domain and quotient routes use actual native circle/periodic-point facts and prior local orbit results. Logarithmic routes reuse the existing Coleman Iwasawa-logarithm node and LocallyAnalyticDistributions:L1 request; no new request or owner construction is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5394 verbatim and adds two definitions and26complete lemmas, totaling42definitions and722lemmas. Twenty-seven suggested declarations specialize actual Morita Gamma;38typed tests cover quotient representative independence, excluded preperiodic points, uniqueness, signs and both distribution corrections. The native representative-coe helper is a direct equivalence inverse law and is not separately proposed as a library declaration. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact quotient controls: 2496 periodic iff integral rational, 1976 positive representative integral, 1976 domain negation frobenius, 3952 quotient representative independence, 4972 displayed division classes, 4972 finite division fiber enumeration, 520 excluded preperiodic classes, 4148 quotient source evaluation frobenius, 4148 quotient source odd, 576 quotient zero value, 4148 quotient weighted distribution, 4148 quotient mean distribution scaled, 444 nonunit period cases. Canonical odd-prime logarithm controls scale means and raise residue precision before division. Finite division-fiber enumeration is a control, not a claimed general Lean theorem. Exact rational arithmetic models native Q/Z by reduced residues in[0,1). Independent orbit cycle detection includes preperiodic points and checks periodicity exactly against p-prime denominators. Positive representatives, signs, Frobenius and integer translations are checked. Displayed division classes are also compared with finite rational fibers; no general Lean fiber-enumeration theorem is claimed. Actual Gamma residues use the signed factorial recurrence and odd-prime canonical logarithms with the established tail bound. Mean identities are scaled by p^V with precision increased by V before modular reduction; no nonunit is inverted in Z/p^k and no general integral-valued mean is claimed. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs remain unchanged from5394. Four predecessor outputs, issue, policies, owners, source versions and reviewed library audit are preserved at captured blobs. Native quotient and periodic-point proof reads support the actual domain comparison and descent.
+
+The separate partial signature file also compiled with zero errors and 4,146 expected placeholder warnings across 3,604 pinned source modules. It includes all 27 new named declarations and 38 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 08375f1e4eb31e1f8e2415689165d3de3ff07182877f357a70b08ae142042c55.
