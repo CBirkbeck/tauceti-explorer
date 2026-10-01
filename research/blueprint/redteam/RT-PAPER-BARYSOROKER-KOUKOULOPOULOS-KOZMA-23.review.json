@@ -1,0 +1,10 @@
+{
+ "redteam": "RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Lemma 3.1 (arXiv v3, p. 18) bounds the factorisations by 2N₀T with T = max τ(a₀) over the interval. It then uses 'τ(a) ⩽ exp((log 2+o(1)) log a/ log log a) as a → ∞ (e.g., see [18, §18.1, Theorem 317]), so that T ≪ N^{0.695}'. That needs the maximal-order bound uniformly over |a| ≤ N^{log log(100N)}. There, log a/log log a = (1+o(1)) log N, so T ≤ N^{log 2+o(1)}, and 0.005 + 0.695 − 1 = −0.3 gives the lemma. Item /48 rests only on /129, which asserts τ(k) ≤ C_η k^η for each fixed η. On this range that gives C_η N^{η log log(100N)}, and no fixed η is bounded by a fixed power of N. So the recorded supplier does not prove /48. Hardy–Wright (reference [18]) is not among the prerequisites. The pinned Mathlib has `Nat.card_divisors_le_self` (Mathlib/NumberTheory/Divisors.lean) but no maximal-order estimate. The fix is right: a supplier item with the log 2 constant, routed once to AnalyticNumberTheory:AN.5, with Hardy–Wright Theorem 317 added to the prerequisites. Lemma 3.1 itself is not in question."
+  }
+ ]
+}
