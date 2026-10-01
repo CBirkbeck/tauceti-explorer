@@ -1265,7 +1265,7 @@ section R28_3
 
 variable {K : Type u} [Field K] [NumberField K] {g : ℕ}
 
-/-- Opaque (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1): for a sublattice `W ⊆ T_l(Â)` at
+/-- Opaque (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1): for a saturated sublattice `W ⊆ T_l(Â)` at
 `v | l`, the quotient `G_{v,n}/G_{v,n-1}` of the schematic closures `G_{v,n} ⊆ Â` of the levels of
 the `l`-divisible subgroup of `A/K_v` attached to `W`. -/
 def closureQuotient (A : SemiabelianModel K g) (v : HeightOneSpectrum (𝓞 K)) (l : ℕ)
@@ -1280,13 +1280,15 @@ def closureTransition (A : SemiabelianModel K g) (v : HeightOneSpectrum (𝓞 K)
     (n : ℕ) : closureQuotient A v l W (n + 1) ⟶ closureQuotient A v l W n := sorry
 
 /-- R28.3/closure-tower-becomes-l-divisible-only-after-a-shift (erratum (a)): for a
-`D_v`-invariant sublattice `W ⊆ T_l(Â)`, the transition maps of the closures are isomorphisms
+`D_v`-invariant saturated sublattice `W ⊆ T_l(Â)`, the transition maps of the closures are isomorphisms
 for all `n ≥ n₀` (not in general for all `n ≥ 1`); passing to `A_m`, `m ≥ n₀`, only the maps with
-`n > m` matter. -/
+`n > m` matter. Saturation is Tate Proposition 12’s direct-summand
+hypothesis: `lℤ_l ⊂ ℤ_l` fails it, while `0` and the full module satisfy it. -/
 theorem erratum_a_shift (A : SemiabelianModel K g) (v : HeightOneSpectrum (𝓞 K)) (l : ℕ)
     [Fact l.Prime] (hv : (l : 𝓞 K) ∈ v.asIdeal)
     (W : Submodule ℤ_[l] (TateModule (A.abelianVariety.baseChange (v.adicCompletion K)) l))
     (hW : W ≤ formalTateSubmodule A v l)
+    (hWsat : ∀ x, (l : ℤ_[l]) • x ∈ W → x ∈ W)
     (hWst : ∀ σ, ∀ x ∈ W, tateRep (A.abelianVariety.baseChange (v.adicCompletion K)) l σ x ∈ W) :
     ∃ n₀, ∀ n ≥ n₀, IsIso (closureTransition A v l W n) := by
   sorry
