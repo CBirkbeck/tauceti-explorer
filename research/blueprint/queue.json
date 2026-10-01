@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -36895,8 +36895,9 @@
     "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4150"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4150",
+   "finishedAt": "2026-10-01T15:28:47Z"
   },
   {
    "id": "REV-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
@@ -39146,7 +39147,8 @@
     "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4240"
   },
   {
    "id": "REV-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
