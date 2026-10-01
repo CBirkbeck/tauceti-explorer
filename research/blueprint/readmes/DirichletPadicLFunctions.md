@@ -30614,3 +30614,252 @@ Exact controls pass4 radius identities,196 small-disc bounds,196 Gamma principal
 Captured main5f1fcd69608d44da971c9d41cddfee069ef98347 after actual PR5324 merge. All72 guarded policy, supplier, ownership and source-register inputs are unchanged; the four predecessor outputs match exactly. The new local E17 is preserved whole; no independent review is claimed. Publication refresh to36e7d54be5ff8f32279dbfaa7046a4ae5247a516 changes only the source registry and generated register among72 guarded inputs. The complete semantic delta is exactly the new own E17 row from PR5324, awaiting review, with its published sign, correction, zero-point reason and bounded search unchanged. All older rows, purpose and unchecked fields are unchanged. REGISTER equals the renderer output exactly. Four deliverable bytes were preserved across the checked fast-forward; no review verdict or mathematical supplier changed.
 
 The separate partial signature file also compiled with zero errors and 3,020 expected placeholder warnings across 3,600 pinned source modules. It includes all 7 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 5ca2b62b84540951fe462e5c3d819260fdd8d66dbaf923daceb08f19fa52a411.
+
+
+## An explicit analytic extension of Gamma on the small disc
+
+Eight L3 nodes realize the actual difference coefficients as a native analytic function and construct an explicit analytic extension agreeing with Gamma on the small disc. All949 predecessor nodes,731 baseline records,17 findings and14 requests remain whole.
+
+Retains the complete Morita1975 and KL1964 readings; the arithmetic analytic model follows Morita pp.259–261 with E17’s corrected sign. Reads full pinned ofScalars/ofScalarsSum definitions, evaluation/zero/operator-norm formulas, the native radius-bound and positive-radius representation proofs, analytic-at-inside-ball, constant/subtraction/composition rules and the native exponential’s actual radius hypothesis. Generic analytic and logarithm suppliers remain with their existing owners.
+
+### The actual difference function over its coefficient field
+
+`DirichletPadicLFunctions:L3/morita-difference-field-extension` — `DirichletPadic.moritaDifferenceExtension`
+
+Define E_v:K→K by E_v(z)=ofScalarsSum(v)(z)−v_0, using the native scalar formal multilinear series sum.
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. Use the existing native FormalMultilinearSeries.ofScalarsSum applied to the actual coefficient sequence v, then subtract its constant coefficient. The complete extension definition has this literal body.
+2. Its total-function value is not a convergence assertion outside the certified disc. At0 the native scalar sum equals v_0, so E_v(0)=0 for every sequence.
+3. For the zero sequence, the native sum is zero; pointwise equality of two coefficient sequences gives equality of the functions by function extensionality. The complete extension_def, extension_zero, extension_zero_coefficients and extension_congr proofs provide the basic API.
+4. Promote the explicit sum formula and restriction comparison below because the analytic/Gamma argument consumes them. This is the actual arithmetic function, not a new analytic-space carrier.
+
+**Prerequisites:** `mathlib:FormalMultilinearSeries.ofScalarsSum`, `mathlib:FormalMultilinearSeries.ofScalarsSum_zero`.
+
+**Uses:**
+
+- Morita1975 Section2, analytic translated means: Realizes the actual limiting coefficient series as a function on the coefficient field where native analytic predicates apply.
+- Morita1975 Section3, proof of Theorem3: Supplies the analytic input composed with the native exponential.
+- Existing translated difference and finite tests: Preserves the same constant subtraction and values on embedded p-adic integers, including negative and nonintegral points.
+
+**API:**
+
+- `DirichletPadic.moritaDifferenceExtension_def` (constructor): The literal native scalar sum minus v_0.
+- `DirichletPadic.moritaDifferenceExtension_tsum` (projection): E_v(z)=Σ_m z^m v_m−v_0; promoted below.
+- `DirichletPadic.moritaDifferenceExtension_zero` (simp): E_v(0)=0 for every v.
+- `DirichletPadic.moritaDifferenceExtension_zero_coefficients` (simp): The zero coefficient sequence gives the zero function.
+- `DirichletPadic.moritaDifferenceExtension_congr` (extensionality): If v_m=w_m for every m, then E_v=E_w.
+- `DirichletPadic.moritaDifferenceExtension_restrict` (compatibility): E_v(ιz)=F_v(z) for the existing p-adic integer difference; promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.extension_at_zero` (degenerate): The dyadic extension is0 at0 for arbitrary v.
+- `SuggestedMoritaAnalyticTests.extension_zero_sequence` (degenerate): The ternary zero coefficient sequence gives the zero function.
+- `SuggestedMoritaAnalyticTests.extension_constant_only` (computation): A dyadic coefficient sequence supported at0 gives the zero difference function.
+- `SuggestedMoritaAnalyticTests.extension_coefficient_equality` (compatibility): Pointwise equal ternary coefficient sequences give equal extensions.
+
+**Acceptance:** The actual native series function is used, with its documented total-function convention; no convergence is inferred merely from its definition.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The scalar sum formula for the coefficient-field extension
+
+`DirichletPadicLFunctions:L3/morita-difference-field-sum` — `DirichletPadic.moritaDifferenceExtension_tsum`
+
+For every z∈K, E_v(z)=Σ_m z^m v_m−v_0.
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. The native scalar-series evaluation givesΣ_m v_m·z^m, with scalar multiplication on K equal to multiplication.
+2. Commutativity puts the factors in the same order as the existing translated difference.
+3. The complete extension_tsum proof uses the native total sum identity; summability hypotheses enter only later analytic statements.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `mathlib:FormalMultilinearSeries.ofScalars_sum_eq`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.extension_linear` (computation): For v_1=2 and all other coefficients zero, E_v(3)=6 in ℚ₂.
+- `SuggestedMoritaAnalyticTests.extension_quadratic` (computation): For v_2=1/2 and all other coefficients zero, E_v(4)=8 in ℚ₃.
+
+**Acceptance:** Keep subtraction of v_0; otherwise the model no longer matches the translated mean difference.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The extension restricts to the existing translated difference
+
+`DirichletPadicLFunctions:L3/morita-difference-field-restriction` — `DirichletPadic.moritaDifferenceExtension_restrict`
+
+For every ring homomorphism ι:ℤ_p→K and z∈ℤ_p, E_v(ιz)=F_v(z).
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. Substituteιz into the preceding sum formula.
+2. The resulting total sum minus v_0 is literally the preceding moritaTranslatedDifference definition. The complete extension_restrict proof checks that identity.
+3. No norm preservation or coefficient bound is needed for this pointwise equality; those inputs are used for convergence and the source application.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-sum`, `DirichletPadicLFunctions:L3/morita-translated-difference-function`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.extension_restrict_dyadic` (compatibility): The native ℤ₂→ℚ₂ map preserves the exact formula for arbitrary v and z.
+- `SuggestedMoritaAnalyticTests.extension_nonintegral_geometric` (boundary): At z=4/3∈ℤ₂ and v_m=1, E_v(z)=−4, agreeing with the geometric sum minus its constant.
+
+**Acceptance:** This comparison uses the already planned F_v, not a replacement function with an assumed Gamma equality.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The actual mean coefficients give a native analytic radius
+
+`DirichletPadicLFunctions:L3/morita-difference-coefficient-radius` — `DirichletPadic.moritaDifferenceExtension_coefficient_radius`
+
+If R>0 and ‖v_m‖≤C/R^m for every m, then ENNReal.ofReal(R)≤radius(ofScalars(K,v)).
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. The native scalar formal multilinear coefficient has operator norm exactly ‖v_m‖, since K has norm1 at1.
+2. Multiply the explicit coefficient bound by the positive real number R^m to get ‖ofScalars(K,v)_m‖R^m≤C.
+3. Apply the native le_radius_of_bound theorem with nonnegative radius R. The complete coefficient_radius proof verifies the real/nonnegative/extended-radius coercion and the positive-denominator condition.
+
+**Prerequisites:** `mathlib:FormalMultilinearSeries.ofScalars`, `mathlib:FormalMultilinearSeries.ofScalars_norm`, `mathlib:FormalMultilinearSeries.le_radius_of_bound`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.radius_geometric` (boundary): The constant dyadic coefficient sequence has native radius at least1.
+- `SuggestedMoritaAnalyticTests.radius_scaled_geometric` (computation): Coefficients4^m in ℚ₂ have native radius at least4.
+- `SuggestedMoritaAnalyticTests.radius_zero_sequence` (degenerate): The zero ternary series has infinite radius.
+
+**Acceptance:** This is the actual native absolute-norm convergence radius, not an unproved formal radius or a claim of boundary convergence.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The coefficient-field difference is analytic inside its radius
+
+`DirichletPadicLFunctions:L3/morita-difference-field-analytic` — `DirichletPadic.moritaDifferenceExtension_analyticAt`
+
+If K is complete, R>0, ‖v_m‖≤C/R^m and ‖z‖<R, then E_v is analytic at z over K.
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. The preceding radius lower bound and R>0 make the native formal-series radius positive.
+2. The strict inequality ‖z‖<R puts z in the native extended-metric ball of convergence.
+3. The native complete-space theorem supplies a power-series representation of the sum, and analyticAt_of_mem gives analyticity at z.
+4. Subtract the constant v_0 using native analyticAt_const and AnalyticAt.sub. The complete extension_analytic proof includes the explicit radius-ball coercion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `DirichletPadicLFunctions:L3/morita-difference-coefficient-radius`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesOnBall.analyticAt_of_mem`, `mathlib:analyticAt_const`, `mathlib:AnalyticAt.sub`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.analytic_geometric` (computation): The dyadic geometric extension is analytic at4.
+- `SuggestedMoritaAnalyticTests.analytic_quadratic` (compatibility): The finite quadratic ternary extension is analytic at every point.
+- `SuggestedMoritaAnalyticTests.boundary_series_diverges` (non-example): The constant geometric terms at1 in ℚ₂ are not summable; the strict radius condition must not be replaced by convergence at every boundary point.
+
+**Acceptance:** The theorem concerns the actual native sum on a strictly smaller ball. It makes no assertion that an arbitrary series converges at its radius.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The native exponential of the difference is analytic on its certified domain
+
+`DirichletPadicLFunctions:L3/morita-difference-exponential-analytic` — `DirichletPadic.moritaDifferenceExtension_exp_analyticAt`
+
+Under the preceding coefficient bounds, if E_v(z) belongs to the native expSeries(K,K) convergence ball, then w↦exp(E_v(w)) is analytic at z.
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. The preceding theorem gives AnalyticAt K E_v z.
+2. The pinned analyticAt_exp_of_mem_ball theorem gives analyticity of the actual native exponential at E_v(z), using the explicit convergence-ball membership.
+3. Apply native AnalyticAt.comp. The complete exp_extension_analytic proof neither assumes the exponential to be entire nor imports a real-algebra theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-analytic`, `mathlib:NormedSpace.analyticAt_exp_of_mem_ball`, `mathlib:AnalyticAt.comp`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.exp_constant_analytic` (degenerate): The zero coefficient model is analytic at0 when the native exponential radius is positive.
+- `SuggestedMoritaAnalyticTests.exp_linear_analytic` (boundary): The dyadic linear model is analytic at8 with the explicit native exp-series membership of8 retained.
+
+**Acceptance:** Keep the p-adic exponential-domain hypothesis; the real and complex entire-exponential theorems do not apply.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The actual logarithmic mean supplies an analytic Gamma model
+
+`DirichletPadicLFunctions:L3/morita-gamma-model-analytic` — `DirichletPadic.moritaGamma_model_analyticAt`
+
+With the retained actual logarithmic mean data and the supplied principal-unit exp-domain certificate, w↦exp(E_v(w)) is analytic atιz for every ‖z‖≤ρ.
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. The existing actual derivative-limit norm theorem gives‖v_m‖≤C_q B/R^m, with R>r>0.
+2. The smaller disc lies in the q-disc; norm preservation gives‖ιz‖≤r<R, including the smaller-disc boundary.
+3. Restriction to the actual difference and the existing log-Gamma identity give E_v(ιz)=ℓ(−ιγ(z+1)).
+4. The preceding arithmetic principal-unit bound and the explicit Coleman convergence-domain certificate place this value inside the native exponential radius.
+5. Apply the preceding native composition theorem. The complete gamma_model_analytic proof does not need the exp/log inverse itself; that inverse is needed only to identify model values with Gamma.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `DirichletPadicLFunctions:L3/morita-small-disc-inclusion`, `DirichletPadicLFunctions:L3/morita-difference-field-restriction`, `DirichletPadicLFunctions:L3/morita-log-primitive-gamma-disc`, `DirichletPadicLFunctions:L3/morita-gamma-shifted-small-disc-principal`, `DirichletPadicLFunctions:L3/morita-difference-exponential-analytic`, `ColemanIntegration:L0`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.gamma_model_at_zero` (degenerate): For the actual dyadic source data, the model is analytic at0; all Taylor, coefficient-limit and radius inputs remain explicit.
+- `SuggestedMoritaAnalyticTests.gamma_model_ternary` (boundary): For actual ternary source data the model is analytic at3, including the smaller-disc boundary.
+
+**Acceptance:** Use the exact existing Coleman inverse/domain request. No new request or independent source verdict is introduced.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+### The existing Gamma admits an analytic extension on the small disc
+
+`DirichletPadicLFunctions:L3/morita-gamma-small-disc-analytic-extension` — `DirichletPadic.moritaGamma_smallDisc_analyticExtension`
+
+For every z∈ℤ_p with ‖z‖≤ρ, the retained actual source data, principal-unit inverse and exp-domain certificate give a function G:K→K analytic atιz and satisfying G(ιw)=ιγ(w) for every w∈ℤ_p with ‖w‖≤ρ. The explicit witness is G(w)=exp(E_v(w)).
+
+**Hypotheses:** K is a nontrivially normed field. The actual coefficient sequence v is unchanged from the preceding translated mean construction. Completeness is retained for the analytic series theorem; the arithmetic application has the same complete ultrametric characteristic-zero normalized ℚ_p-algebra as before. For the radius and analytic results retain R>0 and the actual bound ‖v_m‖≤C/R^m. The Morita application derives this bound from its existing mean-limit norm theorem, with C=C_q B and R>r=‖q‖. The native exponential comparison additionally needs its actual convergence-ball membership, not merely its formal series. The full Gamma application keeps ι:ℤ_p→K norm-preserving, the actual logarithm laws and continuity off zero, A(x)=ιx(ℓ(ιx)−1), actual D_0=A,D_1=ℓ∘ι, value/Lipschitz estimates B/R^m and B/(R^m r), actual Taylor HasSum, and actual twisted coefficient Tendsto witnesses. The existing Gamma unit/continuity/zero/recurrence/sharp-congruence laws are explicit in the complete native proof and specialized to moritaGamma in the suggested declarations. The requested Coleman input is precise: for ‖u−1‖≤ρ=‖2q‖, exp(ℓu)=u and ℓu belongs to the native expSeries convergence ball. The model’s analyticity uses only that convergence membership; agreement with Gamma also uses the inverse. The existing14 supplier requests remain open. The new extension is one arithmetic K-valued function built with native ofScalarsSum. It introduces no carrier, topology or operations for analytic functions and does not rebuild LAD or Coleman. All infinite analytic claims in the native scratch use pinned Mathlib theorems; finite rational controls are only regressions.
+
+**Proof:**
+
+1. Choose the actual native exponential of the preceding coefficient-field extension as G; no new Gamma carrier is introduced.
+2. The previous theorem supplies AnalyticAt K G (ιz).
+3. For every w in the small disc, restriction identifies E_v(ιw) with F_v(w). The preceding corrected Gamma exponential comparison then gives G(ιw)=ιγ(w).
+4. The complete gamma_analytic_extension proof produces this witness and verifies the uniform agreement on the whole small disc. For K=ℚ_p and the native embedding this is the source’s local analytic extension; the shifted function in Theorem3 follows by the signed recurrence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-model-analytic`, `DirichletPadicLFunctions:L3/morita-difference-field-restriction`, `DirichletPadicLFunctions:L3/morita-gamma-exponential-difference`.
+
+**Tests:**
+
+- `SuggestedMoritaAnalyticTests.gamma_extension_negative` (computation): The dyadic analytic extension exists at−8 and agrees with the same Gamma on every point of8ℤ₂.
+- `SuggestedMoritaAnalyticTests.gamma_extension_nonintegral` (boundary): At8/3∈ℤ₂ the extension is analytic and still agrees uniformly with Gamma on the entire small disc.
+
+**Acceptance:** This remains a conditional roadmap theorem until the actual owned analytic data and exp/log certificates are supplied. It does not close Gamma’s global residue-disc transport or Gross–Koblitz/Ferrero–Greenberg.
+
+**Source:** Section2 pp.259–260/PDF5–6, analytic translated difference and the larger-radius remark; Section3 p.261/PDF7, corrected exponential argument proving Theorem3. The actual coefficient mean series is extended to its coefficient field using native scalar formal multilinear series. Its explicit coefficient bound gives the radius, and native exponential composition supplies the analytic model. The corrected Gamma agreement uses E17 and the existing logarithmic comparison; generic analytic/logarithm inputs retain their owners.
+
+**Remaining:** An explicit coefficient-field analytic model now agrees with the existing Gamma throughout2qℤ_p, conditional on the actual Taylor/coefficient mean inputs and the exact Coleman exp/log and radius certificates. Next transport this model to every p-adic residue disc using the existing signed finite-shift recurrence with its locally constant unit/nonunit factors, then address the remaining Gamma derivative/expansion and Gross–Koblitz/Ferrero–Greenberg targets. The14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages.
+
+### An explicit analytic extension of Gamma on the small disc validation
+
+All 949 predecessor nodes, 731 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 12 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1217 reachable nodes, 5947 edges and 913 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. The native scalar-series and analytic-composition nodes have no unresolved stage leaves. Restriction to the previous actual F_v inherits LAD L0 through that existing construction. The two Gamma model/extension nodes inherit the existing Coleman L0 and LAD L0/L1 obligations; all14 requests are preserved.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves20definitions234lemmas from PR5326 verbatim after an explicit native Analytic.Composition import and adds1definition11lemmas. It uses the actual scalar series and prior mean coefficient bounds, then constructs G=exp(E_v) with a native AnalyticAt proof and agreement with the existing Gamma laws on the whole small disc. The typed signatures specialize those Gamma laws to the existing moritaGamma; no new analytic carrier or native library is built. The separate probe compiles against 2887 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The actual Taylor/coefficient inputs and principal-unit exp/log domain certificates remain explicit. Full suggested file remains NOT COMPILED because pinned TwistedDivisorSum has no compatible existing artifact; the separate native and partial-signature receipts do not change that boundary. General roadmap declarations remain unchecked.
+
+Exact controls pass252 polynomial extension values,480 coefficient/radius bounds,624 geometric tails,1 nonintegral geometric value,45 formal exponential coefficient identities and4 boundary nondecay controls. Exact rational polynomial evaluations and constant subtraction, coefficient/Gauss majorants, geometric rational-function tails at integral and nonintegral points, and formal exponential-composition coefficients through degree15. Boundary controls retain the failure of the geometric series terms to tend to zero at1. These are finite regressions; native radius and analyticity proofs supply the infinite statements. The largest observed discrepancy is 0 (all exact rational identities and norm bounds).
+
+Captured main7b3ad934647d9c4a34d185ed129450117b5011e2 after actual PR5326 merge. All72 guarded policy, supplier, ownership and source-register inputs are unchanged, and four predecessor outputs match exactly. Own E17 remains awaiting review and all14 requests remain open.
+
+The separate partial signature file also compiled with zero errors and 3,051 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59.
