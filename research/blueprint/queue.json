@@ -41432,7 +41432,9 @@
     "REV-PAPER-BHATT-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5066",
+   "finishedAt": "2026-10-01T08:52:50Z"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-21",
