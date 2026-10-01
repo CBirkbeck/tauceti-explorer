@@ -1,0 +1,65 @@
+{
+ "redteam": "RT-PAPER-PASKUNAS-QUAST-26",
+ "findings": [
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The arXiv v2 TeX of Lemma 5.17 (label local_ring_def_ring) reads 'if x ∈ \\Xbar ∖ Y then \\hat{\\OO}_{X,x}\\br{T} ≅ R^□_{G,ρ_x}'. The completed local ring is that of the total space X, not of X̄, and the published p. 35 agrees. Item /32 writes Ô_{X̄,x}⟦T⟧. That ring is killed by ϖ, whereas R^□_{G,ρ_x} is flat over the mixed-characteristic coefficient ring, so the item's isomorphism cannot hold. The fix is right, and Lemma 15.11(2) (p. 80) gives the separate special-fibre version."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On published p. 76 the paper says 'The map Z(G^0) → G/G′ is a central isogeny by [19, Corollary 5.3.3]' and 'the map Z_i → H_i is an isogeny'. The proof of Proposition 15.1 adds 'the natural map q: G → H is a central isogeny as Z_1 → H_1 is an isogeny'. Item /4 copies these claims. When Δ = G/G^0 ≠ 1, the groups G/G′ and H_i are disconnected, while the image of a connected torus lies in the identity component, so these maps are not surjective and are not isogenies. In the red team's example G = G_m × C_2, the map Z_1 = G_m → H_1 = G_m × C_2 misses a component. Conrad's Corollary 5.3.3 concerns connected reductive groups. The fix is right: use Z_i → H_i^0, and require only what Proposition 8.7 needs of q. I also checked the side remark on Proposition 13.25 (p. 68): 'Since Z(G^0) is a split torus' fails for G^0 = SL_2, whose centre is μ_2. Diagonalizability suffices for the decomposition used there."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On published p. 85 (arXiv v2 TeX lines 6415–6418) the paper writes Hom^cont((Γ_F^{ab,p} ⊗ M_2)^Δ, Q̄_p^×) ≅ H^1(Γ_F, H_2^0(Q̄_p)), with Γ_F three times, while (93) and the cited [PQ25] use Γ_E^{ab,p}. Item /77 copies the Γ_F form. The subscript matters. Δ acts on Γ_F^{ab} trivially, by inner conjugation, so for the sign lattice M and p odd the Γ_F-invariants vanish. The unrestricted isomorphism with all of H^1 is false as well: for M = Z and E = F, an unramified character of order 2 (p odd) lies in H^1(Γ_F, Q̄_p^×) but cannot factor through the pro-p group Γ_F^{ab,p}. The fix is right: use Γ_E, and restrict to deformations of the fixed residual, via principal-unit cocycles after the Teichmüller twist, rather than all of H^1."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /81 states that admissible Galois parameters Γ_F → ^LT, 'equivalently H^1(Γ_F, T̂(Q̄_p))', correspond to all continuous characters T(F) → Q̄_p^×. Birkbeck's p-adic correspondence (JTNB, https://jtnb.centre-mersenne.org/item/10.5802/jtnb.1114.pdf, the admissible homomorphisms on PDF p. 5) uses the Weil group W_{K/F}. The red team's counterexample is right. For T = G_m, the continuous character χ(x) = p^{v_F(x)} has unbounded image, while a continuous character of the compact group Γ_F has compact image inside O^×_{Q̄_p}, so χ has no Galois-group parameter. The paper uses only the direction from Galois parameters, so the fix is right: state the correspondence with the Weil group, and restrict separately."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /76 states 'a complete intersection regular in codimension 3 is factorial'. The paper applies Grothendieck's theorem only to complete local rings (Corollary 15.22, p. 82: 'Since they are complete intersection … a theorem of Grothendieck implies the assertion; see [14]'). For non-local rings the statement is false. Z[√−5] = Z[t]/(t² + 5) is a regular Dedekind domain and a complete intersection, but it is not a UFD (6 = 2·3 = (1 + √−5)(1 − √−5), with all four factors irreducible and non-associate since the norm a² + 5b² never takes the values 2 or 3). The fix, the local complete-intersection version, is right."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On published pp. 53–54 the paper defines H_0 as the preimage of μ_{p−1} ⊂ T_2 under p_2 and asserts in Lemma 11.3 that H_0 is generalised reductive. The section allows p = 2: it 'is essentially [6, Lemma 4.2], but made to work for all F and not just Q_2', with κ algebraically closed of characteristic p for Proposition 11.5. For G = SL_2 over F̄_2 with P the Borel subgroup, the codimension-two hypotheses hold and μ_{p−1} = μ_1 = 1, so the scheme-theoretic preimage is ker(SL_2 → PGL_2) = μ_2, which is non-reduced in characteristic 2. It is not smooth, hence not generalised reductive. This is distinct from E1. The fix is right: use the reduced subgroup and propagate it into Proposition 14.5."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). On p. 54 the paper asserts that 'every cocharacter μ̄ … can be lifted to a cocharacter μ̃' through a finite map of centres. On pp. 55–56 it uses 'the unique cocharacter satisfying α∘p_2∘λ = id'. For G = SL_2 with L the diagonal torus, α∘p_2 on L is t ↦ t², so a cocharacter of L composes to t ↦ t^{2n}, and the identity is not attained. A positive multiple lifts, and the limit argument needs only a positive exponent. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/8",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Lemma 11.4 (p. 55) prints γ·ē_21 = ωψ^{-1}ē_21 − ωψb²ē_12. Direct multiplication with ρ̃ = [[1,b],[0,ψ^{-1}]] gives ρ̃ e_21 ρ̃^{-1} = [[b, −ψb²],[ψ^{-1}, −b]] = b(e_11 − e_22) − ψb² e_12 + ψ^{-1} e_21. Modulo scalars, e_11 − e_22 ≡ 2e_11, so the term 2ωb ē_11 is missing; it vanishes only in characteristic 2. The flag ⟨ē_12⟩ ⊂ ⟨ē_12, ē_11⟩ ⊂ ad ρ remains stable with the same graded characters, so the lemma stands. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/9",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). At Tau Ceti f790474, TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean defines parabolic (line 293), limit (332), levi (344) and unipotent (376), and proves limit_mem_levi (573), exists_mem_unipotent_mem_levi (629) and unipotent_sup_levi (635). Its variables are [CommSemiring R] [Semiring H] [HopfAlgebra R H] (line 82), with no reductivity or connectedness hypothesis. Dynamic/Functor.lean defines parabolicFunctor, leviFunctor and unipotentFunctor (lines 93–107) and their inclusions. Item /10's note misses these carriers. The fix, partial reuse while the scheme-theoretic statements remain to be planned, is right."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/10",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The published paper cites [16, Example 1.1.16] (p. 51), [16, 5.3.9] and [16, 1.2.7] (p. 52) and [16, Theorem 4.1.7] (p. 63) for group-scheme facts. Its bibliography (p. 94) has [16] = Conrad, 'Irreducible components of rigid spaces' and [19] = Conrad, 'Reductive group schemes', and these numbers fit the latter. The fix is right: record the misbinding and cite 'Reductive group schemes' by title and locator."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/11",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Appendix A.1 (p. 90) reads 'Let X: CRing → Set be an accessible presheaf … We denote by X(A) the condensed set obtained by composition X ∘ A'. The constant functor with value a two-element set is accessible, and composing it with a condensed ring gives the value 2 on the empty profinite set, where a condensed set must give a singleton. So the general claim fails. The application to affine schemes is fine, because representable functors satisfy X(0) = ∗ and preserve finite products. The fix, restricting to the representable affine functors used, is right."
+  },
+  {
+   "finding": "RT-PAPER-PASKUNAS-QUAST-26/12",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The prerequisite Paškūnas–Quast, 'generalised tori' (Forum Math. Sigma 13 (2025) e45), on p. 30 asserts in the proof of Lemma 8.4 'p_E^n ≅ O_E is isomorphic to O_F[Δ] as Z_p[Δ]-module', and the proof of Lemma 8.7 uses the same isomorphism of Δ-modules. By Noether's theorem this fails for wildly ramified E/F. For E = Q_2(√2), the trace on Z_2[√2] has image 2Z_2 in the invariants Z_2, while the norm of Z_2[C_2] is onto its invariants, so the modules are not isomorphic. The fix is right: use a rational normal basis for the rank count, and a cofinal family of normal-basis lattices inside the domain of exp for Lemma 8.7."
+  }
+ ]
+}
