@@ -1,3 +1,4 @@
+import Mathlib.Analysis.Calculus.Deriv.ZPow
 import Mathlib.Analysis.Analytic.Composition
 import Mathlib.Analysis.Normed.Algebra.Exponential
 import Mathlib.Analysis.Calculus.Deriv.Mul
@@ -17436,3 +17437,138 @@ example (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
     (hradius : ∀ u : ℚ_[2], ‖u-1‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ →
       ℓ u ∈ Metric.eball (0 : ℚ_[2]) (NormedSpace.expSeries ℚ_[2] ℚ_[2]).radius) (x : ℤ_[2]) (hx : 3*x=1) : ∃ G : ℚ_[2] → ℚ_[2], AnalyticAt ℚ_[2] G (ι x) ∧ ∀ w : ℤ_[2], ‖w-x‖≤‖(8 : ℤ_[2])‖ → G (ι w)=ι (moritaGamma 2 w : ℤ_[2]) := by sorry
 end DirichletPadic.SuggestedMoritaResidueTests
+
+/- Actual divided derivatives of the logarithmic primitive and inverse-power mean coefficients. -/
+
+namespace DirichletPadic
+noncomputable section
+open scoped Classical
+open Filter
+open scoped Topology
+variable {K : Type*} [NontriviallyNormedField K] [CharZero K]
+
+noncomputable def moritaLogDivided (ℓ : K → K) : ℕ → K → K
+  | 0, x => x*(ℓ x-1)
+  | 1, x => ℓ x
+  | n+2, x => (-1)^n / (((n+2 : ℕ) : K)*((n+1 : ℕ) : K)) * x^(-((n+1 : ℕ) : ℤ))
+
+omit [CharZero K] in
+lemma moritaLogDivided_zero (ℓ : K → K) (x : K) : moritaLogDivided ℓ 0 x=x*(ℓ x-1) := by sorry
+
+omit [CharZero K] in
+lemma moritaLogDivided_one (ℓ : K → K) (x : K) : moritaLogDivided ℓ 1 x=ℓ x := by sorry
+
+omit [CharZero K] in
+lemma moritaLogDivided_succ_succ (ℓ : K → K) (n : ℕ) (x : K) :
+    moritaLogDivided ℓ (n+2) x=(-1)^n / (((n+2 : ℕ) : K)*((n+1 : ℕ) : K)) * x^(-((n+1 : ℕ) : ℤ)) := by sorry
+
+omit [CharZero K] in
+lemma moritaLogDivided_two (ℓ : K → K) (x : K) : moritaLogDivided ℓ 2 x=(2 : K)⁻¹*x⁻¹ := by sorry
+
+lemma moritaLogDivided_three (ℓ : K → K) (x : K) : moritaLogDivided ℓ 3 x=-(6 : K)⁻¹*(x^2)⁻¹ := by sorry
+
+lemma moritaLogDivided_hasDerivAt (ℓ : K → K) (x : K) (hx : x≠0)
+    (hℓ : HasDerivAt ℓ x⁻¹ x) (m : ℕ) :
+    HasDerivAt (moritaLogDivided ℓ m) (((m+1 : ℕ) : K)*moritaLogDivided ℓ (m+1) x) x := by sorry
+
+lemma moritaLogDivided_factorial (ℓ : K → K) (n : ℕ) (x : K) :
+    ((n+2).factorial : K)*moritaLogDivided ℓ (n+2) x =
+      (-1)^n * (n.factorial : K) * x^(-((n+1 : ℕ) : ℤ)) := by sorry
+
+
+variable (p : ℕ) [Fact p.Prime] (ι : ℤ_[p] →+* K)
+
+omit [CharZero K] in
+lemma moritaLogDivided_mean (ℓ : K → K) (m n : ℕ) :
+    moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) (m+2)) n
+      (fun x => moritaLogDivided ℓ (m+2) (ι x)) =
+    ((-1 : K)^m / (((m+2 : ℕ) : K)*((m+1 : ℕ) : K))) *
+      moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) (m+2)) n
+        (fun x => (ι x)^(-((m+1 : ℕ) : ℤ))) := by sorry
+
+omit [CharZero K] in
+lemma moritaLogDivided_inversePower_mean (m n : ℕ) :
+    moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) (m+2)) n
+      (fun x => (ι x)^(-((m+1 : ℕ) : ℤ))) =
+    ((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+      ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+        (a : K)^(-((m+1 : ℕ) : ℤ)) := by sorry
+
+omit [CharZero K] in
+lemma moritaLogDivided_limit (ℓ : K → K) (m : ℕ) (v w : K)
+    (hv : Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) (m+2)) n
+      (fun x => moritaLogDivided ℓ (m+2) (ι x))) atTop (𝓝 v))
+    (hw : Tendsto (fun n => ((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+      ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+        (a : K)^(-((m+1 : ℕ) : ℤ))) atTop (𝓝 w)) :
+    v=((-1 : K)^m / (((m+2 : ℕ) : K)*((m+1 : ℕ) : K)))*w := by sorry
+
+lemma moritaLogDivided_inversePower_limit (ℓ : K → K) (m : ℕ) (v : K)
+    (hv : Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) (m+2)) n
+      (fun x => moritaLogDivided ℓ (m+2) (ι x))) atTop (𝓝 v)) :
+    Tendsto (fun n => ((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+      ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+        (a : K)^(-((m+1 : ℕ) : ℤ))) atTop
+      (𝓝 (v / ((-1 : K)^m / (((m+2 : ℕ) : K)*((m+1 : ℕ) : K))))) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaLogCoefficientsTests
+open Filter
+open scoped Topology
+-- angular_factorization_dyadic
+example (u : ℤ_[2]ˣ) : moritaOmega 2 u*moritaAngular 2 u=u := by sorry
+-- angular_sample_three
+example : moritaAngularSamples 2 (fun x : ℤ_[2] => (x : ℚ_[2])) 3=-3 := by sorry
+-- torsion_map_three
+example : moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom (3 : ZMod 4)=(-1 : ℚ_[2]) := by sorry
+-- twist_cubic_weight
+example : (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 3) (3 : ZMod 4)=(1 : ℚ_[2]) := by sorry
+-- twist_quadratic_weight
+example : (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 2) (3 : ZMod 4)=(-1 : ℚ_[2]) := by sorry
+-- divided_zero_at_one
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaLogDivided ℓ 0 1=ℓ 1-1 := by sorry
+-- divided_first
+example (ℓ : ℚ_[3] → ℚ_[3]) (x : ℚ_[3]) : moritaLogDivided ℓ 1 x=ℓ x := by sorry
+-- divided_second_at_three
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaLogDivided ℓ 2 3=1/6 := by sorry
+-- divided_third_at_two
+example (ℓ : ℚ_[3] → ℚ_[3]) : moritaLogDivided ℓ 3 2=-(1/24) := by sorry
+-- higher_log_independence
+example (ℓ r : ℚ_[2] → ℚ_[2]) (m : ℕ) (x : ℚ_[2]) : moritaLogDivided ℓ (m+2) x=moritaLogDivided r (m+2) x := by sorry
+-- total_inverse_at_zero
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaLogDivided ℓ 2 0=0 := by sorry
+-- factorial_cannot_be_dropped
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaLogDivided ℓ 3 1≠(-1) := by sorry
+-- divided_fourth
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaLogDivided ℓ 4 1=1/12 := by sorry
+-- divided_fifth
+example (ℓ : ℚ_[3] → ℚ_[3]) : moritaLogDivided ℓ 5 1=-(1/20) := by sorry
+-- derivative_primitive
+example (ℓ : ℚ_[2] → ℚ_[2]) (hℓ : HasDerivAt ℓ 1 1) : HasDerivAt (moritaLogDivided ℓ 0) (ℓ 1) 1 := by sorry
+-- derivative_second
+example (ℓ : ℚ_[3] → ℚ_[3]) : HasDerivAt (moritaLogDivided ℓ 2) (-1/2) 1 := by sorry
+-- log_derivative_required
+example : ¬HasDerivAt (moritaLogDivided (fun _ : ℚ_[2] => 0) 0) 0 1 := by sorry
+-- factorial_second
+example (ℓ : ℚ_[2] → ℚ_[2]) : 2*moritaLogDivided ℓ 2 3=1/3 := by sorry
+-- factorial_fifth
+example (ℓ : ℚ_[3] → ℚ_[3]) : 120*moritaLogDivided ℓ 5 2=-(3/8) := by sorry
+-- mean_quadratic_dyadic
+example (ℓ : ℚ_[2] → ℚ_[2]) : moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 2) 0 (fun x : ℤ_[2] => moritaLogDivided ℓ 2 (x : ℚ_[2]))=1/6 := by sorry
+-- mean_cubic_ternary
+example (ℓ : ℚ_[3] → ℚ_[3]) : moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 3 PadicInt.Coe.ringHom) 3) 0 (fun x : ℤ_[3] => moritaLogDivided ℓ 3 (x : ℚ_[3]))=-(5/72) := by sorry
+-- inverse_mean_dyadic
+example : moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 2) 0 (fun x : ℤ_[2] => (x : ℚ_[2])⁻¹)=1/3 := by sorry
+-- inverse_square_mean_ternary
+example : moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 3 PadicInt.Coe.ringHom) 3) 0 (fun x : ℤ_[3] => ((x : ℚ_[3])^2)⁻¹)=5/12 := by sorry
+-- limit_quadratic
+example (ℓ : ℚ_[2] → ℚ_[2]) (v w : ℚ_[2]) (hv : Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 2) n (fun x : ℤ_[2] => moritaLogDivided ℓ 2 (x : ℚ_[2]))) atTop (𝓝 v)) (hw : Tendsto (fun n => ((moritaLevel 2 4 n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 4 n), if 2∣a then 0 else (a : ℚ_[2])^(-(1 : ℤ))) atTop (𝓝 w)) : v=w/2 := by sorry
+-- limit_cubic
+example (ℓ : ℚ_[2] → ℚ_[2]) (v w : ℚ_[2]) (hv : Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 3) n (fun x : ℤ_[2] => moritaLogDivided ℓ 3 (x : ℚ_[2]))) atTop (𝓝 v)) (hw : Tendsto (fun n => ((moritaLevel 2 4 n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 4 n), if 2∣a then 0 else (a : ℚ_[2])^(-(2 : ℤ))) atTop (𝓝 w)) : v=-w/6 := by sorry
+-- inverse_limit_quadratic
+example (ℓ : ℚ_[2] → ℚ_[2]) (v : ℚ_[2]) (hv : Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 2) n (fun x : ℤ_[2] => moritaLogDivided ℓ 2 (x : ℚ_[2]))) atTop (𝓝 v)) : Tendsto (fun n => ((moritaLevel 2 4 n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 4 n), if 2∣a then 0 else (a : ℚ_[2])^(-(1 : ℤ))) atTop (𝓝 (2*v)) := by sorry
+-- inverse_limit_cubic
+example (ℓ : ℚ_[2] → ℚ_[2]) (v : ℚ_[2]) (hv : Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom (moritaTorsionCharacterMap 2 PadicInt.Coe.ringHom) 3) n (fun x : ℤ_[2] => moritaLogDivided ℓ 3 (x : ℚ_[2]))) atTop (𝓝 v)) : Tendsto (fun n => ((moritaLevel 2 4 n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 4 n), if 2∣a then 0 else (a : ℚ_[2])^(-(2 : ℤ))) atTop (𝓝 (-6*v)) := by sorry
+end DirichletPadic.SuggestedMoritaLogCoefficientsTests
