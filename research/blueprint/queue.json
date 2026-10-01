@@ -37349,8 +37349,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5507"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5507",
+   "finishedAt": "2026-10-01T22:45:34Z"
   },
   {
    "id": "RT-PAPER-XIE-YUAN-22",
@@ -38977,7 +38978,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FENG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5518"
   },
   {
    "id": "RT-PAPER-IM-KIM-LE-ETAL-24",
@@ -47856,7 +47858,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5555"
   },
   {
    "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7",
