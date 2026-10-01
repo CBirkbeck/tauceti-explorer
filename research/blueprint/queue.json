@@ -39237,7 +39237,8 @@
     "REV-PAPER-HE-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4246"
   },
   {
    "id": "REV-RT-PAPER-HE-21",
@@ -39607,8 +39608,9 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4258"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4258",
+   "finishedAt": "2026-10-01T11:09:39Z"
   },
   {
    "id": "REV-RT-PAPER-BOXER-CALEGARI-GEE-25",
