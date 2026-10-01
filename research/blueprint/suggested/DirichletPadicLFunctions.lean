@@ -18151,3 +18151,112 @@ example
       (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m)))
  (x : ℤ_[2]) (hx : 3*x=1) : Tendsto (fun n => moritaShiftedMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) 2) n (4*x) (fun x => (ι x)⁻¹)) atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) (ι (4*x)))) := by sorry
 end DirichletPadic.SuggestedMoritaSecondDerivativeTests
+
+/- Gross–Koblitz positive residues and odd-prime Gamma reflection. -/
+
+namespace DirichletPadic
+noncomputable section
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+noncomputable def grossKoblitzPositiveResidue (z : ℤ_[p]) : ℕ := by sorry
+
+lemma grossKoblitzPositiveResidue_def (z : ℤ_[p]) : grossKoblitzPositiveResidue p z =
+    if (PadicInt.toZMod z).val=0 then p else (PadicInt.toZMod z).val := by sorry
+
+lemma grossKoblitzPositiveResidue_nat (n : ℕ) : grossKoblitzPositiveResidue p (n : ℤ_[p]) =
+    if n%p=0 then p else n%p := by sorry
+
+lemma moritaGamma_reflection_step
+     (z : ℤ_[p]) :
+    (fun x => (moritaGamma p x : ℤ_[p])) (z+1)*(fun x => (moritaGamma p x : ℤ_[p])) (-(z))=(if IsUnit z then -1 else 1)*((fun x => (moritaGamma p x : ℤ_[p])) z*(fun x => (moritaGamma p x : ℤ_[p])) (1-z)) := by sorry
+
+lemma grossKoblitzPositiveResidue_nat_step (hp : p≠2) (n : ℕ) :
+    (-1 : ℤ_[p])^(grossKoblitzPositiveResidue p ((n+1 : ℕ) : ℤ_[p])) =
+      (if p ∣ n then 1 else -1)*(-1 : ℤ_[p])^(grossKoblitzPositiveResidue p (n : ℤ_[p])) := by sorry
+
+lemma grossKoblitzPositiveResidue_pos (z : ℤ_[p]) : 0<grossKoblitzPositiveResidue p z := by sorry
+
+lemma grossKoblitzPositiveResidue_le (z : ℤ_[p]) : grossKoblitzPositiveResidue p z≤p := by sorry
+
+lemma grossKoblitzPositiveResidue_cast (z : ℤ_[p]) :
+    (grossKoblitzPositiveResidue p z : ZMod p)=PadicInt.toZMod z := by sorry
+
+lemma grossKoblitzPositiveResidue_zero : grossKoblitzPositiveResidue p 0=p := by sorry
+
+lemma grossKoblitzPositiveResidue_one : grossKoblitzPositiveResidue p 1=1 := by sorry
+
+lemma grossKoblitzPositiveResidue_eq_of_norm (x y : ℤ_[p]) (h : ‖x-y‖<1) :
+    grossKoblitzPositiveResidue p x=grossKoblitzPositiveResidue p y := by sorry
+
+lemma grossKoblitzPositiveResidue_continuous : Continuous (grossKoblitzPositiveResidue p) := by sorry
+
+lemma moritaGamma_reflection_nat (hp : p≠2)
+     (n : ℕ) :
+    (fun x => (moritaGamma p x : ℤ_[p])) (n : ℤ_[p])*(fun x => (moritaGamma p x : ℤ_[p])) (1-(n : ℤ_[p]))=(-1 : ℤ_[p])^(grossKoblitzPositiveResidue p (n : ℤ_[p])) := by sorry
+
+lemma moritaGamma_reflection (hp : p≠2)
+     (z : ℤ_[p]) :
+    (fun x => (moritaGamma p x : ℤ_[p])) z*(fun x => (moritaGamma p x : ℤ_[p])) (1-z)=(-1 : ℤ_[p])^(grossKoblitzPositiveResidue p z) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzReflectionTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+local instance : Fact (Nat.Prime 7) := ⟨by decide⟩
+-- positive_zero
+example : grossKoblitzPositiveResidue 7 0=7 := by sorry
+-- positive_one
+example : grossKoblitzPositiveResidue 2 1=1 := by sorry
+-- positive_multiple
+example : grossKoblitzPositiveResidue 5 15=5 := by sorry
+-- positive_negative
+example : grossKoblitzPositiveResidue 7 (-1)=6 := by sorry
+-- positive_not_zero
+example : grossKoblitzPositiveResidue 3 0≠0 := by sorry
+-- positive_cast
+example (z : ℤ_[7]) : (grossKoblitzPositiveResidue 7 z : ZMod 7)=PadicInt.toZMod z := by sorry
+-- positive_strict
+example (z : ℤ_[3]) : 0<grossKoblitzPositiveResidue 3 z := by sorry
+-- positive_upper
+example (z : ℤ_[2]) : grossKoblitzPositiveResidue 2 z≤2 := by sorry
+-- natural_odd
+example : grossKoblitzPositiveResidue 5 12=2 := by sorry
+-- natural_dyadic
+example : grossKoblitzPositiveResidue 2 10=2 := by sorry
+-- zero_odd
+example : (-1 : ℤ_[7])^(grossKoblitzPositiveResidue 7 0)=-1 := by sorry
+-- same_ball
+example (x y : ℤ_[5]) (h : ‖x-y‖<1) : grossKoblitzPositiveResidue 5 x=grossKoblitzPositiveResidue 5 y := by sorry
+-- unit_distance_failure
+example : ‖(1 : ℤ_[3])-0‖=1 ∧ grossKoblitzPositiveResidue 3 1≠grossKoblitzPositiveResidue 3 0 := by sorry
+-- continuous_dyadic
+example : Continuous (grossKoblitzPositiveResidue 2) := by sorry
+-- continuous_odd
+example : Continuous (grossKoblitzPositiveResidue 7) := by sorry
+-- step_unit
+example : (moritaGamma 5 3 : ℤ_[5])*(moritaGamma 5 (-2) : ℤ_[5])=-((moritaGamma 5 2 : ℤ_[5])*(moritaGamma 5 (-1) : ℤ_[5])) := by sorry
+-- step_nonunit
+example : (moritaGamma 3 4 : ℤ_[3])*(moritaGamma 3 (-3) : ℤ_[3])=(moritaGamma 3 3 : ℤ_[3])*(moritaGamma 3 (-2) : ℤ_[3]) := by sorry
+-- step_negative
+example : (moritaGamma 2 0 : ℤ_[2])*(moritaGamma 2 1 : ℤ_[2])=-((moritaGamma 2 (-1) : ℤ_[2])*(moritaGamma 2 2 : ℤ_[2])) := by sorry
+-- parity_wrap
+example : (-1 : ℤ_[5])^(grossKoblitzPositiveResidue 5 5)=-(-1 : ℤ_[5])^(grossKoblitzPositiveResidue 5 4) := by sorry
+-- parity_nonunit
+example : (-1 : ℤ_[5])^(grossKoblitzPositiveResidue 5 6)=(-1 : ℤ_[5])^(grossKoblitzPositiveResidue 5 5) := by sorry
+-- parity_dyadic_failure
+example : (-1 : ℤ_[2])^(grossKoblitzPositiveResidue 2 1)≠(-1 : ℤ_[2])^(grossKoblitzPositiveResidue 2 0) := by sorry
+-- natural_reflection_two
+example : (moritaGamma 3 2 : ℤ_[3])*(moritaGamma 3 (-1) : ℤ_[3])=1 := by sorry
+-- natural_reflection_seven
+example : (moritaGamma 7 7 : ℤ_[7])*(moritaGamma 7 (-6) : ℤ_[7])=-1 := by sorry
+-- reflection_zero
+example : (moritaGamma 5 0 : ℤ_[5])*(moritaGamma 5 1 : ℤ_[5])=-1 := by sorry
+-- reflection_negative
+example : (moritaGamma 5 (-1) : ℤ_[5])*(moritaGamma 5 2 : ℤ_[5])=1 := by sorry
+-- reflection_nonintegral
+example (x : ℤ_[7]) (hx : 3*x=1) : (moritaGamma 7 x : ℤ_[7])*(moritaGamma 7 (1-x) : ℤ_[7])=-1 := by sorry
+-- reflection_dyadic_failure
+example : (moritaGamma 2 0 : ℤ_[2])*(moritaGamma 2 1 : ℤ_[2])≠(-1 : ℤ_[2])^(grossKoblitzPositiveResidue 2 0) := by sorry
+end DirichletPadic.SuggestedGrossKoblitzReflectionTests
