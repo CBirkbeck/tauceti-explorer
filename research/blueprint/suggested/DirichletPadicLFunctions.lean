@@ -22430,3 +22430,251 @@ example (a : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul 
 example (a : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (3 • a : grossKoblitzIntegralCircle 3)))-(QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3))))=0 := by sorry
 end
 end DirichletPadic.SuggestedGammaDistributionFactorizationTests
+
+/- Integer parity, orbit and normalized distribution quotients. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}]
+variable {A : Type v} [AddCommGroup A]
+
+noncomputable def kubertParityRelations (ε : ℤˣ) : AddSubgroup (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubert_parity_mem (ε : ℤˣ) (a : X) : (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) - (ε : ℤ) • (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) ∈ kubertParityRelations (X := X) S w ε := by sorry
+
+lemma kubert_parity_le_ker_iff (ε : ℤˣ) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A) :
+    kubertParityRelations (X := X) S w ε ≤ g.ker ↔ ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)))=(ε : ℤ) • g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+noncomputable def kubertParityLift (ε : ℤˣ) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (hg : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)))=(ε : ℤ) • g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w ε) →+ A := by sorry
+
+lemma kubert_parityLift_of (ε : ℤˣ) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (hg : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)))=(ε : ℤ) • g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (a : X) :
+    kubertParityLift S w ε g hg (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+lemma kubert_parity_quotient_relation (ε : ℤˣ) (a : X) :
+    (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))))=(ε : ℤ) • (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) := by sorry
+
+lemma kubert_parity_hom_ext (ε : ℤˣ) (g h : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w ε) →+ A)
+    (he : ∀ a : X, g (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=h (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))) : g=h := by sorry
+
+lemma kubert_parityLift_unique (ε : ℤˣ) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (hg : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)))=(ε : ℤ) • g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))
+    (h : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertParityRelations (X := X) S w ε) →+ A) (hh : ∀ a : X,h (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w ε) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) :
+    h=kubertParityLift S w ε g hg := by sorry
+
+lemma kubert_odd_fixed_point_two_torsion (a : X) (ha : -a=a) :
+    2 • (QuotientAddGroup.mk' (kubertParityRelations (X := X) S w (-1)) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubert_zero_indicator_distribution (n : ℕ) (a : X) [Fintype {b : X // n • b=a}] :
+    (∑ b : {b : X // n • b=a}, if b.val=0 then (1 : ZMod 2) else 0)=
+      if a=0 then 1 else 0 := by sorry
+
+lemma kubert_zero_indicator_odd (a : X) :
+    (if -a=0 then (1 : ZMod 2) else 0)= -(if a=0 then 1 else 0) := by sorry
+
+variable (S : Set ℕ+)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+
+lemma kubert_odd_zero_generator_ne_zero :
+    QuotientAddGroup.mk' (kubertParityRelations (X := X) S 0 (-1))
+      (QuotientAddGroup.mk' (kubertRelations (X := X) S 0)
+        (FreeAbelianGroup.of (0 : X))) ≠ 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v
+variable {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b=a}]
+variable {A : Type v} [AddCommGroup A]
+
+noncomputable def kubertOrbitRelations (σ : X →+ X) : AddSubgroup (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubert_orbit_mem (σ : X →+ X) (a : X) : (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) - (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) ∈ kubertOrbitRelations (X := X) S w σ := by sorry
+
+lemma kubert_orbit_le_ker_iff (σ : X →+ X) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A) :
+    kubertOrbitRelations (X := X) S w σ ≤ g.ker ↔ ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+noncomputable def kubertNormalizedOddOrbitRelations (σ : X →+ X) : AddSubgroup (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) := by sorry
+
+lemma kubert_normalized_le_ker_iff (σ : X →+ X) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A) :
+    kubertNormalizedOddOrbitRelations (X := X) S w σ ≤ g.ker ↔ (∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) = -g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) ∧ (∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) ∧ g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X))))=0 := by sorry
+
+noncomputable def kubertNormalizedLift (σ : X →+ X) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (ho : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) = -g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hf : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hz : g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X))))=0) : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertNormalizedOddOrbitRelations (X := X) S w σ) →+ A := by sorry
+
+lemma kubert_normalizedLift_of (σ : X →+ X) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (ho : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) = -g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hf : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hz : g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X))))=0) (a : X) :
+    kubertNormalizedLift S w σ g ho hf hz (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))) := by sorry
+
+lemma kubert_normalized_hom_ext (σ : X →+ X) (g h : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertNormalizedOddOrbitRelations (X := X) S w σ) →+ A)
+    (he : ∀ a : X, g (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=h (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))) : g=h := by sorry
+
+lemma kubert_normalizedLift_unique (σ : X →+ X) (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (ho : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a))) = -g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hf : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) (hz : g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X))))=0)
+    (h : ((FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) ⧸ kubertNormalizedOddOrbitRelations (X := X) S w σ) →+ A) (hh : ∀ a : X,h (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a))))=g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) :
+    h=kubertNormalizedLift S w σ g ho hf hz := by sorry
+
+lemma kubert_normalized_quotient_zero (σ : X →+ X) :
+    (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of ((0 : X)))))=0 := by sorry
+
+lemma kubert_normalized_quotient_odd (σ : X →+ X) (a : X) :
+    (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (-a)))) = -(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) := by sorry
+
+lemma kubert_normalized_quotient_orbit (σ : X →+ X) (a : X) :
+    (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (σ a))))=(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) := by sorry
+
+lemma kubert_normalized_quotient_distribution (σ : X →+ X) (n : S) (a : X) :
+    (n.val : ℕ)^w • (∑ b : {b : X // (n.val : ℕ) • b=a}, (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (b.val)))))=(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := X) S w σ) (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of (a)))) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+variable [∀ (n : {n : ℕ+ | p.Coprime (n : ℕ)}) (a : grossKoblitzIntegralCircle p),
+  Fintype {b : grossKoblitzIntegralCircle p // (n.val : ℕ) • b=a}]
+
+noncomputable def grossKoblitzReducedMeanLift
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) : ((FreeAbelianGroup (grossKoblitzIntegralCircle p) ⧸ kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) ⧸ kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle p) p)) →+ K := by sorry
+
+lemma grossKoblitzReducedMeanLift_of
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (x : grossKoblitzIntegralCircle p) :
+    grossKoblitzReducedMeanLift p ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle p) p)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (x))))=grossKoblitzCircleMean p ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier p]; exact x.property⟩ := by sorry
+
+lemma grossKoblitzReducedMeanLift_comp_quotient
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) :
+    (grossKoblitzReducedMeanLift p ι ℓ hmul hroot).comp (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle p) p)))=grossKoblitzMeanLift p ι ℓ hmul hroot := by sorry
+
+lemma grossKoblitzReducedMeanLift_unique
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (g : ((FreeAbelianGroup (grossKoblitzIntegralCircle p) ⧸ kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) ⧸ kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle p) p)) →+ K)
+    (hg : ∀ x : grossKoblitzIntegralCircle p,g (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle p) p)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (x))))=grossKoblitzCircleMean p ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier p]; exact x.property⟩) :
+    g=grossKoblitzReducedMeanLift p ι ℓ hmul hroot := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedParityFrobeniusQuotientsTests
+open scoped BigOperators Classical
+noncomputable section
+-- even_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1) := by sorry
+-- odd_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1) := by sorry
+-- zero_label_not_killed
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) ∉ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1) := by sorry
+-- odd_zero_relation
+example : 2 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) ∈ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1) := by sorry
+-- odd_kernel_criterion
+example (g : (FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) →+ ℤ) : kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1) ≤ g.ker ↔ ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (-a : ZMod 3)))= -g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))) := by sorry
+
+section Parity
+variable (g : (FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) →+ ℤ) (hg : ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (-a : ZMod 3)))= ((-1 : ℤˣ) : ℤ) • g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))
+-- odd_lift_at_one
+example : kubertParityLift (∅ : Set ℕ+) 0 (-1) g hg (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) := by sorry
+-- odd_lift_at_zero
+example : kubertParityLift (∅ : Set ℕ+) 0 (-1) g hg (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) := by sorry
+-- odd_lift_additive
+example : kubertParityLift (∅ : Set ℕ+) 0 (-1) g hg (2 • (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))))-(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))))=2 • g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))-g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- odd_lift_at_two
+example : kubertParityLift (∅ : Set ℕ+) 0 (-1) g hg (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- unique_parity_extension
+example (h : ((FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) →+ ℤ) (hh : ∀ a : ZMod 3,h (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3)))) : h=kubertParityLift (∅ : Set ℕ+) 0 (-1) g hg := by sorry
+end Parity
+-- even_quotient_identifies_sign
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))=(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))) := by sorry
+-- odd_quotient_negates_sign
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))= -(QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))) := by sorry
+-- parity_generator_extensionality
+example (g h : ((FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) ⧸ kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1)) →+ ℤ) (he : ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))=h (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))) : g=h := by sorry
+-- zero_label_two_torsion
+example : 2 • (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))=0 := by sorry
+-- indicator_nontrivial_kernel
+example : (∑ b : {b : ZMod 4 // 2 • b=0},if b.val=0 then (1 : ZMod 2) else 0)=1 := by sorry
+-- indicator_empty_fiber
+example : (∑ b : {b : ZMod 4 // 2 • b=1},if b.val=0 then (1 : ZMod 2) else 0)=0 := by sorry
+-- indicator_degree_zero
+example : (∑ b : {b : ZMod 4 // 0 • b=0},if b.val=0 then (1 : ZMod 2) else 0)=1 := by sorry
+-- indicator_odd_at_fixed_point
+example : (if -(0 : ZMod 3)=0 then (1 : ZMod 2) else 0)= -(if (0 : ZMod 3)=0 then 1 else 0) := by sorry
+-- nonzero_two_torsion_detected
+example : (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))≠0 ∧ 2 • (QuotientAddGroup.mk' (kubertParityRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (-1)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))=0 := by sorry
+-- doubling_orbit_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) := by sorry
+-- identity_orbits_impose_nothing
+example : kubertOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (AddMonoidHom.id (ZMod 3))=⊥ := by sorry
+-- zero_endomorphism_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (0 : ZMod 3 →+ ZMod 3) := by sorry
+-- orbit_zero_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) ∈ kubertOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) := by sorry
+-- orbit_kernel_criterion
+example (g : (FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) →+ ℤ) : kubertOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) ≤ g.ker ↔ ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 • a : ZMod 3)))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))) := by sorry
+-- normalization_is_explicit
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) ∈ kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) := by sorry
+-- combined_odd_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) := by sorry
+-- combined_orbit_relator
+example : (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) ∈ kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) := by sorry
+-- zero_map_kills_combined_subgroup
+example : kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) ≤ (0 : (FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) →+ ℤ).ker := by sorry
+
+section Normalized
+variable (g : (FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) →+ ℤ) (ho : ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (-a : ZMod 3)))= -g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))
+variable (hf : ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 • a : ZMod 3)))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3)))) (hz : g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3)))=0)
+-- normalized_value_one
+example : kubertNormalizedLift (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) g ho hf hz (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) := by sorry
+-- normalized_value_zero
+example : kubertNormalizedLift (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) g ho hf hz (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))=0 := by sorry
+-- normalized_integer_combination
+example : kubertNormalizedLift (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) g ho hf hz (3 • (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))))-(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3)))))=3 • g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))-g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- normalized_value_two
+example : kubertNormalizedLift (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) g ho hf hz (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- unique_normalized_extension
+example (h : ((FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) ⧸ kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) →+ ℤ) (hh : ∀ a : ZMod 3,h (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3)))) : h=kubertNormalizedLift (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2) g ho hf hz := by sorry
+end Normalized
+-- normalized_generator_extensionality
+example (g h : ((FreeAbelianGroup (ZMod 3) ⧸ kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) ⧸ kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) →+ ℤ) (he : ∀ a : ZMod 3,g (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))=h (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3))))) : g=h := by sorry
+-- quotient_zero_label
+example : (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))))=0 := by sorry
+-- quotient_oddness
+example : (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))= -(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))) := by sorry
+-- quotient_orbit_invariance
+example : (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))))=(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) (∅ : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (∅ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))) := by sorry
+-- quotient_preserves_distribution
+example (a : ZMod 3) : (∑ b : {b : ZMod 3 // 2 • b=a}, (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) ({2} : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) ({2} : Set ℕ+) 0) (FreeAbelianGroup.of (b.val : ZMod 3)))))=(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := ZMod 3) ({2} : Set ℕ+) 0 (nsmulAddMonoidHom (α := ZMod 3) 2)) (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) ({2} : Set ℕ+) 0) (FreeAbelianGroup.of (a : ZMod 3)))) := by sorry
+
+section Gamma
+variable (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3])
+variable (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+variable (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0)
+variable [∀ (n : {n : ℕ+ | Nat.Coprime 3 (n : ℕ)}) (a : grossKoblitzIntegralCircle 3), Fintype {b : grossKoblitzIntegralCircle 3 // (n.val : ℕ) • b=a}]
+-- gamma_generator_value
+example (x : grossKoblitzIntegralCircle 3) : grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (x : grossKoblitzIntegralCircle 3))))=grossKoblitzCircleMean 3 ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact x.property⟩ := by sorry
+-- gamma_zero_label
+example : grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (0 : grossKoblitzIntegralCircle 3))))=0 := by sorry
+-- gamma_additive_values
+example (x y : grossKoblitzIntegralCircle 3) : grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (x : grossKoblitzIntegralCircle 3))))+(QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (y : grossKoblitzIntegralCircle 3)))))=grossKoblitzCircleMean 3 ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact x.property⟩+grossKoblitzCircleMean 3 ι ℓ ⟨y, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact y.property⟩ := by sorry
+-- gamma_negative_label
+example (x : grossKoblitzIntegralCircle 3) : grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (-x : grossKoblitzIntegralCircle 3))))= -grossKoblitzCircleMean 3 ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact x.property⟩ := by sorry
+-- gamma_commuting_square
+example : (grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot).comp (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)))=grossKoblitzMeanLift 3 ι ℓ hmul hroot := by sorry
+-- unique_reduced_gamma_extension
+example (g : ((FreeAbelianGroup (grossKoblitzIntegralCircle 3) ⧸ kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) ⧸ kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) →+ ℚ_[3]) (hg : ∀ x : grossKoblitzIntegralCircle 3,g (QuotientAddGroup.mk' (kubertNormalizedOddOrbitRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0 (nsmulAddMonoidHom (α := grossKoblitzIntegralCircle 3) 3)) (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (x : grossKoblitzIntegralCircle 3))))=grossKoblitzCircleMean 3 ι ℓ ⟨x, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact x.property⟩) : g=grossKoblitzReducedMeanLift 3 ι ℓ hmul hroot := by sorry
+end Gamma
+end
+end DirichletPadic.SuggestedParityFrobeniusQuotientsTests
