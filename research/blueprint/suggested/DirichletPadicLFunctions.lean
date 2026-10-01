@@ -20774,3 +20774,152 @@ example (p : ℕ) [Fact p.Prime] (x y : ℤ_[p]) : IsUnit ((moritaGamma p (x)*mo
 example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : moritaGamma p (x)/moritaGamma p (x)=1 := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzPreimageTests
+
+/- Direct Gamma/Euler proof of the Gross–Koblitz multiplication product. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma grossKoblitz_unit_count_balance (n : ℕ) :
+    p*(n-1-(n-1)/p)+p=(p-1)*n+grossKoblitzPositiveResidue p (n : ℤ_[p]) := by sorry
+
+lemma moritaGammaMultiplicationProduct_nat
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (n : ℕ) :
+    moritaGammaMultiplicationProduct p m hm (n : ℤ_[p])*(m : ℤ_[p])^(n-1-(n-1)/p)=
+      (fun z => (moritaGamma p z : ℤ_[p])) (n : ℤ_[p])*moritaGammaMultiplicationProduct p m hm 0 := by sorry
+
+lemma grossKoblitz_rational_orbit_step (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) (j : ℕ) :
+    (p : ℤ_[p])*x j=(grossKoblitzCarry p f k j : ℤ_[p])+x (j+1) := by sorry
+
+lemma grossKoblitz_rational_orbit_sum (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    ((p-1 : ℕ) : ℤ_[p])*(∑j ∈ range f,x j)=∑j ∈ range f,(grossKoblitzCarry p f k j : ℤ_[p]) := by sorry
+
+lemma grossKoblitz_orbit_residue_sum (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (∑j ∈ range f,grossKoblitzPositiveResidue p (x j))+(∑j ∈ range f,grossKoblitzCarry p f k j)=p*f := by sorry
+
+lemma grossKoblitzPositiveResidue_precision_lift (ell : ℕ) (hell : 0<ell) (x : ℤ_[p]) :
+    grossKoblitzPositiveResidue p ((PadicInt.toZModPow ell x).val : ℤ_[p])=grossKoblitzPositiveResidue p x := by sorry
+
+lemma grossKoblitz_orbit_unit_count_dvd (ell : ℕ) (hell : 0<ell) (f : ℕ) (hf : 0<f) (k : ℕ)
+    (x : ℕ → ℤ_[p]) (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    p^(ell-1) ∣ ∑j ∈ range f,((PadicInt.toZModPow ell (x j)).val-1-
+      ((PadicInt.toZModPow ell (x j)).val-1)/p) := by sorry
+
+lemma moritaGammaMultiplicationProduct_precision_lift (ell : ℕ) (hell : 0<ell) (he : p=2 → ell≠2)
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) :
+    PadicInt.toZModPow ell (moritaGammaMultiplicationProduct p m hm x)*
+      (m : ZMod (p^ell))^((PadicInt.toZModPow ell x).val-1-
+        ((PadicInt.toZModPow ell x).val-1)/p)=
+      PadicInt.toZModPow ell ((fun z => (moritaGamma p z : ℤ_[p])) x)*PadicInt.toZModPow ell (moritaGammaMultiplicationProduct p m hm 0) := by sorry
+
+lemma moritaGammaMultiplicationProduct_orbit_lift (ell : ℕ) (hell : 0<ell) (he : p=2 → ell≠2)
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (f : ℕ) (x : ℕ → ℤ_[p]) :
+    PadicInt.toZModPow ell (∏j ∈ range f,moritaGammaMultiplicationProduct p m hm (x j))*
+      (m : ZMod (p^ell))^(∑j ∈ range f,((PadicInt.toZModPow ell (x j)).val-1-
+        ((PadicInt.toZModPow ell (x j)).val-1)/p))=
+      PadicInt.toZModPow ell ((∏j ∈ range f,(fun z => (moritaGamma p z : ℤ_[p])) (x j))*moritaGammaMultiplicationProduct p m hm 0^f) := by sorry
+
+lemma moritaGammaMultiplicationProduct_orbit_power
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (∏j ∈ range f,moritaGammaMultiplicationProduct p m hm (x j))^(p-1)=
+      ((∏j ∈ range f,(fun z => (moritaGamma p z : ℤ_[p])) (x j))*moritaGammaMultiplicationProduct p m hm 0^f)^(p-1) := by sorry
+
+lemma grossKoblitz_multiplication_root
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    ((∏j ∈ range f,∏h ∈ range m,(moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(x j+h)))/
+      ((∏j ∈ range f,(moritaGamma p) (x j))*(∏h ∈ range m,(moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(0+h)))^f))^(p-1)=1 := by sorry
+
+lemma grossKoblitz_multiplication_teichmuller
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (f : ℕ) (hf : 0<f) (k : ℕ) (hk : k<p^f-1)
+    (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    ((∏j ∈ range f,∏h ∈ range m,(moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(x j+h)))/
+      ((∏j ∈ range f,(moritaGamma p) (x j))*(∏h ∈ range m,(moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(0+h)))^f))=
+      teichmullerOmega p hm.unit^k := by sorry
+
+lemma grossKoblitz_multiplication_source
+     (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+    (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y Z : ℕ → ℕ → ℤ_[p])
+    (hY : ∀j, ∀h<m, (Y j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p]))
+    (hZ : ∀j, ∀h<m-1, (Z j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((h+1)/m)) : ℚ) : ℚ_[p])) :
+    (∏j ∈ range f, (∏h ∈ range m, (moritaGamma p) (Y j h))/((moritaGamma p) (x j)*∏h ∈ range (m-1), (moritaGamma p) (Z j h)))=
+      teichmullerOmega p hm.unit^k := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzRootTests
+open Finset
+open scoped Classical
+noncomputable section
+-- count_at_zero
+example (p : ℕ) [Fact p.Prime] : p*(0-1-(0-1)/p)+p=(p-1)*0+grossKoblitzPositiveResidue p (0) := by sorry
+-- count_at_four
+example : (3 : ℕ)*(4-1-(4-1)/3)+3=(3-1)*4+grossKoblitzPositiveResidue 3 (4) := by sorry
+-- count_excludes_multiples
+example : (3-1-(3-1)/3 : ℕ)=2 ∧ (3-1-(3-1)/3 : ℕ)≠3 := by sorry
+-- natural_four
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (4)*4=(moritaGamma 3 (4) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0) := by sorry
+-- natural_zero
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (hm : IsUnit (m : ℤ_[p])) : moritaGammaMultiplicationProduct p m hm (0)*(m : ℤ_[p])^0=(moritaGamma p (0) : ℤ_[p])*moritaGammaMultiplicationProduct p m hm (0) := by sorry
+-- natural_three
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (3)*4=(moritaGamma 3 (3) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0) := by sorry
+-- first_ternary_step
+example (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : 3*x=y := by sorry
+-- closing_ternary_step
+example (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : 3*y=1+x := by sorry
+-- ternary_sum
+example (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : 2*(x+y)=1 := by sorry
+-- zero_orbit_sum
+example (p : ℕ) [Fact p.Prime] (f : ℕ) : ((p-1 : ℕ) : ℤ_[p])*(∑j ∈ range f,(0 : ℤ_[p]))=0 := by sorry
+-- ternary_residue_balance
+example (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : grossKoblitzPositiveResidue 3 (x)+grossKoblitzPositiveResidue 3 (y)+1=6 := by sorry
+-- zero_residue_balance
+example (p : ℕ) [Fact p.Prime] (f : ℕ) : (∑j ∈ range f,grossKoblitzPositiveResidue p (0))=p*f := by sorry
+-- precision_lift_zero
+example : grossKoblitzPositiveResidue 3 (((PadicInt.toZModPow 3 (0 : ℤ_[3])).val : ℤ_[3]))=3 := by sorry
+-- precision_lift_eighth
+example (x : ℤ_[3]) (hx : 8*x=1) : (PadicInt.toZModPow 3 x).val=17 ∧ grossKoblitzPositiveResidue 3 (((PadicInt.toZModPow 3 x).val : ℤ_[3]))=2 := by sorry
+-- complete_orbit_count
+example : (3^2 : ℕ) ∣ (17-1-(17-1)/3)+(24-1-(24-1)/3) := by sorry
+-- incomplete_orbit_count
+example : ¬(3^2 : ℕ) ∣ (17-1-(17-1)/3) := by sorry
+-- zero_orbit_count
+example (p ell f : ℕ) : p^(ell-1) ∣ ∑j ∈ range f,(0-1-(0-1)/p) := by sorry
+-- single_precision_product
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) (hx : 8*x=1) : PadicInt.toZModPow 3 (moritaGammaMultiplicationProduct 3 2 hm (x))*(2 : ZMod (3^3))^11=PadicInt.toZModPow 3 ((moritaGamma 3 (x) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0)) := by sorry
+-- dyadic_exception
+example : PadicInt.toZModPow 2 (moritaGamma 2 (4) : ℤ_[2])≠PadicInt.toZModPow 2 (moritaGamma 2 (0) : ℤ_[2]) := by sorry
+-- orbit_precision_multiplier
+example (hm : IsUnit (2 : ℤ_[3])) (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : PadicInt.toZModPow 3 (moritaGammaMultiplicationProduct 3 2 hm (x)*moritaGammaMultiplicationProduct 3 2 hm (y))*(2 : ZMod (3^3))^27=PadicInt.toZModPow 3 ((moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (y) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0)^2) := by sorry
+-- empty_product_precision
+example (p ell : ℕ) [Fact p.Prime] : PadicInt.toZModPow ell (∏j ∈ range 0,(1 : ℤ_[p]))=1 := by sorry
+-- ternary_square
+example (hm : IsUnit (2 : ℤ_[3])) (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : (moritaGammaMultiplicationProduct 3 2 hm (x)*moritaGammaMultiplicationProduct 3 2 hm (y))^2=((moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (y) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0)^2)^2 := by sorry
+-- dyadic_power_one
+example (hm : IsUnit (3 : ℤ_[2])) (x y : ℤ_[2]) (hx : 3*x=1) (hy : 3*y=2) : moritaGammaMultiplicationProduct 2 3 hm (x)*moritaGammaMultiplicationProduct 2 3 hm (y)=(moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (y) : ℤ_[2])*moritaGammaMultiplicationProduct 2 3 hm (0)^2 := by sorry
+-- source_ternary_root
+example (a b c d x y t : ℤ_[3]) (ha : 16*a=1) (hb : 16*b=9) (hc : 16*c=3) (hd : 16*d=11) (hx : 8*x=1) (hy : 8*y=3) (ht : 2*t=1) : (moritaGamma 3 (a)*moritaGamma 3 (b)/(moritaGamma 3 (x)*moritaGamma 3 (t))*(moritaGamma 3 (c)*moritaGamma 3 (d)/(moritaGamma 3 (y)*moritaGamma 3 (t))))^2=1 := by sorry
+-- unit_denominator_root
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : (moritaGamma p (x)/moritaGamma p (x))^(p-1)=1 := by sorry
+-- ternary_teichmuller
+example (hm : IsUnit (2 : ℤ_[3])) : teichmullerOmega 3 hm.unit=-1 := by sorry
+-- dyadic_teichmuller
+example (hm : IsUnit (3 : ℤ_[2])) : teichmullerOmega 2 hm.unit=1 := by sorry
+-- literal_source_minus_one
+example (a b c d x y t : ℤ_[3]) (ha : 16*a=1) (hb : 16*b=9) (hc : 16*c=3) (hd : 16*d=11) (hx : 8*x=1) (hy : 8*y=3) (ht : 2*t=1) : moritaGamma 3 (a)*moritaGamma 3 (b)/(moritaGamma 3 (x)*moritaGamma 3 (t))*(moritaGamma 3 (c)*moritaGamma 3 (d)/(moritaGamma 3 (y)*moritaGamma 3 (t)))=-1 := by sorry
+-- source_factors_are_units
+example (p : ℕ) [Fact p.Prime] (x y : ℤ_[p]) : IsUnit ((moritaGamma p (x)/moritaGamma p (y) : ℤ_[p]ˣ) : ℤ_[p]) := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzRootTests
