@@ -25847,3 +25847,147 @@ example : Function.Injective (kubertCartanProductIntertwining 1 ℤ 6 30 (by dec
 example (u : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : ((30 : ℕ+) : ℕ).primeFactors) : (MulEquiv.piUnits.symm u).val p=(u p).val := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanProductsTests
+
+/- Actual common full-Witt unit product, finite projections and compatible native actions. -/
+namespace DirichletPadic
+open scoped Classical
+
+
+
+instance kubertNativePrimeFact (p : Nat.Primes) : Fact p.val.Prime := ⟨p.prop⟩
+
+noncomputable def kubertCartanWittProjection (p : ℕ) [Fact p.Prime] (k N : ℕ+) :
+    (WittVector p (GaloisField p (k : ℕ)))ˣ →*
+      (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ := by sorry
+
+lemma kubertCartanLimit_cartanWittProjection_coe (p : ℕ) [Fact p.Prime] (k N : ℕ+)
+    (u : (WittVector p (GaloisField p (k : ℕ)))ˣ) :
+    (kubertCartanWittProjection p k N u).val=WittVector.truncate (N : ℕ) u.val := by sorry
+
+lemma kubertCartanLimit_cartanWittProjection_surjective (p : ℕ) [Fact p.Prime] (k N : ℕ+) :
+    Function.Surjective (kubertCartanWittProjection p k N) := by sorry
+
+lemma kubertCartanLimit_cartanWittProjection_reduction (p : ℕ) [Fact p.Prime] (k M N : ℕ+)
+    (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (kubertCartanUnitReduction p k M N hMN).comp (kubertCartanWittProjection p k N)=
+      kubertCartanWittProjection p k M := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped Classical
+
+
+
+noncomputable def kubertCartanWittProductProjection (k N : ℕ+) : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanLimit_cartanWittProductProjection_coe (k N : ℕ+) (u : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (p : (N : ℕ).primeFactors) :
+    (kubertCartanWittProductProjection k N u p).val=
+      WittVector.truncate ((N : ℕ).factorization p.val)
+        (u ⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩).val := by sorry
+
+lemma kubertCartanLimit_cartanWittProductProjection_reduction (k M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductReduction k M N hMN).comp (kubertCartanWittProductProjection k N)=
+      kubertCartanWittProductProjection k M := by sorry
+
+lemma kubertCartanLimit_cartanWittProductProjection_surjective (k N : ℕ+) :
+    Function.Surjective (kubertCartanWittProductProjection k N) := by sorry
+
+noncomputable def kubertCartanWittRepresentation (k : ℕ+) (R : Type*) [Semiring R] (N : ℕ+) :
+    Representation R (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) := by sorry
+
+lemma kubertCartanLimit_cartanWittRepresentation_coeff (k : ℕ+) (R : Type*) [Semiring R] (N : ℕ+)
+    (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (y : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (kubertCartanWittRepresentation k R N g f).coeff y=
+      f.coeff ((kubertCartanWittProductProjection k N g)⁻¹*y) := by sorry
+
+lemma kubertCartanLimit_cartanProductNorm_Witt_equivariant (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (kubertCartanWittRepresentation k R M g f)=
+      kubertCartanWittRepresentation k R N g (kubertCartanProductNorm k R M N hMN f) := by sorry
+
+noncomputable def kubertCartanWittIntertwining (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Representation.IntertwiningMap (kubertCartanWittRepresentation k R M) (kubertCartanWittRepresentation k R N) := by sorry
+
+lemma kubertCartanLimit_cartanWittIntertwining_toLinearMap (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanWittIntertwining k R M N hMN).toLinearMap=kubertCartanProductNorm k R M N hMN := by sorry
+
+lemma kubertCartanLimit_cartanWittIntertwining_injective (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Function.Injective (kubertCartanWittIntertwining k R M N hMN) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+
+
+lemma kubertCartanLimit_cartanWittIntertwining_self (k : ℕ+) (R : Type*) [Semiring R] (N : ℕ+) :
+    kubertCartanWittIntertwining k R N N (dvd_refl _)=
+      Representation.IntertwiningMap.id (kubertCartanWittRepresentation k R N) := by sorry
+
+lemma kubertCartanLimit_cartanWittIntertwining_comp (k : ℕ+) (R : Type*) [Semiring R] (L M N : ℕ+)
+    (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanWittIntertwining k R M N hMN).comp (kubertCartanWittIntertwining k R L M hLM)=
+      kubertCartanWittIntertwining k R L N (hLM.trans hMN) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanLimitTests
+open scoped BigOperators Classical
+noncomputable section
+-- actual_full_Witt_truncation
+example (u : (WittVector 2 (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanWittProjection 2 1 2 u).val=WittVector.truncate ((2 : ℕ+) : ℕ) u.val := by sorry
+-- full_Witt_identity_projects_to_identity
+example : kubertCartanWittProjection 2 1 2 1=1 := by sorry
+-- full_Witt_projection_preserves_product
+example (u v : (WittVector 2 (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanWittProjection 2 1 2 (u*v)=(kubertCartanWittProjection 2 1 2 u)*(kubertCartanWittProjection 2 1 2 v) := by sorry
+-- full_Witt_unit_value
+example (u : (WittVector 2 (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanWittProjection 2 1 3 u).val=WittVector.truncate ((3 : ℕ+) : ℕ) u.val := by sorry
+-- finite_unit_has_full_Witt_unit_lift
+example (u : (TruncatedWittVector 2 ((3 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : ∃ v : (WittVector 2 (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ,kubertCartanWittProjection 2 1 3 v=u := by sorry
+-- full_Witt_two_stage_truncation
+example : (kubertCartanUnitReduction 2 1 2 3 (by decide)).comp (kubertCartanWittProjection 2 1 3)=kubertCartanWittProjection 2 1 2 := by sorry
+-- actual_product_projection_identity
+example : kubertCartanWittProductProjection 1 30 1=1 := by sorry
+-- actual_product_projection_multiplication
+example (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittProductProjection 1 30 (g*h)=(kubertCartanWittProductProjection 1 30 g)*(kubertCartanWittProductProjection 1 30 h) := by sorry
+-- empty_level_projection
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittProductProjection 1 1 g=1 := by sorry
+-- finite_projection_is_not_injective
+example : ∃ g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),g ≠ h ∧ kubertCartanWittProductProjection 1 6 g=kubertCartanWittProductProjection 1 6 h := by sorry
+-- actual_prime_coordinate_projection
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : ((30 : ℕ+) : ℕ).primeFactors) : (kubertCartanWittProductProjection 1 30 g p).val=WittVector.truncate (((30 : ℕ+) : ℕ).factorization p.val) (g ⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩).val := by sorry
+-- common_projection_changed_prime_support
+example : (kubertCartanProductReduction 1 6 30 (by decide)).comp (kubertCartanWittProductProjection 1 30)=kubertCartanWittProductProjection 1 6 := by sorry
+-- actual_product_tuple_has_full_Witt_lift
+example (x : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : ∃ g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertCartanWittProductProjection 1 30 g=x := by sorry
+-- common_action_identity
+example : kubertCartanWittRepresentation 1 ℤ 6 1=LinearMap.id := by sorry
+-- common_action_multiplication
+example (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittRepresentation 1 ℤ 6 (g*h)=(kubertCartanWittRepresentation 1 ℤ 6 g).comp (kubertCartanWittRepresentation 1 ℤ 6 h) := by sorry
+-- common_action_forward_basis
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : ℤ) : kubertCartanWittRepresentation 1 ℤ 6 g (MonoidAlgebra.single x a)=MonoidAlgebra.single ((kubertCartanWittProductProjection 1 6 g)*x) a := by sorry
+-- common_action_unit_level
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra ℤ (∀ p : ((1 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((1 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittRepresentation 1 ℤ 1 g f=f := by sorry
+-- finite_action_depends_only_on_projection
+example (g h : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hgh : kubertCartanWittProductProjection 1 6 g=kubertCartanWittProductProjection 1 6 h) : kubertCartanWittRepresentation 1 ℤ 6 g=kubertCartanWittRepresentation 1 ℤ 6 h := by sorry
+-- common_action_inverse_coefficient
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (y : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanWittRepresentation 1 ℤ 6 g f).coeff y=f.coeff ((kubertCartanWittProductProjection 1 6 g)⁻¹*y) := by sorry
+-- norm_commutes_with_same_common_group
+example (g : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanProductNorm 1 ℤ 6 30 (by decide) (kubertCartanWittRepresentation 1 ℤ 6 g f)=kubertCartanWittRepresentation 1 ℤ 30 g (kubertCartanProductNorm 1 ℤ 6 30 (by decide) f) := by sorry
+-- common_intertwiner_underlying_map
+example : (kubertCartanWittIntertwining 1 ℤ 6 30 (by decide)).toLinearMap=kubertCartanProductNorm 1 ℤ 6 30 (by decide) := by sorry
+-- common_intertwiner_zero
+example : kubertCartanWittIntertwining 1 ℤ 6 30 (by decide) 0=0 := by sorry
+-- common_intertwiner_characteristic_two
+example : Function.Injective (kubertCartanWittIntertwining 1 (ZMod 2) 6 30 (by decide)) := by sorry
+-- forget_common_equivariance
+example : (kubertCartanWittIntertwining 1 ℤ 6 30 (by decide)).toLinearMap=kubertCartanProductNorm 1 ℤ 6 30 (by decide) := by sorry
+-- injective_common_group_transition
+example : Function.Injective (kubertCartanWittIntertwining 1 ℤ 6 30 (by decide)) := by sorry
+-- native_common_identity_intertwiner
+example : kubertCartanWittIntertwining 1 ℤ 6 6 (dvd_refl _)=Representation.IntertwiningMap.id (kubertCartanWittRepresentation 1 ℤ 6) := by sorry
+-- native_common_intertwiner_composition
+example : (kubertCartanWittIntertwining 1 ℤ 12 60 (by decide)).comp (kubertCartanWittIntertwining 1 ℤ 6 12 (by decide))=kubertCartanWittIntertwining 1 ℤ 6 60 (by decide) := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanLimitTests
