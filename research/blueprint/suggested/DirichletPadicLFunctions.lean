@@ -26654,3 +26654,125 @@ example  :
     kubertCartanTopology 1=TopologicalSpace.induced kubertCartanDegreeOnePadicUnitsEquiv inferInstance := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanPadicTopologyTests
+
+/- Actual degree-one finite Cartan comparison with native residue unit groups. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanDegreeOneResidue (N : ℕ+) : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) →* (ZMod (N : ℕ))ˣ := by sorry
+
+lemma kubertCartanDegreeOneResidue_crt (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : (N : ℕ).primeFactors) :
+    ((Units.mapEquiv (ZMod.equivPi (N : ℕ) N.ne_zero).toMulEquiv).trans MulEquiv.piUnits) (kubertCartanDegreeOneResidue N x) p=Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+
+lemma kubertCartanDegreeOneResidue_eq_iff (N : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanDegreeOneResidue N x=kubertCartanDegreeOneResidue N y ↔
+      kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanDegreeOneResidue_surjective (N : ℕ+) :
+    Function.Surjective (kubertCartanDegreeOneResidue N) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanDegreeOneResidue_ker (N : ℕ+) :
+    (kubertCartanWittProductProjection 1 N).ker=(kubertCartanDegreeOneResidue N).ker := by sorry
+
+noncomputable def kubertCartanDegreeOneFiniteEquiv (N : ℕ+) :
+    (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) ≃* (ZMod (N : ℕ))ˣ := by sorry
+
+lemma kubertCartanDegreeOneFiniteEquiv_projection (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanDegreeOneFiniteEquiv N (kubertCartanWittProductProjection 1 N x)=
+      kubertCartanDegreeOneResidue N x := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanDegreeOneResidue_cast (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : (N : ℕ).primeFactors) :
+    ZMod.castHom (Nat.ordProj_dvd (N : ℕ) p.val) (ZMod (p.val ^ ((N : ℕ).factorization p.val)))
+      (kubertCartanDegreeOneResidue N x).val =
+    PadicInt.toZModPow ((N : ℕ).factorization p.val)
+      (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)).val := by sorry
+
+lemma kubertCartanDegreeOneResidue_reduction (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    Units.map (ZMod.castHom hMN (ZMod (M : ℕ))).toMonoidHom (kubertCartanDegreeOneResidue N x)=
+      kubertCartanDegreeOneResidue M x := by sorry
+
+lemma kubertCartanDegreeOneFiniteEquiv_reduction (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : ∀ p : (N : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) :
+    kubertCartanDegreeOneFiniteEquiv M (kubertCartanProductReduction 1 M N hMN u)=
+      Units.map (ZMod.castHom hMN (ZMod (M : ℕ))).toMonoidHom (kubertCartanDegreeOneFiniteEquiv N u) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertDegreeOneFiniteCartanTests
+open scoped Classical
+noncomputable section
+-- residue_unit_modulus
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOneResidue 1 x=1 := by sorry
+-- residue_preserves_original_product
+example (N : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOneResidue N (x*y)=kubertCartanDegreeOneResidue N x*kubertCartanDegreeOneResidue N y := by sorry
+-- residue_identity
+example (N : ℕ+) : kubertCartanDegreeOneResidue N 1=1 := by sorry
+-- finite_comparison_identity
+example (N : ℕ+) : kubertCartanDegreeOneFiniteEquiv N 1=1 := by sorry
+-- finite_comparison_product
+example (N : ℕ+) (u v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOneFiniteEquiv N (u*v)=kubertCartanDegreeOneFiniteEquiv N u*kubertCartanDegreeOneFiniteEquiv N v := by sorry
+-- finite_comparison_original_roundtrip
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanDegreeOneFiniteEquiv N).symm (kubertCartanDegreeOneFiniteEquiv N u)=u := by sorry
+-- finite_comparison_residue_roundtrip
+example (N : ℕ+) (u : (ZMod (N : ℕ))ˣ) : kubertCartanDegreeOneFiniteEquiv N ((kubertCartanDegreeOneFiniteEquiv N).symm u)=u := by sorry
+-- original_prime_power_residue_12
+example : ZMod.castHom (by decide : 4 ∣ 12) (ZMod 4) (5 : ZMod 12)=1 ∧ ZMod.castHom (by decide : 3 ∣ 12) (ZMod 3) (5 : ZMod 12)=2 := by sorry
+-- lower_precision_loses_distinction
+example : ZMod.castHom (by decide : 4 ∣ 8) (ZMod 4) (1 : ZMod 8)=ZMod.castHom (by decide : 4 ∣ 8) (ZMod 4) (5 : ZMod 8) ∧ (1 : ZMod 8)≠5 := by sorry
+-- cartanDegreeOneResidue_crt_typed_api
+example  (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : (N : ℕ).primeFactors) :
+    ((Units.mapEquiv (ZMod.equivPi (N : ℕ) N.ne_zero).toMulEquiv).trans MulEquiv.piUnits) (kubertCartanDegreeOneResidue N x) p=Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+-- cartanDegreeOneResidue_eq_iff_typed_api
+example  (N : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanDegreeOneResidue N x=kubertCartanDegreeOneResidue N y ↔
+      kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y := by sorry
+-- cartanDegreeOneResidue_surjective_typed_api
+example  (N : ℕ+) :
+    Function.Surjective (kubertCartanDegreeOneResidue N) := by sorry
+-- cartanDegreeOneResidue_ker_typed_api
+example  (N : ℕ+) :
+    (kubertCartanWittProductProjection 1 N).ker=(kubertCartanDegreeOneResidue N).ker := by sorry
+-- cartanDegreeOneFiniteEquiv_projection_typed_api
+example  (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanDegreeOneFiniteEquiv N (kubertCartanWittProductProjection 1 N x)=
+      kubertCartanDegreeOneResidue N x := by sorry
+-- cartanDegreeOneResidue_cast_typed_api
+example  (N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : (N : ℕ).primeFactors) :
+    ZMod.castHom (Nat.ordProj_dvd (N : ℕ) p.val) (ZMod (p.val ^ ((N : ℕ).factorization p.val)))
+      (kubertCartanDegreeOneResidue N x).val =
+    PadicInt.toZModPow ((N : ℕ).factorization p.val)
+      (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)).val := by sorry
+-- cartanDegreeOneResidue_reduction_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    Units.map (ZMod.castHom hMN (ZMod (M : ℕ))).toMonoidHom (kubertCartanDegreeOneResidue N x)=
+      kubertCartanDegreeOneResidue M x := by sorry
+-- cartanDegreeOneFiniteEquiv_reduction_typed_api
+example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : ∀ p : (N : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) :
+    kubertCartanDegreeOneFiniteEquiv M (kubertCartanProductReduction 1 M N hMN u)=
+      Units.map (ZMod.castHom hMN (ZMod (M : ℕ))).toMonoidHom (kubertCartanDegreeOneFiniteEquiv N u) := by sorry
+end
+end DirichletPadic.SuggestedKubertDegreeOneFiniteCartanTests
