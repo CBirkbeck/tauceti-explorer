@@ -226,6 +226,14 @@ Other surveys are in research/blueprint/keydefs/KEYDEF-*.json and data/keydefs/*
 Edit only {OUTPUT}, {REPORT}, the handoff note and your scratch directory.
 """ + CHECK_INPUTS
 
+KEYDEF_REVISION = """REVISION ROUND {ROUND} of the key-definition survey {BASE}.
+The independent review {REVIEW} did not accept the survey: read its report, research/blueprint/reviews/{REVIEW}.md, and the "review" object in {OUTPUT}.
+Revise the survey in place: make every change the review asks for, check each correction the reviewer made in place, keep what it accepted, and update the report {REPORT}. Leave the "review" object in place: the next reviewer replaces it. Questions only the maintainer can settle, such as which roadmap should own a notion, go in the handoff note. Say in research/blueprint/handoff/{JOB}.md what this round changed.
+The original instructions follow.
+
+"""
+MAX_KEYDEF_ROUNDS = 3
+
 KEYDEF_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas. You did not write the survey you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
 
 READ FIRST (binding): research/blueprint/PROTOCOL.md, section 19, and sections 1 and 16, on which it rests.
@@ -1335,6 +1343,27 @@ def main():
                 add({"id": "REV-" + job_id, "kind": "review", "priority": 1, "order": 600 + 10 * number + k, "name": name, "area": area,
                      "roadmapIds": [], "outputs": [f"research/blueprint/reviews/REV-{job_id}.md", output, report],
                      "after": [job_id], "avoidAccountOf": job_id}, KEYDEF_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + job_id, **fields))
+                # A survey its review does not accept is revised in place and reviewed again, by a
+                # session that did none of the earlier work on it.
+                latest, earlier = job_id, [job_id, "REV-" + job_id]
+                for round_no in range(2, MAX_KEYDEF_ROUNDS + 1):
+                    revision, reviewed_by = f"{job_id}~{round_no}", "REV-" + latest
+                    sent_back = (states.get(reviewed_by) == "done" and review_status(output) in ("needs_changes", "rejected")
+                                 and (json.loads((REPO / output).read_text()).get("review") or {}).get("reviewer") == f"independent-review-{reviewed_by}")
+                    if revision not in states and not sent_back:
+                        break
+                    preface = KEYDEF_REVISION.format(ROUND=round_no, BASE=job_id, REVIEW=reviewed_by, OUTPUT=output, REPORT=report, JOB=revision)
+                    add({"id": revision, "kind": "keydef", "priority": 1, "order": 600 + 10 * number + k, "name": name, "area": area,
+                         # The survey is revised in place, so its files exist from the start: the round's own
+                         # deliverable is the handoff note saying what it changed.
+                         "roadmapIds": [], "outputs": [output, report, f"research/blueprint/handoff/{revision}.md"], "after": [reviewed_by],
+                         "independentOf": [job_id]}, preface + KEYDEF_TEMPLATE.format(**fill, JOB=revision, **fields))
+                    add({"id": "REV-" + revision, "kind": "review", "priority": 1, "order": 600 + 10 * number + k, "name": name, "area": area,
+                         "roadmapIds": [], "outputs": [f"research/blueprint/reviews/REV-{revision}.md", output, report], "after": [revision],
+                         "avoidAccountOf": revision, "independentOf": earlier + [revision]},
+                        KEYDEF_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + revision, **fields))
+                    earlier += [revision, "REV-" + revision]
+                    latest = revision
     # Who writes each roadmap's plan: its blueprint jobs (one per part) and, for a new roadmap, its design job.
     writers = defaultdict(list)
     for j in jobs:

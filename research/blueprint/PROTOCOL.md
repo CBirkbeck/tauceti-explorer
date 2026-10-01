@@ -293,7 +293,10 @@ roadmaps of that group are.
 - `python3 scripts/check_blueprint.py <packet>` must report no errors before a
   job ends. Unresolved warnings are recorded as gaps or explained in the
   handoff note.
-- An independent reviewer, running on a different account from the author, checks:
+- An independent reviewer checks the work: a worker session that did none of it
+  (the intake refuses a review from a session that also wrote the work; workers
+  may share one GitHub account, and the swarm's own lanes also use another
+  account). The reviewer checks:
   - the sources;
   - the closure;
   - every baseline claim, by reading the Lean source;
@@ -890,8 +893,8 @@ The survey also writes a report, `research/blueprint/keydefs/KEYDEF-<area>.md`,
 for a human reader: the entries as a table (definition, papers, owner, size),
 the notable exclusions and why, and the gaps and duplications it found.
 
-An independent reviewer (`REV-KEYDEF-<area>`), running on a different account,
-checks every entry against the five criteria:
+An independent reviewer (`REV-KEYDEF-<area>`), a session that did none of the
+survey (section 8), checks every entry against the five criteria:
 - the cited items are instances of it and the counts are right;
 - every library claim, by reading the declarations at the pinned commits;
 - each API statement is true and does the discriminating job it claims (a
@@ -902,7 +905,9 @@ checks every entry against the five criteria:
 The reviewer adds any key definition the survey missed, corrects the file in
 place where the fix is clear, and writes
 `"review": {"status": "accepted | needs_changes | rejected", "reviewer": "independent-review-REV-KEYDEF-<area>", "date": "...", "notes": "..."}`
-into it, with a report under `research/blueprint/reviews/`.
+into it, with a report under `research/blueprint/reviews/`. A survey its review
+does not accept is revised in place in a round (`KEYDEF-<area>~2`, then `~3`) and
+reviewed again by a session that did none of the earlier work on it.
 
 An accepted survey goes live by the rule of section 8, into
 `data/keydefs/<area>.json`. The definitions page then lists it:
