@@ -37607,3 +37607,381 @@ Exact controls check804 count recurrences and804 balances,1,634 rational carry s
 All73 captured inputs are unchanged from5374; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
 
 The separate partial signature file also compiled with zero errors and 3,864 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e.
+
+
+## The corrected period-weighted Gross–Koblitz logarithmic distribution
+
+Fourteen L3 nodes prove normalizer torsion and the common-period logarithmic distribution, construct the necessary periods, and derive the weighted and averaged corrections to E18. All1,187 predecessor nodes,902baseline records,20findings and six source versions remain whole.
+
+Rereads Gross–Koblitz1979 published575–576, including the least-period definition and erroneous distribution(3.5). Reads the existing Coleman Iwasawa/branch/change/field-compatibility/local-expansion nodes and the Dirichlet consumer’s explicit circular-import boundary in full. Reads the pinned finite-product, periodicity, least-witness, positive-fractional, Euler/totient and exact-division proofs. The normalizer, common-period, weighted and averaged corrections have complete native proofs.
+
+### The square of the Gamma reflection pair
+
+`DirichletPadicLFunctions:L3/morita-gamma-reflection-pair-square` — `DirichletPadic.moritaGamma_reflection_pair_square`
+
+For every x in Z_p, (Gamma(x)*Gamma(1−x))^2=1.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Apply the established all-prime negative-reflection theorem at −x. It writes the pair as a power of −1, retaining the correct binary second-digit sign.
+2. Raise that equality to the second power and commute the two exponents. Complete reflection_pair_square reduces it to (−1)^2=1. No odd-prime sign formula is applied at p=2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-all-prime-negative-reflection`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.ternary_reflection_square` (computation): The square of the actual ternary reflection pair isone.
+- `SuggestedGrossKoblitzLogDistributionTests.dyadic_reflection_square` (computation): The binary reflection pair also has squareone, despite its different sign rule.
+
+**Acceptance:** The result holds in Z_3 and Z_2 for every x.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Reflection of the finite Gamma normalizer
+
+`DirichletPadicLFunctions:L3/morita-gamma-normalizer-reflection` — `DirichletPadic.moritaGamma_normalizer_reflect`
+
+The product of Gamma(1−b(h+1)) over h<m−1 equals C.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Reverse the native finite range using Finset.prod_range_reflect with length m−1. The empty range at m=1 is included.
+2. For each h<m−1, natural subtraction gives (m−2−h)+1+(h+1)=m. After casting, b*m=1 identifies the reversed affine argument with 1−b(h+1).
+3. Complete normalizer_reflect proves the exact reindexing for any commutative-monoid-valued function on Z_p; the suggested declaration uses actual unit-valued Gamma.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:Finset.prod_range_reflect`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.normalizer_thirds_reverse` (computation): The two nonzero thirds are exchanged by1−x.
+- `SuggestedGrossKoblitzLogDistributionTests.empty_normalizer_reverse` (degenerate): The empty normalizer atm=1 is unchanged byreflection.
+
+**Acceptance:** At p=2,m=3 the two thirds are exchanged. At m=1 both products are empty.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### The fourth power of the Gamma normalizer
+
+`DirichletPadicLFunctions:L3/morita-gamma-normalizer-fourth-power` — `DirichletPadic.moritaGamma_normalizer_fourth_power`
+
+The finite normalizer C satisfies C^4=1 in Z_p.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Use the preceding reflection reindexing to express C*C as the product of the pairs Gamma(t_h)*Gamma(1−t_h), with t_h=b(h+1).
+2. Square this equality and distribute the square over the finite product. Every paired square is 1 by the all-prime reflection result.
+3. Complete normalizer_fourth_power proves the scalar identity. The complete normalizer_unit_fourth helper transfers it to the native unit group through Units.ext and Units.coe_prod.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-reflection-pair-square`, `DirichletPadicLFunctions:L3/morita-gamma-normalizer-reflection`, `mathlib:Units.coe_prod`, `mathlib:Units.ext`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.half_normalizer_fourth` (computation): Gamma3(1/2) has fourth powerone.
+- `SuggestedGrossKoblitzLogDistributionTests.half_not_square_one` (non-example): Gamma5(1/2) has square−1, so squareone istoo strong.
+
+**Acceptance:** Gamma_5(1/2)^2=−1, so a fourth-power statement is needed; square one is false in general.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Vanishing of the normalizer logarithm sum
+
+`DirichletPadicLFunctions:L3/morita-gamma-normalizer-log-sum` — `DirichletPadic.moritaGamma_normalizer_log_sum`
+
+The sum of ell(iota(Gamma(b(h+1)))) over h<m−1 is zero.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Complete log_units_root maps a finite-order unit through iota and applies the supplied root-vanishing law. Apply it to C with exponent 4.
+2. Complete log_units_mul and log_units_prod expand the logarithm of a native unit product into the finite sum. Every factor is nonzero because its image is a unit; the arbitrary value ell(0) is never used.
+3. Complete normalizer_log_sum combines the fourth-power identity with that finite-product expansion. The logarithm laws are imported from the existing Coleman owner, as in the preceding cyclotomic-log consumer.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-normalizer-fourth-power`, `ColemanIntegration:L0/iwasawa-logarithm`, `mathlib:Units.coe_prod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.half_log_zero` (computation): The logarithm ofGamma3(1/2) vanishes.
+- `SuggestedGrossKoblitzLogDistributionTests.empty_log_normalizer` (degenerate): The empty normalizer contributes logarithmzero.
+
+**Acceptance:** The logarithm of Gamma_3(1/2) is zero. The m=1 sum is empty and zero.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### The affine Gamma logarithm distribution
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-log-sum` — `DirichletPadic.moritaGamma_multiplication_log_sum`
+
+For the actual cyclic points, sum_(j<f,h<m)ell(iota(Gamma(b(x_j+h)))) equals sum_(j<f)ell(iota(Gamma(x_j))).
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Let A be the unit-valued double affine Gamma product and B the product of Gamma(x_j) times the f-th power of the zero-value multiplication product. The preceding multiplication-root theorem gives (A/B)^(p−1)=1.
+2. The supplied logarithm kills this quotient. Expand A=(A/B)*B with log_units_mul to obtain ell(iota(A))=ell(iota(B)).
+3. The earlier zero-value product theorem identifies the zero product with C. Complete zero_product_log proves its logarithm is zero by the normalizer torsion theorem; complete log_units_pow expands the f-th power.
+4. Expand both remaining unit products with log_units_prod. Complete orbit_log_sum yields the displayed finite sum. The proof uses only actual Gamma and the explicit supplier laws.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-normalizer-log-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-root-unity`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-zero`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.ternary_affine_log_sum` (computation): The four denominator2 affine logGamma terms equal the two eighths terms.
+- `SuggestedGrossKoblitzLogDistributionTests.one_multiplier_log_sum` (degenerate): The denominator1 sum has one Gamma term.
+
+**Acceptance:** For the ternary eighths orbit and m=2, the four affine logarithms equal the two orbit logarithms.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### The literal common-length logarithmic distribution
+
+`DirichletPadicLFunctions:L3/gross-koblitz-source-log-sum` — `DirichletPadic.grossKoblitz_source_log_sum`
+
+For the actual integral source preimages, sum_(h<m,j<f)ell(iota(Gamma(Y_(j,h)))) equals sum_(j<f)ell(iota(Gamma(x_j))).
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. At each j apply the previously proved actual Gamma preimage-product comparison. Expanding logarithms of both products gives equality of the two inner sums.
+2. Sum over j and apply the affine logarithm identity. Interchange the two finite sums to put the preimages first, as in the source distribution.
+3. Complete source_log_sum proves the result for the displayed length f. Interpreting each inner sum as a whole number of its own periods requires the separate period/divisibility hypotheses below; a period of a alone need not be a period of every preimage.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-log-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-gamma-preimage-product`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.literal_sixteenth_logs` (computation): The literal sixteenth Gamma logarithms sum to the two eighths logarithms.
+- `SuggestedGrossKoblitzLogDistributionTests.source_log_torsion_value` (compatibility): The exact source quotient−1 has logarithmzero.
+
+**Acceptance:** The logarithms at 1/16,9/16,3/16,11/16 sum to those at 1/8,3/8 in the ternary example.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Repetition of a finite period sum
+
+`DirichletPadicLFunctions:L3/gross-koblitz-period-sum` — `DirichletPadic.grossKoblitz_period_sum`
+
+For a sequence a with period d dividing f, sum_(j<f)a_j=(f/d) times sum_(j<d)a_j, using native natural scalar multiplication in any additive commutative monoid.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Complete sum_period_mul proves the formula at length d*t by induction on t. The native sum_range_add formula splits off one block of length d.
+2. Function.Periodic.nat_mul identifies every value in the translated block with its initial value. This uses the indexed native multiplicative range-add theorem’s generated additive counterpart; no index entry is invented.
+3. Set t=f/d and use exact divisibility to recover f. Complete sum_period_dvd handles zero length as well; a positive target length forces any dividing period to be positive.
+
+**Prerequisites:** `mathlib:Function.Periodic`, `mathlib:Function.Periodic.nat_mul`, `mathlib:Finset.prod_range_add`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.period_one_repetition` (computation): A period1 sequence contributesfour equal terms overlength4.
+- `SuggestedGrossKoblitzLogDistributionTests.zero_repetition` (degenerate): The empty longperiod has zero copiesofanyblock.
+
+**Acceptance:** A period-one sequence has four copies of its first value at length four. A zero target length gives zero copies.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Invariance of a period average
+
+`DirichletPadicLFunctions:L3/gross-koblitz-period-average` — `DirichletPadic.grossKoblitz_period_average`
+
+In a characteristic-zero field, the average over any positive multiple f of a period d equals the average over d.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Apply the preceding repetition identity and convert natural scalar multiplication into multiplication by the natural cast.
+2. Nat.cast_div_charZero converts the exact natural quotient f/d into the field quotient. Positivity of f and divisibility imply positivity of d, so both denominators have nonzero casts.
+3. Cancel the common factor f. Complete period_average proves the exact equality, including periods divisible by p in a p-adic coefficient field; no claim that those denominators are integral units is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-period-sum`, `mathlib:Nat.cast_div_charZero`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.average_period_two` (computation): The mean overlength6 equals the mean ofa period2block.
+- `SuggestedGrossKoblitzLogDistributionTests.average_constant` (degenerate): Every positive-length average ofa constant isthatconstant.
+
+**Acceptance:** For a period-two sequence, the mean over six terms is (a_0+a_1)/2.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Existence and divisibility of the minimal positive period
+
+`DirichletPadicLFunctions:L3/gross-koblitz-minimal-period-existence` — `DirichletPadic.grossKoblitz_minimal_period_exists`
+
+Any naturally indexed sequence with a positive period has a positive period d that divides every period.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Use the existing Nat.find construction on the predicate that a positive integer is a period. Nat.find_spec gives a positive period and Nat.find_min' gives its minimality.
+2. Complete minimal_period_dvd takes another period f and proves f mod d is also a period: translate by the multiple floor(f/d)*d and use the Euclidean remainder equation.
+3. If the remainder were positive, minimality would force d≤f mod d, contradicting the strict remainder bound. Thus d divides f. Complete minimal_period_exists packages these native facts without defining a new period object.
+
+**Prerequisites:** `mathlib:Function.Periodic`, `mathlib:Function.Periodic.nat_mul`, `mathlib:Nat.find`, `mathlib:Nat.find_spec`, `mathlib:Nat.find_min'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.minimum_constant_sequence` (degenerate): A constant sequence has minimal positiveperiod1.
+- `SuggestedGrossKoblitzLogDistributionTests.minimum_alternating_divides` (characterisation): Everyperiodofthe alternating residue sequence iseven.
+
+**Acceptance:** A constant sequence has minimal positive period one. Every period of j mod 2 is even.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Existence of a common positive orbit period
+
+`DirichletPadicLFunctions:L3/gross-koblitz-common-period-existence` — `DirichletPadic.grossKoblitz_common_period_exists`
+
+A finite family of naturally indexed sequences, each with a positive period, has a common positive period.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Choose one positive period for each member of the native finite index type and take their finite product.
+2. The product is positive by Finset.prod_pos, including the empty family whose product is one. Each chosen period divides it by Finset.dvd_prod_of_mem.
+3. Function.Periodic.nat_mul extends each periodicity to that multiple. Complete common_period_exists proves the common-period assertion. The preceding minimal-period theorem then shows that each least positive period divides this common length.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-minimal-period-existence`, `mathlib:Finset.prod_pos`, `mathlib:Finset.dvd_prod_of_mem`, `mathlib:Function.Periodic.nat_mul`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.two_and_three_common_period` (computation): Periods2and3 admit the common period6.
+- `SuggestedGrossKoblitzLogDistributionTests.empty_family_common_period` (degenerate): The empty family still admits a positive commonperiod.
+
+**Acceptance:** Two sequences of periods two and three admit period six. The empty family admits a positive period.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Existence of positive rational fractional-orbit periods
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-period-existence` — `DirichletPadic.grossKoblitz_fractional_period_exists`
+
+For positive a,D with gcd(a,D)=1 and any natural n, the sequence <a^j*n/D> has a positive period.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Complete fractional_periodic uses the native equality criterion for positive fractional representatives: if (a^d−1)*q is an integer, the j+d and j arguments differ by the integer a^j times that integer.
+2. Complete fractional_periodic_of_dvd applies this criterion to q=n/D when D divides a^d−1, carefully casting natural subtraction and dividing only by the positive D.
+3. Choose d=totient(D)>0. Native Nat.ModEq.pow_totient supplies a^d congruent to 1 modulo D, and Nat.ModEq.dvd' gives the required natural divisibility. Complete fractional_period_exists supplies the actual period, including the integer class represented by 1.
+
+**Prerequisites:** `mathlib:toIocMod_eq_toIocMod`, `mathlib:Nat.ModEq.pow_totient`, `mathlib:Nat.ModEq.dvd'`, `mathlib:Nat.totient_pos`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.septic_fifteenth_period` (computation): The positivefractional orbitof1/15under7 hasperiod4.
+- `SuggestedGrossKoblitzLogDistributionTests.integer_positive_period` (degenerate): The integer class is representedby1 andhasperiod1.
+
+**Acceptance:** The positive orbit of 1/15 under multiplication by 7 has period four. The integer class has period one.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### Minimal periods of the actual integral fractional orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-period-existence` — `DirichletPadic.grossKoblitz_integral_period_exists`
+
+If Y_j is the actual native integral lift of <a^j*n/D> with a,D positive and coprime, then Y has a positive period dividing every period of Y.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Use the preceding rational fractional-period existence theorem. The inclusion Z_p→Q_p is injective, so equality of the rational representatives gives equality of the integral lifts.
+2. The complete integral_fraction_periodic helper also transports any explicit integer-shift period in this way. Complete integral_period_exists then applies minimal_period_exists to the actual Y sequence.
+3. For the source families, the preceding integral-preimage construction supplies Y and the rational denominators divide m*(p^f−1), which is prime to p. Thus the period and common-period results apply to the actual Gamma arguments, not to hypothetical substitutes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-period-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-minimal-period-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`, `mathlib:PadicInt.ext`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.integral_sixteenth_period` (computation): The ternary integral lifts ofthe fractional sixteenths havea positiveperiod.
+- `SuggestedGrossKoblitzLogDistributionTests.zero_class_lift_period` (degenerate): The integral positive representative1ofzero isconstant.
+
+**Acceptance:** The actual ternary fractional sixteenth lifts have a positive period. The positive representative of the zero class is the constant integral point 1.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### The corrected period-weighted logarithmic distribution
+
+`DirichletPadicLFunctions:L3/gross-koblitz-weighted-log-distribution` — `DirichletPadic.grossKoblitz_weighted_log_distribution`
+
+For periods d_h of Y_(j,h) and e of x_j dividing the common length f, sum_(h<m)(f/d_h)*sum_(j<d_h)ell(iota(Gamma(Y_(j,h)))) equals (f/e)*sum_(j<e)ell(iota(Gamma(x_j))).
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. Compose each actual point sequence with the Gamma logarithm. Its given period remains a period by substitution; no analytic or constancy hypothesis is required.
+2. Apply the repetition formula separately to every inner sum in the literal source logarithmic identity, and to the target orbit sum. Complete weighted_period_sum performs this finite additive conversion.
+3. Complete source_weighted_log_sum specializes that conversion to actual Gamma. The integral, minimal and common-period results provide admissible choices; using the least positive periods gives the corrected form for the source’s unnormalized phi.
+4. Retain every factor f/d_h. At p=7,a=1/3,m=5, the preimage periods are 4,4,4,1,4 whereas the input period is 1. The recorded mod49 values therefore give 28+28+28+4*35+28=4*14, while the unweighted sum is zero. This is the E18 correction, not a new source finding.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-source-log-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-period-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-period-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-common-period-existence`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.recorded_weighted_certificate` (computation): Atp=7,a=1/3,m=5 the periodweights1,1,1,4,1 give7=4*14 modulo49.
+- `SuggestedGrossKoblitzLogDistributionTests.unweighted_certificate_fails` (non-example): The same recorded least-period values haveunweighted sum0, not14 modulo49.
+- `SuggestedGrossKoblitzLogDistributionTests.printed_product_certificate_fails` (non-example): The printed product ofthe two denominator2 values is0, not14 modulo49.
+
+**Acceptance:** The retained p=7,m=5 certificate verifies the weights and rejects the naive sum. The m=2 certificate also rejects the printed product.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+### The logarithmic distribution for period averages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-averaged-log-distribution` — `DirichletPadic.grossKoblitz_averaged_log_distribution`
+
+In a characteristic-zero coefficient field, sum_(h<m)(sum_(j<d_h)ell(iota(Gamma(Y_(j,h))))/d_h equals (sum_(j<e)ell(iota(Gamma(x_j))))/e.
+
+**Hypotheses:** Gamma is the existing actual Morita Gamma function with values in native Z_p units. The prime p may be 2; reflection uses the established binary sign when needed. For the finite normalizer take m>0 and a unit certificate for its cast in Z_p, with b=m^(-1). The normalizer is C=product_(1≤h<m)Gamma(b*h). For logarithmic statements K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is supplied with its exact multiplicativity on nonzero arguments and vanishing on roots of unity of every positive order. The arithmetic specialization is the ColemanIntegration L0 Iwasawa branch on C_p, or its restriction to a finite coefficient field. Existing Dirichlet consumer signatures keep ell and its laws because the Coleman suggested file imports Dirichlet; no circular import, replacement logarithm or new logarithm construction is introduced. For orbit statements f>0, M=p^f−1, n_j=p^j*k mod M, and the actual points satisfy M*x_j=n_j. The affine log identity allows every natural k. The literal source identity assumes 0<k<M, gcd(p,m)=1 and the actual integral lifts Y_(j,h) of <p^j*(k/M+h)/m>. Positive fractional parts lie in (0,1], so integers represent 1. Finite sequence lemmas use native Function.Periodic. A period d means equality a(j+d)=a(j) for every natural j. The repetition result requires d divides the chosen long length f. Means additionally require a characteristic-zero field and f>0. No least period or divisibility is silently inferred from a period of a different point. The weighted and averaged source identities assume periods d_h of the individual Y sequences and e of x, each dividing f. The period-existence results construct positive periods for rational arguments of denominator prime to p, prove that a minimal positive period divides every period, and construct a common positive period for a finite family. Thus the hypotheses can be met by choosing a common length before applying the source identity. Write Phi_d(a) for the displayed finite sum of logarithms over one chosen period; this notation is explanatory, not a new private carrier. The corrected relation is sum_h(f/d_h)*Phi_(d_h)((a+h)/m)=(f/e)*Phi_e(a). Equivalently the period averages Phi_d/d satisfy an unweighted sum relation. The unnormalized least-period sums generally do not.
+
+**Proof:**
+
+1. The periods divide the positive common length f, so all their casts are nonzero. Replace each short average by its average over f using period_average.
+2. Collect division by the common f outside the finite sum, apply the literal source logarithmic identity and convert the target average back to its period e. Complete averaged_period_sum proves this in a field.
+3. Complete source_averaged_log_sum applies that conversion to actual Gamma values with the existing supplied logarithm laws. This proves the unweighted distribution for normalized period averages, rather than for the unnormalized least-period phi printed in the paper.
+4. The argument remains valid when a period is divisible by p: division occurs in the coefficient field. Finite reductions of those averages would require enough precision and are not asserted by the exact theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-source-log-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-period-average`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-period-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-common-period-existence`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzLogDistributionTests.averaged_certificate` (computation): Dividing each recorded valuebyits period corrects thedistribution modulo49.
+- `SuggestedGrossKoblitzLogDistributionTests.mean_not_raw_sum` (non-example): A fourtermperiodwithvalues1,2,3,4hasmean5/2, notsum10.
+
+**Acceptance:** At the retained mod49 certificate, the inverse of 4 is 37 and 4*(28*37)+35=14. A raw four-term sum is not its average.
+
+**Source:** Section3, published575–576/PDF7–8: Theorem3.1(2), its complete proof and Notes3 defining phi with a least period and displaying(3.4)–(3.6). Complete pages reread in the retained published scan; source finding E18 is preserved. The printed logarithmic distribution(3.5) is the E18 error. These nodes derive the correct common-period sum from the proved Gamma multiplication theorem, eliminate the finite normalizer using reflection, and account for every period ratio. The period-weighted and averaged formulas are proved corrections, not quotations of the printed product or a claim of a published erratum. The source is odd-prime; the displayed all-prime extension follows from the previously proved all-prime Gamma identities.
+
+**Remaining:** The E18 distribution now has an explicit proved correction: a sum at a common length, period-weighted sums for unnormalized least-period values, and an unweighted sum only after dividing each value by its period. The original E18 finding remains whole and no published correction is claimed. Next make the source phi(a) function and its reflection/Frobenius laws explicit with the corrected normalization, then continue the source’s subsequent distribution applications, original Katz/Fermat and external Stickelberger proof routes, and the remaining Ferrero–Greenberg/L3 source coverage. Both exact RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.
+
+### The corrected period-weighted Gross–Koblitz logarithmic distribution validation
+
+All 1187 predecessor nodes, 902 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 14 nodes, 14 named suggested declarations and 29 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1461 reachable nodes, 6827 edges and 1079 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. The new arithmetic and Gamma torsion routes end in prior local nodes and pinned native facts. Logarithmic routes reuse ColemanIntegration:L0/iwasawa-logarithm and its existing LocallyAnalyticDistributions:L1 analytic-functions interface request; no new request or owner construction is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5379 verbatim and adds27 complete lemmas with no new private mathematical definition, totaling35definitions and624lemmas. Fourteen suggested declarations and29 typed tests match the promoted nodes; routine unit-log and period helpers remain complete in the native evidence. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls check578 reflection pairs,60 reflected normalizers and60 fourth powers,444 rational period cases and1,332 repetitions. Atp=7 andprecisions2,3,546 cases each verify normalizer logzero, literal period repetition, common-length distribution, weighted distribution and averages. Twelve printed-product andsix unweighted-sum failures reproduce the E18 witnesses, with repeated rational presentations counted explicitly. Exact integer and Fraction controls check reflection, fourth-power normalizers, rational periods and their repetition. Atp=7 andprecisions2,3, the retained elementary logarithm-tail bound permits exact finite-ring computation of Gamma logarithms. Controls verify common-period, weighted and averaged distributions and reproduce both the printed-product and varying-period unweighted-sum failures. No floating-point or numerical p-adic limit certification is claimed. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs are unchanged from5379; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
+
+The separate partial signature file also compiled with zero errors and 3,907 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1f9ee6507d34947714fbe5571b46df51cbe6618422686331baf63c4528f1dbc1.
