@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-GAN-SAVIN-23",
+ "findings": [
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Corollary 6.8 (arXiv:2102.00372v1, p. 22, page image checked) defines θ(π) only when Θ_J(π) ≠ 0, yet states 'θ(π₁) ≅ θ(π₂) ⟹ π₁ ≅ π₂' for all tempered non-generic π₁, π₂. Its proof makes θ_J(π) the cosocle, which can be 0, and ends 'by Proposition 6.6', which needs π to be a quotient of a nonzero Θ_J(τ). Item cor-6-8 copies the unrestricted implication. The counterexample is correct. For a nontrivial unramified cubic character χ₀ of F×, χ = χ₀ ∘ Nrd is a nontrivial character of PD× (Nrd(z) = z³ on F×). Proposition 7.1(i),(iii) (p. 23) gives Θ(1) = π_deg[1], a nongeneric discrete series (Proposition 3.1(iii), p. 9), and Θ(χ) = π_sc[χ], a nongeneric depth-zero supercuspidal (7.1(ii)). Both are tempered and nongeneric, and they are not isomorphic. By the dichotomy, Theorem 6.1 (p. 19), each has zero lift to PGSp₆, so for J = H₃(M₂(F)) both sides of the implication are 0 while π₁ ≇ π₂. The fix is right: require 0 ≠ θ_J(π₁) ≅ θ_J(π₂) with J fixed, add an arXiv-v1 source issue with the counterexample (the published version was not read), and propagate the hypothesis to the report and route 1's brief."
+  },
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 11.4 (p. 36, page image checked) states ℓ′(v) = ∫_{Y/X∩Y} ℓ(π(y)v) dy, while its proof's intertwiner Ind_X^H ψ_X ≅ Ind_Y^H ψ_Y is f′(h) = ∫_{Y/X∩Y} f(yh) ψ̄_Y(y) dy, with the character. I checked the Heisenberg counterexample by hand. The action [π(x,y,z)f](t) = ψ(z + yt) f(t + x) is a representation for the law (x,y,z)(x′,y′,z′) = (x+x′, y+y′, z+z′+xy′). X = {(0,y,z)} and Y = {(x,0,z)} are maximal abelian with X ∩ Y the centre. ℓ(f) = f(0) lies in Hom_X(π, ψ_X) for ψ_X(0,y,z) = ψ(z). With ψ_Y(x,0,z) = ψ(z + x) and representatives (x,0,0), the stated ℓ′ is f ↦ ∫ f(x) dx, which is invariant under π(x₀,0,0) instead of transforming by ψ(x₀). Moving a representative by the centre multiplies the unweighted integrand by ψ(z), so ℓ′ is not even defined on the quotient. With the weight ψ_Y(y)⁻¹ both defects vanish: ∫ ψ(−x) f(x + x₀) dx = ψ(x₀) ∫ ψ(−x) f(x) dx. The fix is right: insert ψ_Y(y)⁻¹, record the statement/proof discrepancy as an arXiv-v1 source issue, and keep any unweighted use limited to representatives on which ψ_Y is trivial."
+  },
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The review-added item rev-langlands-classification-and-harish-chandra quantifies over every connected reductive G with ν in the open positive chamber of a_M*, and concludes 'π is tempered iff P = G'. When P = G there are no roots in Δ(P), so ν ranges over all of a_G* = R ⊗ X*(G). I checked the counterexample directly: for G = GL₁, σ = 1 and ν with q^{⟨ν, H(·)⟩} = |·|_F, J(G, 1, ν) = |·|_F is irreducible with P = G, but its value at a uniformizer has absolute value q⁻¹, so it is not unitary and hence not tempered. I did not need the cited Silberger–Zink or Bernstein texts, since the counterexample uses only the item's own quantification. Gan–Savin's §3.4 (p. 12) uses the classification only for G₂, whose centre is trivial, so this is an error in the review's generalization, not in the paper, and belongs in no errata of the paper. The fix is right: tempered iff P = G and ν = 0 (equivalently σ tempered and no positive real central twist), or keep 'iff P = G' only under a unitary-central-character or anisotropic-centre assumption, and update the SR.3 route and the report."
+  }
+ ]
+}
