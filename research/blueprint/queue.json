@@ -45634,7 +45634,8 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4392"
   },
   {
    "id": "RT-RS-06",
@@ -46166,7 +46167,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-12~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5547"
   },
   {
    "id": "REV-FIX-RT-RS-12~3",
@@ -46740,8 +46742,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5115"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5115",
+   "finishedAt": "2026-10-01T22:22:05Z"
   },
   {
    "id": "REV-RT-RS-21",
