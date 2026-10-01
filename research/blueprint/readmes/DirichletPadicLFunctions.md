@@ -33557,3 +33557,393 @@ Exact finite controls check digit parity, Gamma reflection products at three pre
 Capture at 316e867a7c9104d5d679216731e99b99c98f53c5 has zero changes among72 guarded inputs after merged5342, with the whole issue body unchanged. No supplier, policy, source finding or review verdict changed.
 
 The separate partial signature file also compiled with zero errors and 3,377 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34.
+
+
+## Actual characters for the elementary Gross–Koblitz pair
+
+Thirteen L3 nodes construct the actual inverse-Teichmuller and chosen-root trace characters, their required APIs and the elementary Jacobi comparison with those characters. All1,050 predecessor nodes,788 baseline records,18 findings and four source versions remain whole.
+
+Uses the complete prior Gross–Koblitz source reading and its fixed conventions, and rereads the full pinned local-field Teichmuller module. Reads native unit-character extension and coefficient composition, finite-field power criterion, chosen-root additive character, trace pairing, trace-on-scalars and primitivity proofs. Twelve new native baseline records are added. A bounded public Mathlib/Lean-Zulip search yielded no relevant lead; unrelated search results are not mathematical inputs and no absence claim is made.
+
+### The inverse Teichmuller character
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character` — `DirichletPadic.grossKoblitzInverseChar`
+
+Define χ_k=(MulChar.ofUnitHom(τ_K)^k)⁻¹, with its integral values mapped into K through 𝒪[K].subtype.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Take the existing unit homomorphism TauCeti.teichmuller K:κˣ→𝒪[K]ˣ. Native MulChar.ofUnitHom extends it by zero on the nonunits, which in the residue field are precisely0.
+2. Use the native multiplicative-character group to take the k-th power and then its inverse. Map the result through the existing valuation-subring inclusion by MulChar.ringHomComp.
+3. The complete inverseChar definition is this literal composition. Native MulChar supplies multiplication and the zero/one laws. The API below records the exact unit value, exponent algebra, nontriviality and negative-one normalization consumed by the source pair.
+
+**Prerequisites:** `tauceti:TauCeti.teichmuller`, `mathlib:MulChar.ofUnitHom`, `mathlib:MulChar.ringHomComp`, `mathlib:ValuationSubring.subtype`.
+
+**Uses:**
+
+- Gross–Koblitz negative Gauss sum in Section1: Supplies the exact inverse k-th power of the residue-field Teichmuller representative.
+- The elementary complementary pair: Exponent q−1−k becomes the inverse character and χ_k(−1) gives the sign.
+- The native finite-field Gauss product: Its nontriviality hypothesis follows for0<k<q−1 rather than being assumed.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzInverseChar_def` (constructor): The literal native extension, inverse power and ring-hom composition.
+- `DirichletPadic.grossKoblitzInverseChar_zero` (simp): χ_k(0)=0.
+- `DirichletPadic.grossKoblitzInverseChar_one` (simp): χ_k(1)=1.
+- `DirichletPadic.grossKoblitzInverseChar_unit` (compatibility): χ_k(u)=τ_K(u)^(-k) after inclusion into K; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_exponent_zero` (simp): χ_0=1 as a native character; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_period` (relation): χ_(k+q−1)=χ_k; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_exponent_card_sub_one` (simp): χ_(q−1)=1; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_add` (relation): χ_(k+l)=χ_kχ_l; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_complement` (relation): χ_(q−1−k)=χ_k⁻¹ for k≤q−1; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_ne_one` (characterisation): χ_k≠1 for0<k<q−1; promoted below.
+- `DirichletPadic.grossKoblitzInverseChar_neg_one` (simp): χ_k(−1)=(−1)^k if q is odd; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.inverse_at_zero` (degenerate): Every inverse Teichmuller character takes0 to0, including exponent0.
+- `SuggestedGrossKoblitzCharacterTests.inverse_at_one` (computation): Every inverse Teichmuller character takes1 to1.
+- `SuggestedGrossKoblitzCharacterTests.inverse_native_comparison` (compatibility): The constructed character is precisely the native extension, inverse power and ring-hom composition.
+
+**Acceptance:** The exponent is inverse, and χ_0 is the native trivial character: its value at0 remains0.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The inverse character on residue units
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-unit-value` — `DirichletPadic.grossKoblitzInverseChar_unit`
+
+For u:κˣ, χ_k(u) is the field image of τ_K(u) raised to the integer power−k.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Move inversion through ringHomComp using its existing native inverse compatibility.
+2. In the field K, native MulChar.inv_apply_eq_inv′ turns inverse character evaluation into field inversion. Evaluate the k-th power and ofUnitHom on the actual unit u.
+3. The inclusion preserves natural powers, and native zpow_neg/zpow_natCast identify the inverse natural power with exponent−k. The complete inverseChar_unit proof checks the unit, integer-ring and field coercions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `mathlib:MulChar.ringHomComp_inv`, `mathlib:MulChar.inv_apply_eq_inv'`, `mathlib:MulChar.pow_apply_coe`, `mathlib:MulChar.ofUnitHom_coe`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.unit_reciprocal` (computation): At exponent1 the character is the reciprocal of the lifted unit.
+- `SuggestedGrossKoblitzCharacterTests.inverse_orientation` (non-example): For a residue unit whose square is not1, the exponent1 inverse character differs from the direct lift.
+
+**Acceptance:** At k=1 the product χ_1(u)τ_K(u) is1. If u²≠1, χ_1(u) cannot equal the direct lift.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The zero exponent gives the trivial character
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-zero-exponent` — `DirichletPadic.grossKoblitzInverseChar_exponent_zero`
+
+χ_0=1 in the native multiplicative-character group.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. The zeroth native character power is the native trivial character. Inversion and ring-hom composition preserve it.
+2. The complete inverseChar_exponent_zero proof simplifies those native operations. It does not replace the resulting function by the constant1 function: the native trivial character still vanishes at0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `mathlib:MulChar.ringHomComp_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.zero_exponent_trivial` (degenerate): The exponent0 character is the native trivial character, which still vanishes at0.
+
+**Acceptance:** The conjunction χ_0=1 and χ_0(0)=0 is a required endpoint test.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The exponent period of the inverse character
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-period` — `DirichletPadic.grossKoblitzInverseChar_period`
+
+χ_(k+q−1)=χ_k for every natural k.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Use native MulChar extensionality on units. The prior native TauCeti.teichmuller_pow says τ_K(u)^(q−1)=1 for every u.
+2. Map that unit equality to 𝒪[K], obtaining that the native extended Teichmuller character raised to q−1 is the trivial character.
+3. Expand the power at k+q−1, substitute that torsion equation and simplify. The complete inverseChar_period proof remains valid in the residue field of size2, where q−1=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `tauceti:TauCeti.teichmuller_pow`, `mathlib:MulChar.ofUnitHom_coe`, `mathlib:MulChar.pow_apply_coe`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.period_eight` (computation): If the residue field has9 elements, exponents1 and9 give the same character.
+- `SuggestedGrossKoblitzCharacterTests.period_arbitrary` (characterisation): The residue cardinality minus1 is an exponent period.
+
+**Acceptance:** At q=9, χ_9=χ_1; no least-period claim for an individual character is made.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The residue-cardinality exponent is trivial
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-card-exponent` — `DirichletPadic.grossKoblitzInverseChar_exponent_card_sub_one`
+
+χ_(q−1)=1.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Set k=0 in the exponent-period theorem.
+2. Use the preceding zero-exponent theorem. The complete inverseChar_exponent_card_sub_one proof retains this boundary because it is excluded by the nontriviality range.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-period`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-zero-exponent`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.card_exponent_trivial` (degenerate): At exponent8 over a residue field of size9 the character is trivial.
+
+**Acceptance:** At q=9 the exponent8 character is trivial.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### Addition of inverse-character exponents
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-exponent-addition` — `DirichletPadic.grossKoblitzInverseChar_add`
+
+χ_(k+l)=χ_kχ_l.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Expand the power at k+l in the native character group.
+2. Inversion reverses the two factors; the group is commutative, so the order can be restored. Native ringHomComp_mul maps the resulting product into K.
+3. The complete inverseChar_add proof establishes equality of native characters, including their value0 at the zero residue.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `mathlib:MulChar.ringHomComp_mul`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.addition_one_two` (compatibility): Exponent addition becomes multiplication of native characters.
+
+**Acceptance:** The test χ_3=χ_1χ_2 fixes the exponent convention.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The complementary source exponent gives the inverse
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-complement` — `DirichletPadic.grossKoblitzInverseChar_complement`
+
+If k≤q−1, then χ_(q−1−k)=χ_k⁻¹.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Multiply the complementary character by χ_k and use exponent addition.
+2. Natural subtraction is legitimate under k≤q−1, so the combined exponent is q−1. Its character is trivial by the preceding theorem.
+3. In the native character group, this product equation identifies the first factor with the inverse. The complete inverseChar_complement proof does not divide pointwise by the zero value at0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-exponent-addition`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-card-exponent`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.complement_five_three` (computation): At residue size9, exponent3 is the inverse of exponent5.
+- `SuggestedGrossKoblitzCharacterTests.complement_endpoint` (degenerate): The complementary exponents0 andq−1 both give the trivial character.
+
+**Acceptance:** For q=9,k=5 the complementary source character is χ_3=χ_5⁻¹. The endpoint k=0 is also valid algebraically.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### Nontriviality in the source exponent range
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-nontrivial` — `DirichletPadic.grossKoblitzInverseChar_ne_one`
+
+For0<k<q−1, the actual χ_k is nontrivial.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. If the mapped inverse power were trivial, native ringHomComp_ne_one_iff and injectivity of the valuation-subring inclusion would make the original integral character power trivial.
+2. Evaluate that equality on every residue unit u. It gives τ_K(u)^k=1 as a unit equality.
+3. The native Teichmuller lift is injective and multiplicative, so u^k=1 for every u:κˣ.
+4. Native FiniteField.forall_pow_eq_one_iff implies q−1 divides k. Positivity of k gives q−1≤k, contradicting the strict upper bound. The complete inverseChar_ne_one proof uses an existing finite enumeration only for this native theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `tauceti:TauCeti.teichmuller_injective`, `mathlib:FiniteField.forall_pow_eq_one_iff`, `mathlib:MulChar.ringHomComp_ne_one_iff`, `mathlib:MulChar.pow_apply_coe`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.nontrivial_five` (characterisation): At residue size9, exponent5 is nontrivial.
+- `SuggestedGrossKoblitzCharacterTests.nontrivial_one` (characterisation): At residue size3, exponent1 is nontrivial.
+
+**Acceptance:** Both endpoints are excluded: χ_0 and χ_(q−1) are trivial.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The source character at negative one
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-negative-one` — `DirichletPadic.grossKoblitzInverseChar_neg_one`
+
+If q is odd, χ_k(−1)=(−1)^k in K.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. As q is odd, q−1 is even. Therefore−1 in𝒪[K]ˣ is(q−1)-torsion and reduces to−1 inκ.
+2. Reuse TauCeti.eq_teichmuller to identify this lift with τ_K(−1). The routine complete teich_neg_one helper checks this uniqueness argument without defining a new Teichmuller lift.
+3. Evaluate the inverse-character unit formula at−1. In K, the inverse of−1 is−1, so the inverse k-th power equals the ordinary k-th power. The complete inverseChar_neg_one proof verifies the unit and field casts.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-unit-value`, `tauceti:TauCeti.eq_teichmuller`, `mathlib:Even.neg_one_pow`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.negative_one_odd` (computation): At odd residue cardinality, odd exponent5 sends−1 to−1.
+- `SuggestedGrossKoblitzCharacterTests.negative_one_even` (computation): At odd residue cardinality, even exponent2 sends−1 to1.
+
+**Acceptance:** For odd q, exponent5 gives−1 and exponent2 gives1.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The additive character from a chosen root and trace
+
+`DirichletPadicLFunctions:L3/gross-koblitz-trace-character` — `DirichletPadic.grossKoblitzTraceChar`
+
+Define ψ_ζ=(AddChar.zmodChar p hζ) composed with (Algebra.trace (ZMod p) F).toAddMonoidHom, for hζ:ζ^p=1.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Use the native chosen-root character zmodChar on ZMod p. Its value at a is ζ^a.val.
+2. Compose it with the actual native algebraic trace using AddChar.compAddMonoidHom. This is a native additive character, so its addition and zero laws are inherited rather than reconstructed.
+3. The complete traceChar definition and traceChar_apply proof give ψ_ζ(x)=ζ^(Tr(x).val). At the trivial root it is the trivial additive character. Primitivity for a finite field and primitive root is proved below.
+4. The native FiniteField.primitiveChar constructs a primitive character in a chosen cyclotomic extension. Here the source fixes ζ in a specified coefficient field; the composition uses the same native building blocks and records compatibility instead of changing that coefficient field.
+
+**Prerequisites:** `mathlib:AddChar.zmodChar`, `mathlib:AddChar.zmodChar_apply`, `mathlib:AddChar.compAddMonoidHom`.
+
+**Uses:**
+
+- Gross–Koblitz Section1 additive character: Retains the chosen primitive p-th root that will determine the compatibleπ.
+- Native Gauss product: Its native IsPrimitive hypothesis is proved from finite-field trace and primitive-root APIs.
+- Normalization tests: The value at1 detects the residue-field degree but cannot by itself test primitivity.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzTraceChar_def` (constructor): The literal native chosen-root/trace composition.
+- `DirichletPadic.grossKoblitzTraceChar_apply` (projection): ψ_ζ(x)=ζ^(Tr(x).val).
+- `DirichletPadic.grossKoblitzTraceChar_zero` (simp): ψ_ζ(0)=1.
+- `DirichletPadic.grossKoblitzTraceChar_trivial_root` (simp): ψ_1=1.
+- `DirichletPadic.grossKoblitzTraceChar_one` (simp): ψ_ζ(1)=ζ^[F:F_p]; promoted below.
+- `DirichletPadic.grossKoblitzTraceChar_primitive` (characterisation): For finite F and primitive ζ, ψ_ζ is native primitive; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.trace_at_zero` (degenerate): The trace additive character takes0 to1.
+- `SuggestedGrossKoblitzCharacterTests.trace_trivial_root` (non-example): Choosing ζ=1 gives the trivial additive character.
+- `SuggestedGrossKoblitzCharacterTests.trace_value_one` (computation): An element of trace1 maps to the chosen root ζ.
+- `SuggestedGrossKoblitzCharacterTests.trace_value_two` (computation): An element of trace2 maps to ζ².
+- `SuggestedGrossKoblitzCharacterTests.trace_native_comparison` (compatibility): The character is the native chosen-root character composed with the native trace.
+
+**Acceptance:** ψ_ζ(0)=1. If ζ=1, the resulting character is trivial; the root-of-unity equation alone is insufficient for primitivity.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The trace character at one
+
+`DirichletPadicLFunctions:L3/gross-koblitz-trace-character-one` — `DirichletPadic.grossKoblitzTraceChar_one`
+
+ψ_ζ(1)=ζ^(Module.finrank (ZMod p) F).
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Native Algebra.trace_algebraMap at1 identifies Tr(1) with the cast of the base-field dimension.
+2. Evaluate the existing zmodChar on that natural cast using zmodChar_apply′, whose exponent is the unreduced natural dimension because ζ^p=1.
+3. The complete traceChar_one proof does not require F finite. As in the native trace API, trace and finrank are0 for an infinite-dimensional extension. The finite source application uses the ordinary finite dimension.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-trace-character`, `mathlib:Algebra.trace_algebraMap`, `mathlib:AddChar.zmodChar_apply'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.trace_one_degree_two` (computation): In degree2 over F3, the trace character at1 isζ².
+- `SuggestedGrossKoblitzCharacterTests.trace_one_degree_three` (degenerate): In degree3 over F3 the trace character at1 is1.
+
+**Acceptance:** In degree3 over F3, ψ_ζ(1)=ζ³=1 even for a primitive third root. This must not be used to conclude ψ is trivial.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### Primitivity of the chosen-root trace character
+
+`DirichletPadicLFunctions:L3/gross-koblitz-trace-character-primitive` — `DirichletPadic.grossKoblitzTraceChar_primitive`
+
+For finite F and IsPrimitiveRoot ζ p, the constructed ψ_ζ satisfies native AddChar.IsPrimitive.
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. The finite extension F/F_p is separable. Native traceForm_nondegenerate applied to1 gives some x with Tr(x)≠0; otherwise1 would lie in the radical of the trace pairing.
+2. Native zmodChar_primitive_of_primitive_root gives a primitive chosen-root character on F_p. Its native zmod_char_eq_one_iff says the value is1 exactly at the zero residue.
+3. At the x found above, the trace character therefore has value different from1. It is nontrivial.
+4. Over the field F, native AddChar.IsPrimitive.of_ne_one turns this nontriviality into the required primitivity under every nonzero multiplicative shift. The complete traceChar_primitive proof uses these native facts; no surjectivity or Gauss identity is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-trace-character`, `mathlib:traceForm_nondegenerate`, `mathlib:AddChar.zmodChar_primitive_of_primitive_root`, `mathlib:AddChar.IsPrimitive.zmod_char_eq_one_iff`, `mathlib:AddChar.IsPrimitive.of_ne_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.trace_primitive` (characterisation): A primitive chosen third root gives a native primitive trace character.
+- `SuggestedGrossKoblitzCharacterTests.trace_at_one_not_test` (non-example): A primitive trace character in degree3 is nontrivial even though its value at1 is1.
+
+**Acceptance:** A degree3 extension over F3 provides a primitive character whose value at1 is1. Exact F27 trace controls verify this distinction.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+### The elementary Gauss pair with the actual source characters
+
+`DirichletPadicLFunctions:L3/gross-koblitz-actual-elementary-gauss-pair` — `DirichletPadic.grossKoblitz_actualGauss_pair`
+
+For the actual source χ_k, χ_(p^f−1−k) and ψ_ζ, their two negative Gauss sums multiply to ι((−p)^f∏_(j<f)Γ_p(x_j)Γ_p(1−x_j)).
+
+**Hypotheses:** For the multiplicative character let K be a native nonarchimedean local field, with its existing integer ring 𝒪[K], residue field κ and cardinality q. All Teichmuller lifts and their Hensel construction are the EXISTING TauCeti.teichmuller K; none is replanned. The character extends residue units by zero through native MulChar.ofUnitHom, takes the inverse k-th power, then includes the integer values into K through the native valuation-subring ring homomorphism. The additive construction uses a prime p, a field F with an actual Algebra (ZMod p) F, a commutative monoid C and a chosen ζ:C with ζ^p=1. It is the existing AddChar.zmodChar at that root, composed with the existing algebraic trace. The evaluation APIs do not require F finite; primitivity explicitly does, as well as IsPrimitiveRoot ζ p. The final source pair takes F=κ, C=K, odd p, q=p^f with f>0, the actual Algebra (ZMod p) κ, a chosen primitive p-th root ζ in K and a ring homomorphism ι:ℤ_p→K. An explicit Fintype κ is used for the native finite sums. It requires0<k<q−1 and the actual rational orbit (q−1)x_j=n_j. The source negative Gauss sum is−gaussSum of the constructed inverse character and constructed trace character. Its complementary exponent is q−1−k; both factors use the SAME trace character. Nontriviality, primitivity, the value at−1 and the complementary-character identity are conclusions below, not hypotheses in the final comparison. The final suggested statement specializes the actual signed Morita Gamma function. Scratch proofs only receive its previously proved continuity, zero value and recurrence. The choice of a local coefficient field containing ζ and the map ι is explicit; no existence of that field or compatibleπ is inferred from an arbitrary local field. The full Gross–Koblitz Gauss formula still needs π^(p−1)=−p with π≡ζ−1 modulo(ζ−1)², the cited Katz/Fermat input and the Gauss-side Stickelberger congruence. No result about those inputs or the E18 distribution repair is claimed here.
+
+**Proof:**
+
+1. Use the complementary-exponent theorem and q=p^f to replace χ_(q−1−k) by χ_k⁻¹.
+2. Since p is odd, native Odd.pow makes p^f and hence q odd. The constructed χ_k is nontrivial by0<k<q−1 and has value(−1)^k at−1.
+3. The chosen-root trace character is primitive by the preceding theorem. The native finite cardinality equals p^f after the standard Nat.card/Fintype.card comparison.
+4. Apply the preceding elementary Gauss/Gamma comparison with these actual characters. All three formerly abstract hypotheses—nontriviality, primitivity and negative-one normalization—have now been proved from their constructions.
+5. The complete actual_gauss_pair proof retains the explicit primitive root, local coefficient field, ring homomorphism and actual rational orbit. It needs no compatibleπ because the elementary Jacobi pair has already combined the π powers into(−p)^f.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-complement`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-nontrivial`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-negative-one`, `DirichletPadicLFunctions:L3/gross-koblitz-trace-character-primitive`, `DirichletPadicLFunctions:L3/gross-koblitz-gauss-pair-comparison`, `mathlib:Nat.Prime.odd_of_ne_two`, `mathlib:Odd.pow`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzCharacterTests.actual_gauss_pair_minus_nine` (computation): At residue size9, the actual source exponents5 and3 give negative Gauss product−9.
+- `SuggestedGrossKoblitzCharacterTests.actual_gauss_pair_even` (computation): At residue size9, source exponents2 and6 give negative Gauss product9.
+- `SuggestedGrossKoblitzCharacterTests.actual_gamma_pair` (compatibility): The actual source character pair agrees with the mapped actual Gamma product for5/8.
+
+**Acceptance:** At q=9,k=5 the actual exponents5 and3 give−9; at k=2 the exponents2 and6 give9. The generic comparison has no assumed χ≠1, ψ.IsPrimitive or χ(−1) value left.
+
+**Source:** Section1 pp.569–571, Teichmuller character, negative Gauss sum and additive character composed with residue trace; Section2 Lemma2.5 p.573. Complete source reading retained; native constructions and their proofs read at the pins. The source uses the inverse exponent−a(q−1) of the Teichmuller representative and the chosen additive character after the finite-field trace. These constructions instantiate those conventions using existing native carriers and remove the abstract character hypotheses from the elementary pair comparison. They do not prove the full formula or reconstruct native Teichmuller/trace theory.
+
+**Remaining:** The source inverse-Teichmuller and chosen-root trace characters are now constructed using native APIs, with their exponent algebra, nontriviality, primitivity and negative-one normalization proved. The elementary Jacobi comparison now uses the actual complementary source characters without abstract character hypotheses. Next construct and normalize the compatibleπ in a suitable local coefficient field, with π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². The full formula still needs the Katz/Fermat Frobenius limit2.7 and the Gauss-side Stickelberger leading congruence; the Gamma-side factorial product alone does not supply them. Read the exact primary proof sources and route any missing interfaces by ownership. E18’s repair remains unproved/unused and the Ferrero–Greenberg proof and analytic supplier obligations remain. All18 gaps and14 requests remain; no stage closes.
+
+### Actual characters for the elementary Gross–Koblitz pair validation
+
+All 1050 predecessor nodes, 788 baseline records, 18 findings, requests and sourceVersions remain whole. This checkpoint adds 13 nodes, 20 named suggested declarations and 28 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1323 reachable nodes, 6316 edges and 970 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All13 new nodes terminate in the existing Gamma/arithmetic chain or native library facts, with no new unresolved stage leaves. Choice of the explicit coefficient field/root and the compatibleπ boundary remain stated; all14 supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe preserves5343 verbatim and adds two definitions and17 lemmas, including one routine Teichmuller negative-one helper. Actual native local-field, character and trace structures are used; no new carrier or assumed target identity is introduced. Suggested definitions bind all required native instances explicitly, and Gamma signatures specialize moritaGamma. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. The full suggested module is NOT COMPILED because pinned TwistedDivisorSum lacks a compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact controls evaluate actual inverse powers and trace characters over F2,F3,F5,F7,F9,F27, Teichmuller lifts modulo three p-powers, and750 literal complementary negative Gauss pairs by integer cyclotomic reduction. The F27 case detects that a primitive trace character can have value1 at1. Exact finite fields use Fp, F9=F3[u]/(u²+1) and F27=F3[u]/(u³−u−1). The explicit primitive generator enumerates every nonzero element. Trace is computed by the Frobenius sum. Teichmuller lifts in the corresponding polynomial rings modulo p,p²,p³ are computed by repeated q-powers, then checked for reduction, torsion and multiplicativity. Characters use inverse powers and the actual trace; source Gauss pairs use complementary exponents and exact cyclotomic polynomial reduction. All computations use integers. These bounded examples do not construct a general unramified extension or the compatible π. The largest observed discrepancy is 0 in every exact finite-ring or polynomial-remainder identity.
+
+Capture at e9cb0d2143a2c2b2787d9b1f2fc36b7f01b8342f has zero changes among72 guarded inputs after merged5343; whole issue body unchanged. No policy, supplier, source finding or review verdict changed.
+
+The separate partial signature file also compiled with zero errors and 3,425 expected placeholder warnings across 3,600 pinned source modules. It includes all 20 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 767e4418e8c2aa10ab4f48977368b41e1915cfbe25b85cbc4cefdd0157807186.
