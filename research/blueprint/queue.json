@@ -37215,7 +37215,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-QIAN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5505"
   },
   {
    "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
@@ -40892,8 +40893,9 @@
     "REV-PAPER-BHARGAVA-GROSS-WANG-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4281"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4281",
+   "finishedAt": "2026-10-01T22:19:41Z"
   },
   {
    "id": "RT-PAPER-GAO-GE-KUHNE-26",
