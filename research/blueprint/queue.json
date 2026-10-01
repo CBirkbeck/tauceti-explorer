@@ -33204,7 +33204,8 @@
     "REV-PAPER-ZAVYALOV-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ZAVYALOV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4035"
   },
   {
    "id": "REV-RT-PAPER-ZAVYALOV-25",
