@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fifteen L3 nodes construct the native subgroup of p-integral rational classes and factor the corrected Gamma mean through the existing ordinary distribution quotient. The factor map kills the zero, oddness and Frobenius relators. All1,324 predecessor nodes and960 baseline records remain whole.",
+  "summary": "Twenty-nine L3 nodes construct native integer parity, orbit and normalized odd orbit quotients and the corrected Gamma mean’s descent. The zero-labelled generator is proved nonzero of order2 in the ordinary odd quotient, making normalization explicit. All1,339 predecessor nodes and962 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6748,6 +6748,41 @@
         "module": "Mathlib/Logic/Equiv/Basic.lean",
         "provides": "The native equivalence between two subtypes of the same type whose defining predicates are pointwise equivalent.",
         "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup inherited structures and the to_additive site supplying norm_add_le_max. Existing unit/coprimality and finite-type APIs are reused from their already-read baseline records."
+      },
+      {
+        "ref": "mathlib:Finset.prod_eq_single",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "The native finite product reduces to a single chosen term when all other terms are identities, with a generated additive version for finite sums.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup complete lattice and the to_additive sites for finite sums, subgroup inclusion and multiplication-by-n. Generic group, quotient, free-group, closure and finite-enumeration APIs are imported from the preceding read baseline."
+      },
+      {
+        "ref": "mathlib:powMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Hom/Basic.lean",
+        "provides": "The native power homomorphism of a commutative monoid and its generated additive multiplication-by-a-natural homomorphism.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup complete lattice and the to_additive sites for finite sums, subgroup inclusion and multiplication-by-n. Generic group, quotient, free-group, closure and finite-enumeration APIs are imported from the preceding read baseline."
+      },
+      {
+        "ref": "mathlib:Subgroup.mem_sup_left",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "Native membership inclusion of the left subgroup into a subgroup supremum, including its generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup complete lattice and the to_additive sites for finite sums, subgroup inclusion and multiplication-by-n. Generic group, quotient, free-group, closure and finite-enumeration APIs are imported from the preceding read baseline."
+      },
+      {
+        "ref": "mathlib:Subgroup.mem_sup_right",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "Native membership inclusion of the right subgroup into a subgroup supremum, including its generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup complete lattice and the to_additive sites for finite sums, subgroup inclusion and multiplication-by-n. Generic group, quotient, free-group, closure and finite-enumeration APIs are imported from the preceding read baseline."
+      },
+      {
+        "ref": "mathlib:ZMod.neg_eq_self_mod_two",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Every element of the native ring ZMod2 equals its own additive negative.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup complete lattice and the to_additive sites for finite sums, subgroup inclusion and multiplication-by-n. Generic group, quotient, free-group, closure and finite-enumeration APIs are imported from the preceding read baseline."
       }
     ]
   },
@@ -87708,6 +87743,1806 @@
       "acceptance": [
         "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-relations",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer even and odd distribution relations",
+      "kind": "construction",
+      "statement": "Construct P_epsilon as the native additive subgroup of U(S,w) generated by delta(−a)−epsilon*delta(a), for every a in X.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Take the actual labelled free generators, their canonical images in the existing distribution quotient and their integer linear combination.",
+        "Form the native additive subgroup closure of these relators. Its native quotient gives even parity at epsilon=1 and odd parity at epsilon=−1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "mathlib:Subgroup.closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertParityRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.even_relator",
+          "kind": "computation",
+          "statement": "Even parity imposes the difference of the generators at2 and1 on Z/3."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_relator",
+          "kind": "computation",
+          "statement": "Odd parity imposes their sum, with integer coefficients."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.zero_label_not_killed",
+          "kind": "non-example",
+          "statement": "Odd parity does not kill the zero-labelled generator."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Kubert199 even and odd universal distributions",
+          "how": "Recovers both source relation quotients over the integers, without a division by2."
+        },
+        {
+          "where": "Kubert200 torsion boundary",
+          "how": "Retains the2-primary distinction that a rational eigenspace construction would erase."
+        },
+        {
+          "where": "Gross–Koblitz577 odd mean",
+          "how": "Provides the odd relation subgroup through which the previously established Gamma mean can descend."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_parity_mem",
+          "role": "relation",
+          "statement": "For every a in X, delta(−a)−epsilon*delta(a) belongs to P_epsilon."
+        },
+        {
+          "name": "kubert_parity_le_ker_iff",
+          "role": "characterisation",
+          "statement": "For any additive g:U(S,w)→A, P_epsilon is contained in its kernel exactly when g(delta(−a))=epsilon*g(delta(a)) for every a."
+        },
+        {
+          "name": "kubert_parity_quotient_relation",
+          "role": "relation",
+          "statement": "The canonical image of delta(−a) in U/P_epsilon equals epsilon times the canonical image of delta(a)."
+        },
+        {
+          "name": "kubert_parity_hom_ext",
+          "role": "characterisation",
+          "statement": "Two additive homomorphisms out of U/P_epsilon agree if they agree on every canonical labelled generator."
+        },
+        {
+          "name": "kubert_odd_fixed_point_two_torsion",
+          "role": "relation",
+          "statement": "If −a=a in X, twice the canonical image of delta(a) in U/P_−1 is zero."
+        },
+        {
+          "name": "kubert_odd_zero_generator_ne_zero",
+          "role": "relation",
+          "statement": "At ordinary weight0, the canonical image of delta(0) in U(S,0)/P_−1 is nonzero, for every permitted finite-fiber system S."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A labelled parity relator belongs to the subgroup",
+      "kind": "lemma",
+      "statement": "For every a in X, delta(−a)−epsilon*delta(a) belongs to P_epsilon.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Supply the actual point a as witness in the generating set.",
+        "Apply native subset_closure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "mathlib:Subgroup.subset_closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parity_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_zero_relation",
+          "kind": "degenerate",
+          "statement": "The zero label contributes its doubled generator to the odd subgroup."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-le-ker-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact parity kernel criterion",
+      "kind": "lemma",
+      "statement": "For any additive g:U(S,w)→A, P_epsilon is contained in its kernel exactly when g(delta(−a))=epsilon*g(delta(a)) for every a.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Native closure_le reduces the subgroup inclusion to all displayed generators.",
+        "Preserve subtraction and integer scalar multiplication through g; a relator maps to zero exactly when the parity equation holds.",
+        "Perform this argument in both directions, with no torsion-free or characteristic hypothesis on A."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parity_le_ker_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_kernel_criterion",
+          "kind": "characterisation",
+          "statement": "Containing all odd relators is exactly oddness of the generator values."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The homomorphism induced on a parity quotient",
+      "kind": "construction",
+      "statement": "For an additive g:U(S,w)→A with the prescribed parity on generators, construct its actual additive descent U(S,w)/P_epsilon→A.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Use parity_le_ker_iff to construct the exact kernel inclusion.",
+        "Apply the existing native quotient lift to g and that inclusion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-le-ker-iff",
+        "mathlib:QuotientGroup.lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertParityLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_lift_at_one",
+          "kind": "computation",
+          "statement": "The lift retains the original value of the generator1."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_lift_at_zero",
+          "kind": "degenerate",
+          "statement": "The value of the zero-labelled generator is preserved by the quotient lift."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_lift_additive",
+          "kind": "compatibility",
+          "statement": "The quotient lift is additive on integer combinations."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Kubert199 parity quotients",
+          "how": "States the map property of each integral parity quotient."
+        },
+        {
+          "where": "Zero-indicator obstruction",
+          "how": "Descends the mod2 zero indicator to prove the zero-labelled odd generator is nonzero."
+        },
+        {
+          "where": "Gamma odd-distribution factorization",
+          "how": "Provides the parity descent without an unproved cancellation of2."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_parityLift_of",
+          "role": "relation",
+          "statement": "The parity lift evaluates the further quotient image of delta(a) to g(delta(a))."
+        },
+        {
+          "name": "kubert_parityLift_unique",
+          "role": "universal-property",
+          "statement": "Every additive map out of U/P_epsilon having the values g(delta(a)) equals the constructed parity lift."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-lift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Parity descent evaluates labelled generators",
+      "kind": "lemma",
+      "statement": "The parity lift evaluates the further quotient image of delta(a) to g(delta(a)).",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Apply the native quotient lift evaluation law to the actual delta(a)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-lift",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parityLift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_lift_at_two",
+          "kind": "computation",
+          "statement": "The actual second nonzero generator evaluates to its prescribed value."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-quotient-relation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Parity holds in the quotient itself",
+      "kind": "lemma",
+      "statement": "The canonical image of delta(−a) in U/P_epsilon equals epsilon times the canonical image of delta(a).",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The parity relator belongs to P_epsilon.",
+        "The native quotient zero-membership criterion kills it. Preserve subtraction and integer scalar multiplication through the quotient map, then cancel the subtraction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-mem",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parity_quotient_relation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.even_quotient_identifies_sign",
+          "kind": "compatibility",
+          "statement": "The even quotient identifies the two opposite labels."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.odd_quotient_negates_sign",
+          "kind": "compatibility",
+          "statement": "The odd quotient negates the value of the opposite label."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-hom-ext",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Parity quotient maps are determined by labelled generators",
+      "kind": "lemma",
+      "statement": "Two additive homomorphisms out of U/P_epsilon agree if they agree on every canonical labelled generator.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Compose both maps with the native quotient projection.",
+        "The existing generator extensionality theorem for U identifies the resulting maps.",
+        "Native surjectivity of the further quotient projection gives equality on every quotient element."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "DirichletPadicLFunctions:L3/kubert-hom-ext",
+        "mathlib:QuotientGroup.mk'_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parity_hom_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.parity_generator_extensionality",
+          "kind": "characterisation",
+          "statement": "Maps from the parity quotient are determined by all labelled generators."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-parity-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Uniqueness of parity descent",
+      "kind": "lemma",
+      "statement": "Every additive map out of U/P_epsilon having the values g(delta(a)) equals the constructed parity lift.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Apply parity_hom_ext to compare all labelled generators.",
+        "Use the supplied values and parityLift_of."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-hom-ext",
+        "DirichletPadicLFunctions:L3/kubert-parity-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_parityLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.unique_parity_extension",
+          "kind": "characterisation",
+          "statement": "A quotient homomorphism with these generator values equals the parity lift."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-odd-fixed-point-two-torsion",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Negation-fixed labels become two-torsion in the odd quotient",
+      "kind": "lemma",
+      "statement": "If −a=a in X, twice the canonical image of delta(a) in U/P_−1 is zero.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Apply the quotient parity relation at epsilon=−1 and substitute the fixed-point equation.",
+        "The image equals its own negative. Rewrite twice the image as its sum with itself and cancel.",
+        "At a=0 this proves only doubled-zero vanishing, not zero vanishing."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-quotient-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_odd_fixed_point_two_torsion"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.zero_label_two_torsion",
+          "kind": "degenerate",
+          "statement": "The odd quotient has twice the zero-labelled generator equal to zero."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-zero-indicator-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero indicator is an ordinary mod-two distribution",
+      "kind": "lemma",
+      "statement": "For any natural n whose actual multiplication fiber at a is finite, the sum of the Z/2-valued indicator of b=0 over that full fiber equals the indicator of a=0.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "If a=0, the actual point0 belongs to the fiber. Native sum_eq_single reduces the sum to this one point; every other subtype point has nonzero underlying value.",
+        "If a is nonzero, a fiber point b=0 would force a=0, so every summand vanishes.",
+        "This covers empty fibers and also n=0 when that fiber is finite. Weight0 is essential when using the identity in the distribution quotient."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.prod_eq_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_zero_indicator_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.indicator_nontrivial_kernel",
+          "kind": "computation",
+          "statement": "The doubling fiber over0 in Z/4 includes0 and2, but its zero indicator sums to1."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.indicator_empty_fiber",
+          "kind": "non-example",
+          "statement": "The doubling fiber over1 in Z/4 is empty, and the zero indicator sums to0."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.indicator_degree_zero",
+          "kind": "degenerate",
+          "statement": "The zero-degree fiber over zero still contains exactly one zero-labelled point."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-zero-indicator-odd",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The mod-two zero indicator is odd",
+      "kind": "lemma",
+      "statement": "For every a in X, the Z/2-valued indicator of −a=0 is the negative of the indicator of a=0.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Negation preserves exactly the zero element of a group.",
+        "Every native ZMod2 element equals its own negative, so equality of indicators is exactly the required oddness."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.neg_eq_self_mod_two"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_zero_indicator_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.indicator_odd_at_fixed_point",
+          "kind": "degenerate",
+          "statement": "The indicator at zero is odd in the actual coefficient group Z/2."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-odd-zero-generator-ne-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero label survives the integral odd quotient",
+      "kind": "lemma",
+      "statement": "At ordinary weight0, the canonical image of delta(0) in U(S,0)/P_−1 is nonzero, for every permitted finite-fiber system S.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The zero indicator is a genuine ordinary distribution by zero_indicator_distribution. Use the existing Kubert lift to construct its map U(S,0)→Z/2.",
+        "Its values are odd by zero_indicator_odd, so parityLift constructs a map from the actual odd quotient to Z/2.",
+        "Evaluate the zero-labelled generator: its image is1. If that generator were zero, additivity would force its image to be0, contradicting native one_ne_zero in ZMod2.",
+        "Together with odd_fixed_point_two_torsion, this detects an element of exact order2. It does not identify the full torsion subgroup or Tate cohomology."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-zero-indicator-distribution",
+        "DirichletPadicLFunctions:L3/kubert-zero-indicator-odd",
+        "DirichletPadicLFunctions:L3/kubert-lift",
+        "DirichletPadicLFunctions:L3/kubert-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-parity-lift",
+        "DirichletPadicLFunctions:L3/kubert-parity-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_odd_zero_generator_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.nonzero_two_torsion_detected",
+          "kind": "non-example",
+          "statement": "The zero-labelled generator is nonzero even though its double vanishes."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-orbit-relations",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Relations identifying endomorphism orbits",
+      "kind": "construction",
+      "statement": "Construct O_sigma as the native additive subgroup of U(S,w) generated by delta(sigma(a))−delta(a) for all a in X.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Apply the given actual native additive endomorphism to each label.",
+        "Take the difference of the two canonical labelled generators and form their native subgroup closure.",
+        "This imposes orbit relations directly and requires no prior descent of sigma to U."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "mathlib:Subgroup.closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertOrbitRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.doubling_orbit_relator",
+          "kind": "computation",
+          "statement": "The doubling endomorphism relates the two nonzero labels."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.identity_orbits_impose_nothing",
+          "kind": "degenerate",
+          "statement": "The identity endomorphism generates the bottom relation subgroup."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.zero_endomorphism_relator",
+          "kind": "compatibility",
+          "statement": "The zero endomorphism identifies every label with the zero label."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz577 Frobenius invariance",
+          "how": "Multiplication by p is a native additive endomorphism of the established domain; its labelled relations are killed by the mean."
+        },
+        {
+          "where": "Normalized odd orbit quotient",
+          "how": "Supplies the orbit summand before combining it with parity and the zero-label relation."
+        },
+        {
+          "where": "Coefficient groups with torsion",
+          "how": "Keeps orbit identification integral rather than averaging by the orbit length."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_orbit_mem",
+          "role": "relation",
+          "statement": "For each a, delta(sigma(a))−delta(a) belongs to O_sigma."
+        },
+        {
+          "name": "kubert_orbit_le_ker_iff",
+          "role": "characterisation",
+          "statement": "For additive g:U(S,w)→A, O_sigma lies in its kernel exactly when g(delta(sigma(a)))=g(delta(a)) for every a."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-orbit-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "An endomorphism relator lies in its subgroup",
+      "kind": "lemma",
+      "statement": "For each a, delta(sigma(a))−delta(a) belongs to O_sigma.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Use a as the actual generating witness and apply native subset_closure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-orbit-relations",
+        "mathlib:Subgroup.subset_closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_orbit_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.orbit_zero_relator",
+          "kind": "degenerate",
+          "statement": "The endomorphism fixes zero, so its zero-label relator vanishes."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-orbit-le-ker-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact orbit kernel criterion",
+      "kind": "lemma",
+      "statement": "For additive g:U(S,w)→A, O_sigma lies in its kernel exactly when g(delta(sigma(a)))=g(delta(a)) for every a.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Use native closure_le to reduce to the generating differences.",
+        "Preserve subtraction through g and use subtraction vanishing if and only if the two values agree."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-orbit-relations",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_orbit_le_ker_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.orbit_kernel_criterion",
+          "kind": "characterisation",
+          "statement": "Killing the orbit subgroup is exactly invariance of generator values."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The normalized odd orbit relation subgroup",
+      "kind": "construction",
+      "statement": "Construct N_sigma=P_−1+O_sigma+the subgroup generated by delta(0), inside the existing U(S,w).",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Use the native subgroup supremum to sum the already constructed odd and orbit relation subgroups.",
+        "Add the native subgroup closure of the singleton containing the actual zero-labelled generator.",
+        "The last summand is an explicit normalization. The mod2 zero-indicator theorem shows it cannot be silently deduced from oddness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-parity-relations",
+        "DirichletPadicLFunctions:L3/kubert-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-odd-zero-generator-ne-zero",
+        "mathlib:Subgroup.closure",
+        "mathlib:Subgroup.mem_sup_left",
+        "mathlib:Subgroup.mem_sup_right"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertNormalizedOddOrbitRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalization_is_explicit",
+          "kind": "degenerate",
+          "statement": "The combined subgroup contains the zero-labelled generator."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.combined_odd_relator",
+          "kind": "compatibility",
+          "statement": "The combined subgroup contains the odd relator."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.combined_orbit_relator",
+          "kind": "compatibility",
+          "statement": "The combined subgroup also contains the endomorphism relator."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz577 and the corrected Gamma mean",
+          "how": "The actual mean is odd, Frobenius-invariant and zero at the zero class, so it kills all three displayed summands."
+        },
+        {
+          "where": "Integral normalization at2",
+          "how": "Separates killing delta(0) from merely imposing2delta(0)=0 in the odd quotient."
+        },
+        {
+          "where": "Universal mapping property with prescribed normalization",
+          "how": "Specifies exactly which generator equations a further quotient homomorphism must satisfy."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_normalized_le_ker_iff",
+          "role": "characterisation",
+          "statement": "N_sigma lies in the kernel of g:U(S,w)→A exactly when its generator values are odd, invariant under sigma, and zero at the zero label."
+        },
+        {
+          "name": "kubert_normalized_quotient_zero",
+          "role": "relation",
+          "statement": "The canonical image of delta(0) in U/N_sigma is zero."
+        },
+        {
+          "name": "kubert_normalized_quotient_odd",
+          "role": "relation",
+          "statement": "The canonical image of delta(−a) in U/N_sigma equals the negative of the image of delta(a)."
+        },
+        {
+          "name": "kubert_normalized_quotient_orbit",
+          "role": "relation",
+          "statement": "The canonical images of delta(sigma(a)) and delta(a) in U/N_sigma are equal."
+        },
+        {
+          "name": "kubert_normalized_quotient_distribution",
+          "role": "relation",
+          "statement": "For every permitted n and a in X, the canonical labelled function into U/N_sigma satisfies the original weighted complete-fiber distribution equation."
+        },
+        {
+          "name": "kubert_normalized_hom_ext",
+          "role": "characterisation",
+          "statement": "Two additive maps out of U/N_sigma are equal if they agree on every canonical labelled generator."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-le-ker-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact normalized odd orbit kernel criterion",
+      "kind": "lemma",
+      "statement": "N_sigma lies in the kernel of g:U(S,w)→A exactly when its generator values are odd, invariant under sigma, and zero at the zero label.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Native supremum inclusion reduces the three-summand subgroup inclusion to three inclusions.",
+        "Use parity_le_ker_iff at epsilon=−1 and orbit_le_ker_iff for the first two.",
+        "Native closure_le for the singleton reduces the last inclusion to g(delta(0))=0. Reassociate the three conditions without cancelling2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-parity-le-ker-iff",
+        "DirichletPadicLFunctions:L3/kubert-orbit-le-ker-iff",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_le_ker_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.zero_map_kills_combined_subgroup",
+          "kind": "degenerate",
+          "statement": "The actual zero homomorphism kills the combined subgroup."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The induced normalized odd orbit homomorphism",
+      "kind": "construction",
+      "statement": "For additive g:U(S,w)→A with odd, sigma-invariant and zero-at-zero generator values, construct its additive descent U(S,w)/N_sigma→A.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The preceding exact kernel criterion constructs the needed subgroup inclusion from those three equations.",
+        "Apply the existing native quotient lift to g and that inclusion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-le-ker-iff",
+        "mathlib:QuotientGroup.lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertNormalizedLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalized_value_one",
+          "kind": "computation",
+          "statement": "The normalized lift preserves the value of the first nonzero generator."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalized_value_zero",
+          "kind": "degenerate",
+          "statement": "The normalized lift kills the zero-labelled generator."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalized_integer_combination",
+          "kind": "compatibility",
+          "statement": "The normalized lift preserves integer combinations."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Normalized odd distribution maps",
+          "how": "Supplies the actual map from the precisely specified integral quotient."
+        },
+        {
+          "where": "Gamma mean application",
+          "how": "The previous ordinary factor map provides g; its already-proved zero, odd and Frobenius relations provide all input equations."
+        },
+        {
+          "where": "Coefficient groups without division by2",
+          "how": "The constructor works for every additive commutative target, so normalization remains visible instead of being hidden in characteristic zero."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_normalizedLift_of",
+          "role": "relation",
+          "statement": "The normalized lift sends the further quotient image of delta(a) to g(delta(a))."
+        },
+        {
+          "name": "kubert_normalizedLift_unique",
+          "role": "universal-property",
+          "statement": "Any additive map out of U/N_sigma with the prescribed values g(delta(a)) equals normalizedLift."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-lift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Normalized descent evaluates the canonical generator",
+      "kind": "lemma",
+      "statement": "The normalized lift sends the further quotient image of delta(a) to g(delta(a)).",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Apply native quotient lift evaluation to the actual labelled generator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-lift",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalizedLift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalized_value_two",
+          "kind": "computation",
+          "statement": "Evaluation holds on the second nonzero generator."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-hom-ext",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Normalized quotient maps are determined by generators",
+      "kind": "lemma",
+      "statement": "Two additive maps out of U/N_sigma are equal if they agree on every canonical labelled generator.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Compose both maps with the native further quotient projection.",
+        "Apply the existing generator extensionality theorem on U.",
+        "Use native quotient surjectivity to recover equality of the original maps."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-hom-ext",
+        "mathlib:QuotientGroup.mk'_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_hom_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.normalized_generator_extensionality",
+          "kind": "characterisation",
+          "statement": "Maps from the combined quotient are determined by the labelled generators."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Uniqueness of normalized odd orbit descent",
+      "kind": "lemma",
+      "statement": "Any additive map out of U/N_sigma with the prescribed values g(delta(a)) equals normalizedLift.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "Compare values on all canonical generators using normalized_hom_ext.",
+        "Use normalizedLift_of and the candidate’s prescribed values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-hom-ext",
+        "DirichletPadicLFunctions:L3/kubert-normalized-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalizedLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.unique_normalized_extension",
+          "kind": "characterisation",
+          "statement": "The normalized extension is unique for its generator values."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-quotient-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero label vanishes in the normalized quotient",
+      "kind": "lemma",
+      "statement": "The canonical image of delta(0) in U/N_sigma is zero.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The actual zero-labelled generator belongs to its singleton subgroup closure.",
+        "Native membership in the subgroup supremum places it in N_sigma.",
+        "Apply the native quotient zero-membership criterion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "mathlib:Subgroup.subset_closure",
+        "mathlib:Subgroup.mem_sup_right",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_quotient_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.quotient_zero_label",
+          "kind": "degenerate",
+          "statement": "The zero label vanishes in the normalized quotient."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-quotient-odd",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The normalized quotient retains oddness",
+      "kind": "lemma",
+      "statement": "The canonical image of delta(−a) in U/N_sigma equals the negative of the image of delta(a).",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The odd parity relator belongs to P_−1 by parity_mem.",
+        "Native supremum membership places it in N_sigma.",
+        "The quotient map kills the relator; preserve subtraction and negation and obtain the oddness equation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-parity-mem",
+        "mathlib:Subgroup.mem_sup_left",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_quotient_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.quotient_oddness",
+          "kind": "compatibility",
+          "statement": "Oddness is retained after adding orbit and zero relations."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-quotient-orbit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The normalized quotient identifies endomorphism orbits",
+      "kind": "lemma",
+      "statement": "The canonical images of delta(sigma(a)) and delta(a) in U/N_sigma are equal.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The orbit relator belongs to O_sigma.",
+        "Include it in N_sigma by the native supremum membership maps.",
+        "Its quotient image is zero, yielding equality of the two labelled images."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-orbit-mem",
+        "mathlib:Subgroup.mem_sup_left",
+        "mathlib:Subgroup.mem_sup_right",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_quotient_orbit"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.quotient_orbit_invariance",
+          "kind": "compatibility",
+          "statement": "The normalized quotient identifies labels in a doubling orbit."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-normalized-quotient-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Distribution relations survive normalization",
+      "kind": "lemma",
+      "statement": "For every permitted n and a in X, the canonical labelled function into U/N_sigma satisfies the original weighted complete-fiber distribution equation.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight."
+      ],
+      "proofSteps": [
+        "The existing canonical generator function into U satisfies that exact equation.",
+        "Apply the native further quotient homomorphism to it.",
+        "Commute this additive map with natural scalar multiplication and finite sums. No new assumption on sigma is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-odd-orbit-relations",
+        "DirichletPadicLFunctions:L3/kubert-quotient-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_normalized_quotient_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.quotient_preserves_distribution",
+          "kind": "compatibility",
+          "statement": "The combined quotient retains the original complete-fiber distribution equation."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma mean descends to the normalized odd Frobenius quotient",
+      "kind": "construction",
+      "statement": "Construct the actual additive Gamma map from the normalized odd multiplication-by-p quotient of U(S,0) to K.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight.",
+        "For the Gamma specialization, p is any prime, X is the previously constructed actual subgroup D_p of p-integral rational classes, S consists of positive integers prime to p and w=0. The orbit endomorphism is the existing native multiplication-by-p homomorphism; no private Frobenius map is defined.",
+        "K is a characteristic-zero field, iota:Z_p→K is a unital ring map, and ell is additive on products of nonzero elements and annihilates positive-order roots of unity. The existing Morita Gamma mean and its ordinary factorization supply the values and all three kernel conditions. The Coleman/LAD logarithm boundary is retained.",
+        "The resulting Gamma homomorphism and its uniqueness establish factorization only. They do not prove Gamma injectivity, a universal arithmetic realization, pZ_p-valued means, a finite-level rank formula or the source’s cohomology identification."
+      ],
+      "proofSteps": [
+        "Use the actual ordinary Gamma factor map constructed in the preceding checkpoint.",
+        "Its proved odd relator has zero image; preserve addition to obtain the exact odd generator-value equation.",
+        "Its proved Frobenius relator has zero image; preserve subtraction to obtain invariance under the native multiplication-by-p homomorphism. Its proved zero-labelled generator identity supplies normalization.",
+        "Apply normalizedLift with all three conditions constructed from these preceding results. No extra Gamma distribution or kernel hypothesis is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-normalized-lift",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-odd-relation",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-frobenius-relation",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-zero-generator",
+        "mathlib:powMonoidHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzReducedMeanLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.gamma_generator_value",
+          "kind": "computation",
+          "statement": "The descended Gamma map retains the actual orbit mean on every generator."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.gamma_zero_label",
+          "kind": "degenerate",
+          "statement": "The descended Gamma map evaluates the now-zero labelled generator to zero."
+        },
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.gamma_additive_values",
+          "kind": "compatibility",
+          "statement": "The descended Gamma map is additive on actual quotient elements."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz577 odd and Frobenius-invariant mean",
+          "how": "Gives the precise homomorphism forced by the corrected established identities, while keeping arithmetic universality unclaimed."
+        },
+        {
+          "where": "Comparison with the ordinary Gamma quotient map",
+          "how": "The actual quotient projection produces a commuting square rather than merely matching unspecified representatives."
+        },
+        {
+          "where": "Future kernel and arithmetic realization analysis",
+          "how": "Fixes the domain whose kernel would need to be analyzed before any injectivity or universal arithmetic assertion."
+        }
+      ],
+      "api": [
+        {
+          "name": "grossKoblitzReducedMeanLift_of",
+          "role": "relation",
+          "statement": "The descended Gamma map sends the canonical generator labelled a to the established Gamma orbit mean at a."
+        },
+        {
+          "name": "grossKoblitzReducedMeanLift_comp_quotient",
+          "role": "relation",
+          "statement": "The descended Gamma map composed with the actual projection U(S,0)→U(S,0)/N equals the preceding ordinary Gamma factor map as additive homomorphisms."
+        },
+        {
+          "name": "grossKoblitzReducedMeanLift_unique",
+          "role": "universal-property",
+          "statement": "Every additive map from the normalized odd Frobenius quotient to K with those Gamma mean generator values equals the constructed descended map."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The descended Gamma map evaluates its generator",
+      "kind": "lemma",
+      "statement": "The descended Gamma map sends the canonical generator labelled a to the established Gamma orbit mean at a.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight.",
+        "For the Gamma specialization, p is any prime, X is the previously constructed actual subgroup D_p of p-integral rational classes, S consists of positive integers prime to p and w=0. The orbit endomorphism is the existing native multiplication-by-p homomorphism; no private Frobenius map is defined.",
+        "K is a characteristic-zero field, iota:Z_p→K is a unital ring map, and ell is additive on products of nonzero elements and annihilates positive-order roots of unity. The existing Morita Gamma mean and its ordinary factorization supply the values and all three kernel conditions. The Coleman/LAD logarithm boundary is retained.",
+        "The resulting Gamma homomorphism and its uniqueness establish factorization only. They do not prove Gamma injectivity, a universal arithmetic realization, pZ_p-valued means, a finite-level rank formula or the source’s cohomology identification."
+      ],
+      "proofSteps": [
+        "The normalized quotient lift evaluates to the preceding ordinary factor map.",
+        "Apply that factor map’s generator evaluation theorem. The actual integral-class carrier is the existing periodic-point carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzReducedMeanLift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.gamma_negative_label",
+          "kind": "compatibility",
+          "statement": "The negative-labelled generator evaluates to the negative mean."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift-comp-quotient",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma quotient square commutes",
+      "kind": "lemma",
+      "statement": "The descended Gamma map composed with the actual projection U(S,0)→U(S,0)/N equals the preceding ordinary Gamma factor map as additive homomorphisms.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight.",
+        "For the Gamma specialization, p is any prime, X is the previously constructed actual subgroup D_p of p-integral rational classes, S consists of positive integers prime to p and w=0. The orbit endomorphism is the existing native multiplication-by-p homomorphism; no private Frobenius map is defined.",
+        "K is a characteristic-zero field, iota:Z_p→K is a unital ring map, and ell is additive on products of nonzero elements and annihilates positive-order roots of unity. The existing Morita Gamma mean and its ordinary factorization supply the values and all three kernel conditions. The Coleman/LAD logarithm boundary is retained.",
+        "The resulting Gamma homomorphism and its uniqueness establish factorization only. They do not prove Gamma injectivity, a universal arithmetic realization, pZ_p-valued means, a finite-level rank formula or the source’s cohomology identification."
+      ],
+      "proofSteps": [
+        "Both maps agree definitionally through the native quotient lift construction.",
+        "This identifies the full homomorphisms on U, not only their values at chosen rational representatives."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzReducedMeanLift_comp_quotient"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.gamma_commuting_square",
+          "kind": "compatibility",
+          "statement": "Composing with the actual quotient projection recovers the preceding ordinary Gamma factor map."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The normalized Gamma factorization is unique",
+      "kind": "lemma",
+      "statement": "Every additive map from the normalized odd Frobenius quotient to K with those Gamma mean generator values equals the constructed descended map.",
+      "hypotheses": [
+        "X is any native additive commutative group, S a set of positive degrees and w a natural weight. Every permitted actual multiplication fiber is finite. U(S,w) is the already constructed native quotient of FreeAbelianGroup X by its weighted distribution relations, with delta(a) the actual quotient image of the free generator labelled a.",
+        "All relation subgroups and further quotients use native AddSubgroup.closure, subgroup suprema and QuotientAddGroup. Coefficients remain integers; no inversion of2 is performed. A is any native additive commutative coefficient group, including groups with2-torsion.",
+        "The parity parameter epsilon is an actual unit of Z: epsilon=1 gives even values, epsilon=−1 gives odd values. The relator is delta(−a)−epsilon*delta(a). In particular the negative label is not silently identified with the additive inverse of a generator.",
+        "The orbit parameter sigma is any native additive endomorphism of X. The orbit relators are delta(sigma(a))−delta(a). The construction imposes these labelled relations directly; it does not assume or assert that sigma induces a pre-existing endomorphism of the distribution quotient.",
+        "The normalized odd orbit subgroup is the sum of the odd parity subgroup, the orbit subgroup and the subgroup generated by delta(0). The last summand is imposed explicitly. Delta(0) is a free-labelled generator, not the identity of U. All zero-indicator and nonvanishing results below use ordinary weight0, not arbitrary positive weight.",
+        "For the Gamma specialization, p is any prime, X is the previously constructed actual subgroup D_p of p-integral rational classes, S consists of positive integers prime to p and w=0. The orbit endomorphism is the existing native multiplication-by-p homomorphism; no private Frobenius map is defined.",
+        "K is a characteristic-zero field, iota:Z_p→K is a unital ring map, and ell is additive on products of nonzero elements and annihilates positive-order roots of unity. The existing Morita Gamma mean and its ordinary factorization supply the values and all three kernel conditions. The Coleman/LAD logarithm boundary is retained.",
+        "The resulting Gamma homomorphism and its uniqueness establish factorization only. They do not prove Gamma injectivity, a universal arithmetic realization, pZ_p-valued means, a finite-level rank formula or the source’s cohomology identification."
+      ],
+      "proofSteps": [
+        "Apply normalized_hom_ext to compare all canonical labelled generators.",
+        "Use the candidate values and reducedMeanLift_of.",
+        "Uniqueness of this extension makes no assertion that the map has trivial kernel."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-reduced-mean-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-normalized-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzReducedMeanLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published199, definitions of the universal even and odd quotients immediately before Corollary4.15;200 torsion discussion. Full body179–202 read;199 page image reread1October2026.",
+          "match": "The two source relations are implemented by a native generated subgroup with an integer unit sign, recovering both source quotients at weight0. The same elementary quotient construction works on the preceding weighted relation group. The zero-indicator map is an independently proved control of the integral distinction: it detects a nonzero doubled-zero generator in the odd quotient. No cohomology or rank theorem is extracted from this control."
+        },
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published576–577, corrected ordinary mean, oddness and invariance under multiplication by p; full body and page images read.",
+          "match": "The established corrected Gamma mean supplies oddness, orbit invariance and its zero value. The existing ordinary factor map descends through the actual normalized relation subgroup. Source findingE18 remains in force, and no assertion of Gamma injectivity or arithmetic universality is taken from the printed discussion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedParityFrobeniusQuotientsTests.unique_reduced_gamma_extension",
+          "kind": "characterisation",
+          "statement": "The descended Gamma map is unique for its generator values, without an injectivity assertion."
+        }
+      ],
+      "acceptance": [
+        "Use actual native integer relation subgroups, quotient maps and free-labelled generators. The complete native proofs and exhaustive finite-target controls distinguish even and odd signs, zero labels, empty fibers and normalization. Zero-indicator nonvanishing is specific to ordinary weight0; no finite computation or quotient factorization certifies a rank, cohomology or analytic theorem."
+      ]
     }
   ],
   "requests": [
@@ -87854,7 +89689,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual p-integral rational-circle subgroup, finite prime-to-p fibers and Gamma mean factorization through the ordinary relation quotient are now planned. The map kills the zero, oddness and Frobenius relators. Next construct the further native quotients and their exact mapping properties, keeping the zero-labelled generator separate from oddness at2 and proving every kernel inclusion. Then extract Kubert finite-level relations with the required input-image condition, admissible generators and their generation proof, the intersection comparison and Cartan/rational rank lower bound. No Gamma injectivity, universal arithmetic realization or rank theorem follows from factorization. Preserve the p3,2/13 nonintegral-mean witness and the Coleman/LAD logarithm boundary. External[K-L] and the unidentified[L], the original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces and all18 gaps and16 requests remain; zero stages close.",
+        "The integral even/odd relation quotients, orbit relation subgroup, normalized odd orbit quotient and their exact kernel and uniqueness interfaces are now planned, including the Gamma mean descent and commuting quotient square. The ordinary zero-indicator control proves the zero-labelled odd generator is nonzero and killed by2; it does not identify all torsion. Next extract Kubert finite-level relations with their required input-image condition, distinguish the internal level subgroup from the intersection with global relations, and construct admissible generators and the generation proof. Then establish the Cartan/rational rank lower bound and the resulting intersection comparison, finite-level parity ranks and source Tate-cohomology conventions. No Gamma injectivity, universal arithmetic realization or finite-level freeness follows from the current factorization. Preserve the p3,2/13 nonintegral-mean witness, Coleman/LAD logarithm boundary, external[K-L] and unidentified[L] source boundaries, original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -87886,7 +89721,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual p-integral rational-circle subgroup, finite prime-to-p fibers and Gamma mean factorization through the ordinary relation quotient are now planned. The map kills the zero, oddness and Frobenius relators. Next construct the further native quotients and their exact mapping properties, keeping the zero-labelled generator separate from oddness at2 and proving every kernel inclusion. Then extract Kubert finite-level relations with the required input-image condition, admissible generators and their generation proof, the intersection comparison and Cartan/rational rank lower bound. No Gamma injectivity, universal arithmetic realization or rank theorem follows from factorization. Preserve the p3,2/13 nonintegral-mean witness and the Coleman/LAD logarithm boundary. External[K-L] and the unidentified[L], the original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces and all18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The integral even/odd relation quotients, orbit relation subgroup, normalized odd orbit quotient and their exact kernel and uniqueness interfaces are now planned, including the Gamma mean descent and commuting quotient square. The ordinary zero-indicator control proves the zero-labelled odd generator is nonzero and killed by2; it does not identify all torsion. Next extract Kubert finite-level relations with their required input-image condition, distinguish the internal level subgroup from the intersection with global relations, and construct admissible generators and the generation proof. Then establish the Cartan/rational rank lower bound and the resulting intersection comparison, finite-level parity ranks and source Tate-cohomology conventions. No Gamma injectivity, universal arithmetic realization or finite-level freeness follows from the current factorization. Preserve the p3,2/13 nonintegral-mean witness, Coleman/LAD logarithm boundary, external[K-L] and unidentified[L] source boundaries, original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -88436,36 +90271,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding is added. ExistingE18 continues to separate the corrected mean from the erroneous unweighted source identity.",
+    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. ExistingE18 and KubertE21–E26 remain explicit.",
     "validation": {
-      "nodes": 1339,
+      "nodes": 1368,
       "kinds": {
         "definition": 12,
-        "lemma": 664,
-        "construction": 116,
+        "lemma": 687,
+        "construction": 122,
         "theorem": 340,
         "comparison": 207
       },
-      "api": 930,
-      "packetTests": 2583,
-      "definitionConstructionTests": 541,
-      "typedExamples": 2586,
+      "api": 951,
+      "packetTests": 2627,
+      "definitionConstructionTests": 559,
+      "typedExamples": 2630,
       "planets": 24,
-      "baseline": 962,
-      "preservedWholeNodes": 1324,
-      "preservedBaseline": 960,
+      "baseline": 967,
+      "preservedWholeNodes": 1339,
+      "preservedBaseline": 962,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 15,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 24,
+      "newNodes": 29,
+      "newNamedDeclarations": 29,
+      "newTypedTests": 44,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1599,
-      "dependencyEdges": 7278,
+      "reachableNodes": 1628,
+      "dependencyEdges": 7357,
       "acyclic": true,
-      "baselineLeaves": 1125,
+      "baselineLeaves": 1130,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -88480,7 +90315,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 691312,
+      "readerWords": 707110,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -88506,23 +90341,20 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 48,
-      "scratchCompleteLemmas": 766,
+      "scratchCompleteDefinitions": 54,
+      "scratchCompleteLemmas": 789,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "oddAndFrobeniusRelations": 1122,
-        "actualSubgroupFibers": 5610,
-        "actualFiberPoints": 23976,
-        "ordinaryMeanRelations": 4161,
-        "unitDegreeFibers": 561,
-        "zeroClassFibers": 29,
-        "nonunitCardinalityControls": 1449,
-        "subgroupAdditionControls": 2500,
-        "freeGroupAdditionControls": 2500
+        "zeroIndicatorDistributionFibers": 60,
+        "weightedRelatorEvaluations": 19692,
+        "combinedKernelEquivalences": 15192,
+        "finiteTargetDistributions": 446,
+        "relationCosetEvaluations": 5762,
+        "nonzeroOddZeroLabelWitnesses": 20
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -88530,11 +90362,11 @@
       ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c",
+        "sourceSha256": "c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13",
         "modules": 3604,
-        "warnings": 4272,
+        "warnings": 4345,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,345 expected placeholder warnings across 3,604 pinned source modules. It includes all 29 new named declarations and 44 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -88544,7 +90376,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "0e115e20f5f0a26f6c9abcb3bc4a1f0550501e1eed1cbc5a3bcdd01ee3492ae8",
+      "sha256": "630f3c2309e657e8b01f4639bafd6113ca96ab87dcb1b226248721fc84d6ff25",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -88559,11 +90391,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 766,
+        "completeLemmas": 789,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "f7032af616ab054749f37eee7463da663cba8444c0cee04e02e52e6e5c723e6d"
+        "sha256": "4456ce1f24da75139b80e9c5a783748b7dee804ecb11ca247b654511c63c85ac"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -88701,17 +90533,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c",
+        "sourceSha256": "c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13",
         "modules": 3604,
-        "warnings": 4272,
+        "warnings": 4345,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,345 expected placeholder warnings across 3,604 pinned source modules. It includes all 29 new named declarations and 44 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "c309b18ac1de520a31b90587307beddf8b9d6d77",
+      "base": "c03e4cf88577f6f7e2431402d3fb2265dcfcd106",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -99142,6 +100974,53 @@
         "warnings": 4272,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "parityFrobeniusQuotients": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5406,
+      "previousHead": "0921c34ece94d2222df255931d89e2beca5b2031",
+      "previousMerge": "5070b147fbdc9932699a0e85faba922b6439f148",
+      "preservedWholeNodes": 1339,
+      "preservedBaseline": 962,
+      "preservedFindings": 26,
+      "newNodes": 29,
+      "reading": "Kubert179–202 was fully read previously; the page199 definitions of the even/odd quotients and the200 torsion discussion were reread, including the199 page image. Gross–Koblitz576–577 was read in full and supplies the odd Frobenius-invariant mean motivation under existing correctionE18. This extraction proves the relation quotients and their mapping properties, not the neighboring rank or cohomology conclusions. Native subgroup suprema and inclusions, quotient lift, finite-sum single-term reduction, ZMod2 negation and the native multiplication-by-n homomorphism were read completely at the pins. The native whole-tree search found no existing Kubert distribution/parity object; the preceding ownership audit and actual logarithm supplier interfaces are unchanged.",
+      "boundary": "The integral even/odd relation quotients, orbit relation subgroup, normalized odd orbit quotient and their exact kernel and uniqueness interfaces are now planned, including the Gamma mean descent and commuting quotient square. The ordinary zero-indicator control proves the zero-labelled odd generator is nonzero and killed by2; it does not identify all torsion. Next extract Kubert finite-level relations with their required input-image condition, distinguish the internal level subgroup from the intersection with global relations, and construct admissible generators and the generation proof. Then establish the Cartan/rational rank lower bound and the resulting intersection comparison, finite-level parity ranks and source Tate-cohomology conventions. No Gamma injectivity, universal arithmetic realization or finite-level freeness follows from the current factorization. Preserve the p3,2/13 nonintegral-mean witness, Coleman/LAD logarithm boundary, external[K-L] and unidentified[L] source boundaries, original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "7f5cc6b80c21c4e959c171d9073c84d936c8e366",
+      "sourceBoundary": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. ExistingE18 and KubertE21–E26 remain explicit.",
+      "publication": {
+        "base": "c03e4cf88577f6f7e2431402d3fb2265dcfcd106",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "zeroIndicatorDistributionFibers": 60,
+        "weightedRelatorEvaluations": 19692,
+        "combinedKernelEquivalences": 15192,
+        "finiteTargetDistributions": 446,
+        "relationCosetEvaluations": 5762,
+        "nonzeroOddZeroLabelWitnesses": 20
+      },
+      "numericalMethod": "Exact integer free-group relators evaluated in finite cyclic targets by exhaustive functions for cyclic domains of order1 through5. The controls compare complete-fiber weighted relators, parity and orbit equations, normalized kernels and evaluation on relation cosets. Mod2 zero-indicator witnesses distinguish the odd quotient from its normalization. These finite controls certify no infinite quotient rank, cohomology, p-adic Gamma value or injectivity claim; native Lean proofs separately establish the general interfaces.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13",
+        "modules": 3604,
+        "warnings": 4345,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,345 expected placeholder warnings across 3,604 pinned source modules. It includes all 29 new named declarations and 44 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
