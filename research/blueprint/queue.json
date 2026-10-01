@@ -35004,8 +35004,9 @@
     "REV-PAPER-YUN-ZHANG-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUN-ZHANG-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4091"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4091",
+   "finishedAt": "2026-10-01T20:06:05Z"
   },
   {
    "id": "REV-RT-PAPER-YUN-ZHANG-19",
