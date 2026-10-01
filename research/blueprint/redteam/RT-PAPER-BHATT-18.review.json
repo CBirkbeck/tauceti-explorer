@@ -1,0 +1,15 @@
+{
+ "redteam": "RT-PAPER-BHATT-18",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BHATT-18/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item almost-category is stated for 'an almost base (V,m) with m²=m and the required flatness of m⊗_V m', and its API AlmostElements.hom asserts '(N^a)_*=Hom_V(m,N)'. In that generality the right adjoint is Hom_V(m̃, N) with m̃ = m⊗_V m (Gabber–Ramero, (2.2.4) and Proposition 2.2.13). The two agree only when multiplication m̃ → m is an isomorphism, for instance when m is flat. I checked the counterexample. Let V be the valuation ring of the completion of F_p((t^{1/p^∞})), m its maximal ideal, W = V/(t) and n = mW = m/tV. Then n² = n, and by right exactness n ⊗_W n = (m⊗_V m)/(t·m) ≅ m/tm (since m is V-flat with m⊗m ≅ m² = m), which is W-flat as a base change of m. The multiplication m/tm → m/tV has kernel tV/tm ≅ V/m ≠ 0. So (W, n) satisfies the item's hypotheses, but the identity of ñ does not factor through ñ → n, and Hom_W(n, ñ) ≠ Hom_W(ñ, ñ). The fix is right: state the general API with Hom_V(m̃, N), and derive Hom_V(m, N) when m is flat (the perfectoid valuation case Bhatt uses, footnote 5). It is an extraction error, not a source erratum."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-18/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The extraction's item cohen-structure (missing, route 9, the new DirectSummandsAndBigCohenMacaulay) constructs the coefficient map W(k) → A0 for a complete regular local ring of mixed characteristic with perfect residue field. Its note says 'no layer plans the mixed-characteristic statement'. But the accepted PAPER-ANDRE-18-B route 4 (source DeformationAndDerivedPatchingAlgebra:R03.1, accepted) asks R03.1 to 'Add the exact Cohen presentation/compatibility', with items cohen-parameter-presentation (W(k)[[T_1,…,T_n]] → B finite for complete Noetherian local B with perfect residue field) and coefficient-ring-compatibility. R03.1 is the layer of complete local coefficient categories and residue-field extension. So the existence of the coefficient ring is planned twice. The fix is right: import the coefficient ring from R03.1, and keep only the regular-local presentation (A0 ≅ W(k)[[x_2,…,x_d]], or the p − f hypersurface form) as a consumer corollary or with R03.1, without a reverse dependency of R03.1 on the new roadmap."
+  }
+ ]
+}
