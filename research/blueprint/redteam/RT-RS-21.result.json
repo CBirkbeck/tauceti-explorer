@@ -1,0 +1,51 @@
+{
+  "redteam": "RT-RS-21",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-21",
+  "summary": "Two medium-severity ownership/interface omissions: the integral essential-vector specialization needed by AutomorphicCongruences L3 has no supplying contract, and the general GL_n global Fourier-Whittaker expansion needed by AL.3 is not assigned an owner distinct from R16.5's retained GL_2 construction. No lost native target, broken supplier path, graph cycle, changed Tau Ceti stage, or false checked positive pinned-library claim was found.",
+  "checked": [
+    "Audit commit 5e3762c44fbdaf9f40e434f7f11dc809769dcdc4: complete accepted RS-21.result.json (23 layers, 17 narrowings, 42 owners, 173 links), RS-21.md, REV-RS-21.md including all ten corrections, and RS-21.json's 23 leads/14 unordered pairs.",
+    "Both complete member READMEs and all 23 member stage descriptions; complete ModularForms anchor README and its stage contracts; complete sibling Part II READMEs AlgebraicModularFormsAndSerreWeights and ModularSymbolsPadicLFunctions. ClassFieldTheory was also read fully in the preceding job, and its Layer 14 contract rechecked here.",
+    "All selected supplier contracts: AA.0/AA.2; AF.0-AF.5; AL.0-AL.5; AS.2/AS.4/AS.6; ET.1/ET.3/ET.4/ET.6/ET.7a; RG2.4; R01.2/R01.3; R15.3/R15.5/R15.6; E1; ProfiniteCohomology Layers 0/1; QuadraticFormInvariants Layers 2/6D; InductionRestriction Layers 0/3a/7; ClassFieldTheory Layer 14; named ModularForms Layers 2/4/5/7/8/8G/11.",
+    "All 45 direct external consumer stage contracts in the actual assembled snapshot, plus related CompletedCohomology CC.0. Relevant owner/layer entries of RS-04/05/06/08/12/19/24/26/31 compared, not a second full review of those proposals. This session reviewed RS-04, not RS-21; RS-04 is a related input only and is not attacked.",
+    "All twelve reviewed GL2 AUDIT-14 rows and 28 reviewed supplier coverage rows individually read. No reviewed rows for SmoothRepresentationsOfLocalGroups, ET.6, RG2.4 or selected InductionRestriction layers at the audit snapshot. Unreviewed leads were not treated as implementation certificates.",
+    "Fresh actual build.assemble(require_distances=False) at the audit commit: 2907 stage records and 8322 edges; RS-21 inserts 138 links, skips none, and reapplies idempotently. All 173 proposal endpoints resolve and no proposed edge is a self-loop. Stale shared-checkout diagnostics were discarded.",
+    "Independent actual before/after assembly with RS-21 omitted/present: 2907 stages and 8185/8322 edges; all prior stages, edges and non-adjacency original stage payloads preserved. All 656 Tau Ceti stage payloads/scope metadata unchanged. Both full graphs acyclic including 51 pre-existing UPSTREAM endpoint placeholders. All effective narrowing metadata matches; every named supplier reaches the narrowed stage and every prior consumer.",
+    "Pinned source statements personally checked: TauCeti SmoothDiscrete.lean:225-380,525-574; Discrete.lean:135-200; HeckeRing Multiplication.lean:38-127 and Associativity.lean:365-390,457-488; Mathlib HeckeRing/Defs.lean:38-205, RepresentationTheory/Invariants.lean:15-98, RepresentationTheory/Induced.lean:65-178, CategoryTheory/Center/Basic.lean:1-94. All seven report file SHA-256 values freshly reproduced.",
+    "Targeted Whittaker/essential-vector/Casselman/Satake source-name searches across both pinned trees found no relevant implementation beyond unrelated bibliography. This is not a whole-library absence certificate.",
+    "Primary sources read 2026-09-30/2026-10-01: full selected Casselman 1995 sections 2.4 and 3.2; DHKM arXiv:2203.04929v2 introductory theorem statements and coefficient regimes, not complete proofs; Fouquet-Wan arXiv:2107.13726v3 selected Appendix A sections 6.1-6.2 including Propositions 6.8-6.9; Cogdell author PCMI notes section 1.1 and section 2.2.2. Extent and limits detailed in the report.",
+    "Publication inputs refreshed at e236453f6eb8bd7f94773ac63f42921b3b35fd40 after terminal access was restored: compare against the audit commit changes no RS-21 proposal, member document, selected supplier/consumer contract, related restructuring, atlas stage-edge extract or assembler source. Graph counts remain tied explicitly to the immutable audit commit.",
+    "The actual committed scripts/check_redteam.py checker passes on the saved result after access restoration. No Lean file requested or compiled; nothing claimed formalized. Earlier permission failures and publication checks are separately described in the report and PR."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-21/1",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-21.result.json: SR.5 kept scope; owner 'Nonarchimedean derivatives, integral co-Whittaker families and their local center action'; SR.5 -> AutomorphicCongruences:L3; compare R16.2",
+      "claim": "The L3 import is assigned to SR.5 without an essential-vector supplier theorem. SR.5 retains derivatives, co-Whittaker families and center/projective interpolation, not conductor-level invariant lines and coefficient specialization. R16.2 retains the local GL2 conductor/newvector theorem, but neither its scope nor the owner/export records provide the integral family comparison this consumer needs. Derivative base change and characteristic-zero newvector dimensions alone do not supply invariant-line base change.",
+      "evidence": "At audit commit 5e3762c44fbdaf9f40e434f7f11dc809769dcdc4, AutomorphicCongruences L3 says 'derivatives/co-Whittaker/essential vectors from SmoothRepresentationsOfLocalGroups' and requires FW Appendix A compatibility; SR.5 names no essential-vector theorem and its L3 link describes only derivatives/co-Whittaker families. Fouquet-Wan https://arxiv.org/pdf/2107.13726v3, Appendix A section 6.2, Propositions 6.8-6.9, printed pp.77-78, read 2026-10-01: invariant modules are 'free of rank 1' and their natural specialization map is an isomorphism, at the conductor-level subgroup under the preceding coefficient and unchanged-monodromy hypotheses. This is not the top-derivative base-change theorem.",
+      "fix": "Assign the coefficient-qualified integral essential-vector/invariant-line comparison to the canonical smooth-local family plan and add its precise export to L3. Preserve R16.2 as owner of the field-valued GL2 newvector case; when reusing it, put the integral comparison in a later distinct substage consuming SR.5 and R16.2, not a reverse R16.2 -> SR.5 link, which would cycle. Transcribe/reconcile the source coefficient setting and minimal-monodromy restrictions; do not assert arbitrary invariant base change. Add requests or declaration-level nodes, the invariant-line map API and specialization tests in the owning blueprint, not theorem copies in L3 or edits to atlas base files."
+    },
+    {
+      "id": "RT-RS-21/2",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-21.result.json: R16.5 keeps/reason; AL.3 -> R16.5 link; global-expansion owner ledger",
+      "claim": "The proposal treats the global GL2 Whittaker expansion as new retained R16.5 work, while importing general GL_n x GL_m cuspidal global unfolding from AL.3 without assigning the general Fourier-Whittaker expansion prerequisite an explicit owner or recording the general/special comparison. Local SR.5 functors do not construct the global adelic expansion. If AL.3 implicitly includes the general theorem, the GL2 case must be reuse/comparison; otherwise the general-rank proof has a missing supplier. The ownership boundary leaves these alternatives unresolved.",
+      "evidence": "At audit commit 5e3762c44fbdaf9f40e434f7f11dc809769dcdc4, R16.5 retains 'GL₂ global Whittaker expansion' and says 'the global expansion and converse theorem remain new'. AL.3 promises 'the global unfolding for cuspidal data' for GL_n x GL_m, but no proposal owner covers the general expansion. Cogdell https://people.math.osu.edu/cogdell.1/pcmi-www.pdf, L-functions and Converse Theorems for GL_n, section 1.1 Theorem 1.1, printed p.7, and section 2.2.2, printed pp.20-21, read 2026-10-01: the general adelic expansion has 'convergence absolute and uniform on compact subsets'; unfolding substitutes a Fourier expansion before justified summation/integration interchange. The retained n=2 construction does not supply arbitrary n.",
+      "fix": "Name one owner for the general cuspidal GL_n adelic Fourier-Whittaker expansion and convergence/interchange API, naturally a lower AL.3 component or canonical global automorphic component feeding AL.3. SR.5 retains only its nonarchimedean local functors. Make R16.5's GL2 work a comparison/application to integral models and classical normalization, retaining its distinct converse theorem. Record the owner/export in the proposal and route declaration-level nodes or requests into its owner's blueprint. Use AL.3 -> R16.5; do not add the reverse edge, which would cycle."
+    }
+  ],
+  "upstreamNotes": [],
+  "audit": {
+    "commit": "5e3762c44fbdaf9f40e434f7f11dc809769dcdc4",
+    "publicationInputCheckCommit": "e236453f6eb8bd7f94773ac63f42921b3b35fd40",
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "dates": ["2026-09-30", "2026-10-01"],
+    "independence": "Neither RS-21 author nor REV-RS-21 reviewer; related prior RS-04 review disclosed.",
+    "scope": "Structural/ownership red team, not full source-proof closure of all advertised targets."
+  }
+}
