@@ -48134,8 +48134,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5045"
+   "state": "pending",
+   "note": "released on GitHub issue #5045"
   },
   {
    "id": "REV-FIX-RT-BP-EllipticCurveModularity",
