@@ -33299,8 +33299,8 @@
     "REV-PAPER-LAWRENCE-SAWIN-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #4039"
+   "state": "external",
+   "note": "claimed on GitHub issue #4039"
   },
   {
    "id": "REV-RT-PAPER-LAWRENCE-SAWIN-25",
@@ -39066,8 +39066,9 @@
     "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4236"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4236",
+   "finishedAt": "2026-10-01T16:43:46Z"
   },
   {
    "id": "REV-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
@@ -40499,7 +40500,8 @@
     "REV-PAPER-NEWTON-THORNE-21-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4298"
   },
   {
    "id": "REV-RT-PAPER-NEWTON-THORNE-21-B",
