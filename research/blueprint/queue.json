@@ -34593,7 +34593,8 @@
     "REV-PAPER-LI-LIU-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LI-LIU-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5059"
   },
   {
    "id": "REV-RT-PAPER-LI-LIU-21",
@@ -39964,8 +39965,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5527"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5527",
+   "finishedAt": "2026-10-01T23:41:58Z"
   },
   {
    "id": "RT-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -53893,7 +53895,8 @@
     "REV-FIX-RT-AREA-ktheory-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5541"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1~2",
