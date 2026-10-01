@@ -2,7 +2,7 @@
 
 Polylogarithms, explicit regulators and Zagier statements, planned from Goncharov and Rudenko's weight-four paper (arXiv v3 and the final v5), Goncharov's Arakelov-motivic-complexes paper, Weibel's K-book, Burgos Gil-Feliu-Takeda for the comparison with Beilinson's regulator, and Neukirch-Schmidt-Wingberg for Leopoldt. P.1 builds Li_n from its series and its principal branch on C - [1, infinity), with the jump across the cut proved first, then Zagier's L_n (n >= 2) with the Bernoulli coefficients, its continuity, and the Bloch-Wigner function with its differential, positivity and five-term relation. P.2 descends D through K3BlochGroups V.3's convention, assembles the regulator of a number field, builds the Bloch-Wigner cocycle and compares it with the Borel class up to a rational scalar owned by BorelRegulators R.7, with the volume formula and certified numerics. P.3 builds the explicit weight <= 3 complexes on B_2 and the trilogarithm group, their residues, the maps from K-theory and the weight-three special value. P.4 builds the inductive groups B_n and delta_n by one recursion, the general complex, the condition *_n, the Zagier determinant with its normalisation in every weight, Zagier's three propositions and the weight-four theorem. P.5 plans the curve complexes, the weight-two form and its classes, Goncharov's regulator into his Deligne complex with its comparison with Beilinson's regulator, the Chow polylogarithm, the Arakelov complex, the Chow dilogarithm with the reciprocity conjecture and its three proved cases, and the weight-three curve regulator. P.6 states Leopoldt with the p-adic regulator and collects the tests. Nothing here is formalised; implementationStatus is unchecked throughout.
 
-FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. These are planned mathematical nodes, with source and implementation gaps. This revision and the suggested Lean prototypes are unchecked and not compiled; it requires an independent fix review.
+FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. These are planned mathematical nodes, with source and implementation gaps. This revision and the suggested Lean prototypes are unchecked and not compiled; it requires an independent fix review. REV-FIX-RT-AREA-topology~2 left the packet at needs_changes until this document agreed with its corrections to P.2's ideal-tetrahedron volume; FIX-RT-AREA-topology~3 makes that synchronisation (the volume node, P.2's coverage, the Milnor gap, the layer-7 request, and the new ideal-geometry gap, layer-8 request and Part II proposal), for REV-FIX-RT-AREA-topology~3 to check.
 
 ## Scope and current status
 
@@ -240,8 +240,9 @@ FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. The
 **remaining**
 
 - The exact scalar and sign of the Borel comparison (Goncharov Sections 5.4 and 5.5; BorelRegulators R.7)
-- Goncharov Section 7 and Milnor's volume formula (GeometricTopology layer 7)
+- Goncharov Section 7 and the proof of Milnor's volume formula, owned by P.2
 - The expansion of Li_2 near the unit circle (gap)
+- The ideal-boundary/oriented-tetrahedron/finite-region-volume interface, beyond the stated GeometricTopology layers 7 and 8; early Part II supplier requested.
 
 ---
 
@@ -423,6 +424,24 @@ FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. The
 **title:** RT-AREA-ktheory-2/23–27: retained mathematics and common foundations
 
 **detail:** P.2 retains oriented ideal-tetrahedron volume and Bloch–Wigner comparison, importing the Tau Ceti geometric carrier; QT.5 applies this theorem. P.5 retains Goncharov’s distinct current-complex model and its comparison to the requested early Deligne interface. P.6 imports the early I.2 completed-unit proposition while retaining regulator equivalence, the abelian theorem and tests; no weak/strong Leopoldt theorem is deleted. The V.3 analytic reserved-ID correction is maintainer work; actual P.1/P.2 analytic owners already exist.
+
+---
+
+**kind:** propose-early-geometric-extension
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+- ArithmeticQuantumTopology
+- tauceti:TauCetiRoadmap/GeometricTopology
+
+**title:** Early ideal-tetrahedron geometry in GeometricTopology, Part II
+
+**detail:** REV-FIX-RT-AREA-topology~2 checks the supplier contract, not upstream mathematics. Layers 7 and 8 state the metric/measure foundations and homogeneous model but not ideal-boundary or ideal-tetrahedron geometry. P.2 needs that geometry before its Milnor/Lobachevsky theorem, which QT.5 consumes; assigning it to the whole QT.5 stage would create a cycle.
+
+**proposal:** Coordinate with the GeometricTopology Part II extension of RT-AREA-topology/8. Put the ideal boundary, oriented geodesic tetrahedra, finite-region-volume and isometry/subdivision interface in an early geometric prefix importing layers 7 and 8, before Polylogarithms P.2 and QT.5 manifold-level comparisons. P.2 owns the formula vol I = D(r); QT.5 owns manifold Bloch/volume comparisons. A maintainer/design job must assign the extension's actual ids; none is invented here.
 
 ---
 
@@ -1376,7 +1395,7 @@ For x in the complex projective line and g_1, ..., g_4 in GL_2(C), set c_x(g_1, 
 
 `Polylogarithms:P.2/hyperbolic-volume` — theorem
 
-For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.
+For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. The Riemannian metric/volume foundations and the model hyperbolic geometry are requested from GeometricTopology layers 7 and 8. The ideal-boundary identification with the complex projective line, oriented ideal tetrahedra and their finite-volume geometry require an early extension of those suppliers, recorded as a gap and a GeometricTopology Part II proposal. The manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.
 
 **realises**
 
@@ -1385,14 +1404,14 @@ For distinct points z_1, ..., z_4 of the complex projective line, the boundary o
 **hypotheses**
 
 - The four points are distinct points of the complex projective line.
-- The volume is the Riemannian volume of hyperbolic 3-space of the GeometricTopology roadmap; Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function is not in any source read and is recorded as a gap.
+- The ambient volume is the Riemannian volume for the curvature -1 metric. GeometricTopology layers 7 and 8 supply the metric/measure foundations and model geometry, but do not state the ideal-boundary, ideal-tetrahedron and finite-region-volume interface. That early geometric extension and P.2's Milnor/Lobachevsky comparison proof are separate recorded gaps; closed-manifold Mostow invariance is not used to fill either gap.
 
 **proofSteps**
 
 - Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).
 - By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.
 - Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.
-- Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2.
+- Import the Riemannian metric and volume foundations from GeometricTopology layer 7 and the hyperbolic model geometry from layer 8. Obtain the ideal-boundary/oriented-tetrahedron/finite-region-volume interface from an early GeometricTopology Part II extension (gap), independent of QT.5's manifold Bloch and volume comparisons. Prove the Milnor/Lobachevsky tetrahedron identity only in P.2, retaining its proof gap. ArithmeticQuantumTopology QT.5 consumes the identity; it is not an input to P.2.
 
 **acceptance**
 
@@ -4475,7 +4494,7 @@ The four tests the roadmap requires. (1) Five-term, exact: at x = i/2, y = (1 + 
 
 - Polylogarithms:P.2/hyperbolic-volume
 
-**detail:** The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layer 7 supplies the ambient hyperbolic geometry and Riemannian volume, not this formula. QT.5 imports the completed P.2 identity when available and does not close this gap.
+**detail:** The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layers 7 and 8 supply the ambient metric/measure foundations and model geometry, not this formula; the separate ideal-geometry extension is recorded below. QT.5 imports the completed P.2 identity when available and does not close this gap.
 
 ---
 
@@ -4601,6 +4620,16 @@ The four tests the roadmap requires. (1) Five-term, exact: at x = i/2, y = (1 + 
 - Polylogarithms:P.5/goncharov-deligne-complex-comparison
 - Polylogarithms:P.5/regulator-induces-beilinson
 - Polylogarithms:P.5/unramified-weight-two-class
+
+---
+
+**title:** Ideal-boundary and oriented ideal-tetrahedron geometry beyond GeometricTopology layers 7 and 8
+
+**neededBy**
+
+- Polylogarithms:P.2/hyperbolic-volume
+
+**detail:** The stated upstream contracts provide Riemannian volume, curvature -1 metric structures and the homogeneous hyperbolic model, but do not construct its ideal boundary as the complex projective line, oriented geodesic ideal tetrahedra from distinct boundary points, finite Riemannian volume of those regions, or the geometric isometry/permutation/subdivision rules used by the volume identity. These inputs need an early geometric prefix of GeometricTopology, Part II: cusped hyperbolic 3-manifolds and ideal triangulations (RT-AREA-topology/8). The prefix must precede P.2 and QT.5's manifold-volume comparison, so importing all of QT.5 would be circular. P.2 still owns Milnor/Lobachevsky's comparison with D; this gap is not an upstream mathematical finding or a claim that the extension already exists.
 
 ---
 
@@ -4818,7 +4847,7 @@ The four tests the roadmap requires. (1) Five-term, exact: at x = i/2, y = (1 + 
 
 **supplier:** tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume
 
-**need:** Hyperbolic 3-space with its curvature -1 Riemannian metric and volume, its ideal boundary and oriented ideal tetrahedra. P.2 owns the comparison of tetrahedron volume with the Lobachevsky function and Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.
+**need:** The curvature -1 Riemannian metric and volume-measure foundations stated in layer 7, for use with the hyperbolic model of layer 8. The ideal-boundary/oriented-ideal-tetrahedron interface is an additional early Part II extension recorded as a gap, not an existing layer-7 result. P.2 owns the Milnor/Lobachevsky comparison of tetrahedron volume with the Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.
 
 **neededBy**
 
@@ -4834,6 +4863,16 @@ The four tests the roadmap requires. (1) Five-term, exact: at x = i/2, y = (1 + 
 
 - Polylogarithms:P.6/leopoldt-statement
 - Polylogarithms:P.6/leopoldt-equivalence
+
+---
+
+**supplier:** tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition
+
+**need:** The model hyperbolic 3-geometry and its isometry action stated in layer 8, built on layer 7's metric/volume foundations. This does not supply the ideal boundary, oriented ideal tetrahedra or their finite-region-volume interface; the separate Part II proposal/gap states that extension. The tetrahedron-volume identity stays in P.2.
+
+**neededBy**
+
+- Polylogarithms:P.2/hyperbolic-volume
 
 ---
 
