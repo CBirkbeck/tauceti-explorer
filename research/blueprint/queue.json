@@ -33383,8 +33383,9 @@
     "REV-PAPER-CESNAVICIUS-SCHOLZE-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CESNAVICIUS-SCHOLZE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4044"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4044",
+   "finishedAt": "2026-10-01T05:17:12Z"
   },
   {
    "id": "REV-RT-PAPER-CESNAVICIUS-SCHOLZE-24",
