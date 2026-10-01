@@ -37,8 +37,12 @@ K2SymbolsBrauer T.5), the twisted coefficient modules (T.7), K₃ of the integer
 and of the Gaussian rationals (K3BlochGroups V.5), the norm residue map
 (MotivicEtaleKTheory M.3), the localisation theorem (ArithmeticKTheory N.2) and
 the Birch-Tate formula (SpecialValuesBirchTate B.3, which since the fix of RT-AREA-ktheory-1 imports
-N.8's real-quadratic certificate rather than being imported by N.8). In the N.7 section these appear
-as `True` placeholders; the N.8 section records them as `not stated here` comments.
+N.8's real-quadratic certificate rather than being imported by N.8). Unavailable K-group, class-action and eigenspace interfaces are recorded as exact
+mathematical comments with their suppliers, never as `True` or arbitrary carrier
+placeholders. The N.8 comments and N.6 certificate ownership are preserved.
+Vandiver's predicate is imported in the plan from IntegralIwasawaTheory L3;
+that owner has no published L3 Lean declaration at this baseline, so no second
+predicate or nonexistent module import is declared here.
 -/
 import Mathlib.NumberTheory.Bernoulli
 import Mathlib.Algebra.Squarefree.Basic
@@ -46,6 +50,9 @@ import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.NumberTheory.NumberField.Cyclotomic.Ideal
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
+import Mathlib.Algebra.GroupWithZero.Units.Fintype
 import Mathlib.NumberTheory.NumberField.DedekindZeta
 import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
@@ -138,31 +145,99 @@ theorem kummer_criterion (p : ℕ) (hp : p.Prime) (hodd : Odd p) :
       ∃ k ∈ Finset.Icc 1 ((p - 3) / 2), (p : ℤ) ∣ (bernoulli (2 * k)).num := by
   sorry
 
-/-- N.7/eigenspaces-and-herbrand-ribet. The projectors need `(l-1)⁻¹`, which exists
-mod `l`; an integral statement using them would be wrong. Herbrand–Ribet: for
-`1 ≤ k ≤ (l-3)/2`, `l` divides the numerator of `B_{2k}` (the source's `B_k`) iff the
-eigenspace of index `l - 2k` is nonzero. -/
-def eigenspace (l : ℕ) (j : ℕ) : Type := by sorry
+/- `ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet`:
+eigenspace and herbrand_ribet are not declared here. The missing interface is
+the canonical G-action on P = Pic(𝓞_F[1/l])/l Pic(𝓞_F[1/l]), F = ℚ(ζ_l),
+G = Gal(F/ℚ), as a ZMod l-module, with cyclotomic character χ.
+N.7 owns this class-action/eigenspace construction. For j modulo l−1 set
+P^[j] = {x ∈ P | ∀ σ ∈ G, σ x = χ(σ)^j • x}. The projectors divide by l−1,
+which is invertible in ZMod l, not in ℤ.
+For l an odd prime and 1 ≤ k ≤ (l−3)/2, Herbrand–Ribet asserts
+(l : ℤ) ∣ (bernoulli (2*k)).num ↔ P^[l−2*k] ≠ 0.
+No arbitrary Type parameter or unconnected eigenspace stub can state this theorem.
+Tests: a regular prime has P = 0; for l = 37 and k = 16 the character
+index is 5 and the component is ℤ/37. The original proof-source gap remains.
+Source: Weibel VI.10.8.1, printed p. 532 (PDF p. 540). -/
 
-theorem herbrand_ribet (l k : ℕ) : True := by sorry
+/- `ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime`:
+tameKernel_no_l_torsion is not stated here; for an ODD REGULAR prime l and
+F = ℚ(ζ_l), K₂(𝓞_F)[l^∞] = 0, and inverting the unique prime above l adds
+no l-primary residue-unit term. Needs the genuine tame-kernel/K₂ carrier
+and localisation sequence (supplier: K2SymbolsBrauer T.5), twists (T.7)
+and Tate comparison (MotivicEtaleKTheory M.3); N.7 owns the application.
+Test: l = 5; not asserted for irregular primes. No K-group is invented.
+Source: Weibel VI.8.3.2, printed p. 514 (PDF p. 522). -/
 
-/-- N.7/tame-kernel-vanishing-at-a-regular-prime: for an odd regular prime `l` the
-`l`-primary part of the tame kernel of `ℚ(ζ_l)` vanishes; and inverting the unique
-prime above `l` adds no `l`-primary residue term, because that residue field is
-`𝔽_l`, whose unit group has order `l-1`. -/
-theorem tameKernel_no_l_torsion (l : ℕ) [Fact (Nat.Prime l)] : True := by sorry
+/-- `ArithmeticKTheory:N.7/residue-field-units-prime-to-l`.
+For any maximal ideal P above l in ℚ(ζ_l), the actual quotient field has l
+elements and its units have l−1 elements. Primality alone suffices; in
+particular l = 2 is allowed, and neither oddness nor regularity is assumed.
+The proof uses cyclotomic inertia degree 1 / absolute norm l and Nat.card_units;
+it does not use K-theoretic vanishing. -/
+theorem residue_field_units_prime_to_l
+    (l : ℕ) [Fact (Nat.Prime l)]
+    (P : Ideal (NumberField.RingOfIntegers (CyclotomicField l ℚ)))
+    [P.IsMaximal] [P.LiesOver (Ideal.span {(l : ℤ)})] :
+    Nat.card ((NumberField.RingOfIntegers (CyclotomicField l ℚ) ⧸ P)ˣ) = l - 1 ∧
+      ¬ l ∣ Nat.card ((NumberField.RingOfIntegers (CyclotomicField l ℚ) ⧸ P)ˣ) := by
+  sorry
 
-theorem residue_field_units_prime_to_l (l : ℕ) [Fact (Nat.Prime l)] : True := by sorry
+/-- Residue-unit test l = 2: the multiplicative group has one element, not two. -/
+example (P : Ideal (NumberField.RingOfIntegers (CyclotomicField 2 ℚ)))
+    [P.IsMaximal] [P.LiesOver (Ideal.span {(2 : ℤ)})] :
+    Nat.card ((NumberField.RingOfIntegers (CyclotomicField 2 ℚ) ⧸ P)ˣ) = 1 := by
+  sorry
 
-/-- N.7/regular-prime-torsion-consequences: Proposition 10.5 and Theorem 10.6. -/
-theorem even_K_no_l_torsion (l i : ℕ) : True := by sorry
+/-- Residue-unit test l = 5: order four, hence no 5-primary contribution. -/
+example (P : Ideal (NumberField.RingOfIntegers (CyclotomicField 5 ℚ)))
+    [P.IsMaximal] [P.LiesOver (Ideal.span {(5 : ℤ)})] :
+    Nat.card ((NumberField.RingOfIntegers (CyclotomicField 5 ℚ) ⧸ P)ˣ) = 4 := by
+  sorry
 
-theorem modl_K_free_over_bott (l : ℕ) : True := by sorry
+/- `ArithmeticKTheory:N.7/regular-prime-torsion-consequences`:
+even_K_no_l_torsion is not stated here: for l an odd regular prime and i ≥ 1,
+K_{2i}(ℤ)[l^∞] = 0. The only l-primary odd torsion is the Harris–Segal summand
+(ℤ/w_i(ℚ))_(l) in K_{2i−1}(ℤ), when (l−1) ∣ i.
+Needs actual higher K-groups (GeneralAlgebraicKTheory), arithmetic descent
+(ArithmeticKTheory N.5/N.6), and the w-invariant of N.7; N.7 owns the consequence.
+Source: Weibel VI.10.5, printed p. 530 (PDF p. 538).
 
-/-- N.7/vandiver-separation: stated as a CONJECTURE and never assumed. -/
-def VandiverConjecture (l : ℕ) [Fact (Nat.Prime l)] : Prop := by sorry
+modl_K_free_over_bott is not stated here: for l an odd regular prime,
+K_*(ℤ[1/l]; ℤ/l) is free graded over (ℤ/l)[β^(l−1)], |β^(l−1)| = 2l−2.
+Its (l+3)/2 generators are 1 in degree 0, v in degree 2l−3, and y_k in
+degree 4k+1 for 0 ≤ k ≤ (l−3)/2. Needs genuine finite-coefficient graded
+K-theory and Bott action (ArithmeticKTheory N.5/N.6), not an arbitrary module.
+Test l = 5: degrees 0, 1, 5, 7 and ranks 1,1,0,0,0,1,0,1 modulo 8.
+Source: Weibel VI.10.6, printed pp. 531–532 (PDF pp. 539–540). -/
 
-theorem vandiver_iff_K4i_vanishes : True := by sorry
+/- `ArithmeticKTheory:N.7/vandiver-separation`:
+VandiverConjecture is not a second definition here. Import the predicate
+Vandiver(l) from its single owner IntegralIwasawaTheory:L3. Its exact contract,
+for a prime l, in the pinned Mathlib vocabulary is
+  ¬ l ∣ NumberField.classNumber
+    (NumberField.maximalRealSubfield (CyclotomicField l ℚ)).
+This condition is expressible, not an unknown Prop. No L3 Lean module/predicate
+has yet been published, so this file does not invent an import or redefine it.
+L3 supplies transport from its ℚ(μ_l)^+ model to this intrinsic real subfield.
+N.7 owns the comparison with the sum of odd-character components of Pic(𝓞_F)/l
+(equivalently conjugation acts by −1), not the imported predicate.
+
+vandiver_iff_K4i_vanishes is not stated here; needs genuine K-groups and the
+owner-supplied predicate. The GLOBAL conjecture (Vandiver(l) for every odd prime,
+with regular primes automatic) is equivalent to
+∀ i ≥ 2, K_{4i}(ℤ) = 0. A condition at a single prime does not imply this global
+vanishing. K₄(ℤ) = 0 is unconditional and imported, not an instance of the open
+conjecture. Unconditionally the source records that these higher groups have
+order a product of irregular primes > 10^8; the bound is historical to this source.
+Suppliers: IntegralIwasawaTheory L3 (predicate), ArithmeticKTheory N.5/N.6
+(arithmetic K-groups); N.7 owns the comparison and conditional consequence.
+Sources: Weibel VI.10.8, p. 532 (PDF p. 540), and the paragraph before
+Table 10.1.1, p. 527 (PDF p. 535). Vandiver is not silently assumed. -/
+
+/-- The pinned real-subfield carrier has a genuine NumberField instance.
+This checks the condition's carrier, not Vandiver's conjecture. -/
+example (l : ℕ) :
+    NumberField (NumberField.maximalRealSubfield (CyclotomicField l ℚ)) := inferInstance
 
 /-! ## N.8 Certified examples
 

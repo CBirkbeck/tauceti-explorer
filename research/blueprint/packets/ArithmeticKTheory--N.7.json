@@ -7,7 +7,7 @@
   "ArithmeticKTheory:N.7",
   "ArithmeticKTheory:N.8"
  ],
- "summary": "The blueprint for the last two layers of the K-theory of number fields and S-integers: N.7, regular primes and Bernoulli numbers, and N.8, certified examples. Fifteen nodes written from one source, Weibel's K-book in the author-hosted draft of 29 August 2013, whose hash reproduces the one three other packets of this programme already record, so this is the same file they cite. The reviewed audit AUDIT-27 was read first. It records both layers as not built and the pinned index confirms it: Mathlib has the Bernoulli numbers in both conventions with the conversion lemma, cyclotomic extensions, class numbers, ramification and inertia, the unit rank, the places and the Dedekind zeta function, and Tau Ceti has an extensive quadratic-field development; but neither library defines a regular prime, neither mentions Vandiver, and no K-group above the zeroth exists in either. The audit also records three duplications for N.8, against SpecialValuesBirchTate B.3, K2SymbolsBrauer T.5 and K3BlochGroups V.5, and every computation those layers own is imported here with its owner named: the second K-group of the integers and of the rationals, the vanishing for a finite field, the third K-group of the integers and of the Gaussian rationals; the Birch–Tate check itself is B.3's, which imports N.8's certificate. What this packet owns is what is left: the convention discipline for the Bernoulli numbers, the invariant w_i and its value over the rationals, the definition of a regular prime with Kummer's criterion and the eigenspace decomposition, the vanishing of the l-primary tame kernel at an odd regular prime with the ramification argument that answers the S-integer question, the torsion consequences with their explicit degrees, Vandiver's conjecture kept separate from every unconditional statement, and for N.8 the format of a certified example, which instantiates ArithmeticKTheory N.6's certificate engine (independent upper and lower bounds) and carries the labelling rule that an order deduced from the Birch-Tate formula is a corollary and not a test of it; the certified examples N.8 keeps — K₂(ℤ[i]) = 0, the tame kernel of the real quadratic field ℚ(√5), exported to SpecialValuesBirchTate B.3 for its Birch–Tate check, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree — while K₀(ℤ), K₁(ℤ), K₂(ℤ) and K₂(ℚ) are imported from KTheoryLowDegrees Z.6, U.6 and K2SymbolsBrauer T.5 (RT-AREA-ktheory-1/9, /11). Nothing is claimed to be formalised and every implementationStatus is unchecked.",
+ "summary": "The blueprint for the last two layers of the K-theory of number fields and S-integers: N.7, regular primes and Bernoulli numbers, and N.8, certified examples. Fifteen nodes written from one source, Weibel's K-book in the author-hosted draft of 29 August 2013, whose hash reproduces the one three other packets of this programme already record, so this is the same file they cite. The reviewed audit AUDIT-27 was read first. It records both layers as not built and the pinned index confirms it: Mathlib has the Bernoulli numbers in both conventions with the conversion lemma, cyclotomic extensions, class numbers, ramification and inertia, the unit rank, the places and the Dedekind zeta function, and Tau Ceti has an extensive quadratic-field development; but neither library defines a regular prime, neither mentions Vandiver, and no K-group above the zeroth exists in either. The audit also records three duplications for N.8, against SpecialValuesBirchTate B.3, K2SymbolsBrauer T.5 and K3BlochGroups V.5, and every computation those layers own is imported here with its owner named: the second K-group of the integers and of the rationals, the vanishing for a finite field, the third K-group of the integers and of the Gaussian rationals; the Birch–Tate check itself is B.3's, which imports N.8's certificate. What this packet owns is what is left: the convention discipline for the Bernoulli numbers, the invariant w_i and its value over the rationals, the definition of a regular prime with Kummer's criterion and the eigenspace decomposition, the vanishing of the l-primary tame kernel at an odd regular prime with the ramification argument that answers the S-integer question, the torsion consequences with their explicit degrees, Vandiver's conjecture kept separate from every unconditional statement, and for N.8 the format of a certified example, which instantiates ArithmeticKTheory N.6's certificate engine (independent upper and lower bounds) and carries the labelling rule that an order deduced from the Birch-Tate formula is a corollary and not a test of it; the certified examples N.8 keeps — K₂(ℤ[i]) = 0, the tame kernel of the real quadratic field ℚ(√5), exported to SpecialValuesBirchTate B.3 for its Birch–Tate check, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree — while K₀(ℤ), K₁(ℤ), K₂(ℤ) and K₂(ℚ) are imported from KTheoryLowDegrees Z.6, U.6 and K2SymbolsBrauer T.5 (RT-AREA-ktheory-1/9, /11). Nothing is claimed to be formalised and every implementationStatus is unchecked. FIX-RT-BP-ArithmeticKTheory--N.7: honest signatures for available arithmetic carriers, exact supplier-labelled comments for unavailable K-theory and class-action interfaces, a separate residue-unit lemma, and the L3 Vandiver import contract. All prior source/certificate gaps and the needs_changes review are retained.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -191,6 +191,48 @@
     "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
     "provides": "Every prime of the ring of integers of the p-th cyclotomic field lying over p equals (ζ − 1): the prime above p is unique.",
     "checked": "Exact statement read at the Mathlib pin 082e2d37 by the reviewer on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:NumberField.maximalRealSubfield",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+    "provides": "The intrinsic maximal real subfield; supplies the carrier in L3's imported Vandiver condition, not the conjecture.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:NumberField.of_subfield",
+    "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+    "provides": "A subfield of a number field is a number field, allowing its class number in the Vandiver import contract.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "provides": "For p prime and Q(mu_(p^(k+1))), the ideal (zeta−1) has absolute norm p. At k=0, after rewriting p^1=p, this computes the residue cardinality in Q(mu_p).",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:Ideal.absNorm_apply",
+    "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+    "provides": "For an infinite finite-free integral ring, absolute ideal norm is the cardinality of its quotient, via Submodule.cardQuot.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:Submodule.cardQuot_apply",
+    "module": "Mathlib/RingTheory/Ideal/Norm/AbsNorm.lean",
+    "provides": "The natural-number cardinality of the quotient is cardQuot; this identifies the actual ideal quotient cardinality, not a replacement carrier.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:Nat.card_units",
+    "module": "Mathlib/Algebra/GroupWithZero/Units/Fintype.lean",
+    "provides": "For a group with zero, Nat.card of its units is Nat.card of the carrier minus one; applies to the genuine quotient field.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
+   },
+   {
+    "ref": "mathlib:Ideal.Quotient.field",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
+    "provides": "The quotient of a commutative ring by a maximal ideal has a Field structure; noncomputable abbrev, not an automatic instance.",
+    "checked": "Exact declaration and its surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-01 (Codex — codex-a71f92)."
    }
   ]
  },
@@ -682,6 +724,53 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "ArithmeticKTheory:N.7/residue-field-units-prime-to-l",
+   "parentStageId": "ArithmeticKTheory:N.7",
+   "realises": [
+    "ArithmeticKTheory:N.7"
+   ],
+   "title": "The residue field above a cyclotomic prime has prime-to-l unit order",
+   "kind": "lemma",
+   "statement": "Let l be a prime, F = Q(mu_l), and P a maximal ideal of its ring of integers lying over (l) in Z. Then the actual quotient field k(P) = O_F/P has l elements, its multiplicative unit group has l−1 elements, and l does not divide that order. No regularity or oddness is assumed.",
+   "hypotheses": [
+    "l is prime (including l=2); F is the l-th cyclotomic field over Q.",
+    "P is maximal in O_F and lies over the ideal (l) of Z; the quotient is the genuine ideal quotient, with its field structure.",
+    "The theorem is arithmetic and independent of tame-kernel or higher K-theory vanishing."
+   ],
+   "proofSteps": [
+    "Use the pinned uniqueness theorem to identify P with (zeta−1), for a primitive l-th root. The previously cited inertia degree is one.",
+    "Use IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one at k=0, rewriting l^1=l, to obtain absolute norm l. Ideal.absNorm_apply and Submodule.cardQuot_apply identify this norm with the natural-number cardinality of O_F/P.",
+    "Install Ideal.Quotient.field P locally and apply Nat.card_units to get unit order l−1.",
+    "Since l≥2, 0<l−1<l; elementary divisibility implies l does not divide l−1. No K-theoretic input is used."
+   ],
+   "acceptance": [
+    "For l=2, the quotient has two elements and the unit group has order one.",
+    "For l=5, the quotient has five elements and the unit group has order four.",
+    "Removing regularity does not change the result; a supposed proof importing regular-prime K-theory is circular for its intended use."
+   ],
+   "prerequisites": [
+    "mathlib:CyclotomicField",
+    "mathlib:NumberField.RingOfIntegers",
+    "mathlib:Nat.Prime",
+    "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver'",
+    "mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one'",
+    "mathlib:IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one",
+    "mathlib:Ideal.absNorm_apply",
+    "mathlib:Submodule.cardQuot_apply",
+    "mathlib:Ideal.Quotient.field",
+    "mathlib:Nat.card_units"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522); cyclotomic prime arithmetic in the pinned Mathlib declarations listed as prerequisites",
+     "match": "The book supplies the single-prime localisation used by the tame-kernel application. The elementary residue-field/unit-order lemma is derived from the pinned cyclotomic norm and quotient-cardinality declarations, not attributed as a separately stated theorem of the book."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-BP-ArithmeticKTheory--N.7"
+  },
+  {
    "id": "ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime",
    "parentStageId": "ArithmeticKTheory:N.7",
    "realises": [
@@ -701,7 +790,7 @@
     "Use regularity: the Picard group has no l-torsion, so the class-group contribution to that cohomology vanishes.",
     "Use the local Brauer calculation of the source's Classical Data to control the remaining contribution from the finite places.",
     "Conclude the vanishing of the l-primary part.",
-    "For the S-integer version, compute the residue field at the unique prime above l: the prime is totally ramified with inertia degree one, so the residue field is the field with l elements and its unit group has order l-1, which is prime to l, so the residue term contributes nothing l-primary; this is the question the layer's text asks to be explained and it is answered by the ramification data, not by a K-theoretic argument."
+    "For the S-integer version, use residue-field-units-prime-to-l: the unique prime above l has residue-unit order l−1, which is prime to l. Localisation therefore adds no l-primary residue term. This named arithmetic input is proved without K-theory and no longer hidden inside the vanishing application."
    ],
    "acceptance": [
     "For l = 5 the statement says that the tame kernel of the fifth cyclotomic field has no 5-torsion.",
@@ -717,7 +806,8 @@
     "mathlib:IsCyclotomicExtension",
     "mathlib:IsCyclotomicExtension.Rat.ramificationIdx_span_zeta_sub_one'",
     "mathlib:IsCyclotomicExtension.Rat.inertiaDeg_span_zeta_sub_one'",
-    "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver'"
+    "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver'",
+    "ArithmeticKTheory:N.7/residue-field-units-prime-to-l"
    ],
    "sources": [
     {
@@ -799,17 +889,18 @@
    ],
    "title": "Vandiver's conjecture, and keeping the conditional results apart",
    "kind": "comparison",
-   "statement": "Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus one on the l-torsion. It has been verified for all primes up to a hundred and sixty-three million and is open. Under it, the K-groups of the integers are given by an explicit table, and in particular the groups K_{4i}(Z) with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); unconditionally those higher groups are known only to have order a product of irregular primes greater than ten to the eighth, and their vanishing is equivalent to Vandiver's conjecture. Every statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition of regularity contains it.",
+   "statement": "Import Vandiver(l) from its single owner IntegralIwasawaTheory L3: for a prime l it is nondivisibility by l of the class number of Q(mu_l)^+, identified with the pinned maximal real subfield of CyclotomicField l Q. This node does not define a second predicate. Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus one on the l-torsion. It has been verified for all primes up to a hundred and sixty-three million and is open. Under it, the K-groups of the integers are given by an explicit table, and in particular the groups K_{4i}(Z) with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); unconditionally those higher groups are known only to have order a product of irregular primes greater than ten to the eighth, and their vanishing is equivalent to Vandiver's conjecture. Every statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition of regularity contains it.",
    "hypotheses": [
     "l is an irregular prime; the real subfield is the fixed field of complex conjugation.",
     "The equivalence between the two forms of the conjecture uses that complex conjugation is the unique element of order two in the Galois group, which the source records.",
-    "The conditional table is the source's Theorem 10.2 and is quoted as conditional."
+    "The conditional table is the source's Theorem 10.2 and is quoted as conditional.",
+    "The predicate and its transport to the intrinsic maximal-real-subfield model are supplied by IntegralIwasawaTheory L3; the equivalence and conditional K-theory consequences, not that definition, are owned here."
    ],
    "proofSteps": [
-    "State the conjecture in both forms and record the equivalence and its reason.",
+    "Import IntegralIwasawaTheory L3's predicate, whose exact contract is l not dividing the class number of the maximal real subfield of Q(mu_l). Prove the comparison to the odd-character condition on the full cyclotomic class group; do not introduce a second definition.",
     "Record the verification bound and the historical remark that the statement was discussed by Kummer and Kronecker long before Vandiver.",
     "State the conditional theorem: under the conjecture the K-groups of the integers are given by the explicit table.",
-    "State the unconditional fact about the groups in degrees divisible by four: their order is a product of irregular primes greater than ten to the eighth, and their vanishing is equivalent to the conjecture.",
+    "State the unconditional order restriction for K_{4i}(Z), i≥2, and the equivalence of their joint vanishing with the global Vandiver conjecture at every odd prime. A hypothesis at one irregular prime is not the global conjecture; K_4(Z)=0 is an unconditional imported result.",
     "State the discipline: a theorem conditional on the conjecture is labelled conditional, and the definition of a regular prime does not mention it."
    ],
    "acceptance": [
@@ -820,7 +911,10 @@
    "prerequisites": [
     "ArithmeticKTheory:N.7/regular-prime",
     "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet",
-    "ArithmeticKTheory:N.7/regular-prime-torsion-consequences"
+    "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
+    "IntegralIwasawaTheory:L3",
+    "mathlib:NumberField.maximalRealSubfield",
+    "mathlib:NumberField.of_subfield"
    ],
    "sources": [
     {
@@ -1201,7 +1295,7 @@
    "stageId": "ArithmeticKTheory:N.7",
    "status": "source_decomposed",
    "remaining": [],
-   "note": "Eight nodes. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; the invariant w_i with its value over the rationals in both parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver."
+   "note": "Nine nodes. The arithmetic residue-unit lemma is separated from the tame-kernel application and needs only primality. Vandiver's predicate is imported from IntegralIwasawaTheory L3, not duplicated. The arithmetic Bernoulli convention with the conversion from the other numbering, which Mathlib pins on both sides; the invariant w_i with its value over the rationals in both parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the class-number condition into a finite check on numerators; the eigenspace decomposition of the cyclotomic class group with the denominator restriction the layer's text demands and the Herbrand-Ribet theorem; the vanishing of the l-primary tame kernel at an odd regular prime, with the three inputs the stage text names and with the S-integer question answered by the ramification data, the unique prime above l having residue field the prime field whose unit group has order prime to l; the torsion consequences at a regular prime with their explicit degrees and generator counts; and Vandiver's conjecture kept strictly separate, with the unconditional statement about the groups in degrees divisible by four recorded alongside the conditional table. The reviewed audit AUDIT-27 records the whole layer as not built and the pinned index confirms it: neither library defines a regular prime, and neither mentions Vandiver."
   },
   {
    "stageId": "ArithmeticKTheory:N.8",
@@ -1288,6 +1382,13 @@
    "need": "Quillen's computation K₀(𝔽_q) = ℤ, K_{2i}(𝔽_q) = 0 and K_{2i−1}(𝔽_q) ≅ ℤ/(q^i − 1) for i ≥ 1 (K-book IV.1.13), which gives the residue terms of the localisation sequence of ℤ ⊂ ℤ[1/p] in N.8's example in every degree. The atlas already has L.1 upstream of ArithmeticKTheory (L.1 → N.2); no cycle.",
    "neededBy": [
     "ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime"
+   ]
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:L3",
+   "need": "Supply the single Vandiver(l) predicate for primes l, with its defining equivalence l not dividing the class number of Q(mu_l)^+, and transport along a rational cyclotomic-field isomorphism to NumberField.maximalRealSubfield (CyclotomicField l Q). Its Lean module/declaration is not yet published; N.7 records the import contract, not a second definition. The odd-character equivalence and conditional K-theory consequences remain in N.7.",
+   "neededBy": [
+    "ArithmeticKTheory:N.7/vandiver-separation"
    ]
   }
  ],
