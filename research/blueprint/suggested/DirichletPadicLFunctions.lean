@@ -25991,3 +25991,152 @@ example : kubertCartanWittIntertwining 1 ℤ 6 6 (dvd_refl _)=Representation.Int
 example : (kubertCartanWittIntertwining 1 ℤ 12 60 (by decide)).comp (kubertCartanWittIntertwining 1 ℤ 6 12 (by decide))=kubertCartanWittIntertwining 1 ℤ 6 60 (by decide) := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanLimitTests
+
+/- Actual Cartan ring system and its algebraic full-Witt universal property. -/
+namespace DirichletPadic
+open scoped Classical
+
+open DirichletPadic
+
+noncomputable def kubertCartanRingReduction (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) : (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ))) →+* (∀ p : (M : ℕ).primeFactors, TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ))) := by sorry
+
+lemma kubertCartanInverseLimit_cartanRingReduction_apply (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (x : (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (p : (M : ℕ).primeFactors) :
+    kubertCartanRingReduction k M N hMN x p=TruncatedWittVector.truncate
+      ((Nat.factorization_le_iff_dvd M.ne_zero N.ne_zero).2 hMN p.val)
+      (x ⟨p.val,Nat.primeFactors_mono hMN N.ne_zero p.prop⟩) := by sorry
+
+lemma kubertCartanInverseLimit_cartanRingReduction_self (k N : ℕ+) :
+    kubertCartanRingReduction k N N (dvd_refl _)=RingHom.id _ := by sorry
+
+lemma kubertCartanInverseLimit_cartanRingReduction_comp (k L M N : ℕ+)
+    (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanRingReduction k L M hLM).comp (kubertCartanRingReduction k M N hMN)=
+      kubertCartanRingReduction k L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartanInverseLimit_cartanRingReduction_surjective (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) : Function.Surjective (kubertCartanRingReduction k M N hMN) := by sorry
+
+lemma kubertCartanInverseLimit_cartanRingReduction_units (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (u : (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) :
+    MulEquiv.piUnits (Units.map (kubertCartanRingReduction k M N hMN).toMonoidHom u)=
+      kubertCartanProductReduction k M N hMN (MulEquiv.piUnits u) := by sorry
+
+noncomputable def kubertCartanWittRingProjection (k N : ℕ+) : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ))) →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ))) := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingProjection_apply (k N : ℕ+) (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ)))) (p : (N : ℕ).primeFactors) :
+    kubertCartanWittRingProjection k N x p=WittVector.truncate ((N : ℕ).factorization p.val)
+      (x ⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩) := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingProjection_reduction (k : ℕ+) (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanRingReduction k M N hMN).comp (kubertCartanWittRingProjection k N)=
+      kubertCartanWittRingProjection k M := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingProjection_units (k N : ℕ+) (u : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) :
+    MulEquiv.piUnits (Units.map (kubertCartanWittRingProjection k N).toMonoidHom u)=
+      kubertCartanWittProductProjection k N (MulEquiv.piUnits u) := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingProjection_jointly_injective (k : ℕ+) (x y : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ))))
+    (h : ∀ N : ℕ+,kubertCartanWittRingProjection k N x=kubertCartanWittRingProjection k N y) : x=y := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped Classical
+ DirichletPadic
+variable {S : Type*} [Semiring S]
+
+lemma kubertCartanInverseLimit_cartanCone_coeff_compatible (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M)
+    (M N : ℕ+) (p : ℕ) (hpM : p ∈ (M : ℕ).primeFactors)
+    (hpN : p ∈ (N : ℕ).primeFactors) (i : ℕ)
+    (hiM : i < (M : ℕ).factorization p) (hiN : i < (N : ℕ).factorization p) (s : S) :
+    (f M s ⟨p,hpM⟩).coeff ⟨i,hiM⟩=(f N s ⟨p,hpN⟩).coeff ⟨i,hiN⟩ := by sorry
+
+noncomputable def kubertCartanPrimePowerCone (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (p : Nat.Primes) (n : ℕ) :
+    S →+* TruncatedWittVector p.val n (GaloisField p.val (k : ℕ)) := by sorry
+
+lemma kubertCartanInverseLimit_cartanPrimePowerCone_coeff (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (p : Nat.Primes) (n : ℕ) (s : S) (i : Fin n) :
+    (kubertCartanPrimePowerCone k f p n s).coeff i=
+      (f (⟨p.val^(n+1),pow_pos p.prop.pos _⟩ : ℕ+) s
+        ⟨p.val,p.prop.mem_primeFactors (dvd_pow_self p.val (Nat.succ_ne_zero n))
+          (ne_of_gt (pow_pos p.prop.pos _))⟩).coeff
+        ⟨i.val,by change i.val < (p.val^(n+1)).factorization p.val; rw [Nat.factorization_pow_self p.prop]; exact i.is_lt.trans (Nat.lt_succ_self n)⟩ := by sorry
+
+lemma kubertCartanInverseLimit_cartanPrimePowerCone_compat (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M) (p : Nat.Primes)
+    (m n : ℕ) (hmn : m ≤ n) :
+    (TruncatedWittVector.truncate hmn).comp (kubertCartanPrimePowerCone k f p n)=
+      kubertCartanPrimePowerCone k f p m := by sorry
+
+noncomputable def kubertCartanWittRingLift (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M) : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ))) := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingLift_projection (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M) (N : ℕ+) :
+    (kubertCartanWittRingProjection k N).comp (kubertCartanWittRingLift k f hf)=f N := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingLift_unique (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M) (g : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ))))
+    (hg : ∀ N : ℕ+,(kubertCartanWittRingProjection k N).comp g=f N) : kubertCartanWittRingLift k f hf=g := by sorry
+
+lemma kubertCartanInverseLimit_cartanWittRingLift_existsUnique (k : ℕ+) (f : ∀ N : ℕ+, S →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction k M N hMN).comp (f N)=f M) :
+    ∃! g : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val (k : ℕ))), ∀ N : ℕ+,(kubertCartanWittRingProjection k N).comp g=f N := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanInverseLimitTests
+open scoped Classical
+noncomputable section
+variable {S : Type*} [Semiring S]
+-- ring_reduction_preserves_identity
+example : kubertCartanRingReduction 1 6 30 (by decide) 1=1 := by sorry
+-- ring_reduction_retains_addition
+example (x y : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanRingReduction 1 6 30 (by decide) (x+y)=(kubertCartanRingReduction 1 6 30 (by decide) x)+(kubertCartanRingReduction 1 6 30 (by decide) y) := by sorry
+-- empty_product_zero_ring
+example (x : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanRingReduction 1 1 30 (by decide) x=0 := by sorry
+-- ring_reduction_is_not_always_injective
+example : ¬ Function.Injective (kubertCartanRingReduction 1 6 12 (by decide)) := by sorry
+-- same_original_prime_coordinate
+example (x : (∀ p : ((12 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((12 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanRingReduction 1 6 12 (by decide) x ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩=TruncatedWittVector.truncate (p := 2) ((Nat.factorization_le_iff_dvd (by decide : (6 : ℕ) ≠ 0) (by decide : (12 : ℕ) ≠ 0)).2 (by decide) 2) (x ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩) := by sorry
+-- actual_ring_identity_transition
+example : kubertCartanRingReduction 1 6 6 (dvd_refl _)=RingHom.id (∀ p : ((6 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ))) := by sorry
+-- ring_transitions_change_prime_support
+example : (kubertCartanRingReduction 1 6 12 (by decide)).comp (kubertCartanRingReduction 1 12 60 (by decide))=kubertCartanRingReduction 1 6 60 (by decide) := by sorry
+-- actual_ring_tuple_lifts
+example (x : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) : ∃ y : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ))), kubertCartanRingReduction 1 6 30 (by decide) y=x := by sorry
+-- ring_units_match_finite_Cartan_reduction
+example (u : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) : MulEquiv.piUnits (Units.map (kubertCartanRingReduction 1 6 30 (by decide)).toMonoidHom u)=kubertCartanProductReduction 1 6 30 (by decide) (MulEquiv.piUnits u) := by sorry
+-- Witt_ring_projection_preserves_product
+example (x y : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanWittRingProjection 1 30 (x*y)=(kubertCartanWittRingProjection 1 30 x)*(kubertCartanWittRingProjection 1 30 y) := by sorry
+-- Witt_ring_projection_zero
+example : kubertCartanWittRingProjection 1 30 0=0 := by sorry
+-- one_finite_ring_projection_not_injective
+example : ¬ Function.Injective (kubertCartanWittRingProjection 1 6) := by sorry
+-- Witt_ring_actual_prime_value
+example (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanWittRingProjection 1 12 x ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩=WittVector.truncate (((12 : ℕ+) : ℕ).factorization 2) (x (⟨2,Nat.prime_two⟩ : Nat.Primes)) := by sorry
+-- Witt_ring_projection_compatibility
+example : (kubertCartanRingReduction 1 6 30 (by decide)).comp (kubertCartanWittRingProjection 1 30)=kubertCartanWittRingProjection 1 6 := by sorry
+-- Witt_ring_units_match_common_projection
+example (u : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) : MulEquiv.piUnits (Units.map (kubertCartanWittRingProjection 1 30).toMonoidHom u)=kubertCartanWittProductProjection 1 30 (MulEquiv.piUnits u) := by sorry
+-- all_finite_ring_projections_determine_tuple
+example (x y : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hxy : ∀ N : ℕ+, kubertCartanWittRingProjection 1 N x=kubertCartanWittRingProjection 1 N y) : x=y := by sorry
+-- cone_original_coefficients_agree
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) (s : S) : (f 6 s ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩).coeff ⟨0,by first | decide | exact Nat.prime_two.factorization_pos_of_dvd (by decide) (by decide)⟩=(f 12 s ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩).coeff ⟨0,by first | decide | exact Nat.prime_two.factorization_pos_of_dvd (by decide) (by decide)⟩ := by sorry
+-- prime_power_cone_length_zero
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (s : S) : kubertCartanPrimePowerCone 1 f (⟨2,Nat.prime_two⟩ : Nat.Primes) 0 s=0 := by sorry
+-- prime_power_cone_uses_shifted_actual_level
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (s : S) : kubertCartanPrimePowerCone 1 f (⟨2,Nat.prime_two⟩ : Nat.Primes) 2 s=TruncatedWittVector.truncate (p := 2) (by change 2 ≤ (2^3).factorization 2; rw [Nat.factorization_pow_self Nat.prime_two]; decide) (f 8 s ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩) := by sorry
+-- prime_power_extraction_preserves_product
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (s t : S) : kubertCartanPrimePowerCone 1 f (⟨3,Nat.prime_three⟩ : Nat.Primes) 2 (s*t)=(kubertCartanPrimePowerCone 1 f (⟨3,Nat.prime_three⟩ : Nat.Primes) 2 s)*(kubertCartanPrimePowerCone 1 f (⟨3,Nat.prime_three⟩ : Nat.Primes) 2 t) := by sorry
+-- prime_power_coefficient_uses_original_value
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (s : S) : (kubertCartanPrimePowerCone 1 f (⟨2,Nat.prime_two⟩ : Nat.Primes) 2 s).coeff ⟨0,by decide⟩=(f 8 s ⟨2,Nat.prime_two.mem_primeFactors (by decide) (by decide)⟩).coeff ⟨0,by first | decide | exact Nat.prime_two.factorization_pos_of_dvd (by decide) (by decide)⟩ := by sorry
+-- prime_power_cone_native_truncation
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : (TruncatedWittVector.truncate (p := 2) (by decide : 1 ≤ 2)).comp (kubertCartanPrimePowerCone 1 f (⟨2,Nat.prime_two⟩ : Nat.Primes) 2)=kubertCartanPrimePowerCone 1 f (⟨2,Nat.prime_two⟩ : Nat.Primes) 1 := by sorry
+-- actual_Witt_lift_preserves_product
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) (s t : S) : kubertCartanWittRingLift 1 f hf (s*t)=(kubertCartanWittRingLift 1 f hf s)*(kubertCartanWittRingLift 1 f hf t) := by sorry
+-- actual_Witt_lift_preserves_identity
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : kubertCartanWittRingLift 1 f hf 1=1 := by sorry
+-- actual_Witt_lift_recovers_level_thirty
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : (kubertCartanWittRingProjection 1 30).comp (kubertCartanWittRingLift 1 f hf)=f 30 := by sorry
+-- actual_Witt_lift_of_projection_cone
+example : kubertCartanWittRingLift 1 (kubertCartanWittRingProjection 1) (fun M N hMN => kubertCartanInverseLimit_cartanWittRingProjection_reduction 1 M N hMN)=RingHom.id (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))) := by sorry
+-- universal_lift_empty_level
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : (kubertCartanWittRingProjection 1 1).comp (kubertCartanWittRingLift 1 f hf)=f 1 := by sorry
+-- actual_lift_uniqueness
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) (g : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hg : ∀ N : ℕ+,(kubertCartanWittRingProjection 1 N).comp g=f N) : kubertCartanWittRingLift 1 f hf=g := by sorry
+-- actual_ring_inverse_limit_property
+example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : ∃! g : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))), ∀ N : ℕ+,(kubertCartanWittRingProjection 1 N).comp g=f N := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanInverseLimitTests
