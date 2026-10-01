@@ -41973,8 +41973,9 @@
     "REV-PAPER-DELIGNE-74"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DELIGNE-74.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4596"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4596",
+   "finishedAt": "2026-10-01T09:52:45Z"
   },
   {
    "id": "REV-RT-PAPER-DELIGNE-74",
@@ -42755,7 +42756,8 @@
     "REV-PAPER-STEVENS-08"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-STEVENS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5100"
   },
   {
    "id": "REV-RT-PAPER-STEVENS-08",
@@ -44913,8 +44915,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4396"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4396",
+   "finishedAt": "2026-10-01T09:52:52Z"
   },
   {
    "id": "RT-RS-10~2",
