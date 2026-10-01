@@ -6817,7 +6817,7 @@
     },
     {
       "id": "G3",
-      "detail": "The basic seed X_{a t^γ}(τ̇) ≠ ∅ of §6.3 is quoted from the shrunken criterion [He15, Theorem 2.27], whose hypothesis the constructed a t^γ does not satisfy whenever γ is not regular (finding E1). A design job plans the seed from the criterion that holds for every element — [GHN15, Theorem A], that is Corollary 3.6.1 together with Theorem 4.4.7 — or from the class-polynomial route of [He14, §11.2] with Corollary 6.2, which items /117–/120 record, with /121 for γ = 0. It must not plan it from [He14, Theorem 11.4] or [GHN15, Theorem B], both of which assume a shrunken alcove.",
+      "detail": "The basic seed X_{a t^γ}(τ̇) ≠ ∅ of §6.3 is quoted from the shrunken criterion [He15, Theorem 2.27], whose shrunken hypothesis the constructed a t^γ need not satisfy (finding E1); singular γ can also give a shrunken output, so regularity is not a necessary condition. A design job plans the seed from the criterion that holds for every element — [GHN15, Theorem A], that is Corollary 3.6.1 together with Theorem 4.4.7 — or from the class-polynomial route of [He14, §11.2] with Corollary 6.2, which items /117–/120 record, with /121 for γ = 0. It must not plan it from [He14, Theorem 11.4] or [GHN15, Theorem B], both of which assume a shrunken alcove.",
       "items": [
         "PAPER-HE-21/92",
         "PAPER-HE-21/117",
@@ -7269,7 +7269,7 @@
       "locator": "§6.3, p. 14 (published version; the same sentence is in arXiv:2001.03325)",
       "printed": "By [He15, Theorem 2.27], X_{at^γ}(τ̇) ≠ ∅, where τ ∈ Ω with κ(w) = κ(t^γ) = κ(τ).",
       "correction": "The basic seed has to be taken from a criterion that does not assume a shrunken alcove — [GHN15, Theorem A] (Corollary 3.6.1 with Theorem 4.4.7), which is stated for every element of W̃ — or proved for a t^γ directly; [He15, Theorem 2.27] cannot be quoted as printed.",
-      "reason": "The cited theorem reads (arXiv:1511.01386, Theorem 2.27, the numbering of the published survey, cross-checked through its Theorems 2.28, 2.30 and 2.34, which this paper cites for the results they carry): 'Assume that G is simple. Let w ∈ W̃ such that wσ(a) is contained in a Shrunken Weyl chamber. Then for any basic σ-conjugacy class [b], Ĭ ẇ Ĭ ∩ [b] ≠ ∅ if and only if κ(w) = κ(b) and η_σ(w) is not contained in W_M for any proper standard ς-stable Levi M.' The element it is applied to is the a t^γ produced by Theorem 5.5, and that element is not shrunken whenever γ is not regular: if ⟨γ, α⟩ = 0 for a root α, then every point v of the alcove a t^γ(a) satisfies ⟨v, a(α)⟩ = ⟨u, α⟩ for a point u of the base alcove, so 0 < |⟨v, a(α)⟩| < 1 and v lies in the critical strip of ±a(α). Non-regular γ is the normal case, not an edge case: the proof of Theorem 5.5 introduces K = {s ∈ S; s(γ) = γ} and y′ ∈ W_0^K for exactly this reason, and §6.4 discusses λ_w = nω^∨ for a fundamental coweight ω^∨, where γ lies on the walls. A worked instance in split adjoint type A_2: λ = ω_2^∨, y = 1, x = s_2s_1 give J = ∅, J′ = {s_1}, x′ = s_2, z = s_1, γ = λ, y′ = 1 and a = s_1 ∗ s_2 = s_1s_2; on the base alcove {u < 0, v < 0, u + v > −1} the element w = x t^λ y is outside every critical strip, while a t^γ sends (u,v) to (1−u−v, u), whose second coordinate lies in (−1,0), so a t^γ is not shrunken although both finite parts have full support. The conclusion is not contradicted — [GHN15, Theorem A] is available for every w — but the step as written applies its source outside its hypothesis.",
+      "reason": "He15 Theorem 2.27 (arXiv:1511.01386v3, PDF p.37) assumes simple G, a basic class and a shrunken input alcove before giving its Kottwitz/finite-Levi criterion. He21 §6.3, published p.14, applies it to the Theorem 5.5 output a t^γ without establishing that hypothesis. Shrunkenness need not survive that construction; nonregularity of γ alone does not decide it. Critical strips are −1 < ⟨v,α⟩ < 0 for positive α (He21 published p.5). An absolute value in (0,1) discards the root orientation: (0,1) is permitted. In split adjoint A₂ with σ=1, use root coordinates (u,v), base alcove u<0,v<0,u+v>−1 and t^λ(u,v)=(u,v)−λ. The existing negative example remains: λ=ω₂^∨=(0,1), x=s₂s₁,y=1 gives J=∅, J′={s₁}, x′=s₂,z=s₁,γ=λ,y′=1,a=s₁*s₂=s₁s₂. The input has positive-root intervals (−2,−1),(1,2),(0,1), so is shrunken; the output (1−u−v,u) has intervals (1,2),(−1,0),(1,2), so is not. Conversely the actual construction for λ=2ω₂^∨=(0,2),x=s₁,y=s₂ gives J={s₂},ρ_J^∨=ω₂^∨,J′={s₁},x′=s₂,z=s₁,γ=ω₁^∨=(1,0),K={s₂},y′=1 and a=s₁s₂. Here t^λs₂ is left-minimal, η(w)=s₂s₁ and a both have full support, the input intervals are (0,1),(−3,−2),(−2,−1), and the output (1−u−v,u−1) has intervals (1,2),(−2,−1),(0,1). Both alcoves are shrunken although γ is nonzero and singular: a(α₂)=−(α₁+α₂). Thus E1 remains a gap in the cited proof step, not a refutation of the main theorem or a regularity requirement. GHN15 Theorem A, published p.649, has no shrunken hypothesis, but its Levi-obstruction verification (or the restricted class-polynomial route and transport) remains G3's obligation.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -7280,9 +7280,21 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed as a gap. I read [He15] = X. He, 'Hecke algebras and p-adic groups', Current Developments in Mathematics 2015, in arXiv:1511.01386 (sha256 f6170c52…): Theorem 2.27 reads 'Assume that G is simple. Let w ∈ W̃ such that wσ(a) is contained in a Shrunken Weyl chamber. Then for any basic σ-conjugacy class [b], Ĭ ẇ Ĭ ∩ [b] ≠ ∅ if and only if κ(w) = κ(b) and that η_σ(w) is not contained in the relative Weyl group W_M for any proper standard σ-stable Levi subgroup M of quasi-split inner form of G', exactly as the finding quotes it. The element it is applied to on p. 14 is the a t^γ of Theorem 5.5, whose printed conclusion (p. 9) is only 'there exist a dominant coweight γ with γ ≥_Z λ_w^♭♭ and a ∈ W_0 with supp_σ(a) ⊃ supp_σ(η_σ(w)) such that w ⇒_σ a t^γ' — nothing there forces γ to be regular, and a t^γ is not shrunken when ⟨γ,α⟩ = 0 for some α ∈ Δ. So the hypothesis of the cited theorem is not verified. The proposed repair is available as stated: GHN15's Theorem A, labelled in the paper itself '(Corollary 3.6.1, Theorem 4.4.7)', is stated for every x ∈ W̃ with no shrunken hypothesis, and for the basic seed [τ̇] that is what is needed.",
-        "by": "Claude Code, session cc-7b31c4, issue #1398"
-      }
+        "reason": "The historical review's gap verdict is retained; its universal non-shrunkenness explanation is corrected under verified finding RT-PAPER-HE-21/1. The fresh He15 preprint p.37 states a shrunken hypothesis; the fresh He21 published p.14 uses that theorem for the output of §5.4 without checking it. The retained λ=ω₂^∨,x=s₂s₁,y=1 construction is a counterexample to preservation of shrunkenness. The new λ=2ω₂^∨,x=s₁,y=s₂ construction instead yields γ=ω₁^∨ and a=s₁s₂, with full support and output root intervals (1,2),(−2,−1),(0,1), which are shrunken. Nonregular γ therefore need not cause failure. GHN15 Theorem A (published p.649) supplies a criterion without that geometric restriction; G3 still requires checking its obstruction or completing the class-polynomial route and scope transport. This amended explanation awaits independent fix review.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398",
+        "reasonAmendedBy": "Codex — codex-5ebb6f, FIX-RT-PAPER-HE-21, issue #5527, 2026-10-01",
+        "scope": "Historical confirmed verdict only; this edited explanation is not a new independent review and awaits REV-FIX-RT-PAPER-HE-21."
+      },
+      "reviewHistory": [
+        {
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed as a gap. I read [He15] = X. He, 'Hecke algebras and p-adic groups', Current Developments in Mathematics 2015, in arXiv:1511.01386 (sha256 f6170c52…): Theorem 2.27 reads 'Assume that G is simple. Let w ∈ W̃ such that wσ(a) is contained in a Shrunken Weyl chamber. Then for any basic σ-conjugacy class [b], Ĭ ẇ Ĭ ∩ [b] ≠ ∅ if and only if κ(w) = κ(b) and that η_σ(w) is not contained in the relative Weyl group W_M for any proper standard σ-stable Levi subgroup M of quasi-split inner form of G', exactly as the finding quotes it. The element it is applied to on p. 14 is the a t^γ of Theorem 5.5, whose printed conclusion (p. 9) is only 'there exist a dominant coweight γ with γ ≥_Z λ_w^♭♭ and a ∈ W_0 with supp_σ(a) ⊃ supp_σ(η_σ(w)) such that w ⇒_σ a t^γ' — nothing there forces γ to be regular, and a t^γ is not shrunken when ⟨γ,α⟩ = 0 for some α ∈ Δ. So the hypothesis of the cited theorem is not verified. The proposed repair is available as stated: GHN15's Theorem A, labelled in the paper itself '(Corollary 3.6.1, Theorem 4.4.7)', is stated for every x ∈ W̃ with no shrunken hypothesis, and for the basic seed [τ̇] that is what is needed.",
+            "by": "Claude Code, session cc-7b31c4, issue #1398"
+          },
+          "status": "Historical REV-PAPER-HE-21 explanation superseded by FIX-RT-PAPER-HE-21; original verdict retained, amendment awaits independent fix review."
+        }
+      ]
     },
     {
       "id": "PAPER-HE-21/E2",
@@ -7479,7 +7491,7 @@
       "locator": "GHN15 = U. Görtz, X. He, S. Nie, 'P-alcoves and nonemptiness of affine Deligne–Lusztig varieties', Ann. Sci. ÉNS 48 (2015), Proposition 2.2.1, §2.2",
       "printed": "1. The homomorphism G → G_ad induces an immersion Flag → Flag_ad. 2. Let λ ∈ π_0(Flag) = π_1(G)_Γ, denote by λ_ad its image under the injective map π_0(Flag) → π_0(Flag_ad) …",
       "correction": "The map π_0(Flag) → π_0(Flag_ad) need not be injective, so the immersion is only available when it is; the componentwise isomorphism Flag_λ ≅ Flag_{ad,λ_ad} is what the proof gives.",
-      "reason": "The authors' erratum states the corrected proposition and identifies the kernel: ker(π_0(Flag) → π_0(Flag_ad)) ≅ X_*(T)_{Γ,tors}, so injectivity holds exactly when the coinvariants are torsion-free — for instance when G is adjoint or simply connected. This matters here because the reduction to adjoint groups that this paper's §5 needs (see E6) rests on this proposition.",
+      "reason": "The authors' erratum Proposition 0.0.1 (p.1), with char(k)∤|π₁(G_ad)|, gives the general componentwise isomorphism Flag_λ≅Flag_{ad,λ_ad}; a global immersion additionally requires injectivity of the component map. On p.2 the erratum explicitly assumes G semisimple before identifying ker(π₀(Flag)→π₀(Flag_ad))≅X_*(T)_{Γ,tors} and deriving the equivalent torsion-free coinvariant criterion for injectivity (including the adjoint and simply connected examples). These are semisimple statements, not unrestricted reductive statements. For split GL₂ in residue characteristic 3, X_*(T)_Γ=ℤ² is torsion-free but π₁(GL₂)=ℤ maps to π₁(PGL₂)=ℤ/2 by reduction modulo 2, with nonzero free kernel 2ℤ. Indeed the sum map identifies ℤ²/ℤ(1,−1) with ℤ, and the central cocharacter (1,1) has component 2 mapping to zero. Item /104 correctly retains injectivity as a separate hypothesis. E13 remains the known erratum to GHN15, used in E6's adjoint reduction; no new error is attributed to the erratum.",
       "affects": "a stated result",
       "known": "The authors' erratum, Proposition 0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
       "searched": [
@@ -7489,9 +7501,21 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against the authors' own erratum (https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, sha256 cf7efbf8…), which I read in full. It states 'Proposition 2.2.1 does not hold as stated' and replaces it by Proposition 0.0.1: assuming char k does not divide |π_1(G_ad)|, the projection G → G_ad induces an isomorphism Flag_λ ≅ Flag_{ad,λ_ad}, and the immersion Flag → Flag_ad only if π_0(Flag) → π_0(Flag_ad) is injective. It adds 'The problem with the original statement is that the map π_0(Flag) → π_0(Flag_ad) is not injective in general; this was erroneously claimed in part (2) of the original statement, and implicitly used in part (1)', and computes ker(π_0(Flag) → π_0(Flag_ad)) ≅ X_*(T)_{Γ,tors}, injective when the coinvariants are torsion-free, 'true for instance, if G is of adjoint type or simply connected'. The finding's statement, correction and known-URL all match; its remark that this is what E6's reduction rests on is also right.",
-        "by": "Claude Code, session cc-7b31c4, issue #1398"
-      }
+        "reason": "The historical confirmation of the known GHN15 erratum is retained; the attribution is corrected under verified finding RT-PAPER-HE-21/2. In the fresh three-page author erratum, SHA-256 cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0, Proposition 0.0.1 on p.1 gives componentwise flag isomorphisms under char(k)∤|π₁(G_ad)| and makes a global immersion conditional on component-map injectivity. The torsion-kernel identification and equivalent torsion-free injectivity criterion on p.2 assume G semisimple. The split GL₂ example has torsion-free ℤ² cocharacter coinvariants yet kernel 2ℤ in ℤ→ℤ/2, so that assumption cannot be dropped. The known correction and /104's independent injectivity requirement are retained; E6's reduction still uses the componentwise comparison. This amended explanation awaits independent fix review.",
+        "by": "Claude Code, session cc-7b31c4, issue #1398",
+        "reasonAmendedBy": "Codex — codex-5ebb6f, FIX-RT-PAPER-HE-21, issue #5527, 2026-10-01",
+        "scope": "Historical confirmed verdict only; this edited explanation is not a new independent review and awaits REV-FIX-RT-PAPER-HE-21."
+      },
+      "reviewHistory": [
+        {
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed against the authors' own erratum (https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf, sha256 cf7efbf8…), which I read in full. It states 'Proposition 2.2.1 does not hold as stated' and replaces it by Proposition 0.0.1: assuming char k does not divide |π_1(G_ad)|, the projection G → G_ad induces an isomorphism Flag_λ ≅ Flag_{ad,λ_ad}, and the immersion Flag → Flag_ad only if π_0(Flag) → π_0(Flag_ad) is injective. It adds 'The problem with the original statement is that the map π_0(Flag) → π_0(Flag_ad) is not injective in general; this was erroneously claimed in part (2) of the original statement, and implicitly used in part (1)', and computes ker(π_0(Flag) → π_0(Flag_ad)) ≅ X_*(T)_{Γ,tors}, injective when the coinvariants are torsion-free, 'true for instance, if G is of adjoint type or simply connected'. The finding's statement, correction and known-URL all match; its remark that this is what E6's reduction rests on is also right.",
+            "by": "Claude Code, session cc-7b31c4, issue #1398"
+          },
+          "status": "Historical REV-PAPER-HE-21 explanation superseded by FIX-RT-PAPER-HE-21; original verdict retained, amendment awaits independent fix review."
+        }
+      ]
     },
     {
       "id": "PAPER-HE-21/E14",
@@ -7574,7 +7598,7 @@
       "Each finding was checked at its locator in the published PDF; where the point is glyph-level, in a rendered clip of the page, which is how the closure bars of §4.3 and the left-superscript conjugation in the definition of §6.1 were confirmed to be present in print and lost only by the PDF text layer.",
       "[GHN15, Lemma 3.6.3] and Corollary 3.6.1 were retranslated into this paper's normal form w = x t^λ y: the conjugator is η_l = x, x^{-1}wσ(x) = t^λσ(η_σ(w)) ∈ W̃_J, and κ_{M_J} of the printed σ^{-1}(y)wy^{-1} = η_σ(w)t^λ agrees with it because η_σ(w) ∈ W_J ⊂ ker κ_{M_J} (finding E2).",
       "The lattice computation behind finding E6: ρ^∨_{{s_1}} = ω^∨_1 = (2α^∨_1 + α^∨_2)/3 ∉ X_*(T) for SL_3, and σ^{-1}(ρ^∨_J) = ρ^∨_{σ^{-1}(J)} moves the class of γ in P^∨/Q^∨ by ω^∨_2 − ω^∨_1 in ²A_2.",
-      "The non-shrunkenness behind finding E1: for a root α with ⟨γ,α⟩ = 0, every point of the alcove a t^γ(a) pairs with a(α) to a value of absolute value in (0,1), hence lies in a critical strip; and the split adjoint A_2 instance recorded in /92.",
+      "Amended by FIX-RT-PAPER-HE-21 (codex-5ebb6f): E1 shows that shrunkenness need not survive Theorem 5.5, using its retained λ=ω₂^∨ negative example. The λ=2ω₂^∨,x=s₁,y=s₂ regression gives a nonzero singular γ=ω₁^∨ and a shrunken full-support output. Positive-root orientation, not absolute value, decides critical-strip membership.",
       "Two findings of the merged checkpoints were rejected and removed after being checked at their locators, with the reasons recorded in the report: the claim that §5.4's union of proper closed subsets could cover Z (the generic point of Z lies outside every one of them) and the claim that HY12 §4.2 confuses ordinary with saturated support (HY12 §1.2 defines supp on a twisted coset as the saturated support)."
     ],
     "checks": [
@@ -7608,5 +7632,91 @@
       "pages": 9,
       "note": "X. He and Z. Yang, 'Elements with finite Coxeter part in an affine Weyl group'; read for §1.2 (the convention supp(wδ) = ∪_n δ^n(supp(w)) for a twisted coset) and §4.2, the uniqueness of J."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+      "read": "2026-10-01",
+      "sha256": "350e7a4d5d7e3effb8ec6a47fca66fb21d93c0a3f67415707d77ad9d5bfcbb72",
+      "readExtent": "He21 published PDF pp.5,9–12,14; p.10 image; printed translation sign, positive-root strips, construction and seed citation. Cambridge per-download footer changes bytes.",
+      "by": "Codex — codex-5ebb6f",
+      "scope": "Fresh targeted fix reading; no full extraction or new independent verdict."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2001.03325",
+      "read": "2026-10-01",
+      "sha256": "818873a568bf37ec0b336cb12bd6822879ca369865cceb332ba06b95910989a3",
+      "readExtent": "He21 arXiv pp.5–6,9–11,13; construction and §6.3 seed compared at their own locators, not a full-paper reread.",
+      "by": "Codex — codex-5ebb6f",
+      "scope": "Fresh targeted fix reading; no full extraction or new independent verdict."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1511.01386",
+      "read": "2026-10-01",
+      "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+      "readExtent": "He15 arXiv v3 pp.37–38, especially Theorem 2.27; comparison is scoped to this preprint.",
+      "by": "Codex — codex-5ebb6f",
+      "scope": "Fresh targeted fix reading; no full extraction or new independent verdict."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.24033/asens.2254.pdf",
+      "read": "2026-10-01",
+      "sha256": "f0c94caa4855416b4c1949307ea8c4f382d3310f5b27a349216203f5c9d81e3e",
+      "readExtent": "GHN15 PDF pp.4–5 / printed pp.648–649: setup, Theorems A and B; remaining source findings inherited, not recollated.",
+      "by": "Codex — codex-5ebb6f",
+      "scope": "Fresh targeted fix reading; no full extraction or new independent verdict."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+      "read": "2026-10-01",
+      "sha256": "cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0",
+      "readExtent": "All three pages; p.2 image. Proposition 0.0.1 and the semisimple scope of its torsion-kernel explanation.",
+      "by": "Codex — codex-5ebb6f",
+      "scope": "Fresh targeted fix reading; no full extraction or new independent verdict."
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf",
+      "sha256": "372c913d305f2b9d5f285cfe830d00f5ad3fd98242e31a54991fbf2474b72cbf",
+      "read": "Historical extraction reading; date not restated in this provenance entry",
+      "readExtent": "§1.1–1.6; §2.1–2.3; §4.1 through the finite-parahoric portion of Theorem4.8 (not all proof prerequisites); all §6; §11.1–11.3; Theorem12.1 statement. Printed p.399 image inspected. Not a full-paper read.",
+      "scope": "Inherited unchanged record from source.followUpReading; not read by codex-5ebb6f for this fix."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1201.4901v2",
+      "sha256": "eae8cc00006ec7deb97780563055c48e295fe768a8c931987640a0b1679e51c9",
+      "read": "Historical extraction reading; date not restated in this provenance entry",
+      "readExtent": "Introduction/setup and all §11; published version used for final locators and page-image checks.",
+      "scope": "Inherited unchanged record from source.followUpReading; not read by codex-5ebb6f for this fix."
+    }
+  ],
+  "fixReading": {
+    "job": "FIX-RT-PAPER-HE-21",
+    "agent": "Codex — codex-5ebb6f",
+    "date": "2026-10-01",
+    "findings": [
+      "RT-PAPER-HE-21/1",
+      "RT-PAPER-HE-21/2"
+    ],
+    "scope": "Two verified explanatory corrections only. The original extraction/review remain historical; amendments await independent REV-FIX-RT-PAPER-HE-21.",
+    "regressions": [
+      "Exact A₂ affine alcove vertex computation with negative translation sign; finite Weyl lengths and parabolic/minimal representative checks; positive and negative construction examples; Kottwitz congruence.",
+      "GL₂ coroot quotient identified by sum with ℤ; component 2 is nonzero and maps to 0 modulo 2 despite torsion-free ℤ²."
+    ],
+    "preserved": "All 134 items including /104 and /119–122, all 11 routes, all 13 prerequisites, all item dependencies/library claims and 14 source-issue IDs/kinds/printed statements/corrections/known status. G3 remains open.",
+    "checks": [
+      "check_paper.py: PASS",
+      "check_errata.py on §18 projection: PASS",
+      "intake.py check-files on exact three deliverables: PASS",
+      "Exact finite regressions and structural-preservation assertions: PASS",
+      "git diff --cached --check: PASS"
+    ],
+    "lean": "No suggested Lean file in this paper-fix job; no Lean file compiled."
+  }
 }
