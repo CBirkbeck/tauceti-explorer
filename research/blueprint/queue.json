@@ -36181,7 +36181,8 @@
     "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5062"
   },
   {
    "id": "RT-PAPER-KALETHA-16",
