@@ -1,0 +1,95 @@
+{
+  "redteam": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+  "summary": "Five findings: two high (model fields wrongly required distinct; repeated-root failure in Lee’s optional sharper-bound proof route) and three medium (missing p-Weil restriction in uniform model estimates; two unregistered class-set corrections; overstatement in E17). Existing 22 source corrections were screened. No claim that Lee’s final counting theorem is false.",
+  "checked": [
+    "Independence: this session codex-rtOQ9t did neither the extraction nor its review. Read the confirmed claim and complete issue #4198. Inspected target history and author/session metadata before claiming.",
+    "Read all 38 pages of LT arXiv:1511.02212v1, including bibliography. Additionally image-checked pp.14,24,27,36. Publisher download returned security HTML, so no claim of a fresh published-text reading.",
+    "Read all 184 item objects, all 13 routes, all 17 prerequisite entries, all 22 registered source issues and the accepted review. Checked the current reader overview, routes, corrections and gaps against the JSON. Historical checkpoint narratives and their supplier-proof appendices are not claimed freshly audited in full.",
+    "Read Lee arXiv:2002.04420v3 §§1–3.3 (pp.1–9 through Theorem 3.4); image-checked pp.3,6,9. Rechecked the 69/4 correction and followed the separate 45/4 argument to its repeated-root defect. Did not audit Lee §4 or its lower-bound theorem.",
+    "Directly enumerated both F_5 elliptic-curve point sets and the F_2 point set; checked discriminants, traces and the exact exponents 768 and 656. The report contains the full reproducible standard-library calculation.",
+    "Reassembled the atlas at e508b927bce6919d8995e466a10c43d5f74149b8: 2907 stages and 8322 stageEdges. Read the destination descriptions A2/A4/A6, R07.2, GN.2/GN.3, AA.4, ST.0/ST.5, M6, AN.4 and RG2.3. Consulted reviewed coverage for the abelian, GN.3, statistics, PEL, analytic and adelic destinations, and searched candidate roadmap names. No new ownership/duplication finding is asserted.",
+    "Pinned statement spot checks: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Read NumberField.IsCMField and its complexConj/complexEmbedding_complexConj/complexConj_apply_apply, NumberField.dedekindZeta_residue and tendsto_sub_one_mul_dedekindZeta_nhdsGT, and DoubleCoset.eq. Read Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 NumberField.classNumber_le_bound. These support the existing imports; this is not a claim to have reread all 61 cited library declarations.",
+    "Applied PROTOCOL §16: supplier proof closure, full definition APIs and blueprint tests are not extraction requirements. The 22 existing corrections were screened to avoid reporting them anew; finding /5 narrows an overstatement within E17, and /4 records already-noticed corrections missing from the register.",
+    "Correction searches on 2026-10-01: arXiv version histories for 1511.02212 and 2002.04420, LT author pages, Lee’s research page, and title/DOI searches for errata/corrigenda. No correction to the specific Lee (11) or LT (21) defects was located in this limited search. No priority claim and no allegation about unread version-of-record text."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-ring; /model-comparison-conjecture; source route to GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+      "claim": "The model-ring definition adds distinctness of the CM fields. Distinct simple isogeny factors can have isomorphic CM endomorphism fields, and their factors must remain separate in the product ring.",
+      "evidence": "LT arXiv:1511.02212v1, Definition 5.1, p.24, says \"a collection of CM-fields\"; Conjecture 5.2 distinguishes the simple abelian factors, not their endomorphism fields. Over F_5 the smooth curves E: y²=x³+x and E′: y²=x³+4x have respectively 4 and 8 points (direct enumeration including infinity), hence Frobenius polynomials X²−2X+5 and X²+2X+5. They are ordinary and not F_5-isogenous, while both Frobenius fields are Q(i). Their rational endomorphism algebra is Q(i)×Q(i). The two model factors cannot be merged into M_2(Q(i)), which is noncommutative and has a different center. Both curves have the F_5-defined order-four automorphism (x,y)↦(−x,2y), so their endomorphism orders are Z[i]. Thus the required integral model is Z[i]×Z[i].",
+      "fix": "Remove \"distinct\" from model-ring. Index the CM fields and ranks by simple isogeny factors, allowing repeated isomorphism classes of fields and preserving separate central idempotents. Propagate this convention to the model comparison and GN.2 route; use E×E′ over F_5 as a regression example. Do not merge factors merely because their fields are isomorphic."
+    },
+    {
+      "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-unpolarized-source note; sourceIssues E7 and E21; finite-field Part II route brief T2; corresponding current reader sections",
+      "claim": "The extraction promotes Lee’s 45/4 bound as an optional corrected target without recording a false intermediate estimate in the version of Lee it read. Lee v3 equation (11) does not hold for repeated Frobenius roots. This is a proof-support finding, not a counterexample to the final 45/4 counting theorem.",
+      "evidence": "Lee, arXiv:2002.04420v3, p.3 defines d′ using unequal root values \"counted with multiplicity\". On p.6, Lemma 3.1 bounds a full Vandermonde product, but (11) claims |d′(A_0)|≤(2g)^(2g) p^binom(2g,2). Take E/F_2: y²+y=x³. Its points are infinity, (0,0), (0,1), and it is smooth, so its Frobenius polynomial is X²+2. For A_0=E^g the two roots ±i√2 each occur g times. The 2g² ordered unequal-root pairs give |d′(A_0)|=(2√2)^(2g²)=2^(3g²). At g=16 this is 2^768, whereas the asserted bound is 32^32·2^496=2^656. More generally log_2|d′|/g²=3, contradicting even the claimed 2+o(1) asymptotic. Lee p.8 Corollary 3.3 and p.9 Theorem 3.4 explicitly use (11). The full Vandermonde has zero factors when roots repeat; deleting those factors is not justified by its upper bound. The existing E19 concerns a different ordered-pair factor in LT and does not record this problem.",
+      "fix": "Add a sourceIssue scoped to Lee v3 §3.2 (11), with the E^16 counterexample and propagation to Corollary 3.3/Theorem 3.4’s displayed proof. Amend E7/E21 and the optional T2 enhancement to distinguish the source’s stated theorem from a verified proof route. Keep the independently corrected 2^(34g²)p^((69/4)g²(1+o(1))) route. Require a multiplicity-sensitive replacement or a separate repeated-factor argument before adopting 45/4 on this evidence. Do not mark Lee’s final theorem false or attribute the defect to unread published pages; compare the IMRN version when obtainable."
+    },
+    {
+      "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/3",
+      "kind": "error",
+      "severity": "medium",
+      "where": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-count-source; /model-concentration-source; routes to GeometryOfNumbersAndQuadraticArithmetic:GN.3 and ArithmeticStatistics:ST.5",
+      "claim": "The corrected orbit estimate and concentration statement omit the p-Weil-field restriction that makes their constants uniform. They quantify over arbitrary model rings, although the model-ring definition imposes no relation between its CM fields and p.",
+      "evidence": "LT v1 p.27 §5.4.1 (40) bounds discriminants using a p-Weil generator; the printed K/L notation slips, but the required CM field is L=Q(w), w a p-Weil number. The extraction’s mass-asymptotic-source correctly retains \"arising from a p-Weil number\". Its model-count-source instead assumes only Σ[K_i:Q]n_i=g, then claims O_p(g²); its note explicitly says the error uses p-Weil discriminant bounds. Model-concentration-source further asserts one g_0 depending only on p for every such model ring. Arbitrary CM fields of a fixed degree have no discriminant bound in terms of p and degree, so that uniform inference is unavailable. For example, at p=2 the definition admits Q(√−163), which is not generated by a 2-Weil number: a quadratic 2-Weil generator would have integral trace t with |t|≤2√2 and discriminant t²−8, yielding only Q(√−1), Q(√−2) or Q(√−7).",
+      "fix": "Keep the general model-ring definition, but add explicitly to model-count-source and model-concentration-source that every L_i is generated by a p-Weil number, with the same fixed p. Alternatively state and use an explicit uniform discriminant hypothesis with its constant. Carry the restriction into GN.3/ST.5 applications and the design brief. This concerns theorem hypotheses, not a demand to reproduce Gan–Yu or other supplier proofs in an extraction."
+    },
+    {
+      "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/4",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "PAPER-LIPNOWSKI-TSIMERMAN-18/nonabelian-class-comparison; sourceIssues; current reader source-correction list",
+      "claim": "The extraction corrects the quaternionic class-set comparison and its compact subgroup in an item note, but neither discrepancy is registered in sourceIssues as required by §18. The ordinary-to-narrow class-group change is mathematically substantive.",
+      "evidence": "LT v1 p.14 §3.2.2 defines U_0,d from GL_(4d)(Ẑ), then (21), d>1, has the ordinary Cl(O_(Q(√p))). The extraction replaces these by ∏_(v finite) GL_(2d)(O_(K_0,v)) and Cl⁺(K_0), explicitly calling its item a corrected supplier. At a finite K_0-place, D_0 splits as M_2(K_0,v); as a Q_ℓ-group this is restriction of scalars, not GL_(4d). Reduced norms of global invertible matrices over the totally definite quaternion algebra are positive at both real places. At p=3, K_0=Q(√3) has class number one by the quadratic Minkowski bound √12/2<2, but narrow class number two: a norm −1 unit would solve x²−3y²=−1, impossible modulo 3. Hence ordinary and narrow class groups cannot be interchanged in the asserted bijection. E1–E21 and E-MILNE68-NEWTON-ABSCISSA contain neither discrepancy; G5’s historical mention is not a sourceIssue.",
+      "fix": "Register two version-scoped source corrections, or one clearly split entry: correct the finite maximal compact and replace the d>1 ordinary class group by the narrow one. Retain the existing corrected item and separate d=1 class set. Explain that the bounded narrow/ordinary ratio does not change the coarse fixed-p exponential conclusion. Scope to LT v1 p.14 until the journal text is compared."
+    },
+    {
+      "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/5",
+      "kind": "error",
+      "severity": "medium",
+      "where": "PAPER-LIPNOWSKI-TSIMERMAN-18/elliptic-pgroups-large note; sourceIssues E17 correction; current reader E17",
+      "claim": "E17 correctly excludes p=2 but incorrectly says the printed proof is wrong for every p. The displayed proof works for every p≥5; the problem is its unqualified use of the Hasse intervals at small primes.",
+      "evidence": "LT v1 p.36 Lemma 5.19 writes #E(F_p)=p+1−a, #E(F_(p²))=p²+1−b and then assumes \"a = 1 and b = 1\" under the two p-group hypotheses. For p≥5, 1<p+1−2√p≤#E(F_p)≤p+1+2√p<p², so the only possible p-power is p. Also p<(p−1)²≤#E(F_(p²))≤(p+1)²<p³, forcing the p-power p². Thus a=b=1, and the correct identity b=a²−2p gives the printed contradiction p=(a²−b)/2=0. The extraction cites this same identity as a reason the argument is wrong for every p, although it validates the contradiction in that range. At p=3 the first interval admits 1, requiring separate treatment; the existing corrected odd-prime theorem and F_2 counterexample remain valid.",
+      "fix": "Replace the universal rejection of the proof with its precise p≥5 validity and small-prime gap. Preserve the existing all-odd-p repaired theorem, its separate argument for p=3 and the genuine p=2 counterexample. Synchronize the item note, E17 and current reader; leave attributed historical checkpoint reports clearly historical."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1511.02212v1",
+      "read": "2026-10-01",
+      "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+      "extent": "All 38 pages; images additionally specified in checked."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2002.04420",
+      "version": "v3, 1 June 2020, as printed on p.1 and confirmed by arXiv history",
+      "read": "2026-10-01",
+      "sha256": "2521898dfcd96c22950c026058b0b4e68e147aa89989964649eb317718fbbd3b",
+      "extent": "pp.1–9 through Theorem 3.4 only."
+    }
+  ],
+  "verification": {
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-01",
+    "baseCommit": "e508b927bce6919d8995e466a10c43d5f74149b8",
+    "lean": "No Lean deliverable; no Lean/Lake build or language server run.",
+    "limits": "LT publisher PDF returned HTML; Lee publisher full text was unavailable. Conrad was downloaded but is not claimed freshly read. Other cited supplier proofs and historical continuation appendices were not independently audited in full. Findings concern the accepted extraction and the exact public versions specified.",
+    "checks": [
+      "check_redteam.py: passed",
+      "intake.py check-files: 2 files, 0 problems",
+      "exact point-count and exponent calculation: passed"
+    ]
+  }
+}
