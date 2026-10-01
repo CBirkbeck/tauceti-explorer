@@ -39516,7 +39516,8 @@
     "REV-PAPER-GAN-SAVIN-23-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAN-SAVIN-23-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4231"
   },
   {
    "id": "RT-PAPER-CHANG-CHEN-MISHIBA-23",
@@ -40573,8 +40574,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5531"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5531",
+   "finishedAt": "2026-10-01T22:43:05Z"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
@@ -42878,7 +42880,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DELIGNE-74.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5536"
   },
   {
    "id": "RT-PAPER-DELIGNE-80",
@@ -46177,8 +46180,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-12~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5547"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5547",
+   "finishedAt": "2026-10-01T22:43:08Z"
   },
   {
    "id": "REV-FIX-RT-RS-12~3",
