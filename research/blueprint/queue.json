@@ -34794,8 +34794,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MASSER-ZANNIER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5500",
+   "finishedAt": "2026-10-01T23:59:21Z"
   },
   {
    "id": "RT-PAPER-JIANG-ZHANG-20",
@@ -37943,7 +37944,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5511"
   },
   {
    "id": "RT-PAPER-COLMEZ-NIZIOL-25",
@@ -38442,7 +38444,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5514"
   },
   {
    "id": "RT-PAPER-WOOD-19",
