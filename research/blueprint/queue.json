@@ -42785,7 +42785,9 @@
     "REV-PAPER-STEVENS-08"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-STEVENS-08.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5099",
+   "finishedAt": "2026-10-01T10:38:41Z"
   },
   {
    "id": "RT-PAPER-LUST-STEVENS-20",
@@ -46495,7 +46497,8 @@
     "REV-ArithmeticKTheory--N.1"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ArithmeticKTheory--N.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4427"
   },
   {
    "id": "REV-RT-BP-ArithmeticKTheory--N.1",
@@ -47025,8 +47028,9 @@
     "REV-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4446"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4446",
+   "finishedAt": "2026-10-01T10:38:45Z"
   },
   {
    "id": "REV-RT-BP-GlobalGaloisDeformations",
