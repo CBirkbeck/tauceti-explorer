@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fourteen L3 nodes identify complete internal fibers under level inclusion, transport weighted relators, construct actual internal quotient maps and their functor laws, and carry source generators and lower-level generation through admissible divisors. All 1,521 predecessor nodes and 1,051 baseline records remain whole.",
+  "summary": "Fourteen L3 nodes derive the unique lower-level root, two-order prime-root classification, actual complement equivalence, finite-sum and cardinality identities, and the split internal ordinary quotient relation used in Kubert Lemma 1.12. All 1,535 predecessor nodes and 1,055 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7399,6 +7399,34 @@
         "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
         "provides": "The native free abelian map of a composite function agrees with composition of the two induced homomorphisms on each element.",
         "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. Native divisor-coprimality, quotient multiplication and free-abelian functor laws are exercised by the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Fintype.prod_subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "A native finite product over a subsingleton equals its value at any chosen member, with the generated additive finite-sum theorem.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Retained reading notes list exact ranges. Native inverse-exponent, coprime-order, subsingleton-sum and cardinality APIs are exercised by the complete proof probe. Generated additive declarations cite their indexed source."
+      },
+      {
+        "ref": "mathlib:exists_pow_eq_self_of_coprime",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "If a natural exponent is coprime to the native order of an element, a natural inverse exponent recovers the element from that power; the generated additive form applies to scalar multiplication.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Retained reading notes list exact ranges. Native inverse-exponent, coprime-order, subsingleton-sum and cardinality APIs are exercised by the complete proof probe. Generated additive declarations cite their indexed source."
+      },
+      {
+        "ref": "mathlib:Nat.Coprime.orderOf_pow",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Native element order is unchanged by powering with a natural exponent coprime to that order, with the generated additive nsmul statement.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Retained reading notes list exact ranges. Native inverse-exponent, coprime-order, subsingleton-sum and cardinality APIs are exercised by the complete proof probe. Generated additive declarations cite their indexed source."
+      },
+      {
+        "ref": "mathlib:Nat.card_eq_fintype_card",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "The native cardinality Nat.card of a type with a finite-type structure agrees with its Fintype.card.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Retained reading notes list exact ranges. Native inverse-exponent, coprime-order, subsingleton-sum and cardinality APIs are exercised by the complete proof probe. Generated additive declarations cite their indexed source."
       }
     ]
   },
@@ -101082,6 +101110,787 @@
       "acceptance": [
         "Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-injective-on-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Coprime scalar multiplication is injective on a level kernel",
+      "kind": "lemma",
+      "statement": "If m and M are coprime, native multiplication by m is injective on the actual kernel T_M.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "For two level points with equal m-multiples, their difference is killed by both m and M.",
+        "Its native order therefore divides both coprime numbers and is one by the native common-divisor theorem.",
+        "The native order-one characterization makes the difference zero; native subtype extensionality gives equality of the original level points."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "mathlib:orderOf_dvd_of_pow_eq_one",
+        "mathlib:Nat.eq_one_of_dvd_coprimes",
+        "mathlib:orderOf_eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_coprime_nsmul_injective_on_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.doubling_is_injective_at_three",
+          "kind": "characterisation",
+          "statement": "Multiplication by two is injective on the actual level-three kernel."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-surjective-on-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Coprime scalar multiplication is surjective on a level kernel",
+      "kind": "lemma",
+      "statement": "If m and M are coprime, every actual level-M point has an m-root inside that same level kernel.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "The exact order of the given point divides M, so it is coprime to m by native coprimality inheritance.",
+        "The native coprime-power inverse-exponent theorem, in additive form, supplies a natural a with a(m z)=z.",
+        "The point a z remains in the native level kernel; commuting the natural scalar multiplications proves it is the required m-root. No ambient divisibility or finite cardinality hypothesis is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "mathlib:Nat.Coprime.of_dvd_right",
+        "mathlib:exists_pow_eq_self_of_coprime"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_coprime_nsmul_surjective_on_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.doubling_is_surjective_at_three",
+          "kind": "characterisation",
+          "statement": "Every level-three point has a level-three half."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.unit_scalar_at_zero_level",
+          "kind": "degenerate",
+          "statement": "Multiplication by one is surjective even on the zero-level kernel, which is the entire group."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A coprime root is unique within its level",
+      "kind": "lemma",
+      "statement": "If m is coprime to M, each z in T_M has exactly one w in T_M with m w=z.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use coprime_nsmul_surjective_on_level for existence.",
+        "Use coprime_nsmul_injective_on_level to identify any other root with the chosen actual root."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-injective-on-level",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-surjective-on-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_coprime_level_root_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.unique_lower_level_half",
+          "kind": "characterisation",
+          "statement": "Each level-three point has exactly one half inside level three."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The lower-level root retains the exact point order",
+      "kind": "lemma",
+      "statement": "If m is coprime to M, z and w lie in T_M, z has exact order M and m w=z, then w has exact order M.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "The order of w divides M and is therefore coprime to m.",
+        "The native coprime scalar-multiplication order theorem makes the order of m w equal to the order of w.",
+        "Substitute the actual root equation and the primitive-order certificate for z."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "mathlib:Nat.Coprime.of_dvd_right",
+        "mathlib:Nat.Coprime.orderOf_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_coprime_level_root_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.lower_half_retains_exact_order",
+          "kind": "compatibility",
+          "statement": "A level-three half of an exact-order-three point still has exact order three."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-order-cases",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A prime root has one of two exact orders",
+      "kind": "lemma",
+      "statement": "If p is prime, z has exact order M and p y=z, then y has exact order M or exact order pM.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Split according to whether p divides the native order d of y.",
+        "If p divides d, the native order-after-nsmul formula gives M=d/p; divisibility permits multiplication back to d=pM.",
+        "Otherwise d is coprime to p by the native prime-coprimality theorem. Native order preservation gives d=M.",
+        "This classification itself does not require p coprime to M or M nonzero; those hypotheses enter the unique-root and disjointness conclusions separately."
+      ],
+      "prerequisites": [
+        "mathlib:orderOf_pow_of_dvd",
+        "mathlib:Nat.Coprime.orderOf_pow",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_order_cases"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.halves_have_order_three_or_six",
+          "kind": "characterisation",
+          "statement": "Every half of an exact-order-three point has exact order three or six."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.composite_degree_has_intermediate_order",
+          "kind": "computation",
+          "statement": "The four-root 5/6 of 1/3 has order six, so a composite-degree analogue with only orders three and twelve is false."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-lower-iff-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The lower order is detected by the lower-level kernel",
+      "kind": "lemma",
+      "statement": "For a prime root of a primitive order-M point with M nonzero, the root has exact order M if and only if it lies in T_M.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "The forward implication is the existing primitive-point annihilation theorem.",
+        "For the reverse implication use prime_root_order_cases. The higher-order case would force pM to divide M.",
+        "Positivity of M and p greater than one contradict the resulting inequality pM at most M."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-order-cases",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "mathlib:orderOf_dvd_of_pow_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_lower_iff_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.lower_order_detected_by_level_kernel",
+          "kind": "characterisation",
+          "statement": "A half of a primitive order-three point has order three exactly when it is killed by three."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-partition",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A prime fiber splits at its unique lower-level root",
+      "kind": "lemma",
+      "statement": "If p is prime and coprime to M, every primitive order-M point z has a unique order-M p-root w, and an arbitrary ambient point is a p-root of z exactly when it equals w or is a primitive order-pM p-root of z.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Regard z as an actual level-M point. The coprime root theorem constructs its unique level-M root w, and the primitive-root theorem certifies exact order M.",
+        "For any full ambient root, the two-order classification applies.",
+        "An order-M root lies in T_M and hence equals w by uniqueness. The other case is precisely a primitive order-pM root.",
+        "Conversely w and every specified higher-order root satisfy the original equation. The unique lower-root assertion follows from the same level-kernel injectivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-unique",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-primitive",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-order-cases",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_partition"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.unique_low_root_and_high_stratum",
+          "kind": "characterisation",
+          "statement": "The entire half-fiber of a primitive order-three point is its unique order-three root together with its primitive order-six roots."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.coprimality_failure_has_no_low_root",
+          "kind": "computation",
+          "statement": "The two-roots of 1/2 all have exact order four, so no lower order-two root exists."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-partition-disjoint",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The two primitive strata are disjoint at a positive base level",
+      "kind": "lemma",
+      "statement": "If p is prime and M is nonzero, a point of exact order M cannot also have exact order pM.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "The two order certificates would imply M=pM.",
+        "Positivity of M and p greater than one contradict that equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-points"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_partition_disjoint"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.unit_base_point_is_not_primitive_at_two",
+          "kind": "degenerate",
+          "statement": "The zero point of order one is disjoint from the primitive order-two stratum."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full fiber minus its lower root is the primitive root fiber",
+      "kind": "construction",
+      "statement": "For prime p coprime to nonzero M and primitive M-points z,w with p w=z, construct an actual point-preserving equivalence between all p-roots of z different from w and all primitive order-pM p-roots of z.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "For a root in the complement, the two-order classification gives order M or pM. The order-M case contradicts exclusion of w by native level-kernel injectivity.",
+        "For a primitive pM-root, retain its original root equation and use disjointness of primitive strata to certify that it differs from w.",
+        "Both maps leave the underlying point unchanged; inverse laws are native subtype reflexivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-order-cases",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-injective-on-level",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-partition-disjoint",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeRootComplementEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.complement_transport_keeps_actual_point",
+          "kind": "compatibility",
+          "statement": "The complement-to-primitive map retains every actual root point."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.complement_inverse_recovers_root",
+          "kind": "characterisation",
+          "statement": "The inverse composite recovers the actual root with its exclusion certificate."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.all_primitive_roots_are_in_image",
+          "kind": "characterisation",
+          "statement": "Every primitive order-six half occurs in the complement equivalence."
+        },
+        {
+          "name": "SuggestedKubertPrimeFiberTests.unit_base_complement_is_primitive",
+          "kind": "degenerate",
+          "statement": "At the unit base level, removing the zero root leaves precisely primitive order-two roots."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ],
+      "api": [
+        {
+          "name": "kubertPrimeFiber_primeRootComplementEquiv_coe",
+          "role": "compatibility",
+          "statement": "The ambient point underlying the forward complement equivalence equals the original root point."
+        },
+        {
+          "name": "kubertPrimeFiber_primeRootComplementEquiv_symm_coe",
+          "role": "compatibility",
+          "statement": "The inverse complement equivalence keeps the original ambient primitive root."
+        },
+        {
+          "name": "kubertPrimeFiber_prime_root_sum",
+          "role": "compatibility",
+          "statement": "Under the prime, coprime and positive-base hypotheses and finite-type structures on the actual fibers, every function f to an additive commutative monoid satisfies f(w) plus the sum over all primitive pM-roots of z equals the sum over all p-roots of z."
+        },
+        {
+          "name": "kubertPrimeFiber_prime_root_card",
+          "role": "characterisation",
+          "statement": "For prime p coprime to nonzero M and a primitive M-input, one plus the native cardinality of its primitive pM-root fiber equals the cardinality of its entire p-root fiber."
+        },
+        {
+          "name": "kubertPrimeFiber_prime_root_quotient_sum",
+          "role": "compatibility",
+          "statement": "At positive level N, let positive prime p divide N and be coprime to nonzero M. For actual internal primitive M-points z,w with p w=z, the quotient label of w plus the sum of labels of all actual internal primitive pM-roots of z equals the quotient label of z."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert Lemma 1.12",
+          "how": "Identifies the higher primitive-root part of the complete prime-root relation after removing the unique lower root."
+        },
+        {
+          "where": "Finite root sums",
+          "how": "Transfers arbitrary additive-monoid-valued functions without changing actual root points."
+        },
+        {
+          "where": "Root counts and unit boundary",
+          "how": "Accounts for the exactly one lower root, including the zero root at base level one."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complement map retains the actual root",
+      "kind": "lemma",
+      "statement": "The ambient point underlying the forward complement equivalence equals the original root point.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Evaluate the map, which adds only the established higher-order certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_primeRootComplementEquiv_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.forward_root_value_formula",
+          "kind": "compatibility",
+          "statement": "The forward point-value formula holds for the original rational-circle point."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv-symm-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse complement map retains the actual root",
+      "kind": "lemma",
+      "statement": "The inverse complement equivalence keeps the original ambient primitive root.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Evaluate the inverse, which replaces the order certificate with the proved exclusion certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_primeRootComplementEquiv_symm_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.inverse_root_value_formula",
+          "kind": "compatibility",
+          "statement": "The inverse map changes only certificates, keeping the original ambient root."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The lower-root value plus the primitive sum is the full root sum",
+      "kind": "lemma",
+      "statement": "Under the prime, coprime and positive-base hypotheses and finite-type structures on the actual fibers, every function f to an additive commutative monoid satisfies f(w) plus the sum over all primitive pM-roots of z equals the sum over all p-roots of z.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Partition the actual full root subtype according to equality with w using the native finite-sum partition theorem.",
+        "The equality part is a native subsingleton with explicit member w, so the native subsingleton-sum theorem evaluates it to f(w).",
+        "Transport the complement sum through primeRootComplementEquiv. Its point-value formula identifies every summand without changing the function.",
+        "Substitute these two sum identities into the partition formula. Additive inverses are not needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-complement-equiv-coe",
+        "mathlib:Fintype.prod_subtype_mul_prod_subtype",
+        "mathlib:Fintype.prod_subsingleton",
+        "mathlib:Equiv.prod_comp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.integer_sum_partition",
+          "kind": "characterisation",
+          "statement": "For every integer-valued function, the low-root value plus the complete primitive-root sum equals the full root sum."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-quotient-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The split prime-fiber relation in the internal quotient",
+      "kind": "lemma",
+      "statement": "At positive level N, let positive prime p divide N and be coprime to nonzero M. For actual internal primitive M-points z,w with p w=z, the quotient label of w plus the sum of labels of all actual internal primitive pM-roots of z equals the quotient label of z.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Apply prime_root_sum inside the existing native level-N group, to the function assigning each level point its actual free-generator quotient label.",
+        "Finite-type structures on all subtypes come from the existing finite type on T_N.",
+        "The certified point w proves that z is a valid image input for the internal degree-p ordinary relation.",
+        "The established full internal root relation identifies the complete root sum with the label of z. Compose these equalities."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-sum",
+        "DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations",
+        "mathlib:Subgroup.orderOf_coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_quotient_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.internal_ordinary_prime_fiber_identity",
+          "kind": "compatibility",
+          "statement": "Inside the actual level-six internal quotient, the lower-root label plus all primitive order-six root labels equals the input label."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-card",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exactly one full root lies below the primitive higher stratum",
+      "kind": "lemma",
+      "statement": "For prime p coprime to nonzero M and a primitive M-input, one plus the native cardinality of its primitive pM-root fiber equals the cardinality of its entire p-root fiber.",
+      "hypotheses": [
+        "X is a native additive commutative group. Exact point order uses the existing native addOrderOf-based primitive predicate. The coprime scalar-map lemmas apply to every natural level and scalar satisfying their coprimality hypothesis, including the unit-scalar zero-level case.",
+        "The two-order classification requires a prime p and a root p y=z of an exact-order-M point. Coprimality of p with M is required for the unique lower-level root and the fiber partition. The assertion that order-M and order-pM strata are disjoint requires M nonzero.",
+        "The actual complement equivalence keeps the underlying root point. Finite-sum and cardinality statements assume finite-type structures on the complete root fiber and primitive root fiber. The sum theorem allows any native additive commutative monoid as its codomain.",
+        "The quotient identity uses the existing internal ordinary quotient at positive N, a positive prime p dividing N and a certified internal preimage w with p w=z. Both z and w are actual native level-N points of exact order M. Native subgroup order agrees with ambient order; no replacement quotient or assumed root-sum law is used.",
+        "This checkpoint supplies the root partition and prime-fiber identity used in Kubert Lemma 1.12. The identification of its higher-power image Y_p, recovery of the final omitted label, exceptional-coordinate induction, composite-level generation, rank and freeness remain separate obligations."
+      ],
+      "proofSteps": [
+        "Apply prime_root_sum to the constant-one function with values in the native additive commutative monoid of natural numbers.",
+        "Native finite constant-sum evaluation gives the two finite cardinalities.",
+        "Use native agreement of Nat.card and Fintype.card to express the result independently of the chosen finite enumerations."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-sum",
+        "mathlib:Nat.card_eq_fintype_card"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertPrimeFiberSplitting",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimeFiber_prime_root_card"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 185, Lemma 1.12 and its proof: z has primitive order M, its unique primitive-M root w satisfies p w=z, and the complete prime-root relation splits into w and Y_p. Uses primitive orders on 182–183 and the valid internal relations on 182.",
+          "excerpt": "Now by the distribution relations",
+          "match": "The unique lower-level root, exact two-order classification and actual complement equivalence justify the full prime-root partition underlying the displayed sum in Lemma 1.12. The separate identification of Y_p with the primitive pM-root part remains explicit next work, rather than being assumed by this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPrimeFiberTests.one_low_root_accounts_for_cardinality",
+          "kind": "computation",
+          "statement": "The full half-fiber has one more point than its primitive order-six part."
+        }
+      ],
+      "acceptance": [
+        "Retain the complete actual prime-root fiber and the original point values. A four-root of 1/3 can have order six, so a composite-degree replacement of the two-order classification is false. The two-roots of 1/2 have no lower order-two root, so coprimality cannot be dropped. At M=1 the lower root is zero and the remaining roots are exactly the primitive p-roots. Keep the actual input-image certificate in the internal quotient identity."
+      ]
     }
   ],
   "requests": [
@@ -101228,7 +102037,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual full-fiber equivalence and weighted relator identity now construct internal quotient maps along all positive level divisors, with point-label, identity and composition laws. Admissibility is transitive, the actual source sets are monotone along admissible levels, and lower-level generation transports into the larger source span. Next prove Lemma 1.12 through its precise primitive fibers and then induct on exceptional primary coordinates to establish composite-level Proposition 1.9. The separate Cartan or rational-model rank lower bound remains necessary for freeness and internal/global relation equality; no injectivity of the internal level map is asserted. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The prime-root partition underlying Kubert Lemma 1.12 is now explicit: coprime multiplication has a unique primitive lower-level root, every remaining prime root has exact order pM, and the actual complement equivalence yields the full finite-sum and internal quotient identities. Next identify the source higher-power image Y_p with that primitive pM-root fiber, prove all complete lifting fibers avoid the omitted point where required, and use the two valid distribution relations to recover its label. Then perform induction on exceptional primary coordinates and prime factors for composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound is still required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -101260,7 +102069,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual full-fiber equivalence and weighted relator identity now construct internal quotient maps along all positive level divisors, with point-label, identity and composition laws. Admissibility is transitive, the actual source sets are monotone along admissible levels, and lower-level generation transports into the larger source span. Next prove Lemma 1.12 through its precise primitive fibers and then induct on exceptional primary coordinates to establish composite-level Proposition 1.9. The separate Cartan or rational-model rank lower bound remains necessary for freeness and internal/global relation equality; no injectivity of the internal level map is asserted. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The prime-root partition underlying Kubert Lemma 1.12 is now explicit: coprime multiplication has a unique primitive lower-level root, every remaining prime root has exact order pM, and the actual complement equivalence yields the full finite-sum and internal quotient identities. Next identify the source higher-power image Y_p with that primitive pM-root fiber, prove all complete lifting fibers avoid the omitted point where required, and use the two valid distribution relations to recover its label. Then perform induction on exceptional primary coordinates and prime factors for composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound is still required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -101811,36 +102620,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source lower-level induction is stated as transport through an actual quotient homomorphism, without an unproved injectivity assertion.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source prime-root partition is now proved, while the distinct higher-power image identification and final label elimination remain explicit.",
     "validation": {
-      "nodes": 1535,
+      "nodes": 1549,
       "kinds": {
         "definition": 21,
-        "lemma": 827,
-        "construction": 136,
+        "lemma": 840,
+        "construction": 137,
         "theorem": 344,
         "comparison": 207
       },
-      "api": 1058,
-      "packetTests": 2864,
-      "definitionConstructionTests": 630,
-      "typedExamples": 2867,
+      "api": 1063,
+      "packetTests": 2884,
+      "definitionConstructionTests": 634,
+      "typedExamples": 2887,
       "planets": 24,
-      "baseline": 1055,
-      "preservedWholeNodes": 1521,
-      "preservedBaseline": 1051,
+      "baseline": 1059,
+      "preservedWholeNodes": 1535,
+      "preservedBaseline": 1055,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
       "newNodes": 14,
       "newNamedDeclarations": 14,
-      "newTypedTests": 21,
+      "newTypedTests": 20,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1795,
-      "dependencyEdges": 7868,
+      "reachableNodes": 1809,
+      "dependencyEdges": 7908,
       "acyclic": true,
-      "baselineLeaves": 1218,
+      "baselineLeaves": 1222,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -101855,7 +102664,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 785791,
+      "readerWords": 793615,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -101881,31 +102690,34 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 77,
-      "scratchCompleteLemmas": 933,
+      "scratchCompleteDefinitions": 78,
+      "scratchCompleteLemmas": 946,
       "scratchMathlibModules": 2982,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levelPairs": 168,
-        "completeFibers": 25920,
-        "weightedRelatorIdentities": 77760,
-        "admissibleChains": 260,
-        "sourceGeneratorInclusions": 4808,
-        "identityMaps": 5200,
-        "composedMaps": 8050
+        "levels": 64,
+        "primitiveBasePoints": 2572,
+        "completePrimeFibers": 2572,
+        "rootsClassified": 34012,
+        "uniqueLowerRoots": 2572,
+        "complementBijections": 2572,
+        "integerSumIdentities": 2572,
+        "cardinalityIdentities": 2572,
+        "unitBaseFibers": 6,
+        "coprimeScalarPermutations": 64
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80",
+        "sourceSha256": "763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841",
         "modules": 3604,
-        "warnings": 4749,
+        "warnings": 4783,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,783 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -101915,7 +102727,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "01477cdd57357f9879a43313aabdcb4a72a834eabca1ecd355cf313f5effcfb4",
+      "sha256": "e6f2f587f01d750010328630644ed61b01c0936ed7a9b489ee95051a1bc3bc97",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -101930,11 +102742,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 933,
+        "completeLemmas": 946,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "7efdf0ad997da793440271e3c6739e80c79d75f2a923e6ee88d4e296342365b1"
+        "sha256": "39dfd265364c94eae7b36df14532def0a56808b002dd9ac417220c5f2ae1ef1d"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -102072,17 +102884,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80",
+        "sourceSha256": "763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841",
         "modules": 3604,
-        "warnings": 4749,
+        "warnings": 4783,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,783 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "a97a6a4a90d113e32c44e3170064aefed84548c1",
+      "base": "922d4b9cac90c9a35f63f11fba577fb274426035",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -112896,6 +113708,57 @@
         "warnings": 4749,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertPrimeFiberSplitting": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5440,
+      "previousHead": "07f27fd5e92e435edae4c4b3a0d72a8de0b43b86",
+      "previousMerge": "6784b4d05106dfee290a13f28041055f7cdc3946",
+      "preservedWholeNodes": 1535,
+      "preservedBaseline": 1055,
+      "preservedFindings": 26,
+      "newNodes": 14,
+      "reading": "Kubert 185 Lemma 1.12 and its displayed prime-root relation were reread against the already-read full article. The lower primitive root and complete higher primitive part are derived rather than assumed. Native coprime inverse-exponent and order formulas, divisor-coprimality, prime-order cases, finite-sum partition, subsingleton evaluation and natural cardinality were read at the pinned sources. The additive-monoid sum theorem retains the weakest codomain needed.",
+      "boundary": "The prime-root partition underlying Kubert Lemma 1.12 is now explicit: coprime multiplication has a unique primitive lower-level root, every remaining prime root has exact order pM, and the actual complement equivalence yields the full finite-sum and internal quotient identities. Next identify the source higher-power image Y_p with that primitive pM-root fiber, prove all complete lifting fibers avoid the omitted point where required, and use the two valid distribution relations to recover its label. Then perform induction on exceptional primary coordinates and prime factors for composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound is still required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "922d4b9cac90c9a35f63f11fba577fb274426035",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source prime-root partition is now proved, while the distinct higher-power image identification and final label elimination remain explicit.",
+      "publication": {
+        "base": "922d4b9cac90c9a35f63f11fba577fb274426035",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 64,
+        "primitiveBasePoints": 2572,
+        "completePrimeFibers": 2572,
+        "rootsClassified": 34012,
+        "uniqueLowerRoots": 2572,
+        "complementBijections": 2572,
+        "integerSumIdentities": 2572,
+        "cardinalityIdentities": 2572,
+        "unitBaseFibers": 6,
+        "coprimeScalarPermutations": 64
+      },
+      "numericalMethod": "Independent exact rational enumeration in dimensions one and two, primes 2,3,5 and coprime lower levels through 16. Actual root orders, the unique lower-level root, point-preserving complement bijections, free-abelian integer sum identities and cardinality identities are checked before quotienting. Finite controls are not Lean certificates.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841",
+        "modules": 3604,
+        "warnings": 4783,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,783 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
