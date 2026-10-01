@@ -21731,3 +21731,221 @@ example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
 example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzIntrinsicFunctionsTests
+
+/- Actual quotient Gamma logarithms on native periodic rational classes. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+
+lemma grossKoblitz_circle_period_integer (p : ℕ) (q : ℚ) (d : ℕ)
+    (h : Function.IsPeriodicPt (fun z : AddCircle (1 : ℚ) => p • z) d (q : AddCircle (1 : ℚ))) :
+    ∃n : ℤ,((p : ℚ)^d-1)*q=n := by sorry
+
+lemma grossKoblitz_circle_periodic_integral (p : ℕ) [Fact p.Prime] (q : ℚ)
+    (hq : (q : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    ‖(q : ℚ_[p])‖≤1 := by sorry
+
+lemma grossKoblitz_integral_iff_periodic (p : ℕ) [Fact p.Prime] (q : ℚ) :
+    ‖(q : ℚ_[p])‖≤1 ↔
+      (q : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+lemma grossKoblitz_representative_integral (p : ℕ) [Fact p.Prime] (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    ‖((QuotientAddGroup.equivIocMod (zero_lt_one' ℚ) 0 z : ℚ) : ℚ_[p])‖≤1 := by sorry
+
+lemma grossKoblitz_sourcePhi_circle_eq (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (a b : ℚ)
+    (ha : ‖(a : ℚ_[p])‖≤1) (hb : ‖(b : ℚ_[p])‖≤1)
+    (he : (a : AddCircle (1 : ℚ))=(b : AddCircle (1 : ℚ))) :
+    grossKoblitzSourcePhi p ι ℓ a ha=grossKoblitzSourcePhi p ι ℓ b hb := by sorry
+
+noncomputable def grossKoblitzCirclePhi (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) : K := by sorry
+
+lemma grossKoblitzCirclePhi_eval (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z))
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (he : (q : AddCircle (1 : ℚ))=z) :
+    grossKoblitzCirclePhi p ι ℓ z=grossKoblitzSourcePhi p ι ℓ q hq := by sorry
+
+lemma grossKoblitzCirclePhi_apply (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzCirclePhi p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩=grossKoblitzSourcePhi p ι ℓ q hq := by sorry
+
+lemma grossKoblitzCirclePhi_unique (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (F : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) → K)
+    (hF : ∀(q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1),F ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩=grossKoblitzSourcePhi p ι ℓ q hq) :
+    F=grossKoblitzCirclePhi p ι ℓ := by sorry
+
+lemma grossKoblitz_orbitMean_circle_eq (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (a b : ℚ)
+    (ha : ‖(a : ℚ_[p])‖≤1) (hb : ‖(b : ℚ_[p])‖≤1)
+    (he : (a : AddCircle (1 : ℚ))=(b : AddCircle (1 : ℚ))) :
+    grossKoblitzMean p ι ℓ a ha=grossKoblitzMean p ι ℓ b hb := by sorry
+
+noncomputable def grossKoblitzCircleMean (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) : K := by sorry
+
+lemma grossKoblitzCircleMean_eval (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z))
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (he : (q : AddCircle (1 : ℚ))=z) :
+    grossKoblitzCircleMean p ι ℓ z=grossKoblitzMean p ι ℓ q hq := by sorry
+
+lemma grossKoblitzCircleMean_apply (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzCircleMean p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩=grossKoblitzMean p ι ℓ q hq := by sorry
+
+lemma grossKoblitzCircleMean_unique (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (F : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) → K)
+    (hF : ∀(q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1),F ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩=grossKoblitzMean p ι ℓ q hq) :
+    F=grossKoblitzCircleMean p ι ℓ := by sorry
+
+lemma grossKoblitz_circle_neg_mem (p : ℕ) [Fact p.Prime] (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    -(z : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+lemma grossKoblitz_circle_frobenius_mem (p : ℕ) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    p • (z : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+lemma grossKoblitz_rational_frobenius_integral (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    ‖(((p : ℚ)*q : ℚ) : ℚ_[p])‖≤1 := by sorry
+
+lemma grossKoblitzCirclePhi_neg (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    grossKoblitzCirclePhi p ι ℓ ⟨-(z : AddCircle (1 : ℚ)),grossKoblitz_circle_neg_mem p z⟩= -grossKoblitzCirclePhi p ι ℓ z := by sorry
+
+lemma grossKoblitzCirclePhi_zero (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+ :
+    grossKoblitzCirclePhi p ι ℓ ⟨0,by simpa using grossKoblitz_circle_periodic p 0 (by simp)⟩=0 := by sorry
+
+lemma grossKoblitzCirclePhi_frobenius (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    grossKoblitzCirclePhi p ι ℓ ⟨p • (z : AddCircle (1 : ℚ)),grossKoblitz_circle_frobenius_mem p z⟩=grossKoblitzCirclePhi p ι ℓ z := by sorry
+
+lemma grossKoblitzCircleMean_neg (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    grossKoblitzCircleMean p ι ℓ ⟨-(z : AddCircle (1 : ℚ)),grossKoblitz_circle_neg_mem p z⟩= -grossKoblitzCircleMean p ι ℓ z := by sorry
+
+lemma grossKoblitzCircleMean_zero (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+ :
+    grossKoblitzCircleMean p ι ℓ ⟨0,by simpa using grossKoblitz_circle_periodic p 0 (by simp)⟩=0 := by sorry
+
+lemma grossKoblitzCircleMean_frobenius (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    grossKoblitzCircleMean p ι ℓ ⟨p • (z : AddCircle (1 : ℚ)),grossKoblitz_circle_frobenius_mem p z⟩=grossKoblitzCircleMean p ι ℓ z := by sorry
+
+lemma grossKoblitzCircleMean_div (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    grossKoblitzCircleMean p ι ℓ z=grossKoblitzCirclePhi p ι ℓ z /
+      (Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z) z) := by sorry
+
+lemma grossKoblitzCircleMean_mul (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]  (ι : ℤ_[p] →+* K) (ℓ : K → K) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    (Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z) z : K)*grossKoblitzCircleMean p ι ℓ z=
+      grossKoblitzCirclePhi p ι ℓ z := by sorry
+
+lemma grossKoblitzCircleMean_distribution (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+ :
+    (∑h ∈ range m,grossKoblitzCircleMean p ι ℓ
+      ⟨(((q+h)/m : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p _ (grossKoblitz_affine_integral p q hq m hmpos hm h)⟩)=
+      grossKoblitzCircleMean p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩ := by sorry
+
+lemma grossKoblitzCirclePhi_distribution (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+    (f : ℕ) (hf : 0<f)
+    (hper : Function.IsPeriodicPt (fun z : AddCircle (1 : ℚ) => p • z) f (q : AddCircle (1 : ℚ)))
+    (hpre : ∀h<m,Function.IsPeriodicPt (fun z : AddCircle (1 : ℚ) => p • z) f
+      (((q+h)/m : ℚ) : AddCircle (1 : ℚ))) :
+    (∑h ∈ range m,(f/(Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z)
+      (((q+h)/m : ℚ) : AddCircle (1 : ℚ)))) • grossKoblitzCirclePhi p ι ℓ
+      ⟨(((q+h)/m : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p _ (grossKoblitz_affine_integral p q hq m hmpos hm h)⟩)=
+      (f/(Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z) (q : AddCircle (1 : ℚ)))) •
+      grossKoblitzCirclePhi p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzQuotientFunctionsTests
+open Finset
+open scoped Classical
+noncomputable section
+-- unrestricted_integer_difference
+example : ((3 : ℚ)^3-1)*(-2/13)= -4 := by sorry
+-- periodic_implies_integral
+example (hz : ((2/13 : ℚ) : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) : ‖((2/13 : ℚ) : ℚ_[3])‖≤1 := by sorry
+-- preperiodic_third_excluded
+example : ((1/3 : ℚ) : AddCircle (1 : ℚ))∉Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- negative_domain_iff
+example : (‖((-2/13 : ℚ) : ℚ_[3])‖≤1 ↔ ((-2/13 : ℚ) : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) := by sorry
+-- zero_class_in_domain
+example : (0 : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- positive_representative_integral
+example (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) : ‖((QuotientAddGroup.equivIocMod (zero_lt_one' ℚ) 0 z : ℚ) : ℚ_[3])‖≤1 := by sorry
+-- zero_representative_one
+example : (QuotientAddGroup.equivIocMod (zero_lt_one' ℚ) 0 (0 : AddCircle (1 : ℚ)) : ℚ)=1 := by sorry
+-- circlePhi_rational_class_invariance
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (ht : ‖((-11/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzSourcePhi 3 ι ℓ (2/13) hq=grossKoblitzSourcePhi 3 ι ℓ (-11/13) ht := by sorry
+-- circlePhi_negative_representative
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (ht : ‖((-11/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzCirclePhi 3 ι ℓ ⟨((-11/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-11/13) ht⟩ := by sorry
+-- circlePhi_zero_value
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((0 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (0) hq⟩=0 := by sorry
+-- circlePhi_zero_log_consumer
+example (ι : ℤ_[3] →+* ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι (fun _ => 0) ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=0 := by sorry
+-- circlePhi_half_value
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((1/2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((1/2 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (1/2) hq⟩=0 := by sorry
+-- circlePhi_evaluate_class
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hz : ((2/13 : ℚ) : AddCircle (1 : ℚ))=z) : grossKoblitzCirclePhi 3 ι ℓ z=grossKoblitzSourcePhi 3 ι ℓ (2/13) hq := by sorry
+-- circlePhi_canonical_inclusion
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzSourcePhi 3 ι ℓ (2/13) hq := by sorry
+-- circlePhi_descent_unique
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (G : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) → ℚ_[3]) (hG : ∀(q : ℚ) (hq : ‖(q : ℚ_[3])‖≤1),G ⟨((q : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (q) hq⟩=grossKoblitzSourcePhi 3 ι ℓ q hq) : G=grossKoblitzCirclePhi 3 ι ℓ := by sorry
+-- circlePhi_negative_class
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hn : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((-2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2/13) hn⟩= -grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩ := by sorry
+-- circlePhi_negative_integer
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((-2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((-2 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2) hq⟩=0 := by sorry
+-- circlePhi_circle_rotation
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hp : ‖((6/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCirclePhi 3 ι ℓ ⟨((6/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (6/13) hp⟩=grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩ := by sorry
+-- circleMean_rational_class_invariance
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (ht : ‖((-11/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzMean 3 ι ℓ (2/13) hq=grossKoblitzMean 3 ι ℓ (-11/13) ht := by sorry
+-- circleMean_negative_representative
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (ht : ‖((-11/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzCircleMean 3 ι ℓ ⟨((-11/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-11/13) ht⟩ := by sorry
+-- circleMean_zero_value
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((0 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (0) hq⟩=0 := by sorry
+-- circleMean_zero_log_consumer
+example (ι : ℤ_[3] →+* ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι (fun _ => 0) ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=0 := by sorry
+-- circleMean_half_value
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((1/2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((1/2 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (1/2) hq⟩=0 := by sorry
+-- circleMean_evaluate_class
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hz : ((2/13 : ℚ) : AddCircle (1 : ℚ))=z) : grossKoblitzCircleMean 3 ι ℓ z=grossKoblitzMean 3 ι ℓ (2/13) hq := by sorry
+-- circleMean_canonical_inclusion
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzMean 3 ι ℓ (2/13) hq := by sorry
+-- circleMean_descent_unique
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (G : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) → ℚ_[3]) (hG : ∀(q : ℚ) (hq : ‖(q : ℚ_[3])‖≤1),G ⟨((q : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (q) hq⟩=grossKoblitzMean 3 ι ℓ q hq) : G=grossKoblitzCircleMean 3 ι ℓ := by sorry
+-- circleMean_negative_class
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hn : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((-2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2/13) hn⟩= -grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩ := by sorry
+-- circleMean_negative_integer
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((-2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((-2 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2) hq⟩=0 := by sorry
+-- circleMean_circle_rotation
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) (hp : ‖((6/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((6/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (6/13) hp⟩=grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩ := by sorry
+-- native_domain_closed_under_neg
+example (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) : -(z : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- native_domain_closed_under_p
+example (z : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) : 3 • (z : AddCircle (1 : ℚ))∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- rational_rotation_integral
+example (q : ℚ) (hq : ‖((q : ℚ) : ℚ_[3])‖≤1) : ‖((3*q : ℚ) : ℚ_[3])‖≤1 := by sorry
+-- quotient_mean_divides_three
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩/3 := by sorry
+-- quotient_mean_recovers_source
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hq : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : 3*grossKoblitzCircleMean 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩=grossKoblitzCirclePhi 3 ι ℓ ⟨((2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (2/13) hq⟩ := by sorry
+-- quotient_negative_distribution
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) (h0 : ‖((-1/13 : ℚ) : ℚ_[3])‖≤1) (h1 : ‖((11/26 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((-1/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-1/13) h0⟩+grossKoblitzCircleMean 3 ι ℓ ⟨((11/26 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (11/26) h1⟩=grossKoblitzCircleMean 3 ι ℓ ⟨((-2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2/13) hq⟩ := by sorry
+-- quotient_zero_distribution
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) (hh : ‖((1/2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzCircleMean 3 ι ℓ ⟨((0 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (0) hq⟩+grossKoblitzCircleMean 3 ι ℓ ⟨((1/2 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (1/2) hh⟩=0 := by sorry
+-- quotient_weighted_certificate
+example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
+-- quotient_unweighted_failure
+example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzQuotientFunctionsTests
