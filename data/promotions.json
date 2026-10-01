@@ -734,11 +734,11 @@
    ]
   },
   "research/blueprint/restructure/RS-20.result.json": {
-   "promotedAt": "2026-09-30T15:29:19Z",
-   "review": "1675f72dcf362866",
-   "reviewDate": "2026-09-29",
-   "reviewer": "independent-review-REV-RS-20~3",
-   "sha256": "94b054ac2d67c1ebac0d28b357257dd45c5982a846242f0366d876f024e28974",
+   "promotedAt": "2026-10-01T23:36:22Z",
+   "review": "7f8446de0ccdd914",
+   "reviewDate": "2026-10-01",
+   "reviewer": "independent-review-REV-FIX-RT-RS-20~3",
+   "sha256": "f1e5ac5e417e100cfa2c8e4652ccee727d23a224211f3569fff2fde82fd24260",
    "to": [
     "data/restructure/RS-20.result.json",
     "data/restructure/RS-20.md"

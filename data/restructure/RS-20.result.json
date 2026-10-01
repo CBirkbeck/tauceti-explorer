@@ -65,7 +65,7 @@
     },
     "RelativeFarguesFontaine:RF0:integral-Y": {
       "action": "keep",
-      "reason": "Keep the full relative integral construction curly-Y = Spa(W_OE(R^+)) minus V([varpi]) with its (pi,[varpi])-adic topology, rational charts, completed coordinate and plus rings, root-extension perfectoid/tilt comparison, split topological-module descent, gluing and integral product curly-Y^diamond = S x Spd(O_E). V(pi) is retained. The fixed-field generic restriction compares to F0/F1; those suppliers do not construct the special fibre. The raw RF0 strict-lift prefix is used before RF0 aggregate completion. At declaration level the coefficient input is the existing node RelativeFarguesFontaine:RF0/ramified-witt-universal-property, not the completed RF0 stage; do not insert an RF0 aggregate-to-child prerequisite. In the n = 1 root-extension chart of FS II.1.1 the tilt coordinate satisfies t_1^sharp = pi/[varpi], not [varpi]/pi. The chart keeps pi = 0 and inverts [varpi], so this coordinate is defined on the special fibre. Correct the reciprocal in the inherited chart-cover-perfectoidness-and-sheafiness proof step when reconciling that node; its identity and other targets are retained. Round 3 (declaration-level check): the inherited node RF0/ramified-witt-universal-property has parent stage RF0, the aggregate that completes after this stage, so its link to curly-Y-affinoid-definition runs backwards in the stage order. Reconcile it by placing its proof payload at the start of this stage, its first consumer, and keeping its ID as a reference, as for the closed-Cartier node in RF2:integral-divisors. The RF0 aggregate still records the completed coefficient theory."
+      "reason": "Keep the full relative integral construction curly-Y = Spa(W_OE(R^+)) minus V([varpi]) with its (pi,[varpi])-adic topology, rational charts, completed coordinate and plus rings, root-extension perfectoid/tilt comparison, split topological-module descent, gluing and integral product curly-Y^diamond = S x Spd(O_E). V(pi) is retained. The fixed-field generic restriction compares to F0/F1; those suppliers do not construct the special fibre. The raw RF0 strict-lift prefix is used before RF0 aggregate completion. At declaration level the coefficient input is the existing node RelativeFarguesFontaine:RF0/ramified-witt-universal-property, not the completed RF0 stage; do not insert an RF0 aggregate-to-child prerequisite. In the n = 1 root-extension chart of FS II.1.1 the tilt coordinate satisfies t_1^sharp = pi/[varpi], not [varpi]/pi. The chart keeps pi = 0 and inverts [varpi], so this coordinate is defined on the special fibre. Correct the reciprocal in the inherited chart-cover-perfectoidness-and-sheafiness proof step when reconciling that node; its identity and other targets are retained. Round 3 (declaration-level check): the inherited node RF0/ramified-witt-universal-property has parent stage RF0, the aggregate that completes after this stage, so its link to curly-Y-affinoid-definition runs backwards in the stage order. Reconcile it by placing its proof payload at the start of this stage, its first consumer, and keeping its ID as a reference, as for the closed-Cartier node in RF2:integral-divisors. The RF0 aggregate still records the completed coefficient theory. Confirmed RT-RS-20~3/1: also replace proofSteps[2] of chart-cover-perfectoidness-and-sheafiness. For n = 1 write pi_m = pi^(1/p^m), v_m = [varpi]^(1/p^m) using compatible roots, and s_m = pi_m/v_m, m >= 0. Define A^+_0 = (W_OE(R^+) tensor-hat_OE O_Einfty)[s_m : m >= 0]^wedge_[varpi]; this adjoins (pi/[varpi])^(1/p^infty), not pi^(1/p^m)/[varpi]. Require s_m^p = s_(m-1) for m >= 1, |s_m| <= 1 on |pi| <= |[varpi]|, and the relation pi_m - v_m s_m = 0 used in the source reduction formula, as three separate acceptance checks. Retain t_1^sharp = pi/[varpi], the pi = 0 fibre, integral-closure plus rings, the subsequent integral-perfectoid criteria and topological split-module sheafiness descent."
     },
     "RelativeFarguesFontaine:RF0:annuli": {
       "action": "narrow",
@@ -95,12 +95,14 @@
     },
     "RelativeFarguesFontaine:RF2:untilts": {
       "action": "narrow",
-      "keeps": "Marked generic E-untilts, their theta/primitive presentation with the exact ramified or equal-characteristic hypotheses, their degree-one divisors on Y and X and their Frobenius-orbit/naturality comparisons. Import P1 for the p-typical perfectoid correspondence, and import from RF2:integral-divisors the degree-one ramified primitive presentation that the closed-Cartier lemma needs. Here prove the remaining E-linear comparison with marked generic untilts rather than assume it; the inherited primitive-untilt-correspondence node keeps its identity as this comparison and as a reference to P1. Import the integral-divisors owner for the preceding all-base analytic closed-Cartier lemma and all-degree ideal completion/localization, then prove the generic d = 1 B_dR^+/B_dR, residue, filtration and graded-line comparisons, including the geometric DVR specialization. Retain divisor addition, disjointness/collision compatibility and source-qualified Div^1 properness/smoothness obligations. Over Perf_Fq the moduli formula is Spd(E)/phi^Z; Spd(breve E)/phi^Z is its separately proved Perf_k presentation for k = algebraic closure of F_q, not an unqualified replacement. Do not erase the characteristic-p integral untilt accepted by the supplier. In the matching mixed-characteristic p-typical specialization, reuse or construct canonical comparison isomorphisms to the already defined Mathlib BDeRhamPlus and BDeRham carriers (Mathlib/RingTheory/Perfectoid/BDeRham.lean at 082e2d3). The latter is a localization at images of generators of the theta kernel; its existence as a definition does not prove principality, the theta extension, the DVR property or the required relative topological comparisons. Preserve those theorem obligations. These absolute carriers are zero when p = 0 in the input and do not replace the integral characteristic-p period rings.",
+      "keeps": "Marked generic E-untilts, their theta/primitive presentation with the exact ramified or equal-characteristic hypotheses, their degree-one divisors on Y and X and their Frobenius-orbit/naturality comparisons. Import P1 for the p-typical perfectoid correspondence, and import from RF2:integral-divisors the degree-one ramified primitive presentation that the closed-Cartier lemma needs. Here prove the remaining E-linear comparison with marked generic untilts rather than assume it; the inherited primitive-untilt-correspondence node keeps its identity as this comparison and as a reference to P1. Import the integral-divisors owner for the preceding all-base analytic closed-Cartier lemma and all-degree ideal completion/localization, then prove the generic d = 1 B_dR^+/B_dR, residue, filtration and graded-line comparisons, including the geometric DVR specialization. Retain divisor addition, disjointness/collision compatibility and the early Div^1 moduli definition. Move the property theorem FS II.1.21 (properness, spatial representability and cohomological smoothness over Spd(F_q), with |X_S| -> |S| open and closed) to the precise late owner VectorBundlesAndIsocrystals:VB3:general-BC/div1-proper-smooth. Import DiamondEtaleCohomology:C4 and DiamondSixOperations:S5 there, not into this early constructor. Over Perf_Fq the moduli formula is Spd(E)/phi^Z; Spd(breve E)/phi^Z is its separately proved Perf_k presentation for k = algebraic closure of F_q, not an unqualified replacement. Do not erase the characteristic-p integral untilt accepted by the supplier. In the matching mixed-characteristic p-typical specialization, reuse or construct canonical comparison isomorphisms to the already defined Mathlib BDeRhamPlus and BDeRham carriers (Mathlib/RingTheory/Perfectoid/BDeRham.lean at 082e2d3). The latter is a localization at images of generators of the theta kernel; its existence as a definition does not prove principality, the theta extension, the DVR property or the required relative topological comparisons. Preserve those theorem obligations. These absolute carriers are zero when p = 0 in the input and do not replace the integral characteristic-p period rings. For the matching mixed-characteristic p-typical perfectoid affinoid (K,K^+)-algebra case, import PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras. First identify the divisor completion, theta/residue map and local generator with that supplier, including its filtration; then reuse the supplier theorem. R06.1 already covers any characteristic-zero perfectoid K in that statement, not just C_p. Retain here the all-E coefficient-change comparison, arbitrary-base descent, integral and equal-characteristic constructions, and geometric DVR comparison wherever no matching supplier has been checked. Graded pieces are potentially nontrivial line bundles I^m/I^(m+1); a free-module presentation requires a chosen generator. Prove coefficient-change compatibility before extending the p-typical reuse.",
       "suppliedBy": [
         "PerfectoidSpaces:P1",
-        "RelativeFarguesFontaine:RF2:integral-divisors"
+        "RelativeFarguesFontaine:RF2:integral-divisors",
+        "PadicHodgeTheory:R06.1",
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
       ],
-      "reason": "The integral degree-one closed-image argument must precede the integral degree-d construction; it cannot depend back on this whole generic-untilt stage. Completion is constructed once for the invertible divisor ideal, while its generic de Rham interpretation and base-field conversion are new comparisons here."
+      "reason": "The integral degree-one closed-image argument must precede the integral degree-d construction; it cannot depend back on this whole generic-untilt stage. Completion is constructed once for the invertible divisor ideal, while its generic de Rham interpretation and base-field conversion are new comparisons here. RT-RS-20~3/2 and /3: R06.1 is an actual import only on the matching generic affinoid case, via the explicit comparison above. VB3:general-BC in suppliedBy names the destination of the moved late property, not an import back into RF2:untilts. This existing stage is already after C4 and S5 and supplies HS0/VS1; place the separate FS II.1.21 theorem there with direct RF2:untilts, C4 and S5 inputs. Keep RF2, RF3, RF4:vector-bundles, VB1 and BG0 on the early divisor/period-ring branch. This selects the existing-late-owner option in the finding, replacing the unintegrated RF2:div1-properness proposal of RT-AREA-padic-1/17; do not create both owners."
     },
     "RelativeFarguesFontaine:RF3": {
       "action": "narrow",
@@ -130,6 +132,10 @@
     "VectorBundlesAndIsocrystals:VB2:ampleness": {
       "action": "keep",
       "reason": "Not a member of this family; listed because it receives one target from RF3, with no change to its prerequisites. Its first theorem is global generation with higher-cohomology vanishing of E(n) for n >= n0 on X_S, S affinoid perfectoid (FS Theorem II.2.6 = Kedlaya-Liu Proposition 6.2.4). Applying it to E = O gives an n0 with every O(n), n >= n0, globally generated, so the loci D(g), g in P_n (n >= n0), cover X_S, and finitely many suffice. On that cover this stage then glues RF3's chart maps to the morphism f: (X_S, O) -> Proj(P). It constructs the tautological invertible sheaves O_Proj(P)(m) for m >= n0, compatibly with tensor products, defines O_Proj(P)(1) from them, and proves f^*O_Proj(P)(1) = O_{X_S}(1), with every degree and local trivialization explicit. Only after that does it prove the GAGA comparison it already owns. None of these steps uses projectivized-section properness or classification."
+    },
+    "VectorBundlesAndIsocrystals:VB3:general-BC": {
+      "action": "keep",
+      "reason": "Existing late owner receiving the FS II.1.21 property payload, without moving its existing Banach-Colmez targets. Add the named theorem node div1-proper-smooth: Div^1 = Spd(E)/phi^Z -> Spd(F_q) is proper, representable in spatial diamonds and cohomologically smooth, hence |X_S| -> |S| is open and closed. Its direct inputs are RelativeFarguesFontaine:RF2:untilts (moduli), DiamondEtaleCohomology:C4 (ECD 18.3) and DiamondSixOperations:S5 (ECD 24.5); RF1 supplies the quotient/qcqs description. Follow the finite-extension and equal-characteristic argument of FS p. 56. Prove it directly over Perf_Fq; do not infer it from the later Banach-Colmez statement over Perf_k without descent. Forward this result to HS0 and VS1. This is the one property owner selected for RT-RS-20~3/2 and RT-AREA-padic-1/17; no RF2:div1-properness child is added. The geometric constructors and linear patching do not depend on this late theorem."
     }
   },
   "links": [
@@ -527,6 +533,66 @@
       "source": "VectorBundlesAndIsocrystals:VB1",
       "target": "VectorBundlesAndIsocrystals:VB2:ampleness",
       "reason": "Retain the existing arbitrary-rank vector-bundle/isocrystal functor and cohomology input before the generation and GAGA theorems; no reverse input into RF3 rank-one descent."
+    },
+    {
+      "source": "RelativeFarguesFontaine:RF2:untilts",
+      "target": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "reason": "The moduli definition and generic-divisor interpretation precede the separately moved late FS II.1.21 property theorem; this is a forward dependency, never a return to the early untilt constructor."
+    },
+    {
+      "source": "DiamondEtaleCohomology:C4",
+      "target": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "reason": "C4 supplies ECD Proposition 18.3, the valuative criterion used for Div^1 properness after spatial representability and qcqs have been established."
+    },
+    {
+      "source": "DiamondSixOperations:S5",
+      "target": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "reason": "S5 supplies ECD Proposition 24.5 for Spd Q_p and its source-qualified equal-characteristic argument; FS II.1.21 treats finite extensions of Q_p formally. No unrestricted coefficient smoothness is inferred."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Supply the late proper/cohomologically-smooth Div^1 leg-space theorem for the property-qualified Hecke correspondences; retain early RF2 divisor inputs independently."
+    },
+    {
+      "source": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "target": "VStackSheavesAndLisseCategories:VS1",
+      "reason": "Supply FS II.1.21 and the open/closed topological curve-family map for the later section-space/Jacobian and divisor applications, separately from the early RF2 constructor."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "RelativeFarguesFontaine:RF2:untilts",
+      "reason": "Reuse R06.1/bdr-plus-of-perfectoid-affinoid-algebras in the matching mixed-characteristic p-typical affinoid case only after identifying the completion, residue/theta map and generator. RF2 retains all-E coefficient comparison, arbitrary-base descent, integral/equal-characteristic constructions and nonsupplied DVR comparisons."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "RelativeFarguesFontaine:RF2",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "RelativeFarguesFontaine:RF3",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "RelativeFarguesFontaine:RF4:vector-bundles",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "VectorBundlesAndIsocrystals:VB1",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "GeometricSatakeAndFusion:GS0:loop-geometry",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
+    },
+    {
+      "source": "PadicHodgeTheory:R06.1",
+      "target": "HeckeStacksAndLocalShtukas:HS0",
+      "reason": "Access the matching mixed-characteristic p-typical affinoid period-ring/filtration theorem through RF2:untilts and its explicit comparison; the retained RF2 export still supplies relative/all-E and integral specialization data. This is not a blanket arithmetic replacement of relative geometry."
     }
   ],
   "owners": [
@@ -629,7 +695,7 @@
       ]
     },
     {
-      "target": "Generic degree-one de Rham interpretation, filtration/graded lines and the Perf_Fq versus Perf_k Div^1 comparison",
+      "target": "Relative all-E generic degree-one de Rham interpretation and coefficient-change comparisons, arbitrary-base descent, possibly nontrivial filtration/graded lines and the Perf_Fq versus Perf_k Div^1 moduli comparison; import the matching p-typical affinoid filtration theorem from R06.1 and keep geometric DVR comparisons not yet supplied",
       "owner": "RelativeFarguesFontaine:RF2:untilts",
       "formerly": [
         "RelativeFarguesFontaine:RF2:integral-divisors"
@@ -655,15 +721,126 @@
       "formerly": [
         "RelativeFarguesFontaine:RF3"
       ]
+    },
+    {
+      "target": "Div^1 -> Spd(F_q) proper, representable in spatial diamonds and cohomologically smooth (FS II.1.21), and the resulting open/closed map |X_S| -> |S|",
+      "owner": "VectorBundlesAndIsocrystals:VB3:general-BC",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    },
+    {
+      "target": "Mixed-characteristic p-typical perfectoid-affinoid B_dR^+/B_dR construction and its ideal filtration after identifying the completion, theta/residue map and generator; R06.1 already covers general perfectoid K of characteristic zero",
+      "owner": "PadicHodgeTheory:R06.1",
+      "formerly": [
+        "RelativeFarguesFontaine:RF2:untilts"
+      ]
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-RS-20~3",
+      "date": "2026-09-29",
+      "notes": "Independent third review by Claude Code, session cc-58621d, of the round-3 proposal (cc-39fac3, #3971) at main ee268371. The member documents, the AdicSpaces anchor, the decomposition, the family file and data/atlas.json are byte-identical to those REV-RS-20~2 audited, so its full ownership reading stands; round 3 changed only the RF0:integral-Y, RF2:integral-divisors, RF2:untilts and RF3 entries, added a VB2:ampleness entry and owner record, and rewrote one link reason. The round-2 blocker is resolved by its second option: RF3 keeps O(n), P, Proj(P) and the chart maps glued on U; VB2:ampleness, whose first target is global generation of E(n) for n >= n0 (Fargues-Scholze Theorem II.2.6, from Kedlaya-Liu 6.2.4), owns the global morphism, the tautological twists O(m) for m >= n0 and O(1), and the pullback identification, before GAGA (Proposition II.2.7). I checked this against the FS author PDF (printed pp. 49-50 and 64-67): II.2.7's proof calls the map 'formal (and does not rely on any assumptions)' and glues it on the D(g), which cover X only under global generation; the text before the proof builds O_Proj(P)(n) for large n compatibly with tensor products and then O(1). The declaration-level placement of the degree-one presentation R^{sharp+} = W_{O_E}(R^+)/xi, xi = pi - a[varpi], before the closed-Cartier lemma matches the start of FS's proof of II.1.4. On the current assembled atlas: all 79 links resolve (41 already present), the union is acyclic, no path VB2:ampleness -> RF3 exists, round 2's four no-path checks still hold, and all 61 supplier-to-consumer forwarding checks pass except where the named owner is downstream of the narrowed layer, the pattern round 2 accepted for VB1. RF3's other consumers (BG0, VS1, VB1) do not use the global map. No accepted restructuring records VB2:ampleness. check_restructure.py passes. Report: research/blueprint/reviews/REV-RS-20~3.md.",
+      "corrections": [
+        "No change to the proposal's decisions, layers, owners or links; the round-2 review object (needs_changes) was replaced by this one, and its history remains in reviews/REV-RS-20.md and REV-RS-20~2.md."
+      ]
+    }
+  ],
+  "fixRevision": {
+    "job": "FIX-RT-RS-20~3",
+    "issue": 5549,
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "date": "2026-10-01",
+    "inputCommit": "fdc982e164f26979db865bb853d491a541107083",
+    "review": "Accepted by REV-FIX-RT-RS-20~3 (top-level review); reviewHistory records acceptance of the earlier proposal.",
+    "scope": "The four authorized restructuring/fix/handoff deliverables. Partial RF0/RF4 and future VB3 blueprints receive the node reconciliation below through their authorized workflow; reviewed base files are not edited."
+  },
+  "nodeReconciliation": [
+    {
+      "finding": "RT-RS-20~3/1",
+      "node": "RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness",
+      "owner": "RelativeFarguesFontaine:RF0:integral-Y",
+      "replaceProofSteps": {
+        "2": "Set A^+_0 = (W_OE(R^+) tensor-hat_OE O_Einfty)[(pi/[varpi])^(1/p^infty)]^wedge_[varpi], with s_m = pi^(1/p^m)/[varpi]^(1/p^m) chosen compatibly. Compute the stated source reduction using pi^(1/p^m) - [varpi]^(1/p^m)s_m = 0.",
+        "4": "Identify the tilt with the perfected chart, with t_1^sharp = pi/[varpi]; the coordinate remains defined on pi = 0."
+      },
+      "acceptance": [
+        {
+          "name": "compatible_root_coherence",
+          "statement": "s_m^p = s_(m-1) for every m >= 1; rooting only pi fails this relation."
+        },
+        {
+          "name": "boundary_power_boundedness",
+          "statement": "On |pi| = |[varpi]| = c in (0,1), every s_m has norm 1, while pi^(1/p^m)/[varpi] has norm c^(1/p^m-1) > 1 for m > 0."
+        },
+        {
+          "name": "compatible_root_reduction",
+          "statement": "pi^(1/p^m) = [varpi]^(1/p^m)s_m and the source quotient calculation gives A^+_0/[varpi] = (R^+/varpi)[t_1^(1/p^infty)]."
+        }
+      ],
+      "retain": "pi=0 special fibre, integral-closure plus rings, almost comparison, perfectoidness and split topological-module sheafiness proof; existing node identity and other tests. Apply the formula and reciprocal correction together in the partial RF0 packet, reader and suggested signatures through BP-RelativeFarguesFontaine--RF0."
+    },
+    {
+      "finding": "RT-RS-20~3/2",
+      "node": "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+      "retainAt": "RelativeFarguesFontaine:RF2:untilts",
+      "retain": "Keep the stable node id for the early moduli/degree-one-divisor statement, quotient topology, naturality, and Perf_Fq versus Perf_k comparison; title it Div^1: degree-one divisors.",
+      "moveTo": "VectorBundlesAndIsocrystals:VB3:general-BC/div1-proper-smooth",
+      "move": "Move the final property sentence, ECD 18.3/24.5 hypotheses, last two proof steps, FS II.1.21 source excerpt and matching property acceptance to the late theorem, rather than delete them.",
+      "prerequisites": [
+        "RelativeFarguesFontaine:RF2:untilts",
+        "RelativeFarguesFontaine:RF1",
+        "DiamondEtaleCohomology:C4",
+        "DiamondSixOperations:S5"
+      ],
+      "acceptance": [
+        "Over Perf_Fq, use FS II.1.21 to prove properness and spatial representability, not merely a Perf_k statement.",
+        "For E finite over Q_p, transport the S5/24.5 input as in FS; handle equal characteristic through the source argument.",
+        "Deduce |X_S| -> |S| open and closed and preserve comparison (BC(O(1)) minus zero)/E^times = Div^1 as a late consistency check."
+      ],
+      "coordinateWith": "RT-AREA-padic-1/17: this uses the existing-late-owner alternative permitted by the present fix; replace its unintegrated RF2:div1-properness instruction with this one late theorem. No RF2 child is created, so the special RF2 -> new-child aggregate-edge rule is not needed.",
+      "workflow": "BP-RelativeFarguesFontaine--RF0 splits the stable composite node and supplies the early part; BP-VectorBundlesAndIsocrystals--VB3 owns the moved theorem and its suggested statement. Transport references by payload, retaining early edges to RF3/RF4/VB1/BG0 and property edges to HS0/VS1."
+    },
+    {
+      "finding": "RT-RS-20~3/3",
+      "node": "RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration",
+      "owner": "RelativeFarguesFontaine:RF2:untilts",
+      "importNode": "PadicHodgeTheory:R06.1/bdr-plus-of-perfectoid-affinoid-algebras",
+      "prerequisite": "PadicHodgeTheory:R06.1",
+      "request": "In BP-RelativeFarguesFontaine--RF0 add the named supplier node (or a request to R06.1 when its actual node is not available to that packet). Require canonical identification of ideal-adic completion, theta/residue map and generator before importing the affinoid filtration statement; add the corresponding comparison in the reader and suggested signatures.",
+      "retain": "All-E and arbitrary-base comparison/descent, integral/equal-characteristic period rings, coefficient-change theorem before extended reuse, geometric DVR comparison not yet supplied, and line-bundle graded pieces without a global generator.",
+      "coordinateWith": [
+        "RT-AREA-padic-1/20",
+        "RT-AREA-padic-2/21"
+      ],
+      "acceptance": [
+        "For a matching generic p-typical affinoid over a general characteristic-zero perfectoid K, the comparison intertwines theta/residue and ker(theta)-adic filtration.",
+        "Changing xi by a unit preserves the completed ring and changes only the local graded trivialization.",
+        "At the integral pi=0 divisor retain W_OE(C); do not use the p-inverted Mathlib carrier, which is zero on characteristic-p input."
+      ]
+    }
+  ],
+  "fixSources": [
+    {
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "read": "2026-10-01",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "scope": "Printed pp. 48, 55–56, 61, 196–197; page 48 also visually read. Targeted fix reading, not a whole-book extraction."
+    },
+    {
+      "url": "https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf",
+      "read": "2026-10-01",
+      "sha256": "73dded06286031066e9d98b638e065d650688f1e36e877f4d711331a3508dee3",
+      "scope": "November 3, 2012 author version, pp. 35–36: definitions, Lemma 6.3 with proof and Corollary 6.4 with proof. The supplier scope already includes arbitrary characteristic-zero perfectoid K."
     }
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-20~3",
-    "date": "2026-09-29",
-    "notes": "Independent third review by Claude Code, session cc-58621d, of the round-3 proposal (cc-39fac3, #3971) at main ee268371. The member documents, the AdicSpaces anchor, the decomposition, the family file and data/atlas.json are byte-identical to those REV-RS-20~2 audited, so its full ownership reading stands; round 3 changed only the RF0:integral-Y, RF2:integral-divisors, RF2:untilts and RF3 entries, added a VB2:ampleness entry and owner record, and rewrote one link reason. The round-2 blocker is resolved by its second option: RF3 keeps O(n), P, Proj(P) and the chart maps glued on U; VB2:ampleness, whose first target is global generation of E(n) for n >= n0 (Fargues-Scholze Theorem II.2.6, from Kedlaya-Liu 6.2.4), owns the global morphism, the tautological twists O(m) for m >= n0 and O(1), and the pullback identification, before GAGA (Proposition II.2.7). I checked this against the FS author PDF (printed pp. 49-50 and 64-67): II.2.7's proof calls the map 'formal (and does not rely on any assumptions)' and glues it on the D(g), which cover X only under global generation; the text before the proof builds O_Proj(P)(n) for large n compatibly with tensor products and then O(1). The declaration-level placement of the degree-one presentation R^{sharp+} = W_{O_E}(R^+)/xi, xi = pi - a[varpi], before the closed-Cartier lemma matches the start of FS's proof of II.1.4. On the current assembled atlas: all 79 links resolve (41 already present), the union is acyclic, no path VB2:ampleness -> RF3 exists, round 2's four no-path checks still hold, and all 61 supplier-to-consumer forwarding checks pass except where the named owner is downstream of the narrowed layer, the pattern round 2 accepted for VB1. RF3's other consumers (BG0, VS1, VB1) do not use the global map. No accepted restructuring records VB2:ampleness. check_restructure.py passes. Report: research/blueprint/reviews/REV-RS-20~3.md.",
-    "corrections": [
-      "No change to the proposal's decisions, layers, owners or links; the round-2 review object (needs_changes) was replaced by this one, and its history remains in reviews/REV-RS-20.md and REV-RS-20~2.md."
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-RS-20~3",
+    "date": "2026-10-01",
+    "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-RS-20~3 (Codex codex-5ebb6f, PR #5593) for the three confirmed findings of RT-RS-20~3 (verified by this session in REV-RT-RS-20~3, PR #5367, disclosed); it follows REV-RS-20~3 (accepted 2026-09-29, kept verbatim in reviewHistory). /1: the RF0:integral-Y reason and nodeReconciliation[0] now replace proofSteps[2] of chart-cover-perfectoidness-and-sheafiness by FS II.1.1's A+_0 = (W_OE(R+) ⊗ O_E∞)[(π/[ϖ])^(1/p^m)]^∧ with s_m = π_m/v_m (s_m^p = s_(m−1), |s_m| = 1 on the boundary) together with the reciprocal t_1♯ = π/[ϖ]. /2: RF2:untilts keeps only the Div^1 moduli definition; FS II.1.21 moves to the existing late stage VectorBundlesAndIsocrystals:VB3:general-BC (owner record, keep entry, links RF2:untilts/C4/S5 -> VB3:general-BC and VB3:general-BC -> HS0/VS1); VB3:general-BC appears in RF2:untilts' suppliedBy as the owner of what the layer lost (PROTOCOL section 15), which restructure.py records without an edge, the pattern REV-RS-20~2 accepted for VB1. C4, S5 and VB3:general-BC reach none of RF2:untilts, RF2, RF3, RF4:vector-bundles, VB1, BG0 or GS0:loop-geometry; GS0:loop-geometry uses Div^1 leg divisors and relative properness of Schubert diamonds, not FS II.1.21, so it needs no link. /3: R06.1 is in suppliedBy with an owner record and the link R06.1 -> RF2:untilts plus six access links; R06.1 is not downstream of RF2:untilts. Applying every accepted restructuring with this file to data/atlas.json lands all 51 new RS-20 edges, skips none, and stays acyclic. check_restructure.py: ok. Node payload moves remain with the RF0 and VB3 blueprint jobs (handoff/RS-20~3.md). Correction: fixRevision.review updated to point here."
   }
 }
