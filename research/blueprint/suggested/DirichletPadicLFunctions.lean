@@ -20641,3 +20641,136 @@ example (p : ℕ) [Fact p.Prime] (m f : ℕ) (hm : IsUnit (m : ℤ_[p])) : Padic
 example (hm : IsUnit (3 : ℤ_[2])) (x y : ℤ_[2]) (hx : 3*x=1) (hy : 3*y=2) : PadicInt.toZMod (moritaGammaMultiplicationProduct 2 3 hm (x)*moritaGammaMultiplicationProduct 2 3 hm (y) : ℤ_[2])=PadicInt.toZMod ((moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (y) : ℤ_[2]) : ℤ_[2])*PadicInt.toZMod (moritaGammaMultiplicationProduct 2 3 hm (0) : ℤ_[2])^2 := by sorry
 end
 end DirichletPadic.SuggestedGammaMultiplicationTests
+
+/- Positive fractional preimages and the actual Gamma source product. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma grossKoblitz_fractional_preimage (a m c h : ℕ) (hm : 0<m) (x y : ℚ)
+    (hy : 0<y) (hy' : y≤1) (he : (a : ℚ)*x=c+y) :
+    toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)*((x+h)/m))=
+      (y+((a*h+c)%m : ℕ))/m := by sorry
+
+lemma grossKoblitz_fractional_preimage_product {K : Type*} [CommMonoid K]
+    (Φ : ℚ → K) (a m c : ℕ) (hm : 0<m) (ha : a.Coprime m)
+    (x y : ℚ) (hy : 0<y) (hy' : y≤1) (he : (a : ℚ)*x=c+y) :
+    (∏h ∈ range m, Φ (toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)*((x+h)/m))))=
+      ∏h ∈ range m, Φ ((y+h)/m) := by sorry
+
+lemma grossKoblitz_fractional_normalizer_product {K : Type*} [CancelCommMonoid K]
+    (Φ : ℚ → K) (a m : ℕ) (ha : 0<a) (hm : 0<m) (ham : a.Coprime m) :
+    (∏h ∈ range (m-1), Φ (toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)*((h+1)/m))))=
+      ∏h ∈ range (m-1), Φ ((h+1)/m) := by sorry
+
+lemma grossKoblitz_cyclic_preimage_product {K : Type*} [CommMonoid K]
+    (Φ : ℚ → K) (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (m : ℕ) (hm : 0<m) (hpm : p.Coprime m) (j : ℕ) :
+    (∏h ∈ range m, Φ (toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m))))=
+      ∏h ∈ range m, Φ (((grossKoblitzOrbitNumerator p f k j : ℚ)/(p^f-1 : ℕ)+h)/m) := by sorry
+
+lemma grossKoblitz_preimage_sum (m : ℕ) (hm : 0<m) (x : ℚ) :
+    (∑h ∈ range m, (x+h)/m)=x+∑h ∈ range (m-1), (h+1 : ℚ)/m := by sorry
+
+lemma grossKoblitz_fractional_weight_zero (a m c : ℕ) (ha : 0<a) (hm : 0<m)
+    (ham : a.Coprime m) (x y : ℚ) (hy : 0<y) (hy' : y≤1)
+    (he : (a : ℚ)*x=c+y) :
+    (∑h ∈ range m, toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)*((x+h)/m))) - y -
+      (∑h ∈ range (m-1), toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)*((h+1)/m)))=0 := by sorry
+
+lemma moritaGamma_cyclic_preimage_product
+     (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+    (j : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y : ℕ → ℤ_[p])
+    (hY : ∀h<m, (Y h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p])) :
+    (∏h ∈ range m, (moritaGamma p) (Y h))=∏h ∈ range m, (moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(x+h)) := by sorry
+
+lemma grossKoblitz_integral_preimage_exists (a m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (q : ℚ) (x : ℤ_[p]) (hx : (x : ℚ_[p])=(q : ℚ_[p])) (h : ℕ) :
+    ∃! y : ℤ_[p], (y : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((a : ℚ)*((q+h)/m)) : ℚ) : ℚ_[p]) := by sorry
+
+lemma moritaGamma_cyclic_normalizer_product
+     (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (hpm : p.Coprime m) (j : ℕ) (Y : ℕ → ℤ_[p])
+    (hY : ∀h<m-1, (Y h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((h+1)/m)) : ℚ) : ℚ_[p])) :
+    (∏h ∈ range (m-1), (moritaGamma p) (Y h))=
+      ∏h ∈ range (m-1), (moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)) := by sorry
+
+lemma moritaGamma_source_multiplication_product
+     (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+    (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y Z : ℕ → ℕ → ℤ_[p])
+    (hY : ∀j, ∀h<m, (Y j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p]))
+    (hZ : ∀j, ∀h<m-1, (Z j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((h+1)/m)) : ℚ) : ℚ_[p])) :
+    (∏j ∈ range f, (∏h ∈ range m, (moritaGamma p) (Y j h))/((moritaGamma p) (x j)*∏h ∈ range (m-1), (moritaGamma p) (Z j h)))=
+      (∏j ∈ range f, ∏h ∈ range m, (moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(x j+h))) /
+        ((∏j ∈ range f, (moritaGamma p) (x j))*(∏h ∈ range (m-1), (moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)))^f) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzPreimageTests
+open Finset
+open scoped Classical
+noncomputable section
+-- shifted_first_preimage
+example : toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((5/8+0)/2))=15/16 := by sorry
+-- shifted_second_preimage
+example : toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((5/8+1)/2))=7/16 := by sorry
+-- integer_boundary_is_one
+example : toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ))=1 ∧ toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ))≠0 := by sorry
+-- permuted_two_factors
+example (Φ : ℚ → ℚ) : (∏h ∈ range 2, Φ (toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((5/8+h)/2))))=Φ (7/16)*Φ (15/16) := by sorry
+-- single_preimage
+example (Φ : ℚ → ℚ) : (∏h ∈ range 1, Φ (toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((5/8+h)/1))))=Φ (7/8) := by sorry
+-- noncoprime_misses_residue
+example : ¬Function.Bijective (fun h : Fin 2 => (⟨(2*h.val)%2,Nat.mod_lt _ (by decide)⟩ : Fin 2)) := by sorry
+-- normalizer_thirds
+example (Φ : ℚ → ℚˣ) : (∏h ∈ range 2, Φ (toIocMod (zero_lt_one' ℚ) 0 ((5 : ℚ)*((h+1)/3))))=Φ (1/3)*Φ (2/3) := by sorry
+-- empty_normalizer
+example (Φ : ℚ → ℚˣ) : (∏h ∈ range 0, Φ (toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((h+1)/1))))=1 := by sorry
+-- proper_ternary_orbit_preimages
+example (Φ : ℚ → ℚ) : (∏h ∈ range 2, Φ (toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)^1*((5/8+h)/2))))=∏h ∈ range 2, Φ ((7/8+h)/2) := by sorry
+-- dyadic_three_preimages
+example (Φ : ℚ → ℚ) : (∏h ∈ range 3, Φ (toIocMod (zero_lt_one' ℚ) 0 ((2 : ℚ)*((1/3+h)/3))))=Φ (2/9)*Φ (5/9)*Φ (8/9) := by sorry
+-- three_preimage_sum
+example : (∑h ∈ range 3, ((2/5 : ℚ)+h)/3)=7/5 := by sorry
+-- single_preimage_sum
+example (x : ℚ) : (∑h ∈ range 1, (x+h)/1)=x := by sorry
+-- ternary_distribution_weight
+example : (∑h ∈ range 2, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((5/8+h)/2)))-7/8-(∑h ∈ range 1, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((h+1)/2)))=0 := by sorry
+-- boundary_distribution_weight
+example : (∑h ∈ range 2, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((1+h)/2)))-1-(∑h ∈ range 1, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)*((h+1)/2)))=0 := by sorry
+-- unique_ternary_sixteenth
+example : ∃!y : ℤ_[3], 16*y=3 := by sorry
+-- excluded_nonintegral_third
+example : ¬∃y : ℤ_[3], 3*y=1 := by sorry
+-- integer_fractional_lift
+example : ∃!y : ℤ_[3], (y : ℚ_[3])=((toIocMod (zero_lt_one' ℚ) 0 ((0 : ℚ)) : ℚ) : ℚ_[3]) := by sorry
+-- actual_ternary_gamma_preimages
+example (hm : IsUnit (2 : ℤ_[3])) (a b x : ℤ_[3]) (ha : 16*a=15) (hb : 16*b=7) (hx : 8*x=7) : moritaGamma 3 (a)*moritaGamma 3 (b)=moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*x)*moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*(x+1)) := by sorry
+-- finite_product_scalar_projection
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) : ((∏h ∈ range m, moritaGamma p ((↑hm.unit⁻¹ : ℤ_[p])*(x+h)) : ℤ_[p]ˣ) : ℤ_[p])=moritaGammaMultiplicationProduct p m hm x := by sorry
+-- actual_half_normalizer
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) (hx : 2*x=1) : moritaGamma 3 (x)=moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])) := by sorry
+-- actual_empty_normalizer
+example (p : ℕ) [Fact p.Prime] : (∏h ∈ range 0, moritaGamma p (h : ℤ_[p]))=1 := by sorry
+-- source_product_eighths_residue
+example (a b c d x y t : ℤ_[3]) (ha : 16*a=1) (hb : 16*b=9) (hc : 16*c=3) (hd : 16*d=11) (hx : 8*x=1) (hy : 8*y=3) (ht : 2*t=1) : PadicInt.toZMod ((moritaGamma 3 (a)*moritaGamma 3 (b)/(moritaGamma 3 (x)*moritaGamma 3 (t))*(moritaGamma 3 (c)*moritaGamma 3 (d)/(moritaGamma 3 (y)*moritaGamma 3 (t))) : ℤ_[3]ˣ) : ℤ_[3])=2 := by sorry
+-- source_unit_denominators
+example (p : ℕ) [Fact p.Prime] (x y : ℤ_[p]) : IsUnit ((moritaGamma p (x)*moritaGamma p (y) : ℤ_[p]ˣ) : ℤ_[p]) := by sorry
+-- single_denominator_cancellation
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : moritaGamma p (x)/moritaGamma p (x)=1 := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzPreimageTests
