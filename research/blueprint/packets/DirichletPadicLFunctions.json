@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twenty-four L3 nodes construct the ordinary and weighted distribution relation subgroup on native free abelian groups and prove the universal quotient mapping property, with actual rational-torus fiber finiteness. All1,300 predecessor nodes and944 baseline records remain whole. The full Kubert source was read and six versioned source findings are recorded.",
+  "summary": "Fifteen L3 nodes construct the native subgroup of p-integral rational classes and factor the corrected Gamma mean through the existing ordinary distribution quotient. The factor map kills the zero, oddness and Frobenius relators. All1,324 predecessor nodes and960 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6734,6 +6734,20 @@
         "module": "Mathlib/Data/Fintype/EquivFin.lean",
         "provides": "Constructs a native finite enumeration from an actual finite-type proof.",
         "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:AddSubgroup",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "The native additive subgroup structure, with an actual carrier closed under zero, addition and negation and its inherited additive group operations.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup inherited structures and the to_additive site supplying norm_add_le_max. Existing unit/coprimality and finite-type APIs are reused from their already-read baseline records."
+      },
+      {
+        "ref": "mathlib:Equiv.subtypeEquivRight",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Basic.lean",
+        "provides": "The native equivalence between two subtypes of the same type whose defining predicates are pointwise equivalent.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including the subgroup inherited structures and the to_additive site supplying norm_add_le_max. Existing unit/coprimality and finite-type APIs are reused from their already-read baseline records."
       }
     ]
   },
@@ -86788,6 +86802,912 @@
       "acceptance": [
         "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-circle-zero-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero rational class is periodic",
+      "kind": "lemma",
+      "statement": "The zero class of Q/Z belongs to the native periodic-point set of multiplication by p.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "The rational number0 is p-integral.",
+        "Apply the existing integral-class periodicity theorem and identify the rational zero class with the native zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_circle_zero_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.zero_is_periodic",
+          "kind": "degenerate",
+          "statement": "The zero circle class is periodic under multiplication by3."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-circle-add-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Periodic rational classes are closed under addition",
+      "kind": "lemma",
+      "statement": "The sum of any two actual periodic points of multiplication by p on Q/Z is again periodic.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Choose the native positive representatives of the two classes. Their p-adic norms are at most1 by representative_integral.",
+        "The native ultrametric norm bound and preservation of rational addition show that their sum is p-integral.",
+        "Apply the existing integral-class periodicity theorem to the sum; native quotient addition and the representative inverse laws identify its class with the required sum."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-representative-integral",
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic",
+        "mathlib:IsUltrametricDist.norm_mul_le_max",
+        "mathlib:AddCircle.coe_add",
+        "mathlib:QuotientAddGroup.equivIocMod",
+        "mathlib:QuotientAddGroup.equivIocMod_coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_circle_add_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.periodic_sum",
+          "kind": "compatibility",
+          "statement": "The sum of two actual periodic classes remains periodic."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The subgroup of integral rational classes",
+      "kind": "definition",
+      "statement": "Construct D_p as an actual native AddSubgroup of Q/Z whose carrier is exactly the periodic points of multiplication by p.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Use the existing periodic-point set as carrier, with the preceding zero and addition closure proofs.",
+        "Use the existing negation closure theorem to supply the final subgroup axiom.",
+        "The native AddSubgroup supplies the inherited additive group, inclusion and scalar operations; these generic structures are not replanned. The element subtype is the existing Gamma domain."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-circle-zero-mem",
+        "DirichletPadicLFunctions:L3/gamma-distribution-circle-add-mem",
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-neg-mem",
+        "mathlib:AddSubgroup"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.subgroup_zero",
+          "kind": "degenerate",
+          "statement": "The subgroup contains the zero class."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.prime_to_three_denominator",
+          "kind": "computation",
+          "statement": "The class1/8 belongs to the3-integral subgroup."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.exclude_three_denominator",
+          "kind": "non-example",
+          "statement": "The ambient third-torsion point1/3 does not belong to the3-integral subgroup."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.exclude_dyadic_half",
+          "kind": "non-example",
+          "statement": "The same domain construction atp=2 excludes1/2."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz575–577 rational Gamma distribution",
+          "how": "Provides the actual group of p-integral rational classes on which the established quotient functions are defined."
+        },
+        {
+          "where": "Kubert179–180 relation quotient",
+          "how": "Supplies the native additive group and complete division fibers needed to instantiate the existing ordinary relation subgroup."
+        },
+        {
+          "where": "Odd and Frobenius relations for the Gamma mean",
+          "how": "The inherited negative and p-multiple are the actual labels of the further relations killed by the mean map."
+        }
+      ],
+      "api": [
+        {
+          "name": "grossKoblitzIntegralCircle_mem_iff",
+          "role": "characterisation",
+          "statement": "For every rational q, its class lies in D_p exactly when the p-adic norm of q is at most1."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_carrier",
+          "role": "compatibility",
+          "statement": "The underlying set of D_p equals the native periodic-point set of multiplication by p."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_fiber_finite",
+          "role": "relation",
+          "statement": "For every n>0 and a in D_p, the actual subtype of b in D_p with n*b=a is finite, even when p divides n."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_division_surjective",
+          "role": "relation",
+          "statement": "If n>0 is prime to p, every a in D_p is n*b for some actual b in D_p."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_fiber_card",
+          "role": "relation",
+          "statement": "For n>0 prime to p and every a in D_p, the actual n-division fiber has cardinality n."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-mem-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Membership is rational p-adic integrality",
+      "kind": "lemma",
+      "statement": "For every rational q, its class lies in D_p exactly when the p-adic norm of q is at most1.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "The subgroup carrier is the actual periodic-point set.",
+        "Apply the previously proved equivalence between p-integrality and periodicity, in the required direction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-iff-periodic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_mem_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.integrality_criterion",
+          "kind": "characterisation",
+          "statement": "Membership of a rational class is exactly p-adic integrality."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-carrier",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The subgroup retains the periodic-point carrier",
+      "kind": "lemma",
+      "statement": "The underlying set of D_p equals the native periodic-point set of multiplication by p.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Unfold only the subgroup carrier. The equality is definitional in the concrete construction.",
+        "In placeholder signatures use this explicit carrier equality to transport elements to the prior periodic subtype, so the interface does not depend on a definition body being available."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_carrier"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.native_periodic_carrier",
+          "kind": "compatibility",
+          "statement": "The subgroup has exactly the old periodic-point carrier."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-fiber-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual integral-class division fibers are finite",
+      "kind": "lemma",
+      "statement": "For every n>0 and a in D_p, the actual subtype of b in D_p with n*b=a is finite, even when p divides n.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Map the subgroup fiber into the ambient Q/Z fiber by the native inclusion.",
+        "Equality of its images gives equality by native subtype extensionality; the map is injective.",
+        "The ambient fiber is finite by the preceding Kubert rational-circle theorem. Native Finite.of_injective gives the result, and Fintype.ofFinite supplies all enumerations required by the relation quotient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle",
+        "DirichletPadicLFunctions:L3/kubert-circle-fiber-finite",
+        "mathlib:Finite.of_injective",
+        "mathlib:Fintype.ofFinite"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_fiber_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.nonunit_fiber_finite",
+          "kind": "compatibility",
+          "statement": "Finiteness also holds for degree3 atp=3, although the cardinality need not be3."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-division-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Prime-to-p division is surjective on integral classes",
+      "kind": "lemma",
+      "statement": "If n>0 is prime to p, every a in D_p is n*b for some actual b in D_p.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Choose the native positive representative q of a and its established p-integrality certificate.",
+        "The existing p-adic norm criterion for a natural cast and the native unit criterion construct a unit certificate for n; do not assume a second independent unit hypothesis.",
+        "Evaluate the existing complete division equivalence at index0 in Fin n. Its actual point is p-integral and satisfies the ambient division equation.",
+        "Use the representative inverse law and subtype extensionality to obtain the equation inside D_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle",
+        "DirichletPadicLFunctions:L3/gross-koblitz-representative-integral",
+        "DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_division_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.halving_is_surjective",
+          "kind": "compatibility",
+          "statement": "Every actual3-integral class has a half within the subgroup."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-fiber-card",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Prime-to-p fibers have the expected cardinality",
+      "kind": "lemma",
+      "statement": "For n>0 prime to p and every a in D_p, the actual n-division fiber has cardinality n.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree."
+      ],
+      "proofSteps": [
+        "Choose the same native representative and construct its integrality and the unit certificate for n.",
+        "Native Equiv.subtypeEquivRight transports the subgroup equation to the ambient equation on the identical periodic-point carrier.",
+        "Transfer cardinality across this equivalence, then apply the already proved cardinality theorem for the complete division equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-carrier",
+        "DirichletPadicLFunctions:L3/gross-koblitz-representative-integral",
+        "DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-card",
+        "mathlib:Equiv.subtypeEquivRight",
+        "mathlib:Nat.card_congr",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_fiber_card"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.halving_cardinality",
+          "kind": "computation",
+          "statement": "There are exactly two halves of every class atp=3."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.unit_cardinality",
+          "kind": "degenerate",
+          "statement": "Multiplication by1 has a singleton fiber."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.nonunit_cardinality_fails",
+          "kind": "non-example",
+          "statement": "Atp=3 the zero fiber of multiplication by3 has one point, not three."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-mean-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma mean is an ordinary distribution on integral classes",
+      "kind": "lemma",
+      "statement": "For every n>0 prime to p and a in D_p, the sum of the Gamma mean over the complete actual fiber n*b=a equals its value at a.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Transport the actual subgroup fiber to the preceding ambient-equation fiber using native subtype equivalence and the positive representative of a.",
+        "Transport its finite enumeration by native Fintype.ofEquiv and use Equiv.sum_comp to identify the actual sums.",
+        "Apply the preceding complete-fiber Gamma mean identity. Its unit hypothesis is supplied by the native coprimality criterion.",
+        "The representative inverse law identifies the output with the mean at the original a. No distribution equations are assumed for this function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-carrier",
+        "DirichletPadicLFunctions:L3/gamma-distribution-integralCircle-fiber-finite",
+        "DirichletPadicLFunctions:L3/gross-koblitz-mean-fiber-sum",
+        "DirichletPadicLFunctions:L3/gross-koblitz-representative-integral",
+        "mathlib:Equiv.subtypeEquivRight",
+        "mathlib:Fintype.ofEquiv",
+        "mathlib:Equiv.prod_comp",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_mean_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.full_halving_mean",
+          "kind": "compatibility",
+          "statement": "The mean sums over the full actual subgroup fiber without assumed distribution equations."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.zero_halving_mean",
+          "kind": "degenerate",
+          "statement": "The complete halving fiber over zero has mean sum zero."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma mean factors through distribution relations",
+      "kind": "construction",
+      "statement": "Construct an actual additive homomorphism M:U(S,0)→K whose value on delta(a) is the Gamma mean at a, with S the positive degrees prime to p.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Instantiate the previously constructed native Kubert lift with the actual subgroup D_p and the existing Gamma mean function.",
+        "For each permitted degree, construct its ordinary distribution equation by mean_distribution; its positive-degree and coprimality proofs come from the native subtype.",
+        "Weight0 removes the power coefficient. The kernel witness for the quotient lift is therefore constructed, not postulated."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-mean-distribution",
+        "DirichletPadicLFunctions:L3/kubert-lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMeanLift"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.generator_evaluation",
+          "kind": "computation",
+          "statement": "The actual quotient map evaluates a generator to its Gamma mean."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.additive_combination",
+          "kind": "compatibility",
+          "statement": "The quotient map evaluates a sum of generators additively."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.zero_quotient_element",
+          "kind": "degenerate",
+          "statement": "The zero quotient element maps to zero."
+        },
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.zero_logarithm_map",
+          "kind": "degenerate",
+          "statement": "Choosing the actual zero logarithm gives the zero quotient homomorphism."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz577 odd and Frobenius-invariant values",
+          "how": "Provides the precise quotient homomorphism associated to the corrected period mean, before studying its kernel or any claimed arithmetic universality."
+        },
+        {
+          "where": "Kubert180 universal mapping property",
+          "how": "Instantiates the already proved universal relation quotient with an independently established distribution."
+        },
+        {
+          "where": "Odd and Frobenius quotient construction",
+          "how": "Its proved kernel relations provide the required inputs for further native quotient lifts."
+        }
+      ],
+      "api": [
+        {
+          "name": "grossKoblitzIntegralCircle_meanLift_of",
+          "role": "relation",
+          "statement": "For every a in D_p, M(delta(a)) equals the Gamma mean at a."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_meanLift_unique",
+          "role": "universal-property",
+          "statement": "Every additive map U(S,0)→K with those Gamma mean generator values equals M."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_meanLift_zero_generator",
+          "role": "relation",
+          "statement": "M(delta(0))=0."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_meanLift_odd_relation",
+          "role": "relation",
+          "statement": "For every a in D_p, M(delta(a)+delta(-a))=0."
+        },
+        {
+          "name": "grossKoblitzIntegralCircle_meanLift_frobenius_relation",
+          "role": "relation",
+          "statement": "For every a in D_p, M(delta(p*a)−delta(a))=0."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The factor map evaluates the canonical generator",
+      "kind": "lemma",
+      "statement": "For every a in D_p, M(delta(a)) equals the Gamma mean at a.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Apply the generator evaluation theorem of the existing Kubert lift.",
+        "The function used in the lift is exactly the existing Gamma mean on the same native periodic carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift",
+        "DirichletPadicLFunctions:L3/kubert-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_meanLift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.negative_integer_combination",
+          "kind": "compatibility",
+          "statement": "Integer combinations are evaluated in the coefficient field."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma factorization is uniquely determined",
+      "kind": "lemma",
+      "statement": "Every additive map U(S,0)→K with those Gamma mean generator values equals M.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Apply the existing Kubert uniqueness theorem to the prescribed values.",
+        "This is uniqueness among additive extensions; it places no injectivity or rank condition on M."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift",
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of",
+        "DirichletPadicLFunctions:L3/kubert-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_meanLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.unique_extension",
+          "kind": "characterisation",
+          "statement": "Generator values determine the factorization uniquely; this is uniqueness of a map, not its injectivity."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-zero-generator",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The factor map kills the zero-labelled generator",
+      "kind": "lemma",
+      "statement": "M(delta(0))=0.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Evaluate the generator by meanLift_of.",
+        "Apply the previously proved zero-class Gamma mean identity, whose Gamma recurrence gives the required integer value and whose logarithm annihilates its root-of-unity contribution."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of",
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_meanLift_zero_generator"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.zero_label_is_killed",
+          "kind": "degenerate",
+          "statement": "The generator labelled zero is in the kernel, a separate assertion from mapping the group identity to zero."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-odd-relation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The factor map kills the oddness relators",
+      "kind": "lemma",
+      "statement": "For every a in D_p, M(delta(a)+delta(-a))=0.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Preserve the actual sum through the additive homomorphism and evaluate both generators.",
+        "The previously proved oddness of the Gamma mean identifies the second value with the negative of the first; cancel the sum.",
+        "The labels a and -a are separate free generators. Their relation is proved to lie in the kernel, rather than silently identified by the free-group construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of",
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-neg"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_meanLift_odd_relation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.odd_relator_is_killed",
+          "kind": "compatibility",
+          "statement": "The sum of the two separately labelled generators at a and−a lies in the kernel."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-frobenius-relation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The factor map kills the Frobenius relators",
+      "kind": "lemma",
+      "statement": "For every a in D_p, M(delta(p*a)−delta(a))=0.",
+      "hypotheses": [
+        "p is any prime, including2. The ambient rational circle is the existing native AddCircle(1:Q), not a private quotient.",
+        "D_p consists exactly of the classes represented by p-integral rational numbers. Equivalently it is the native set of periodic points of multiplication by p on Q/Z. The subgroup uses precisely this carrier, with the native inherited additive group and scalar multiplication.",
+        "Finite division fibers are the actual native subtype of b in D_p satisfying n*b=a. Finiteness holds for every n>0; surjectivity and cardinality n here are asserted for n prime to p. In particular the cardinality assertion must not be generalized to a nonunit degree.",
+        "K is a field of characteristic zero, iota is a unital ring map from Z_p to K, and ell:K→K is additive on products of nonzero elements and annihilates every positive-order root of unity. The function is the previously constructed orbit mean of ell(iota(Gamma_p)), using the actual Morita Gamma function. These logarithm laws are explicit supplier inputs; no canonical logarithm, analyticity or pZ_p-valued mean is inferred from them.",
+        "S is the set of positive integers prime to p, the weight is0, D is the previously constructed Kubert distribution relation subgroup in the native FreeAbelianGroup D_p, and U is its native quotient. Native Fintype.ofFinite applied to the proved actual-fiber finiteness supplies every finite enumeration used in these definitions. No private finite model or distribution hypothesis is added.",
+        "Delta(a) denotes the quotient image of the native free generator labelled a. In particular delta(0) is distinct as a construction from the additive identity, and delta(-a) cannot be replaced by -delta(a) before imposing the odd relation. The constructed map is characterized by its generator values; injectivity and Gamma universality do not follow."
+      ],
+      "proofSteps": [
+        "Preserve subtraction through the homomorphism and evaluate both generators.",
+        "Apply the existing Frobenius invariance of the Gamma mean on the actual periodic domain and cancel the difference.",
+        "The ordinary quotient only imposes prime-to-p division relations. This additional kernel relation is supplied by the specific Gamma mean, not by adding p to the permitted degrees."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gamma-distribution-meanLift-of",
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-frobenius"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GammaDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralCircle_meanLift_frobenius_relation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Published575–577, rational arguments in Q intersect Z_p modulo Z, complete preimages, and the odd Frobenius-invariant distribution discussion; read full body and page images.",
+          "match": "The actual rational-class domain is assembled as a native additive subgroup using the preceding proved equivalence between integrality and periodicity. Complete prime-to-p fibers are reused. The printed576 multiplication identity is treated under existing findingE18, using the corrected mean rather than the unweighted source sum."
+        },
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, complete-fiber ordinary distributions and the universal relation quotient;179–202 fully read.",
+          "match": "Specialize the already constructed weight0 relation quotient to the actual p-integral subgroup and to positive degrees prime to p. Its universal mapping property factors the independently proved Gamma mean distribution. This establishes a homomorphism, not injectivity or a universal arithmetic realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGammaDistributionFactorizationTests.frobenius_relator_is_killed",
+          "kind": "compatibility",
+          "statement": "The difference between generators labelled3a and a lies in the kernel."
+        }
+      ],
+      "acceptance": [
+        "Use the actual native subgroup, free generators, distribution quotient and complete multiplication fibers. The complete native consumer proofs and suggested typed tests distinguish these from a selected list of preimages or a carrier with assumed distribution equations. Exact Bernoulli-orbit controls test an independent rational model, not Gamma values or an analytic theorem."
+      ]
     }
   ],
   "requests": [
@@ -86934,7 +87854,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual ordinary/weighted relation quotient and its universal mapping property are now planned, with finite fibers proved for every native rational torus. Next construct the native additive subgroup of p-integral rational classes, supply its prime-to-p fiber instances, and factor the corrected Gamma mean through the weight0 quotient. Then specify odd and Frobenius quotients without claiming Gamma injectivity or freeness from factorization alone. Extract the finite-level relation subgroup with its required input-image condition, the intersection comparison, admissible generators and their generation proof, followed by the Cartan/rational rank lower bound; external[K-L] and the unidentified[L] remain unread boundaries. Preserve the p3,2/13 nonintegral-mean codomain witness. The original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces, Coleman/LAD logarithm boundary and all18 gaps and16 requests remain; zero stages close.",
+        "The actual p-integral rational-circle subgroup, finite prime-to-p fibers and Gamma mean factorization through the ordinary relation quotient are now planned. The map kills the zero, oddness and Frobenius relators. Next construct the further native quotients and their exact mapping properties, keeping the zero-labelled generator separate from oddness at2 and proving every kernel inclusion. Then extract Kubert finite-level relations with the required input-image condition, admissible generators and their generation proof, the intersection comparison and Cartan/rational rank lower bound. No Gamma injectivity, universal arithmetic realization or rank theorem follows from factorization. Preserve the p3,2/13 nonintegral-mean witness and the Coleman/LAD logarithm boundary. External[K-L] and the unidentified[L], the original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces and all18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -86966,7 +87886,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual ordinary/weighted relation quotient and its universal mapping property are now planned, with finite fibers proved for every native rational torus. Next construct the native additive subgroup of p-integral rational classes, supply its prime-to-p fiber instances, and factor the corrected Gamma mean through the weight0 quotient. Then specify odd and Frobenius quotients without claiming Gamma injectivity or freeness from factorization alone. Extract the finite-level relation subgroup with its required input-image condition, the intersection comparison, admissible generators and their generation proof, followed by the Cartan/rational rank lower bound; external[K-L] and the unidentified[L] remain unread boundaries. Preserve the p3,2/13 nonintegral-mean codomain witness. The original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces, Coleman/LAD logarithm boundary and all18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual p-integral rational-circle subgroup, finite prime-to-p fibers and Gamma mean factorization through the ordinary relation quotient are now planned. The map kills the zero, oddness and Frobenius relators. Next construct the further native quotients and their exact mapping properties, keeping the zero-labelled generator separate from oddness at2 and proving every kernel inclusion. Then extract Kubert finite-level relations with the required input-image condition, admissible generators and their generation proof, the intersection comparison and Cartan/rational rank lower bound. No Gamma injectivity, universal arithmetic realization or rank theorem follows from factorization. Preserve the p3,2/13 nonintegral-mean witness and the Coleman/LAD logarithm boundary. External[K-L] and the unidentified[L], the original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces and all18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -87516,38 +88436,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All20 predecessor findings and six source versions remain whole. Six findings against the read published Kubert scan record the log-series sign, undefined zero endpoint, derivative index/variable slips, erroneous cross-references, odd-quotient symbol, and missing[L]bibliographic source. Exact small controls and full page images support the bounded findings; no independent review verdict or historical novelty claim is made. The source version is added explicitly.",
+    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding is added. ExistingE18 continues to separate the corrected mean from the erroneous unweighted source identity.",
     "validation": {
-      "nodes": 1324,
+      "nodes": 1339,
       "kinds": {
-        "definition": 11,
-        "lemma": 651,
-        "construction": 115,
+        "definition": 12,
+        "lemma": 664,
+        "construction": 116,
         "theorem": 340,
         "comparison": 207
       },
-      "api": 920,
-      "packetTests": 2559,
-      "definitionConstructionTests": 533,
-      "typedExamples": 2562,
+      "api": 930,
+      "packetTests": 2583,
+      "definitionConstructionTests": 541,
+      "typedExamples": 2586,
       "planets": 24,
-      "baseline": 960,
-      "preservedWholeNodes": 1300,
-      "preservedBaseline": 944,
-      "preservedSourceIssues": 20,
-      "newSourceIssues": 6,
-      "newNodes": 24,
-      "newNamedDeclarations": 24,
-      "newTypedTests": 31,
+      "baseline": 962,
+      "preservedWholeNodes": 1324,
+      "preservedBaseline": 960,
+      "preservedSourceIssues": 26,
+      "newSourceIssues": 0,
+      "newNodes": 15,
+      "newNamedDeclarations": 15,
+      "newTypedTests": 24,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "sourceIssues": 26,
-      "sourceVersions": 7,
-      "reachableNodes": 1584,
-      "dependencyEdges": 7226,
+      "reachableNodes": 1599,
+      "dependencyEdges": 7278,
       "acyclic": true,
-      "baselineLeaves": 1123,
+      "baselineLeaves": 1125,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -87562,7 +88480,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 683712,
+      "readerWords": 691312,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -87588,35 +88506,35 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 46,
-      "scratchCompleteLemmas": 753,
+      "scratchCompleteDefinitions": 48,
+      "scratchCompleteLemmas": 766,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "torusWeightedRelations": 2592,
-        "torusFiberPoints": 60372,
-        "ordinaryRelations": 1296,
-        "rankZeroRelations": 648,
-        "zeroClassRelations": 828,
-        "unitRelations": 432,
-        "coefficientAndAdditionControls": 5184,
-        "freeRelatorEvaluationControls": 2808,
-        "emptyFibers": 684,
-        "alternatingSignBounds": 500,
-        "sourceMisprintExactWitnesses": 3
+        "oddAndFrobeniusRelations": 1122,
+        "actualSubgroupFibers": 5610,
+        "actualFiberPoints": 23976,
+        "ordinaryMeanRelations": 4161,
+        "unitDegreeFibers": 561,
+        "zeroClassFibers": 29,
+        "nonunitCardinalityControls": 1449,
+        "subgroupAdditionControls": 2500,
+        "freeGroupAdditionControls": 2500
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [],
+      "newRoutesStageLeaves": [
+        "LocallyAnalyticDistributions:L1"
+      ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e",
+        "sourceSha256": "34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c",
         "modules": 3604,
-        "warnings": 4233,
+        "warnings": 4272,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -87626,7 +88544,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "45d7bedd0976e26b7a72c517947c14c46e19b2dd9d2ba8d060ed34359b184b1b",
+      "sha256": "0e115e20f5f0a26f6c9abcb3bc4a1f0550501e1eed1cbc5a3bcdd01ee3492ae8",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -87641,11 +88559,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 753,
+        "completeLemmas": 766,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "bdee184c637dc39690df6990feb77936174709b2dcd602b33ed80448bed291fe"
+        "sha256": "f7032af616ab054749f37eee7463da663cba8444c0cee04e02e52e6e5c723e6d"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -87783,17 +88701,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e",
+        "sourceSha256": "34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c",
         "modules": 3604,
-        "warnings": 4233,
+        "warnings": 4272,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "0a5be795ca84710d8e8408a7fa60192601d17fe1",
+      "base": "c309b18ac1de520a31b90587307beddf8b9d6d77",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -98174,6 +99092,56 @@
         "warnings": 4233,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "gammaDistributionFactorization": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5403,
+      "previousHead": "21d854cf5c441097328e7d3a3f865a3036bdff28",
+      "previousMerge": "6406c463b778e7e9fabc2ed3239a4e7b2ec33a44",
+      "preservedWholeNodes": 1324,
+      "preservedBaseline": 960,
+      "preservedFindings": 26,
+      "newNodes": 15,
+      "reading": "Gross–Koblitz575–577 and Kubert179–180 provide the rational-class domain and universal-relation construction; both complete published bodies and their page images were read in the preceding source work. Existing findingE18 governs the corrected mean. This checkpoint extracts their precise composition, without importing the paper’s unspecified arithmetic universality assertion. Native AddSubgroup, inherited operations, subtype equivalence and ultrametric norm bounds were read completely at the pins. Existing logarithm owner interfaces and the reviewed library audit remain unchanged.",
+      "boundary": "The actual p-integral rational-circle subgroup, finite prime-to-p fibers and Gamma mean factorization through the ordinary relation quotient are now planned. The map kills the zero, oddness and Frobenius relators. Next construct the further native quotients and their exact mapping properties, keeping the zero-labelled generator separate from oddness at2 and proving every kernel inclusion. Then extract Kubert finite-level relations with the required input-image condition, admissible generators and their generation proof, the intersection comparison and Cartan/rational rank lower bound. No Gamma injectivity, universal arithmetic realization or rank theorem follows from factorization. Preserve the p3,2/13 nonintegral-mean witness and the Coleman/LAD logarithm boundary. External[K-L] and the unidentified[L], the original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces and all18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "c309b18ac1de520a31b90587307beddf8b9d6d77",
+      "sourceBoundary": "All26 source findings and seven source versions remain whole; no new finding is added. ExistingE18 continues to separate the corrected mean from the erroneous unweighted source identity.",
+      "publication": {
+        "base": "c309b18ac1de520a31b90587307beddf8b9d6d77",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "oddAndFrobeniusRelations": 1122,
+        "actualSubgroupFibers": 5610,
+        "actualFiberPoints": 23976,
+        "ordinaryMeanRelations": 4161,
+        "unitDegreeFibers": 561,
+        "zeroClassFibers": 29,
+        "nonunitCardinalityControls": 1449,
+        "subgroupAdditionControls": 2500,
+        "freeGroupAdditionControls": 2500
+      },
+      "numericalMethod": "Exact Python Fraction arithmetic. The test function is the orbit average of the odd Bernoulli sawtooth on the rational circle. It is an independent algebraic model of ordinary, odd and Frobenius equations, not a computation or certificate of Gamma values, p-adic convergence, injectivity, finite-level freeness or a rank theorem. Native Lean proofs separately establish the Gamma claims. Prime-to-p and nonunit fiber counts and free integer combinations are checked exactly.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c",
+        "modules": 3604,
+        "warnings": 4272,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,272 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 34778b5d9b967198462b7ae045f8670eadd97a1404d3681eeceb5dc348cff37c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
