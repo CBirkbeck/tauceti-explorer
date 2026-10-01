@@ -37579,8 +37579,9 @@
     "REV-PAPER-BHATT-SCHOLZE-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4176"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4176",
+   "finishedAt": "2026-10-01T16:24:28Z"
   },
   {
    "id": "REV-RT-PAPER-BHATT-SCHOLZE-17",
@@ -39064,7 +39065,8 @@
     "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4236"
   },
   {
    "id": "REV-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
