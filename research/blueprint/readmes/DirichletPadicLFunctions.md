@@ -34947,3 +34947,235 @@ Exact rational and integer controls check the negative Gamma identity, finite te
 Capture at d5e45b9a547c535f9a44ff02bc677d807ab65bd4 after merged5349 has two changed guarded inputs: the source-issue registry and generated errata register add exactly E19–E20 from that checkpoint as awaiting independent review. The complete semantic diff was read; there is no new mathematical correction, changed owner or review verdict. The other71 guarded inputs and all four predecessor deliverables are unchanged; the whole issue is unchanged and review390 remains unclaimed.
 
 The separate partial signature file also compiled with zero errors and 3,543 expected placeholder warnings across 3,604 pinned source modules. It includes all 20 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 53a1424524fefdec8f1ea6f2338cfe566dcbc12a6f2aab3c1a7a525a50d663e6.
+
+
+## Robert’s actual Mahler coefficients and convergent expansion
+
+Eight L3 nodes derive the actual Mahler coefficients of Robert’s factorial quotient, its convergent expansion on Z_p and independence from the root pi. All1,096 predecessor nodes,825 baseline records,20 findings and five source versions remain whole.
+
+Rereads Robert2001 pp.162–163, Theorem2, its full Atkin/Boole proof and the root-choice comment, from the published page images. Reads the actual native exponential, rescaling, expansion, coefficient convolution, factorial-binomial and forward-difference APIs. Reads the full native Mahler decay and convergence proofs with their module hypotheses. The direct finite convolution proof supplies the same source coefficient identity without duplicating an Atkin or Dwork operator.
+
+### The finite exponential coefficient formula
+
+`DirichletPadicLFunctions:L3/robert-exponential-coefficient` — `DirichletPadic.robert_exp_coefficient`
+
+For the specified native formal product, A_n is the sum over 0≤j≤floor(n/q) of pi^(n−qj)(−pi)^j/((n−qj)! j!).
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. Native coeff_mul expresses a product coefficient as a finite antidiagonal convolution. Reindex it by the degree of the expanded second factor, using the native antidiagonal-to-range formula.
+2. The native expand coefficient vanishes unless q divides that degree, and at degree qj it is the j-th coefficient of the unexpanded series. The complete coeff_mul_expand helper removes the zero terms using the generated native sum_bij_ne_zero theorem and the bijection j↦qj.
+3. Native coeff_rescale and coeff_exp give the two coefficients pi^(n−qj)/(n−qj)! and (−pi)^j/j!. Multiply them in K and combine the denominators. The complete exponential_coefficient proof retains the actual formal product and exact finite cutoff.
+
+**Prerequisites:** `mathlib:PowerSeries.exp`, `mathlib:PowerSeries.coeff_mul`, `mathlib:PowerSeries.coeff_rescale`, `mathlib:PowerSeries.expand`, `mathlib:PowerSeries.coeff_expand`, `mathlib:PowerSeries.coeff_expand_mul`, `mathlib:PowerSeries.coeff_expand_of_not_dvd`, `mathlib:PowerSeries.coeff_exp`, `mathlib:Finset.prod_bij_ne_one`, `mathlib:Finset.Nat.prod_antidiagonal_eq_prod_range_succ_mk`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.coefficient_zero` (degenerate): The native exponential product has constant coefficient1.
+- `SuggestedRobertMahlerTests.coefficient_first_boundary` (computation): For pi=1,q=3 the degree3 coefficient is1/6−1.
+- `SuggestedRobertMahlerTests.coefficient_next` (computation): The degree4 coefficient is1/24−1.
+
+**Acceptance:** This is finite formal algebra. It does not evaluate an exponential at a boundary point or claim Dwork overconvergence.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### The coefficients below the first expanded term
+
+`DirichletPadicLFunctions:L3/robert-exponential-low-coefficient` — `DirichletPadic.robert_exp_coefficient_low`
+
+If n<q, then A_n=pi^n/n!.
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. The preceding coefficient sum has floor(n/q)=0, so only j=0 contributes.
+2. Use the native range-one sum, zero power and factorial-zero identities. The complete exponential_coefficient_low proof makes the strict range explicit.
+3. At n=q the second exponential already contributes−pi. For pi=−2 and q=2, A_2=4, whereas pi²/2!=2; this checks the cutoff.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-coefficient`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.low_second` (computation): Below q=3 the degree2 coefficient is1/2.
+- `SuggestedRobertMahlerTests.low_bound_failure` (non-example): At n=q=2 the pi=−2 coefficient is4, not pi²/2!=2.
+
+**Acceptance:** The constant coefficient is1. The strict n<q hypothesis must not be weakened to n≤q.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### The coefficient and finite-difference identity
+
+`DirichletPadicLFunctions:L3/robert-factorial-coefficient-cross` — `DirichletPadic.robertFactorialQuotient_coefficient`
+
+For a<q, A_(a+qk) k! = pi^(a+k) times the image of the k-th forward difference of the actual G_a at0.
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. In the coefficient formula set n=a+qk. The range is exactly0≤j≤k because a<q. Reverse it by j↦k−j, using the native finite-range reflection theorem.
+2. For j≤k, natural arithmetic gives n−q(k−j)=a+qj and (a+qj)+(k−j)=(a+k)+(q−1)j. Thus the power in that term is (−1)^(k−j) pi^(a+k) (pi^(q−1))^j.
+3. Read and use native choose_mul_factorial_mul_factorial: binomial(k,j) j! (k−j)!=k!. Cancel only nonzero factorials in the characteristic-zero field. The complete factorial_term helper checks this conversion.
+4. The native geometric-sum formula and pi^(p−1)=−p imply pi^(q−1)=(−p)^((q−1)/(p−1)). Substitute the previously proved exact natural values of G_a, including their p=2 signs.
+5. The finite sum is precisely the native fwdDiff_iter_eq_sum_shift formula. A separate complete helper transports forward differences between natural samples and the Z_p domain through the specified ring homomorphism. The complete quotient_coefficient proof applies this to the actual quotient; its target identity is not assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-coefficient`, `DirichletPadicLFunctions:L3/robert-factorial-quotient`, `DirichletPadicLFunctions:L3/robert-factorial-exponent`, `mathlib:Finset.prod_range_reflect`, `mathlib:geom_sum_mul_of_one_le`, `mathlib:Nat.choose_mul_factorial_mul_factorial`, `mathlib:fwdDiff`, `mathlib:fwdDiff_iter_eq_sum_shift`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.cross_first_difference` (computation): The degree2 dyadic coefficient equals−2 times the first forward difference.
+- `SuggestedRobertMahlerTests.cross_zero_difference` (degenerate): At k=0 no finite difference or factorial factor is omitted.
+
+**Acceptance:** The index is a+qk and the exponent is a+k. At p=q=2,a=0 the first forward difference is−2, so A_2=4.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### Robert’s actual Mahler coefficients
+
+`DirichletPadicLFunctions:L3/robert-factorial-mahler-coefficient` — `DirichletPadic.robertFactorialQuotient_mahler_coefficient`
+
+For a<q, c_k(G_a)=A_(a+qk) k!/pi^(a+k), after the specified coefficient map.
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. The root equation and characteristic zero imply pi≠0: p−1 is positive and−p is nonzero.
+2. The preceding cross-multiplied identity can therefore be divided by pi^(a+k). The complete quotient_mahler_coefficient proof performs this cancellation and leaves c_k as the existing native forward difference.
+3. The case k=0 gives1/a!, consistent with the actual quotient at0. The source range a<q is retained; the formal coefficient at a=q includes another convolution term.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-coefficient-cross`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.mahler_first` (computation): The first Mahler coefficient of G_0 for p=q=2 is−2.
+- `SuggestedRobertMahlerTests.mahler_second` (computation): The second Mahler coefficient is10/3.
+- `SuggestedRobertMahlerTests.mahler_zero` (degenerate): The constant coefficient at p=3,q=9,a=5 is1/120.
+- `SuggestedRobertMahlerTests.range_boundary` (non-example): At a=q=3 the coefficient construction does not equal1/3!.
+
+**Acceptance:** No chosen-root coefficient is introduced as a definition of G_a; the equality is proved for the already constructed function.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### Mahler convergence for the factorial quotient
+
+`DirichletPadicLFunctions:L3/robert-factorial-mahler-has-sum` — `DirichletPadic.robertFactorialQuotient_mahler_hasSum`
+
+The native Mahler series with coefficients given by the actual forward differences of G_a converges to G_a in C(Z_p,Q_p).
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. Package the predecessor’s actual continuous factorial quotient as a native continuous map.
+2. For the canonical scalar action, r•x is the product of the native inclusion of r with x. Norm multiplicativity and PadicInt.norm_def prove its bounded-scalar inequality. The existing IsBoundedSMul.of_norm_smul_le criterion provides this local instance.
+3. Apply native PadicInt.hasSum_mahler to that continuous map. The complete quotient_mahler_hasSum proof uses an explicitly typed local continuous map to preserve the actual module and norm instances.
+4. This is reuse of the native theorem for a specific consumer, not a plan to implement Mahler’s theorem again. The uniform norm and convergence domain are Z_p, consistent with E20.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-quotient`, `mathlib:PadicInt.mahlerTerm`, `mathlib:PadicInt.hasSum_mahler`, `mathlib:IsBoundedSMul.of_norm_smul_le`, `mathlib:PadicInt.algebraMap_apply`, `mathlib:PadicInt.norm_def`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.mahler_sum_2` (compatibility): The actual native Mahler series converges in continuous functions for p=2.
+- `SuggestedRobertMahlerTests.mahler_sum_3` (compatibility): The actual native Mahler series converges in continuous functions for p=3.
+
+**Acceptance:** The function may be Q_p-valued with nonintegral coefficients; no unjustified Z_p-valued bound is imposed.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### Decay of the actual Mahler coefficients
+
+`DirichletPadicLFunctions:L3/robert-factorial-mahler-decay` — `DirichletPadic.robertFactorialQuotient_mahler_decay`
+
+The actual forward-difference coefficients c_k(G_a) tend to0 in Q_p.
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. Use the same native continuous map and the canonical bounded Z_p scalar action established above.
+2. Apply native PadicInt.fwdDiff_tendsto_zero. Its full proof and the Bojanic estimates it uses were read at the pin; these existing results are not replanned.
+3. The complete quotient_mahler_decay proof yields coefficient decay for each fixed product-defined G_a. Under a<q, the preceding coefficient identity identifies the normalized formal coefficients with this sequence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-mahler-has-sum`, `mathlib:PadicInt.fwdDiff_tendsto_zero`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.mahler_decay_2` (characterisation): The actual forward-difference coefficients tend to zero for p=2.
+- `SuggestedRobertMahlerTests.mahler_decay_3` (characterisation): The actual forward-difference coefficients tend to zero for p=3.
+
+**Acceptance:** This is convergence for fixed a. It is not the later uniform decay as a grows that is needed for Robert’s telescoping limit.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### Robert’s convergent Mahler expansion
+
+`DirichletPadicLFunctions:L3/robert-factorial-mahler-expansion` — `DirichletPadic.robertFactorialQuotient_expansion`
+
+For a<q and x in Z_p, the series with terms A_(a+qk) k!/pi^(a+k) times binomial(x,k) converges to the image of G_a(x).
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. Apply native ContinuousMap.evalCLM at x to the established Mahler series in C(Z_p,Q_p), using the native continuous-linear-map HasSum theorem. This gives the evaluated series in Q_p.
+2. Map the convergent sum through the explicitly continuous coefficient homomorphism Q_p→K, using the existing generated additive HasSum.map theorem. Algebraic ring-hom data alone would not justify this step.
+3. Each native mahlerTerm evaluates to the scalar Mahler basis function times its coefficient. Substitute the actual coefficient identity, retain the canonical Z_p-to-Q_p inclusion, and commute the two scalar factors.
+4. The complete quotient_expansion proof gives Robert Theorem2 on the stated Z_p domain. It works at p=2 and includes a=0 without changing the signed Gamma conventions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-mahler-coefficient`, `DirichletPadicLFunctions:L3/robert-factorial-mahler-has-sum`, `mathlib:ContinuousMap.evalCLM`, `mathlib:ContinuousLinearMap.hasSum`, `mathlib:HasProd.map`, `mathlib:mahler_apply`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.expansion_at_0` (computation): The explicit dyadic coefficient series evaluates at x=0.
+- `SuggestedRobertMahlerTests.expansion_at_1` (computation): The explicit dyadic coefficient series evaluates at x=1.
+
+**Acceptance:** The topology and continuity of the coefficient map are explicit. There is no assertion that this series has the same bound on the whole unit ball of C_p.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+### Independence of the normalized coefficients from pi
+
+`DirichletPadicLFunctions:L3/robert-mahler-root-independence` — `DirichletPadic.robertFactorialQuotient_coefficient_root_independent`
+
+Two roots pi and rho of X^(p−1)=−p give the same normalized coefficient A_(a+qk) k!/pi^(a+k), for a<q.
+
+**Hypotheses:** The formal coefficient calculation takes a characteristic-zero field K, an element pi and a nonzero natural q. Its actual series is the native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). This is e^(pi T)e^(−pi T^q), with the printed sign pi(T−T^q). No new Dwork-series definition or analytic convergence is introduced. For the factorial quotient take p prime, q=p^f, a<q, pi^(p−1)=−p and an explicit ring homomorphism Q_p→K. The existing robertFactorialQuotient is built from the actual signed Morita Gamma. Its source integer values and continuity were established in the predecessor; neither the desired coefficient identity nor a Gauss formula is an input. All coefficients are native PowerSeries.coeff, all forward differences are native fwdDiff, and the basis functions and summands are the existing mahler and PadicInt.mahlerTerm. No Mahler theory, finite-difference operator or exponential series is replanned. Mahler convergence is first asserted in C(Z_p,Q_p). The canonical Z_p scalar action on Q_p is proved bounded from its actual multiplication and the equality of the subtype norm, using the existing native criterion. No arbitrary p-adic algebra is silently supplied with a normalized norm. The evaluated expansion in K explicitly requires a topology on K and continuity of the chosen Q_p→K map. Algebraic coefficient identities and root independence do not require that continuity. No completeness or norm on an arbitrary K is inferred from its field structure. The original source uses f>0. The finite algebra and the already defined Gamma product also admit f=0 with a<1; the suggested statements retain this valid degenerate case. The later Dwork/Gauss application will use f>0 and the separate corrected range a<q−1 where appropriate. The existing RD.6/dwork-isocrystal owner retains Dwork overconvergence, coefficient norm bounds and primitive trace-character values. Its Frobenius factor has the inverse sign to this source product. This checkpoint proves only formal coefficients and the convergent Mahler expansion on Z_p; the coefficient-defined family for all a, finite telescoping and uniform norm decay remain separate obligations.
+
+**Proof:**
+
+1. Apply the proved Mahler coefficient identity once for pi and once for rho, with the same coefficient field, coefficient map and actual factorial quotient.
+2. Both expressions equal the image of the same native forward difference c_k(G_a). Transitivity gives the equality. The complete coefficient_root_independent proof needs no continuity or comparison between arbitrary normed-field structures.
+3. This establishes the normalized-coefficient invariance stated in the source comment. The raw coefficients A_n themselves still depend on pi; they are not asserted equal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-mahler-coefficient`.
+
+**Tests:**
+
+- `SuggestedRobertMahlerTests.root_independent_0` (compatibility): Different roots of pi²=−3 give the same normalized coefficient at k=0.
+- `SuggestedRobertMahlerTests.root_independent_2` (compatibility): Different roots of pi²=−3 give the same normalized coefficient at k=2.
+
+**Acceptance:** Choice independence applies to the normalized Mahler coefficient, with the source range a<q retained.
+
+**Source:** Published pp.162–163, Section3 Theorem2 and its full proof, followed by the comment on changing pi. Pages reread visually after the retained full14-page article reading. Theorem2 gives c_k(G_a)=A_(a+qk) k!/pi^(a+k). The source uses formal Atkin extraction and the Boole relation. The present proof directly computes the same finite convolution coefficient, reverses its finite range and applies the existing native forward-difference formula. Native Mahler convergence gives the stated series; no Atkin or Dwork analytic theory is duplicated.
+
+**Remaining:** Robert Theorem2 is now planned with a complete native coefficient proof and a convergent Mahler expansion of the actual G_a on Z_p. Next use the formal product’s coefficient recurrence to define and control the extended coefficient family for every a≥0, then decompose the Section4 finite telescoping identity and prove its uniform tail decay. The fixed-a Mahler coefficient decay proved here is insufficient for that varying-a tail. Read the primary Dwork proofs and reuse the existing RD.6/dwork-isocrystal owner for overconvergence, quantitative coefficient bounds and primitive trace-character values, requesting any missing precise consumer interface. Keep the inverse Frobenius sign explicit. The full alternate Gauss proof, original Katz/Fermat and Gauss-side Stickelberger inputs remain open. E18’s repair is unproved and unused; E19–E20 await independent review. All18 gaps and14 requests remain; no stage closes.
+
+### Robert’s actual Mahler coefficients and convergent expansion validation
+
+All 1096 predecessor nodes, 825 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1364 reachable nodes, 6452 edges and 1007 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All eight new routes terminate in existing Gamma/factorial nodes and pinned native facts. No new unresolved stage leaf is introduced; Dwork analytic theory remains with its existing owner and all14 current requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5350 verbatim after two native imports and adds13 complete lemmas, including five routine reindexing, factorial, finite-difference and root-power helpers. The canonical bounded scalar action is derived in a local instance. Suggested signatures specialize the actual factorial quotient; no target coefficient or Gauss identity is assumed. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. No native library was built. General roadmap declarations remain unchecked.
+
+Exact calculations in Q[pi]/(pi^(p−1)+p) check eight constant terms,63 low coefficients,552 coefficient-recurrence values,567 actual Mahler coefficients,504 integer evaluations, and both source range boundaries. These finite checks make no convergence or overconvergence claim. Exact rational arithmetic in Q[pi]/(pi^(p-1)+p); no floating point. The largest observed discrepancy is 0.
+
+Capture at e660ddba13e0fd7f9dee2da59e6a58fb82d1daf1 after actual merge5350 has no changes among the73 guarded inputs. All four predecessor deliverables and the whole issue are unchanged; review390 remains unclaimed.
+
+The separate partial signature file also compiled with zero errors and 3,570 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: fca2205ab8c77446b44b67de809725333bb00af739f6b2d8f4d105384cc2447e.
