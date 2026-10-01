@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-CLOZEL-THORNE-17",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CLOZEL-THORNE-17/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The accepted manuscript (Cambridge repository copy, SHA-256 fb88e83c…6094742, equal to the extraction's) says on pp. 6–7 that the braid group B_W is 'the quotient of the free group in the elements T_w' and that 'The Hecke algebra H_B is isomorphic to the quotient of the algebra Z[B_W] by the relations (T_s − 1)(T_s + q) = 0'. Item 006 corrects the sign (E6) but keeps the group algebra Z[B_W]. In Z[B_W] each T_s is a unit, and in any quotient by (T_s − q)(T_s + 1) one has q = T_s(T_s − (q − 1)), a product of units, so q becomes invertible. But H_B is a free Z-module, and the degree map, which Tau Ceti f790474 already provides as the ring homomorphism deg with deg_single (TauCeti/NumberTheory/HeckeRing/Degree.lean), sends [BsB] to q, which is not a unit of Z. So the stated isomorphism is false over Z. It holds with the positive braid monoid, which is Matsumoto's presentation, or after inverting q. This is a source error distinct from E6's sign slip. The fix is right: correct item 006 and route 6, and add a sourceIssue scoped to the accepted manuscript. The ℓ-adic applications, where q is a unit of O, are unaffected."
+  },
+  {
+   "finding": "RT-PAPER-CLOZEL-THORNE-17/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The proof of Proposition 2.9 (p. 18) constructs 'a perfect duality ⟨·,·⟩ : Y_K^B × Y_K^B → K' from the self-duality of Y_K (Theorem 3.3) and uses it only over K. Item 065 asserts instead a perfect pairing on Y^B_O, which the paper never claims. That pairing is not even well posed in this regime. Item 015 (Proposition 2.6, Remark 2.7) defines the lattice Y^B_O only when q is a primitive root modulo l. Proposition 2.9 assumes q ≡ −1 mod l, and for l ∈ {5, 7} the class −1 has order 2, so it is not a primitive root. Remark 2.7 says the matrices define Y_K^B without the restriction, and that this is the observation used in Proposition 2.9. Item 064's e_P = [P]/(q + 1) likewise needs q + 1 invertible: under q ≡ −1 mod l it is not an element of H_{B,O}, although it is fine on V^B for V over C or K, as the paper uses it. The fix is right: restore item 065 to the K-valued duality, scope e_P to coefficients in which q + 1 is invertible, and amend the route 4 brief and the reader. It is an extraction error, not a source issue."
+  },
+  {
+   "finding": "RT-PAPER-CLOZEL-THORNE-17/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed; filed as high, I would grade it medium. Theorem 6.2(3) (p. 45) requires q_{u_0} to be a primitive root modulo l. Since u_0 ∤ l, Frob_{u_0} acts on μ_l by x ↦ x^{q_{u_0}}, so [F(ζ_l) : F] = l − 1, which is 4 or 6. The field cut out by ad of Sym^{l+1}ρ̄₂ lies in the field of proj ρ̄, because scalars act by λ^{l+1} on both summands. Gal(F(proj ρ̄)/F) is PSL₂ or PGL₂ of a field with more than l elements, whose abelianisation has order at most 2. So E22's only failure case, [F(ζ_l) : F] = 2, is excluded by hypothesis (3) over F. The proof's E₀ is a compositum of S-split extensions, and S is chosen (p. 45) so that every subextension of L/F that is Galois over F with simple group has a non-split place in S. Hence the Galois closure of E₀ meets L only in F, and E₀ is linearly disjoint from L ⊃ F(ζ_l). So [E₀(ζ_l) : E₀] = l − 1, the projective image is unchanged, and Theorem 5.7(4) (p. 44) holds. E22's claim that the hypotheses 'do not exclude' the case, and its recommendation to add a hypothesis, are therefore wrong. The printed proof only leaves this check to the reader. I would grade it medium rather than high: item 049's statement is right and keeps hypothesis (3), and the route 4 brief says 'must add, or verify', so nothing false would be built. The fix is right: retract E22 as a gap, record the verification in item 049's note and route 4, and update the reader."
+  },
+  {
+   "finding": "RT-PAPER-CLOZEL-THORNE-17/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item 040 states Lemma 5.3 for an arbitrary deformation datum D = (L, {R_v}_{R_0} ∪ {R^m_v}_{R_1}), as printed on p. 40. Under the paper's definitions (p. 39) R_v can be R_v^{χ_v} with nontrivial χ_v. The confirmed E21 records that the proof (pp. 40–41) imposes R^1_v at R_0 in both auxiliary problems, so it covers only unipotent types. The item's note says this, but its statement does not, contrary to PROTOCOL §18 (corrected statements go in items). The only application (proof of Theorem 5.1, p. 43) has R_0 = ∅. The fix, putting the restriction into the statement and the route 4 contract, is right."
+  },
+  {
+   "finding": "RT-PAPER-CLOZEL-THORNE-17/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Route 6's brief says the pending SmoothRepresentationsPartIIParahoricCenters 'already owns the Iwahori Bernstein presentation', and route 2's reason repeats this. The accepted PAPER-KISIN-PAPPAS-18, after the fix for RT-PAPER-KISIN-PAPPAS-18/18 (PR #5262), now says otherwise. Its route 11 puts the shared Iwahori Bernstein presentation, centre and hyperspecial comparison at SmoothRepresentationsOfLocalGroups SR.1/SR.4, with PAPER-VENKATESH-19 item 29. Its route 10, which proposes that Part II, tells it to 'Import its SR.1 convolution/corners and the shared Iwahori Bernstein presentation'. So the two extractions now name different owners for the same presentation. The fix is right: route the common presentation, with its coefficient contract (see /1), to the SR.1/SR.4 interface, or split items 006/008 so that route 6 imports it, and keep the Kazhdan–Lusztig classification and standard modules (item 013) in the Part II."
+  }
+ ]
+}
