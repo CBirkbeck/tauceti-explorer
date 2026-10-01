@@ -36996,7 +36996,8 @@
     "REV-PAPER-QIAN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-QIAN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4154"
   },
   {
    "id": "REV-RT-PAPER-QIAN-23",
@@ -37086,8 +37087,9 @@
     "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4158"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4158",
+   "finishedAt": "2026-10-01T19:53:50Z"
   },
   {
    "id": "REV-RT-PAPER-FENG-GALATIUS-VENKATESH-22",
