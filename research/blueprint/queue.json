@@ -34713,7 +34713,8 @@
     "REV-PAPER-JIANG-ZHANG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-JIANG-ZHANG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4083"
   },
   {
    "id": "REV-RT-PAPER-JIANG-ZHANG-20",
@@ -37611,8 +37612,9 @@
     "REV-PAPER-BHATT-SCHOLZE-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4175"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4175",
+   "finishedAt": "2026-10-01T17:33:22Z"
   },
   {
    "id": "RT-PAPER-COLMEZ-NIZIOL-25",
@@ -39190,8 +39192,9 @@
     "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4239"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4239",
+   "finishedAt": "2026-10-01T17:33:25Z"
   },
   {
    "id": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
@@ -40537,7 +40540,8 @@
     "REV-PAPER-NEWTON-THORNE-21-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4297"
   },
   {
    "id": "RT-PAPER-CHENEVIER-TAIBI-20",
