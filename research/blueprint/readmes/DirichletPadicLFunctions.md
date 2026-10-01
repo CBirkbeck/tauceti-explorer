@@ -43132,3 +43132,985 @@ Exact controls cover36finite levels at ranks0 through2,2,671input-image equivale
 All76 captured inputs remain byte-identical after actual merge5411. The four predecessor outputs, collected Kubert findings awaiting review, original issue text and winning claim, unclaimed review, policies, library audit and owner interfaces remain guarded. Complete native searches found no specialized finite-level Kubert relation object or free-level inclusion API. Existing generic free groups, kernels, quotients and divisibility are imported; no new supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 4,405 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b8a9e31310af08bddcf9afebbe5d9edd2e8bec8fc81e40ce5fb7a2d9bc8aef8.
+
+
+## Kubert primitive points and admissible level data
+
+Thirty-eight L3 nodes specify the primitive exact-order strata, their unique level partition, the distinguished positive-dimensional point, admissible divisors and the actual local replacement equivalence. These provide local source data without assuming the remaining global product, generation or rank theorems. All 1,392 predecessor nodes and 983 baseline records remain whole.
+
+Kubert pages 182–185 were reread in text and the entire page 183 image inspected, following the prior full-body reading. Equations (1.4) and (1.5), admissibility, and the individual local factors after Proposition 1.9 are extracted. Native order, single-coordinate maps, rational-circle order, divisors, prime-power divisibility and exchange equivalences were read at the pinned sources. Native torsion decomposition and CRT APIs were located and read as candidates for the remaining transport, without claiming that transport is already established.
+
+### Primitive points of an exact level
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-points` — `DirichletPadic.kubertPrimitivePoints`
+
+Define the source primitive set Z*(N) as the subset of X consisting of points with native additive order exactly N.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Take the native set specified by additive order equal to N. This reuses the existing order operation rather than defining a second notion.
+2. For positive N its points lie in the native level-N kernel by the additive-order annihilator criterion.
+
+**Prerequisites:** `mathlib:orderOf`, `mathlib:orderOf_dvd_iff_pow_eq_one`.
+
+**Uses:**
+
+- Kubert 182 equation (1.4): Supplies the actual primitive points of each divisor stratum.
+- Kubert 183 local replacement and later rank: Fixes exact order before forming local factors or comparing their cardinalities.
+- Kubert 184 Lemma 1.10: Provides the primitive endpoint and lower-level strata for the remaining generation argument.
+
+**API:**
+
+- `kubertGenerators_primitive_mem_level` (relation): If M divides N, every point of exact order M lies in the native kernel of multiplication-by-N.
+- `kubertGenerators_primitive_one` (relation): The exact-order-one subset of X is the singleton zero set.
+- `kubertGenerators_primitive_zero_mem_iff` (characterisation): Zero belongs to Z*(N) if and only if N=1.
+- `kubertGenerators_primitive_disjoint` (relation): If M and N differ, their primitive subsets of X are disjoint.
+- `kubertGenerators_primitive_finite` (relation): For every natural dimension k and positive N, the actual primitive subset of (Q/Z)^k is finite.
+- `kubertGenerators_primitive_nsmul` (relation): If M is nonzero and divides N, multiplication-by-M sends every exact-order-N point to an exact-order-N/M point.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.primitive_two_of_three` (computation): The point (2/3,0) has exact order 3.
+- `SuggestedKubertGeneratorsTests.torsion_is_not_exact_order` (non-example): The point (1/3,0) is killed by 6 but is not primitive of order 6.
+- `SuggestedKubertGeneratorsTests.primitive_one_is_zero` (degenerate): Only zero has exact order 1.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Primitive lower-level points lie in a larger level
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level` — `DirichletPadic.kubertGenerators_primitive_mem_level`
+
+If M divides N, every point of exact order M lies in the native kernel of multiplication-by-N.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Replace the point order by M.
+2. Apply the native divisibility criterion for annihilation by N; kernel membership is that same equation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:orderOf_dvd_iff_pow_eq_one`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.primitive_three_inside_six` (compatibility): Exact-order-3 points lie in the native level-six kernel.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The unit primitive stratum is zero
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-one` — `DirichletPadic.kubertGenerators_primitive_one`
+
+The exact-order-one subset of X is the singleton zero set.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Apply native additive-order-one characterization pointwise.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:orderOf_eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.rank_zero_primitive_one` (degenerate): The zero-dimensional torus has its sole point at exact order 1.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Zero belongs only to the unit primitive stratum
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-zero-mem-iff` — `DirichletPadic.kubertGenerators_primitive_zero_mem_iff`
+
+Zero belongs to Z*(N) if and only if N=1.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The native additive order of zero is one; rewrite the defining equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:orderOf_eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.zero_not_order_three` (non-example): Zero is not primitive at level 3.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Distinct exact-order strata are disjoint
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-disjoint` — `DirichletPadic.kubertGenerators_primitive_disjoint`
+
+If M and N differ, their primitive subsets of X are disjoint.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. A point in both sets would have its single native additive order equal to both indices.
+2. Equality transitivity contradicts the distinctness hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.distinct_order_strata` (compatibility): Exact orders 2 and 3 define disjoint strata.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Primitive rational-torus strata are finite
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-finite` — `DirichletPadic.kubertGenerators_primitive_finite`
+
+For every natural dimension k and positive N, the actual primitive subset of (Q/Z)^k is finite.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Map each exact-order point into the already-proved finite native level kernel.
+2. The inclusion retains its actual point value and is injective. Apply native Finite.of_injective.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite`, `mathlib:Finite.of_injective`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.rank_two_finite_primitive_six` (compatibility): The actual primitive rank-two level-six set is finite.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### A level point has order dividing the level
+
+`DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd` — `DirichletPadic.kubertGenerators_level_order_dvd`
+
+The native additive order of the underlying point of T_N divides N.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Its kernel certificate is exactly annihilation by N.
+2. Use the native order-divides-an-annihilating-multiplier theorem.
+
+**Prerequisites:** `mathlib:orderOf_dvd_of_pow_eq_one`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.order_divides_six` (characterisation): Every point in the native level-six kernel has order dividing 6.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Positive levels have positive point orders
+
+`DirichletPadicLFunctions:L3/kubert-generators-level-order-pos` — `DirichletPadic.kubertGenerators_level_order_pos`
+
+For N>0 every point of T_N has positive additive order.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Its order divides the positive level by level_order_dvd.
+2. A divisor of a positive natural number is positive.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.positive_order_at_positive_level` (compatibility): A positive level excludes infinite additive order.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Every level point has a unique primitive stratum
+
+`DirichletPadicLFunctions:L3/kubert-generators-level-primitive-partition` — `DirichletPadic.kubertGenerators_level_primitive_partition`
+
+For N>0 and x in T_N, there is a unique positive divisor M of N such that x belongs to Z*(M).
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Choose the actual native additive order of x. Its positivity and divisibility are already proved.
+2. Membership in any other primitive stratum is equality with that same order, giving uniqueness.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-pos`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.unique_order_stratum` (characterisation): Each level-six point lies in a unique positive divisor stratum.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Divisor multiplication reduces exact order
+
+`DirichletPadicLFunctions:L3/kubert-generators-primitive-nsmul` — `DirichletPadic.kubertGenerators_primitive_nsmul`
+
+If M is nonzero and divides N, multiplication-by-M sends every exact-order-N point to an exact-order-N/M point.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Apply the native scalar-order formula for a nonzero divisor of the actual point order.
+2. Replace that order by N using primitive membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:orderOf_pow_of_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.multiplication_reduces_exact_order` (computation): Doubling a primitive order-six point produces exact order 3.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The distinguished primitive point
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point` — `DirichletPadic.kubertDistinguishedPoint`
+
+For dimension k+1 and level N, construct e(N)=(1/N,0,…,0) as an actual point of the rational torus.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Use native Pi.single at the existing first index of Fin(k+1).
+2. The supported value is the actual rational-circle class of 1/N; no representative carrier is introduced.
+
+**Prerequisites:** `mathlib:Pi.mulSingle`.
+
+**Uses:**
+
+- Kubert 183 equation (1.5): Names the actual point removed from each prime-power primitive set.
+- Kubert 183 local factors: Supplies the exact excluded label in the replacement set.
+- Kubert 185 exceptional-point elimination: Its coordinate value is needed to identify the source exceptional components.
+
+**API:**
+
+- `kubertGenerators_distinguishedPoint_zero` (relation): The first coordinate of e(N) is the actual class of 1/N.
+- `kubertGenerators_distinguishedPoint_other` (relation): Every coordinate different from the first has value zero in e(N).
+- `kubertGenerators_distinguishedPoint_order` (relation): For N>0, the additive order of e(N) in the dimension-k+1 torus is N.
+- `kubertGenerators_distinguishedPoint_primitive` (relation): For positive N, e(N) belongs to Z*(N).
+- `kubertGenerators_distinguishedPoint_eq_zero_iff` (characterisation): For N>0, e(N)=0 if and only if N=1.
+- `kubertGenerators_distinguishedPoint_mem_level` (relation): If M>0 divides N, the point e(M) belongs to the actual level-N kernel.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.first_coordinate_third` (computation): The distinguished point has first coordinate 1/3.
+- `SuggestedKubertGeneratorsTests.remaining_coordinate_zero` (computation): Its other coordinate is zero.
+- `SuggestedKubertGeneratorsTests.distinguished_level_one_zero` (degenerate): The distinguished point at level 1 is zero in the torus.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The first coordinate of the distinguished point
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-zero` — `DirichletPadic.kubertGenerators_distinguishedPoint_zero`
+
+The first coordinate of e(N) is the actual class of 1/N.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Evaluate native Pi.single at its supporting coordinate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point`, `mathlib:Pi.mulSingle`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.first_coordinate_sixth` (computation): The level-six first coordinate is the actual rational sixth class.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The other distinguished coordinates vanish
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-other` — `DirichletPadic.kubertGenerators_distinguishedPoint_other`
+
+Every coordinate different from the first has value zero in e(N).
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Evaluate native Pi.single away from its support using the stated index inequality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point`, `mathlib:Pi.mulSingle`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.third_coordinate_zero` (computation): The third coordinate is zero in rank three.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The distinguished point has the specified exact order
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-order` — `DirichletPadic.kubertGenerators_distinguishedPoint_order`
+
+For N>0, the additive order of e(N) in the dimension-k+1 torus is N.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Realize the supported-point map as the existing additive single-coordinate homomorphism.
+2. Its first coordinate recovers the input, proving injectivity; native injective homomorphisms preserve additive order.
+3. Use the native AddCircle theorem that the class of the positive period divided by N has order N, specializing the period to one in the rationals.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point`, `mathlib:MonoidHom.mulSingle`, `mathlib:Pi.mulSingle_injective`, `mathlib:orderOf_injective`, `mathlib:AddCircle.addOrderOf_period_div`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.distinguished_exact_order` (characterisation): The distinguished rank-two level-six point has exact order 6.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The distinguished point lies in the primitive stratum
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-primitive` — `DirichletPadic.kubertGenerators_distinguishedPoint_primitive`
+
+For positive N, e(N) belongs to Z*(N).
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Its computed additive order is exactly the defining membership equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-order`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.distinguished_is_primitive` (compatibility): The distinguished point lies in the correct primitive set.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The distinguished point vanishes only at level one
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-eq-zero-iff` — `DirichletPadic.kubertGenerators_distinguishedPoint_eq_zero_iff`
+
+For N>0, e(N)=0 if and only if N=1.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Native additive order equals one exactly at zero.
+2. Insert the computed order N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-order`, `mathlib:orderOf_eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.distinguished_nonzero_at_three` (non-example): At a level greater than 1 the distinguished point cannot be zero.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Distinguished lower-level points belong to larger levels
+
+`DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-mem-level` — `DirichletPadic.kubertGenerators_distinguishedPoint_mem_level`
+
+If M>0 divides N, the point e(M) belongs to the actual level-N kernel.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The point is primitive of order M.
+2. Apply the proved inclusion of primitive divisor strata in a larger level.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-primitive`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.distinguished_lower_level_inclusion` (compatibility): The distinguished order-three point lies in level six.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Admissible divisors of a level
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-divisors` — `DirichletPadic.kubertAdmissibleDivisors`
+
+Define the finite set of admissible divisors of N by filtering native positive divisors M on coprimality of M and N/M.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Start with the existing native finite divisor set, whose zero-level value is empty.
+2. Apply the coprimality filter exactly as in the source. Merely dividing N is insufficient.
+
+**Prerequisites:** `mathlib:Nat.divisors`, `mathlib:Nat.mem_divisors`.
+
+**Uses:**
+
+- Kubert 183 definition of T(N): Indexes the remaining union by full-prime-power divisors.
+- Kubert 184 Lemma 1.10: Identifies the admissible levels used to generate the internal quotient.
+- Kubert 183 product cardinality: Records the binary selection of complete prime-power factors; the global product proof remains open.
+
+**API:**
+
+- `kubertGenerators_admissible_mem_iff` (characterisation): For N nonzero, membership of M in the admissible divisor set is equivalent to M dividing N and M coprime to N/M.
+- `kubertGenerators_admissible_one` (relation): At every nonzero level N, the divisor one is admissible.
+- `kubertGenerators_admissible_self` (relation): At every nonzero level N, the full divisor N is admissible.
+- `kubertGenerators_admissible_pos` (relation): Every admissible divisor of a positive level is positive.
+- `kubertGenerators_admissible_complement` (relation): If N is nonzero and M is admissible, then N/M is admissible.
+- `kubertGenerators_admissible_prime_power` (relation): For a prime p, any natural exponent n and any M, admissibility at p^n is equivalent to M=1 or M=p^n.
+- `kubertGenerators_admissible_level_one` (relation): The admissible divisor set at level one is exactly the singleton containing one.
+- `kubertGenerators_admissible_level_zero` (relation): The admissible divisor set at zero is empty.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.admissible_twelve` (computation): The admissible divisors of 12 are precisely 1, 3, 4 and 12.
+- `SuggestedKubertGeneratorsTests.proper_prime_power_not_admissible` (non-example): The divisor 2 of 12 is not admissible.
+- `SuggestedKubertGeneratorsTests.admissible_one_set` (degenerate): Level 1 has only its unit admissible divisor.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The exact admissibility criterion
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff` — `DirichletPadic.kubertGenerators_admissible_mem_iff`
+
+For N nonzero, membership of M in the admissible divisor set is equivalent to M dividing N and M coprime to N/M.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Expand native filtered membership.
+2. Use the native divisor membership theorem and the stated nonzero level.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-divisors`, `mathlib:Nat.mem_divisors`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.coprimality_characterization` (characterisation): Membership records both divisibility and complementary coprimality.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The unit divisor is admissible
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-one` — `DirichletPadic.kubertGenerators_admissible_one`
+
+At every nonzero level N, the divisor one is admissible.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. One divides N and is coprime to every complementary integer.
+2. Use the exact membership criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.unit_divisor` (degenerate): The unit divisor is admissible at every positive level.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The full level is admissible
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-self` — `DirichletPadic.kubertGenerators_admissible_self`
+
+At every nonzero level N, the full divisor N is admissible.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The complementary quotient N/N is one.
+2. Use reflexive divisibility and coprimality with one in the membership criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.full_divisor` (compatibility): The full level is admissible.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Admissible divisors are positive
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-pos` — `DirichletPadic.kubertGenerators_admissible_pos`
+
+Every admissible divisor of a positive level is positive.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Extract divisibility from membership.
+2. Use positivity of a divisor of a positive natural number.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.admissible_ne_zero` (non-example): Zero is never an admissible divisor at a positive level.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Admissibility survives complementation
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-complement` — `DirichletPadic.kubertGenerators_admissible_complement`
+
+If N is nonzero and M is admissible, then N/M is admissible.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The complementary quotient divides N by the original divisibility.
+2. For a divisor of a nonzero N, taking the complementary quotient twice returns M.
+3. Symmetry of the original coprimality certificate supplies the new one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.complementary_divisor` (compatibility): Admissibility is preserved by taking the complementary divisor.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### A prime power has only endpoint admissible divisors
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-prime-power` — `DirichletPadic.kubertGenerators_admissible_prime_power`
+
+For a prime p, any natural exponent n and any M, admissibility at p^n is equivalent to M=1 or M=p^n.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. A divisor of p^n is p^j for j at most n, by the native prime-power divisor theorem.
+2. If j is zero or n it is an endpoint. Otherwise both j and n−j are positive, and the complementary quotient is p^(n−j).
+3. Native positive-exponent coprimality reduction would make p coprime to itself, hence p=1, contradicting primality.
+4. Conversely the unit and full divisors are admissible. The case n=0 needs no exception beyond the two equal endpoints.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-one`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-self`, `mathlib:Nat.dvd_prime_pow`, `mathlib:Nat.coprime_pow_left_iff`, `mathlib:Nat.coprime_pow_right_iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.prime_power_endpoints` (characterisation): Only 1 and 8 are admissible divisors of 8.
+- `SuggestedKubertGeneratorsTests.zero_exponent` (degenerate): A prime to exponent zero gives the singleton unit divisor.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The unit level has one admissible divisor
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-level-one` — `DirichletPadic.kubertGenerators_admissible_level_one`
+
+The admissible divisor set at level one is exactly the singleton containing one.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Any member divides one and therefore equals one.
+2. The unit membership theorem gives the reverse inclusion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-one`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.level_one_membership` (degenerate): Membership at level 1 is exactly equality to 1.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The zero level has no admissible divisors
+
+`DirichletPadicLFunctions:L3/kubert-generators-admissible-level-zero` — `DirichletPadic.kubertGenerators_admissible_level_zero`
+
+The admissible divisor set at zero is empty.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The native divisor set at zero is empty, and filtering preserves emptiness.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-divisors`, `mathlib:Nat.divisors`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.level_zero_empty` (non-example): The native zero-level divisor convention gives an empty admissible set.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The local primitive replacement set
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices` — `DirichletPadic.kubertLocalChoices`
+
+In dimension k+1, define the local set by removing e(N) from Z*(N) and inserting the zero point.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Use native singleton difference and insertion on the actual primitive subset.
+2. For a nontrivial prime-power level this is precisely the local factor in the source product formula. No global product equivalence is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point`.
+
+**Uses:**
+
+- Kubert 183 product formula after Proposition 1.9: Supplies each actual local factor.
+- The local cardinality computation: Allows an explicit exchange equivalence rather than an assumed cardinality equality.
+- Kubert 184 prime-power generation: Identifies which primitive labels are retained before proving the removed label is generated.
+
+**API:**
+
+- `kubertGenerators_localChoices_mem_iff` (characterisation): A point belongs to the local set exactly when it is zero, or it is primitive of order N and differs from e(N).
+- `kubertGenerators_localChoices_zero` (relation): Zero belongs to the local set at every level.
+- `kubertGenerators_localChoices_distinguished` (relation): For N>1, the point e(N) does not belong to the local set.
+- `kubertGenerators_localChoices_mem_level` (relation): Every local choice belongs to the native level-N kernel.
+- `kubertGenerators_localChoices_finite` (relation): For positive N the actual local subset of the rational torus is finite.
+- `kubertGenerators_localChoices_card` (relation): For N>1, the local set and the primitive order-N set have equal native cardinality.
+- `kubertGenerators_localChoices_one` (relation): At level one the local set is exactly the singleton zero set.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_zero_retained` (degenerate): The local choice set explicitly retains zero.
+- `SuggestedKubertGeneratorsTests.local_exception_removed` (non-example): The distinguished point is removed at nontrivial level.
+- `SuggestedKubertGeneratorsTests.other_primitive_retained` (computation): The different primitive point (2/3,0) is retained.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The exact local-choice predicate
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-iff` — `DirichletPadic.kubertGenerators_localChoices_mem_iff`
+
+A point belongs to the local set exactly when it is zero, or it is primitive of order N and differs from e(N).
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Expand membership in the singleton insertion and difference.
+2. Retain both alternatives and the explicit exceptional-point exclusion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_exact_predicate` (characterisation): A local choice is zero or a primitive point different from the distinguished point.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The local set contains zero
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-zero` — `DirichletPadic.kubertGenerators_localChoices_zero`
+
+Zero belongs to the local set at every level.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Use the inserted singleton branch of membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_level_two_zero` (degenerate): Zero is also retained at level 2.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The exceptional point is removed at nontrivial level
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-distinguished` — `DirichletPadic.kubertGenerators_localChoices_distinguished`
+
+For N>1, the point e(N) does not belong to the local set.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. It is not zero by the distinguished-point criterion.
+2. The primitive branch explicitly excludes the same point, so neither membership alternative holds.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-iff`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-eq-zero-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.exception_not_zero_replacement` (non-example): The exceptional level-six point does not survive the replacement.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Local choices belong to the actual level kernel
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-level` — `DirichletPadic.kubertGenerators_localChoices_mem_level`
+
+Every local choice belongs to the native level-N kernel.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Zero belongs to every subgroup.
+2. The other alternative is a primitive order-N point, so apply the primitive level-membership theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_choices_actual_torsion` (compatibility): Every local choice lies in the native torsion subgroup.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Local choice sets at positive levels are finite
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-finite` — `DirichletPadic.kubertGenerators_localChoices_finite`
+
+For positive N the actual local subset of the rational torus is finite.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Inject the local subset into the already-proved finite native level kernel using the previous membership theorem.
+2. The map retains underlying point values; apply native Finite.of_injective.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-level`, `DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite`, `mathlib:Finite.of_injective`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_choices_finite` (compatibility): The actual local choice set is finite.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The primitive-to-local replacement equivalence
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv` — `DirichletPadic.kubertLocalChoiceEquiv`
+
+For N>1, construct an actual equivalence from Z*(N) to the local set by the native swap of e(N) and zero.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The distinguished point lies in Z*(N), while zero does not at N>1.
+2. Apply the existing native swap exchange bijection between a set and the set with one member replaced by an external point.
+3. Use native Set.BijOn.equiv to obtain the subtype equivalence. No arbitrary cardinality-based bijection is chosen.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-primitive`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-zero-mem-iff`, `mathlib:Equiv.swap_bijOn_exchange`, `mathlib:Set.BijOn.equiv`.
+
+**Uses:**
+
+- Kubert 183 local cardinality step: Provides the concrete bijection proving each factor has the primitive-set cardinality.
+- The actual source-point convention: Sends the specified exceptional point to zero while fixing other primitive labels.
+- The remaining global product construction: Can be combined only after proving the true primary-coordinate product identification.
+
+**API:**
+
+- `kubertGenerators_localChoiceEquiv_apply` (relation): The underlying rational-torus value of the local equivalence is exactly the swap of e(N) and zero applied to the original primitive point.
+- `kubertGenerators_localChoiceEquiv_distinguished` (relation): The local replacement equivalence sends the primitive point e(N) to the actual zero point.
+- `kubertGenerators_localChoiceEquiv_fixed` (relation): Every primitive order-N point different from e(N) retains exactly its underlying value under the local equivalence.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.swap_exception_to_zero` (computation): The actual restricted swap sends the distinguished point to zero.
+- `SuggestedKubertGeneratorsTests.swap_fixes_other_point` (compatibility): Every other primitive point is fixed by the local equivalence.
+- `SuggestedKubertGeneratorsTests.swap_inverse_law` (compatibility): The native inverse recovers the original primitive point.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The replacement equivalence has the native swap value
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv-apply` — `DirichletPadic.kubertGenerators_localChoiceEquiv_apply`
+
+The underlying rational-torus value of the local equivalence is exactly the swap of e(N) and zero applied to the original primitive point.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Evaluate the restricted native bijection on the given subtype point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.swap_actual_underlying_value` (compatibility): The underlying point is exactly the native swap value.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### Local replacement preserves primitive cardinality
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-card` — `DirichletPadic.kubertGenerators_localChoices_card`
+
+For N>1, the local set and the primitive order-N set have equal native cardinality.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Apply native Nat.card_congr to the actual local replacement equivalence.
+2. This is an individual-factor equality, not the source global cardinality theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_cardinality_preserved` (characterisation): Replacing the exceptional point by zero preserves the actual cardinality.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The local unit-level set is the zero singleton
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choices-one` — `DirichletPadic.kubertGenerators_localChoices_one`
+
+At level one the local set is exactly the singleton zero set.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. The primitive stratum is the zero singleton, and the distinguished point is zero.
+2. Remove that singleton and insert zero again. This handles the boundary without applying the nontrivial-level swap.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choices`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-one`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-eq-zero-iff`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.local_one_singleton` (degenerate): The local set at level 1 is the singleton zero set.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The local equivalence sends the exceptional point to zero
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv-distinguished` — `DirichletPadic.kubertGenerators_localChoiceEquiv_distinguished`
+
+The local replacement equivalence sends the primitive point e(N) to the actual zero point.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. Use the underlying swap evaluation formula.
+2. Apply the native value of a swap at its first exchanged point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-primitive`, `mathlib:Equiv.swap_apply_left`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.rank_one_swap_exception` (computation): The one-dimensional local equivalence also sends its distinguished point to zero.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+### The local equivalence fixes all other primitive points
+
+`DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv-fixed` — `DirichletPadic.kubertGenerators_localChoiceEquiv_fixed`
+
+Every primitive order-N point different from e(N) retains exactly its underlying value under the local equivalence.
+
+**Hypotheses:** Primitive means exact native additive order. Generic statements use a native additive commutative group X; the source torus is (Q/Z)^k. Native level kernels are reused. A positive source level excludes infinite additive order. The distinguished point and local choices use dimension k+1, ensuring an actual first coordinate. The restricted swap requires N>1; its level-one set has a separate statement. The local construction is meaningful at composite levels too, while Kubert uses it at the prime-power factors of N. Admissibility requires both M dividing N and coprimality of M with N/M. The finite set inherits native empty divisors at N=0. No local cardinality result asserts the global product description, generation, rank, equality of relation subgroups or freeness.
+
+**Proof:**
+
+1. At N>1 a primitive point is not zero.
+2. It therefore differs from both exchanged points. Apply the native swap fixed-point formula to the underlying evaluation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-local-choice-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-zero-mem-iff`, `mathlib:Equiv.swap_apply_of_ne_of_ne`.
+
+**Tests:**
+
+- `SuggestedKubertGeneratorsTests.level_six_fixed_points` (compatibility): The fixed-point rule holds at composite as well as prime levels.
+
+**Acceptance:** Use actual rational-torus points and native additive order, divisors, kernels and restricted swaps. Test exact order against a larger annihilating level, reject proper intermediate prime-power divisors, and distinguish the inserted zero from the removed exceptional point. Keep local cardinality and global generation separate.
+
+**Source:** Published 182 equation (1.4); 183 equation (1.5), admissible-divisor definition and the local product factors following Proposition 1.9. Full body 179–202 read; 182–185 text and the entire 183 image reread on 1 October 2026. Exact-order strata, the distinguished first-coordinate point, admissible divisors and the individual replacement factors are extracted directly. Native additive order and exchange bijections provide the generic machinery. The source global product identification and later generation and rank arguments remain explicit unproved steps.
+
+**Remaining:** Primitive exact-order strata, their unique level partition, the distinguished positive-dimensional point, admissible divisors and local replacement sets are now planned using native order and exchange APIs. Next construct the actual primary-coordinate transport, the source subsets T*(M) and admissible union T(N), and prove its product description and global cardinality. Prove Lemma 1.10 and exceptional-point elimination in Lemma 1.12 before claiming generation. Establish the independent Cartan or rational-model rank lower bound before concluding internal/global relation equality or freeness. Local replacement cardinalities and finite enumeration supply none of these global steps. The source positive-dimensional rank hypotheses, parity ranks and Tate-cohomology conventions remain to be extracted. Preserve all Gamma, Coleman/LAD logarithm, external [K-L] and unidentified [L], Katz/Fermat, Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert primitive points and admissible level data validation
+
+All 1392 predecessor nodes, 983 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 38 nodes, 38 named suggested declarations and 49 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1690 reachable nodes, 7521 edges and 1161 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new routes terminate in native order, divisor, finite-set and exchange APIs or the already-proved native finite-level rational-torus kernel. No new route reaches an unresolved supplier stage and no owner is duplicated.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves #5414 verbatim and adds five concrete definitions and 33 complete lemmas, totaling 63 definitions and 842 lemmas. The 38 suggested declarations and 49 typed tests use native additive order, finite divisors, supported-coordinate functions and exchange equivalences. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls cover 90 finite levels, 9,950 unique order partitions, 33,002 primitive multiplication checks, 8,052 local swaps, 60 local cardinalities, 89 admissible-complement checks, 20 prime-power classifications and 90 distinguished-coordinate checks. Exact integer and rational enumeration; point order is computed independently as the least common multiple of reduced coordinate denominators. All controls are finite examples, not proof certificates. No global generating-set, rank or freeness theorem is inferred. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after actual merge of #5414. The original issue text and winning claim, unclaimed review #390, policies, library audit, owner interfaces and four predecessor outputs are guarded. Native searches found the general additive-order, finite-divisor and exchange-bijection APIs, which are reused; no specialized Kubert admissible generating-set object was found. No supplier request is added.
+
+The separate partial signature file also compiled with zero errors and 4,492 expected placeholder warnings across 3,604 pinned source modules. It includes all 38 new named declarations and 49 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0ef1f8ce49e8ee478273e119481d244a9f732c1ea139e8cdc45aea40f646f8d6.
