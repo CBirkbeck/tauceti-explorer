@@ -42478,3 +42478,657 @@ Exact controls check19,692weighted free-relator evaluations,15,192combined kerne
 All76 captured inputs remain byte-identical after actual merge5406, including the collected Kubert findingsE21–E26 still awaiting review. Four predecessor outputs, the issue body, original winning claim, unclaimed review, policies, reviewed library audit and owner interfaces remain guarded. Existing native quotient and subgroup APIs are reused; the new nodes specialize the already-owned distribution quotient rather than introducing another general quotient framework.
 
 The separate partial signature file also compiled with zero errors and 4,345 expected placeholder warnings across 3,604 pinned source modules. It includes all 29 new named declarations and 44 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c1bd5813bc321b9bf9def8c98e4cfcc6c308aa5d8d0d7c6b159fb53ebcb8ef13.
+
+
+## Kubert finite-level relations and the comparison boundary
+
+Twenty-four L3 nodes construct the exact internal finite-level distribution subgroup and its comparison with global relations, using native torsion kernels and complete fiber equivalences. The source comparison is surjective; injectivity is equivalent to the still-unproved equality of relation subgroups. All1,368 predecessor nodes and967 baseline records remain whole.
+
+Kubert182–185 was reread in text and the entire182 page image inspected, after the previous full179–202 reading. The printed input(M/N)Z^k/Z^k in(1.2) was checked directly. This checkpoint extracts(1.1)–(1.3), preserves the Appendix weight convention and exposes the unproved intersection equality. Native free-group map and composition, subgroup kernel/comap, left-inverse existence, divisibility conversion/product/rational-circle instance and quotient map/kernel declarations were read at the pins. Source and native notes record the exact generality and the finite ambient counterexample; no rank or freeness proof is claimed.
+
+### The finite-level rational torus is a finite native subgroup
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite` — `DirichletPadic.kubertLevel_torus_level_finite`
+
+For every natural k and N>0, the native kernel of multiplication-by-N on the rational torus(Q/Z)^k is finite.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Its underlying subtype is exactly the already-proved full N-division fiber at zero.
+2. Apply the preceding torus fiber-finiteness theorem. Native Fintype.ofFinite then provides the enumerations required by the internal relation subgroup.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-torus-fiber-finite`, `mathlib:powMonoidHom`, `mathlib:MonoidHom.ker`, `mathlib:Fintype.ofFinite`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.rank_two_level_six` (compatibility): The actual6-torsion subgroup of the rank-two rational torus is finite.
+- `SuggestedKubertFiniteLevelTests.rank_zero_level_one` (degenerate): The empty-coordinate torus has a finite level-one subgroup.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Allowed image labels have no preimages outside the level
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-preimage-mem-level` — `DirichletPadic.kubertLevel_preimage_mem_level`
+
+If m divides N, b lies in T_N and m*y=m*b in X, then y also belongs to T_N.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Write N=m*d using the actual divisibility witness.
+2. Apply multiplication-by-d to the given equality. Reassociate natural scalar multiplication to identify N*y with N*b.
+3. The latter vanishes because b belongs to the native kernel. This statement needs neither divisibility of X nor an assumed finite fiber.
+
+**Prerequisites:** `mathlib:powMonoidHom`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.permitted_ambient_root_stays_in_level` (compatibility): Every ambient third root of an allowed6-torsion image in Z/12 remains6-torsion.
+- `SuggestedKubertFiniteLevelTests.nondivisor_can_leave_level` (non-example): Without the divisor condition, doubling has the root3 of0 in Z/6, which does not lie at level3.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The equivalence of internal and ambient permitted fibers
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv` — `DirichletPadic.kubertLevelFiberEquiv`
+
+For m dividing N and b in T_N, construct the actual equivalence between the internal fiber m*c=m*b in T_N and the full ambient fiber m*c=m*b in X.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. The forward map is the native subgroup inclusion on the root, with its equation transported by the subtype projection.
+2. The inverse equips the same ambient root with its level-membership proof from preimage_mem_level.
+3. Native subtype extensionality proves both inverse laws. No new finite model or chosen root list is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-preimage-mem-level`.
+
+**Uses:**
+
+- Kubert182 internal-to-global inclusion of relations: Ensures the internal finite sum is the full global division sum at a permitted label.
+- Finite-level cardinality and acceptance examples: Transfers the actual fiber cardinality without inventing a second enumeration.
+- Weighted relations in the Appendix convention: The same equivalence transfers the whole weighted free-group relator.
+
+**API:**
+
+- `kubertLevel_levelFiberEquiv_coe` (relation): The ambient value of the image of an internal fiber point is its original underlying element of X.
+- `kubertLevel_levelFiberEquiv_symm_coe` (relation): The underlying X-value of the inverse image of an ambient fiber point is the original ambient root.
+- `kubertLevel_levelFiberEquiv_card` (relation): For m dividing N and b in T_N, the actual internal and ambient fibers at m*b have equal native cardinalities.
+- `kubertLevel_levelRelation_map` (relation): The native free-group inclusion I sends the internal weight-w degree-m relator at m*b to the ambient weight-w relator at the same actual label.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.equivalence_preserves_underlying_root` (compatibility): The level/ambient equivalence preserves the actual underlying root.
+- `SuggestedKubertFiniteLevelTests.equivalence_zero_root` (degenerate): The zero root of zero is mapped to the ambient zero root.
+- `SuggestedKubertFiniteLevelTests.equivalence_inverse_returns_root` (computation): The inverse sends the actual ambient root4 of0 to the same element at level6.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The fiber equivalence preserves the actual root
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv-coe` — `DirichletPadic.kubertLevel_levelFiberEquiv_coe`
+
+The ambient value of the image of an internal fiber point is its original underlying element of X.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Evaluate the forward map of the constructed equivalence. The underlying value is unchanged by definition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.unit_equivalence_value` (degenerate): The multiplier-one equivalence preserves its unique root.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The inverse fiber equivalence preserves the actual root
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv-symm-coe` — `DirichletPadic.kubertLevel_levelFiberEquiv_symm_coe`
+
+The underlying X-value of the inverse image of an ambient fiber point is the original ambient root.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Evaluate the inverse map: it adds the proved level certificate and retains the same value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.inverse_preserves_ambient_value` (compatibility): The inverse has exactly the input ambient value, not just an unspecified corresponding class.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Permitted level fibers have the ambient cardinality
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv-card` — `DirichletPadic.kubertLevel_levelFiberEquiv_card`
+
+For m dividing N and b in T_N, the actual internal and ambient fibers at m*b have equal native cardinalities.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Apply native Nat.card_congr to the constructed equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.third_fiber_has_three_points` (computation): The internal third fiber at an allowed level-six input in Z/12 has three points.
+- `SuggestedKubertFiniteLevelTests.half_fiber_has_two_points` (computation): The internal half fiber at an allowed input has two points.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The internal weighted relator maps to the full global relator
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-relation-map` — `DirichletPadic.kubertLevel_levelRelation_map`
+
+The native free-group inclusion I sends the internal weight-w degree-m relator at m*b to the ambient weight-w relator at the same actual label.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Expand the established concrete weighted relator and preserve subtraction, natural scalar multiplication and finite sums through the native free-group map.
+2. Native FreeAbelianGroup.map_of_apply identifies every generator image with the generator at its underlying ambient value.
+3. Use the complete levelFiberEquiv and the native sum-transfer theorem to identify the full finite sums.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv`, `DirichletPadicLFunctions:L3/kubert-relation`, `mathlib:FreeAbelianGroup.map`, `mathlib:FreeAbelianGroup.map_of_apply`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.weighted_relator_commutes_with_inclusion` (compatibility): The weight-one internal third relator maps to the full ambient relator.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The free level group embeds in the global free group
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-map-injective` — `DirichletPadic.kubertLevel_level_map_injective`
+
+The native free-group map induced by T_N→X is injective.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. The underlying subtype inclusion is injective and T_N contains zero. Native Injective.hasLeftInverse gives a retraction of that set map.
+2. Apply the native free-group map to the retraction. Its composite with I is the identity by native map_comp and map_id.
+3. Apply this left inverse to an equality of images to recover equality in F_N. This proves the source(1.1) using native generic APIs.
+
+**Prerequisites:** `mathlib:FreeAbelianGroup.map`, `mathlib:FreeAbelianGroup.map_comp`, `mathlib:FreeAbelianGroup.map_id`, `mathlib:Function.Injective.hasLeftInverse`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.free_level_map_injective` (characterisation): Equality after the actual free-group inclusion implies equality before it.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The permitted label image equals the smaller torsion subgroup
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-input-iff` — `DirichletPadic.kubertLevel_level_input_iff`
+
+If X is divisible by the integers, m>0 divides N and a lies in T_N, then a=m*b for some b in T_N exactly when(N/m)*a=0 in X.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. A represented input m*b is killed by N/m because N*b=0.
+2. For the converse, use native conversion from integer divisibility to natural divisibility and native surjectivity of multiplication-by-m to choose an ambient root.
+3. The lower-annihilator equation shows that this root is killed by N, so it is an actual internal root.
+4. The native rational-circle divisibility instance and native product divisibility supply the required hypothesis for every rational torus.
+
+**Prerequisites:** `mathlib:RootableBy.surjective_pow`, `mathlib:Group.rootableByNatOfRootableByInt`, `mathlib:Pi.rootableBy`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.image_equals_lower_annihilator` (characterisation): Inside the rational circle, the level-six halving image consists exactly of points killed by3.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The internal finite-level distribution subgroup
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations` — `DirichletPadic.kubertInternalLevelRelations`
+
+Construct R_N(w) in F_N as the native subgroup generated by the degree-m weighted relators at labels m*b, where m is positive, m divides N and b belongs to T_N.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Use the established weighted relator on the actual native finite group T_N.
+2. Restrict degrees to positive divisors of N and inputs to actual multiplication images by quantifying b in T_N.
+3. Take native additive subgroup closure. At weight0 this is the exact internal subgroup of source(1.2), with its printed input restriction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite`, `DirichletPadicLFunctions:L3/kubert-relation`, `mathlib:Subgroup.closure`.
+
+**Uses:**
+
+- Kubert182 equations(1.2)–(1.3): Defines the internal quotient before comparing it with the level intersection of global relations.
+- Kubert183–185 generation proof: The admissible-generator argument works modulo these actual internal relations; the rank argument is a separate step.
+- Weighted distribution convention200–201: Keeps the established degree power explicit without asserting a weighted rank theorem.
+
+**API:**
+
+- `kubertLevel_internal_relation_mem` (relation): For positive m dividing N and b in T_N, the internal degree-m weight-w relator at m*b lies in R_N(w).
+- `kubertLevel_internal_le_ker_iff` (characterisation): For any function f:T_N→A into an additive commutative group, R_N(w) lies in the kernel of its native free-group lift exactly when the weighted fiber equation holds at every permitted degree and image input.
+- `kubertLevel_internal_quotient_relation` (relation): For m>0 dividing N and b in T_N, the canonical labelled function into F_N/R_N(w) satisfies the weighted complete-fiber relation at m*b.
+- `kubertLevel_internal_level_one` (relation): At positive level1, the internal relation subgroup is bottom for every weight.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.level_three_legitimate_relation` (computation): The legitimate degree-three zero-input relation is the sum of the two nonzero generators.
+- `SuggestedKubertFiniteLevelTests.exclude_empty_fiber_relator` (non-example): The negative generator at1 is not an internal relation, detecting the wrong all-label definition.
+- `SuggestedKubertFiniteLevelTests.level_one_no_relations` (degenerate): At level1 every permitted degree is1, so the internal relation subgroup is bottom.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Every permitted internal relator belongs to the subgroup
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-relation-mem` — `DirichletPadic.kubertLevel_internal_relation_mem`
+
+For positive m dividing N and b in T_N, the internal degree-m weight-w relator at m*b lies in R_N(w).
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Supply m, its divisibility proof and b as the actual generator witnesses.
+2. Apply native subset_closure.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `mathlib:Subgroup.subset_closure`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.actual_image_relator` (compatibility): The degree3 relator at an actual image label belongs to the internal subgroup.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The exact internal distribution kernel criterion
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-ker-iff` — `DirichletPadic.kubertLevel_internal_le_ker_iff`
+
+For any function f:T_N→A into an additive commutative group, R_N(w) lies in the kernel of its native free-group lift exactly when the weighted fiber equation holds at every permitted degree and image input.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Native closure_le reduces subgroup inclusion to each actual generator.
+2. Use the existing relator evaluation formula for the native free-group lift.
+3. Vanishing of the evaluated difference is exactly the required full-fiber equation. Keep the degree divisibility and image-input quantifiers in both directions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-relation-eval`, `mathlib:Subgroup.closure_le`, `mathlib:FreeAbelianGroup.lift`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.zero_map_kills_internal_relations` (degenerate): The actual free-group lift of the zero function kills all internal relations.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Internal relations lie in the global relation intersection
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-global-comap` — `DirichletPadic.kubertLevel_internal_le_global_comap`
+
+The actual internal subgroup R_N(w) is contained in the native comap of the global weight-w relation subgroup along the free-group inclusion I.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Native closure_le reduces to one internal generating relator.
+2. The proved levelRelation_map identifies its image with the full ambient relator at the same input.
+3. Every positive degree is permitted in the global relation subgroup, so the ambient relator belongs there by the preceding relation_mem theorem.
+4. Native comap is exactly this preimage condition; no equality of the two subgroups is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-finite-level-level-relation-map`, `DirichletPadicLFunctions:L3/kubert-relation-mem`, `mathlib:Subgroup.closure_le`, `mathlib:Subgroup.comap`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.internal_relators_are_global` (compatibility): Every internal relation maps into the full global relation subgroup.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The finite-level comparison quotient map
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-comparison` — `DirichletPadic.kubertLevelComparison`
+
+Construct the native additive comparison from F_N/R_N(w) to F_N modulo the comap of the global relation subgroup along I.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Use the proved inclusion of internal relations in the comap.
+2. Apply the existing native quotient-map constructor to the identity homomorphism of F_N.
+3. Because I is injective, the target is the source’s quotient by the actual level intersection with global relations.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-global-comap`, `DirichletPadicLFunctions:L3/kubert-finite-level-level-map-injective`, `mathlib:QuotientGroup.map`, `mathlib:Subgroup.comap`.
+
+**Uses:**
+
+- Kubert182 equation(1.3): Provides the exact source comparison, before proving it is an isomorphism.
+- Kubert183 generation versus rank: Separates an explicit presentation by internal relations from the subquotient defined using global relations.
+- Injectivity boundary: Its injectivity is equivalent to equality of the two relation subgroups; the equivalence prevents silently assuming the later theorem.
+
+**API:**
+
+- `kubertLevel_comparison_of` (relation): The comparison sends the internal quotient image of the free generator labelled a to the image of that same generator modulo the global comap.
+- `kubertLevel_comparison_surjective` (relation): Every element of the quotient by the global comap has a preimage in the internal quotient.
+- `kubertLevel_comparison_injective_iff` (characterisation): The finite-level comparison is injective if and only if R_N(w) equals the comap of the global relation subgroup along I.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.comparison_at_zero` (degenerate): The comparison sends the zero-labelled generator to its quotient by the intersection.
+- `SuggestedKubertFiniteLevelTests.comparison_at_one` (computation): The comparison uses the same labelled generator at1.
+- `SuggestedKubertFiniteLevelTests.comparison_at_two` (computation): The comparison uses the same labelled generator at2.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The comparison evaluates a labelled generator
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-comparison-of` — `DirichletPadic.kubertLevel_comparison_of`
+
+The comparison sends the internal quotient image of the free generator labelled a to the image of that same generator modulo the global comap.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Evaluate the native quotient map on the free generator. Its underlying map is the identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-comparison`, `mathlib:QuotientGroup.map_mk`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.comparison_additive_combination` (compatibility): The comparison is additive on labelled combinations.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The finite-level comparison is surjective
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-comparison-surjective` — `DirichletPadic.kubertLevel_comparison_surjective`
+
+Every element of the quotient by the global comap has a preimage in the internal quotient.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Lift the target element to an actual free-group element using native quotient surjectivity.
+2. Take the internal quotient class of that same element; native quotient-map evaluation gives the required image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-comparison`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:QuotientGroup.map_mk`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.comparison_covers_intersection_quotient` (characterisation): Every class modulo the intersection has an internal-level preimage.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The internal finite-level quotient maps to the global quotient
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global` — `DirichletPadic.kubertLevelToGlobal`
+
+Construct the native additive map F_N/R_N(w)→U(X,w), induced by the actual free-group inclusion I.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Use the proved internal-to-global-comap inclusion as the native quotient-map kernel condition.
+2. Apply native QuotientAddGroup.map to the actual inclusion-induced free-group homomorphism.
+3. The codomain is the already constructed global weighted distribution quotient; no new global distribution object is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-global-comap`, `mathlib:QuotientGroup.map`, `mathlib:FreeAbelianGroup.map`.
+
+**Uses:**
+
+- Kubert182 definition of U(N): Identifies the finite-level image in the global distribution group using actual homomorphisms.
+- Comparison square: Factors through the quotient by the global relation intersection.
+- Later generation and rank arguments: Fixes the map whose injectivity must follow from the later equality of relation subgroups.
+
+**API:**
+
+- `kubertLevel_levelToGlobal_of` (relation): The level-to-global map sends the internal quotient generator labelled a to the global quotient generator at its actual underlying point of X.
+- `kubertLevel_levelToGlobal_injective_iff` (characterisation): The level-to-global map is injective if and only if R_N(w) equals the global relation subgroup’s comap along I.
+- `kubertLevel_levelToGlobal_factors` (compatibility): The native quotient map induced by I from F_N modulo the global comap to U(X,w), composed with comparison, equals levelToGlobal.
+- `kubertLevel_levelToGlobal_range` (relation): The range of levelToGlobal equals the range of the composite F_N→F(X)→U(X,w).
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.global_image_zero_label` (degenerate): The level-to-global map sends the zero label to the global zero label.
+- `SuggestedKubertFiniteLevelTests.global_image_one_label` (computation): The level-to-global map sends label1 to the global label1.
+- `SuggestedKubertFiniteLevelTests.global_image_integer_combination` (compatibility): The level-to-global map preserves integer combinations.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The global map evaluates the level generator
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-of` — `DirichletPadic.kubertLevel_levelToGlobal_of`
+
+The level-to-global map sends the internal quotient generator labelled a to the global quotient generator at its actual underlying point of X.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Use native quotient-map evaluation and the native free-group map’s generator formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global`, `mathlib:QuotientGroup.map_mk`, `mathlib:FreeAbelianGroup.map_of_apply`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.global_image_two_label` (computation): Evaluation also holds at label2.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The internal quotient satisfies exactly the permitted relations
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-quotient-relation` — `DirichletPadic.kubertLevel_internal_quotient_relation`
+
+For m>0 dividing N and b in T_N, the canonical labelled function into F_N/R_N(w) satisfies the weighted complete-fiber relation at m*b.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. The actual relator belongs to the internal subgroup.
+2. The native quotient map kills it by the quotient zero-membership criterion.
+3. Preserve the finite sum and scalar through the quotient map and cancel the final subtraction. No equation is imposed at an arbitrary label outside the multiplication image.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relation-mem`, `DirichletPadicLFunctions:L3/kubert-relation`, `mathlib:QuotientGroup.eq_one_iff`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.valid_degree_three_relation` (computation): The internal ordinary quotient identifies the sum of its two nonzero labels with zero.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Comparison injectivity is precisely equality of relation subgroups
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-comparison-injective-iff` — `DirichletPadic.kubertLevel_comparison_injective_iff`
+
+The finite-level comparison is injective if and only if R_N(w) equals the comap of the global relation subgroup along I.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Use the native homomorphism criterion that injectivity means a zero kernel.
+2. The native kernel formula for a quotient map expresses the kernel as the quotient image of the target relation subgroup.
+3. Native map_eq_bot_iff and the kernel of the quotient projection reduce this to the reverse subgroup inclusion. Combine it with the already proved forward inclusion.
+4. This is a criterion, not a proof of the equality. The finite ambient Z/3 example shows the equality can fail outside the source’s rational-torus setting.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-comparison`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-global-comap`, `mathlib:MonoidHom.ker_eq_bot_iff`, `mathlib:QuotientGroup.ker_map`, `mathlib:Subgroup.map_eq_bot_iff`, `mathlib:QuotientGroup.ker_mk'`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.comparison_injectivity_boundary` (characterisation): Injectivity of the comparison is equivalent to equality of the two actual relation subgroups.
+- `SuggestedKubertFiniteLevelTests.finite_ambient_counterexample` (non-example): For ambient Z/3 the comparison is not injective: the global empty-fiber relations kill nonzero labels that survive internally. A theorem for rational tori cannot be generalized to every ambient group.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Global-map injectivity has the same exact boundary
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-injective-iff` — `DirichletPadic.kubertLevel_levelToGlobal_injective_iff`
+
+The level-to-global map is injective if and only if R_N(w) equals the global relation subgroup’s comap along I.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. Apply the native zero-kernel criterion to this quotient map.
+2. Use the native quotient-map kernel formula, map_eq_bot_iff and the quotient-projection kernel.
+3. The resulting reverse inclusion combines with internal_le_global_comap to give exactly the stated equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-global-comap`, `mathlib:MonoidHom.ker_eq_bot_iff`, `mathlib:QuotientGroup.ker_map`, `mathlib:Subgroup.map_eq_bot_iff`, `mathlib:QuotientGroup.ker_mk'`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.global_injectivity_boundary` (characterisation): The same subgroup equality is exactly the boundary for injectivity into the global quotient.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The finite-level comparison square commutes
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-factors` — `DirichletPadic.kubertLevel_levelToGlobal_factors`
+
+The native quotient map induced by I from F_N modulo the global comap to U(X,w), composed with comparison, equals levelToGlobal.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. The native quotient map from the comap exists by reflexive subgroup inclusion.
+2. Lift an arbitrary internal quotient class to F_N using native surjectivity.
+3. Both composites have exactly the same value on that representative by native quotient-map evaluation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-comparison`, `DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global`, `mathlib:QuotientGroup.map`, `mathlib:QuotientGroup.map_mk`, `mathlib:QuotientGroup.mk'_surjective`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.actual_comparison_square` (compatibility): The global map factors through the comparison using the actual native quotient map.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### The global image is exactly the finite-level image
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-range` — `DirichletPadic.kubertLevel_levelToGlobal_range`
+
+The range of levelToGlobal equals the range of the composite F_N→F(X)→U(X,w).
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. For a point in the first range, lift its internal quotient input to F_N and use the same representative in the second range.
+2. For a point in the second range, use the internal quotient class of its F_N witness to obtain the same point in the first.
+3. These explicit witnesses prove both native subgroup inclusions; no surjectivity onto the entire global quotient is claimed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:QuotientGroup.map_mk`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.exact_finite_level_image` (characterisation): The image is exactly that of the free level group inside the global quotient.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+### Level one imposes no internal relations
+
+`DirichletPadicLFunctions:L3/kubert-finite-level-internal-level-one` — `DirichletPadic.kubertLevel_internal_level_one`
+
+At positive level1, the internal relation subgroup is bottom for every weight.
+
+**Hypotheses:** X is a native additive commutative group. T_N is the existing native kernel of multiplication-by-N, not a private finite carrier; F_N is the existing FreeAbelianGroup on that subgroup. The source rational-torus case is X=(Q/Z)^k, including k=0 for these elementary constructions. Source rank and freeness theorems require their own hypotheses and are not asserted here. The internal quotient uses a positive level N, a nonnegative weight w, and a native finite enumeration of T_N. For a rational torus this comes from the proved actual zero fiber and native Fintype.ofFinite. The full global quotient uses all positive degrees and the actual ambient division fibers, with native finite enumerations supplied by the preceding rational-torus fiber theorem. An internal degree m must be positive and divide N. Its input label is m*b for an actual b in T_N. Equivalently it lies in the actual multiplication-by-m image; arbitrary level labels are not permitted. For a divisible ambient group this image consists exactly of level labels killed by N/m. Native rational-circle and product divisibility provide that hypothesis in the source case. The internal relator is m^w times the sum of all free generators over the actual internal fiber m*c=m*b, minus the generator at m*b. It specializes to the source ordinary relation at w=0 and uses the already-established weighted normalization for general w. Full-fiber sums are not replaced by a selected list of roots. I denotes the native FreeAbelianGroup.map induced by the actual subgroup inclusion T_N→X. The level intersection with global relations is expressed by native comap of the global subgroup along I; injectivity of I justifies the source’s intersection language. No second definition of a preimage subgroup is introduced. The comparison from F_N modulo internal relations to F_N modulo that comap is proved surjective. Injectivity is characterized by equality of these two relation subgroups. This equality is not proved here, and is false for arbitrary ambient groups: Z/3 gives an explicit finite counterexample. The source rational-torus equality requires the subsequent generation and rank argument.
+
+**Proof:**
+
+1. A positive divisor of1 is1, so every permitted generator has unit degree.
+2. The already proved multiplier-one relator is zero for every label and weight.
+3. Use native closure_le to place the whole generated subgroup in bottom.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-relation-one`, `mathlib:Subgroup.closure_le`.
+
+**Tests:**
+
+- `SuggestedKubertFiniteLevelTests.ordinary_level_one_bottom` (degenerate): The level-one ordinary internal subgroup is bottom.
+
+**Acceptance:** Use native kernels, free-group maps, subgroup comaps and quotients. Check the exact input-image restriction and full-fiber equivalence before mapping a relator. The finite level3 detector must reject a definition imposing empty-fiber relations at every label. A comparison surjection and finite controls certify neither equality of relation subgroups nor a rank or freeness theorem.
+
+**Source:** Published182 equations(1.1)–(1.3), input restriction in(1.2), and183 distinction between generation and the later rank bound; Appendix200–201 for the weight convention. Full body179–202 read;182 page image reread1October2026. The source free group is implemented on the native N-torsion kernel and maps injectively into the ambient free group. The internal subgroup uses only labels in the multiplication image, exactly the printed(M/N)Z^k/Z^k condition. The proved full-fiber equivalence maps each internal relator into a global one and supplies the source surjection. The unproved equality with the global intersection is exposed as the precise injectivity condition; it is not inferred from surjectivity or from finite examples.
+
+**Remaining:** The exact internal finite-level relation subgroup, full-fiber comparison, injective free-level inclusion, source comparison surjection and map into the global quotient are now planned. Their injectivity is equivalent to equality between internal relations and the global comap; that equality remains a theorem to prove for the source rational torus and fails for arbitrary ambient groups. Next extract primitive exact-order points, admissible divisors, the distinguished local points and the setsT*(M),T(N), then the source generation argument including Lemmas1.10 and1.12. Establish the independent Cartan/rational rank lower bound before concluding internal/global equality and finite-level freeness. Complete the finite-level parity ranks and source Tate-cohomology conventions separately. No Gamma injectivity or arithmetic universality follows from these presentations. Preserve the p3,2/13 nonintegral-mean witness, Coleman/LAD logarithm boundary, external[K-L] and unidentified[L], original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces. All18 gaps and16 requests remain; zero stages close.
+
+### Kubert finite-level relations and the comparison boundary validation
+
+All 1368 predecessor nodes, 967 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 24 nodes, 24 named suggested declarations and 36 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1652 reachable nodes, 7437 edges and 1146 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new finite-level routes terminate in native subgroup, free-group, quotient and divisibility APIs or the previously proved ambient rational-torus fiber results. No new route reaches an unresolved supplier stage, and no owner is duplicated.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5411 verbatim and adds four concrete definitions and20complete lemmas, totaling58definitions and809lemmas. An additional complete example checks the actual native rational-torus divisibility instance. The24suggested declarations and36typed tests use existing kernel carriers, free-group maps, native comaps and quotient maps, keeping all input restrictions explicit. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls cover36finite levels at ranks0 through2,2,671input-image equivalences,963complete permitted fibers,2,889weighted-relator and integer-evaluation transports each, and1,708excluded empty level fibers. The level3 detector kills every legitimate internal ordinary relation and detects the spurious all-label relation. Exact integer residue tuples and rational Fraction representatives at levels1 through12 and ranks0 through2. Every allowed degree divides the level; its input image is checked against the N/m-annihilation condition. Complete ambient fibers agree exactly with internal fibers only at permitted labels, and their weighted free-group relators and integer evaluations agree. The level3 zero/one/minus-one detector annihilates every legitimate ordinary relation but detects the spurious empty-fiber relator at1/3. No infinite rank, freeness or internal/global-intersection equality is certified. The largest observed discrepancy is 0.
+
+All76 captured inputs remain byte-identical after actual merge5411. The four predecessor outputs, collected Kubert findings awaiting review, original issue text and winning claim, unclaimed review, policies, library audit and owner interfaces remain guarded. Complete native searches found no specialized finite-level Kubert relation object or free-level inclusion API. Existing generic free groups, kernels, quotients and divisibility are imported; no new supplier request is introduced.
+
+The separate partial signature file also compiled with zero errors and 4,405 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b8a9e31310af08bddcf9afebbe5d9edd2e8bec8fc81e40ce5fb7a2d9bc8aef8.
