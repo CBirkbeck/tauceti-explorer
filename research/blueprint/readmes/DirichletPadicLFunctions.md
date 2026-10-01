@@ -47321,3 +47321,441 @@ Independent exact controls cover 64 prime/base-level/dimension combinations, 2,5
 All 76 captured inputs remain byte-identical after actual merge of #5440. The issue body and original winning claim, blocked unclaimed review #390, policies, reviewed library audit, ownership interfaces and exact four predecessor outputs remain guarded. The proof reuses native element orders, level kernels, coprimality and finite sums; it adds the actual source root partition and no generic replacement carrier or supplier request.
 
 The separate partial signature file also compiled with zero errors and 4,783 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 763c11194a0aad4c0ad55e1814addbc67ad47e1797c8b1e0a4a366463d2f6841.
+
+
+## Kubert higher-power fibers and exceptional-label elimination
+
+Sixteen L3 nodes identify the actual higher-power image and complete lifting fibers, prove availability of every other image label, recover the omitted label through two complete internal relations, and derive the lower-label inputs from actual lower-level source generation. All 1,549 predecessor nodes and 1,059 baseline records remain whole.
+
+The full proof of Kubert 185 Lemma 1.12 was followed, with the actual Y_p image and complete lifting fibers proved from the same-prime-support results on 184. Native subgroup cancellation, finite-sum erase, scalar action and successor powers, prime-factor supports and native subgroup order were checked at the pins. The source fiber implication is valid without an exceptional-coordinate assumption; the subsequent induction uses that condition to derive its other-label hypothesis.
+
+### The primitive prime layer divides the higher level
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-layer-dvd` — `DirichletPadic.kubertExceptional_prime_layer_dvd`
+
+The natural level pM divides p^(n+1)M.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Write the higher level as (pM)p^n using the native successor-power identity and commutativity of multiplication.
+2. This supplies the actual divisibility witness needed by the primitive-root theorem.
+
+**Prerequisites:** `mathlib:pow_succ`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.prime_layer_divides_higher_level` (computation): The prime layer six divides level twenty-four.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The lift degree to the higher level is the remaining prime power
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-layer` — `DirichletPadic.kubertExceptional_prime_power_quotient_layer`
+
+For nonzero p and M, the natural quotient p^(n+1)M divided by pM equals p^n.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Regroup the higher level as p^n(pM).
+2. Positivity of pM permits native exact natural division by that factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-layer-dvd`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.lift_degree_is_four` (computation): The lift degree from primitive level six to level twenty-four is four.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The image level after the higher power is the prime layer
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-scalar` — `DirichletPadic.kubertExceptional_prime_power_quotient_scalar`
+
+For nonzero p, the natural quotient p^(n+1)M divided by p^n equals pM.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Regroup the higher level as (pM)p^n.
+2. The nonzero power p^n is positive, so native exact natural division gives pM.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-layer-dvd`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.image_level_is_six` (computation): Multiplication by four sends primitive level twenty-four to primitive level six.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The higher level and prime layer have the same support
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-same-support` — `DirichletPadic.kubertExceptional_prime_power_same_support`
+
+For nonzero p and M, levels p^(n+1)M and pM have equal native prime-factor sets.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Use the native prime-factor set formula for a product of nonzero factors.
+2. The native positive-power formula identifies the support of p^(n+1) with that of p.
+3. Both supports are therefore the same union with the prime-factor set of M.
+
+**Prerequisites:** `mathlib:Nat.primeFactors_mul`, `mathlib:Nat.primeFactors_pow_succ`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.higher_and_prime_layers_have_same_support` (characterisation): Levels twenty-four and six have the same actual prime-factor set.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The actual higher-power map between primitive fibers
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map` — `DirichletPadic.kubertPrimePowerFiberMap`
+
+For nonzero p, map the primitive p^(n+1)M-points y satisfying p^(n+1)y=z to the primitive pM-points s satisfying p s=z by the actual rule s=p^n y.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The native primitive scalar-multiplication theorem identifies the image point order with the higher level divided by p^n.
+2. prime_power_quotient_scalar makes that exact order pM.
+3. The successor-power scalar identity proves p(p^n y)=z from the source root equation. No ambient point is replaced by a different representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-scalar`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-nsmul`.
+
+**Uses:**
+
+- Kubert source image Y_p: Specifies the actual higher-power image and proves every target primitive prime root occurs.
+- Exact-order transport: Keeps the native scalar-multiplication order rather than only an annihilation bound.
+- Exponent-zero boundary: The map becomes the actual identity on points when n is zero.
+
+**API:**
+
+- `kubertExceptional_primePowerFiberMap_coe` (compatibility): The ambient value of the primitive fiber map at y is exactly p^n times the ambient value of y.
+- `kubertExceptional_primePowerFiberMap_surjective` (characterisation): Assume native integer divisibility of X and nonzero p,M. Every primitive pM-point s with p s=z is the higher-power image of a primitive p^(n+1)M-point y with p^(n+1)y=z.
+- `kubertExceptional_higher_root_primitive` (compatibility): For nonzero p,M and a primitive pM-point s, every actual ambient p^n-root of s is primitive of exact order p^(n+1)M.
+- `kubertExceptional_higher_image_label_mem` (compatibility): In the actual internal quotient at N=p^(n+1)M, assume the ambient group is divisible by integers. Let B be a native additive subgroup and t a level-N point. If all primitive N-point labels y in the source fiber except t lie in B, then each primitive pM-point s with p s=p^(n+1)t and s different from p^n t has its label in B.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.source_image_point_is_actual_multiple` (compatibility): The source reduction map sends the actual point y to four times y.
+- `SuggestedKubertExceptionalTests.reduction_satisfies_prime_root_equation` (characterisation): The image of every source eight-root is an actual two-root of the same input.
+- `SuggestedKubertExceptionalTests.exponent_zero_reduction_keeps_point` (degenerate): With no higher power, the reduction map keeps the source point itself.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The higher-power map evaluates to the actual multiple
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map-coe` — `DirichletPadic.kubertExceptional_primePowerFiberMap_coe`
+
+The ambient value of the primitive fiber map at y is exactly p^n times the ambient value of y.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Evaluate the construction, whose only value operation is native scalar multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.point_value_formula` (compatibility): The reduction point-value formula uses actual scalar multiplication.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### Every primitive prime root belongs to the source image
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map-surjective` — `DirichletPadic.kubertExceptional_primePowerFiberMap_surjective`
+
+Assume native integer divisibility of X and nonzero p,M. Every primitive pM-point s with p s=z is the higher-power image of a primitive p^(n+1)M-point y with p^(n+1)y=z.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The prime layer divides the higher level, both are nonzero and they have the same prime support.
+2. The established primitive-lift existence theorem supplies y with the quotient-degree multiple equal to s.
+3. prime_power_quotient_layer identifies that degree with p^n.
+4. Multiply the lift equation by p to certify the source fiber equation. Native subtype extensionality gives equality with the prescribed target point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-layer-dvd`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-layer`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-same-support`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-lift-exists`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.every_primitive_prime_root_is_an_image` (characterisation): Every primitive order-six two-root is the image of a primitive order-twenty-four eight-root.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### Every full higher-power root has the required exact order
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-higher-root-primitive` — `DirichletPadic.kubertExceptional_higher_root_primitive`
+
+For nonzero p,M and a primitive pM-point s, every actual ambient p^n-root of s is primitive of exact order p^(n+1)M.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Use the actual divisibility of pM into the higher level and equality of their prime supports.
+2. Rewrite the root degree using prime_power_quotient_layer.
+3. Apply the established same-prime-support root-order theorem to the original ambient root.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-layer-dvd`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-layer`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-same-support`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.every_full_lift_has_exact_higher_order` (characterisation): Every actual four-root of a primitive order-six point has exact order twenty-four.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### A reduction-map fiber is the complete ambient root fiber
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-higher-power-fiber-equiv` — `DirichletPadic.kubertHigherPowerFiberEquiv`
+
+For nonzero p,M and a primitive pM-root s of z, identify the entire fiber of the higher-power map over s with all actual ambient p^n-roots of s.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. From a source map-fiber point, forget its primitive and source certificates; the point-value equality gives its actual p^n-root equation.
+2. Conversely higher_root_primitive certifies every ambient root at the full higher order. Multiplying its root equation by p places it in the source fiber.
+3. The same equation certifies that its actual image is s. Both inverse laws are native subtype reflexivity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-fiber-map-coe`, `DirichletPadicLFunctions:L3/kubert-exceptional-higher-root-primitive`.
+
+**Uses:**
+
+- Complete distribution relations: Ensures each internal lifting sum includes every root in the actual ambient fiber.
+- Other-label availability: Certifies primitive order and the source equation for all lifted summands.
+- Point exclusion: Different image points have fibers avoiding the distinguished source point.
+
+**API:**
+
+- `kubertExceptional_higherPowerFiberEquiv_coe` (compatibility): The ambient point of the forward complete-fiber equivalence is the original source map-fiber point.
+- `kubertExceptional_higherPowerFiberEquiv_symm_coe` (compatibility): The inverse complete-fiber equivalence preserves the input ambient p^n-root.
+- `kubertExceptional_higher_root_primitive` (compatibility): For nonzero p,M and a primitive pM-point s, every actual ambient p^n-root of s is primitive of exact order p^(n+1)M.
+- `kubertExceptional_higher_image_label_mem` (compatibility): In the actual internal quotient at N=p^(n+1)M, assume the ambient group is divisible by integers. Let B be a native additive subgroup and t a level-N point. If all primitive N-point labels y in the source fiber except t lie in B, then each primitive pM-point s with p s=p^(n+1)t and s different from p^n t has its label in B.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.complete_fiber_keeps_point` (compatibility): The map-fiber equivalence keeps the actual point of every source root.
+- `SuggestedKubertExceptionalTests.complete_fiber_inverse_recovers_source` (characterisation): The complete ambient root fiber reconstructs every source map-fiber point.
+- `SuggestedKubertExceptionalTests.all_ambient_roots_are_retained` (characterisation): Every ambient four-root is retained by the map-fiber equivalence.
+- `SuggestedKubertExceptionalTests.exponent_zero_fiber_is_singleton` (degenerate): At exponent zero every reduction-map fiber is a singleton.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The complete-fiber map retains the source point
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-higher-power-fiber-equiv-coe` — `DirichletPadic.kubertExceptional_higherPowerFiberEquiv_coe`
+
+The ambient point of the forward complete-fiber equivalence is the original source map-fiber point.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Evaluate the map, which forgets only certificates.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-higher-power-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.forward_complete_fiber_value` (compatibility): The forward complete-fiber map does not replace or rescale the root.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The inverse complete-fiber map retains the ambient root
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-higher-power-fiber-equiv-symm-coe` — `DirichletPadic.kubertExceptional_higherPowerFiberEquiv_symm_coe`
+
+The inverse complete-fiber equivalence preserves the input ambient p^n-root.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Evaluate the inverse, which adds the proved exact-order and source-fiber certificates.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-higher-power-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.inverse_complete_fiber_value` (compatibility): The inverse complete-fiber map changes only primitive and fiber certificates.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### Every other higher-power image label is available
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-higher-image-label-mem` — `DirichletPadic.kubertExceptional_higher_image_label_mem`
+
+In the actual internal quotient at N=p^(n+1)M, assume the ambient group is divisible by integers. Let B be a native additive subgroup and t a level-N point. If all primitive N-point labels y in the source fiber except t lie in B, then each primitive pM-point s with p s=p^(n+1)t and s different from p^n t has its label in B.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The quotient N/p^n equals pM, which kills s. The existing valid-input characterization therefore supplies an actual internal p^n-preimage of s.
+2. Apply the established ordinary relation to its complete internal root fiber.
+3. Every root is primitive N by higher_root_primitive, lies in the source fiber after multiplication by p, and cannot equal t because its image differs from p^n t.
+4. The assumed source-label membership puts every summand in B; native finite-sum closure and the complete relation put the label of s in B.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-higher-root-primitive`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-scalar`, `DirichletPadicLFunctions:L3/kubert-finite-level-level-input-iff`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation`, `mathlib:Subgroup.prod_mem`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.all_other_image_labels_are_available` (compatibility): Availability of every other primitive source root makes each nondistinguished image label available through its complete root relation.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The lower complementary level is admissible
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-complementary-level-admissible` — `DirichletPadic.kubertExceptional_complementary_level_admissible`
+
+If p,M are nonzero and coprime, M is an admissible divisor of p^(n+1)M.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The product exhibits the divisibility of M.
+2. Its complementary quotient equals p^(n+1). Native coprimality of M with that power follows from the stated coprimality.
+3. Apply the existing admissible-divisor characterization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.lower_complement_is_admissible` (computation): The lower level three is an admissible divisor of twenty-four.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### The lower image has the exact complementary order
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-lower-image-primitive` — `DirichletPadic.kubertExceptional_lower_image_primitive`
+
+For nonzero p and a primitive p^(n+1)M-point t, the point p^(n+1)t has exact order M.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. Apply the native primitive scalar-multiplication theorem with the full p-power factor.
+2. The exact quotient by that positive factor is M.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-nsmul`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.lower_image_has_exact_order_three` (characterisation): Eight times a primitive order-twenty-four point has exact order three.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### Two complete relations recover the omitted source label
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-fiber-elimination` — `DirichletPadic.kubertExceptional_fiber_elimination`
+
+In the actual internal ordinary quotient at N=p^(n+1)M, assume p prime, p coprime to nonzero M, native integer divisibility of the ambient group, and primitive N-point t. Let z,w be actual internal primitive M-points with z=p^(n+1)t and p w=z. If their labels and every label in the source fiber Y except t belong to a native subgroup B, then the label of t belongs to B.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The distinguished image s0=p^n t has exact order pM. The established split prime-root quotient identity gives label(w) plus the complete primitive pM-root sum equal to label(z). Native subgroup cancellation puts that full sum in B.
+2. Every summand except s0 belongs to B by higher_image_label_mem. The native finite-sum erase identity and subgroup cancellation recover the label of s0.
+3. Use t itself as the certified internal preimage in the complete degree-p^n relation at s0.
+4. All roots in that fiber are primitive N and lie in Y. Every root except t is therefore available by the source hypothesis.
+5. A second finite-sum erase identity and subgroup cancellation recover label(t), with no division or independence assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-higher-image-label-mem`, `DirichletPadicLFunctions:L3/kubert-exceptional-higher-root-primitive`, `DirichletPadicLFunctions:L3/kubert-exceptional-prime-power-quotient-scalar`, `DirichletPadicLFunctions:L3/kubert-prime-fiber-prime-root-quotient-sum`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-nsmul`, `mathlib:Finset.mul_prod_erase`, `mathlib:Subgroup.mul_mem_cancel_left`, `mathlib:Subgroup.mul_mem_cancel_right`, `mathlib:Subgroup.orderOf_coe`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.two_relations_recover_omitted_label` (characterisation): The two valid complete relations recover the omitted primitive label from lower labels and all other source-fiber labels.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+### Kubert exceptional-fiber elimination lemma
+
+`DirichletPadicLFunctions:L3/kubert-exceptional-exceptional-label-mem` — `DirichletPadic.kubertExceptional_exceptional_label_mem`
+
+For the positive-dimensional rational torus, let positive N=p^(n+1)M with p prime and coprime to M. Assume the actual source subgroup B(M) generates the lower internal quotient. If every primitive N-point label y with p^(n+1)y=p^(n+1)t and y different from the primitive N-point t belongs to B(N), then label(t) belongs to B(N). This is the availability implication of Kubert Lemma 1.12.
+
+**Hypotheses:** Write N=p^(n+1)M with n natural. The arithmetic and higher-power maps need only p nonzero, and M nonzero where a quotient by pM or the same-prime-support root theorem is used. The final elimination needs p prime and coprime to positive M. All point carriers are existing native primitive-order subtypes, level kernels, fibers and internal ordinary quotients. The reduction sends the actual point y to p^n y; the complete-fiber equivalence preserves the original root point. The source fiber Y is the actual set of primitive N-points with p^(n+1)y=p^(n+1)t. Primitive-lift existence and image availability require the native integer-divisibility structure of the ambient additive commutative group. These assumptions are explicit in the suggested signatures. The rational torus has this structure. Finite internal sums use the existing finite-type structures on the actual level kernels. The abstract elimination uses a native additive subgroup of the actual internal quotient, membership of the two lower labels, and membership of every point label in Y except t. The source specialization derives the lower-label membership from the actual hypothesis B(M)=top and the established admissible-level map. It does not assume B(N)=top. The result is the availability implication in Kubert Lemma 1.12. The condition that t has an exceptional p-primary coordinate is needed by the subsequent exceptional-coordinate induction to prove the other-label hypothesis; it is not needed by this stronger root-fiber implication itself. No rank, freeness, quotient injectivity or division by an integer is used.
+
+**Proof:**
+
+1. The lower complementary level is admissible, and z=p^(n+1)t has exact order M.
+2. The proved coprime root theorem supplies a unique internal lower-level root w of z and certifies its exact order M.
+3. The established admissible-level quotient map and the hypothesis B(M)=top put both actual labels z and w in B(N). No injectivity of that map is used.
+4. Native subgroup/ambient order compatibility certifies z,w as primitive points inside the level-N group.
+5. The actual rational torus supplies native integer divisibility. Apply fiber_elimination to the actual subgroup B(N) and the given other-label hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-exceptional-complementary-level-admissible`, `DirichletPadicLFunctions:L3/kubert-exceptional-lower-image-primitive`, `DirichletPadicLFunctions:L3/kubert-exceptional-fiber-elimination`, `DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-unique`, `DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-primitive`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-label-mem-of-lower-span`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `mathlib:Subgroup.inclusion`, `mathlib:Subgroup.orderOf_coe`.
+
+**Tests:**
+
+- `SuggestedKubertExceptionalTests.kubert_elimination_at_twenty_four` (characterisation): The established lower prime-level generation and all other source-root labels imply availability of the omitted level-twenty-four label.
+- `SuggestedKubertExceptionalTests.exponent_zero_elimination` (degenerate): At exponent zero the degree-one second relation still recovers the omitted primitive label.
+- `SuggestedKubertExceptionalTests.ternary_elimination` (compatibility): The same elimination argument works for the prime three over the lower level two.
+
+**Acceptance:** Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N.
+
+**Source:** Published 185, complete proof of Lemma 1.12, using the same-prime-support primitive lifting relation and lower admissible-level generation on 184. The exceptional-coordinate induction in the remainder of 185 is the next step. The higher-power image is identified with the actual primitive pM-root fiber, with every complete lifting fiber retained. All other image labels become available by their valid full-root relations. The split prime-root relation recovers the distinguished image, and the second complete relation recovers t. Lower labels are derived from the earlier admissible-level generation theorem.
+
+**Remaining:** Kubert Lemma 1.12 is now planned through actual higher-power maps, surjective image identification, complete lifting fibers, membership of other image labels, two integral root-sum eliminations and derivation of the lower labels from B(M)=top. Next prove the exceptional-primary-coordinate comparison: throughout the source fiber all other primary coordinates agree, and any y different from t loses the chosen exceptional coordinate. Induct on the number of exceptional coordinates and then on levels or prime factors, using admissible-order spanning and lower-level transport, to establish composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound remains required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert higher-power fibers and exceptional-label elimination validation
+
+All 1549 predecessor nodes, 1059 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 23 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1825 reachable nodes, 7957 edges and 1226 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in native powers, prime support, finite sums, subgroup order and cancellation, or quotient APIs and the previously established actual-level interfaces. No new supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe retains #5441 verbatim and adds two concrete constructions and 14 complete lemmas. Totals are 80 definitions and 960 lemmas with zero placeholders. All 16 suggested declarations and 23 typed tests preserve actual point values, complete fibers, explicit divisibility assumptions and the genuine lower-level generation input. The final theorem uses the actual source subgroup B(N), with no assumed availability package. The separate probe compiles against 2982 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent exact controls cover 30 level/dimension combinations, 3,330 primitive points and image equalities, 15,650 full higher-power fibers, 524,080 checks of exact primitive root order, 12,320 fibers avoiding the distinguished point, 3,330 omitted-label integer identities and 342 exponent-zero cases. Independent exact rational enumeration for dimensions one and two, primes 2 and 3, coprime base levels 1,2,3,5 and exponents n=0,1,2 with N at most 40. The source higher-power image and all full root fibers are compared. Each omitted primitive label is explicitly expressed as lower-level labels minus all other source-fiber labels plus valid complete internal relation vectors, with exact integer coefficients before quotienting. These finite controls are not Lean certificates. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after actual merge of #5441. The issue body and original winning claim, blocked unclaimed review #390, policies, reviewed library audit, owner interfaces and exact four predecessor outputs remain guarded. The proof imports prior primitive lifting, internal quotient relations, prime-root splitting and admissible-level transport. It adds no replacement availability predicate, quotient carrier or supplier request.
+
+The separate partial signature file also compiled with zero errors and 4,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 16 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699.
