@@ -35520,7 +35520,8 @@
     "REV-PAPER-ZHU-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4110"
   },
   {
    "id": "REV-RT-PAPER-ZHU-17",
@@ -37023,8 +37024,9 @@
     "REV-PAPER-QIAN-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-QIAN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4153"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4153",
+   "finishedAt": "2026-10-01T20:29:49Z"
   },
   {
    "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
