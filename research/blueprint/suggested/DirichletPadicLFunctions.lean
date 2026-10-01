@@ -21100,3 +21100,222 @@ example : (28*37+28*37+28*37+35+28*37 : ZMod 49)=14 := by sorry
 example : ((1+2+3+4 : ℚ)/4)=5/2 ∧ ((1+2+3+4 : ℚ)/4)≠10 := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzLogDistributionTests
+
+/- Explicit integral rational Gamma logarithm orbit sums and averages. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+
+noncomputable def grossKoblitzIntegralOrbit (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (j : ℕ) : ℤ_[p] := by sorry
+
+lemma grossKoblitzIntegralOrbit_coe (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (j : ℕ) :
+    (grossKoblitzIntegralOrbit p q hq j : ℚ_[p])=
+      ((toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*q) : ℚ) : ℚ_[p]) := by sorry
+
+lemma grossKoblitzIntegralOrbit_unique (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (j : ℕ)
+    (y : ℤ_[p]) (hy : (y : ℚ_[p])=
+      ((toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*q) : ℚ) : ℚ_[p])) :
+    y=grossKoblitzIntegralOrbit p q hq j := by sorry
+
+lemma grossKoblitzIntegralOrbit_integer (p : ℕ) [Fact p.Prime] (n : ℤ) (hn : ‖((n : ℚ) : ℚ_[p])‖≤1) (j : ℕ) :
+    grossKoblitzIntegralOrbit p n hn j=1 := by sorry
+
+lemma grossKoblitzIntegralOrbit_translation (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (n : ℤ) (hn : ‖((q+n : ℚ) : ℚ_[p])‖≤1) (j : ℕ) :
+    grossKoblitzIntegralOrbit p (q+n) hn j=grossKoblitzIntegralOrbit p q hq j := by sorry
+
+lemma grossKoblitzIntegralOrbit_frobenius (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (hpq : ‖(((p : ℚ)*q : ℚ) : ℚ_[p])‖≤1) (j : ℕ) :
+    grossKoblitzIntegralOrbit p (p*q) hpq j=grossKoblitzIntegralOrbit p q hq (j+1) := by sorry
+
+lemma grossKoblitzIntegralOrbit_periodic (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (d : ℕ) (hd : Function.Periodic
+      (fun j : ℕ => toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*q)) d) :
+    Function.Periodic (grossKoblitzIntegralOrbit p q hq) d := by sorry
+
+noncomputable def grossKoblitzLogOrbitSum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (f : ℕ) : K := by sorry
+
+noncomputable def grossKoblitzLogOrbitAverage (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (f : ℕ) : K := by sorry
+
+lemma grossKoblitzLogOrbitSum_zero (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzLogOrbitSum p ι ℓ q hq 0=0 := by sorry
+
+lemma grossKoblitzLogOrbitSum_one (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzLogOrbitSum p ι ℓ q hq 1=ℓ (ι ((moritaGamma p) (grossKoblitzIntegralOrbit p q hq 0) : ℤ_[p])) := by sorry
+
+lemma grossKoblitzLogOrbitSum_translation (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (n : ℤ) (hn : ‖((q+n : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitSum p ι ℓ (q+n) hn f=grossKoblitzLogOrbitSum p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzLogOrbitSum_frobenius (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (hpq : ‖(((p : ℚ)*q : ℚ) : ℚ_[p])‖≤1) (f : ℕ)
+    (hf : grossKoblitzIntegralOrbit p q hq f=grossKoblitzIntegralOrbit p q hq 0) :
+    grossKoblitzLogOrbitSum p ι ℓ (p*q) hpq f=grossKoblitzLogOrbitSum p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzLogOrbitSum_period (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (d f : ℕ)
+    (hd : Function.Periodic (grossKoblitzIntegralOrbit p q hq) d) (hdf : d ∣ f) :
+    grossKoblitzLogOrbitSum p ι ℓ q hq f=(f/d) • grossKoblitzLogOrbitSum p ι ℓ q hq d := by sorry
+
+lemma grossKoblitzLogOrbitAverage_zero (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzLogOrbitAverage p ι ℓ q hq 0=0 := by sorry
+
+lemma grossKoblitzLogOrbitAverage_one (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) :
+    grossKoblitzLogOrbitAverage p ι ℓ q hq 1=ℓ (ι ((moritaGamma p) (grossKoblitzIntegralOrbit p q hq 0) : ℤ_[p])) := by sorry
+
+lemma grossKoblitzLogOrbitAverage_period (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (d f : ℕ)
+    (hd : Function.Periodic (grossKoblitzIntegralOrbit p q hq) d) (hdf : d ∣ f) (hf : 0<f) :
+    grossKoblitzLogOrbitAverage p ι ℓ q hq f=grossKoblitzLogOrbitAverage p ι ℓ q hq d := by sorry
+
+lemma grossKoblitzLogOrbitAverage_independent (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (d e : ℕ)
+    (hd : Function.Periodic (grossKoblitzIntegralOrbit p q hq) d) (he : Function.Periodic (grossKoblitzIntegralOrbit p q hq) e)
+    (hdpos : 0<d) (hepos : 0<e) :
+    grossKoblitzLogOrbitAverage p ι ℓ q hq d=grossKoblitzLogOrbitAverage p ι ℓ q hq e := by sorry
+
+lemma grossKoblitzLogOrbitAverage_translation (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (n : ℤ) (hn : ‖((q+n : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitAverage p ι ℓ (q+n) hn f=grossKoblitzLogOrbitAverage p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzLogOrbitAverage_frobenius (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (hpq : ‖(((p : ℚ)*q : ℚ) : ℚ_[p])‖≤1) (f : ℕ)
+    (hf : grossKoblitzIntegralOrbit p q hq f=grossKoblitzIntegralOrbit p q hq 0) :
+    grossKoblitzLogOrbitAverage p ι ℓ (p*q) hpq f=grossKoblitzLogOrbitAverage p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzIntegralOrbit_neg (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (hnq : ‖((-q : ℚ) : ℚ_[p])‖≤1) (j : ℕ) :
+    grossKoblitzIntegralOrbit p (-q) hnq j=
+      if toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*q)=1 then 1
+      else 1-grossKoblitzIntegralOrbit p q hq j := by sorry
+
+lemma moritaGamma_log_reflection (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (x : ℤ_[p]) :
+    ℓ (ι ((moritaGamma p) (1-x) : ℤ_[p]))= -ℓ (ι ((moritaGamma p) x : ℤ_[p])) := by sorry
+
+lemma grossKoblitzLogOrbitSum_integer (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (n : ℤ) (hn : ‖((n : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitSum p ι ℓ n hn f=0 := by sorry
+
+lemma grossKoblitzLogOrbitSum_neg (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (hnq : ‖((-q : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitSum p ι ℓ (-q) hnq f= -grossKoblitzLogOrbitSum p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzLogOrbitAverage_neg (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (hnq : ‖((-q : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitAverage p ι ℓ (-q) hnq f= -grossKoblitzLogOrbitAverage p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzIntegralOrbit_period_exists (p : ℕ) [Fact p.Prime] (D n : ℕ) (hD : 0<D) (hpD : p.Coprime D)
+    (hq : ‖((n/D : ℚ) : ℚ_[p])‖≤1) :
+    ∃d : ℕ,0<d ∧ Function.Periodic (grossKoblitzIntegralOrbit p (n/D) hq) d ∧
+      ∀f : ℕ, Function.Periodic (grossKoblitzIntegralOrbit p (n/D) hq) f → d ∣ f := by sorry
+
+lemma grossKoblitzLogOrbitSum_succ (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitSum p ι ℓ q hq (f+1)=grossKoblitzLogOrbitSum p ι ℓ q hq f+
+      ℓ (ι ((moritaGamma p) (grossKoblitzIntegralOrbit p q hq f) : ℤ_[p])) := by sorry
+
+lemma grossKoblitzLogOrbitSum_product (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitSum p ι ℓ q hq f=
+      ℓ (ι ((∏j ∈ range f,(moritaGamma p) (grossKoblitzIntegralOrbit p q hq j) : ℤ_[p]ˣ) : ℤ_[p])) := by sorry
+
+lemma grossKoblitzLogOrbitAverage_mul (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]  (ι : ℤ_[p] →+* K)
+    (ℓ : K → K) (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1) (f : ℕ) (hf : 0<f) :
+    (f : K)*grossKoblitzLogOrbitAverage p ι ℓ q hq f=grossKoblitzLogOrbitSum p ι ℓ q hq f := by sorry
+
+lemma grossKoblitzLogOrbitAverage_integer (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (n : ℤ) (hn : ‖((n : ℚ) : ℚ_[p])‖≤1) (f : ℕ) :
+    grossKoblitzLogOrbitAverage p ι ℓ n hn f=0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzOrbitFunctionsTests
+open Finset
+open scoped Classical
+noncomputable section
+-- integer_class_is_one
+example (h : ‖((0 : ℚ) : ℚ_[3])‖≤1) (j : ℕ) : grossKoblitzIntegralOrbit 3 (0) h j=1 := by sorry
+-- eighths_first_rotation
+example (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : 8*grossKoblitzIntegralOrbit 3 (1/8) h 1=3 := by sorry
+-- unique_actual_lift
+example (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (y : ℤ_[3]) (hy : (y : ℚ_[3])=((3/8 : ℚ) : ℚ_[3])) : y=grossKoblitzIntegralOrbit 3 (1/8) h 1 := by sorry
+-- zero_representative_rejected
+example (h : ‖((0 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzIntegralOrbit 3 (0) h 0≠0 := by sorry
+-- ternary_thirteenths_coe
+example (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : (grossKoblitzIntegralOrbit 3 (2/13) h 1 : ℚ_[3])=((6/13 : ℚ) : ℚ_[3]) := by sorry
+-- negative_integer_translation
+example (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (h2 : ‖((-15/8 : ℚ) : ℚ_[3])‖≤1) (j : ℕ) : grossKoblitzIntegralOrbit 3 (-15/8) h2 j=grossKoblitzIntegralOrbit 3 (1/8) h j := by sorry
+-- frobenius_shift
+example (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (h3 : ‖((3/8 : ℚ) : ℚ_[3])‖≤1) (j : ℕ) : grossKoblitzIntegralOrbit 3 (3/8) h3 j=grossKoblitzIntegralOrbit 3 (1/8) h (j+1) := by sorry
+-- eighths_period_two
+example (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : Function.Periodic (grossKoblitzIntegralOrbit 3 (1/8) h) 2 := by sorry
+-- negative_integer_endpoint
+example (h : ‖((-2 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzIntegralOrbit 3 (-2) h 0=1 := by sorry
+-- negative_eighths
+example (h : ‖((-1/8 : ℚ) : ℚ_[3])‖≤1) : 8*grossKoblitzIntegralOrbit 3 (-1/8) h 0=7 := by sorry
+-- integer_reflection_exception
+example (h : ‖((0 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzIntegralOrbit 3 (0) h 0≠1-grossKoblitzIntegralOrbit 3 (0) h 0 := by sorry
+-- empty_log_orbit
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 0=0 := by sorry
+-- single_log_orbit
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 1=ℓ (ι (moritaGamma 3 (grossKoblitzIntegralOrbit 3 (1/8) h 0) : ℤ_[3])) := by sorry
+-- sum_counts_all_terms
+example (ι : ℤ_[3] →+* ℚ_[3]) (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι (fun _ => 1) (2/13) h 3=3 := by sorry
+-- integer_log_sum
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ,0<n → a^n=1 → ℓ a=0) (h : ‖((0 : ℚ) : ℚ_[3])‖≤1) (f : ℕ) : grossKoblitzLogOrbitSum 3 ι ℓ (0) h f=0 := by sorry
+-- ternary_log_reflection
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ,0<n → a^n=1 → ℓ a=0) (x : ℤ_[3]) : ℓ (ι (moritaGamma 3 x : ℤ_[3]))+ℓ (ι (moritaGamma 3 (1-x) : ℤ_[3]))=0 := by sorry
+-- minus_two_log_sum
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ,0<n → a^n=1 → ℓ a=0) (h : ‖((-2 : ℚ) : ℚ_[3])‖≤1) (f : ℕ) : grossKoblitzLogOrbitSum 3 ι ℓ (-2) h f=0 := by sorry
+-- negative_orbit_sum
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ,0<n → a^n=1 → ℓ a=0) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hn : ‖((-1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (-1/8) hn 2= -grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 2 := by sorry
+-- complete_eighths_frobenius
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (h3 : ‖((3/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (3/8) h3 2=grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 2 := by sorry
+-- six_eighths_terms
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 6=3*grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 2 := by sorry
+-- log_translation
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ,0<n → a^n=1 → ℓ a=0) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (ht : ‖((9/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitSum 3 ι ℓ (9/8) ht 2=grossKoblitzLogOrbitSum 3 ι ℓ (1/8) h 2 := by sorry
+-- empty_average_convention
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitAverage 3 ι ℓ (1/8) h 0=0 := by sorry
+-- constant_mean_is_one
+example (ι : ℤ_[3] →+* ℚ_[3]) (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitAverage 3 ι (fun _ => 1) (2/13) h 3=1 := by sorry
+-- mean_distinct_from_sum
+example (ι : ℤ_[3] →+* ℚ_[3]) (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitAverage 3 ι (fun _ => 1) (2/13) h 3≠grossKoblitzLogOrbitSum 3 ι (fun _ => 1) (2/13) h 3 := by sorry
+-- recover_sum_by_period
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : 3*grossKoblitzLogOrbitAverage 3 ι ℓ (2/13) h 3=grossKoblitzLogOrbitSum 3 ι ℓ (2/13) h 3 := by sorry
+-- ternary_multiple_period_average
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitAverage 3 ι ℓ (1/8) h 6=grossKoblitzLogOrbitAverage 3 ι ℓ (1/8) h 2 := by sorry
+-- incomparable_periods
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (h : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) : grossKoblitzLogOrbitAverage 3 ι ℓ (1/8) h 4=grossKoblitzLogOrbitAverage 3 ι ℓ (1/8) h 6 := by sorry
+-- least_thirteenth_period_three
+example (h : ‖((2/13 : ℚ) : ℚ_[3])‖≤1) : Function.Periodic (grossKoblitzIntegralOrbit 3 (2/13) h) 3 ∧ ¬Function.Periodic (grossKoblitzIntegralOrbit 3 (2/13) h) 1 ∧ ¬Function.Periodic (grossKoblitzIntegralOrbit 3 (2/13) h) 2 := by sorry
+-- codomain_finite_certificate
+example : (1 : ZMod 3)≠0 ∧ (3 : ZMod 9)≠0 := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzOrbitFunctionsTests
