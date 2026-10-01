@@ -1,0 +1,49 @@
+{
+  "redteam": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-SKOROBOGATOV-SOFOS-23",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "summary": "Three findings: one high-severity degree-compatibility defect in the density endpoint, one omitted truncation-range hypothesis, and one wrong class-field supplier layer. The published-paper audit and pinned-library checks otherwise support the accepted extraction; existing source corrections are not duplicated.",
+  "checked": [
+    "Independence: no authorship or review of this extraction. Read issue #4156 in full after the bot confirmed claim 5933936760 for Codex / codex-rtOQ9t. Input history checked across result, report and review.",
+    "Published version read in full, pp. 673-739 including proofs and references: https://eprints.gla.ac.uk/292484/1/292484.pdf, 67 pages, SHA-256 8499680e907e06bf0b1eeae0c1bc7d46e5cbe93411388b17e843f3b8c6a0e9b1. Page images additionally inspected at pp. 677,680,694,736 to check hypotheses and notation.",
+    "All 149 extraction item statements, the API/test entries supplied with them, eight routes, twelve cited prerequisites, ten completion gates, all 42 sourceIssue statements/corrections and their verdicts, the reader report, accepted review JSON and independent review report. Existing E1/E4/E10/E11/E19/E24/E30 repairs were distinguished from new findings.",
+    "All 15 declarations credited across seven library items read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: Vandermonde, natural von Mangoldt, Mobius divisor identity, algebra norm, Jacobi/Legendre symbols, quadratic reciprocity and the two-square prime theorem. No library credit challenged.",
+    "Read the reviewed library coverage for every named planned and source-route stage, and the actual stage descriptions. Freshly assembled atlas at fa21d9afd2e9d8fc6f1fb00781a11c90ad4219e1 has 2907 stages and 8322 stage edges. All planned stage references resolve. Searched current proposals, packets and upstream suppliers for overlap; fixed-degree prime-value averages remain distinct from growing-degree irreducibility.",
+    "Searched both pinned source trees for specialized Schinzel, Bateman-Horn, Heath-Brown, Wintner, Mertens, Holzer and unramified-unit norm coverage; no replacement endpoint found. Tau Ceti pin f790474821cf4256814db967cb154e7af3d0c369. General carriers and qualitative prime infinitude were not credited with the analytic endpoints.",
+    "Independently checked the incompatible-residue witness of finding 1. Re-ran the accepted standalone certificate: all 374 rational local-law identities, mod-4 proportions for degrees 2-6, the exact Euler-product lower certificate and four sign-error diagnostics passed. Kernel size four was read as the explicitly specified degree-three map in the report; no false general-degree count is alleged.",
+    "Checked item ids and route coverage: 132 missing, 10 planned, 7 library; every missing item routed once, and all explicit prerequisite item references resolve. No Lean build or formal proof is claimed. Cited suppliers remain single extraction items under Protocol section 16.",
+    "Consulted primary arXiv/version record, Glasgow published-version record, publisher result and author-publication search for corrections. These findings concern extraction contracts and routing, not newly alleged source errata; no full arXiv-v3 collation or supplier-proof rereading is claimed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json items /9 and /11; route 1 brief; associated review of item 9",
+      "claim": "The explicit removal of the residue-polynomial degree condition in item 9 propagates into item 11 and permits an empty coefficient family for every H. The resulting density-one statement has no denominator and cannot follow from Theorem 1.5.",
+      "evidence": "Published p. 677 fixes Q_i of degree at most d_i before defining Poly(H), and Theorem 1.5 explicitly retains the assumptions of Theorem 1.2. Item 9 instead says that no deg Q_i <= d_i is required; item 11 imports the data of item 9 and adds only coprimality. Take n=d_1=1, M=2, n_0=0 and Q(t)=t^2+1. Then gcd(Q(0),2)=1, but no linear P is coefficientwise congruent to Q modulo 2: the t^2 coefficients are 0 and 1. Thus Poly(H) and its Schinzel subset are empty for every H. Item 8 defines R only for nonempty Poly(H), and item 2 explicitly rejects an empty density denominator. Even imposing the totalized convention 0/0=0 would make item 11 assert 0=1+o(1). The page-680 theorem does not repeat the degree condition, but this is no justification for deleting it from the standing-data interface or from Theorem 1.5.",
+      "fix": "Keep any literal transcription of Theorem 1.9 labelled as such, and give its usable contract with the p. 677 standing degree condition, or the sufficient generalized condition that Q_i modulo M has degree at most d_i. Explicitly restore deg Q_i <= d_i in item 11, as Theorems 1.2 and 1.5 require; record eventual nonemptiness and use sufficiently large H. Propagate this condition into the route-1 brief and all average/relative-density consumers, checking item 74 too. Do not add coprimality to a generalized mean-discrepancy theorem merely for this repair: incompatibility of degrees is the demonstrated defect."
+    },
+    {
+      "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23/2",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json item /l1-bound-truncated-von-mangoldt",
+      "claim": "The extracted two-sided L1 bound omits the condition relating z to H. Its own note uses z log z <= H log H, so the stated uniform bound lacks a necessary range hypothesis at the zero argument.",
+      "evidence": "Published Proposition 3.8, p. 694, assumes H^delta1 <= z <= H before proving the bound for S_|f|(0). The separate extracted item gives that bound with no z condition. Its note acknowledges Lambda_z(0)=-sum_{e<=z} mu(e) log e and bounds its absolute value by z log z <= H log H. That last inequality needs the omitted range. This cannot be a uniform assertion for arbitrary z: at every prime p, Lambda_p(0)-Lambda_(p-1)(0)=log p. At least one adjacent absolute value is >=(log p)/2, unbounded with p. With fixed H=16,d=1,k=m=1, S_|Lambda_z|(0) contains that zero summand while H(log H)^2 max(k,m)^d is fixed. The nonzero-argument divisor estimate does not control this term.",
+      "fix": "Split the positive-argument bound (t>=1, with y sufficiently large) from the two-sided value-range bound. In the latter state d>=1, fixed delta2>0, H sufficiently large, positive k,m <= (log H)^delta2 and 1<=z<=H; alternatively retain the full source range H^delta1<=z<=H. Keep the zero-term proof in the note and state the constant dependencies. If arbitrary z is desired, add the separate z log z contribution. This repairs an extraction-level omission, not a new error in the published Proposition 3.8."
+    },
+    {
+      "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23/3",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json item /63 planned; route 2 brief; research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.md supplier paragraph",
+      "claim": "The strict Hilbert class field and its splitting theorem are assigned to ClassFieldTheory Layer 12, but the existing named-field supplier is Layer 13. The geometric design brief repeats the wrong supplier boundary.",
+      "evidence": "At atlas fa21d9afd2e9d8fc6f1fb00781a11c90ad4219e1, ClassFieldTheory Layer 12 supplies the general global class-field correspondence and admissible ray-class Artin maps. Layer 13 explicitly defines narrowHilbertClassField as rayClassField at GlobalNumberFields.narrowModulus, and plans the maximal unramified properties and splitting criteria. Item 63 needs precisely that field and the criterion that a prime split iff it has a totally positive generator (published p. 720). Its sole planned reference is Layer 12; the route-2 brief likewise says layers 5,6,10,12 supply strict ray-class splitting. The reviewed library audit separately places narrowHilbertClassField and these splitting criteria in Layer 13, not yet built. The newly added global-cyclic-norm-criterion and kronecker-weber items already refer correctly to Layer 13.",
+      "fix": "Point item 63 to tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields; retain Layer 12 as an underlying prerequisite only if useful. Update route 2 and the report to import Layer 13 for the strict Hilbert class field, its splitting law, the cyclic norm theorem and Kronecker-Weber. Keep the item planned and do not create a second class-field construction or change the upstream roadmap."
+    }
+  ]
+}
