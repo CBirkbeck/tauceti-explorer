@@ -37753,8 +37753,9 @@
     "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4181"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4181",
+   "finishedAt": "2026-10-01T19:19:05Z"
   },
   {
    "id": "REV-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -38516,7 +38517,8 @@
     "REV-PAPER-FENG-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4212"
   },
   {
    "id": "REV-RT-PAPER-FENG-24",
@@ -39771,7 +39773,9 @@
     "REV-PAPER-CALEGARI-DIMITROV-TANG-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4259",
+   "finishedAt": "2026-10-01T19:19:10Z"
   },
   {
    "id": "RT-PAPER-LI-ZHANG-22-B",
