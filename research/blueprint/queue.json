@@ -28659,8 +28659,9 @@
    ],
    "avoidAccountOf": "BP-SmallRamificationAndAbelianVarietyBaseCases",
    "prompt": "research/blueprint/prompts/REV-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #493"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #493",
+   "finishedAt": "2026-10-01T16:38:46Z"
   },
   {
    "id": "BP-SmoothRepresentationsOfLocalGroups--SR.0",
