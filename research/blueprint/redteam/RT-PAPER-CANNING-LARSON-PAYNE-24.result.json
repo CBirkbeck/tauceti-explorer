@@ -1,0 +1,83 @@
+{
+  "redteam": "RT-PAPER-CANNING-LARSON-PAYNE-24",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-CANNING-LARSON-PAYNE-24",
+  "summary": "Five findings: three high-severity errors in the SO/Spin Mukai construction, cycle-class grading and properness of the open moduli stack; two medium-severity source-binding and induction-subgroup errors. Existing E1 is retained. The two additional source problems are checked against the published paper and matching v3; the final cohomology theorems are not refuted.",
+  "checked": [
+    "Independence: extraction issue #1362 was by Claude Code cc-7b31c4 and review by Claude Code cc-fb70e5. Codex codex-rtOQ9t did neither; all three target-file histories were checked before claiming #4218. Winning claim comment 5930586520 was confirmed by the bot, then the full issue was reread. Audit base fe341890101f6517ad1b1f434125f32b3c3dbd4a.",
+    "Read every page of the 31-page published paper including references, all 93 extracted items with notes/statuses/locators, all four route briefs, all 17 prerequisite records, the source issue with embedded review, the reader and acceptance review. Visually inspected published pp. 20,25,26,27,29, including the decorated graphs and pairing table. Compared the v3 TeX at the findings; the e-print SHA256 matches the extraction.",
+    "Coverage: introduction and §§2–3 (/1–41) including the homology/cohomology distinction, finite-generation bounds, genus-one cusp-form terms, genus-two local systems and Leray quotient; §4 (/12–14,42–46) CKgP hypotheses/permanence/cycle maps; §5 (/47–65,93) all tetragonal strata and the marked Mukai construction; §§6–8 (/66–91) finite base cases, graphical bases, the 891-class argument, boundary complex and exclusion of S16. Conjectures 1.8 and 7.12 are identified as conjectures in the statements, not asserted as proved.",
+    "Preserved existing E1: the inequality in the published §6.2 proof is the same k≥14 misprint recorded by the extraction; its corrected k≤14 is used. Findings /1 and /5 concern additional source problems, scoped to the version of record and matching v3 text. No claim that the final cohomology theorems are false is made.",
+    "Correction search on 2026-10-01: Cambridge article record and published PDF; arXiv 2307.08830 version history and latest v3; Sam Payne’s publications page and its published-copy listing; title/author searches with erratum, correction, spin and induction. No existing correction for /1 or /5 was located in these searches. This is bounded search evidence, not a universal assertion that no correction exists.",
+    "Prerequisite checks: fetched primary arXiv metadata for the linked records; read Canning–Larson arXiv:2208.02357 Theorem 1.4, p.4, and Lemma 10.5, p.36; Petersen–Tavakol–Yin arXiv:1705.08875v2 pp.10–11 and18–20 (§§3.2,5.1,5.2); Woit’s spinor notes pp.1–2; primary journal/Crossref metadata for Petersen and Mukai. These were selective prerequisite reads, not full audits. Mukai’s original 1995 paper and the Bergström–Faber software calculation were not independently reproduced.",
+    "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: read ModularForm and CuspForm in NumberTheory/ModularForms/Basic.lean, SlashInvariantForm in SlashInvariantForms.lean, and Module.Grassmannian in RingTheory/Grassmannian.lean. /92 correctly reuses the analytic form carriers, not a proved identification with moduli cohomology. The Grassmannian is the rank-k quotient functor; the file lists scheme representability and relative sheaf Grassmannians as TODOs, so it does not provide /93’s stack bundles.",
+    "Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: read TauCeti.spinPlusAction, spinPlusSubrep, finrank_spinPlus and the supporting half-spin statements, plus Hodge.HodgeStructureOn and Hodge.MixedHodgeStructure. These are reusable representation and Hodge primitives; they do not supply the SO descent, moduli stacks or geometric cohomology calculations. Searched both complete pinned Lean trees for Chow groups/rings, Chow–Künneth, tautological rings, Deligne–Mumford, moduli of curves and Mukai; no replacement for the missing geometric outputs was found. Negative searches are bounded evidence.",
+    "Read reviewed library-coverage entries SF.2, SF.5, R09.1 and R19.1; MC.2 has no entry. Read all eight directly referenced planned/source stages and four additional route imports R09.4,R09.5,MC.0,DWP.9. Checked R09.1’s upstream-supplier split and searched the fresh atlas, packets and roadmap proposals for the new direction. No duplicate owner or dependency-cycle finding was established. General intersection theory, realizations, stack constructions and stable curves remain imports.",
+    "Structural check: 88 missing, four planned, one library item; all 88 missing items are routed exactly once, all planned/source-stage identifiers resolve. Fresh assembly has 2907 stages and 8322 stage edges, including 76 edges with external/proxy endpoints; the graph induced on known stages is acyclic. This extraction supplies no item-level dependency graph, so none was certified.",
+    "Independent arithmetic checks: half-spin dimension 16; induction dimensions 132 and66; Specht dimensions 11 and55 by hook lengths; graph count891 and genus-one basis sizes264,429,6006. P² cycle pushforward and the cross-ratio degeneration give mathematical counterexamples for /2 and /3. No Lean deliverable, Lake build or language server was used."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-CANNING-LARSON-PAYNE-24/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json, item /60 and its consumers /61–65, routes[0]; corresponding Mukai discussion in the reader",
+      "claim": "The extracted Mukai construction requires a rank-16 half-spin vector bundle on BSO_10 and identifies the SO_10 quotient of the smooth linear-section locus with the moduli stack. The half-spin representation does not descend to SO_10, and the displayed quotient retains ineffective central stabilizers. These are obstructions to the stated stack and bundle constructions, not simply alternative names for the same group.",
+      "evidence": "CLP, published p. 20, §5.3.2–3, (5.10)–(5.13) and Lemma 5.13, explicitly uses the “spinor representation of SO10”; arXiv v3 TeX lines 1057–1111 has the same construction. In the Clifford model the element −1 in ker(Spin_10→SO_10) acts by −Id on S+, so S+ cannot be an SO_10 representation. Peter Woit, The Spinor Representation, p. 1 (https://www.math.columbia.edu/~woit/LieGroups-2012/spinors.pdf), distinguishes the linear Spin representations from projective SO representations. The obstruction is also visible in the pinned Tau Ceti algebra homomorphism TauCeti.spinPlusAction: scalars act as scalars. Projectivizing eliminates this sign but does not give the asserted vector bundle. Moreover, the central −I_10 in SO_10 acts trivially on the projective spinor variety and the Grassmannian of linear sections. Thus the SO quotient has an ineffective μ_2 in its inertia; its natural map to the curve moduli is not fully faithful. Replacing SO by Spin alone leaves μ_4 acting trivially on the projective data. These observations do not disprove the final CKgP or cohomology theorems.",
+      "fix": "Record a source error/proof gap against published §5.3.2–3 and the matching v3 text, with sourceVersions and correction-search provenance. Replace the unconditional /60 construction by a precise corrected presentation or an explicit unresolved proof dependency. Distinguish a Spin/GSpin lift supporting an actual half-spin bundle from the effective projective group and the required central rigidification. Prove the gerbe/rigidification comparisons and descent or character twists for S+, L_i, Q_n and the claimed Hodge-bundle identification before using /61–65. A bare SO→Spin text substitution is insufficient. Import stack/rigidification machinery from R09.4/R09.5 and reuse TauCeti.spinPlusSubrep, spinPlusAction and finrank_spinPlus at the pin; do not reconstruct these representation primitives. Add checks that −1 acts as −Id on S+, that projective central inertia is removed, and that any bundle claimed to descend has trivial inertia action. Keep the final theorem as a target with this proof gap exposed until repaired."
+    },
+    {
+      "id": "RT-PAPER-CANNING-LARSON-PAYNE-24/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json, item /13; routes[2] (MC.2 source route)",
+      "claim": "The formula cl:A_i(X)→W_{2i}H^{2i}(X) confuses dimension-graded Chow homology with codimension-graded Chow cohomology. It sends a point on a surface to degree zero rather than degree four and cannot satisfy the stated proper-pushforward compatibility.",
+      "evidence": "CLP Lemma 4.3, published pp. 11–12, uses the ungraded sum ⊕_i A_i(X)→⊕_k W_kH^k(X), not the extracted graded formula; v3 TeX line 660 agrees. The proof fixes d=dim X and tracks cohomological degrees under correspondences. For X=P²_C, i=0 and the inclusion j:Spec C→P², the proper cycle pushforward j_*1 is a point in A_0(P²), while its cohomological class j_*1 lies in H^4(P²). Equivalently A_i(X)=A^{d−i}(X) for smooth pure-dimensional X. This error was introduced by the extraction, not by the displayed statement of Lemma 4.3.",
+      "fix": "Use rational coefficients as in the paper. State cl:A^i(X)_Q→W_{2i}H^{2i}(X,Q), or, retaining dimension grading on a pure d-dimensional smooth X, cl:A_i(X)_Q→W_{2d−2i}H^{2d−2i}(X,Q). State the Tate twists separately when expressing this as a Hodge/Galois morphism. Keep the ungraded surjectivity conclusion of /44. Add P² tests: fundamental class, line and point land in cohomological degrees 0, 2 and 4 respectively; the point test must commute with proper pushforward from Spec C. Apply the same normalization to the MC.2 import and reader explanation."
+    },
+    {
+      "id": "RT-PAPER-CANNING-LARSON-PAYNE-24/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json, routes[0].brief, first construction paragraph",
+      "claim": "The new-roadmap brief asks for both M_{g,n} and M̄_{g,n} to be smooth proper Deligne–Mumford stacks. The open moduli stack M_{g,n} is not proper in general. This contradicts the correct distinction in item /2 and would require building a false prerequisite.",
+      "evidence": "The brief says “the moduli stacks M_{g,n} and M̄_{g,n} as smooth proper Deligne–Mumford stacks”. CLP §4, especially published pp. 11–12, explicitly needs a statement for smooth nonproper X and applies it to the open M_{g,n}. A concrete counterexample is M_{0,4}≅P¹−{0,1,∞}, whereas M̄_{0,4}≅P¹. The four marked points (0,1,∞,t) over C((t)) have cross-ratio t, whose specialization 0 leaves the smooth four-distinct-point locus; the stable limit lies in the boundary.",
+      "fix": "Require M̄_{g,n} to be smooth proper DM and M_{g,n} to be its smooth open substack, retaining the stability condition 2g−2+n>0. Keep compactification, boundary and ordinary versus compactly supported/Borel–Moore theories distinct throughout the route. Use M_{0,4} and M̄_{0,4} as a properness/valuative-criterion regression example. Do not alter the correct item /2 or infer properness of the open locus from that of its compactification."
+    },
+    {
+      "id": "RT-PAPER-CANNING-LARSON-PAYNE-24/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json, prerequisites (one-based entries 4,7,9,10,15,16), source.venue, and reader prerequisite paragraph",
+      "claim": "Several prerequisite identifiers point to unrelated papers or conflate distinct sources. In particular, three arXiv links lead to fluid simulations, GRB jets and polyadic sets. The CKgP and genus-two proof inputs therefore cannot be recovered from the stated bindings, and the twisted-coefficient paper is attributed to the wrong authors.",
+      "evidence": "Primary arXiv records accessed 2026-10-01: 1310.3859 is Gabbasov et al., Numerical simulations of the Kelvin–Helmholtz instability with the Gadget-2 SPH code; 1408.4509 is Leng–Giannios, Testing the neutrino annihilation model for launching GRB jets; 2110.11061 is Reggio, Polyadic Sets and Homomorphism Counting. CLP bibliography [5] is Canning–Larson, On the Chow and cohomology rings of moduli spaces of stable curves (arXiv:2208.02357), whose Theorem 1.4 and Lemma 10.5 supply the cited base cases and pushforward criterion; 2110.01059 is a different Hurwitz-space paper. CLP [30] is Petersen–Tavakol–Yin, Tautological classes with twisted coefficients (arXiv:1705.08875); its §§3.2,5.1,5.2.2 were checked. The two Petersen inputs are separately listed as [27] and [28], and Totaro [34] is The motive of a classifying space (arXiv:1407.1366). The Bergström–Faber paper [3] is arXiv:2207.05130, while the software supporting (7.1) is the separate reference [2]. Crossref identifies Mukai I as DOI 10.2307/2375032. The published CLP title page says volume 12, e23, not e22.",
+      "fix": "Replace the bindings with: (4) Canning–Larson arXiv:2208.02357, retaining 2110.01059 only for a separately identified Hurwitz input; (7) Petersen, Pacific J. Math. 275 (2015), 39–61, DOI 10.2140/pjm.2015.275.39, and the separate compact-type genus-two paper arXiv:1310.7369; (9) Dan Petersen, Mehdi Tavakol and Qizheng Yin, arXiv:1705.08875; (10) Mukai, Curves and symmetric spaces I, DOI 10.2307/2375032, distinguishing part II; (15) Totaro arXiv:1407.1366; (16) Bergström–Faber arXiv:2207.05130 plus the software reference https://github.com/jonasbergstroem/Cohomology-of-moduli-spaces-of-curves for the computation. Give each the actual theorem/section used. Pin the software/data or explicitly retain reproducibility as a gap; do not cite the unrelated 2110 paper. Correct Petersen–Tommasi to Orsola Tommasi where appropriate, Kresch to Andrew Kresch, and e22 to e23. No roadmap ownership change is required."
+    },
+    {
+      "id": "RT-PAPER-CANNING-LARSON-PAYNE-24/5",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json, sourceIssues and item /75 (Lemma 7.3); reader discussion of the 891-graph calculation",
+      "claim": "The extraction misses an incorrect induction subgroup in the representation calculation used to finish Lemma 7.3. The printed Ind_{S10}^{S12}(sgn) has dimension 132, so it cannot equal the stated sum of dimensions 11 and 55. The intended 66-symbol representation requires the S2 stabilizer of the unordered pair.",
+      "evidence": "CLP published p. 27, last representation paragraph in the proof of Lemma 7.3, prints Ind_{S10}^{S12}(V_{1^10})=V_{2,1^10}⊕V_{3,1^9}; v3 TeX line 1368 agrees. The left dimension is [S12:S10]=132; the right is 11+55=66 (also checked by the hook-length formula). Figure 2 and the displayed definition of M_ij make the pair {i,j} unordered. Permutations of the other ten labels act by sign on the ω decoration, and exchange of i,j fixes the symbol. Thus the appropriate source is S10×S2 with representation sgn⊠1, whose induced dimension is 12!/(10!2!)=66. Pieri gives the stated two summands.",
+      "fix": "Add a sourceIssues misprint against published p. 27 and matching v3 text: replace the induction expression by Ind_{S10×S2}^{S12}(sgn⊠1). Record sourceVersions and the search for an existing correction, and carry the corrected representation into /75’s proof input and reader. Add the 66 versus 132 dimension test, the two stabilizer actions and the 11+55 decomposition; then preserve the paper’s 891−55=836 argument. This correction repairs the displayed intermediate formula, not a claimed counterexample to Lemma 7.3."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508624000246",
+      "citation": "Canning–Larson–Payne, Forum of Mathematics, Pi 12 (2024), e23, pp.1–31, DOI 10.1017/fmp.2024.24",
+      "read": "2026-10-01",
+      "sha256": "a6c06f574066e404ed45950d6258e5dc81088be942a9d5ad5ad1d20d3c86cbde"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2307.08830v3",
+      "citation": "arXiv:2307.08830v3, 25 October 2024, 33 pages; matching e-print read at the finding locators",
+      "read": "2026-10-01",
+      "sha256": "fa320b35fc8b063ac09335da85ed133329dfbef1357b78f22d0a8d58ad5107a1"
+    }
+  ]
+}
