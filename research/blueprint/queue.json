@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -34142,8 +34142,9 @@
     "REV-PAPER-DADDEZIO-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DADDEZIO-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5055"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5055",
+   "finishedAt": "2026-10-01T07:50:56Z"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
