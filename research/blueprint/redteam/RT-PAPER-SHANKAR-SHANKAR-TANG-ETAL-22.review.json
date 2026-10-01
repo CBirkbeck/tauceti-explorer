@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+ "findings": [
+  {
+   "finding": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On published p. 16 the paper defines 'let s_i denote the size of S_i', where S_i is the set of Jordan components with ν_j = i, and Lemma 4.2(2) uses N^bad_{m,Q}(p^{n+1}) = p^{r−s_0}N^good_{m/p,Q′}(p^n). Items /40 and /41 copy both. At p = 2 the components L_j can have rank 2, and the formula needs the total rank (Hanke's convention). I brute-forced the red team's example Q = ab + cd + 2t² (U ⊕ U ⊕ ⟨4⟩, r = 5, signature (3,2), maximal) with m = 2. The bad solutions modulo 4 number 32 and those modulo 8 number 640. The good solutions of Q′ = 2ab + 2cd + t² of norm 1 modulo 2 and 4 number 16 and 320. The printed exponent (s_0 = 2) predicts 128 and 2560, and the rank sum (s_0 = 4) predicts 32 and 640, as observed. For odd p the two conventions agree. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Published (5.3) has the factor 2Γ(s−1+k/2)/Γ(2s). At s = k/2 + s′ this is A(s′) = 2Γ(k−1+s′)/Γ(k+2s′), with A(0) = 4/b. The second equality of (5.8) (p. 28) replaces A(s′) by 4/b inside lim_{s→0}(c(m)/s + …), justified by 'the ratio of Γ-functions in equation (5.3) is holomorphic and has a limit of 2/b', and item /66 states the resulting exact identity (5.9). Write the series as S(s), with a simple pole. Then FP(A·S) = A(0)·FP(S) + A′(0)·Res(S), and since A(0)·Res(S) = −c(m) the dropped term is −c(m)·A′(0)/A(0) = −c(m)[ψ(k−1) − 2ψ(k)]. For b = 4 (k = 3) it is c(m)(2 − γ) ≠ 0 whenever c(m) ≠ 0. The term is O(|c(m)|) = O(m^{b/2}), so φ_m(x) = A(m,x) + O(m^{b/2}) and the main theorem survive. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). On p. 31 the paper bounds Σ_{√mλ∈L, |Q(λ_x)|≤1} 1 = O(m^{b/2}) without the shell condition Q(λ) = 1 that the neighbouring sums carry, and item /68 copies it. Without the shell condition the set is infinite, as the red team argues. In the proof of Corollary 4.12 (p. 22) the cutoff reads 'ω_P(λ_x) ≥ 1 … with Q(λ_x) < T and ω_P(λ_x) = 0 if Q(λ_x) > 2T'. Because P is negative definite, Q(λ_x) ≤ 0 < T always, so the cutoff has no support bound. The positive-plane cutoff (≥ 1 only for Q(λ_{x⊥}) ≤ 1) does not cover Q(λ_{x⊥}) = 1 − Q(λ_x) ∈ [1, 1+T] on the shell. The fix, with sign-corrected cutoffs in −Q(λ_x) and a positive-plane cutoff on Q ≤ 2, is right, and the corollary's conclusion stands."
+  },
+  {
+   "finding": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed, though I would grade it medium rather than high. Item /4 (status library) states (a)_n = Γ(a+n)/Γ(a) with no restriction, copying p. 24. At Mathlib 082e2d3, Complex.Gamma_add_nat_div_Gamma_eq (Analysis/SpecialFunctions/Gamma/Beta.lean) is stated under hz : ∀ k : ℕ, z ≠ −k. Γ is totalized with Gamma_zero : Gamma 0 = 0 and Gamma_neg_nat_eq_zero, while ascPochhammer 0 = 1 (RingTheory/Polynomial/Pochhammer.lean). So at a = 0, n = 0 the quotient is 0/0 = 0 against (a)_0 = 1, and the item's identity is not the cited library fact. Mathematically the formula is the usual meromorphic identity, and the paper's parameters (near k/2, positive real part) satisfy the guard, so the defect is the library binding rather than the mathematics. The fix (define (a)_n by ascPochhammer and use the guarded quotient) is right."
+  },
+  {
+   "finding": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /93 states 'On a smooth projective surface the intersection form on Pic has signature (1, ρ − 1)'. The paper uses Hodge index only for a K3 surface (p. 44: 'The first Chern class map c_1 : Pic(X) → H^2(X^an_σ, Z) is a primitive embedding. By the Hodge index theorem, Pic(X) has signature (1, ρ(X) − 1)'), where Pic^0 = 0. For a general smooth projective surface it is false. For X = E × P^1, a non-torsion class of Pic^0(E) pulled back to X has numerically trivial first Chern class, so it lies in the radical of the form on Pic(X) ⊗ R. The fix, the general statement on N^1(X)_R specialised to K3 surfaces, is right."
+  }
+ ]
+}
