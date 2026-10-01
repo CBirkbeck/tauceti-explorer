@@ -37023,7 +37023,8 @@
     "REV-PAPER-SKOROBOGATOV-SOFOS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4156"
   },
   {
    "id": "REV-RT-PAPER-SKOROBOGATOV-SOFOS-23",
@@ -40525,8 +40526,9 @@
     "REV-PAPER-CHENEVIER-TAIBI-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4300"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4300",
+   "finishedAt": "2026-10-01T14:54:10Z"
   },
   {
    "id": "REV-RT-PAPER-CHENEVIER-TAIBI-20",
