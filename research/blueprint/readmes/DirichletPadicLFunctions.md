@@ -33947,3 +33947,561 @@ Exact controls evaluate actual inverse powers and trace characters over F2,F3,F5
 Capture at e9cb0d2143a2c2b2787d9b1f2fc36b7f01b8342f has zero changes among72 guarded inputs after merged5343; whole issue body unchanged. No policy, supplier, source finding or review verdict changed.
 
 The separate partial signature file also compiled with zero errors and 3,425 expected placeholder warnings across 3,600 pinned source modules. It includes all 20 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 767e4418e8c2aa10ab4f48977368b41e1915cfbe25b85cbc4cefdd0157807186.
+
+
+## The source-normalized Gross–Koblitz pi
+
+Twenty L3 nodes construct the cyclotomic unit and source-normalized pi, prove existence and uniqueness with the exact principal-ideal congruence, and compare the integral and local-field constructions. All1,063 predecessor nodes,800 baseline records,18 findings and four source versions remain whole.
+
+Rereads Gross–Koblitz p.570 from the retained complete13-page source reading and fixes both defining conditions ofpi. Reads the full pinned native local-field Henselian and roots-of-unity modules, the Henselian class, geometric-sum and unit-cancellation proofs, Wilson and factorial product, quotient kernel, primitive-root product and injective-map APIs. Fifteen new native baseline records are added. Bounded public Mathlib/Lean-community searches returned unrelated results; no search result is used as a mathematical input or as evidence of global absence.
+
+### The cyclotomic unit product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit` — `DirichletPadic.grossKoblitzCycloUnit`
+
+Define U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j in the existing commutative ring.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Each finite geometric sum is the polynomial quotient(ζ^(i+1)−1)/(ζ−1), written without division. The minus sign is part of the definition.
+2. The complete cycloUnit definition is this finite product. In the domain case the native cyclotomic product will give t^(p−1)U_p(ζ)=−p.
+3. Mapping ζ to1 gives−(p−1)!. Wilson then gives U≡1 modulo(t), and the residue criterion makes U an actual unit. These are proved separately below rather than assumed in this definition.
+
+**Prerequisites:** `mathlib:mul_geom_sum`, `mathlib:Nat.factorial_eq_prod_range_add_one`.
+
+**Uses:**
+
+- The source-normalized pi: Converts the nonsimple equation pi^(p−1)=−p into the simple unit equation u^(p−1)=U.
+- The principal-ideal congruence: Its reduction to1 moduloζ−1 is the input for the stronger normalized Hensel root.
+- The nonzero pi API: Together with the cyclotomic product, its unit property proves−p is nonzero under these hypotheses.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzCycloUnit_def` (constructor): The literal finite product with its minus sign.
+- `DirichletPadic.grossKoblitzCycloUnit_map_one` (compatibility): If φζ=1 then φU=−(p−1)!; promoted below.
+- `DirichletPadic.grossKoblitzCycloUnit_congruence` (relation): ζ−1 divides U−1; promoted below.
+- `DirichletPadic.grossKoblitzCycloUnit_power` (relation): For odd p, (ζ−1)^(p−1)U=−p; promoted below.
+- `DirichletPadic.grossKoblitzCycloUnit_isUnit` (characterisation): U is a unit in the specified local ring; promoted below.
+- `DirichletPadic.grossKoblitzCycloUnit_root` (characterisation): There is a unique u with u^(p−1)=U and ζ−1 dividing u−1; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.unit_at_one` (computation): At p=3, evaluation at1 gives−2.
+- `SuggestedGrossKoblitzPiTests.unit_at_zero` (degenerate): At p=3, evaluation at0 gives−1.
+- `SuggestedGrossKoblitzPiTests.unit_ternary_polynomial` (compatibility): For p=3 the defining product is the literal polynomial−(1+ζ).
+
+**Acceptance:** At p=3, U_3(ζ)=−(1+ζ), U_3(1)=−2 and U_3(0)=−1.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The cyclotomic product at the trivial image
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-map-one` — `DirichletPadic.grossKoblitzCycloUnit_map_one`
+
+For a ring homomorphism φ with φζ=1, φ(U_p(ζ))=−((p−1)!:A).
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Map the finite product and each finite sum through φ. Every power ofφζ is1, so the i-th sum becomes the cast ofi+1.
+2. The routine factorial_product helper rewrites the product of these casts using native Nat.factorial_eq_prod_range_add_one and preservation of products by natural casting.
+3. The complete cycloUnit_map_one proof works for any natural p and any target commutative ring; it does not require a primitive root, a prime, or a domain.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit`, `mathlib:Nat.factorial_eq_prod_range_add_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.unit_map_one` (compatibility): Mapping a chosen ζ to1 maps its ternary cyclotomic unit to−2.
+
+**Acceptance:** The p=3 specialization mapsU to−2.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The cyclotomic unit modulo the root difference
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-congruence` — `DirichletPadic.grossKoblitzCycloUnit_congruence`
+
+For a primitive p-th root in a domain, ζ−1 divides U_p(ζ)−1.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Pass to the actual quotient R/(ζ−1). Its quotient map sendsζ to1 by the native quotient kernel and singleton-span membership APIs.
+2. Map the native primitive-root geometric-sum identityΣ_(j<p)ζ^j=0 into the quotient. It gives(p:R/(ζ−1))=0, even if this quotient is not a domain.
+3. Apply the preceding mapped product identity and native Wilson in ZMod p. The routine wilson_ring helper maps Wilson through ZMod.castHom using p=0, so it does not assume an exact CharP instance for a possibly trivial quotient.
+4. The image ofU is1. Native quotient-kernel membership and Ideal.mem_span_singleton turn this equality into the asserted divisibility. The complete cycloUnit_congruence proof checks the quotient rather than identifying it with the residue field.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-map-one`, `mathlib:IsPrimitiveRoot.geom_sum_eq_zero`, `mathlib:ZMod.wilsons_lemma`, `mathlib:ZMod.castHom`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`, `mathlib:Ideal.mem_span_singleton`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.unit_congruence` (characterisation): At a primitive third root, U−1 is divisible byζ−1.
+
+**Acceptance:** The principal ideal(ζ−1) is retained explicitly; replacing it by the maximal ideal is insufficient for the later squared congruence.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The cyclotomic product and negative p
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-power` — `DirichletPadic.grossKoblitzCycloUnit_power`
+
+For odd prime p and primitive ζ, (ζ−1)^(p−1)U_p(ζ)=−p.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Apply native IsPrimitiveRoot.prod_pow_sub_one_eq_order with n=p−1. Because p is odd, p−1 is even and the prefactor(−1)^(p−1) is1.
+2. For each factor use native mul_geom_sum to writeζ^(i+1)−1=(ζ−1)Σ_(j<i+1)ζ^j. Distribute the finite product to obtain the common factor(ζ−1)^(p−1).
+3. The definition ofU contributes the remaining minus sign. The complete cycloUnit_power proof checks the natural subtraction, casts and finite-product cardinality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit`, `mathlib:IsPrimitiveRoot.prod_pow_sub_one_eq_order`, `mathlib:mul_geom_sum`, `mathlib:Nat.Prime.odd_of_ne_two`, `mathlib:Even.neg_one_pow`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.unit_power_ternary` (computation): For p=3 the cyclotomic product gives(ζ−1)²U=−3.
+- `SuggestedGrossKoblitzPiTests.unit_power_wrong_sign` (non-example): In characteristic0 the ternary product cannot equal+3.
+
+**Acceptance:** At p=3 the result is−3, not+3. The exact p=2 control shows why this product-sign statement keeps its odd-prime hypothesis.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Invertibility of the cyclotomic unit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-invertible` — `DirichletPadic.grossKoblitzCycloUnit_isUnit`
+
+In the specified Henselian local domain of residue characteristic p, U_p(ζ) is a unit.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Mapζ^p=1 to the residue field. Native characteristic-p subtraction gives(resζ−1)^p=0; a residue field is reduced, so resζ=1. The complete prime_root_residue helper establishes this.
+2. Map the preceding divisibility U−1=(ζ−1)c to the residue field. The right side vanishes, so resU=1.
+3. Use the native local-ring criterion residue_ne_zero_iff_isUnit. The complete cycloUnit_isUnit proof concludes actual invertibility; it does not introduce a new unit carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-congruence`, `mathlib:sub_pow_char`, `mathlib:eq_zero_of_pow_eq_zero`, `mathlib:IsLocalRing.residue_ne_zero_iff_isUnit`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.cyclotomic_is_unit` (characterisation): The ternary cyclotomic product is an actual unit in the local ring.
+
+**Acceptance:** The ternary example hasU=ζ², hence is invertible.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The normalized simple root of the cyclotomic unit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-normalized-root` — `DirichletPadic.grossKoblitzCycloUnit_root`
+
+There is a unique u:R with u^(p−1)=U_p(ζ) and ζ−1 dividing u−1.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. The residue ofp−1 is−1, so p−1 is a unit by the native residue criterion. Since U≡1 moduloζ−1 and resζ=1, the monic polynomialX^(p−1)−U has residue root1 with derivative the unitp−1.
+2. Invoke the existing HenselianLocalRing.is_henselian field to obtain a rootu with residue1. This is the complete routine root_residue_one helper.
+3. Factor u^(p−1)−1=(u−1)Σ_(i<p−1)u^i. The sum has residuep−1, hence is a unit. Because ζ−1 dividesU−1, native IsUnit.dvd_mul_left now givesζ−1 dividingu−1. This strengthens the residue congruence to the exact principal ideal.
+4. For two roots normalized this way, both have residue1. Native Commute.geom_sum₂_mul factors their power difference as(u−v) times a sum with residuep−1, hence a unit; cancel that unit to obtainu=v. The complete root_mod_principal and cycloUnit_root proofs use this argument without assuming(t) is maximal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-congruence`, `mathlib:HenselianLocalRing`, `mathlib:IsLocalRing.residue_ne_zero_iff_isUnit`, `mathlib:geom_sum_mul`, `mathlib:Commute.geom_sum₂_mul`, `mathlib:IsUnit.dvd_mul_left`, `mathlib:sub_pow_char`, `mathlib:eq_zero_of_pow_eq_zero`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.normalized_unit_root` (characterisation): The simple root ofU normalized moduloζ−1 is unique.
+- `SuggestedGrossKoblitzPiTests.ternary_unit_root` (computation): At p=3 the normalized unit root isζ itself.
+
+**Acceptance:** At p=3 the normalized unit root isζ. Exact finite enumeration checks this simple-root uniqueness in three small cyclotomic quotients.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Existence of the integral normalized pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-existence` — `DirichletPadic.grossKoblitzPi_exists_unique`
+
+For odd p, there is a unique π:R with π^(p−1)=−p and(ζ−1)² dividingπ−(ζ−1).
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Set t=ζ−1, which is nonzero becauseζ is primitive andp>1. Take the preceding normalized unit rootu and setπ=tu.
+2. The cyclotomic product givesπ^(p−1)=t^(p−1)U=−p. Writingu−1=tc givesπ−t=t²c, the required strong congruence.
+3. For another candidatev, writev−t=t²c and thenv=t(1+tc). Its power equation and the cyclotomic product imply t^(p−1)(1+tc)^(p−1)=t^(p−1)U.
+4. Cancel the nonzero factor t^(p−1) in the domain. The remaining factor1+tc satisfies the normalized unit-root conditions, so uniqueness ofu givesv=tu. The complete pi_exists_unique proof supplies both existence and uniqueness with no target identity as a premise.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-normalized-root`, `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-power`, `mathlib:IsPrimitiveRoot.ne_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.integral_pi_exists` (characterisation): The integral normalized square root of−3 exists uniquely.
+
+**Acceptance:** The domain hypothesis is essential to this cancellation argument: exact zero-divisor quotient tests find three normalized pi roots at p=3 modulo9 and25 at p=5 modulo5.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The chosen integral Gross–Koblitz pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-normalized-integral-pi` — `DirichletPadic.grossKoblitzPi`
+
+Choose the unique π:R satisfying the preceding source power and principal-ideal congruence.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Use Classical.choose on the established integral existence-and-uniqueness theorem. All ring, Henselian, domain and residue-characteristic instances are explicit in the suggested definition.
+2. The complete normalizedPi definition has no independent arbitrary root choice. Its specification supplies the power, congruence and uniqueness APIs below.
+3. Nonvanishing, compatibility with ring maps and the exact p=3 value are proved below; these control the dependence on the chosen primitiveζ before the full Gauss formula usesπ.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-existence`.
+
+**Uses:**
+
+- Gross–Koblitz Section1 power factor: Supplies the chosenπ whose exponent is the already planned digit sum.
+- The Gauss leading congruence: Fixes the orientation againstζ−1, necessary to distinguish root-of-unity factors.
+- Change of coefficient ring: The map API shows the normalized choice is preserved whenever the primitive-root hypotheses persist.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzPi_def` (constructor): Choose the witness of the integral existence-and-uniqueness theorem.
+- `DirichletPadic.grossKoblitzPi_power` (relation): π^(p−1)=−p; promoted below.
+- `DirichletPadic.grossKoblitzPi_congruence` (relation): (ζ−1)² dividesπ−(ζ−1); promoted below.
+- `DirichletPadic.grossKoblitzPi_unique` (characterisation): Any candidate with both properties equals the choice; promoted below.
+- `DirichletPadic.grossKoblitzPi_ne_zero` (characterisation): π≠0; promoted below.
+- `DirichletPadic.grossKoblitzPi_map` (compatibility): Ring maps preserving the stated primitive-root hypotheses preserveπ; promoted below.
+- `DirichletPadic.grossKoblitzPi_ternary` (simp): At p=3, π=ζ(ζ−1); promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_is_nonzero` (non-example): The chosen normalizedπ is not0.
+- `SuggestedGrossKoblitzPiTests.pi_ternary_value` (computation): For the chosen third root, π is exactlyζ(ζ−1).
+- `SuggestedGrossKoblitzPiTests.pi_definition` (compatibility): The chosenπ is the witness of the stated integral existence-and-uniqueness theorem.
+
+**Acceptance:** At p=3, π=ζ(ζ−1), and π≠0. Its defining theorem, not only its power equation, determines the choice.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The defining power of integral pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-power` — `DirichletPadic.grossKoblitzPi_power`
+
+The chosen integralπ satisfiesπ^(p−1)=−p.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Project the first conjunct from the chosen witness of pi_exists_unique.
+2. The complete pi_power proof retains both the odd-prime hypothesis and the specificζ-dependent choice, although the displayed power equation alone does not distinguish the choices.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-integral-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_square` (computation): The selected ternaryπ squares to−3.
+- `SuggestedGrossKoblitzPiTests.opposite_square` (non-example): The oppositeπ has the same square, so the power equation alone cannot fix the normalization.
+
+**Acceptance:** For p=3 bothπ and−π square to−3; the congruence supplies the distinction.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The defining congruence of integral pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-congruence` — `DirichletPadic.grossKoblitzPi_congruence`
+
+The chosen integralπ satisfies(ζ−1)² dividingπ−(ζ−1).
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Project the second conjunct from the chosen witness of pi_exists_unique.
+2. The complete pi_congruence proof returns divisibility insideR. At p=3 the difference is exactly(ζ−1)², whereas−π fails this congruence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-integral-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_exact_ternary_congruence` (computation): For p=3 the congruence difference is exactly(ζ−1)².
+- `SuggestedGrossKoblitzPiTests.opposite_wrong_congruence` (non-example): The oppositeπ fails the required congruence modulo(ζ−1)².
+
+**Acceptance:** Keep the square of the principal ideal; do not weaken to a residue-field equality.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Uniqueness of a normalized integral candidate
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-uniqueness` — `DirichletPadic.grossKoblitzPi_unique`
+
+Every π:R satisfying the source power and squared principal-ideal congruence equals grossKoblitzPi.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Package the candidate power and congruence into the predicate of pi_exists_unique.
+2. Apply the uniqueness projection of the chosen witness. The complete pi_unique proof is the public characterization used by the ring-map and ternary comparisons.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-integral-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.normalized_candidate_unique` (characterisation): Every ternary candidate satisfying both source conditions is the chosenπ.
+
+**Acceptance:** Neither a power-only premise nor a maximal-ideal-only congruence replaces the two stated premises.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Nonvanishing of integral pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-nonzero` — `DirichletPadic.grossKoblitzPi_ne_zero`
+
+The chosen integralπ is nonzero.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. The primitive-root condition gives t=ζ−1≠0. The cyclotomic product expresses−p as the product of the nonzero t^(p−1) and the actual unitU, so−p≠0.
+2. Ifπ were0, its positive power would be0, contradicting pi_power. The complete pi_ne_zero proof uses the domain and residue-characteristic hypotheses already present and adds no CharZero assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-power`, `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-power`, `DirichletPadicLFunctions:L3/gross-koblitz-cyclotomic-unit-invertible`, `mathlib:IsPrimitiveRoot.ne_one`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_nonzero` (characterisation): The primitive-root and residue-characteristic conditions forceπ to be nonzero.
+
+**Acceptance:** In particular the normalizedπ cannot degenerate to0 in the integral source setting.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Compatibility of integral pi with ring maps
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-map` — `DirichletPadic.grossKoblitzPi_map`
+
+For a ring homomorphismφ:R→A between the specified Henselian local domains, ifφζ is primitive of orderp thenφπ_R=π_A atφζ.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Map the defining power throughφ; preservation of powers and natural casts gives(φπ)^(p−1)=−p.
+2. Map an actual divisibility witnessπ−t=t²c. It becomesφπ−(φζ−1)=(φζ−1)²φc insideA.
+3. Apply the uniqueness API inA. The complete pi_map proof assumes only the stated native structures and primitive-root condition onφζ; injectivity ofφ is not separately required.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-power`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-congruence`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-uniqueness`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_identity_map` (compatibility): The normalizedπ is preserved by the identity ring homomorphism.
+- `SuggestedGrossKoblitzPiTests.pi_map_compatibility` (compatibility): A ring homomorphism preserving the stated primitive root preserves the normalizedπ.
+
+**Acceptance:** The identity-map case is immediate; exact finite precision reductions independently check the construction’s normalization.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The exact ternary pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-ternary-pi` — `DirichletPadic.grossKoblitzPi_ternary`
+
+At p=3, grossKoblitzPi=ζ(ζ−1).
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. The native primitive-root geometric sum givesζ²+ζ+1=0 and the primitive-root power givesζ³=1.
+2. Expand(ζ(ζ−1))² and reduce with these two identities to obtain−3. Its difference fromζ−1 is exactly(ζ−1)².
+3. Apply pi_unique to this explicit candidate. The complete pi_ternary proof fixes the sign without an approximation or a choice of complex embedding.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-uniqueness`, `mathlib:IsPrimitiveRoot.geom_sum_eq_zero`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.pi_ternary_polynomial` (computation): The ternary normalizedπ is the polynomialζ²−ζ.
+
+**Acceptance:** Equivalentlyπ=ζ²−ζ. Modulo27 in the t=ζ−1 basis its coefficients are(24,25).
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Existence of the source pi in the local field
+
+`DirichletPadicLFunctions:L3/gross-koblitz-field-pi-existence` — `DirichletPadic.grossKoblitzFieldPi_exists_unique`
+
+For the specified native local fieldK and primitiveζ:K, there is a uniqueπ:K withπ^(p−1)=−p andπ−(ζ−1)=(ζ−1)²a for somea:𝒪[K].
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Regardζ as a native p-th root of unity and lift it through TauCeti.rootsOfUnityIntegerEquiv. Its existing inclusion theorem identifies the image of the lifted integral rootz withζ.
+2. Native IsPrimitiveRoot.map_iff_of_injective transfers primitiveness across the injective integer-ring inclusion. TauCeti.henselianLocalRing_integer supplies the required Henselian structure on𝒪[K].
+3. Apply integral pi_exists_unique atz and include the resultingπ₀ intoK. Map its power and its actual integral divisibility witness to obtain the stated field conditions.
+4. For any field candidatey with integral witnessa, the elementv=(z−1)+(z−1)²a of𝒪[K] maps toy. Injectivity transfers the power equation back to𝒪[K], where integral uniqueness givesv=π₀. Map this equality toK. The complete field_pi_exists_unique proof checks the native subtype coercions explicitly.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-existence`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-power`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-congruence`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-uniqueness`, `tauceti:TauCeti.rootsOfUnityIntegerEquiv`, `tauceti:TauCeti.coe_rootsOfUnityIntegerEquiv`, `tauceti:TauCeti.henselianLocalRing_integer`, `mathlib:IsPrimitiveRoot.map_iff_of_injective`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_pi_exists` (characterisation): The source normalization has a unique solution in the coefficient field with an integral congruence witness.
+
+**Acceptance:** The congruence witness is integral. No choice of a coefficient field containingζ is constructed, and no arbitrary-field uniformizer claim is made.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The chosen source pi in the local field
+
+`DirichletPadicLFunctions:L3/gross-koblitz-normalized-field-pi` — `DirichletPadic.grossKoblitzFieldPi`
+
+Choose the unique fieldπ with the preceding power and integral-witness congruence.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Apply Classical.choose to the established field existence-and-uniqueness theorem. The suggested definition explicitly retains the local-field and residue-characteristic instances.
+2. The complete normalizedFieldPi definition and its specification give the field power, congruence and uniqueness APIs below.
+3. The final comparison proves that an integral primitive root gives exactly the image of the integral choice. Thus this field-facing definition does not introduce an independent normalization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-field-pi-existence`.
+
+**Uses:**
+
+- The source negative Gauss sum: Places the normalized power factor in the same coefficient field as the chosen-root trace character.
+- The Gauss-side leading congruence: Provides the exact second-order integral condition relative to the additive-character root.
+- Integral-to-field comparison: Relates the field-facing chosen term to the proved integral construction.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzFieldPi_def` (constructor): Choose the witness of field existence and uniqueness.
+- `DirichletPadic.grossKoblitzFieldPi_power` (relation): π^(p−1)=−p inK; promoted below.
+- `DirichletPadic.grossKoblitzFieldPi_congruence` (relation): An integral a satisfiesπ−(ζ−1)=(ζ−1)²a; promoted below.
+- `DirichletPadic.grossKoblitzFieldPi_unique` (characterisation): Every candidate with both field conditions is the choice; promoted below.
+- `DirichletPadic.grossKoblitzFieldPi_integer` (compatibility): For integralζ, this is the image of the integralπ; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_pi_square` (computation): The chosen fieldπ squares to−3.
+- `SuggestedGrossKoblitzPiTests.field_pi_integral_difference` (compatibility): The defining congruence has its witness in the integer ring.
+- `SuggestedGrossKoblitzPiTests.field_opposite_root` (non-example): The power equation also holds for the opposite fieldπ, demonstrating why the integral congruence is retained.
+
+**Acceptance:** The tests check its power, its integral congruence witness and the ambiguity of the power equation alone.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The defining field power
+
+`DirichletPadicLFunctions:L3/gross-koblitz-field-pi-power` — `DirichletPadic.grossKoblitzFieldPi_power`
+
+The chosen fieldπ satisfiesπ^(p−1)=−p inK.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Project the power equation from the chosen field witness.
+2. The complete field_pi_power proof keeps the sameζ used in the preceding actual trace-character construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-field-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_power` (computation): The field version retains the negative sign in the defining power.
+
+**Acceptance:** At p=3 its square is−3.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### The integral witness for the field congruence
+
+`DirichletPadicLFunctions:L3/gross-koblitz-field-pi-congruence` — `DirichletPadic.grossKoblitzFieldPi_congruence`
+
+There existsa:𝒪[K] withπ−(ζ−1)=(ζ−1)²(a:K).
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Project the integral-witness conjunct from the chosen field witness.
+2. The complete field_pi_congruence proof preserves the coefficient type𝒪[K]. A field-valued divisibility assertion alone would hold for every difference becauseζ−1 is nonzero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-field-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_congruence` (characterisation): The field congruence is stated with an integral coefficient, since field divisibility alone would be vacuous.
+
+**Acceptance:** The typed test explicitly quantifiesa in the integer ring.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Uniqueness of a field candidate
+
+`DirichletPadicLFunctions:L3/gross-koblitz-field-pi-uniqueness` — `DirichletPadic.grossKoblitzFieldPi_unique`
+
+Every field candidate satisfying the power and integral-witness congruence equals the chosen fieldπ.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Package the two concrete candidate properties into the predicate from field_pi_exists_unique.
+2. Apply the uniqueness projection of the chosen witness. The complete field_pi_unique proof supplies the characterization used in the integral comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-normalized-field-pi`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_candidate_unique` (characterisation): A field candidate with both source conditions equals the chosen fieldπ.
+
+**Acceptance:** The congruence premise retains its integral witness.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+### Agreement of integral and field pi
+
+`DirichletPadicLFunctions:L3/gross-koblitz-field-integral-pi-comparison` — `DirichletPadic.grossKoblitzFieldPi_integer`
+
+For an integral primitive rootζ, the fieldπ at its image equals the image of the integralπ.
+
+**Hypotheses:** The cyclotomic product U_p(ζ)=−∏_(i<p−1)Σ_(j<i+1)ζ^j is defined in any commutative ring. Its primitive-root congruence and product equation use a domain and a primitive p-th root. The product equation requires odd prime p; its sign is false with this convention at p=2. For integral normalization, R is an existing Henselian local domain, with residue field of characteristic p and a specified IsPrimitiveRoot ζ p. The theorem for the simple unit root works for all primes; the pi normalization requires p≠2. Set t=ζ−1. The needed congruence is divisibility by t² in R, and not merely membership in the square of its maximal ideal. The principal ideal(t) can be strictly smaller than the maximal ideal. HenselianLocalRing, the residue field, the unit criterion, primitive roots and polynomial evaluation are native structures. The routine simple-root helpers instantiate the existing Hensel class and factor differences of powers; they are proof details, not a second plan of Henselian or local-field theory. The field formulation uses the existing nonarchimedean local field K, its native integer ring 𝒪[K] and residue field𝓀[K] of characteristic p. It takes a specified primitive p-th root ζ in K, transfers it to𝒪[K] by the existing TauCeti roots-of-unity equivalence, and uses the existing Henselian integer-ring instance. Its congruence is expressed with a witness a:𝒪[K]; unrestricted divisibility in K would lose the normalization. The choice ofπ is characterized by π^(p−1)=−p and π≡ζ−1 modulo(ζ−1)². No uniformizer assertion is made for an arbitrary larger local field. The source callsπ a uniformizer in its particular cyclotomic completion L_B; identifying that field and its ramification is a separate native-theory interface. These nodes supply the root normalization used in Section1. They do not prove the full Gross–Koblitz formula, the cited Katz/Fermat limit, the Gauss-side Stickelberger congruence, or E18’s proposed distribution repair. All preceding source versions, requests and findings remain whole.
+
+**Proof:**
+
+1. Map the integral primitive-root witness through the native injective integer-ring inclusion using IsPrimitiveRoot.map_of_injective.
+2. Map the integral power and an actual integral congruence witness toK.
+3. Apply field_pi_unique to the image of the integralπ. The complete field_pi_integer proof checks both native constructions and shows they choose the same normalization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-field-pi-uniqueness`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-power`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-pi-congruence`, `mathlib:IsPrimitiveRoot.map_of_injective`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPiTests.field_integral_comparison` (compatibility): The field choice equals the image of the integral choice at an integral primitive root.
+
+**Acceptance:** The suggested compatibility test keeps both sides’ actual native integer-ring and field types.
+
+**Source:** Section1 p.570, the fixed primitive p-th root and the uniquely compatible pi satisfying the power and second-order congruence; conventions from pp.569–571. Full paper reading retained; this construction proves the stated local normalization using pinned native Henselian and cyclotomic APIs. The source fixes pi by its power and its congruence relative to the chosen additive-character root. The integral construction below retains exactly that principal-ideal congruence, and the field version uses an integral witness. Its proof is a native-library derivation of the stated normalization, not a claim that the source prints this Hensel proof.
+
+**Remaining:** The source-compatible pi is now constructed and uniquely normalized in the integral domain and in a native local coefficient field containing the chosen primitive root. The field formulation has an integral congruence witness and agrees with the integral construction. Next resolve the actual proof inputs for the full Gauss formula: read the cited Katz/Fermat Frobenius limit2.7 and the Gauss-side Stickelberger leading congruence, or a complete accessible primary proof that supplies precisely those interfaces. The Gamma-side factorial product and elementary Jacobi pair do not supply those inputs. Identifying the source cyclotomic completion and its uniformizer assertion is distinct from the arbitrary-local-field normalization proved here; reuse native local-field theory. E18’s repair remains unproved/unused, and the Ferrero–Greenberg proof and analytic supplier obligations remain. All18 gaps and14 requests remain; no stage closes.
+
+### The source-normalized Gross–Koblitz pi validation
+
+All 1063 predecessor nodes, 800 baseline records, 18 findings, requests and sourceVersions remain whole. This checkpoint adds 20 nodes, 23 named suggested declarations and 31 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1343 reachable nodes, 6375 edges and 984 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All20 new nodes terminate in preceding pi nodes and pinned native library facts, with no new unresolved stage leaves or new supplier request. Native Henselian and local-field theory is reused. All14 existing supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe preserves5345 verbatim and adds three definitions and26 lemmas, including nine routine Hensel, residue, factorial and Wilson helpers. It uses existing native carriers and proves both defining conditions without assuming the target normalization. Suggested definitions explicitly retain all required native instances. The separate probe compiles against 2916 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. The full suggested module is NOT COMPILED because pinned TwistedDivisorSum lacks a compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact cyclotomic quotient controls cover16 prime/precision pairs, the opposite-root sign, four ternary formulas,36 precision-reduction comparisons and three exhaustive simple-root checks. They also exhibit multiple normalized pi roots in finite zero-divisor quotients, explaining why the domain hypothesis is retained. Exact integer polynomial reduction modulo Phi_p(1+t) and p^r for p=3,5,7,11 and r=1,2,3,4; checked Newton inverses, power/congruence identities, precision-reduction compatibility, and exhaustive simple-root enumeration in three small finite quotients. These finite quotients have zero divisors and do not certify the domain-only pi uniqueness theorem. The largest observed discrepancy is 0.
+
+Capture at d0d3b4f921ac65dd24100723078f958710dd7ce7 has zero changes among72 guarded inputs after merged5345; whole issue body unchanged. No policy, supplier, source finding or review verdict changed.
+
+The separate partial signature file also compiled with zero errors and 3,479 expected placeholder warnings across 3,604 pinned source modules. It includes all 23 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ca14c04c14ca928eb97aa1f96cded85930f4e86c877afefcf9a19abe5961ca1e.
