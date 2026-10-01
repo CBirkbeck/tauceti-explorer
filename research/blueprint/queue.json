@@ -40540,8 +40540,9 @@
     "REV-PAPER-NEWTON-THORNE-21-B"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4297"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4297",
+   "finishedAt": "2026-10-01T17:37:57Z"
   },
   {
    "id": "RT-PAPER-CHENEVIER-TAIBI-20",
