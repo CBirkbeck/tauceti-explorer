@@ -34713,8 +34713,9 @@
     "REV-PAPER-JIANG-ZHANG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-JIANG-ZHANG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4083"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4083",
+   "finishedAt": "2026-10-01T18:07:34Z"
   },
   {
    "id": "REV-RT-PAPER-JIANG-ZHANG-20",
