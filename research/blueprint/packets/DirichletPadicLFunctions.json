@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fifteen L3 nodes extend the actual Gamma logarithm distribution to every integral rational, constructing all preimage periods and handling negative inputs, integer endpoints and arbitrary positive-period means. All1,219 predecessor nodes,917baseline records,20findings and six source versions remain whole.",
+  "summary": "Twenty-eight L3 nodes construct the intrinsic source Phi and corrected Gamma mean using Mathlib’s actual rational circle and minimal period, with full representative, period and distribution APIs. All1,234 predecessor nodes,921baseline records,20findings and six source versions remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6461,6 +6461,118 @@
         "module": "Mathlib/Algebra/EuclideanDomain/Defs.lean",
         "provides": "The remainder plus the divisor times the quotient equals the original element in a native Euclidean domain; specialize to integers for the translation carry.",
         "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads PadicInt.isUnit_den through its reduced-coprimality contradiction and isUnit_iff; Rat.mul_den_eq_num and num_div_den through rational division; native type-tag cancellation. Also reads the core integer Euclidean-division proof used by the exact affine reindexing. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:smul_iterate_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Action/Defs.lean",
+        "provides": "Iterating scalar multiplication n times acts by the n-th power of the scalar.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:QuotientAddGroup.equivIocMod",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Order/ToIntervalMod.lean",
+        "provides": "The additive quotient by integer period multiples is equivalent to the native half-open interval(a,a+period].",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:QuotientAddGroup.equivIocMod_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/ToIntervalMod.lean",
+        "provides": "The native quotient-to-interval equivalence evaluates a cast using toIocMod.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.IsPeriodicPt",
+        "kind": "def",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "The n-th iterate fixes the point; n=0 is allowed.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.periodicPts",
+        "kind": "def",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "The set of points with at least one positive period.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.minimalPeriod",
+        "kind": "def",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "The least positive period of a periodic point; zero for a point with no positive period.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.isPeriodicPt_minimalPeriod",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "The minimal period is always a period, including the zero case.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.minimalPeriod_pos_of_mem_periodicPts",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "A periodic point has positive minimal period.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.IsPeriodicPt.minimalPeriod_le",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "Every positive period bounds the minimal period from above.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.minimalPeriod_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "For a periodic point, applying the endomorphism preserves its minimal period.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.minimalPeriod_eq_one_iff_isFixedPt",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "Minimal period one is equivalent to being fixed.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.IsPeriodicPt.minimalPeriod_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "The minimal period divides every period, including zero.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Function.minimalPeriod_eq_minimalPeriod_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+        "provides": "Two minimal periods are equal exactly when every natural number is a period for one point if and only if it is a period for the other.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:AddCircle",
+        "kind": "abbrev",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "The existing additive quotient of an additive group by the integer multiples of the specified period; specialize to Q with period1.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:AddCircle.coe_nsmul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "Casting a natural scalar multiple into the native additive circle equals the scalar multiple of the cast.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:AddCircle.coe_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "A rational class is zero exactly when the rational is an integer multiple of the period.",
+        "checked": "Full native declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads minimalPeriod through its positive-witness Nat.find definition, minimality, division, fixed-point and iterate proofs; reads the supporting periodic-point recovery from an iterate. Reads the actual rational-circle quotient, coe laws and the interval equivalence construction and inverse proofs. Complete native consumer evidence compiles."
       }
     ]
   },
@@ -82700,6 +82812,1585 @@
       "acceptance": [
         "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Equality in the rational circle through positive representatives",
+      "kind": "lemma",
+      "statement": "Two rational numbers a,b have the same class in native Q/Z if and only if their positive fractional representatives in(0,1] agree.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Apply the fully read native equivalence from the additive quotient to the interval(0,1]. Its coe formula is exactly toIocMod.",
+        "Equality of quotient classes gives equality of the underlying rational representatives by congruence. Conversely, subtype extensionality and injectivity of the equivalence recover equality of quotient classes. Complete circle_eq_iff needs no prime assumption."
+      ],
+      "prerequisites": [
+        "mathlib:AddCircle",
+        "mathlib:QuotientAddGroup.equivIocMod",
+        "mathlib:QuotientAddGroup.equivIocMod_coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_circle_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.circle_negative_translate",
+          "kind": "computation",
+          "statement": "The native circle identifies −11/13 and 2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.integer_positive_representative",
+          "kind": "degenerate",
+          "statement": "The zero rational class has positive representative 1."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-orbit-period-iff-integer",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact integer criterion for a Gamma orbit period",
+      "kind": "lemma",
+      "statement": "For any natural d, X(q) is d-periodic if and only if(p^d−1)q is an integer.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Evaluate a period certificate at0 and apply the integral-orbit inclusion formula. Injectivity of rational casting gives equality of the two positive fractional representatives.",
+        "The native toIocMod equality theorem supplies the integer difference. Its sign is reversed to obtain exactly(p^d−1)q=n.",
+        "Conversely the rational arguments at indices j+d and j differ by the integer p^j*n. The same native representative equality criterion proves their positive fractions equal; the orbit coe formula and injectivity of Z_p into Q_p then give periodicity at every index. Complete orbit_period_iff_integer handles d=0 as well."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe",
+        "mathlib:toIocMod_eq_toIocMod",
+        "mathlib:PadicInt.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_orbit_period_iff_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.period_three_integer",
+          "kind": "computation",
+          "statement": "For p=3,q=2/13,d=3 the integer difference is 4."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.period_two_rejected",
+          "kind": "non-example",
+          "statement": "The same point has no period 2: its difference 16/13 is not integral."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Native circle periods coincide with integral Gamma orbit periods",
+      "kind": "lemma",
+      "statement": "For every d, [q] is a periodic point of T_p with period d if and only if X(q) is d-periodic.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native smul-iterate theorem identifies the d-th iterate of multiplication by p with multiplication by p^d.",
+        "The native quotient coe respects natural scalar multiplication. Use the circle representative equivalence and the toIocMod integer-difference criterion.",
+        "The result is precisely the preceding orbit-period integer criterion. Complete circle_period_iff relates the actual native circle and actual integral orbit, rather than an assumed model."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-period-iff-integer",
+        "mathlib:Function.IsPeriodicPt",
+        "mathlib:smul_iterate_apply",
+        "mathlib:AddCircle.coe_nsmul",
+        "mathlib:toIocMod_eq_toIocMod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_circle_period_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.circle_period_three",
+          "kind": "computation",
+          "statement": "Multiplication by 3 fixes the 2/13 class after three iterates."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.zero_period_allowed",
+          "kind": "degenerate",
+          "statement": "Period 0 is allowed by the native periodic-point predicate."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every integral rational gives a periodic circle point",
+      "kind": "lemma",
+      "statement": "If q is p-adically integral, then [q] belongs to the native set of periodic points of T_p.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The all-rational orbit theorem supplies an actual positive period of X(q), using the reduced denominator and Euler congruence.",
+        "Transport that period to the native circle by the preceding equivalence and give the positive-period witness required by periodicPts. Complete circle_periodic includes negative rationals and integer classes."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+        "DirichletPadicLFunctions:L3/gross-koblitz-all-rational-orbit-period",
+        "mathlib:Function.periodicPts"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_circle_periodic"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.negative_class_periodic",
+          "kind": "computation",
+          "statement": "The class of −2/13 is an actual periodic point."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Positivity of the native least orbit period",
+      "kind": "lemma",
+      "statement": "The native period d(q) is positive for every integral rational q.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Apply the native minimal-period positivity theorem to circle_periodic.",
+        "The integrality hypothesis is essential: the class1/p is merely preperiodic and has native minimalPeriod0. Complete native_period_pos does not presume positivity for every rational class."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic",
+        "mathlib:Function.minimalPeriod",
+        "mathlib:Function.minimalPeriod_pos_of_mem_periodicPts"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_pos"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.least_period_positive",
+          "kind": "computation",
+          "statement": "The least period of 2/13 is positive."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.nonintegral_class_no_period",
+          "kind": "non-example",
+          "statement": "The excluded class 1/3 is preperiodic and has native minimalPeriod 0."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native least period is a Gamma orbit period",
+      "kind": "lemma",
+      "statement": "The actual integral orbit X(q) is periodic with period d(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Native isPeriodicPt_minimalPeriod supplies the circle-period certificate.",
+        "Transport it across circle_period_iff to obtain equality at every natural orbit index. Complete native_period_periodic supplies the actual Gamma-evaluation period used by both intrinsic functions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+        "mathlib:Function.isPeriodicPt_minimalPeriod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_periodic"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.least_period_is_period",
+          "kind": "compatibility",
+          "statement": "The native least period is a period of the actual integral Gamma orbit."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-dvd",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native least period divides every Gamma orbit period",
+      "kind": "lemma",
+      "statement": "Whenever f is a period of X(q), d(q) divides f, including f=0.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Transport the given integral-orbit period to the native periodic-point predicate.",
+        "Apply IsPeriodicPt.minimalPeriod_dvd, whose pinned proof reduces the period modulo the least positive period. Complete native_period_dvd provides the exact quotients in the weighted distribution."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+        "mathlib:Function.IsPeriodicPt.minimalPeriod_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.least_period_divides_six",
+          "kind": "computation",
+          "statement": "The least period divides the nonminimal period 6."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-le",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Minimality among positive Gamma orbit periods",
+      "kind": "lemma",
+      "statement": "If f>0 is a period of X(q), then d(q)≤f.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Convert the period to a native circle periodic point and apply the fully read positive-period minimality theorem.",
+        "Complete native_period_le combines with positivity and periodicity to identify d(q) with the least integer required by the source. No private Nat.find-based period definition is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+        "mathlib:Function.IsPeriodicPt.minimalPeriod_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_le"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.least_period_three",
+          "kind": "computation",
+          "statement": "The least period of 2/13 is exactly 3, which is divisible by p."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-integer",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The integer class has least period one",
+      "kind": "lemma",
+      "statement": "For every integer n, the native period d(n) is1.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Use the native quotient coe-zero criterion with witness n to identify the class of n with zero.",
+        "Zero is fixed by multiplication by p. The native equivalence between minimalPeriod1 and being a fixed point finishes. Complete native_period_integer does not require primality."
+      ],
+      "prerequisites": [
+        "mathlib:AddCircle.coe_eq_zero_iff",
+        "mathlib:Function.minimalPeriod_eq_one_iff_isFixedPt"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.negative_integer_period_one",
+          "kind": "degenerate",
+          "statement": "Every integer class, here −2, has least period 1."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer translation preserves the least period",
+      "kind": "lemma",
+      "statement": "For every rational q and integer n, d(q+n)=d(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native positive representative is unchanged by adding the integer n, by toIocMod_add_zsmul.",
+        "The circle representative equivalence makes the two native classes equal, so applying minimalPeriod gives the result. Complete native_period_translation works without integrality or primality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-eq-iff",
+        "mathlib:toIocMod_add_zsmul",
+        "mathlib:Function.minimalPeriod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.translated_least_period",
+          "kind": "computation",
+          "statement": "Translating 2/13 by −1 preserves its least period."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-neg",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Negation preserves the least period",
+      "kind": "lemma",
+      "statement": "For integral q and −q, d(−q)=d(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Apply the native criterion that equality of minimal periods is equivalent to equality of all periodic-point predicates.",
+        "Translate each predicate to the integer criterion(p^f−1)q∈Z. Negating the witnessing integer gives both implications.",
+        "Complete native_period_neg includes the integer endpoint and period0 in the predicate comparison."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-period-iff",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-period-iff-integer",
+        "mathlib:Function.minimalPeriod_eq_minimalPeriod_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_neg"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.negative_least_period",
+          "kind": "compatibility",
+          "statement": "Negation preserves the native least period."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-native-period-frobenius",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Multiplication by p preserves the least period",
+      "kind": "lemma",
+      "statement": "For integral q, d(pq)=d(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The class[q] is an actual periodic point, so native minimalPeriod_apply identifies the least periods at[q] and T_p[q].",
+        "The quotient coe-natural-scalar law identifies T_p[q] with[pq]. Complete native_period_frobenius uses periodicity, not an unjustified assertion for arbitrary preperiodic points."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic",
+        "mathlib:Function.minimalPeriod_apply",
+        "mathlib:AddCircle.coe_nsmul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_native_period_frobenius"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.rotated_least_period",
+          "kind": "computation",
+          "statement": "The Frobenius translate 6/13 has the same least period."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intrinsic Gross–Koblitz source logarithm",
+      "kind": "definition",
+      "statement": "Define Phi(q)=S_(d(q))(q), the actual Morita Gamma logarithm sum over the native least positive circle orbit period. This is the source’s unnormalized value.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Construct the existing integral orbit X(q) and evaluate the existing named logarithm sum at native d(q).",
+        "The preceding positivity, periodicity and minimality results identify this with the source’s least-period definition. No arbitrary period choice remains in the definition. Complete sourcePhi constructs the value in the supplied field K."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_integer_zero",
+          "kind": "degenerate",
+          "statement": "The intrinsic function vanishes at the integer class −2."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_negative_input",
+          "kind": "compatibility",
+          "statement": "Oddness includes the negative rational −2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_period_three_value",
+          "kind": "computation",
+          "statement": "The intrinsic value is the named length-three sum at 2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_zero_log",
+          "kind": "degenerate",
+          "statement": "The zero logarithm consumer gives zero, so the abstract logarithm laws alone do not specify canonical values."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ],
+      "uses": [
+        {
+          "where": "Gross–Koblitz1979 Section3 least-period Gamma product logarithm",
+          "how": "Provides an intrinsic rational value with the exact least-period convention and all representative transformations."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3 quotient descent and distribution consumer",
+          "how": "Supplies integer translation, oddness, Frobenius invariance and the weighted or normalized distribution; the quotient function remains an explicit next construction."
+        }
+      ],
+      "api": [
+        {
+          "name": "grossKoblitzSourcePhi_eq",
+          "role": "characterisation",
+          "statement": "Evaluation at the native least period gives the defining orbit sum."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_period",
+          "role": "characterisation",
+          "statement": "For any period f of X(q), S_f(q)=(f/d(q))*Phi(q), where the integer quotient acts by repeated addition."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_translation",
+          "role": "relation",
+          "statement": "For any integer n and integral representatives q,q+n, Phi(q+n)=Phi(q)."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_frobenius",
+          "role": "relation",
+          "statement": "For integral q and pq, Phi(pq)=Phi(q)."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_neg",
+          "role": "relation",
+          "statement": "With the logarithm laws, Phi(−q)=−Phi(q)."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_integer",
+          "role": "simp",
+          "statement": "With the root-vanishing logarithm law, Phi(n)=0 for every integer n."
+        },
+        {
+          "name": "grossKoblitzSourcePhi_distribution",
+          "role": "relation",
+          "statement": "Let f>0 be a common period of X(q) and all X((q+h)/m), let d=d(q) and d_h=d((q+h)/m). Then sum_(0≤h<m)(f/d_h)*Phi((q+h)/m)=(f/d)*Phi(q)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intrinsic Gamma orbit mean",
+      "kind": "definition",
+      "statement": "Define Mean(q)=A_(d(q))(q)=Phi(q)/d(q), using the same actual Gamma orbit and native least period. This is the corrected normalized value.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Evaluate the preceding named orbit average at native d(q).",
+        "This defines a value in K. For period independence, characteristic zero makes every positive period invertible in K, even when it is divisible by p. Complete orbitMean never asks for an inverse of a nonunit in Z_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_integer_zero",
+          "kind": "degenerate",
+          "statement": "The intrinsic function vanishes at the integer class −2."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_negative_input",
+          "kind": "compatibility",
+          "statement": "Oddness includes the negative rational −2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_period_three_value",
+          "kind": "computation",
+          "statement": "The intrinsic value is the named length-three average at 2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_zero_log",
+          "kind": "degenerate",
+          "statement": "The zero logarithm consumer gives zero, so the abstract logarithm laws alone do not specify canonical values."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ],
+      "uses": [
+        {
+          "where": "The corrected period-independent ordinary distribution identity",
+          "how": "Provides an intrinsic rational value with the exact least-period convention and all representative transformations."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3 quotient descent and distribution consumer",
+          "how": "Supplies integer translation, oddness, Frobenius invariance and the weighted or normalized distribution; the quotient function remains an explicit next construction."
+        }
+      ],
+      "api": [
+        {
+          "name": "grossKoblitzMean_eq",
+          "role": "characterisation",
+          "statement": "Evaluation at the native least period gives the defining orbit average."
+        },
+        {
+          "name": "grossKoblitzMean_period",
+          "role": "characterisation",
+          "statement": "In characteristic zero, for every positive period f of X(q), A_f(q)=Mean(q)."
+        },
+        {
+          "name": "grossKoblitzMean_div",
+          "role": "relation",
+          "statement": "Mean(q)=Phi(q)/d(q) in the supplied field."
+        },
+        {
+          "name": "grossKoblitzMean_mul",
+          "role": "relation",
+          "statement": "In characteristic zero, d(q)*Mean(q)=Phi(q)."
+        },
+        {
+          "name": "grossKoblitzMean_translation",
+          "role": "relation",
+          "statement": "For any integer n and integral representatives q,q+n, Mean(q+n)=Mean(q)."
+        },
+        {
+          "name": "grossKoblitzMean_frobenius",
+          "role": "relation",
+          "statement": "For integral q and pq, Mean(pq)=Mean(q)."
+        },
+        {
+          "name": "grossKoblitzMean_neg",
+          "role": "relation",
+          "statement": "With the logarithm laws, Mean(−q)=−Mean(q)."
+        },
+        {
+          "name": "grossKoblitzMean_integer",
+          "role": "simp",
+          "statement": "With the root-vanishing logarithm law, Mean(n)=0 for every integer n."
+        },
+        {
+          "name": "grossKoblitzMean_distribution",
+          "role": "relation",
+          "statement": "For every positive m prime to p, sum_(0≤h<m)Mean((q+h)/m)=Mean(q)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every period sum repeats the intrinsic source value",
+      "kind": "lemma",
+      "statement": "For any period f of X(q), S_f(q)=(f/d(q))*Phi(q), where the integer quotient acts by repeated addition.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least period is a period and divides f.",
+        "Apply the preceding sum-repetition theorem at d(q). Complete sourcePhi_period includes the empty length f=0 and does not conflate the longer sum with Phi."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-dvd",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-repetition"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_period"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.source_six_repeats_three",
+          "kind": "computation",
+          "statement": "At length 6 the unnormalized sum repeats the intrinsic source value twice."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Any positive-period average equals the intrinsic mean",
+      "kind": "lemma",
+      "statement": "In characteristic zero, for every positive period f of X(q), A_f(q)=Mean(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Both f and d(q) are positive actual orbit periods.",
+        "Apply the preceding average-independence theorem, which compares them through a common multiple. Complete orbitMean_period removes the choice of period without assuming it is a p-adic unit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average-independence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_period"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.mean_nine_equals_three",
+          "kind": "compatibility",
+          "statement": "The period-nine average equals the intrinsic mean, although 9 is not a 3-adic unit."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-div",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The mean is the source value divided by the least period",
+      "kind": "lemma",
+      "statement": "Mean(q)=Phi(q)/d(q) in the supplied field.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Unfold only the two intrinsic definitions and the named average definition.",
+        "They use the same native period, actual orbit, Gamma values and logarithm. Complete orbitMean_div is a definitional identity; it does not imply an integral or pZ_p-valued mean."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_div"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.mean_is_source_over_three",
+          "kind": "computation",
+          "statement": "The source value is divided by the least period 3 in Q3."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Recovering the source value from the intrinsic mean",
+      "kind": "lemma",
+      "statement": "In characteristic zero, d(q)*Mean(q)=Phi(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Positivity makes d(q) nonzero as a natural number, and characteristic zero makes its field cast nonzero.",
+        "Use the preceding quotient identity and ordinary field cancellation. Complete orbitMean_mul is valid for d(q) divisible by p because division takes place in K."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-div",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.recover_source_from_mean",
+          "kind": "compatibility",
+          "statement": "Multiplying the intrinsic mean by 3 recovers the source value."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer translation of the intrinsic source value",
+      "kind": "lemma",
+      "statement": "For any integer n and integral representatives q,q+n, Phi(q+n)=Phi(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods agree by the translation theorem.",
+        "The actual integral orbit is invariant under integer translation at each index. Apply the established finite-sum translation law; for a mean, divide both equal sums by their common least period. Complete sourcePhi_translation establishes representative invariance before a quotient function is constructed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_translation_test",
+          "kind": "compatibility",
+          "statement": "Integer translation −1 preserves the intrinsic value."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-frobenius",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Frobenius invariance of the intrinsic source value",
+      "kind": "lemma",
+      "statement": "For integral q and pq, Phi(pq)=Phi(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods agree by native_period_frobenius.",
+        "Periodicity at d(q) identifies the terminal orbit point with the initial point. The established finite-sum shift law therefore identifies the two sums; for means their denominators also agree. Complete sourcePhi_frobenius covers all primes and integer classes."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-frobenius",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-frobenius"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_frobenius"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_rotation_test",
+          "kind": "compatibility",
+          "statement": "Multiplication by 3 preserves the intrinsic value."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-neg",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Oddness of the intrinsic source value",
+      "kind": "lemma",
+      "statement": "With the logarithm laws, Phi(−q)=−Phi(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods at q and −q coincide.",
+        "The existing all-prime logarithmic reflection theorem gives the negative of the finite sum, with integer representatives treated separately by Gamma(1)=−1 and root-log vanishing. Divide by the common period for the mean. Complete sourcePhi_neg uses the actual dyadic reflection law through the prior proof, not the incorrect odd-prime sign at p=2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-neg",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-negation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_neg"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_half_odd",
+          "kind": "degenerate",
+          "statement": "The self-negative half class has intrinsic value zero in characteristic zero."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-integer",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Vanishing of the intrinsic source value at integer classes",
+      "kind": "lemma",
+      "statement": "With the root-vanishing logarithm law, Phi(n)=0 for every integer n.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Every integral orbit point of an integer class is1 in the positive-representative convention.",
+        "The established integer-class logarithm sum is zero, since Gamma(1)=−1 is torsion. Specialize its arbitrary length to d(n), and divide by d(n) for the mean. Complete sourcePhi_integer includes negative integers and zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.sourcePhi_zero_class",
+          "kind": "degenerate",
+          "statement": "The zero class has Gamma representative 1 and logarithmic value zero."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer translation of the intrinsic mean",
+      "kind": "lemma",
+      "statement": "For any integer n and integral representatives q,q+n, Mean(q+n)=Mean(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods agree by the translation theorem.",
+        "The actual integral orbit is invariant under integer translation at each index. Apply the established finite-sum translation law; for a mean, divide both equal sums by their common least period. Complete orbitMean_translation establishes representative invariance before a quotient function is constructed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_translation_test",
+          "kind": "compatibility",
+          "statement": "Integer translation −1 preserves the intrinsic value."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-frobenius",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Frobenius invariance of the intrinsic mean",
+      "kind": "lemma",
+      "statement": "For integral q and pq, Mean(pq)=Mean(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods agree by native_period_frobenius.",
+        "Periodicity at d(q) identifies the terminal orbit point with the initial point. The established finite-sum shift law therefore identifies the two sums; for means their denominators also agree. Complete orbitMean_frobenius covers all primes and integer classes."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-frobenius",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-frobenius",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_frobenius"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_rotation_test",
+          "kind": "compatibility",
+          "statement": "Multiplication by 3 preserves the intrinsic value."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-neg",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Oddness of the intrinsic mean",
+      "kind": "lemma",
+      "statement": "With the logarithm laws, Mean(−q)=−Mean(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The native least periods at q and −q coincide.",
+        "The existing all-prime logarithmic reflection theorem gives the negative of the finite sum, with integer representatives treated separately by Gamma(1)=−1 and root-log vanishing. Divide by the common period for the mean. Complete orbitMean_neg uses the actual dyadic reflection law through the prior proof, not the incorrect odd-prime sign at p=2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-neg",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-negation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_neg"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_half_odd",
+          "kind": "degenerate",
+          "statement": "The self-negative half class has intrinsic value zero in characteristic zero."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-integer",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Vanishing of the intrinsic mean at integer classes",
+      "kind": "lemma",
+      "statement": "With the root-vanishing logarithm law, Mean(n)=0 for every integer n.",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Every integral orbit point of an integer class is1 in the positive-representative convention.",
+        "The established integer-class logarithm sum is zero, since Gamma(1)=−1 is torsion. Specialize its arbitrary length to d(n), and divide by d(n) for the mean. Complete orbitMean_integer includes negative integers and zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.orbitMean_zero_class",
+          "kind": "degenerate",
+          "statement": "The zero class has Gamma representative 1 and logarithmic value zero."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intrinsic Gamma mean distribution",
+      "kind": "theorem",
+      "statement": "For every positive m prime to p, sum_(0≤h<m)Mean((q+h)/m)=Mean(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "Construct each rational preimage’s integrality certificate using the preceding actual affine-integrality theorem.",
+        "Use native_period_periodic and native_period_pos for the input and every preimage. These are the exact hypotheses of the preceding all-rational average distribution.",
+        "Specialize that theorem to each native least period. Complete orbitMean_distribution needs no caller-selected periods or common multiple and works at integer and negative rational inputs. It gives the corrected mean identity only, without a universal-property or pZ_p-valued assertion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-intrinsic-mean",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-pos",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-log-average-distribution"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzMean_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.intrinsic_negative_distribution",
+          "kind": "computation",
+          "statement": "The corrected intrinsic mean satisfies the halving distribution at −2/13."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.nonunit_period_arithmetic",
+          "kind": "non-example",
+          "statement": "The finite witness mean 1 mod 3 lies outside 3Z3; this test only states its final arithmetic certificate."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-phi-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intrinsic period-weighted source distribution",
+      "kind": "theorem",
+      "statement": "Let f>0 be a common period of X(q) and all X((q+h)/m), let d=d(q) and d_h=d((q+h)/m). Then sum_(0≤h<m)(f/d_h)*Phi((q+h)/m)=(f/d)*Phi(q).",
+      "hypotheses": [
+        "The prime p may be2. A rational input q comes with the actual native integrality certificate norm(q in Q_p)≤1. X_j(q), S_f(q) and A_f(q) denote the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean; integers have positive fractional representative1.",
+        "The native carrier C is Mathlib AddCircle(1:Q)=Q/Z. Let T_p(z)=p*z on C and d(q)=Function.minimalPeriod(T_p,[q]). These are existing native library notions; no new period object or replacement circle is proposed. Periodicity of a sequence means equality at every natural index, including the trivial period0.",
+        "For logarithmic values K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is a supplied consumer logarithm. Reflection, integer-zero and distribution laws require ell(ab)=ell(a)+ell(b) on nonzero inputs and ell(a)=0 whenever a has positive finite order. The actual Morita Gamma supplies continuity, recurrence, reflection and admissible reduction congruences. The logarithm remains owned by ColemanIntegration.",
+        "Period-independent means and the identity d*Mean=Phi require characteristic zero. For distribution, m is positive, prime to p, and has the native Z_p unit certificate; the preimages (q+h)/m are integral by the preceding affine-integrality theorem. The weighted source identity uses a positive common period of the input and all preimages.",
+        "The least-period source value Phi=S_d and the corrected mean Mean=A_d are distinct. Their rational representative laws are proved here; a function on the native integral quotient domain is still to be constructed. No universal odd-distribution claim or general integral-valued mean is asserted. The existing p3,2/13 mean lies outside3Z3."
+      ],
+      "proofSteps": [
+        "The input and each preimage have native least periods; they divide f by native_period_dvd.",
+        "Apply the preceding all-rational weighted sum identity with these least periods. Complete sourcePhi_distribution supplies every actual period and divisibility witness.",
+        "The earlier common-period existence theorem guarantees such an f exists. The retained varying-period counterexample forbids discarding the factors f/d_h or replacing this result by the source’s printed product relation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-phi",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-periodic",
+        "DirichletPadicLFunctions:L3/gross-koblitz-native-period-dvd",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-preimage-common-period",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-weighted-log-distribution"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzIntrinsicFunctions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzSourcePhi_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: the least-period definition after Gamma multiplication, relations(3.4)–(3.6), and the universal odd-distribution paragraph. These complete pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The actual least positive orbit period is identified with the native minimalPeriod on Q/Z. Source Phi uses the unnormalized sum over that period; the separately named corrected mean divides by it. Native periodic-point theory supplies the generic period facts. The source’s varying-period distribution remains subject to E18; only its proved weighted and averaged corrections are used. Kubert universality is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.intrinsic_weights_required",
+          "kind": "computation",
+          "statement": "The retained p7 period weights give the corrected source distribution."
+        },
+        {
+          "name": "SuggestedGrossKoblitzIntrinsicFunctionsTests.intrinsic_unweighted_fails",
+          "kind": "non-example",
+          "statement": "Removing the period weights from the source values still fails."
+        }
+      ],
+      "acceptance": [
+        "The named tests distinguish least periods, integral and excluded inputs, or the source sum and normalized mean. Every new native consumer declaration has a complete proof with zero placeholders, errors or warnings; this remains an unchecked blueprint plan."
+      ]
     }
   ],
   "requests": [
@@ -82846,7 +84537,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The corrected finite, weighted and intrinsic mean distributions now cover every p-adically integral rational, including negative inputs and integer classes. Next construct the intrinsic mean from its positive-period independence on the native rational quotient domain and assess the universal odd-distribution claim against Kubert1979, whose body remains unread. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness gives a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
+        "The source Phi and corrected mean are now intrinsic rational functions using actual native minimalPeriod on Q/Z, with positive-period comparisons, translation, oddness, Frobenius invariance and both distribution identities. Next descend these functions to the native integral rational quotient domain and read Kubert1979 to assess the universal odd-distribution claim. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness is a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -82878,7 +84569,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The corrected finite, weighted and intrinsic mean distributions now cover every p-adically integral rational, including negative inputs and integer classes. Next construct the intrinsic mean from its positive-period independence on the native rational quotient domain and assess the universal odd-distribution claim against Kubert1979, whose body remains unread. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness gives a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The source Phi and corrected mean are now intrinsic rational functions using actual native minimalPeriod on Q/Z, with positive-period comparisons, translation, oddness, Frobenius invariance and both distribution identities. Next descend these functions to the native integral rational quotient domain and read Kubert1979 to assess the universal odd-distribution claim. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness is a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -83333,36 +85024,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now cover all integral rational inputs. The preceding averaged-codomain boundary remains in force; Kubert universality is not claimed.",
+    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now use the named intrinsic functions at native least periods. The averaged-codomain boundary remains in force; Kubert universality is not claimed.",
     "validation": {
-      "nodes": 1234,
+      "nodes": 1262,
       "kinds": {
-        "definition": 6,
-        "lemma": 576,
+        "definition": 8,
+        "lemma": 600,
         "construction": 112,
-        "theorem": 333,
+        "theorem": 335,
         "comparison": 207
       },
-      "api": 865,
-      "packetTests": 2429,
-      "definitionConstructionTests": 505,
-      "typedExamples": 2432,
+      "api": 881,
+      "packetTests": 2469,
+      "definitionConstructionTests": 513,
+      "typedExamples": 2472,
       "planets": 24,
-      "baseline": 921,
-      "preservedWholeNodes": 1219,
-      "preservedBaseline": 917,
+      "baseline": 937,
+      "preservedWholeNodes": 1234,
+      "preservedBaseline": 921,
       "preservedSourceIssues": 20,
       "newSourceIssues": 0,
-      "newNodes": 15,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 30,
+      "newNodes": 28,
+      "newNamedDeclarations": 30,
+      "newTypedTests": 40,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1494,
-      "dependencyEdges": 6950,
+      "reachableNodes": 1522,
+      "dependencyEdges": 7044,
       "acyclic": true,
-      "baselineLeaves": 1086,
+      "baselineLeaves": 1100,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -83377,7 +85068,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 634180,
+      "readerWords": 648138,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -83403,27 +85094,25 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 38,
-      "scratchCompleteLemmas": 668,
+      "scratchCompleteDefinitions": 40,
+      "scratchCompleteLemmas": 696,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "integral_denominator": 579,
-        "arbitrary_rational_period": 579,
-        "affine_integrality": 2734,
-        "common_period": 2734,
-        "translation_permutation": 2734,
-        "affine_integer_reindex": 8905,
-        "proper_numerator": 1091,
-        "rational_common_sum": 2419,
-        "integer_endpoint_sum": 489,
-        "weighted_distribution": 2419,
-        "averaged_distribution_scaled": 2419,
-        "arbitrary_period_average": 4838,
-        "nonunit_period_denominators": 244
+        "native_period_matches_integral_orbit": 1012,
+        "all_periods_divisibility": 16312,
+        "period_negation_frobenius": 1012,
+        "period_integer_translation": 2024,
+        "integer_endpoint": 156,
+        "source_phi_odd": 841,
+        "source_phi_frobenius": 841,
+        "source_phi_translation": 841,
+        "intrinsic_source_weighted_distribution": 2226,
+        "intrinsic_mean_distribution_scaled": 2226,
+        "nonunit_period_cases": 220
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -83431,11 +85120,11 @@
       ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3",
+        "sourceSha256": "9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb",
         "modules": 3604,
-        "warnings": 4011,
+        "warnings": 4081,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,081 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 40 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -83445,7 +85134,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "4694b02a98d83ccf937349cc5f892053f7ece20d4f8ba29ada85f8ce02d29da7",
+      "sha256": "157417299b35a5515ba8916d4e102b03c2792876861ee8590f32589762feaa14",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -83460,11 +85149,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 668,
+        "completeLemmas": 696,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "7529b62bb75b4982bbf07d89ad6e61170ced7f8083d886f77cb6243e09dec75d"
+        "sha256": "8d1ed308c1cc8dfcb6f668f09ed9b81df13424f7df648d5df4fc83304803a570"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -83602,17 +85291,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3",
+        "sourceSha256": "9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb",
         "modules": 3604,
-        "warnings": 4011,
+        "warnings": 4081,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,081 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 40 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "cbdba58266091adad17f6a4955d19ab9e43b600f",
+      "base": "aae746243c361c12933f22b8a53bd03439399ba4",
       "unchangedInputs": 73,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -93785,6 +95474,58 @@
         "warnings": 4011,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "grossKoblitzIntrinsicFunctions": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5390,
+      "previousHead": "f44825bfa7fafb82f30b706bd1bd7cf4a9cbf2d6",
+      "previousMerge": "ba5b647075b67fe7adc89630cb8a81d1ece3c468",
+      "preservedWholeNodes": 1234,
+      "preservedBaseline": 921,
+      "preservedFindings": 20,
+      "newNodes": 28,
+      "reading": "Uses the fully read Gross–Koblitz1979 published575–577 and the preceding actual orbit and corrected rational-distribution proofs. Freshly reads the pinned native rational-circle definition, coe laws, quotient interval equivalence, scalar iterates, periodic-point predicates and complete minimal-period proofs. All73 captured owner, source, policy and library-audit inputs remain unchanged. Kubert1979 has been acquired but its body remains unread and no result from it is used.",
+      "boundary": "The source Phi and corrected mean are now intrinsic rational functions using actual native minimalPeriod on Q/Z, with positive-period comparisons, translation, oddness, Frobenius invariance and both distribution identities. Next descend these functions to the native integral rational quotient domain and read Kubert1979 to assess the universal odd-distribution claim. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness is a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "ba5b647075b67fe7adc89630cb8a81d1ece3c468",
+      "sourceBoundary": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now use the named intrinsic functions at native least periods. The averaged-codomain boundary remains in force; Kubert universality is not claimed.",
+      "publication": {
+        "base": "aae746243c361c12933f22b8a53bd03439399ba4",
+        "unchangedInputs": 73,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "native_period_matches_integral_orbit": 1012,
+        "all_periods_divisibility": 16312,
+        "period_negation_frobenius": 1012,
+        "period_integer_translation": 2024,
+        "integer_endpoint": 156,
+        "source_phi_odd": 841,
+        "source_phi_frobenius": 841,
+        "source_phi_translation": 841,
+        "intrinsic_source_weighted_distribution": 2226,
+        "intrinsic_mean_distribution_scaled": 2226,
+        "nonunit_period_cases": 220
+      },
+      "numericalMethod": "Exact integer and Fraction arithmetic compares an independently computed multiplicative order modulo the reduced denominator with the actual positive-fraction orbit. It tests all periods from 0 through three least periods, signs, translations and Frobenius. Odd-prime Gamma values come from the signed factorial recurrence; canonical logarithms use log(u^(p-1))/(p-1) with tail bound n-vp(n)>=k for n>=2k. All means are multiplied by p^V and residue precision increased by V before reduction, so periods divisible by p are never inverted in Z/p^k. These are finite controls, not a proof of general mean integrality or universality.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb",
+        "modules": 3604,
+        "warnings": 4081,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,081 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 40 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9a96663370a2204f0906ea71bfd80904192334ec1ece8a0b495aaea7c030fabb.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
