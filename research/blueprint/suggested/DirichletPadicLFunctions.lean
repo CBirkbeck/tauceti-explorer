@@ -20923,3 +20923,180 @@ example (a b c d x y t : ℤ_[3]) (ha : 16*a=1) (hb : 16*b=9) (hc : 16*c=3) (hd 
 example (p : ℕ) [Fact p.Prime] (x y : ℤ_[p]) : IsUnit ((moritaGamma p (x)/moritaGamma p (y) : ℤ_[p]ˣ) : ℤ_[p]) := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzRootTests
+
+/- Normalizer torsion and the corrected period-weighted logarithmic distribution. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+
+lemma moritaGamma_reflection_pair_square (p : ℕ) [Fact p.Prime]
+     (x : ℤ_[p]) :
+    ((fun z => (moritaGamma p z : ℤ_[p])) x*(fun z => (moritaGamma p z : ℤ_[p])) (1-x))^2=1 := by sorry
+
+lemma moritaGamma_normalizer_reflect (p : ℕ) [Fact p.Prime]
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    (∏h ∈ range (m-1), (moritaGamma p) (1-(↑hm.unit⁻¹ : ℤ_[p])*(h+1)))=
+      ∏h ∈ range (m-1), (moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)) := by sorry
+
+lemma moritaGamma_normalizer_fourth_power (p : ℕ) [Fact p.Prime]
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    (∏h ∈ range (m-1),(fun z => (moritaGamma p z : ℤ_[p])) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)))^4=1 := by sorry
+
+lemma moritaGamma_normalizer_log_sum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    (∑h ∈ range (m-1),ℓ (ι ((moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)) : ℤ_[p])))=0 := by sorry
+
+lemma moritaGamma_multiplication_log_sum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (∑j ∈ range f,∑h ∈ range m,ℓ (ι ((moritaGamma p) ((↑hm.unit⁻¹ : ℤ_[p])*(x j+h)) : ℤ_[p])))=
+      ∑j ∈ range f,ℓ (ι ((moritaGamma p) (x j) : ℤ_[p])) := by sorry
+
+lemma grossKoblitz_source_log_sum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (hpm : p.Coprime m) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y : ℕ → ℕ → ℤ_[p])
+    (hY : ∀j, ∀h<m, (Y j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p])) :
+    (∑h ∈ range m,∑j ∈ range f,ℓ (ι ((moritaGamma p) (Y j h) : ℤ_[p])))=
+      ∑j ∈ range f,ℓ (ι ((moritaGamma p) (x j) : ℤ_[p])) := by sorry
+
+lemma grossKoblitz_period_sum {K : Type*} [AddCommMonoid K] (a : ℕ → K) (d f : ℕ)
+    (ha : Function.Periodic a d) (hdf : d ∣ f) :
+    (∑j ∈ range f,a j)=(f/d) • (∑j ∈ range d,a j) := by sorry
+
+lemma grossKoblitz_period_average {K : Type*} [Field K] [CharZero K] (a : ℕ → K) (d f : ℕ)
+    (ha : Function.Periodic a d) (hdf : d ∣ f) (hf : 0<f) :
+    (∑j ∈ range f,a j)/(f : K)=(∑j ∈ range d,a j)/(d : K) := by sorry
+
+lemma grossKoblitz_minimal_period_exists {K : Type*} (a : ℕ → K)
+    (h : ∃d : ℕ,0<d ∧ Function.Periodic a d) :
+    ∃d : ℕ,0<d ∧ Function.Periodic a d ∧ ∀f : ℕ,Function.Periodic a f → d ∣ f := by sorry
+
+lemma grossKoblitz_common_period_exists {I K : Type*} [Fintype I] (a : I → ℕ → K)
+    (h : ∀i,∃d : ℕ,0<d ∧ Function.Periodic (a i) d) :
+    ∃f : ℕ,0<f ∧ ∀i,Function.Periodic (a i) f := by sorry
+
+lemma grossKoblitz_fractional_period_exists (a D n : ℕ) (ha : 0<a) (hD : 0<D) (hcp : a.Coprime D) :
+    ∃d : ℕ, 0<d ∧ Function.Periodic
+      (fun j : ℕ => toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)^j*(n/D))) d := by sorry
+
+lemma grossKoblitz_integral_period_exists (p : ℕ) [Fact p.Prime] (a D n : ℕ)
+    (ha : 0<a) (hD : 0<D) (hcp : a.Coprime D) (Y : ℕ → ℤ_[p])
+    (hY : ∀j, (Y j : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0 ((a : ℚ)^j*(n/D)) : ℚ) : ℚ_[p])) :
+    ∃d : ℕ,0<d ∧ Function.Periodic Y d ∧ ∀f : ℕ,Function.Periodic Y f → d ∣ f := by sorry
+
+lemma grossKoblitz_weighted_log_distribution (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (hpm : p.Coprime m) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y : ℕ → ℕ → ℤ_[p])
+    (hY : ∀j, ∀h<m, (Y j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p]))
+    (d : ℕ → ℕ) (e : ℕ)
+    (hperiodY : ∀h<m,Function.Periodic (fun j => Y j h) (d h))
+    (hperiodX : Function.Periodic x e) (hd : ∀h<m,d h ∣ f) (he : e ∣ f) :
+    (∑h ∈ range m,(f/d h) • (∑j ∈ range (d h),ℓ (ι ((moritaGamma p) (Y j h) : ℤ_[p]))))=
+      (f/e) • (∑j ∈ range e,ℓ (ι ((moritaGamma p) (x j) : ℤ_[p]))) := by sorry
+
+lemma grossKoblitz_averaged_log_distribution (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (f : ℕ) (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1)
+    (hpm : p.Coprime m) (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (Y : ℕ → ℕ → ℤ_[p])
+    (hY : ∀j, ∀h<m, (Y j h : ℚ_[p])=((toIocMod (zero_lt_one' ℚ) 0
+      ((p : ℚ)^j*((k/(p^f-1 : ℕ)+h)/m)) : ℚ) : ℚ_[p]))
+    (d : ℕ → ℕ) (e : ℕ)
+    (hperiodY : ∀h<m,Function.Periodic (fun j => Y j h) (d h))
+    (hperiodX : Function.Periodic x e) (hd : ∀h<m,d h ∣ f) (he : e ∣ f) :
+    (∑h ∈ range m,(∑j ∈ range (d h),ℓ (ι ((moritaGamma p) (Y j h) : ℤ_[p])))/(d h : K))=
+      (∑j ∈ range e,ℓ (ι ((moritaGamma p) (x j) : ℤ_[p])))/(e : K) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzLogDistributionTests
+open Finset
+open scoped Classical
+noncomputable section
+-- ternary_reflection_square
+example (x : ℤ_[3]) : ((moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (1-x) : ℤ_[3]))^2=1 := by sorry
+-- dyadic_reflection_square
+example (x : ℤ_[2]) : ((moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (1-x) : ℤ_[2]))^2=1 := by sorry
+-- normalizer_thirds_reverse
+example (hm : IsUnit (3 : ℤ_[2])) : moritaGamma 2 (1-(↑hm.unit⁻¹ : ℤ_[2]))*moritaGamma 2 (1-(↑hm.unit⁻¹ : ℤ_[2])*2)=moritaGamma 2 ((↑hm.unit⁻¹ : ℤ_[2]))*moritaGamma 2 ((↑hm.unit⁻¹ : ℤ_[2])*2) := by sorry
+-- empty_normalizer_reverse
+example (p : ℕ) [Fact p.Prime] : (∏h ∈ range 0,moritaGamma p (1-(h : ℤ_[p])))=1 := by sorry
+-- half_normalizer_fourth
+example (x : ℤ_[3]) (hx : 2*x=1) : moritaGamma 3 (x)^4=1 := by sorry
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- half_not_square_one
+example (x : ℤ_[5]) (hx : 2*x=1) : moritaGamma 5 (x)^2=-1 ∧ moritaGamma 5 (x)^2≠1 := by sorry
+-- half_log_zero
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (x : ℤ_[3]) (hx : 2*x=1) : ℓ ((moritaGamma 3 (x) : ℤ_[3]) : ℚ_[3])=0 := by sorry
+-- empty_log_normalizer
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) : (∑h ∈ range 0,ℓ ((moritaGamma 3 (h) : ℤ_[3]) : ℚ_[3]))=0 := by sorry
+-- ternary_affine_log_sum
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (hm : IsUnit (2 : ℤ_[3])) (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : ℓ ((moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*x) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*(x+1)) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*y) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*(y+1)) : ℤ_[3]) : ℚ_[3])=ℓ ((moritaGamma 3 (x) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 (y) : ℤ_[3]) : ℚ_[3]) := by sorry
+-- one_multiplier_log_sum
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (x : ℤ_[3]) : (∑h ∈ range 1,ℓ ((moritaGamma 3 (x+h) : ℤ_[3]) : ℚ_[3]))=ℓ ((moritaGamma 3 (x) : ℤ_[3]) : ℚ_[3]) := by sorry
+-- literal_sixteenth_logs
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) (a b c d x y : ℤ_[3]) (ha : 16*a=1) (hb : 16*b=9) (hc : 16*c=3) (hd : 16*d=11) (hx : 8*x=1) (hy : 8*y=3) : ℓ ((moritaGamma 3 (a) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 (b) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 (c) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 (d) : ℤ_[3]) : ℚ_[3])=ℓ ((moritaGamma 3 (x) : ℤ_[3]) : ℚ_[3])+ℓ ((moritaGamma 3 (y) : ℤ_[3]) : ℚ_[3]) := by sorry
+-- source_log_torsion_value
+example (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0) : ℓ (-1)=0 := by sorry
+-- period_one_repetition
+example (a : ℕ → ℚ) (ha : Function.Periodic a 1) : (∑j ∈ range 4,a j)=4*a 0 := by sorry
+-- zero_repetition
+example (a : ℕ → ℚ) (d : ℕ) : (∑j ∈ range 0,a j)=(0/d) • (∑j ∈ range d,a j) := by sorry
+-- average_period_two
+example (a : ℕ → ℚ) (ha : Function.Periodic a 2) : (∑j ∈ range 6,a j)/6=(a 0+a 1)/2 := by sorry
+-- average_constant
+example (c : ℚ) (f : ℕ) (hf : 0<f) : (∑j ∈ range f,c)/(f : ℚ)=c := by sorry
+-- minimum_constant_sequence
+example (c : ℚ) : Function.Periodic (fun _ : ℕ => c) 1 ∧ ∀d : ℕ,0<d → 1≤d := by sorry
+-- minimum_alternating_divides
+example (f : ℕ) (hf : Function.Periodic (fun j : ℕ => j%2) f) : 2 ∣ f := by sorry
+-- two_and_three_common_period
+example (a b : ℕ → ℚ) (ha : Function.Periodic a 2) (hb : Function.Periodic b 3) : Function.Periodic a 6 ∧ Function.Periodic b 6 := by sorry
+-- empty_family_common_period
+example (a : Fin 0 → ℕ → ℚ) : ∃f : ℕ,0<f ∧ ∀i,Function.Periodic (a i) f := by sorry
+-- septic_fifteenth_period
+example : Function.Periodic (fun j : ℕ => toIocMod (zero_lt_one' ℚ) 0 ((7 : ℚ)^j/15)) 4 := by sorry
+-- integer_positive_period
+example : Function.Periodic (fun j : ℕ => toIocMod (zero_lt_one' ℚ) 0 ((7 : ℚ)^j)) 1 := by sorry
+-- integral_sixteenth_period
+example (Y : ℕ → ℤ_[3]) (hY : ∀j,(Y j : ℚ_[3])=((toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)^j/16) : ℚ) : ℚ_[3])) : ∃d : ℕ,0<d ∧ Function.Periodic Y d := by sorry
+-- zero_class_lift_period
+example (p : ℕ) [Fact p.Prime] : Function.Periodic (fun _ : ℕ => (1 : ℤ_[p])) 1 := by sorry
+-- recorded_weighted_certificate
+example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
+-- unweighted_certificate_fails
+example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
+-- printed_product_certificate_fails
+example : (28*35 : ZMod 49)≠14 := by sorry
+-- averaged_certificate
+example : (28*37+28*37+28*37+35+28*37 : ZMod 49)=14 := by sorry
+-- mean_not_raw_sum
+example : ((1+2+3+4 : ℚ)/4)=5/2 ∧ ((1+2+3+4 : ℚ)/4)≠10 := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzLogDistributionTests
