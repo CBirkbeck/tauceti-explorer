@@ -34238,8 +34238,9 @@
     "REV-PAPER-BHATT-SCHOLZE-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4071"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4071",
+   "finishedAt": "2026-10-01T10:34:04Z"
   },
   {
    "id": "REV-RT-PAPER-BHATT-SCHOLZE-22",
