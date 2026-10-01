@@ -32264,3 +32264,292 @@ Exact controls pass252 polynomial second derivatives,420 reciprocal geometric re
 Capture at b52181d669d71d0c6556387403aba4a1dcde8bea has zero changes among72 tracked inputs and an unchanged issue body after merged PR5335. Source findings and supplier interfaces are unchanged.
 
 The separate partial signature file also compiled with zero errors and 3,215 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1112e22cabd181da88769bbe30948200aa9db57e5534cbf8692d902881a6b45d.
+
+
+## Odd-prime Gamma reflection and the positive residue
+
+Nine L3 nodes prove the source odd-prime reflection formula with its positive residue, from the existing signed continuous Gamma. All1006 predecessor nodes and765 baseline records remain whole. The complete Gross–Koblitz paper reading adds the independently reviewable distribution finding E18.
+
+Gross–Koblitz1979 has now been read completely, all13 published pages569–581 including the proof and bibliography, from the version-of-record scan hosted by Ravenel. Fresh enlarged images verify Lemma2.3, the z_f units digit in Lemma2.4, and the printed product/least-period convention in p.576(3.5). Section2 invokes Katz’s Fermat-curve Frobenius-eigenvalue limit and Stickelberger’s leading Gauss congruence; those cited proofs have not yet been read or discharged. Section3 multiplication and distribution claims and Section4 Jacobi/Hecke/CM-period applications were read; those outside this roadmap retain their owners. Robert2001 alternate-proof metadata was located but its body is unread. Seven new baseline statements were read in full at the pin.
+
+### The positive residue in the Gamma reflection formula
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue` — `DirichletPadic.grossKoblitzPositiveResidue`
+
+Define hat_p(z)=p if the natural value of toZMod(z) is0, and that natural value otherwise. Thus0<hat_p(z)≤p and hat_p(z)≡z modulo p.
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. Use the native PadicInt.toZMod ring homomorphism and ZMod.val. The case distinction changes only the representative of zero; it introduces no quotient or new residue-field carrier.
+2. The prime is positive. ZMod.val_lt gives the upper bound for the nonzero branch, and a nonzero natural has positive value. The positiveResidue_pos and positiveResidue_le native proofs verify both cases.
+3. For the cast API use ZMod.val_eq_zero in the zero branch and ZMod.natCast_zmod_val otherwise. The natural, zero and locally constant APIs used below are promoted to individual nodes.
+4. At1 the natural formula reduces to1 since p>1. The _def API is the defining equality. The complete native construction and eight API proofs retain the exceptional representative at zero.
+
+**Prerequisites:** `mathlib:PadicInt.toZMod`, `mathlib:ZMod.val`, `mathlib:ZMod.val_lt`, `mathlib:ZMod.val_eq_zero`, `mathlib:ZMod.natCast_zmod_val`.
+
+**Uses:**
+
+- Gross–Koblitz1979 Lemma2.3: Determines the sign of the reflection product, including the residue-zero case.
+- Gross–Koblitz1979 Lemmas2.4–2.5: Relates the Gamma reflection sign at rational arguments to cyclic base-p digits.
+- The continuity proof of reflection: Its constancy on open unit balls makes the sign function continuous, allowing equality on natural integers to extend by density.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzPositiveResidue_def` (constructor): The explicit native toZMod/val case distinction.
+- `DirichletPadic.grossKoblitzPositiveResidue_nat` (simp): At n∈ℕ use n mod p, with0 replaced byp; promoted below.
+- `DirichletPadic.grossKoblitzPositiveResidue_pos` (characterisation): 0<hat_p(z).
+- `DirichletPadic.grossKoblitzPositiveResidue_le` (characterisation): hat_p(z)≤p.
+- `DirichletPadic.grossKoblitzPositiveResidue_cast` (coercion): Its cast to ZModp equals toZMod(z).
+- `DirichletPadic.grossKoblitzPositiveResidue_zero` (simp): hat_p(0)=p; promoted below.
+- `DirichletPadic.grossKoblitzPositiveResidue_one` (simp): hat_p(1)=1.
+- `DirichletPadic.grossKoblitzPositiveResidue_eq_of_norm` (relation): If ‖x−y‖<1 then hat_p(x)=hat_p(y); promoted below.
+- `DirichletPadic.grossKoblitzPositiveResidue_continuous` (structure): hat_p is continuous into the discrete natural numbers; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.positive_zero` (degenerate): hat_7(0)=7.
+- `SuggestedGrossKoblitzReflectionTests.positive_one` (computation): hat_2(1)=1.
+- `SuggestedGrossKoblitzReflectionTests.positive_multiple` (computation): hat_5(15)=5.
+- `SuggestedGrossKoblitzReflectionTests.positive_negative` (computation): hat_7(−1)=6.
+- `SuggestedGrossKoblitzReflectionTests.positive_not_zero` (non-example): hat_3(0)≠0.
+- `SuggestedGrossKoblitzReflectionTests.positive_cast` (compatibility): Casting hat_7(z) into ZMod7 gives toZMod(z).
+- `SuggestedGrossKoblitzReflectionTests.positive_strict` (characterisation): Every hat_3(z) is strictly positive.
+- `SuggestedGrossKoblitzReflectionTests.positive_upper` (characterisation): Every hat_2(z) is at most2.
+
+**Acceptance:** Do not use the least nonnegative representative: at z=0 and odd p it gives the wrong reflection sign. This source-specific choice does not replace the native residue map.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### Positive residues of natural integers
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-natural` — `DirichletPadic.grossKoblitzPositiveResidue_nat`
+
+For n∈ℕ, hat_p(n)=if n mod p=0 then p else n mod p.
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. Unfold the positive-residue definition. Native reduction preserves natural casts and ZMod.val of a natural cast is its remainder modulo p.
+2. The complete positiveResidue_nat proof is simplification against those native identities, with the zero branch unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.natural_odd` (computation): hat_5(12)=2.
+- `SuggestedGrossKoblitzReflectionTests.natural_dyadic` (computation): hat_2(10)=2.
+
+**Acceptance:** The formula applies to all natural n, including multiples of p and0.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### The residue-zero reflection sign
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-zero` — `DirichletPadic.grossKoblitzPositiveResidue_zero`
+
+hat_p(0)=p for every prime p.
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. The native residue homomorphism sends zero to zero, whose natural value is zero. Thus the first branch of the definition is p.
+2. At odd p, native oddness and Odd.neg_one_pow give (−1)^hat_p(0)=−1. This is the base sign needed for Γ_p(0)Γ_p(1).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.zero_odd` (computation): (−1)^hat_7(0)=−1.
+
+**Acceptance:** At p=2 the same residue definition instead gives positive sign; the all-point odd reflection formula therefore cannot be extended unchanged.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### Positive residue is constant on open unit balls
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-local-constant` — `DirichletPadic.grossKoblitzPositiveResidue_eq_of_norm`
+
+If x,y∈ℤ_p and ‖x−y‖<1, then hat_p(x)=hat_p(y).
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. The norm hypothesis puts x−y among the nonunits, hence in the native maximal ideal of ℤ_p.
+2. PadicInt.ker_toZMod identifies that ideal with the kernel of the residue homomorphism. Therefore toZMod(x)=toZMod(y).
+3. The defining case distinction and the natural residue values are identical. The complete positiveResidue_eq_of_norm proof uses this exact kernel argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.mem_nonunits`, `mathlib:IsLocalRing.mem_maximalIdeal`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.same_ball` (characterisation): The positive residue is constant whenever the 5-adic distance is strictly less than1.
+- `SuggestedGrossKoblitzReflectionTests.unit_distance_failure` (non-example): The ternary points1 and0 have distance1 but distinct positive residues.
+
+**Acceptance:** The strict inequality is essential; no constancy on the entire closed unit ball is asserted.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### Continuity of the reflection exponent
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-continuous` — `DirichletPadic.grossKoblitzPositiveResidue_continuous`
+
+hat_p:ℤ_p→ℕ is continuous, with the native discrete topology on ℕ.
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. For every open set in the codomain and every point of its preimage, take the open ball of radius1 about that point.
+2. The preceding local-constancy theorem keeps that whole ball in the preimage. Metric.isOpen_iff proves the preimage is open, and continuous_def concludes.
+3. The complete positiveResidue_continuous proof avoids assuming continuity of the residue map without an available native statement. Composing with any function on the discrete natural numbers is then continuous.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-local-constant`, `mathlib:continuous_def`, `mathlib:Metric.isOpen_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.continuous_dyadic` (compatibility): The dyadic positive residue is continuous.
+- `SuggestedGrossKoblitzReflectionTests.continuous_odd` (compatibility): The positive residue at p=7 is continuous.
+
+**Acceptance:** The output topology is discrete; this does not assert an analytic or additive residue representative.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### The one-step Gamma reflection recurrence
+
+`DirichletPadicLFunctions:L3/morita-gamma-reflection-step` — `DirichletPadic.moritaGamma_reflection_step`
+
+For every prime p and z∈ℤ_p, Γ_p(z+1)Γ_p(−z)=(if z is a unit then−1 else1)Γ_p(z)Γ_p(1−z).
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. Apply the existing Gamma functional equation at z and at−z. Since−z+1=1−z, the latter gives Γ_p(1−z).
+2. Unit status is unchanged by negation. In the unit case both displayed products equal−zΓ_p(z)Γ_p(−z) after the extra sign; in the nonunit case both equal−Γ_p(z)Γ_p(−z).
+3. The complete reflection_step proof is ring algebra in the two cases. It never divides by z and needs no nonzero, continuity or odd-prime hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.step_unit` (computation): At p=5,z=2 the next reflection product is the negative of the current one.
+- `SuggestedGrossKoblitzReflectionTests.step_nonunit` (computation): At p=3,z=3 the reflection product is unchanged.
+- `SuggestedGrossKoblitzReflectionTests.step_negative` (computation): At p=2,z=−1 the sign changes.
+
+**Acceptance:** Keep the unit/nonunit split at the actual input; this recurrence is valid even though the simple all-point formula fails at p=2.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### The one-step positive-residue sign
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-sign-step` — `DirichletPadic.grossKoblitzPositiveResidue_nat_step`
+
+For p≠2 and n∈ℕ, (−1)^hat_p(n+1)=(if p∣n then1 else−1)(−1)^hat_p(n).
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. Replace both positive residues by the preceding natural remainder formula. Use prime oddness to obtain (−1)^p=−1.
+2. If p∣n, the consecutive positive residues are p and1, whose signs agree because p is odd.
+3. Otherwise, if n mod p+1=p, the next representative wraps from p−1 to p, and the sign changes. In the remaining case the remainder increases by1 and pow_succ gives the sign change.
+4. The complete positiveResidue_nat_step proof includes all three cases. At p=2,n=0 the two sides disagree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-natural`, `mathlib:Nat.Prime.odd_of_ne_two`, `mathlib:Odd.neg_one_pow`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.parity_wrap` (computation): At p=5 the signs at4 and5 are negatives.
+- `SuggestedGrossKoblitzReflectionTests.parity_nonunit` (computation): At p=5 the signs at5 and6 agree.
+- `SuggestedGrossKoblitzReflectionTests.parity_dyadic_failure` (non-example): At p=2 the signs at0 and1 differ, although2 divides0.
+
+**Acceptance:** The odd-prime hypothesis enters here and cannot be omitted.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### Gamma reflection at natural arguments
+
+`DirichletPadicLFunctions:L3/morita-gamma-reflection-natural` — `DirichletPadic.moritaGamma_reflection_nat`
+
+For p≠2 and n∈ℕ, Γ_p(n)Γ_p(1−n)=(−1)^hat_p(n).
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. The natural zero case uses Γ_p(0)=1, Γ_p(1)=−1, hat_p(0)=p and oddness.
+2. Induct on n. Apply the one-step reflection recurrence and then the induction hypothesis.
+3. Native norm/unit and coprimality criteria identify IsUnit(n:ℤ_p) with p not dividing n. The preceding residue-sign recurrence has precisely the same multiplier and completes the induction.
+4. The complete reflection_nat proof checks natural casts and the negative Gamma arguments. It does not truncate the statement to positive Gamma arguments.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-reflection-step`, `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-sign-step`, `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-zero`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.natural_reflection_two` (computation): Γ_3(2)Γ_3(−1)=1.
+- `SuggestedGrossKoblitzReflectionTests.natural_reflection_seven` (computation): Γ_7(7)Γ_7(−6)=−1.
+
+**Acceptance:** The negative argument1−n uses the continuous Gamma on ℤ_p, not a nonexistent natural factorial.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+### The odd-prime Gamma reflection formula
+
+`DirichletPadicLFunctions:L3/morita-gamma-reflection` — `DirichletPadic.moritaGamma_reflection`
+
+For every odd prime p and every z∈ℤ_p, Γ_p(z)Γ_p(1−z)=(−1)^hat_p(z).
+
+**Hypotheses:** p is prime. The positive residue and its continuity, and the one-step Gamma identity, apply also at p=2. The parity recursion and reflection formula explicitly require p≠2. Γ_p is the already constructed signed continuous map ℤ_p→ℤ_pˣ, with Γ_p(0)=1, Γ_p(1)=−1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). Every product equality uses scalar projection to ℤ_p. The residue hat(z) is the unique representative in {1,…,p} of z modulo p. The zero residue is represented by p, not0. This is distinct from the source positive fractional part in (0,1], whose zero class is1. The complete native proof derives reflection from the previously established continuity, zero value and recurrence. No logarithm, analytic carrier, Gauss sum or Gross–Koblitz formula is an input. Suggested declarations specialize the actual existing Morita Gamma.
+
+**Proof:**
+
+1. The scalar Gamma is continuous by the preceding construction; products and the map z↦1−z preserve continuity.
+2. The positive residue is continuous into the discrete naturals. The map n↦(−1)^n is continuous on that discrete domain, so the right side is continuous.
+3. PadicInt.denseRange_natCast gives a dense natural range. The preceding natural reflection theorem identifies the two continuous functions there.
+4. Apply DenseRange.equalizer and evaluate at z. The complete reflection proof establishes the source Lemma2.3 with its exact positive-residue convention. No new analytic supplier is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-reflection-natural`, `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-continuous`, `DirichletPadicLFunctions:L3/morita-gamma-value-continuous`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `mathlib:continuous_of_discreteTopology`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:DenseRange.equalizer`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzReflectionTests.reflection_zero` (degenerate): Γ_5(0)Γ_5(1)=−1.
+- `SuggestedGrossKoblitzReflectionTests.reflection_negative` (computation): Γ_5(−1)Γ_5(2)=1.
+- `SuggestedGrossKoblitzReflectionTests.reflection_nonintegral` (computation): If3x=1 inℤ_7 then Γ_7(x)Γ_7(1−x)=−1.
+- `SuggestedGrossKoblitzReflectionTests.reflection_dyadic_failure` (non-example): At p=2,z=0 the Gamma product is−1 while the proposed residue sign is+1.
+
+**Acceptance:** This is Lemma2.3 only. The Gross–Koblitz Gauss formula still needs its exact Gauss character, compatible π, digit calculation, Jacobi input and leading congruence.
+
+**Source:** Section2, published p.572/PDF4, Lemma2.3 and its full proof; p.569 assumes p odd. The definition of the positive residue is in Lemma2.3. The source proves Γ_p(z)Γ_p(1−z)=(−1)^ẑ by natural approximations and Wilson. The present decomposition gives the same signed formula using the already established Gamma recurrence and density. The positive-residue sign, zero convention and odd-prime hypothesis are retained exactly.
+
+**Remaining:** The odd-prime Morita Gamma reflection formula, Gross–Koblitz Lemma2.3, now has a native proof from the existing recurrence and continuity. Next decompose the positive fractional-part cyclic-digit identity, source Lemmas2.4 and2.11, retaining z_f as units digit; establish the exact Gauss sum with its leading minus, fixed nontrivial additive character, π^(p−1)=−p and π≡Ψ(1)−1 modulo(Ψ(1)−1)², and the nonzero rational class convention. The complete paper reading reveals precise remaining inputs: Katz’s Fermat-curve Frobenius limit in2.7 and Stickelberger’s leading congruence in2.11 require proof-source reading and ownership resolution; no final Gauss formula is assumed. E18 records failure of the printed distribution(3.5) and of a naive product-to-sum repair. A period-weighted repair remains to be proved and must not be used as an established pℤ_p-valued distribution. Ferrero–Greenberg’s original proof and exact logarithm/character-shift/coordinate normalizations remain open, as do the Morita analytic supplier obligations and all18 gaps and14 requests. No stage closes.
+
+### Distribution finding E18, awaiting independent review
+
+**Printed:** ∏_{h=0}^{m−1} φ((a+h)/m)=φ(a), for all m prime to p.
+
+**Correction and boundary:** The literal product identity is false. Replacing ∏ by ∑ also fails with the printed least-period definition of φ. A repair must account for the differing orbit periods: the candidate additive common-period identity is ∑_h(F/f_h)φ((a+h)/m)=(F/f_a)φ(a), where F is a common multiple of the respective least periods. Alternatively divide each φ by its own period, with codomain/integrality reconsidered when p divides that period. The full corrected distribution theorem is not proved here and must not be imported from the printed statement; withdraw the unweighted distribution conclusion until those obligations are supplied.
+
+**Reason:** Take p=7,a=1/3. The existing odd-prime Gamma congruence gives Γ_7(1/3)≡25 modulo49, by the signed unit product at the least residue33. Since log_p(u)=log(u^6)/6 and log(1+t)≡t modulo49 for t∈7ℤ_7, φ(1/3)≡14 modulo49. For m=2 the two preimages1/6,2/3 have period1 and φ values28,35 modulo49; their printed product is0, not14. For m=5 the preimages1/15,4/15,7/15,2/3,13/15 have least periods4,4,4,1,4 and φ values28,28,28,35,28; even their unweighted sum is0, not14. The proposed common-period weighted sides both give7 modulo49 with F=4; this is a control, not a proof of a repair. These are exact residue calculations from finite Gamma products and convergent logarithm truncation; all omitted logarithm terms have valuation at least2. They do not use the Gross–Koblitz Gauss formula. The source scan unambiguously prints both the product sign and the least-period convention.
+
+**Version and search:** 1October2026: all published569–581 read in the version-of-record scan hosted at https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf, SHA256 c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522. Fresh full and enlarged p.576 images verify the product sign and least positive period. This is the published scan, not a preprint. Read the full publisher record https://annals.math.princeton.edu/1979/109-3/p06 and the full103-entry dated author bibliography https://people.math.harvard.edu/~gross/publications.html, where this is entry6. No separate correction link to this claim was located. The dated bibliography is not a complete current errata register. Bounded web searches for the title and Gross/Koblitz with errata, erratum, correction, distribution,576 and(3.5), plus an author-page search, located no directly relevant correction. No author was contacted. Absence of a search result does not establish novelty. Screened all current, older and unchecked rows in data/source-issues.json for Gross–Koblitz, this title and DOI. The sole mention found was PAPER-DASGUPTA-KAKDE-VENTULLO-18/E9: its full row concerns F_P versus H_P and a later introduction, not this1979 distribution formula. No matching correction was located. This is a new local finding awaiting independent review, not a claim of historical priority.
+
+### Odd-prime Gamma reflection and the positive residue validation
+
+All 1006 predecessor nodes, 765 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 14 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1275 reachable nodes, 6164 edges and 942 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All nine new nodes terminate in existing Gamma nodes and native library facts, with no unresolved stage leaves. All14 prior supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The composite probe preserves the PR5336 native23definitions299lemmas verbatim and adds one positive-residue definition and12 complete lemmas. The reflection proof is conditional only on the already established actual Gamma zero, recurrence and continuity laws; the suggested signatures specialize moritaGamma. There are no new analytic or distribution assumptions. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. Full suggested file remains NOT COMPILED because pinned TwistedDivisorSum has no compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact rational integer-Gamma controls and finite residue controls check positive representatives, reflection recurrences and both signs; modular rational-argument controls check reflection beyond integers. Two explicit p=7 modulo49 examples refute the printed product and the naive unweighted-sum repair of(3.5). Exact Python integers and fractions check finite Gamma recurrence/reflection and residue identities. Finite Gamma products modulo p^k test rational arguments using the previously established congruence theorem; they are controls, not a formal proof about arbitrary p-adic limits. The E18 logarithm certificate is checked independently using factorial quotients at precisions2 and3 and the proved elementary valuation bound on the omitted logarithm tail. No floating-point arithmetic or Gross–Koblitz formula is used. The largest observed discrepancy is 0 in the exact rational and finite-ring identities.
+
+Capture at 4d6014efcff1f030403a804702f6b17aab2ec3b7 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5336. The new source reading and finding are additions; all existing source findings and supplier interfaces remain whole. Publication refresh to fb8ad3f5b0fcd327dd616dc70452f15714612b61 changes only the source registry and generated register among72 guarded inputs. The complete semantic delta adds PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E17 and/E18, both awaiting review. Their full rows were read: the missing automorphic matching condition and failed strong-regularity reduction concern the 2019 paper, not Gross–Koblitz or any current supplier. All older rows and other register fields remain unchanged. REGISTER equals its renderer output. Four deliverable bytes are preserved across the checked fast-forward; no mathematical input or review verdict changes.
+
+The separate partial signature file also compiled with zero errors and 3,256 expected placeholder warnings across 3,600 pinned source modules. It includes all 14 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 69878a0dcce99c0792c06a44db12dd3c9d4b88a7030e1d82f8edad88fde7b6fe.
