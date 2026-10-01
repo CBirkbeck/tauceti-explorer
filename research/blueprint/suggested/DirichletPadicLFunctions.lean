@@ -23846,3 +23846,164 @@ example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 2) : (Quotien
 example (z : FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) : z ∈ kubertAdmissiblePrimitiveSpan (X := (Fin 1 → AddCircle (1 : ℚ))) 12 := by sorry
 end
 end DirichletPadic.SuggestedKubertPrimitiveLiftsTests
+
+/- Kubert reduced-generator span and prime-power generation. -/
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertPrimePower_prime_power_primitive_iff {p n : ℕ} (hp : p.Prime)
+    (x : (nsmulAddMonoidHom (α := X) (p ^ (n + 1))).ker) :
+    (x : X) ∈ kubertPrimitivePoints X (p ^ (n + 1)) ↔
+      p ^ n • (x : X) ≠ 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+variable (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+
+lemma kubertPrimePower_zero_fiber_relation (m : ℕ+) (hm : (m : ℕ) ∣ (N : ℕ)) :
+    (∑ c : {c : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker // (m : ℕ) • c = 0},
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of c.val)) =
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of 0) := by sorry
+
+lemma kubertPrimePower_level_label_sum :
+    (∑ c : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker,
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of c)) =
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of 0) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+variable (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+
+lemma kubertPrimePower_prime_power_primitive_label_sum {p n : ℕ} (hp : p.Prime)
+    (hN : (N : ℕ) = p ^ (n + 1)) :
+    (∑ c : {c : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker //
+        (c : X) ∈ kubertPrimitivePoints X (N : ℕ)},
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of c.val)) = 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (k : ℕ) (N : ℕ+)
+variable [Fintype (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+
+noncomputable def kubertReducedGeneratorSpan : AddSubgroup
+    (FreeAbelianGroup ((nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := Fin (k + 1) → AddCircle (1 : ℚ)) N 0) := by sorry
+
+lemma kubertPrimePower_source_label_mem (x : (nsmulAddMonoidHom
+    (α := Fin (k + 1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (hx : (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k + 1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of x) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+lemma kubertPrimePower_zero_label_mem :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k + 1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of 0) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+lemma kubertPrimePower_primary_power_at_prime_power {N p n : ℕ} (hp : p.Prime) (hN : N = p ^ (n + 1))
+    (r : N.primeFactors) : r.val ^ N.factorization r.val = N := by sorry
+
+lemma kubertPrimePower_prime_power_reduced (k : ℕ) {N p n : ℕ} (hp : p.Prime) (hN : N = p ^ (n + 1))
+    (hN0 : N ≠ 0)
+    (x : kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N)
+    (hx : (x : Fin (k + 1) → AddCircle (1 : ℚ)) ≠
+      kubertDistinguishedPoint k N) :
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertReducedPrimitive k N hN0 := by sorry
+
+lemma kubertPrimePower_prime_power_source (k : ℕ) {N p n : ℕ} (hp : p.Prime) (hN : N = p ^ (n + 1))
+    (hN0 : N ≠ 0)
+    (x : kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N)
+    (hx : (x : Fin (k + 1) → AddCircle (1 : ℚ)) ≠
+      kubertDistinguishedPoint k N) :
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertAdmissibleGenerators k N hN0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (k : ℕ) (N : ℕ+)
+variable [Fintype (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+
+lemma kubertPrimePower_prime_power_primitive_label_mem {p n : ℕ} (hp : p.Prime)
+    (hN : (N : ℕ) = p ^ (n + 1))
+    (x : (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (hx : (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertPrimitivePoints _ (N : ℕ)) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k + 1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of x) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+lemma kubertPrimePower_prime_power_span_eq_top {p n : ℕ} (hp : p.Prime)
+    (hN : (N : ℕ) = p ^ (n + 1)) : kubertReducedGeneratorSpan k N = ⊤ := by sorry
+
+lemma kubertPrimePower_unit_level_span_eq_top (hN : (N : ℕ) = 1) : kubertReducedGeneratorSpan k N = ⊤ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertPrimePowerTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker]
+-- full_order_eight_detected_by_four
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 8 ↔ (4 : ℕ) • (x : (Fin 1 → AddCircle (1 : ℚ)))≠0 := by sorry
+-- prime_level_excludes_only_zero
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 3 ↔ (x : (Fin 1 → AddCircle (1 : ℚ)))≠0 := by sorry
+-- four_root_zero_relation
+example : (∑ c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker // (4 : ℕ) • c=0},(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of c.val)))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of 0)) := by sorry
+-- degree_one_zero_relation
+example : (∑ c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker // (1 : ℕ) • c=0},(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of c.val)))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of 0)) := by sorry
+-- all_level_labels_sum
+example : (∑ c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker,(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of c)))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of 0)) := by sorry
+-- primitive_order_eight_sum_zero
+example : (∑ c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker // (c : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 8},(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of c.val)))=0 := by sorry
+-- prime_level_nonzero_sum_zero
+example : (∑ c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker // c≠0},(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 3 0) (FreeAbelianGroup.of c.val)))=0 := by sorry
+-- source_generator_label_included
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 8 (by decide)) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 8 := by sorry
+-- zero_point_label_included
+example : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of 0))∈kubertReducedGeneratorSpan 0 8 := by sorry
+-- all_internal_elements_generated
+example : kubertReducedGeneratorSpan 0 8=⊤ := by sorry
+-- source_point_at_prime_level
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 3 (by decide)) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 3 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 3 := by sorry
+-- unit_label_generator
+example : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 1 0) (FreeAbelianGroup.of 0))∈kubertReducedGeneratorSpan 0 1 := by sorry
+-- sole_primary_factor_is_eight
+example : ∀ r : (8 : ℕ).primeFactors,r.val^Nat.factorization 8 r.val=8 := by sorry
+-- only_distinguished_primitive_removed
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 8) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))≠kubertDistinguishedPoint 0 8) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertReducedPrimitive 0 8 (by decide) := by sorry
+-- nonexceptional_primitive_in_actual_union
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 8) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))≠kubertDistinguishedPoint 0 8) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 8 (by decide) := by sorry
+-- omitted_distinguished_label_recovered
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))=kubertDistinguishedPoint 0 8) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 8 := by sorry
+-- all_primitive_labels_recovered
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 8) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 8 := by sorry
+-- prime_power_generation
+example (z : FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((8 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 8 0) : z∈kubertReducedGeneratorSpan 0 8 := by sorry
+-- prime_level_generation
+example : kubertReducedGeneratorSpan 0 3=⊤ := by sorry
+-- unit_level_generation
+example : kubertReducedGeneratorSpan 0 1=⊤ := by sorry
+end
+end DirichletPadic.SuggestedKubertPrimePowerTests
