@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-FENG-GALATIUS-VENKATESH-22",
+ "findings": [
+  {
+   "finding": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Checked against arXiv 2007.15078v3, the final accepted version, §3.4–3.5 (PDF p. 21); the publisher's site refused scripted downloads, and the equation and section numbers match the red team's published locators. §3.4 says (3.5) 'is canonically split by the spectrum map KSp(Z) → K(Z)[1/2](+) induced by the inclusion Sp_2g(Z) → GL_2g(Z)', with first map 'induced by the hyperbolic construction'. The proof of Theorem 3.5 then computes that composing hyperbolisation with the Betti–Hodge map gives (1 + ψ⁻¹, 0). On the (+) eigensummand ψ⁻¹ = 1, so c_B ∘ H = 2. Item /25 copies 'split by c_B, the first map being the hyperbolic construction', which is false as a retraction statement: in degree 0, c_B(H[Z]) = [Z ⊕ Z^∨] = 2[Z]. Since 2 is inverted, (1/2)c_B is a retraction, so the splitting exists and only the normalisation changes. Theorem 3.5's proof, which uses 1 + ψ⁻¹ explicitly, is unaffected. The fix is right: retraction (1/2)c_B (or inclusion (1/2)H), the degree-0 test, and a sourceIssue for the paper's 'canonically split by' wording."
+  },
+  {
+   "finding": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). §2.2 (arXiv v3 p. 9) attaches to a symmetric monoidal category C only 'a spectrum K(C) and a map |C| → Ω^∞K(C)', the group completion (2.2). The only ring map is in §2.4 (p. 11): for commutative R, 'The adjoint map Σ^∞_+|Pic(R)| → K(R) is then a map of ring spectra', using ⊗ on Pic(R) and on K(R). Item /2 states 'the adjoint ring maps Σ^∞_+|𝒞| → K(𝒞)' for every symmetric monoidal groupoid, which is false. In the red team's example, the discrete groupoid Q/Z under addition is already group-like, so π_0K(C) = Q/Z. No unital ring has additive group Q/Z: if 1 has additive order n, then n kills the ring, but Q/Z has elements of every order. Item /2 is planned at H.4/H.5:spectra and K.2:plus, so a design job would plan a nonexistent structure. The fix is right: 'adjoint maps of spectra' in general, and multiplicativity only for P(R) with ⊕ and ⊗ and for Σ^∞_+|Pic(R)| → K(R) (item /17)."
+  },
+  {
+   "finding": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Appendix A.1 (arXiv v3 pp. 51–52) says: 'As shown by Segal, the maps (A.2) are weak equivalences for n ≥ 1 when X is special, so in that case B^∞X is equivalent to an Ω-spectrum with 0th space Ω|X(S^1)| and nth space |X(S^n)| for n ≥ 1'. (A.4) then says |X(S^0)| → Ω|X(S^1)| ≃ Ω^∞B^∞X is a group completion. Item /51 defines B^∞X with spaces |X(S^n)| for all n and then asserts that it 'is an Ω-spectrum'. That fails at level 0. The red team's example is right: X(S) = N^{S∖*}, with pointed maps acting by summing over fibres, is special with X(*) = *. Its level-0 map is N → ΩBN ≃ Z, which is not a bijection on π_0. The item keeps the group-completion clause, so the content is recoverable, but as written its two clauses contradict each other unless π_0X(S^0) is a group. The fix is right: equivalences for n ≥ 1, the Ω-spectrum replacement with 0th space Ω|X(S^1)|, and the N → Z test. This is an extraction error; the paper states it correctly."
+  }
+ ]
+}
