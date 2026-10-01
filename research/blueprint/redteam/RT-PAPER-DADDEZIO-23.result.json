@@ -1,0 +1,59 @@
+{
+  "redteam": "RT-PAPER-DADDEZIO-23",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-DADDEZIO-23",
+  "summary": "Four findings after a complete reread of the accepted extraction and its 30-page v4 source: one high-severity base-field error in the monodromy comparisons; three medium-severity gaps concerning the central-character twisting adapter, the unrouted F-infinity construction, and reuse of the basic Crew construction already assigned by Abe. Existing source issues and previously recorded link requests are not counted again. No assertion that the main theorems fail.",
+  "checked": [
+    "Independence: PAPER-DADDEZIO-23 author Claude Code cc-fb70e5; REV-PAPER-DADDEZIO-23 reviewer Claude Code cc-58621d; this audit Codex codex-rtOQ9t. Claim 5926671939 confirmed by bot 5926674840. Base 8d16ed9a21ed17b887df38ba654bc1c4581ab8b4, read 2026-10-01.",
+    "Complete accepted result, reader, review result, review report and handoff; all 70 items, six routes, 17 prerequisite records and 14 existing source-issue records. Every missing item occurs once in the routes: 63 missing, 7 planned. Item 38 remains removed and item 71 present.",
+    "D’Addezio arXiv:2012.12879v4, all 30 pages including proofs/footnotes/bibliography, https://arxiv.org/pdf/2012.12879v4, SHA-256 f92379bec97564edc2b89f86f6bfc5c271abdc31c5d17cb9ba93b58e204a07a8; page images 6,7,10,19 inspected. Published Annals pagination was not collated. Annals, arXiv and author publication records checked; no relevant erratum identified there. MPG page returned 403.",
+    "Abe arXiv:1310.0528v3, pp.86–88 (2.4.15–2.4.20) and pp.103–104 (4.2.1–4.2.3); actual finite-determinant and finite-central-character sets read. Accepted PAPER-ABE-18 item 25 and both full route briefs compared; Xu–Zhu Bessel route and acceptance read; Tsuzuki minimal-slope and twisting entries inspected, without upgrading its overall revise verdict.",
+    "De Jong, Barsotti–Tate groups and crystals, ICM account https://ems.press/content/book-chapter-files/27155, §3 Theorem 4 citing 1998 Theorem 2.6, checked as counterevidence: item 17 does have the stated Tate Hom input. This suspected citation defect was rejected.",
+    "Fresh assembled atlas contracts RD.0–RD.7, MC.6, VB0, CR.3, R07.2, R34.2, FA.5 and A6. Reviewed library-coverage records for R34.2 and FA.5; queried RD, VB, MC and finite-flat prefixes have no entries, which is not a library absence certificate.",
+    "Mathlib at 082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/RingTheory/WittVector/Isocrystal.lean, including actual WittVector.Isocrystal and rank-one isocrystal_classification signatures. Item 3 correctly limits the existing classification.",
+    "Tau Ceti at f790474821cf4256814db967cb154e7af3d0c369: tracked Lean search for isocrystal/Tannakian tools; Representation/Tannaka/Equivalence.lean including fgPointTensorIsoEquiv and CategoryTheory/Action/Tannaka.lean scope read. Hopf-comodule reconstruction and group-set reconstruction are not a supplied isocrystal category or F-infinity transition system.",
+    "Live graph: 2907 stages, 8322 distinct edges, 2958 vertices including external endpoints; acyclic. The prior review’s CR.3→RD.3, CR.3→R07.2 and VB0→RD.3 requests remain non-live and are jointly acyclic when added. Candidate route-prefix order separately acyclic; wholesale reverse import creates a cycle. Neither candidate edges nor review requests were represented as live edges.",
+    "Concrete checks: infinite-order degree character lies outside the imported finite-order theorem; n=2 Frobenius recursion domains; unit-object monodromy over a strict residue-field extension; restricted overlap of Abe and D’Addezio coefficient realizations. Full external supporting proofs and published-text collation are not claimed.",
+    "Validation: scripts/check_redteam.py; research/blueprint/intake.py check-files on both deliverables; staged git diff --cached --check. No Lean deliverable or compilation."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-DADDEZIO-23/1",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DADDEZIO-23.result.json item 19, route 4 and route 6 application item 68; GlobalShtukasPartIICrystallineCompanions",
+      "claim": "The consumer promises the isocrystal attached to every cuspidal representation but imports a finite-central-character theorem with no twisting adapter. Route 4 says that it consumes Abe exactly as the accepted brief states it and adds no target; the accepted supplier has the extra finite-order hypothesis.",
+      "evidence": "PAPER-ABE-18/32 and accepted route 2 restrict the central character to finite order. Abe, https://arxiv.org/pdf/1310.0528v3, Theorem 4.2.2 p.103, defines A_r by “the order of the central character of π is finite”. DAD route 4 instead says “every” representation and “It adds no target”. Rank one a↦c^deg(a), c of infinite order, is an explicit input excluded from A_r. DAD v4 proof of Theorem 5.3.3 p.27 is the consumer. The accepted Abe brief and structured related routes do not supply the automorphic twisting compatibility.",
+      "fix": "Keep Abe’s precise finite-order theorem and the general DAD application. Add the reduction by an unramified degree character at GlobalShtukasPartIICrystallineCompanions, reusing function-field class field theory: normalize the central character, apply Abe, and untwist by the matching constant rank-one isocrystal. Prove the Frobenius/Hecke convention and slope-shift compatibility; test an infinite-order rank-one degree character. Remove the inaccurate adds-no-target assertion. Do not build a second correspondence or silently restrict item 68."
+    },
+    {
+      "id": "RT-PAPER-DADDEZIO-23/2",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DADDEZIO-23.result.json item 1 and routes 1/6; PadicDifferentialEquationsAndRigidCohomology:RD.3; PadicDifferentialEquationsPartIIMonodromyGroups early prefix",
+      "claim": "Item 1 marks an entire mixed bundle planned at RD.3 although it includes an unassigned F-infinity 2-colimit construction and crystalline comparison. Its own note acknowledges the mismatch. No route includes item 1, while the later Lambda and exact-sequence constructions require its carrier and transition coherence.",
+      "evidence": "The item-1 note says the crystalline description/comparison is not named at RD.3 and the 2-colimit is “this paper’s construction”. The complete RD.3 contract builds frames, coefficient descent, Frobenius structures and restriction, not the divisibility-indexed transition category. Route accounting finds item 1 outside every route. DAD v4 §2.2 p.6 defines the additional carrier; its displayed iteration has F* where (F^n)* is needed for n>1, verified in the page image.",
+      "fix": "Split covered foundations from missing additions. Route the crystalline comparison to the RD.3 owner with the CR.3 input. Assign the F-infinity construction to an early route-6 layer preceding Lambda: positive integers ordered by divisibility, Frobenius-power transitions, coherence, eventual morphisms, exact tensor structure and scalar conventions. Use a correctly typed (F^n)* iteration and record the localized v4 misprint if adding sourceIssues. Test n=2,m=2 and n→nm→nml. Preserve parent ownership of ordinary coefficient categories."
+    },
+    {
+      "id": "RT-PAPER-DADDEZIO-23/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-DADDEZIO-23.result.json items 33/35/42/50 and route 6 layer (2), base change and intersection formulas",
+      "claim": "The group attached to the specified Omega-valued fibre functor is over K(Omega), but items 42 and 50 extend the Q_p^ur group only to K=K(k). The first resulting group isomorphism is false as an isomorphism over K(k) for general Omega/k; the intersection does not specify two subgroups over the same ambient field.",
+      "evidence": "DAD v4 §2.2 p.6 defines omega_eta with values in Vec_K(Omega); §3.1 p.7 fixes K:=K(k), and Definition 3.1.2 extends the lattice to K(Omega). Proposition 3.3.2 p.10 and Corollary 4.3.6 p.19 nevertheless print extension to K; all four page images were checked. Items 42/50 and route 6 copy this without a descended-form convention. For k=F_p^alg, Omega=algebraic_closure(k(t)), X=Spec k and the unit coefficient, the two trivial group schemes have coordinate rings K(Omega) and K(k); a K(k)-algebra isomorphism between these cannot exist. Existing E2 fixes a dual-fibre formula only.",
+      "fix": "Keep K(k) in the category scalar-extension equivalence. For the monodromy group of omega_eta, extend to K(Omega) and supply the compatible fibre-functor identification. Put both intersection factors in GL(omega_eta M) over K(Omega). Alternatively name the descended K(k)-form separately and explicitly base-change it. Propagate through the exact-square and intersection API, add the strict-extension unit test, and record the source issue only for the inspected v4. Do not reject the categorical equivalence or parabolicity theorem."
+    },
+    {
+      "id": "RT-PAPER-DADDEZIO-23/4",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DADDEZIO-23.result.json item 33 and route 6, compared with accepted PAPER-ABE-18/25 route 1, PadicDifferentialEquationsPartIIArithmeticDModules",
+      "claim": "Route 6 gives a new basic Crew construction and asserts that no proposal plans it, but accepted Abe item 25 already assigns the overconvergent fundamental/Weil-group construction to arithmetic D-modules. The shared coefficient-extended overconvergent scope has no common owner or comparison contract. This finding does not identify every DAD group or theorem with Abe’s scope.",
+      "evidence": "DAD route 6 says “No layer or proposal plans Crew’s monodromy groups”. PAPER-ABE-18/25 explicitly calls its input “Crew’s monodromy groups in the Weil-group form Lafforgue uses”; accepted route 1 includes that item and Weil groups in its brief. Abe v3 §2.4.17 pp.86–87 constructs Aut-tensor of the overconvergent fibre category; restricting to the object-generated tensor subcategory gives the object monodromy quotient. Abe uses algebraically extended coefficients; DAD uses K(Omega). A common-field comparison is needed, not literal equality of differently typed groups.",
+      "fix": "Coordinate route 6 with the existing arithmetic-D-module owner through an early shared Crew prefix. Reuse its construction on the overlap and prove coefficient/fibre comparison and object-generated quotient compatibility. Retain the extra convergent, perfect-point, punctual Q_p^ur and parabolicity work in DAD. Correct the no-prior-owner assertion and the Bessel consumer instruction. Keep generic reconstruction at MC.6. Do not make the whole arithmetic-D-module roadmap depend on the whole DAD monodromy roadmap: D-modules→Abe→DAD applications must remain downstream of the common prefix."
+    }
+  ],
+  "upstreamNotes": []
+}
