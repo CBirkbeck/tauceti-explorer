@@ -31109,3 +31109,349 @@ Exact controls pass5304 unit-support cases,4080 factor recurrences,504 residue r
 The captured continuation base is cd547d7ae29de4274d9f4e2a62583f4593959562. All72 tracked inputs and the issue body match the merged predecessor capture. No new supplier route or source-register delta arises in this checkpoint; prior source findings including E17 remain whole and awaiting their existing review statuses.
 
 The separate partial signature file also compiled with zero errors and 3,085 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33.
+
+
+## Explicit logarithmic divided coefficients and inverse-power means
+
+Twelve L3 nodes promote four consumed coordinate APIs and give the actual logarithmic primitive’s divided coefficients, derivative recurrence, factorial normalization, finite mean comparisons and inverse-power limit rescaling. All965 predecessor nodes,746 baseline records,17 findings and14 requests remain whole.
+
+Retains complete Morita1975 and KL1964 readings; the p.261 Remark’s displayed logarithmic coefficients are read with the prior Section2 angular/mean conventions. The source’s factorial denominator and inverse torsion exponent are explicit. Reads pinned hasDerivAt_zpow including its strict-derivative proof and ambient hypotheses; rereads constant-multiplication derivatives, factorial successor, constant-multiplication Tendsto and Hausdorff limit uniqueness. Prior owned logarithm and analytic inputs are retained.
+
+### The torsion and angular factors recover the unit
+
+`DirichletPadicLFunctions:L3/morita-angular-factorization` — `DirichletPadic.moritaAngular_factorization`
+
+For every u∈Z_p units, Ω(u)α(u)=u.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Promote the existing construction API now consumed by the inverse-power coefficient comparison.
+2. Unfold α(u)=u/Ω(u) in native units and cancel the torsion unit. The already compiled factorization proof in the preserved native prefix verifies this exact statement.
+3. The existing suggested signature is retained, not duplicated.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular`, `DirichletPadicLFunctions:L3/morita-omega`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.angular_factorization_dyadic` (compatibility): For every dyadic unit, the source sign and its1+4Z_2 angular factor multiply to the original unit.
+
+**Acceptance:** Use Morita’s dyadic sign, not the native Teichmuller map at2.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The angular sample at a unit index
+
+`DirichletPadicLFunctions:L3/morita-angular-samples-unit` — `DirichletPadic.moritaAngularSamples_unit`
+
+If the natural cast of a is a unit of Z_p, the existing sample S(A)(a) equals A(α(u)), for its canonical native unit witness u.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Promote the previously planned sample API now consumed by the coefficient calculation.
+2. Unfold the existing supported sample function and select its unit branch. Proof irrelevance identifies any native unit witnesses.
+3. The samples_unit proof already present in the complete native prefix verifies the equality; its existing suggested signature remains whole.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-angular`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.angular_sample_three` (computation): For p=2 and A(x)=x in Q_2, the sample at3 is−3, since Ω(3)=−1.
+
+**Acceptance:** The sample is evaluated on the source angular coordinate, not at the original integer.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The coefficient character evaluates to the torsion unit
+
+`DirichletPadicLFunctions:L3/morita-torsion-character-map-unit` — `DirichletPadic.moritaTorsionCharacterMap_nat_unit`
+
+At a natural p-unit index a with native witness u, θ_ι(a)=ιΩ(u).
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Promote the coefficient-change API used in the finite inverse-power comparison.
+2. Unfold the ring-homomorphism composition defining the mapped character and apply the existing unit-value theorem for the integral torsion character.
+3. The preserved fieldChar_nat_unit proof verifies this comparison. The existing suggested declaration uses an IsUnit witness instead of the equivalent prime-nondivisibility hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character-map`, `DirichletPadicLFunctions:L3/morita-torsion-character-unit`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.torsion_map_three` (computation): The dyadic coefficient character takes3 modulo4 to−1 in Q_2.
+
+**Acceptance:** Keep the same integral torsion character and the same ring homomorphism as in the mean construction.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The derivative twist uses the inverse torsion power
+
+`DirichletPadicLFunctions:L3/morita-character-twist-omega-weight` — `DirichletPadic.moritaCharacterTwist_omega_weight`
+
+For a natural p-unit a with witness u, the existing m-th twist evaluates to χ(a)(ιΩ(u))^(−m).
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Promote the existing inverse-torsion API because the coefficient comparison consumes it.
+2. Start with the already planned finite-character twist weight and replace the coefficient character value by the preceding unit comparison.
+3. The preserved twist_omega_weight native proof and existing suggested signature agree, including the exponent−m and the lcm conductor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist-weight`, `DirichletPadicLFunctions:L3/morita-torsion-character-map-unit`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.twist_cubic_weight` (computation): For χ=θ at p=2, the cubic derivative twist takes3 to1.
+- `SuggestedMoritaLogCoefficientsTests.twist_quadratic_weight` (computation): The quadratic derivative twist instead takes3 to−1.
+
+**Acceptance:** These parity tests distinguish the required inverse-torsion derivative twist from omitting it.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The explicit divided derivatives of the logarithmic primitive
+
+`DirichletPadicLFunctions:L3/morita-log-divided-derivatives` — `DirichletPadic.moritaLogDivided`
+
+Define D_0(x)=x(ℓ(x)−1), D_1(x)=ℓ(x), and D_(m+2)(x)=(−1)^m x^(−m−1)/((m+2)(m+1)) for m∈N.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Use the literal three-case function on the native natural-number index and coefficient field.
+2. The higher branch is independent of ℓ. It gives D_2(x)=1/(2x) and D_3(x)=−1/(6x²), with native total inverses at0.
+3. The complete definition and zero, one, two and three API proofs are checked. Promote its higher formula, derivative recurrence and factorial normalization below because subsequent coefficient arguments consume them.
+4. This is one explicit arithmetic coefficient family; it introduces no space of locally analytic functions or generic divided-derivative operator.
+
+**Prerequisites:** .
+
+**Uses:**
+
+- Morita1975 Section3, Remark after Theorem3: Identifies the exact divided coefficients of the logarithmic primitive in the displayed Gamma Taylor expansion.
+- Existing angular coefficient mean construction: Instantiates its divided-derivative inputs without suppressing the factorial denominator.
+- The inverse-power comparisons below: Separates the scalar coefficient from the angular kernel and cancels the derivative twist.
+
+**API:**
+
+- `DirichletPadic.moritaLogDivided_zero` (constructor): D_0(x)=x(ℓ(x)−1).
+- `DirichletPadic.moritaLogDivided_one` (simp): D_1(x)=ℓ(x).
+- `DirichletPadic.moritaLogDivided_succ_succ` (projection): The explicit higher inverse-power formula; promoted below.
+- `DirichletPadic.moritaLogDivided_two` (simp): D_2(x)=2^(−1)x^(−1).
+- `DirichletPadic.moritaLogDivided_three` (simp): D_3(x)=−6^(−1)(x²)^(−1).
+- `DirichletPadic.moritaLogDivided_hasDerivAt` (compatibility): At a nonzero point where ℓ has derivative x^(−1), D_m has derivative(m+1)D_(m+1); promoted below.
+- `DirichletPadic.moritaLogDivided_factorial` (compatibility): Multiplying D_(m+2) by(m+2)! gives(−1)^m m! x^(−m−1); promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.divided_zero_at_one` (degenerate): D_0(1)=ℓ(1)−1 over Q_2.
+- `SuggestedMoritaLogCoefficientsTests.divided_first` (compatibility): D_1(x)=ℓ(x) over Q_3.
+- `SuggestedMoritaLogCoefficientsTests.divided_second_at_three` (computation): D_2(3)=1/6 in Q_2.
+- `SuggestedMoritaLogCoefficientsTests.divided_third_at_two` (computation): D_3(2)=−1/24 in Q_3.
+- `SuggestedMoritaLogCoefficientsTests.higher_log_independence` (extensionality): Changing ℓ leaves every D_(m+2)(x) unchanged.
+- `SuggestedMoritaLogCoefficientsTests.total_inverse_at_zero` (degenerate): The total-field value D_2(0)=0 carries no derivative assertion there.
+- `SuggestedMoritaLogCoefficientsTests.factorial_cannot_be_dropped` (non-example): D_3(1)=−1/6 differs from the ordinary third-derivative value−1.
+
+**Acceptance:** Keep the factorial division, negative-power exponent and alternating sign.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The higher divided coefficients are explicit inverse powers
+
+`DirichletPadicLFunctions:L3/morita-log-divided-higher-formula` — `DirichletPadic.moritaLogDivided_succ_succ`
+
+For every m∈N and x∈K, D_(m+2)(x)=c_m x^(−m−1), where c_m=(−1)^m/((m+2)(m+1)).
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Unfold the higher branch of the preceding actual coefficient family.
+2. The complete divided_succ_succ proof is definitional. The index m+2 keeps both denominator factors visible and avoids truncated subtraction at the low orders.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-derivatives`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.divided_fourth` (computation): D_4(1)=1/12 in Q_2.
+- `SuggestedMoritaLogCoefficientsTests.divided_fifth` (computation): D_5(1)=−1/20 in Q_3.
+
+**Acceptance:** The sign(−1)^m equals(−1)^(m+2); neither expression is a new convention.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The explicit family satisfies the divided-derivative recurrence
+
+`DirichletPadicLFunctions:L3/morita-log-divided-derivative-recurrence` — `DirichletPadic.moritaLogDivided_hasDerivAt`
+
+For x≠0 and a witness that ℓ has derivative x^(−1) at x, D_m has derivative(m+1)D_(m+1)(x) there, for every m∈N.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. At m=0 use the existing logarithmic primitive derivative theorem. At m=1 the stated logarithm derivative and D_2=1/(2x) give the result.
+2. For m=n+2 use the pinned integer-power derivative theorem and multiply by the constant c_n.
+3. The exponent drops by1; cancellation of the nonzero natural factors n+1,n+2,n+3 and the alternating sign gives(n+3)D_(n+3). The complete divided_hasDerivAt proof checks all three cases.
+4. This verifies the local derivative recurrence. Actual Taylor convergence and the owned logarithm derivative certificate are separate inputs; no uniqueness of a p-adic primitive from its derivative is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-higher-formula`, `DirichletPadicLFunctions:L3/morita-log-primitive-derivative`, `mathlib:hasDerivAt_zpow`, `mathlib:HasDerivAt.const_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.derivative_primitive` (compatibility): At1 in Q_2, the supplied logarithm derivative makes D_0 have derivativeℓ(1).
+- `SuggestedMoritaLogCoefficientsTests.derivative_second` (computation): D_2 has derivative−1/2 at1 over Q_3, independent of the logarithm candidate.
+- `SuggestedMoritaLogCoefficientsTests.log_derivative_required` (non-example): For the zero logarithm candidate D_0(x)=−x, whose derivative at1 is not0.
+
+**Acceptance:** The all-orders statement retains the local logarithm derivative hypothesis and x≠0.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The divided and ordinary coefficient normalizations agree
+
+`DirichletPadicLFunctions:L3/morita-log-divided-factorial` — `DirichletPadic.moritaLogDivided_factorial`
+
+For every m∈N, (m+2)!D_(m+2)(x)=(−1)^m m!x^(−m−1).
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Substitute the higher coefficient formula.
+2. Expand the two factorial successors and cancel the nonzero factors m+2 and m+1 in characteristic zero.
+3. The complete divided_factorial proof verifies the exact normalization used by the source display. Its derivative interpretation uses the preceding recurrence; this algebraic identity alone is not a Taylor convergence theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-higher-formula`, `mathlib:Nat.factorial_succ`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.factorial_second` (computation): 2D_2(3)=1/3 in Q_2.
+- `SuggestedMoritaLogCoefficientsTests.factorial_fifth` (computation): 120D_5(2)=−3/8 in Q_3.
+
+**Acceptance:** The source coefficient is divided by the full derivative-order factorial.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The higher coefficient scalar factors out of the actual angular mean
+
+`DirichletPadicLFunctions:L3/morita-log-divided-angular-mean` — `DirichletPadic.moritaLogDivided_mean`
+
+For every m,n, M_(θ·θ^(−m−2),n)(D_(m+2)∘ι)=c_m M_(θ·θ^(−m−2),n)(u↦(ιu)^(−m−1)).
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Use the explicit higher formula pointwise to identify the input function with c_m times the inverse-power kernel.
+2. Apply the linearity of the existing angular mean. The complete divided_mean proof uses its native linear-map structure.
+3. The derivative index m+2 in the twist is preserved; it cannot be replaced by m or by an untwisted mean.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-higher-formula`, `DirichletPadicLFunctions:L3/morita-angular-mean`, `DirichletPadicLFunctions:L3/morita-character-twist`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.mean_quadratic_dyadic` (computation): At the first dyadic level N=4 the actual D_2 mean is1/6.
+- `SuggestedMoritaLogCoefficientsTests.mean_cubic_ternary` (computation): At the first ternary level N=3 the actual D_3 mean is−5/72.
+
+**Acceptance:** This is an equality of the existing finite means, with no new averaging functional.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The derivative twist cancels the angular denominator
+
+`DirichletPadicLFunctions:L3/morita-log-inverse-power-finite-mean` — `DirichletPadic.moritaLogDivided_inversePower_mean`
+
+For m,n∈N, the preceding inverse-power angular mean equals N_n^(−1)∑_{0≤a<N_n,p∤a} a^(−m−1), where N_n=q^(n+1) and natural values are cast to K.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Unfold the existing finite mean and use the existing twist-level identity to keep exactly the same averaging range and normalization.
+2. At a p-unit index, the promoted sample and character formulas give weight Ω·Ω^(−m−2) multiplying α^(−m−1).
+3. Elementary field algebra rewrites this as(Ωα)^(−m−1); the promoted factorization and natural-cast compatibility give a^(−m−1). Nonunit indices contribute zero.
+4. The complete inverse_power_mean proof checks the entire finite sum. Its small inverse_power_weight scratch helper is just the displayed field cancellation, not a new analytic dependency.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-mean`, `DirichletPadicLFunctions:L3/morita-finite-mean`, `DirichletPadicLFunctions:L3/morita-character-twist-level`, `DirichletPadicLFunctions:L3/morita-character-twist-omega-weight`, `DirichletPadicLFunctions:L3/morita-torsion-character-map-unit`, `DirichletPadicLFunctions:L3/morita-angular-samples-unit`, `DirichletPadicLFunctions:L3/morita-angular-factorization`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.inverse_mean_dyadic` (computation): At N=4 the inverse-power mean for m=0 is(1+1/3)/4=1/3.
+- `SuggestedMoritaLogCoefficientsTests.inverse_square_mean_ternary` (computation): At N=3 the inverse-square mean is(1+1/4)/3=5/12.
+
+**Acceptance:** The normalization is N_n^(−1) and the unit support remains present; an ordinary unweighted angular average gives a different result.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### The actual higher coefficient is the scaled inverse-power limit
+
+`DirichletPadicLFunctions:L3/morita-log-divided-limit-identification` — `DirichletPadic.moritaLogDivided_limit`
+
+If the actual divided-coefficient means converge to v and the normalized inverse-power sums converge to w, then v=c_m w.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. Combine the two preceding finite identities to write the coefficient sequence as c_m times the inverse-power sum sequence.
+2. Continuous multiplication by the constant c_m transports the given limit w to c_m w.
+3. Uniqueness of limits in K identifies it with v. The complete divided_limit proof keeps both Tendsto hypotheses explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-angular-mean`, `DirichletPadicLFunctions:L3/morita-log-inverse-power-finite-mean`, `mathlib:Filter.Tendsto.const_mul`, `mathlib:tendsto_nhds_unique`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.limit_quadratic` (compatibility): For order2 at p=2, v=w/2.
+- `SuggestedMoritaLogCoefficientsTests.limit_cubic` (compatibility): For order3 at p=2, v=−w/6.
+
+**Acceptance:** This is the exact higher coefficient relation needed by the Gamma series; no numerical finite sum is treated as its limit.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+### Actual coefficient convergence supplies the inverse-power limit
+
+`DirichletPadicLFunctions:L3/morita-log-inverse-power-limit` — `DirichletPadic.moritaLogDivided_inversePower_limit`
+
+If the actual divided-coefficient means converge to v, then the normalized inverse-power sums converge to v/c_m.
+
+**Hypotheses:** K is a nontrivially normed field; characteristic zero is retained for factorial cancellation, the derivative recurrence and inverse coefficient rescaling. A logarithm candidate ℓ:K→K is given. The derivative theorem explicitly requires x≠0 and HasDerivAt ℓ at x with derivative x^(−1); the finite formulas for orders at least2 are independent of ℓ. For arithmetic means, p is prime, q=4 for p=2 and q=p otherwise, ι:Z_p→K is a ring homomorphism, Ω and α are the already planned torsion and angular coordinates, θ is the coefficient image of their finite character, and N_n=q^(n+1). All twists are the existing character θ·θ^(−m), inflated by its existing lcm-level construction. The explicit higher coefficient is c_m=(−1)^m/((m+2)(m+1)) for index m+2. All negative powers are integer powers in K. Values at zero follow the total inverse convention; all assertions identifying derivatives use a nonzero point. Limit statements concern the actual finite angular means and normalized unit sums. Their Tendsto witnesses remain explicit, with the established actual Taylor/coefficient mean construction as the intended source. No convergence follows from finite controls, and no generic analytic/logarithm theory is rebuilt. All14 prior requests and18 gaps remain open.
+
+**Proof:**
+
+1. The scalar c_m is nonzero in characteristic zero, since its sign and both positive natural denominator factors are nonzero.
+2. Rewrite the actual coefficient sequence by the two finite identities and multiply its Tendsto witness by c_m^(−1).
+3. Cancel c_m and commute the final scalar product to obtain v/c_m. The complete inverse_power_limit proof therefore needs no additional inverse-power convergence hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-angular-mean`, `DirichletPadicLFunctions:L3/morita-log-inverse-power-finite-mean`, `mathlib:Filter.Tendsto.const_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaLogCoefficientsTests.inverse_limit_quadratic` (compatibility): A dyadic order2 coefficient limit v supplies inverse first-power limit2v.
+- `SuggestedMoritaLogCoefficientsTests.inverse_limit_cubic` (compatibility): An order3 coefficient limit v supplies inverse-square limit−6v.
+
+**Acceptance:** Apply this to the already required actual coefficient limit witnesses. It does not assert their existence without the existing analytic hypotheses.
+
+**Source:** Section2 pp.257–260/PDF3–6, torsion/angular coordinates, finite means and derivative twists; Section3 p.261/PDF7, Remark after Theorem3, the logarithmic Taylor series. The explicit divided derivatives of u(logu−1) reproduce the displayed factorial-normalized inverse-power coefficients. The finite torsion cancellation and limit rescaling spell out the source coefficient calculation. This checkpoint does not yet infer a new Taylor convergence radius or remove any existing logarithm/mean supplier hypothesis.
+
+**Remaining:** The actual logarithmic primitive now has explicit divided-derivative coefficients, their recurrence and factorial normalization, with finite angular-twist cancellation and exact inverse-power limit comparisons. Next substitute this family into the existing Gamma logarithmic series, identify its first and second derivatives and prove the source’s larger convergence-radius assertion with its precise analytic inputs. Gross–Koblitz and Ferrero–Greenberg remain targets. All14 requests and18 gaps remain open, all implementation statuses unchecked, zero closed stages.
+
+### Explicit logarithmic divided coefficients and inverse-power means validation
+
+All 965 predecessor nodes, 746 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 12 nodes, 12 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1237 reachable nodes, 6013 edges and 919 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Only the divided-derivative recurrence inherits an unresolved stage leaf, LAD L1 through the existing fine Coleman logarithm-derivative input. The promoted coordinate and finite/conditional limit nodes have no unresolved stage leaves. All14 requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves PR5330’s22definitions256lemmas verbatim after adding the native Deriv.ZPow import, and adds1definition12lemmas. Eleven new lemmas supply planned API/results and one elementary field-cancellation helper supports the actual finite-sum comparison. The four promoted coordinate APIs already have complete proofs in the preserved prefix and existing suggested signatures; no second definition or alternate coordinate is introduced. The separate probe compiles against 2896 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Derivative statements assume the local logarithm derivative at a nonzero point; actual coefficient convergence remains a supplied Tendsto witness. Full suggested file remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. The separate native proof and partial-signature receipts do not close that gap. General roadmap declarations remain unchecked.
+
+Exact controls pass315 formal primitive coefficients,56 divided-derivative recurrences,56 factorial normalizations,1750 angular factorizations,1750 twist cancellations,56 finite coefficient means,56 inverse rescalings and5 low-order or negative controls. Exact rational formal expansion of (u+h)(L+log(1+h/u)−1), monomial differentiation, factorial arithmetic and the actual dyadic/ternary rational torsion coordinates. Finite checks do not certify convergence or limits; the separate complete native Lean probe checks the derivative and limit implications. The largest observed discrepancy is 0.
+
+The capture at 36c1cc2d7d99f156185c6bc2e07c8bafebc4f3e3 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5330. The new dependency routes preserve the same owned log/analytic interfaces and source-register findings.
+
+The separate partial signature file also compiled with zero errors and 3,123 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 394513cfe24537eec2e0dc02f22b3614ee6ed89f88ac068b7b8fe3c3010557da.
