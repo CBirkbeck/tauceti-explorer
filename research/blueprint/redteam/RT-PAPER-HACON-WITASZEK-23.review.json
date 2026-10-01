@@ -1,0 +1,15 @@
+{
+ "redteam": "RT-PAPER-HACON-WITASZEK-23",
+ "findings": [
+  {
+   "finding": "RT-PAPER-HACON-WITASZEK-23/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Proposition 5.8 (published p. 26) takes X regular projective and Y only quasi-projective. Its proof resolves the base locus of f : X ⇢ Y by ν : X′ → X and then says 'Consider the corresponding morphism f′ : X′ → Y'. The base-point-free series gives a morphism to a projective space containing Y, not to Y. The red team's example shows the step cannot work as written. For X = P¹ and Y = A¹, every regular projective birational modification of P¹ is P¹ itself, and every morphism P¹ → A¹ is constant, so no birational morphism X′ → Y exists. The second paragraph then applies Conjecture 5.7 to Ex(f′) and (f′)^{−1}(W), which are subschemes of X′, although the proposition assumes the conjecture only for X and its subschemes. Item embedded-to-birational repeats the two-step outline with gaps: []. The conclusion is not refuted (for A¹ it holds trivially). The fix is right: map to a projective compactification and restrict to the preimage of Y, and supply or explicitly assume the transfer of the hypothesis to X′."
+  },
+  {
+   "finding": "RT-PAPER-HACON-WITASZEK-23/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed for parts (a) and (b); part (c) is not a slip and should not be recorded. (a) Proof of Proposition 2.15 (p. 12): echoes are defined by 'a sequence of k blowups at strict transforms of C'. After C is blown up its strict transform is empty, and [AHK07, Example 1.4] iterates through E_1 ∩ (strict transform of B_i). Item echoes only hints at this in a proof step. (b) Proof of Corollary 4.7 (p. 19): f : Y → Z is a Mori contraction over X, but the proof writes f_S : S → X and f_{S^ν} : S^ν → X, and then R^i f_*(u_*WO_{S,Q}) = R^i(f_S)_*WO_{S,Q}, whose left side lives on Z. The relative ampleness and vanishing also belong over Z, so the maps should go to Z, followed by Leray over Z → X. (c) Claim 6.8 (p. 30, which I checked on the page image): the paper shows 𝒴 terminal by bounding log discrepancies with respect to (𝒳, 0), using that (𝒳, X) is plt and X is Cartier. That argument is valid. Since K_𝒴 + Δ_𝒴 = φ*K_𝒳 with Δ_𝒴 ≥ 0 by (4), A_{(𝒴,0)}(E) ≥ A_{(𝒴,Δ_𝒴)}(E) = A_{(𝒳,0)}(E) = A_{(𝒳,X)}(E) + mult_E X > 1 for E exceptional over 𝒴 and lying over 𝔪. So the step uses (4) silently but does not switch to the wrong space. The red team's version through (𝒴, Y) is an equally good alternative, not a correction. The right fix: record sourceIssues for (a) and (b) only, and for (c) at most add to partial-terminalization a proof note that the comparison with (𝒳, 0) uses Δ_𝒴 ≥ 0."
+  }
+ ]
+}
