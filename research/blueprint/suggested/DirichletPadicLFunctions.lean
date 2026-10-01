@@ -22870,3 +22870,237 @@ example : (kubertLevelToGlobal (X := ZMod 3) 3 0).range=((QuotientAddGroup.mk' (
 example : kubertInternalLevelRelations (X := ZMod 3) 1 0=⊥ := by sorry
 end
 end DirichletPadic.SuggestedKubertFiniteLevelTests
+
+/- Primitive level points, admissible divisors, and the local replacement bijection. -/
+namespace DirichletPadic
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+def kubertPrimitivePoints (X : Type u) [AddCommGroup X] (N : ℕ) : Set X := by sorry
+
+lemma kubertGenerators_primitive_mem_level {N M : ℕ} (hMN : M ∣ N) {x : X}
+    (hx : x ∈ kubertPrimitivePoints X M) : x ∈ (nsmulAddMonoidHom (α := X) N).ker := by sorry
+
+lemma kubertGenerators_primitive_one : kubertPrimitivePoints X 1 = {0} := by sorry
+
+lemma kubertGenerators_primitive_zero_mem_iff (N : ℕ) : (0 : X) ∈ kubertPrimitivePoints X N ↔ N = 1 := by sorry
+
+lemma kubertGenerators_primitive_disjoint {N M : ℕ} (h : N ≠ M) :
+    Disjoint (kubertPrimitivePoints X N) (kubertPrimitivePoints X M) := by sorry
+
+lemma kubertGenerators_primitive_finite (k N : ℕ) (hN : 0 < N) :
+    Finite (kubertPrimitivePoints (Fin k → AddCircle (1 : ℚ)) N) := by sorry
+
+lemma kubertGenerators_level_order_dvd {N : ℕ} (x : (nsmulAddMonoidHom (α := X) N).ker) :
+    addOrderOf (x : X) ∣ N := by sorry
+
+lemma kubertGenerators_level_order_pos {N : ℕ} (hN : 0 < N)
+    (x : (nsmulAddMonoidHom (α := X) N).ker) : 0 < addOrderOf (x : X) := by sorry
+
+lemma kubertGenerators_level_primitive_partition {N : ℕ} (hN : 0 < N)
+    (x : (nsmulAddMonoidHom (α := X) N).ker) :
+    ∃! M : ℕ, M ∣ N ∧ 0 < M ∧ (x : X) ∈ kubertPrimitivePoints X M := by sorry
+
+lemma kubertGenerators_primitive_nsmul {N M : ℕ} (hM : M ≠ 0) (hMN : M ∣ N)
+    {x : X} (hx : x ∈ kubertPrimitivePoints X N) :
+    M • x ∈ kubertPrimitivePoints X (N / M) := by sorry
+
+def kubertDistinguishedPoint (k N : ℕ) : Fin (k + 1) → AddCircle (1 : ℚ) := by sorry
+
+lemma kubertGenerators_distinguishedPoint_zero (k N : ℕ) :
+    kubertDistinguishedPoint k N 0 = ((1 / (N : ℚ) : ℚ) : AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGenerators_distinguishedPoint_other (k N : ℕ) (i : Fin (k + 1)) (hi : i ≠ 0) :
+    kubertDistinguishedPoint k N i = 0 := by sorry
+
+lemma kubertGenerators_distinguishedPoint_order (k N : ℕ) (hN : 0 < N) :
+    addOrderOf (kubertDistinguishedPoint k N) = N := by sorry
+
+lemma kubertGenerators_distinguishedPoint_primitive (k N : ℕ) (hN : 0 < N) :
+    kubertDistinguishedPoint k N ∈ kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N := by sorry
+
+lemma kubertGenerators_distinguishedPoint_eq_zero_iff (k N : ℕ) (hN : 0 < N) :
+    kubertDistinguishedPoint k N = 0 ↔ N = 1 := by sorry
+
+lemma kubertGenerators_distinguishedPoint_mem_level (k N M : ℕ) (hM : 0 < M) (hMN : M ∣ N) :
+    kubertDistinguishedPoint k M ∈
+      (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+
+def kubertAdmissibleDivisors (N : ℕ) : Finset ℕ := by sorry
+
+lemma kubertGenerators_admissible_mem_iff {N M : ℕ} (hN : N ≠ 0) :
+    M ∈ kubertAdmissibleDivisors N ↔ M ∣ N ∧ M.Coprime (N / M) := by sorry
+
+lemma kubertGenerators_admissible_one {N : ℕ} (hN : N ≠ 0) : 1 ∈ kubertAdmissibleDivisors N := by sorry
+
+lemma kubertGenerators_admissible_self {N : ℕ} (hN : N ≠ 0) : N ∈ kubertAdmissibleDivisors N := by sorry
+
+lemma kubertGenerators_admissible_pos {N M : ℕ} (hN : 0 < N) (hM : M ∈ kubertAdmissibleDivisors N) :
+    0 < M := by sorry
+
+lemma kubertGenerators_admissible_complement {N M : ℕ} (hN : N ≠ 0)
+    (hM : M ∈ kubertAdmissibleDivisors N) : N / M ∈ kubertAdmissibleDivisors N := by sorry
+
+lemma kubertGenerators_admissible_prime_power {p n M : ℕ} (hp : p.Prime) :
+    M ∈ kubertAdmissibleDivisors (p ^ n) ↔ M = 1 ∨ M = p ^ n := by sorry
+
+lemma kubertGenerators_admissible_level_one : kubertAdmissibleDivisors 1 = {1} := by sorry
+
+lemma kubertGenerators_admissible_level_zero : kubertAdmissibleDivisors 0 = ∅ := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+
+def kubertLocalChoices (k N : ℕ) : Set (Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGenerators_localChoices_mem_iff (k N : ℕ) (x : Fin (k + 1) → AddCircle (1 : ℚ)) :
+    x ∈ kubertLocalChoices k N ↔ x = 0 ∨
+      (x ∈ kubertPrimitivePoints _ N ∧ x ≠ kubertDistinguishedPoint k N) := by sorry
+
+lemma kubertGenerators_localChoices_zero (k N : ℕ) : (0 : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+    kubertLocalChoices k N := by sorry
+
+lemma kubertGenerators_localChoices_distinguished {k N : ℕ} (hN : 1 < N) :
+    kubertDistinguishedPoint k N ∉ kubertLocalChoices k N := by sorry
+
+lemma kubertGenerators_localChoices_mem_level {k N : ℕ} {x : Fin (k + 1) → AddCircle (1 : ℚ)}
+    (hx : x ∈ kubertLocalChoices k N) :
+    x ∈ (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker := by sorry
+
+lemma kubertGenerators_localChoices_finite (k N : ℕ) (hN : 0 < N) : Finite (kubertLocalChoices k N) := by sorry
+
+noncomputable def kubertLocalChoiceEquiv (k N : ℕ) (hN : 1 < N) :
+    kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N ≃ kubertLocalChoices k N := by sorry
+
+lemma kubertGenerators_localChoiceEquiv_apply (k N : ℕ) (hN : 1 < N)
+    (x : kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N) :
+    ((kubertLocalChoiceEquiv k N hN x : kubertLocalChoices k N) : Fin (k + 1) → AddCircle (1 : ℚ)) =
+      Equiv.swap (kubertDistinguishedPoint k N) 0 x := by sorry
+
+lemma kubertGenerators_localChoices_card (k N : ℕ) (hN : 1 < N) :
+    Nat.card (kubertLocalChoices k N) =
+      Nat.card (kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N) := by sorry
+
+lemma kubertGenerators_localChoices_one (k : ℕ) : kubertLocalChoices k 1 = {0} := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+
+lemma kubertGenerators_localChoiceEquiv_distinguished (k N : ℕ) (hN : 1 < N) :
+    ((kubertLocalChoiceEquiv k N hN
+      ⟨kubertDistinguishedPoint k N, kubertGenerators_distinguishedPoint_primitive k N (by omega)⟩ : kubertLocalChoices k N) :
+        Fin (k + 1) → AddCircle (1 : ℚ)) = 0 := by sorry
+
+lemma kubertGenerators_localChoiceEquiv_fixed (k N : ℕ) (hN : 1 < N)
+    (x : kubertPrimitivePoints (Fin (k + 1) → AddCircle (1 : ℚ)) N)
+    (hx : (x : Fin (k + 1) → AddCircle (1 : ℚ)) ≠ kubertDistinguishedPoint k N) :
+    ((kubertLocalChoiceEquiv k N hN x : kubertLocalChoices k N) : Fin (k + 1) → AddCircle (1 : ℚ)) = x := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertGeneratorsTests
+open scoped Classical
+noncomputable section
+-- primitive_two_of_three
+example : (Pi.single (0 : Fin 2) ((2/3 : ℚ) : AddCircle (1 : ℚ)) : Fin 2 → AddCircle (1 : ℚ)) ∈ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3 := by sorry
+-- torsion_is_not_exact_order
+example : 6 • (Pi.single (0 : Fin 2) ((1/3 : ℚ) : AddCircle (1 : ℚ)) : Fin 2 → AddCircle (1 : ℚ))=0 ∧ (Pi.single (0 : Fin 2) ((1/3 : ℚ) : AddCircle (1 : ℚ)) : Fin 2 → AddCircle (1 : ℚ)) ∉ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6 := by sorry
+-- primitive_one_is_zero
+example : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 1={0} := by sorry
+-- primitive_three_inside_six
+example (x : Fin 2 → AddCircle (1 : ℚ)) (hx : x ∈ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3) : x ∈ (nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker := by sorry
+-- rank_zero_primitive_one
+example : kubertPrimitivePoints (Fin 0 → AddCircle (1 : ℚ)) 1={0} := by sorry
+-- zero_not_order_three
+example : (0 : Fin 2 → AddCircle (1 : ℚ)) ∉ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3 := by sorry
+-- distinct_order_strata
+example : Disjoint (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 2) (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3) := by sorry
+-- rank_two_finite_primitive_six
+example : Finite (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6) := by sorry
+-- order_divides_six
+example (x : (nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker) : addOrderOf (x : Fin 2 → AddCircle (1 : ℚ)) ∣ 6 := by sorry
+-- positive_order_at_positive_level
+example (x : (nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker) : 0 < addOrderOf (x : Fin 2 → AddCircle (1 : ℚ)) := by sorry
+-- unique_order_stratum
+example (x : (nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker) : ∃! M : ℕ,M ∣ 6 ∧ 0<M ∧ (x : Fin 2 → AddCircle (1 : ℚ))∈kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) M := by sorry
+-- multiplication_reduces_exact_order
+example (x : Fin 2 → AddCircle (1 : ℚ)) (hx : x ∈ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6) : 2 • x ∈ kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3 := by sorry
+-- first_coordinate_third
+example : kubertDistinguishedPoint 1 3 0=((1/3 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- remaining_coordinate_zero
+example : kubertDistinguishedPoint 1 3 1=0 := by sorry
+-- distinguished_level_one_zero
+example : kubertDistinguishedPoint 1 1=0 := by sorry
+-- first_coordinate_sixth
+example : kubertDistinguishedPoint 2 6 0=((1/6 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- third_coordinate_zero
+example : kubertDistinguishedPoint 2 6 2=0 := by sorry
+-- distinguished_exact_order
+example : addOrderOf (kubertDistinguishedPoint 1 6)=6 := by sorry
+-- distinguished_is_primitive
+example : kubertDistinguishedPoint 1 6∈kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6 := by sorry
+-- distinguished_nonzero_at_three
+example : kubertDistinguishedPoint 1 3≠0 := by sorry
+-- distinguished_lower_level_inclusion
+example : kubertDistinguishedPoint 1 3∈(nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker := by sorry
+-- admissible_twelve
+example : kubertAdmissibleDivisors 12={1,3,4,12} := by sorry
+-- proper_prime_power_not_admissible
+example : 2 ∣ (12 : ℕ) ∧ 2∉kubertAdmissibleDivisors 12 := by sorry
+-- admissible_one_set
+example : kubertAdmissibleDivisors 1={1} := by sorry
+-- coprimality_characterization
+example (M : ℕ) : M∈kubertAdmissibleDivisors 12 ↔ M∣12 ∧ M.Coprime (12/M) := by sorry
+-- unit_divisor
+example : 1∈kubertAdmissibleDivisors 12 := by sorry
+-- full_divisor
+example : 12∈kubertAdmissibleDivisors 12 := by sorry
+-- admissible_ne_zero
+example : 0∉kubertAdmissibleDivisors 12 := by sorry
+-- complementary_divisor
+example (M : ℕ) (hM : M∈kubertAdmissibleDivisors 12) : 12/M∈kubertAdmissibleDivisors 12 := by sorry
+-- prime_power_endpoints
+example (M : ℕ) : M∈kubertAdmissibleDivisors 8 ↔ M=1 ∨ M=8 := by sorry
+-- zero_exponent
+example : kubertAdmissibleDivisors (3^0)={1} := by sorry
+-- level_one_membership
+example (M : ℕ) : M∈kubertAdmissibleDivisors 1 ↔ M=1 := by sorry
+-- level_zero_empty
+example : kubertAdmissibleDivisors 0=∅ := by sorry
+-- local_zero_retained
+example : (0 : Fin 2 → AddCircle (1 : ℚ))∈kubertLocalChoices 1 3 := by sorry
+-- local_exception_removed
+example : kubertDistinguishedPoint 1 3∉kubertLocalChoices 1 3 := by sorry
+-- other_primitive_retained
+example : (Pi.single (0 : Fin 2) ((2/3 : ℚ) : AddCircle (1 : ℚ)) : Fin 2 → AddCircle (1 : ℚ))∈kubertLocalChoices 1 3 := by sorry
+-- local_exact_predicate
+example (x : Fin 2 → AddCircle (1 : ℚ)) : x∈kubertLocalChoices 1 3 ↔ x=0 ∨ (x∈kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3 ∧ x≠kubertDistinguishedPoint 1 3) := by sorry
+-- local_level_two_zero
+example : (0 : Fin 2 → AddCircle (1 : ℚ))∈kubertLocalChoices 1 2 := by sorry
+-- exception_not_zero_replacement
+example : kubertDistinguishedPoint 1 6∉kubertLocalChoices 1 6 := by sorry
+-- local_choices_actual_torsion
+example (x : Fin 2 → AddCircle (1 : ℚ)) (hx : x∈kubertLocalChoices 1 6) : x∈(nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) 6).ker := by sorry
+-- local_choices_finite
+example : Finite (kubertLocalChoices 1 6) := by sorry
+-- swap_exception_to_zero
+example : ((kubertLocalChoiceEquiv 1 3 (by decide) ⟨kubertDistinguishedPoint 1 3,kubertGenerators_distinguishedPoint_primitive 1 3 (by decide)⟩ : kubertLocalChoices 1 3) : Fin 2 → AddCircle (1 : ℚ))=0 := by sorry
+-- swap_fixes_other_point
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3) (hx : (x : Fin 2 → AddCircle (1 : ℚ))≠kubertDistinguishedPoint 1 3) : ((kubertLocalChoiceEquiv 1 3 (by decide) x : kubertLocalChoices 1 3) : Fin 2 → AddCircle (1 : ℚ))=x := by sorry
+-- swap_inverse_law
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3) : (kubertLocalChoiceEquiv 1 3 (by decide)).symm (kubertLocalChoiceEquiv 1 3 (by decide) x)=x := by sorry
+-- swap_actual_underlying_value
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 3) : ((kubertLocalChoiceEquiv 1 3 (by decide) x : kubertLocalChoices 1 3) : Fin 2 → AddCircle (1 : ℚ))=Equiv.swap (kubertDistinguishedPoint 1 3) 0 x := by sorry
+-- local_cardinality_preserved
+example : Nat.card (kubertLocalChoices 1 6)=Nat.card (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6) := by sorry
+-- local_one_singleton
+example : kubertLocalChoices 1 1={0} := by sorry
+-- rank_one_swap_exception
+example : ((kubertLocalChoiceEquiv 0 2 (by decide) ⟨kubertDistinguishedPoint 0 2,kubertGenerators_distinguishedPoint_primitive 0 2 (by decide)⟩ : kubertLocalChoices 0 2) : Fin 1 → AddCircle (1 : ℚ))=0 := by sorry
+-- level_six_fixed_points
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6) (hx : (x : Fin 2 → AddCircle (1 : ℚ))≠kubertDistinguishedPoint 1 6) : ((kubertLocalChoiceEquiv 1 6 (by decide) x : kubertLocalChoices 1 6) : Fin 2 → AddCircle (1 : ℚ))=x := by sorry
+end
+end DirichletPadic.SuggestedKubertGeneratorsTests
