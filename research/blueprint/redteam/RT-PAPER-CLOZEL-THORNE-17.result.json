@@ -1,0 +1,76 @@
+{
+  "redteam": "RT-PAPER-CLOZEL-THORNE-17",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-CLOZEL-THORNE-17",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-01",
+  "baseline": "8e2d26b05c193cec0f3cd7f7a3f02510d6e2d3f5",
+  "summary": "Five findings: three high and two medium. The integral braid-group presentation forces a nonunit to be invertible; the extraction replaces a fraction-field duality by an integral one; E22 overlooks the primitive-root hypothesis that excludes its alleged exceptional case; E21's restriction remains absent from the extracted statement; and route 6 retains an Iwahori owner superseded by the shared SR.1/SR.4 route. The first finding also requires a version-scoped source issue. No claim is made about the inaccessible published printing.",
+  "checked": [
+    "Independence: extraction by Claude Code cc-442dc5 (#1336, PR #2018), review by Claude Code cc-38267a (#1337, PR #2449); neither is this worker. Claim #4200 confirmed by the bot before work.",
+    "Read all 81 extracted items, all 23 sourceIssues, all eight routes and their briefs, all 26 prerequisites, the extraction report, review JSON and full independent review report. Checked the statements against the accessed source, including the distinctions among source slips, extraction errors and alleged proof gaps.",
+    "Read the complete 53-page accepted manuscript dated 10 December 2015, including references, from the Cambridge repository. SHA-256 fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742. Inspected page images 7, 13–16, 18 and 45 to check the braid presentation, matrices, duality and primitive-root hypothesis. Did not rerun the earlier review's complete symbolic matrix verification.",
+    "Checked Crossref DOI metadata and the author's publication listing/title search for corrections. Crossref has no update/correction relation for 10.1215/00127094-3714971. The publisher download linked by Crossref returned an Incapsula denial page (HTTP 200, text/html), not the journal PDF. No correction was found in those checks; this is not a claim that no correction exists.",
+    "Read the 24 assembled atlas stage descriptions referenced by planned items or source routes, including the SR.1 coefficient restrictions, L7, G7/R01.1/R01.2/R01.4, AG2.0/2.2/2.5, ML.0/2/3/4/5, ET.0/4/6/7/7a, RG2.2/2.4 and R07.3. Read the seven matching reviewed library-coverage entries (AUDIT-31); the other cited stages have no matching entry in the checked coverage file.",
+    "Compared the relevant RS-21 and RS-08 owner records, Kisin–Pappas routes 10–11 and its independently confirmed red-team finding 18, Venkatesh item 29 and its SR route, He21's parahoric-center brief, and the Newton–Thorne 2021/2026 level-raising and 2026 polarized-lifting briefs. Checked the shared-owner boundary without proposing edits to upstream Tau Ceti roadmaps.",
+    "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 read CoxeterSystem and CoxeterSystem.length. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 read TitsSystem, the double-coset degree/basis API and LeftCosetModule.deg/deg_single. Focused Iwahori/Matsumoto/Bernstein–Lusztig/Kazhdan–Lusztig searches found the braid-word API and a Burau-matrix quadratic relation, whose statements were read; neither supplies the general presentation or classification. Existing double-coset infrastructure remains an import.",
+    "Checked the primitive-root/cyclotomic implication and preservation through the S-split auxiliary fields, the noninvertibility obstruction to the integral braid-group presentation, and the rank-two Hecke-module obstruction to integral averaging when q+1 is a nonunit. Rechecked Lemma 5.3's auxiliary deformation conditions against item 040 and E21.",
+    "All 64 missing items occur in exactly one route; all cited planned/source stage ids resolve. The existing extraction passes scripts/check_paper.py. This is a §17 audit of a §16 extraction, not a claim of proof closure or Lean formalisation. No Lean build, cache download or language server was run."
+  ],
+  "sources": [
+    {
+      "title": "Clozel–Thorne, Level-raising and symmetric power functoriality, III: accepted manuscript, 10 December 2015",
+      "url": "https://www.repository.cam.ac.uk/bitstreams/dc59bf8c-174b-4034-9f2f-070974d101af/download",
+      "sha256": "fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-CLOZEL-THORNE-17/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json: item 006, route 6 brief and sourceIssues; corresponding reader",
+      "claim": "Correcting the quadratic sign in E6 does not make the asserted presentation over Z true. The group algebra Z[B_W] makes each braid generator a unit, whereas the specified characteristic function [BsB] in the integral convolution algebra is not a unit for q>1. The same coefficient error occurs in the accessed source and is not registered.",
+      "evidence": "Accepted manuscript §2.1, pp.6–7, defines the integral convolution algebra and presents it as a quotient of the braid GROUP algebra; p.7 was checked visually. Item 006 and route 6 retain Z[B_W] after correcting the sign. The action on the trivial representation gives a unital degree character H_Z → Z sending [BsB] to #BsB/B=q. A ring homomorphism sends units to units, but q>1 is not a unit of Z. Already in rank one the correct algebra is Z[T]/((T−q)(T+1)), where T cannot be inverted. The pinned Tau Ceti LeftCosetModule.deg and deg_single in TauCeti/NumberTheory/HeckeRing/Degree.lean:106,133 encode the underlying degree-character API, though not this Iwahori presentation.",
+      "fix": "State the integral presentation using the positive braid monoid (equivalently noninvertible generators with braid and quadratic relations). State the braid-group presentation only after scalar extension to a coefficient ring in which q is a unit, for example Z[1/q] or the paper's O with l≠p. Correct item 006 and the route brief, and add a sourceIssues entry scoped to the accessed manuscript pp.6–7, distinct from E6's sign slip. Update the reader. Reuse the existing double-coset algebra and degree map. The application's l-adic coefficient regime is unaffected; do not attribute the error to the unexamined journal printing."
+    },
+    {
+      "id": "RT-PAPER-CLOZEL-THORNE-17/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json: items 064–065 and route 4's local-duality instructions; corresponding reader",
+      "claim": "Item 065 replaces the source's perfect K-valued pairing on Y_K^B by a perfect pairing on Y_O^B. Rational self-duality does not provide that integral assertion for the chosen lattice. Item 064 also places the P-projector beside integral definitions without restricting its denominator to an invertible coefficient regime. This loses a crucial distinction at the level-raising prime, where q≡−1 modulo l.",
+      "evidence": "Accepted manuscript p.18, proof of Proposition 2.9, explicitly constructs Y_K^B × Y_K^B → K and takes annihilators under that duality; the page image confirms the K subscripts and target. Its averaging projector acts on a complex representation before application over K. Proposition 2.9 assumes q≡−1 mod l, so q+1 is a nonunit of O. For A=O[T]/((T−q)(T+1)), free with basis 1,T, multiplication by (1+T)/(q+1) on A⊗K sends 1 outside A. Thus this averaging operator is not an integral endomorphism in general. Remark 2.7, p.17, also distinguishes the rational matrices from the earlier integral model under the primitive-root assumption. The actual integral perfect pairing used later is the separate global pairing of Proposition 4.3, p.36.",
+      "fix": "Restore item 065 to the perfect K-valued duality on Y_K^B and its localized K-subspaces, with the contragredient anti-involution. In item 064 specify e_P over C/K, or over a ring with q+1 invertible; retain integral Hecke actions and localizations separately. Keep Proposition 4.3's independently proved integral global pairing as the source for the level-raising argument. Amend the route 4 brief and reader so no self-dual integral local lattice or integral averaging projector is assumed from rational self-duality. This is an extraction error, not a new source issue."
+    },
+    {
+      "id": "RT-PAPER-CLOZEL-THORNE-17/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json: sourceIssues E22, item 049 note and route 4 addendum; extraction reader and REV-PAPER-CLOZEL-THORNE-17.md's E22 conclusion",
+      "claim": "E22 wrongly says Theorem 6.2's hypotheses allow [F(ζ_l):F]=2 and recommends an additional hypothesis. Hypothesis (3), already retained in item 049, makes q_{u_0} a primitive root modulo l. It forces [F(ζ_l):F]=l−1, which is 4 or 6 here, and excludes exactly the alleged exceptional case.",
+      "evidence": "Accepted manuscript Theorem 6.2(3), p.45, was checked on the page image. Since q_{u_0} is primitive modulo l, u_0 is away from l and its arithmetic Frobenius acts on ζ_l with order l−1. The cyclotomic image is therefore all F_l^×, so F∩Q(ζ_l)=Q. E22's own Dickson argument bounds the abelian quotients of the projective residual image by order 2. Consequently F(ζ_l) cannot lie in the projective residual field. The projective image of the residual symmetric power is a quotient of that image, so the same obstruction suffices without assuming equality of the projective kernels. The proof chooses S to detect every simple Galois subextension of the joint residual/cyclotomic field L/F; the soluble auxiliary fields on pp.45–46 are S-split and remain disjoint from L. Thus the cyclotomic degree and residual image needed after base change are preserved. See the report for the disjointness argument.",
+      "fix": "Retract E22 as a mathematical source gap, preserving its history as a rejected/resolved audit observation rather than an active erratum. Replace item 049's note and route 4's warning by the primitive-root/Frobenius verification and its S-split base-change justification. Update the reader's active source-issue count and explain that this corrects the earlier review's E22 conclusion. Do not add a new hypothesis to Theorem 6.2. Keep the independent review record intact unless its own follow-up workflow authorizes an amendment."
+    },
+    {
+      "id": "RT-PAPER-CLOZEL-THORNE-17/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json: item 040 statement and its route 4 theorem contract; corresponding reader",
+      "claim": "The extraction records E21's restriction in a note but still states Lemma 5.3 for arbitrary permitted R_v at R_0. The active mathematical statement therefore remains stronger than the proof the extraction says is available.",
+      "evidence": "Item 040 quantifies over D=(L,{R_v}_{R_0}∪{R_v^m}_{R_1}) without restricting R_v. The accepted manuscript p.39 includes nontrivial character conditions R_v^{χ_v} among these choices. On pp.40–41 the proof instead places unipotent conditions R_v^1 in both auxiliary constituent problems. E21 is already confirmed in the extraction and explicitly supplies the restriction to unipotent types at R_0. Its note acknowledges that restriction; its statement does not. The sole application on p.43 has R_0 empty.",
+      "fix": "Put the unipotent restriction directly into item 040's statement: at R_0 allow R_v^1, R_v^St or R_v^m, with the standing hypotheses. Reflect it in the route and reader theorem contract, retaining E21 as the source locator. A version with arbitrary R_v^{χ_v} must be separately proved, with the necessary character/twisting argument, before it is advertised. The current application with R_0 empty remains valid."
+    },
+    {
+      "id": "RT-PAPER-CLOZEL-THORNE-17/5",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json: routes 2 and 6, items 006/008 and route 4's imports; corresponding reader",
+      "claim": "Route 6 still says the parahoric-centers Part II owns the shared concrete Iwahori Bernstein presentation, while the updated Kisin–Pappas coalescence it invokes explicitly imports that interface from SR.1/SR.4. Leaving both instructions active gives two construction owners and can send earlier SR consumers to their downstream Part II.",
+      "evidence": "Clozel–Thorne route 6 assigns items 006/008 to SmoothRepresentationsPartIIParahoricCenters and asserts existing ownership. At the checked baseline, PAPER-KISIN-PAPPAS-18 routes 10–11 instead place the shared Iwahori presentation/center/hyperspecial interface at SmoothRepresentationsOfLocalGroups:SR.1/SR.4 and make the Part II import it. This implements independently confirmed RT-PAPER-KISIN-PAPPAS-18/18 (fix PR #5262). PAPER-VENKATESH-19 item 29 and its SR route supply the modular specialization and feed items 30/31/67 there. PAPER-HE-21's generic affine-Hecke cocenter is a distinct additional branch; it does not justify rebuilding the common concrete presentation. The current SR descriptions alone do not establish a completed presentation: the source route is an additional planning obligation.",
+      "fix": "Reconcile the Clozel–Thorne routes with the shared SR.1/SR.4 interface already recorded by Kisin–Pappas. Route the common concrete presentation and its coefficient-specialization contract there, or explicitly split items 006/008 so that route 6 imports that part. Keep the genuinely additional Kazhdan–Lusztig classification/standard modules and generic affine-Hecke extensions with their existing Part II owner. State the specialization bridge and coefficient hypotheses, including finding 1. Update route 2's explanation and route 4's imports; do not create a dependency from the base SR owner to its downstream Part II, and do not rewrite Tau Ceti's abstract Hecke carrier."
+    }
+  ]
+}
