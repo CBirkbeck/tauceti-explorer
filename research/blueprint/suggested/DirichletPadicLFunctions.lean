@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Module.ZMod
 import Mathlib.LinearAlgebra.Matrix.Module
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RepresentationTheory.Basic
@@ -25229,3 +25230,232 @@ example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : kubertPrimitivePoints (
 example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : (kubertPrimitiveGLRepresentation 1 ℤ 6 g).comp (kubertPrimitiveTransfer 1 ℤ 2 6 (by decide))=(kubertPrimitiveTransfer 1 ℤ 2 6 (by decide)).comp (kubertPrimitiveGLRepresentation 1 ℤ 2 g) := by sorry
 end
 end DirichletPadic.SuggestedKubertEquivarianceTests
+
+/- Actual finite general-linear action and congruence factorization. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertLevelCoordinates (k N : ℕ) :
+    (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker ≃+
+      (Fin (k+1) → (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) N).ker) := by sorry
+
+lemma kubertCongruence_levelCoordinates_coe (k N : ℕ)
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker)
+    (i : Fin (k+1)) : (kubertLevelCoordinates k N x i : AddCircle (1 : ℚ))=x.val i := by sorry
+
+lemma kubertCongruence_levelCoordinates_symm_coe (k N : ℕ)
+    (x : Fin (k+1) → (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) N).ker)
+    (i : Fin (k+1)) : ((kubertLevelCoordinates k N).symm x).val i=(x i).val := by sorry
+
+noncomputable def kubertPrimitiveLevelEquiv (X : Type*) [AddCommGroup X] (N : ℕ) :
+    kubertPrimitivePoints X N ≃
+      kubertPrimitivePoints (nsmulAddMonoidHom (α := X) N).ker N := by sorry
+
+lemma kubertCongruence_primitiveLevelEquiv_coe (X : Type*) [AddCommGroup X] (N : ℕ)
+    (x : kubertPrimitivePoints X N) :
+    ((kubertPrimitiveLevelEquiv X N x).val : X)=x.val := by sorry
+
+lemma kubertCongruence_primitiveLevelEquiv_symm_coe (X : Type*) [AddCommGroup X] (N : ℕ)
+    (x : kubertPrimitivePoints (nsmulAddMonoidHom (α := X) N).ker N) :
+    ((kubertPrimitiveLevelEquiv X N).symm x).val=x.val.val := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical Matrix.Module
+
+@[instance_reducible]
+noncomputable def kubertCircleLevelModule (N : ℕ) :
+    Module (ZMod N) (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) N).ker := by sorry
+
+noncomputable def kubertCongruenceLevelEquiv (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker ≃+
+      (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker := by sorry
+
+lemma kubertCongruence_congruenceLevelEquiv_coe (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N))
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker)
+    (i : Fin (k+1)) :
+    (kubertCongruenceLevelEquiv k N g x).val i=
+      ∑ j,(ZMod.cast (g i j) : ℤ) • x.val j := by sorry
+
+lemma kubertCongruence_congruenceLevelEquiv_one (k N : ℕ) :
+    kubertCongruenceLevelEquiv k N 1=AddEquiv.refl _ := by sorry
+
+lemma kubertCongruence_congruenceLevelEquiv_mul (k N : ℕ)
+    (g h : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    kubertCongruenceLevelEquiv k N (g*h)=
+      (kubertCongruenceLevelEquiv k N h).trans (kubertCongruenceLevelEquiv k N g) := by sorry
+
+lemma kubertCongruence_congruenceLevelEquiv_inv (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    kubertCongruenceLevelEquiv k N g⁻¹=(kubertCongruenceLevelEquiv k N g).symm := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical Matrix.Module
+
+lemma kubertCongruence_congruenceLevelEquiv_intCast_coe (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) N).ker) :
+    (kubertCongruenceLevelEquiv k N
+      (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod N)) g) x :
+        Fin (k+1) → AddCircle (1 : ℚ))=
+      kubertIntegerTorusEquiv k g (x : Fin (k+1) → AddCircle (1 : ℚ)) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertPrimitiveCongruenceEquiv (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    Equiv.Perm (kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N) := by sorry
+
+lemma kubertCongruence_primitiveCongruenceEquiv_coe (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N))
+    (x : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N) :
+    (kubertPrimitiveCongruenceEquiv k N g x : Fin (k+1) → AddCircle (1 : ℚ))=
+      (kubertCongruenceLevelEquiv k N g (kubertPrimitiveLevelEquiv _ N x).val :
+        Fin (k+1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCongruence_primitiveCongruenceEquiv_one (k N : ℕ) :
+    kubertPrimitiveCongruenceEquiv k N 1=Equiv.refl _ := by sorry
+
+lemma kubertCongruence_primitiveCongruenceEquiv_mul (k N : ℕ)
+    (g h : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    kubertPrimitiveCongruenceEquiv k N (g*h)=
+      (kubertPrimitiveCongruenceEquiv k N h).trans (kubertPrimitiveCongruenceEquiv k N g) := by sorry
+
+lemma kubertCongruence_primitiveCongruenceEquiv_inv (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N)) :
+    kubertPrimitiveCongruenceEquiv k N g⁻¹=(kubertPrimitiveCongruenceEquiv k N g).symm := by sorry
+
+lemma kubertCongruence_primitiveCongruenceEquiv_intCast (k N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ) :
+    kubertPrimitiveCongruenceEquiv k N (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod N)) g)=
+      kubertPrimitiveEquiv
+        (kubertIntegerTorusEquiv k g) N := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertCongruenceRepresentation (k : ℕ) (R : Type*) [Semiring R] (N : ℕ) :
+    Representation R (Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N))
+      (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N →₀ R) := by sorry
+
+lemma kubertCongruence_congruenceRepresentation_apply (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N))
+    (f : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N →₀ R)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N) :
+    kubertCongruenceRepresentation k R N g f y=f (kubertPrimitiveCongruenceEquiv k N g⁻¹ y) := by sorry
+
+lemma kubertCongruence_congruenceRepresentation_single (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) (ZMod N))
+    (x : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N)
+    (a : R) :
+    kubertCongruenceRepresentation k R N g (Finsupp.single x a)=
+      Finsupp.single (kubertPrimitiveCongruenceEquiv k N g x) a := by sorry
+
+lemma kubertCongruence_congruenceRepresentation_intCast (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ) :
+    kubertCongruenceRepresentation k R N (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod N)) g)=
+      kubertPrimitiveGLRepresentation k R N g := by sorry
+
+lemma kubertCongruence_primitiveGLRepresentation_factors (k : ℕ) (R : Type*) [Semiring R] (N : ℕ) :
+    (kubertCongruenceRepresentation k R N).comp
+      (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod N)))=
+      kubertPrimitiveGLRepresentation k R N := by sorry
+
+lemma kubertCongruence_primitiveGLRepresentation_congruent (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g h : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (heq : ∀ i j,(g i j : ZMod N)=(h i j : ZMod N)) :
+    kubertPrimitiveGLRepresentation k R N g=
+      kubertPrimitiveGLRepresentation k R N h := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCongruenceTests
+open scoped BigOperators Classical
+noncomputable section
+-- actual_torsion_coordinates
+example (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) (i : Fin 2) : (kubertLevelCoordinates 1 5 x i : AddCircle (1 : ℚ))=x.val i := by sorry
+-- coordinates_are_killed_by_level
+example (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) (i : Fin 2) : (5 : ℕ) • (kubertLevelCoordinates 1 5 x i : AddCircle (1 : ℚ))=0 := by sorry
+-- zero_coordinates_are_zero
+example : kubertLevelCoordinates 1 5 0=0 := by sorry
+-- coordinate_value_formula
+example (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) (i : Fin 2) : (kubertLevelCoordinates 1 5 x i : AddCircle (1 : ℚ))=x.val i := by sorry
+-- inverse_coordinate_value
+example (x : Fin 2 → (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) 5).ker) (i : Fin 2) : ((kubertLevelCoordinates 1 5).symm x).val i=(x i).val := by sorry
+-- primitive_level_point_value
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : ((kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x).val : (Fin 2 → AddCircle (1 : ℚ)))=x.val := by sorry
+-- exact_order_in_actual_kernel
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : addOrderOf (kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x).val=5 := by sorry
+-- primitive_level_inverse_recovers_point
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : (kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5).symm (kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x)=x := by sorry
+-- level_embedding_value
+example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : ((kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x).val : (Fin 2 → AddCircle (1 : ℚ)))=x.val := by sorry
+-- level_forgetting_value
+example (x : kubertPrimitivePoints (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker 5) : ((kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5).symm x).val=x.val.val := by sorry
+-- integer_scalar_compatibility
+example (a : ℤ) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) 5).ker) : let _ := kubertCircleLevelModule 5; (a : ZMod 5) • x=a • x := by sorry
+-- zero_modular_scalar
+example (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) 5).ker) : let _ := kubertCircleLevelModule 5; (0 : ZMod 5) • x=0 := by sorry
+-- one_modular_scalar
+example (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) 5).ker) : let _ := kubertCircleLevelModule 5; (1 : ZMod 5) • x=x := by sorry
+-- actual_finite_matrix_coordinates
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) (i : Fin 2) : (kubertCongruenceLevelEquiv 1 5 g x).val i=∑ j,(ZMod.cast (g i j) : ℤ) • x.val j := by sorry
+-- finite_inverse_recovers_point
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) : kubertCongruenceLevelEquiv 1 5 g⁻¹ (kubertCongruenceLevelEquiv 1 5 g x)=x := by sorry
+-- finite_action_fixes_zero
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertCongruenceLevelEquiv 1 5 g 0=0 := by sorry
+-- unit_level_finite_action
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 1)) (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 1).ker) : kubertCongruenceLevelEquiv 1 1 g x=x := by sorry
+-- finite_coordinate_value
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) (i : Fin 2) : (kubertCongruenceLevelEquiv 1 5 g x).val i=∑ j,(ZMod.cast (g i j) : ℤ) • x.val j := by sorry
+-- finite_identity_action
+example : kubertCongruenceLevelEquiv 1 5 1=AddEquiv.refl _ := by sorry
+-- finite_multiplication_order
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (h : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertCongruenceLevelEquiv 1 5 (g*h)=(kubertCongruenceLevelEquiv 1 5 h).trans (kubertCongruenceLevelEquiv 1 5 g) := by sorry
+-- finite_matrix_inverse
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertCongruenceLevelEquiv 1 5 g⁻¹=(kubertCongruenceLevelEquiv 1 5 g).symm := by sorry
+-- integral_finite_point_comparison
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : (nsmulAddMonoidHom (α := (Fin 2 → AddCircle (1 : ℚ))) 5).ker) : (kubertCongruenceLevelEquiv 1 5 (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 5)) g) x : (Fin 2 → AddCircle (1 : ℚ)))=kubertIntegerTorusEquiv 1 g (x : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- actual_primitive_finite_image
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : (kubertPrimitiveCongruenceEquiv 1 5 g x : (Fin 2 → AddCircle (1 : ℚ)))=(kubertCongruenceLevelEquiv 1 5 g (kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x).val : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- finite_action_preserves_exact_order
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : addOrderOf (kubertPrimitiveCongruenceEquiv 1 5 g x : (Fin 2 → AddCircle (1 : ℚ)))=5 := by sorry
+-- unit_primitive_finite_action
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 1)) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 1) : kubertPrimitiveCongruenceEquiv 1 1 g x=x := by sorry
+-- primitive_finite_point_formula
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : (kubertPrimitiveCongruenceEquiv 1 5 g x : (Fin 2 → AddCircle (1 : ℚ)))=(kubertCongruenceLevelEquiv 1 5 g (kubertPrimitiveLevelEquiv (Fin 2 → AddCircle (1 : ℚ)) 5 x).val : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- primitive_finite_identity
+example : kubertPrimitiveCongruenceEquiv 1 5 1=Equiv.refl _ := by sorry
+-- primitive_finite_product
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (h : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertPrimitiveCongruenceEquiv 1 5 (g*h)=(kubertPrimitiveCongruenceEquiv 1 5 h).trans (kubertPrimitiveCongruenceEquiv 1 5 g) := by sorry
+-- primitive_finite_inverse
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertPrimitiveCongruenceEquiv 1 5 g⁻¹=(kubertPrimitiveCongruenceEquiv 1 5 g).symm := by sorry
+-- integral_finite_primitive_comparison
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertPrimitiveCongruenceEquiv 1 5 (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 5)) g)=kubertPrimitiveEquiv (kubertIntegerTorusEquiv 1 g) 5 := by sorry
+-- full_finite_representation_identity
+example : kubertCongruenceRepresentation 1 ℤ 5 1=LinearMap.id := by sorry
+-- full_finite_representation_product
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (h : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) : kubertCongruenceRepresentation 1 ℤ 5 (g*h)=(kubertCongruenceRepresentation 1 ℤ 5 g).comp (kubertCongruenceRepresentation 1 ℤ 5 h) := by sorry
+-- unit_finite_representation
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 1)) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 1 →₀ ℤ) : kubertCongruenceRepresentation 1 ℤ 1 g v=v := by sorry
+-- finite_action_in_characteristic_two
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5 →₀ ZMod 2) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : kubertCongruenceRepresentation 1 (ZMod 2) 5 g v x=v (kubertPrimitiveCongruenceEquiv 1 5 g⁻¹ x) := by sorry
+-- finite_inverse_coefficient
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5 →₀ ℤ) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) : kubertCongruenceRepresentation 1 ℤ 5 g v x=v (kubertPrimitiveCongruenceEquiv 1 5 g⁻¹ x) := by sorry
+-- finite_basis_point_image
+example (g : Matrix.GeneralLinearGroup (Fin 2) (ZMod 5)) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 5) (a : ℤ) : kubertCongruenceRepresentation 1 ℤ 5 g (Finsupp.single x a)=Finsupp.single (kubertPrimitiveCongruenceEquiv 1 5 g x) a := by sorry
+-- integral_finite_coefficient_comparison
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertCongruenceRepresentation 1 ℤ 5 (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 5)) g)=kubertPrimitiveGLRepresentation 1 ℤ 5 g := by sorry
+-- actual_factorization_through_full_finite_GL
+example : (kubertCongruenceRepresentation 1 ℤ 5).comp (Matrix.GeneralLinearGroup.map (Int.castRingHom (ZMod 5)))=kubertPrimitiveGLRepresentation 1 ℤ 5 := by sorry
+-- congruent_integer_matrices_act_equally
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (h : Matrix.GeneralLinearGroup (Fin 2) ℤ) (heq : ∀ i j,(g i j : ZMod 5)=(h i j : ZMod 5)) : kubertPrimitiveGLRepresentation 1 ℤ 5 g=kubertPrimitiveGLRepresentation 1 ℤ 5 h := by sorry
+end
+end DirichletPadic.SuggestedKubertCongruenceTests
