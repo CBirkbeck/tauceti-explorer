@@ -1,0 +1,54 @@
+{
+  "redteam": "RT-PAPER-HE-21",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-HE-21",
+  "summary": "Two corrections to accepted source-issue explanations: nonregular gamma does not force the constructed alcove to be non-shrunken, even for nonzero gamma and full support; the GHN erratum torsion-kernel calculation requires semisimple G. Retain the genuine E1 citation gap and E13 published correction. Nine library items, all 125 non-library routes and the 376-edge internal DAG passed the scoped checks.",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-01",
+  "baseline": {
+    "atlas": "b8085bc083252d20d3eaec03698a44b38bb4001b",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "checked": [
+    "Independence: target extraction/review agents differ from codex-rtOQ9t; target-file history and session-name searches checked before claiming issue #4246.",
+    "All 15 published He21 pages, with images 5,10,14; arXiv pages 5-6,13-14 compared. Exact source hashes, acquisition date and selective prerequisite reading recorded in the report.",
+    "All 134 mathematical item cores: statements, library/planned classifications, dependencies, additional APIs, tests and proof outlines; reader document, review verdicts, all 11 routes, 13 prerequisite descriptions, 14 source-issue records and 11 gaps. Repetitive uses metadata sampled.",
+    "He15 pp.37-38; GHN15 published pp.648-651,658 and all three erratum pages; He14 published pp.399-401; MV20 preprint pp.8-9. Recursive proof closure of every bibliography source is not claimed.",
+    "All 16 distinct declarations cited by the nine library-status items read with git show at the pins; coweight dualization, root-system hypotheses and finite-type/nonzero conditions checked. Correct /130 declaration begins at line97, not the stale 103-107 locator.",
+    "Both pinned trees searched for Demazure, cocenter/cocentre, class-polynomial, shrunken, affine-Deligne and parabolic-factor/representative vocabulary; no corresponding implementation found after screening bibliographic/Chevalley-Demazure hits.",
+    "Reviewed BG0/BG1, GS0 loop/Witt, SF.0, HS0/HS2 library coverage; current RG2.0-RG2.4 and these supplier stages plus SR.1; relevant upstream RootSystems scope/Layers1-6 and previously read ReductiveGroups scope. Three peer-paper dominance/parahoric-center routes checked for ownership reuse.",
+    "Internal graph: 134 items,376 dependency edges,acyclic. All125 non-library items routed exactly once; only nine library items unrouted. All ten source-route stage IDs resolve.",
+    "Fresh assembled atlas:2907 concrete stages,8322 stageEdges,76 edges with proxy/nonconcrete endpoints; graph restricted to concrete stages acyclic. Coarse whole-roadmap contraction not misreported as an item cycle.",
+    "Exact affine A2 transformations for the retained negative and new positive shrunken-output examples; construction independently enumerated in the finite Weyl group. Coroot/Kottwitz arithmetic and GL2-to-PGL2 kernel counterexample reproduced.",
+    "No new author erratum alleged: both findings concern extraction explanations. Existing lattice, source-proof, bounded/perfect geometry and basic-seed frontiers remain explicit; no Lean compilation or proof-closure certificate claimed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-HE-21/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-HE-21.result.json: sourceIssues[PAPER-HE-21/E1].reason and embedded review.reason; research/blueprint/papers/PAPER-HE-21.md: Rewritten (6) paragraph",
+      "claim": "The assertion that the Theorem5.5 output a t^gamma is non-shrunken whenever gamma is nonregular is false. The absolute-value argument loses the orientation of the positive root and treats the permitted interval (0,1) as a removed strip.",
+      "evidence": "He21 published p.5 defines the strip -1<coordinate<0 \"for a given positive root\"; p.10 gives the construction. In split adjoint A2 take lambda=(0,2),x=s1,y=s2. Then J={s2},Jprime={s1},xprime=s2,z=s1,beta=gamma=(1,0),yprime=1,a=s1*s2=s1s2. On the negative base alcove u<0,v<0,u+v>-1, input w acts as (-u-v,u-2), with positive-root intervals (0,1),(-3,-2),(-2,-1). Output a t^gamma acts as (1-u-v,u-1), with intervals (1,2),(-2,-1),(0,1): it is shrunken although gamma is nonzero singular and both finite supports are full. The report checks even the main Newton hypotheses and supplies executable arithmetic. The extraction own /28 test2 supplies the simpler A1 counterexample.",
+      "fix": "Replace the universal singularity claim in E1, its embedded review reason and the reader explanation by the existential statement that shrunkenness need not survive the construction. Preserve the existing valid lambda=omega2,x=s2s1,y=1 negative example, E1 gap verdict, G3 and /119-122. Add the new nonzero full-support positive example as a regression. Do not impose regularity as necessary for shrunkenness or claim that E1 or He21 main theorem is refuted."
+    },
+    {
+      "id": "RT-PAPER-HE-21/2",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-HE-21.result.json: sourceIssues[PAPER-HE-21/E13].reason and embedded review.reason",
+      "claim": "The explanations drop the semisimplicity hypothesis from the GHN erratum identification of the component-map kernel with torsion cocharacter coinvariants and from its equivalent torsion-free injectivity criterion. The unqualified reductive statement is false, although item /104 correctly retains injectivity as an independent assumption.",
+      "evidence": "GHN erratum p.2 opens this calculation with \"Assume that G is semisimple.\" For split GL2 in residue characteristic3, X_*(T)_Gamma=Z^2 is torsion-free, while pi1(GL2)=Z maps onto pi1(PGL2)=Z/2 by reduction mod2, with nonzero kernel2Z. Thus torsion-free coinvariants do not imply injectivity for general connected reductive G. The general componentwise proposition on p.1 and its additional semisimple calculation on p.2 have different scopes.",
+      "fix": "Add for semisimple G to the two attributions of the torsion-kernel formula and injectivity criterion in E13. Retain the known erratum, its general componentwise comparison and the conditional global immersion in /104. Add the GL2 example to prevent extending the criterion beyond its scope. No new sourceIssues entry against the erratum is warranted."
+    }
+  ],
+  "upstreamNotes": [],
+  "limitations": [
+    "Selective prerequisite-source verification, not independent closure of the HN14,HY12,Lang,Viehmann or ramified/perfect comparison proof trees. These are already named extraction gaps.",
+    "No Lean deliverable or compilation in this red-team job.",
+    "Owner comparison covers the named suppliers and three overlapping peer routes, not a new audit of every paper in the catalogue."
+  ]
+}
