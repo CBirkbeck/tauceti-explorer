@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-FENG-24",
+ "findings": [
+  {
+   "finding": "RT-PAPER-FENG-24/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). §5.1.7 (p. 32) lets E/F be any cyclic extension of degree p. Lemma 5.7 (p. 37) identifies Sht_H with the σ-fixed locus of Sht_G. Its proof says that an isomorphism h: E′ ≅ σ*E′ satisfying the cocycle condition 'is equivalent to a descent datum from E′ to an H-torsor over X_S'. That is Galois descent, valid only where X′ → X is étale. At a branch point the inertia acts on the fibre, and a σ-linearised bundle descends only if that action is trivial. Item 60 copies the lemma for every cyclic degree-p cover. I checked the red team's example. Over F_7, the cover t = u³ with σ(u) = 2u is valid, since 2 has order 3 mod 7. Take the trivial line bundle with φ = id and frame u at the fibre u³ = 1 over x₀ = (t = 1). It is σ-fixed, since σ*u = 2u and multiplication by 4 restores u, with 4·2 = 8 ≡ 1. Its framed automorphisms are trivial, because c·u = u forces c = 1. It is not pulled back from X: an invariant frame would take equal values at u = 1, 2, 4, and no constant multiple of u does. The linearisation acts by 4 ≠ 1 at the fixed point u = 0. So the lemma's identification fails at this level, and the Smith-theory step and the E41 repair that rely on it need either étale covers or level at the branch points that forces trivial inertia. The fix is right, and the red team rightly does not claim the base-change theorem is false."
+  },
+  {
+   "finding": "RT-PAPER-FENG-24/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Definition 5.1 (p. 33) calls a family of functors H_I: Rep_k((^LG)^I) → Mod_A(Γ^I) admissible if it has fusion isomorphisms χ_ζ compatible with composition. Construction 5.2 then says 'it is straightforward to check the relations in §2.4.2'. Item 56 copies this for arbitrary functors. Neither the paper nor the item asks the functors to be k-linear, and without that the relations fail. With the constant functor k sending every morphism to id, H_{0}(x) = id even for x = 0, whereas the relations (item 13, k-linearity in x) force S_{I,W,0,ξ,(γ_i)} = 0. The main missing hypothesis is the standard one, that the H_I are k-linear (A-linear on the target). The geometric instance of §5.2.2 satisfies it. The fix should add that first. The red team's further 'normalization, inflation and coherence' conditions should be added only where the proof of the six relations actually uses them; the red team has not shown that any beyond linearity is needed."
+  },
+  {
+   "finding": "RT-PAPER-FENG-24/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Construction 5.2 (p. 33) applies the functor H_{0}, defined on Rep_k(^LG), to x, while 'we again conflate the vector x ∈ W^{Δ(Ĝ)} with a Ĝ-equivariant map 1 → W|_{Δ(Ĝ)}'. A map that is only Ĝ-equivariant is not a morphism of Rep_k(^LG), so H_{0}(x) is not defined when x is not also Γ-invariant. The red team's example shows this: W = k(χ) for a quadratic character χ of Γ, with Ĝ acting trivially, and x = 1. Item 13's generators allow exactly such x and ξ, and item 56 copies the construction. The geometric functors of §5.2.2 are built from Sat(V) on shtukas, and the paper's own Proposition 5.12 works with geometric representations, so the defect lies in the abstract contract, not in the cohomology. The fix is right: define creation and annihilation on the geometric Ĝ^I-functors with their Γ^I-structure, or construct them by another route, keeping the general x and ξ that item 13 allows."
+  },
+  {
+   "finding": "RT-PAPER-FENG-24/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item rev-6, which the review added, asserts that Rf_! and Rj_* take tor-amplitude [a, b] to [a, b + c] with c at most twice the relative dimension. The paper (p. 16, proofs of Lemmas 3.7 and 3.9) claims only that 'Rj_* preserves finiteness of tor-amplitude', from Stacks 0F10 and SGA 4 XVII 5.2.10–5.2.11. The bound is false for Rj_*. Take j: G_m → A¹ over F̄_7, of relative dimension 0, and A = F̄_3[C_3]. Then (R¹j_*A)_0 = Hom(I_tame, A) ≠ 0, since the Kummer cover z³ = t of the punctured strict henselian disc is nontrivial, and 3 ≠ 7. So Rj_*A, with A free in tor-amplitude [0, 0], has tor-amplitude [0, 1]. The consumer needs only preservation of finite tor-amplitude. The fix is right: separate the two pushforwards, keep only finiteness (or a correct cohomological-dimension bound) for Rj_*, and attribute the numeric bound to rev-6, not to the paper."
+  }
+ ]
+}
