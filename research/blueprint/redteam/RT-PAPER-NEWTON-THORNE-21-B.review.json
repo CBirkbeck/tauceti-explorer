@@ -1,0 +1,40 @@
+{
+ "redteam": "RT-PAPER-NEWTON-THORNE-21-B",
+ "findings": [
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /16 applies 'Proposition 2.6 (or 2.8)' and asserts 'R^loc[[X]] → R_∞ is an isomorphism, R_∞ is a domain'. In the dyadic case (Proposition 2.8) the paper proves something different (published p. 137): 'the map R^loc[[X_1,…,X_g]] → R′_∞ is an isomorphism, that Spec R′_∞ is irreducible', with Spec R_∞ → Spec R^inv_∞ a torsor for G_m^γ[2]. It also shows that 'G_m^γ[2](O) acts transitively on the set of irreducible components of Spec R_∞', so Spec R_∞ need not be irreducible. The example of ℤ₂[[x]]/(x(x+2)) is right. The fix is right: split /16 by p and translate the automorphic point within its component for p = 2."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The paper says (p. 117) that a regular algebraic π 'corresponds to a twist of a cuspidal Hecke eigenform f of weight k ≥ 2'. It defines 'π has weight k' (p. 121) by W = (Sym^{k−2}ℂ²)^∨, with Hodge–Tate weights {0, k−1}. Item /41's 'π then has weight k' drops the twist. A twist by an algebraic Hecke character of nonzero infinity type shifts W by a power of det and both Hodge–Tate weights, so it is not of weight k in the paper's sense. The fix is right: keep the twisting character and apply {0, k−1} only after normalising."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). BLGGT, Annals 179 (2014), Lemma 1.4.3 (PDF p. 33 of the Annals file) begins 'Suppose that ρ : G_K → GL_n(Q̄_l) is a potentially crystalline representation. (1) If ρ has a G_K-invariant filtration with one-dimensional graded pieces (in particular if it is ordinary), then ρ is potentially diagonalizable.' Item /59 drops the hypothesis. Its claim that every representation with such a filtration is potentially diagonalisable is false: the Tate module of a split multiplicative Tate curve is ordinary with nonzero monodromy, so it is never potentially crystalline. The fix, restoring 'potentially crystalline' in /59 and in the brief, is right."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Dummigan–Martin–Watkins (Pure Appl. Math. Q. 5 (2009), p. 1312) define 'Λ(s) = N_n^{s/2} γ(s) L(Sym^n E, s), where N_n is a certain conductor', with functional equation Λ(s) = ±Λ(n+1−s). Newton–Thorne II's Corollary B (p. 118) refers to 'the completed symmetric power L-function … as defined in e.g. [DMW09]'. Item /45 defines it as the gamma factor times the Euler factors and omits N_n^{s/2}. Entireness is unaffected, but the normalisation and functional equation are not. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Lemma 2.2 (p. 124) uses the algebraic symmetric power Sym^{n−1} A² and its functoriality. At Tau Ceti f790474, TauCeti/RepresentationTheory/SymmetricPower.lean defines Representation.symmetricPower, Representation.IntertwiningMap.symmetricPower and Representation.Equiv.symmetricPower, and TauCeti/LinearAlgebra/SymmetricPower/Basic.lean defines SymmetricPower.map. The proof on p. 146 uses 'the mth symmetric power of the standard representation of SL2(F_t) is irreducible whenever t > m'. No item records it, and Tau Ceti's SU2.isIrreducible_symPower is the complex SU(2) statement, which does not give it. The fix, a library item for the functor plus a separate finite-field irreducibility item routed to the residual-image owner, is right."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it medium. The reader says 'For p ≤ n, Sym^{n−1} of the residual representation is reducible'. That fails at p = n: by the paper's own criterion (p. 146), Sym^m of the standard SL₂(𝔽_t)-representation is irreducible for t > m, and m = p − 1 < t = p. The statement is false, but it is motivation prose in the reader, not an item or brief, so nothing is built from it. The fix, rewriting the motivation positively and keeping the exponents consistent, is right."
+  },
+  {
+   "finding": "RT-PAPER-NEWTON-THORNE-21-B/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed (low). The reader's opening inventory says '37 items: 1 library, 10 planned, 26 missing'. The accepted JSON has 61 items (1 library, 30 planned, 30 missing), 6 routes and 4 sourceIssues, and the reader's own appended review section already records the non-identical source version and the ownership changes. The fix, rewriting the main reader to match the accepted extraction, is right."
+  }
+ ]
+}
