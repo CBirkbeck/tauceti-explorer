@@ -12,7 +12,7 @@
    "The published version, freely available from the Annals site (PDF SHA-256 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60, fetched 2026-09-29; no arXiv version exists): all 40 pages, §§1–5 with every proof and the references, read in full by Claude Code session cc-fb70e5; formulas checked on page images where the text layer was ambiguous (pp. 653, 656, 661, 666, 669)."
   ]
  },
- "summary": "Masser and Zannier prove, for every algebraic hypersurface H of A_g (g ≥ 2), that almost all points of A_g over number fields of degree at most 2^{16g⁴}, counted through a finite map to affine space, are Hodge (indeed Galois) generic and isogenous to nothing in H; with H the closure of the Jacobian locus this gives, for g ≥ 4, abelian varieties over Q̄ isogenous to no Jacobian, and a euclidean-dense set of them, answering Katz–Oort and Chai–Oort without CM. The elliptic analogue (Theorem 1.7) handles real algebraic curves in the j-plane. The proof plays an isogeny estimate against Pila's blocks counting on the Galois conjugates of the connecting isogeny, using endomorphism estimates to control the integer matrices, Ax–Lindemann for A_g with the Hodge-generic property to rule out algebraic blocks, Serre's Frattini form of Hilbert irreducibility for Galois genericity, and theta constants to bound the field degree. The atlas plans A_g, the Siegel datum, heights, o-minimal counting and Hilbert irreducibility; it lacks the transcendence estimates for abelian varieties (routed to the Part II of FaltingsFinitenessAndIsogenyTheorems proposed by PAPER-TSIMERMAN-18), the Mumford–Tate definition of Hodge genericity (a source of ShimuraData D1), Pila's blocks, Ax–Lindemann and the weakly special geometry (a source of LD.6), the definition of Galois genericity (a source of R01.6), and the paper's own isogeny-in-A_g machinery (a new roadmap). Twelve mistakes are recorded after review, all confirmed: eleven misprints and one gap, in the sketch for the families j = n + in0 of §3.3 (E10). After review the items are 72 (56 missing, 13 planned, 3 library) in eight routes: the Galois-orbit bound for CM points joins the Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\", the weakly special geometry is a source of LD.6, and Serre's, Deligne's, Cadoret's and Pink's Galois-image results join the new roadmap.",
+ "summary": "Masser–Zannier prove the main algebraic hypersurface-avoidance theorem for A_g, g≥2: a Hodge-generic principally polarized abelian variety over a field of degree at most 2^{16g⁴} is isogenous to nothing in a given algebraic hypersurface. Their quantitative counting and density results imply examples isogenous to no Jacobian for g≥4, and they also prove a genus-one analogue. The proof combines isogeny and endomorphism estimates, Pila blocks, functional transcendence, Galois genericity, and theta-model degree bounds. The current inventory has 74 items (3 library,11 planned,60 missing), nine routes, nineteen prerequisites and fourteen source diagnostics. The quantitative isogeny and CM-orbit suppliers remain shared Part II imports; early counting stays at LD.6 while definable uniformization, weakly-special geometry and Ax–Lindemann belong to the accepted LogicAndDefinabilityPartII. The dedicated AbelianVarietiesIsogenousToNoJacobian roadmap owns the paper-specific arithmetic applications. Verified fixes isolate the unsupported supplementary rational 16-torsion assertion as gated item /73, reject the global closed transcendental analytic hypersurface by /74, and retain the compact real-analytic interpolation image in /66. A local replacement and the full arithmetic torsion descent/degree comparison remain explicitly unresolved; neither affects the main Theorem 1.1 statement.",
  "items": [
   {
    "id": "PAPER-MASSER-ZANNIER-20/1",
@@ -243,12 +243,17 @@
    "name": "Definability of the uniformisation on fundamental domains",
    "statement": "The restriction of j to the fundamental domain F, and of J : H_g → A_g to the Siegel fundamental domain F_g, are definable in R_an,exp (Peterzil–Starchenko [31]; F is definable though not compact, [46, Ch. 4, Notes]).",
    "locator": "§3.2, p. 650; §5.1, p. 663",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "LogicAndDefinabilityInNumberTheory:LD.6"
+   "planned": [],
+   "note": "FIX-RT-PAPER-MASSER-ZANNIER-20: imported shared foundation owned by LogicAndDefinabilityPartII, proposed and accepted through PAPER-MOK-PILA-TSIMERMAN-19. A proposed Part II is not completed library work or an existing atlas layer; this item stays missing and is routed once. LD.6 consumes the supplier in its applications and does not own this construction.",
+   "api": [
+    "definable_uniformization_restricted_fundamentalSet; genusOne_j_specialization; Siegel_J_specialization"
    ],
-   "note": "LD.6 plans 'definability of uniformization'."
+   "tests": [
+    "The restricted fundamental domain may be noncompact; no global definability of j on the entire upper half-plane is asserted.",
+    "The genus-one restriction and product j² are instances of the same definable-uniformization supplier."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/20",
@@ -258,7 +263,12 @@
    "locator": "§3.2, p. 650",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "FIX-RT-PAPER-MASSER-ZANNIER-20: imported shared foundation owned by LogicAndDefinabilityPartII, proposed and accepted through PAPER-MOK-PILA-TSIMERMAN-19. A proposed Part II is not completed library work or an existing atlas layer; this item stays missing and is routed once. LD.6 consumes the supplier in its applications and does not own this construction.",
+   "proofOutline": [
+    "Import the genus-one product specialization of the shared Ax–Lindemann/weakly-special supplier. A positive-dimensional semialgebraic arc in the preimage of the irreducible algebraic curve forces a positive-dimensional weakly special subvariety contained in that curve.",
+    "The curve is then modular or vertical/horizontal, contradicting the stated exclusions. These exclusions cannot be dropped; retain the original paper-specific deduction rather than rebuilding functional transcendence."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/21",
@@ -266,12 +276,14 @@
    "name": "Ax–Lindemann for A_g (Pila–Tsimerman)",
    "statement": "If Γ is a semialgebraic curve contained in J^{-1}(H) for an algebraic subvariety H of A_g, then there is a weakly special subvariety K ⊂ H with Γ ⊂ J^{-1}(K) (Pila–Tsimerman [34, Th. 6.1]).",
    "locator": "§5.1, p. 663",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "LogicAndDefinabilityInNumberTheory:LD.6"
-   ],
-   "note": "Review: planned in LD.6, which builds its applications from \"functional-transcendence theorems\" and lists Ax–Lindemann inputs in its source route. PAPER-TSIMERMAN-18's accepted review classes the same theorem (Pila–Tsimerman, Theorem 6.1) as planned there (its item hyperbolic-ax-lindemann)."
+   "planned": [],
+   "note": "FIX-RT-PAPER-MASSER-ZANNIER-20: imported shared foundation owned by LogicAndDefinabilityPartII, proposed and accepted through PAPER-MOK-PILA-TSIMERMAN-19. A proposed Part II is not completed library work or an existing atlas layer; this item stays missing and is routed once. LD.6 consumes the supplier in its applications and does not own this construction.",
+   "proofOutline": [
+    "Use the shared Ax–Lindemann deduction from functional transcendence in LogicAndDefinabilityPartII, with the Siegel uniformization and its algebraic domain structure explicitly identified.",
+    "A positive-dimensional semialgebraic lift of an algebraic subvariety yields a weakly special subvariety containing the lift image and contained in that subvariety. The arithmetic application combines this with /23 and its proper-hypersurface and Hodge-generic hypotheses."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/22",
@@ -282,7 +294,14 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Review: moved from ShimuraData D4, which is upstream of A_g (D4 → D5 → PELModuli M5), to LD.6. PAPER-TSIMERMAN-18's accepted review plans special and weakly special subvarieties in LD.6 (its item special-weakly-special); MOK-PILA-TSIMERMAN-19's accepted Part II of LogicAndDefinabilityInNumberTheory also claims weakly special subvarieties and bi-algebraicity, and one owner is to be chosen at design time."
+   "note": "FIX-RT-PAPER-MASSER-ZANNIER-20: imported shared foundation owned by LogicAndDefinabilityPartII, proposed and accepted through PAPER-MOK-PILA-TSIMERMAN-19. A proposed Part II is not completed library work or an existing atlas layer; this item stays missing and is routed once. LD.6 consumes the supplier in its applications and does not own this construction.",
+   "api": [
+    "weaklySpecial_subvariety; weaklySpecial_iff_biAlgebraic; specialPoint_and_fullAmbient_weaklySpecial; genusOneProduct_modularClassification"
+   ],
+   "tests": [
+    "Every point is weakly special; a Hodge-generic point may therefore lie in a proper weakly special zero-dimensional subvariety.",
+    "Vertical and horizontal curves and modular correspondences in the j² case are allowed weakly special cases."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/23",
@@ -293,7 +312,11 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Review: moved from ShimuraData D4 to LD.6 with item 22."
+   "note": "FIX-RT-PAPER-MASSER-ZANNIER-20: imported shared foundation owned by LogicAndDefinabilityPartII, proposed and accepted through PAPER-MOK-PILA-TSIMERMAN-19. A proposed Part II is not completed library work or an existing atlas layer; this item stays missing and is routed once. LD.6 consumes the supplier in its applications and does not own this construction.",
+   "tests": [
+    "The conclusion is point OR full A_g; excluding points would make the statement false.",
+    "Only a positive-dimensional weakly special K inside a proper hypersurface contradicts Hodge genericity."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/24",
@@ -640,11 +663,16 @@
    "id": "PAPER-MASSER-ZANNIER-20/56",
    "kind": "theorem",
    "name": "Degree of the level-(16, 32) theta model of A_g",
-   "statement": "The Zariski closure of V_16 has degree at most 2(G + 1)!((32g/(π√3)) 512^{2g²} c_g)^G ≤ 2^{16g⁴−1}; with Ã = V_16 (analytically Γ(16, 32)\\H_g) and Ψ given by suitable θ_{m0}(16τ)/θ_{00}(16τ), D_Ψ ≤ 2^{16g⁴−1} and F_Ψ = F̃ = Q, and the resulting fields of definition also define the points of order 16. Here n = [Γ : Γ(e, 2e)] ≤ e^{2g²}(2e)^{2g²}.",
+   "statement": "The Zariski closure of V_16 has degree at most 2(G + 1)!((32g/(π√3)) 512^{2g²} c_g)^G ≤ 2^{16g⁴−1}; with Ã = V_16 (analytically Γ(16, 32)\\H_g) and Ψ given by suitable θ_{m0}(16τ)/θ_{00}(16τ), D_Ψ ≤ 2^{16g⁴−1} and F_Ψ = F̃ = Q. Here n = [Γ : Γ(e, 2e)] ≤ e^{2g²}(2e)^{2g²}.",
    "locator": "§5.2, p. 666",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "This is the theta-coordinate/geometric degree estimate. A Q-model of V_16, its complex congruence quotient, an arithmetic fine-level model with universal principally polarized scheme, and a torsion field are separate objects. The unsupported identification with full rational 16-torsion is E14 and is isolated as gated item /73. Preserve the original numerical bound for the main theorem without attributing torsion to its coordinate field.",
+   "tests": [
+    "At τ=iI_g the theta quotients θ_{m0}(16τ)/θ_{00}(16τ) are positive real. Under the asserted algebraic forgetful map their algebraic coordinate field is real, which cannot be a field of full rational 16-torsion for a principally polarized A.",
+    "The projective degree estimate D_Ψ does not itself bound the field needed to split the torsion representation."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/57",
@@ -654,17 +682,19 @@
    "locator": "§1.2, Theorem 1.3 and (1), p. 638; proof §5.1–5.2",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The degree D=[F̃:Q][F_Ψ:Q]D_Ψ is the main theorem’s bound. Any supplementary arithmetic-level comparison must separately track descent and torsion extensions; /73 cannot reuse this D without a proof."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/58",
    "kind": "theorem",
    "name": "Theorem 1.1: a Hodge generic point isogenous to nothing in a hypersurface",
-   "statement": "Given an algebraic hypersurface H in A_g with g ≥ 2, there is A in A_g, defined over an extension of Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any B in H; its points of order 16 are defined over the same extension.",
+   "statement": "Given an algebraic hypersurface H in A_g with g ≥ 2, there is A in A_g, defined over an extension of Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any B in H.",
    "locator": "§1.2, Theorem 1.1, p. 637",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Theorem 1.1 as printed has no torsion clause. The sentence immediately after it is a supplementary claim, isolated as /73 and gated by E14. The main Hodge-generic hypersurface-avoidance theorem and its field-degree bound are preserved."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/59",
@@ -739,14 +769,27 @@
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/66",
-   "kind": "theorem",
-   "name": "An analytic hypersurface meeting every isogeny class in A_g",
-   "statement": "There is a complex analytic hypersurface W ⊂ A_g such that every element of A_g(Q̄) is isogenous to a point of W; by Theorems 1.1, 1.3 and 1.5 it is transcendental. Construction via y = ι + ww^t, continuity of lower-triangular (Cholesky) factors ‖w − w̃‖ ≤ C‖z − z̃‖ (Stewart [41, Th. 4.1]) and the Newton series.",
+   "kind": "construction",
+   "name": "Compact real-analytic interpolation image meeting algebraic isogeny classes",
+   "statement": "For g≥2, choose distinct interpolation parameters t_n∈[1,2] and representatives τ_n of all algebraic moduli points, modified by Sp_{2g}(ℚ) within their isogeny classes. Newton interpolation constructs matrices F_x,F_w of entire functions, real on the real line, with F_x(t_n)=x_n and F_w(t_n)=w_n, such that F(t)=F_x(t)+i(I+F_w(t)F_w(t)^t) lies in H_g for real t∈[1,2]. Its compact real-analytic parametrized image K=J(F([1,2])) meets every isogeny class represented by A_g(ℚ̄). No embedded-curve or global closed analytic hypersurface assertion is part of this construction.",
    "locator": "§5.4, pp. 668–670",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The Cholesky input is in Tau Ceti f790474: TauCeti.cholesky (LinearAlgebra/Matrix/Cholesky/Basic.lean), with TauCeti.continuous_cholesky and TauCeti.choleskyHomeomorph (Cholesky/Topology.lean). The construction uses only that the lower-triangular factor depends continuously on the matrix, not the Lipschitz form (50) (review)."
+   "note": "The Cholesky input is in Tau Ceti f790474: TauCeti.cholesky (LinearAlgebra/Matrix/Cholesky/Basic.lean), with TauCeti.continuous_cholesky and TauCeti.choleskyHomeomorph (Cholesky/Topology.lean). The construction uses only that the lower-triangular factor depends continuously on the matrix, not the Lipschitz form (50) (review). E13 records the failed global closed-hypersurface endpoint. The obstruction and a precisely gated local replacement specification are in /74. The entire matrix functions are not asserted to take every complex parameter into H_g; positivity is proved on the real interval, with local complex neighborhoods where appropriate.",
+   "proofOutline": [
+    "Use continuity of the Cholesky factor on the positive-definite real symmetric matrices to choose w_n for each sufficiently close positive z_n. Use Sp_{2g}(ℚ)-density to select isogenous τ_n meeting each successive Newton-coefficient tolerance, as in pp.668–669.",
+    "Apply the existing Newton-series construction with coefficient bounds ensuring locally uniform convergence of the matrix entries; their values are real for real t. F_x is symmetric and I+F_wF_w^t is positive definite on [1,2]. Thus F stays in H_g there and K is compact by continuity of J. Interpolation at t_n proves the isogeny-class coverage.",
+    "Stop at the parametrized image. Local analytic dependence of coordinate functions is not a proof that equations on different chart domains extend or glue into a hypersurface in all A_g."
+   ],
+   "api": [
+    "newtonMatrixInterpolation; interpolation_at_parameter; symmetric_real_part; imaginary_part_posDef_on_real_interval; compact_parametrizedImage; isogenyClass_meets_interpolationImage"
+   ],
+   "tests": [
+    "For real w and nonzero v, vᵗ(I+wwᵗ)v=‖v‖²+‖wᵗv‖²>0, so the image stays in H_g.",
+    "Image compactness and real-analytic parametrization do not imply the image is a closed complex analytic hypersurface.",
+    "The interpolation parameters lie in the real interval; a complex continuation needs an explicitly smaller parameter neighborhood."
+   ]
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/67",
@@ -813,6 +856,63 @@
    "library": [],
    "planned": [],
    "note": "Added in review. (33) bounds m̃ by the degree D̃ of a field of definition, while the Pila count needs the number of Galois conjugates of the moduli point, which is the degree of the field of moduli; the paper passes between them without comment. PELModuli M2 and M5 own the Siegel moduli problem with level structure, which this imports."
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/73",
+   "kind": "theorem",
+   "name": "Supplementary rational 16-torsion claim — unresolved arithmetic descent",
+   "statement": "Unresolved supplementary target, not part of Theorem 1.1: construct the hypersurface-avoiding principally polarized A over a number field K of degree ≤2^{16g⁴} with every point of A[16] K-rational. The printed inference from Γ(16,32) to its theta coordinate field is insufficient. This conclusion is gated until the arithmetic fine-level comparison and its complete degree bound are proved.",
+   "locator": "Published p.637, sentence after Theorem 1.1; closing paragraph of §5.2, p.666 (E14)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "gate": {
+    "status": "unresolved",
+    "sourceIssue": "PAPER-MASSER-ZANNIER-20/E14",
+    "required": "A comparison of the theta Q-model with the arithmetic full-level moduli model/universal scheme, including polarization, all descent extensions, and the final degree bound."
+   },
+   "proofOutline": [
+    "Import arithmetic fine-level moduli and universal principally polarized abelian schemes from PELModuli M2/M5, torsion and perfect Galois-equivariant Weil pairing from AbelianSchemesAndArithmeticModuli A3, and analytic level comparison from A5. Do not reconstruct those theories here.",
+    "Separate the theta coordinate field K_θ, a field K_A carrying a polarized model, K_cyc=K_A(ζ_16), and a field K_tor carrying a full symplectic level basis. A perfect equivariant Weil pairing implies μ_16⊆K_tor: an exact-order-16 point pairs with some torsion point to a primitive root, fixed by Galois when both points are rational. Cyclotomic containment is necessary, not sufficient for splitting the entire representation.",
+    "For a proposed finite arithmetic comparison cover Y→V_16 over F_Y and map Ψ_Y=Ψ∘π, compute D(Y,Ψ_Y)=[F_Y:ℚ][F_{Ψ_Y}:ℚ]D_{Ψ_Y}, including the comparison-cover degree. If instead extending a residue field, track [K_tor:ℚ]=[K_tor:K_cyc][K_cyc:K_A][K_A:K_θ][K_θ:ℚ]. Bound [K_cyc:K_A]≤φ(16)=8 and prove every other factor. Do not automatically multiply both descriptions and double-count the same extension.",
+    "Only enable the supplementary target after proving the resulting total ≤2^{16g⁴} and the desired moduli interpretation. Neither that inequality nor sufficiency of adjoining ζ_16 is established here. The main theorem’s D remains unchanged."
+   ],
+   "api": [
+    "thetaCoordinateModel; arithmeticFineLevelModel; comparisonCover; polarizedModelField; torsionSplittingField; weilPairing_fullRationalTorsion_implies_cyclotomicContainment; arithmeticComparison_degree_bound"
+   ],
+   "tests": [
+    "A real number field cannot contain all μ_16, hence cannot define full rational 16-torsion on a principally polarized A.",
+    "A coordinate field, a field of moduli, a field of definition and a torsion field are not interchangeable.",
+    "Adjoining ζ_16 alone is not an acceptance test for full rational torsion; demand a trivialized Galois module and the actual degree calculation."
+   ]
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/74",
+   "kind": "theorem",
+   "name": "Closed analytic hypersurface obstruction and gated local replacement",
+   "statement": "For g≥2, every globally closed pure analytic hypersurface of A_g(ℂ) is algebraic: its closure in the projective Satake compactification is analytic by Remmert–Stein and algebraic by Chow. Consequently the §5.4 interpolation image cannot be promoted to a transcendental globally closed analytic hypersurface meeting every algebraic isogeny class. A local/germ or nonclosed replacement is a separate unresolved target, with its ambient domain specified before use.",
+   "locator": "Masser–Zannier §5.4 pp.668–670 (E13); Le Fourn (2019) 6.4, p.181; Demailly Chapter II (8.7), p.118 and (8.10), p.121",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "gate": {
+    "status": "unresolved",
+    "sourceIssue": "PAPER-MASSER-ZANNIER-20/E13",
+    "required": "For a local replacement specify U⊆A_g(ℂ) open, K⊆U, and a pure codimension-one closed analytic W_U⊆U containing K, and prove the extension/compatibility of local equations there; alternatively specify and prove a germwise/nonclosed statement. No replacement is enabled by this packet."
+   },
+   "proofOutline": [
+    "Put G=g(g+1)/2. Import the projective Satake compactification from ShimuraCompactifications C5 and analytic subsets/Chow/Remmert–Stein suppliers from ComplexComparisonPartII C0/C4. Its boundary has dimension G−g; a pure hypersurface has local dimension G−1>G−g for g≥2.",
+    "Remmert–Stein applies to the singular ambient complex space as well: closure across that boundary is analytic. Embed the projective compactification in projective space and apply Chow. Restriction to A_g gives the original W because W was closed there. The main algebraic hypersurface-avoidance theorem then rules out coverage of every algebraic isogeny class by such W.",
+    "Local equations on overlapping neighborhoods cannot simply be multiplied without a common domain or compatible extensions. The source’s finite-cover/compactness argument does not provide that gluing. Keep /66 as the interpolation endpoint while the local replacement remains gated."
+   ],
+   "api": [
+    "satakeBoundary_dimension; closedAnalyticHypersurface_isAlgebraic_genus_ge_two; localHypersurfaceSpecification_with_openAmbient; localEquation_compatibility_obligation"
+   ],
+   "tests": [
+    "For g=2, G−1=2 exceeds boundary dimension G−g=1; for g=1 equality prevents this argument, so the elliptic construction /40 is unchanged.",
+    "Relative closedness in an open neighborhood U is distinct from global closedness in A_g.",
+    "Finite many equations on different domains do not define a product on their union without extensions."
+   ]
   }
  ],
  "prerequisites": [
@@ -919,17 +1019,12 @@
     "LogicAndDefinabilityInNumberTheory:LD.6"
    ],
    "items": [
-    "PAPER-MASSER-ZANNIER-20/18",
-    "PAPER-MASSER-ZANNIER-20/20",
-    "PAPER-MASSER-ZANNIER-20/21",
     "PAPER-MASSER-ZANNIER-20/16",
     "PAPER-MASSER-ZANNIER-20/17",
-    "PAPER-MASSER-ZANNIER-20/19",
-    "PAPER-MASSER-ZANNIER-20/38",
-    "PAPER-MASSER-ZANNIER-20/22",
-    "PAPER-MASSER-ZANNIER-20/23"
+    "PAPER-MASSER-ZANNIER-20/18",
+    "PAPER-MASSER-ZANNIER-20/38"
    ],
-   "reason": "LD.6 owns o-minimal counting and Pila–Zannier-type applications with separate Galois-orbit and functional-transcendence inputs. The paper needs Pila's family version with blocks (the algebraic part of its definable sets is everything), Ax–Lindemann for j² and for A_g, and definability of the uniformisation; it is a worked application of exactly this layer's programme. The planned items are listed as those it serves. Review (REV-PAPER-MASSER-ZANNIER-20): PAPER-TSIMERMAN-18's accepted route 1 is the precedent; it plans hyperbolic Ax–Lindemann for A_g and special and weakly special subvarieties in LD.6, so item 21 is planned and items 22 and 23 join this route from the rejected ShimuraData route (a Part II of LogicAndDefinabilityInNumberTheory proposed by MOK-PILA-TSIMERMAN-19 also claims weakly special subvarieties; one owner is to be chosen at design time). Item 65 leaves for route 8. LD.6's inputs are LD.0, DT.0 and SF.0 only, so the uniformisation and Ax–Lindemann items need the links PELModuli:M5 → LD.6, ShimuraData:D5 → LD.6 and ModularCurvesPartII:R12.1 → LD.6; none closes a cycle."
+   "reason": "LD.6 owns o-minimality, counting, the uniform Pila-blocks extension, and the source-scoped André application (items 16–18,38). Its later applications consume definability, functional transcendence and weakly special geometry from LogicAndDefinabilityPartII. The earlier competing assignment of items 19–23 to LD.6 is superseded by the accepted shared supplier. Import only the early counting content into that Part II; no whole-stage LD.6 reverse dependency is introduced."
   },
   {
    "route": "source",
@@ -940,7 +1035,7 @@
    "items": [
     "PAPER-MASSER-ZANNIER-20/4"
    ],
-   "reason": "ShimuraData D1 constructs the Deligne torus and Hodge structures; the Mumford–Tate group of the polarized rational Hodge structure H¹(A, Q), and with it the definition of a Hodge generic abelian variety, continues that layer. As corrected in review (REV-PAPER-MASSER-ZANNIER-20): weakly special subvarieties of A_g (items 22, 23) and the special-subvariety characterization of Hodge genericity are statements about A_g, which is downstream of D4 (D4 → D5 → PELModuli M5), so they moved to LD.6 (route 1); MOK-PILA-TSIMERMAN-19's review rejected the same D4 placement."
+   "reason": "ShimuraData D1 constructs the Deligne torus and Hodge structures; the Mumford–Tate group of the polarized rational Hodge structure H¹(A, Q), and with it the definition of a Hodge generic abelian variety, continues that layer. As corrected in review (REV-PAPER-MASSER-ZANNIER-20): weakly special subvarieties of A_g (items 22, 23) and the special-subvariety characterization of Hodge genericity are statements about A_g, which is downstream of D4 (D4 → D5 → PELModuli M5), so they now belong to LogicAndDefinabilityPartII (route 9); MOK-PILA-TSIMERMAN-19's review rejected the same D4 placement."
   },
   {
    "route": "source",
@@ -1038,9 +1133,11 @@
     "PAPER-MASSER-ZANNIER-20/24",
     "PAPER-MASSER-ZANNIER-20/25",
     "PAPER-MASSER-ZANNIER-20/71",
-    "PAPER-MASSER-ZANNIER-20/72"
+    "PAPER-MASSER-ZANNIER-20/72",
+    "PAPER-MASSER-ZANNIER-20/73",
+    "PAPER-MASSER-ZANNIER-20/74"
    ],
-   "brief": "Plan Masser–Zannier, Abelian varieties isogenous to no Jacobian (Ann. of Math. 191 (2020), 635–674). Final theorems exactly as the paper states them: Theorem 1.1 (for any hypersurface H of A_g, g ≥ 2, a Hodge generic A over a field of degree at most 2^{16g⁴}, isogenous to nothing in H; the remark after it adds that the construction also makes the points of order 16 rational there), Corollary 1.2 (g ≥ 4: isogenous to no Jacobian), Theorem 1.3 (at most C N^{G−γ} of the n ∈ [1, N]^G fail, for γ < 1/2, any γ < 1 when g is odd or 2, 6; D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ; further, there exist Ã, Ψ defined over Q with D(Ã, Ψ) = 2^{16g⁴}), Corollary 1.4 (a euclidean-dense set of pairwise non-isogenous examples), Theorem 1.5 and Corollary 1.6 (conditional on unirationality, g ≤ 5), and Theorem 1.7 (elliptic curves E_{n1+in2} versus a real algebraic curve, at most C N(log N)^{10} exceptions). Cover: the Jacobian locus and its closure, Igusa's fundamental-domain estimates, the integer matrices of isogenies (Lemmas 2.1, 4.1, 4.2), heights of period matrices (Lemma 4.3), the counting lemmas 3.1–3.3 and 5.1–5.2, the Pila-blocks argument with the Hodge-generic versus weakly-special step, Siegel Λ-forms, Igusa's order bound, theta constants of level Γ(16, 32) and the degree bound 2^{16g⁴−1}, the isogeny-class and CM counts, the transcendental analytic curve and hypersurface meeting every isogeny class, and the genus-4 Igusa form with products. Import: A_g from PELModuli (M2, M5); the Siegel datum and special points from ShimuraData (D4, D5), with the Mumford–Tate definition of Hodge genericity from D1; o-minimal counting, blocks, Ax–Lindemann and weakly special subvarieties from LogicAndDefinabilityInNumberTheory (LD.6); the definition of Galois genericity from ArithmeticGaloisRepresentations (R01.6); Hilbert irreducibility with Cohen's count from InverseGaloisAndArithmeticFundamentalGroups (IG.2); modular polynomials from ModularCurvesPartII (R13.4); heights from ArakelovGeometryAndAbelianHeights (R35.3–R35.4); the isogeny and endomorphism estimates from FaltingsFinitenessAndIsogenyTheoremsPartII; Jacobians from the Tau Ceti JacobianChallenge. Review (REV-PAPER-MASSER-ZANNIER-20): also cover the Galois-genericity inputs Serre's open image for End = Z in dimensions g odd, 2, 6, Deligne's open monodromy of the universal family and the implications of Cadoret and Pink (items 6, 24, 25), importing Faltings' semisimplicity and isogeny theorems from FaltingsFinitenessAndIsogenyTheorems (R28.4) and A_g with level structure from PELModuli (M2, M5); Deligne's absolute Hodge theorem, which Pink's implication uses, is planned nowhere and is a source-closure obligation. Import Siegel sets and fundamental sets from AdelicAlgebraicGroups (AA.3) and ShimuraVarieties (V0) for item 9, which adds only the Minkowski-reduced domain and Igusa's estimates; Siegel modular forms, their transformation law and Fourier expansions from AutomorphicBundles (B4, B5) and ShimuraVarieties (V2) for item 50, which adds only ord; the degree of a projective variety under projections (item 71) and the bounded field of definition over the field of moduli (item 72); and the CM Galois-orbit bound from the Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\" (route 8).",
+   "brief": "Plan Masser–Zannier, Abelian varieties isogenous to no Jacobian (Ann. of Math. 191 (2020), 635–674). Final theorems exactly as the paper states them: Theorem 1.1 (for any hypersurface H of A_g, g ≥ 2, a Hodge generic A over a field of degree at most 2^{16g⁴}, isogenous to nothing in H; the supplementary torsion remark is isolated and gated in /73, not included in the main theorem), Corollary 1.2 (g ≥ 4: isogenous to no Jacobian), Theorem 1.3 (at most C N^{G−γ} of the n ∈ [1, N]^G fail, for γ < 1/2, any γ < 1 when g is odd or 2, 6; D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ; further, there exist Ã, Ψ defined over Q with D(Ã, Ψ) = 2^{16g⁴}), Corollary 1.4 (a euclidean-dense set of pairwise non-isogenous examples), Theorem 1.5 and Corollary 1.6 (conditional on unirationality, g ≤ 5), and Theorem 1.7 (elliptic curves E_{n1+in2} versus a real algebraic curve, at most C N(log N)^{10} exceptions). Cover: the Jacobian locus and its closure, Igusa's fundamental-domain estimates, the integer matrices of isogenies (Lemmas 2.1, 4.1, 4.2), heights of period matrices (Lemma 4.3), the counting lemmas 3.1–3.3 and 5.1–5.2, the Pila-blocks argument with the Hodge-generic versus weakly-special step, Siegel Λ-forms, Igusa's order bound, theta constants of level Γ(16, 32) and the degree bound 2^{16g⁴−1}, the isogeny-class and CM counts, the elliptic real-analytic curve and the compact higher-dimensional interpolation image meeting algebraic isogeny classes, with the global closed-hypersurface assertion rejected and any local replacement gated in /74, and the genus-4 Igusa form with products. Import: A_g from PELModuli (M2, M5); the Siegel datum and special points from ShimuraData (D4, D5), with the Mumford–Tate definition of Hodge genericity from D1; o-minimal counting and blocks from the early counting content of LogicAndDefinabilityInNumberTheory LD.6, and uniformization definability, Ax–Lindemann and weakly special geometry from the shared LogicAndDefinabilityPartII (route 9); the definition of Galois genericity from ArithmeticGaloisRepresentations (R01.6); Hilbert irreducibility with Cohen's count from InverseGaloisAndArithmeticFundamentalGroups (IG.2); modular polynomials from ModularCurvesPartII (R13.4); heights from ArakelovGeometryAndAbelianHeights (R35.3–R35.4); the isogeny and endomorphism estimates from FaltingsFinitenessAndIsogenyTheoremsPartII; Jacobians from the Tau Ceti JacobianChallenge. Review (REV-PAPER-MASSER-ZANNIER-20): also cover the Galois-genericity inputs Serre's open image for End = Z in dimensions g odd, 2, 6, Deligne's open monodromy of the universal family and the implications of Cadoret and Pink (items 6, 24, 25), importing Faltings' semisimplicity and isogeny theorems from FaltingsFinitenessAndIsogenyTheorems (R28.4) and A_g with level structure from PELModuli (M2, M5); Deligne's absolute Hodge theorem, which Pink's implication uses, is planned nowhere and is a source-closure obligation. Import Siegel sets and fundamental sets from AdelicAlgebraicGroups (AA.3) and ShimuraVarieties (V0) for item 9, which adds only the Minkowski-reduced domain and Igusa's estimates; Siegel modular forms, their transformation law and Fourier expansions from AutomorphicBundles (B4, B5) and ShimuraVarieties (V2) for item 50, which adds only ord; the degree of a projective variety under projections (item 71) and the bounded field of definition over the field of moduli (item 72); and the CM Galois-orbit bound from the Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\" (route 8). Binding verified fixes: E13 rules out a globally closed transcendental analytic hypersurface for g≥2; /66 ends at the compact real-analytic parametrized image. A local replacement must specify its open ambient U and relative closedness and prove chart compatibility before activation. E14 gates the supplementary rational 16-torsion assertion; import PELModuli M2/M5 and AbelianSchemes A3/A5 and prove the theta/fine-level arithmetic comparison. Account for cyclotomic and all further descent degrees using /73; neither adjoining ζ_16 alone nor the unchanged geometric degree is sufficient. The main Theorem 1.1, its field bound and algebraic hypersurface avoidance remain intact. Import Satake geometry from ShimuraCompactifications C5 and analytic-closure/Chow suppliers from ComplexComparisonPartII C0/C4 for /74. Implement the stated APIs/tests and retain both unresolved gates explicitly. Supplier requests attached to this extraction require the general singular-space Remmert–Stein extension at ComplexComparisonPartII C4 and the exact Siegel boundary-dimension specialization at ShimuraCompactifications C5; the current stage texts do not explicitly export those adapters. The owner designs must register and prove them before the /74 obstruction is implemented formally.",
    "reason": "Nothing in the atlas studies isogeny classes in A_g against the Jacobian locus or any hypersurface, and the paper's own machinery (integer matrices of isogenies, heights of period matrices, theta-constant degree bounds for the field of definition) has no existing direction; it builds on the suppliers named in the brief without re-planning them. Review: items 6, 24 and 25 joined from the rejected R01.6 route, and items 71 and 72, inputs of §5.2 and of the Pila count that no item stated, were added."
   },
   {
@@ -1054,6 +1151,22 @@
    ],
    "reason": "Added in review (REV-PAPER-MASSER-ZANNIER-20). LD.6 takes Galois-orbit bounds as separate inputs and plans none, and CM.0–CM.6 do not target quantitative orbit bounds. PAPER-TSIMERMAN-18, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 and PAPER-YUAN-ZHANG-18 route exactly this bound to this Part II, whose routes were accepted; the id, parent, title and area are theirs, so the item joins that design.",
    "brief": "The same Part II that PAPER-TSIMERMAN-18 proposes under this id; this paper adds only a consumer. Final theorem used here (Pila–Tsimerman, Ax-Lindemann for A_g, Conjecture 7.1, proved by Tsimerman in Brauer–Siegel for arithmetic tori and lower bounds for Galois orbits of special points, JAMS 25 (2012), for g ≤ 6 unconditionally and for all g under GRH, and in The André–Oort conjecture for A_g, Ann. of Math. 187 (2018), via the averaged Colmez formula): there are constants c_g, δ_g > 0 such that every CM point x of A_g satisfies |Gal(Q̄/Q)·x| ≥ c_g |disc Z(End(A_x))|^{δ_g}. Masser–Zannier use it with Pila–Tsimerman Lemma 7.4 to show that points of bounded field degree include only boundedly many CM points (their §5.4). Build on ComplexMultiplicationAndExplicitReciprocity CM.0 and CM.2 and import as that design specifies; nothing here is new beyond the consumer."
+  },
+  {
+   "route": "part-ii",
+   "roadmap": "LogicAndDefinabilityPartII",
+   "parent": "LogicAndDefinabilityInNumberTheory",
+   "title": "Logic, definability, valued fields and motivic integration, Part II: functional transcendence and Ax–Schanuel for Shimura varieties",
+   "area": "modeltheory",
+   "items": [
+    "PAPER-MASSER-ZANNIER-20/19",
+    "PAPER-MASSER-ZANNIER-20/20",
+    "PAPER-MASSER-ZANNIER-20/21",
+    "PAPER-MASSER-ZANNIER-20/22",
+    "PAPER-MASSER-ZANNIER-20/23"
+   ],
+   "reason": "Coalesces with the already accepted PAPER-MOK-PILA-TSIMERMAN-19 supplier. LD.6 consumes functional transcendence rather than constructing it. This removes the competing owner and imports only early counting into the shared Part II; it does not create another Part II or claim a pending Tsimerman fix is independently accepted.",
+   "brief": "Reuse the accepted LogicAndDefinabilityPartII of PAPER-MOK-PILA-TSIMERMAN-19 with its exact id, parent, title and area. Its existing functional-transcendence, definable-uniformization and weakly-special foundations supply items 19–23. Construct the genus-one adapter for j on the SL₂(ℤ) fundamental domain and product j², importing ModularCurvesPartII R12.1 and modular correspondences from R13.4. Construct the Siegel adapter J:H_g→A_g on a fundamental set, importing PELModuli M5, ShimuraData D5 and the relevant ShimuraVarieties uniformization. Deduce Ax–Lindemann once from the shared functional-transcendence theorem with exact domain, algebraicity and weakly-special hypotheses, and specialize it both to the non-modular curve exclusion in /20 and the A_g argument in /21. Weakly-special bi-algebraicity and the Hodge-generic dichotomy /22–/23 are supplier outputs. Preserve points as weakly special and distinguish positive-dimensional blocks. Use only early LD.6 o-minimality/cell decomposition/counting and its /18 uniform blocks extension; downstream LD.6 arithmetic applications consume these results. If the owner design cannot import early content separately, request a counting/application split instead of adding a whole-stage cycle. These are missing shared foundations, not library declarations. Acceptance tests and APIs in /19–/23 bind these adapters, including the vertical/horizontal/modular exceptions in genus one and point-or-full-ambient dichotomy in the Siegel case."
   }
  ],
  "sourceIssues": [
@@ -1296,6 +1409,38 @@
     "reason": "Checked on the rendered p. 635.",
     "by": "REV-PAPER-MASSER-ZANNIER-20"
    }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E13",
+   "kind": "error",
+   "locator": "Published §5.4 pp.668–670, especially local-to-global step pp.669–670",
+   "printed": "The source describes W as an analytic hypersurface in A_g and calls it necessarily transcendental.",
+   "correction": "Retain the compact real-analytic interpolation image (/66). A globally closed pure analytic hypersurface is algebraic for g≥2; a local/germ/nonclosed replacement needs its own explicit domain and proof and remains gated in /74.",
+   "reason": "Satake boundary dimension G−g is below hypersurface dimension G−1. Remmert–Stein extends the closure across the boundary and Chow makes it algebraic. Multiplying finitely many local equations on different domains does not establish a global analytic hypersurface.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-01: Annals article page https://annals.math.princeton.edu/2020/191-2/p07 has no erratum link; the published PDF was read at the selected loci.",
+    "2026-10-01: Crossref DOI 10.4007/annals.2020.191.2.7 returned empty relation and no update-to/updated-by fields.",
+    "2026-10-01: title/author erratum and correction searches did not locate a correction or a distinct revised preprint. No exhaustive version collation is claimed.",
+    "2026-10-01: Zannier institutional profile https://www.sns.it/it/persona/umberto-zannier and Masser publication-list PDF checked for correction leads; the latter is dated December 2018 and does not certify later corrections."
+   ]
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E14",
+   "kind": "gap",
+   "locator": "Published p.637, supplementary sentence after Theorem 1.1; closing paragraph of §5.2, p.666",
+   "printed": "The source refers to its points having order 16.",
+   "correction": "Separate the supplementary torsion claim from Theorem 1.1; prove the arithmetic theta/fine-level comparison and full degree bookkeeping using the existing suppliers, or retain the unresolved gate /73.",
+   "reason": "A complex congruence quotient or theta model over ℚ does not identify its coordinate field with the field splitting the entire torsion representation. Perfect equivariant Weil pairing forces μ_16 into any field carrying all rational 16-torsion and the principal polarization, excluding real fields. Additional descent extensions beyond the cyclotomic extension may be needed. The main theorem is not disproved.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-01: Annals article page https://annals.math.princeton.edu/2020/191-2/p07 has no erratum link; the published PDF was read at the selected loci.",
+    "2026-10-01: Crossref DOI 10.4007/annals.2020.191.2.7 returned empty relation and no update-to/updated-by fields.",
+    "2026-10-01: title/author erratum and correction searches did not locate a correction or a distinct revised preprint. No exhaustive version collation is claimed.",
+    "2026-10-01: Zannier institutional profile https://www.sns.it/it/persona/umberto-zannier and Masser publication-list PDF checked for correction leads; the latter is dated December 2018 and does not certify later corrections."
+   ]
   }
  ],
  "sourceVersions": [
@@ -1305,6 +1450,57 @@
    "read": "2026-09-29",
    "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60",
    "note": "The version of record, Annals of Mathematics 191 (2020), 635–674, freely available from the journal; no arXiv version exists. All locators refer to its printed pages."
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf",
+   "read": "2026-10-01",
+   "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60",
+   "scope": "Fix-worker selected reads: printed pp.637,650,663,665–670; viewed pp.666,669,670. No new whole-paper read or full preprint collation."
+  },
+  {
+   "kind": "published",
+   "url": "https://msp.org/ant/2019/13-1/ant-v13-n1-p04-s.pdf",
+   "read": "2026-10-01",
+   "sha256": "12e8666d4a8cdf2b865000021d79582f6a4dc30ecf4c574a9831b26f1e7b82f0",
+   "scope": "Comparison source Le Fourn: printed pp.180–182, especially 6.4,6.5(b),6.6(a); no full-paper read."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf",
+   "read": "2026-10-01",
+   "sha256": "d7c7654a7417e8322e5dcf8fe8ec818b4c1a18cf280b41f2df5a871b776d89a1",
+   "scope": "Comparison source Demailly: Chapter II pp.118,121, Remmert–Stein (8.7) and Chow (8.10), with surrounding text; no full-book or full Remmert–Stein proof read."
+  }
+ ],
+ "requests": [
+  {
+   "owner": "ComplexComparisonPartII:C4",
+   "consumer": "PAPER-MASSER-ZANNIER-20/74",
+   "statement": "Remmert–Stein extension in a possibly singular complex space X: if A is a closed analytic subset of dimension ≤p and Z is a closed analytic subset of X\\A with every local dimension >p, then its closure in X is analytic.",
+   "locator": "Demailly Chapter II (8.7), printed p.118, author manuscript read 2026-10-01",
+   "reason": "C0 supplies closed analytic spaces and C4 supplies projective Chow, but their current stage text does not explicitly export this general extension theorem. Acquire it once in the analytic algebraization supplier, rather than treating it as already built or duplicating it in the arithmetic consumer.",
+   "api": [
+    "analyticClosure_of_localDimension_gt_boundaryDimension; restriction_closure_eq_of_relativelyClosed"
+   ],
+   "tests": [
+    "Retain the strict local dimension inequality; the g=1 equal-dimensional boundary case is excluded.",
+    "Allow singular complex spaces, as required by the coarse Satake compactification."
+   ]
+  },
+  {
+   "owner": "ShimuraCompactifications:C5",
+   "consumer": "PAPER-MASSER-ZANNIER-20/74",
+   "statement": "For the complex Siegel Satake compactification of A_g, prove projectivity, identify the open A_g, and export boundary dimension g(g−1)/2=G−g.",
+   "locator": "Le Fourn (2019) Definition–Proposition 6.4(a,b), printed p.181",
+   "reason": "C5 owns the minimal compactification and its projectivity. The exact Siegel boundary dimension is a specialization needed here, not an already cited library theorem. Export this adapter once from that supplier.",
+   "api": [
+    "siegelSatake_projective; siegelSatakeBoundary_dimension"
+   ],
+   "tests": [
+    "For g=2 boundary dimension is one and ambient dimension three.",
+    "For g=1 the boundary dimension is zero; this does not give a strict inequality against a zero-dimensional hypersurface."
+   ]
   }
  ]
 }
