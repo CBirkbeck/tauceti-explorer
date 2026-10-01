@@ -33116,7 +33116,8 @@
     "REV-PAPER-CIUBOTARU-HARRIS-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5054"
   },
   {
    "id": "REV-RT-PAPER-CIUBOTARU-HARRIS-26",
@@ -34644,8 +34645,9 @@
     "REV-PAPER-MASSER-ZANNIER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MASSER-ZANNIER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5061"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5061",
+   "finishedAt": "2026-10-01T07:59:28Z"
   },
   {
    "id": "REV-RT-PAPER-MASSER-ZANNIER-20",
@@ -45529,8 +45531,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-20~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5111"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5111",
+   "finishedAt": "2026-10-01T07:59:32Z"
   },
   {
    "id": "RT-RS-21",
