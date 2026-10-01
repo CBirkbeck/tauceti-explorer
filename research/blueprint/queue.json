@@ -35258,7 +35258,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5501",
+   "finishedAt": "2026-10-01T21:15:45Z"
   },
   {
    "id": "RT-PAPER-GAMBURD-MAGEE-RONAN-19",
