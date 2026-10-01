@@ -1,0 +1,35 @@
+{
+ "redteam": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
+ "findings": [
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Example 4.1.1 (published p. 22) says 'The morphisms [S/G] → [S/H] correspond to S-homomorphisms G → H', and item /127 copies it. That is false for a general diamond S. Since BH classifies H-torsors, take S = Spd ℚ_p, G = 1 and H = ℤ/2: the unramified quadratic extension gives a nontrivial H-torsor, hence a map S = B1 → BH that is not 2-isomorphic to the one induced by the unique homomorphism 1 → H. The paper only uses maps induced by homomorphisms, so the applications stand. The fix, describing a general map by an H-torsor with a commuting G-action and recording a sourceIssue, is right."
+  },
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Theorem 4.3.8 (p. 32) is stated 'with p, q proper'. Example 4.3.10 (pp. 32–33) applies it with C′ = X′ = S after assuming only 'that X is proper over S', and item /059 keeps the arbitrary correspondence c: Y → X ×_S X. Properness of p: Y → S is then missing, and with it the induced endomorphism and the integral over Fix(c). The example is right: Y a countable disjoint union of S = Spd C with c₁ = c₂ the structure maps has Fix(c) = Y and trace section 1. That section lies in ∏Λ but not ⊕Λ, so the compact-support integral is undefined. The fix, adding properness of Y over S (automatic for Y = X) and a sourceIssue, is right."
+  },
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item /072 (the ECD §27 comparison: c_X^* fully faithful, compatible with f^* and Rf_!) is planned at AdicCoefficientsAndComparisons L1 and L2. In the atlas, L1 constructs the scheme-to-v-sheaf functor and L2 extends scheme compact support. L3, 'Characteristic-p cohomological comparison', is the stage that proves 27.1–27.3 and full faithfulness. The fix, adding L3 to /072 and to route 2's imports, is right."
+  },
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Theorem 6.5.1 and §6.6 (pp. 68–69) use three Fargues–Scholze results. They are the construction of the parameter ('[FS21, Proposition I.9.1]'), its compatibility with parabolic induction ('[FS21, Theorem I.9.6.viii]'), and 'the commutation of Hecke operators with excursion operators', applied to every irreducible constituent of the Hecke-operator cohomology. No item states any of them. The extraction mentions I.9.6(viii) only inside a sourceIssue correction, and ES5 only in route 1's brief. The fix, separate items planned at ES5 and ES7:parabolic plus the Hecke/excursion interface, is right."
+  },
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Appendix C.2 (p. 76) defines 'a Langlands triple' (M, σ, ψ): a standard Levi, a ν-tempered irreducible σ, and ψ unramified with −ν(ψ) in the positive chamber. It states that every irreducible smooth π is j_P^G(σ⊗ψ) for an essentially unique triple, '[Dat05, Theorem 3.11]', and uses this to define I(π) and λ_π. Items /123–/124 use π = j_P^G(σ⊗ψ) and λ_π, but no item records the definition of ν-temperedness, the triple or Dat's classification; route 3's brief names them only in prose. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Proposition 5.1.2 (p. 45) uses '[Tit79, 3.6.1]' to place the image in the building of a point fixed by a strongly regular g in the apartment of T. It then uses [BT84, 4.6.28] and [BT72, 7.4.10] to move into L^+N(T, G). Item /079 mentions only 'proof through the Bruhat–Tits building', and no item states the Tits fixed-point result. ReductiveGroupsPartII RG2.2's bounded-subgroup fixed-point statement is weaker. The fix, an item for the Tits result as a source addition to the building direction, with the other BT citations checked, is right."
+  }
+ ]
+}
