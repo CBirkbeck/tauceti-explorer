@@ -44114,3 +44114,434 @@ Exact controls cover 90 finite levels, 9,950 unique order partitions, 33,002 pri
 All 76 captured inputs remain byte-identical after actual merge of #5414. The original issue text and winning claim, unclaimed review #390, policies, library audit, owner interfaces and four predecessor outputs are guarded. Native searches found the general additive-order, finite-divisor and exchange-bijection APIs, which are reused; no specialized Kubert admissible generating-set object was found. No supplier request is added.
 
 The separate partial signature file also compiled with zero errors and 4,492 expected placeholder warnings across 3,604 pinned source modules. It includes all 38 new named declarations and 49 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0ef1f8ce49e8ee478273e119481d244a9f732c1ea139e8cdc45aea40f646f8d6.
+
+
+## Kubert actual primary coordinates and primitive products
+
+Fifteen L3 nodes construct the actual primary coordinates of the existing native level kernel, their inverse-sum and component formulas, and the primitive-point product equivalence with its cardinality consequence. The actual point normalization is fixed before the source generating sets are defined. All 1,430 predecessor nodes and 998 baseline records remain whole.
+
+Kubert 182–185 and the entire page 183 image were reread around the source primitive-product and exceptional-component definitions. The pinned native internal direct-sum theorem, scalar torsion modules, factorization and coprimality, finite sum/product transport, exact inverse-component evaluations, additive-order APIs, coprime least-common-multiple formula and cardinality formula were read before use. The full source body had already been read. The actual normalization was independently checked by exact rational enumeration and a complete native Z/6 example.
+
+### Native torsion submodules form the primary internal sum
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-internal` — `DirichletPadic.kubertPrimary_primary_internal`
+
+The native integer q_p-torsion submodules of T_N form an internal direct sum.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Native prime factorization writes N as the product of the pairwise coprime full prime powers q_p.
+2. Transfer the native natural coprimality to integer scalars. The kernel certificate shows that the product annihilates every point of T_N.
+3. Apply the existing Submodule.torsionBy_isInternal theorem. This supplies the full bijectivity of the native summation map; it is not an assumed input.
+
+**Prerequisites:** `mathlib:Submodule.torsionBy`, `mathlib:Submodule.torsionBy_isInternal`, `mathlib:Nat.pairwise_coprime_pow_primeFactors_factorization`, `mathlib:Nat.prod_primeFactors_pow_factorization`, `mathlib:Nat.isCoprime_iff_coprime`, `mathlib:MonoidHom.ker`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.native_primary_internal` (compatibility): The actual integer torsion submodules of the level-six kernel form an internal sum.
+- `SuggestedKubertPrimaryTests.unit_level_empty_internal_sum` (degenerate): At level one the empty primary family is internal in the trivial native kernel.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### Nested torsion is the actual ambient primary kernel
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv` — `DirichletPadic.kubertPrimaryComponentEquiv`
+
+For any q dividing N, construct an additive equivalence between the native integer q-torsion submodule of T_N and the ambient native kernel T_q.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. The forward map forgets the level-N certificate while retaining the same actual X-point and its q-annihilation proof.
+2. For the inverse, q-annihilation implies that the point order divides q and hence N, giving its genuine level-N certificate.
+3. Convert natural and integer scalar actions using the existing native equality. Subtype extensionality proves both inverse laws; additivity preserves the same underlying values.
+
+**Prerequisites:** `mathlib:Submodule.torsionBy`, `mathlib:MonoidHom.ker`, `mathlib:orderOf_dvd_of_pow_eq_one`, `mathlib:orderOf_dvd_iff_pow_eq_one`.
+
+**Uses:**
+
+- Actual primary-coordinate construction: Identifies each native internal summand with the ambient prime-power kernel without replacing its carrier.
+- Source point normalization: Preserves the actual point value in both directions.
+- Kubert primitive product: Lets the primitive condition refer to native ambient point order.
+
+**API:**
+
+- `kubertPrimary_primaryComponentEquiv_coe` (compatibility): The underlying X-value of the forward component transport is the original nested-subtype value.
+- `kubertPrimary_primaryComponentEquiv_symm_coe` (compatibility): The inverse component transport retains exactly the ambient X-value of its input.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.component_forward_value` (compatibility): Flattening nested torsion certificates retains the actual ambient point.
+- `SuggestedKubertPrimaryTests.component_inverse_value` (compatibility): The inverse transport also retains the point.
+- `SuggestedKubertPrimaryTests.component_zero` (degenerate): The actual additive equivalence preserves zero.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The actual primary-coordinate equivalence
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates` — `DirichletPadic.kubertPrimaryCoordinates`
+
+Construct an additive equivalence from T_N to the dependent product of the ambient kernels T_(q_p).
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Turn the proved bijective native summation map into a linear equivalence, and take its inverse to extract components.
+2. Use the native equivalence from a finite direct sum to the dependent product.
+3. Apply the native product of the proved component transports, using native ordProj_dvd for every full prime power.
+4. The result uses actual ambient primary kernels; its inverse normalization is proved separately as an actual sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-internal`, `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv`, `mathlib:DirectSum.coeLinearMap`, `mathlib:LinearEquiv.ofBijective`, `mathlib:DirectSum.linearEquivFunOnFintype`, `mathlib:MulEquiv.piCongrRight`, `mathlib:Nat.ordProj_dvd`.
+
+**Uses:**
+
+- Kubert 183 primary components: Constructs the actual components used to test equality with e(p^n).
+- Kubert 183 primitive product: Supplies the additive equivalence whose primitive restriction is proved.
+- Remaining T*(M) and T(N): Provides actual projections before defining the source exceptional subsets.
+
+**API:**
+
+- `kubertPrimary_primaryCoordinates_symm_coe` (compatibility): For a tuple of actual primary-kernel points, the underlying X-value of the inverse primary equivalence is their finite sum.
+- `kubertPrimary_sum_primaryCoordinates` (compatibility): The sum in X of all actual primary coordinates of x in T_N equals x.
+- `kubertPrimary_primaryCoordinates_same` (compatibility): If x in T_N is killed by q_p, its p-primary coordinate has underlying value x.
+- `kubertPrimary_primaryCoordinates_other` (compatibility): If x in T_N is killed by q_p and p differs from r, its r-primary coordinate is zero.
+- `kubertPrimary_primaryCoordinates_order` (compatibility): The native additive order of the underlying point x equals the product of the native orders of all its actual primary components.
+- `kubertPrimary_primaryCoordinates_primitive_iff` (characterisation): A point x in T_N is primitive of order N if and only if each actual p-primary component is primitive of order q_p.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.true_primary_component` (computation): The 3-primary component of 1 in Z/6 is 4.
+- `SuggestedKubertPrimaryTests.reject_unadjusted_multiplier` (non-example): The primary component is not the unadjusted complementary multiple 2.
+- `SuggestedKubertPrimaryTests.zero_primary_components` (degenerate): Every primary component of zero is zero.
+- `SuggestedKubertPrimaryTests.two_primary_component` (computation): The 2-primary component of 1 in Z/6 is 3.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The component transport preserves the point
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv-coe` — `DirichletPadic.kubertPrimary_primaryComponentEquiv_coe`
+
+The underlying X-value of the forward component transport is the original nested-subtype value.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Evaluate the transport: only subtype certificates change.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.component_four` (computation): The ambient point 4 remains 4 under the nested torsion transport.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The inverse component transport preserves the point
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv-symm-coe` — `DirichletPadic.kubertPrimary_primaryComponentEquiv_symm_coe`
+
+The inverse component transport retains exactly the ambient X-value of its input.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Evaluate the inverse, which adds the level-N certificate to the same point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.inverse_component_four` (computation): The inverse transport of the actual point 4 has that same ambient value.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The inverse primary map is the actual component sum
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-symm-coe` — `DirichletPadic.kubertPrimary_primaryCoordinates_symm_coe`
+
+For a tuple of actual primary-kernel points, the underlying X-value of the inverse primary equivalence is their finite sum.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Unfold the composite inverse as the native summation map on the finite direct-sum image of the transported tuple.
+2. Expand a direct-sum element as the sum of its supported components using native sum_univ_of.
+3. The native summation map evaluates a supported component by its subgroup inclusion. Preserve the finite sum through that inclusion.
+4. The subtype transports retain each point, so the resulting ambient sum is exactly the stated one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates`, `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv-symm-coe`, `mathlib:DirectSum.sum_univ_of`, `mathlib:DirectSum.coeLinearMap_of`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.inverse_is_actual_sum` (compatibility): The inverse is the sum of actual primary points.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### Primary components reconstruct the original point
+
+`DirichletPadicLFunctions:L3/kubert-primary-sum-primary-coordinates` — `DirichletPadic.kubertPrimary_sum_primaryCoordinates`
+
+The sum in X of all actual primary coordinates of x in T_N equals x.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Apply the inverse-sum theorem to the primary-coordinate tuple of x.
+2. Use the actual equivalence inverse law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.reconstruct_level_point` (compatibility): The actual primary components sum to the original point.
+- `SuggestedKubertPrimaryTests.unit_empty_sum` (degenerate): At level one the reconstruction sum is empty and every point is zero.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### A primary point is fixed in its own coordinate
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-same` — `DirichletPadic.kubertPrimary_primaryCoordinates_same`
+
+If x in T_N is killed by q_p, its p-primary coordinate has underlying value x.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Equip x with its native integer torsion-submodule membership using the stated annihilation equation.
+2. Use the native inverse-component evaluation theorem for a member of the chosen internal summand.
+3. Project through the component transport, which retains the point value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates`, `DirichletPadicLFunctions:L3/kubert-primary-primary-internal`, `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv-coe`, `mathlib:DirectSum.IsInternal.ofBijective_coeLinearMap_of_mem`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.own_component_fixed` (computation): A 3-primary point remains itself in the 3-coordinate.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### A primary point vanishes in every other coordinate
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-other` — `DirichletPadic.kubertPrimary_primaryCoordinates_other`
+
+If x in T_N is killed by q_p and p differs from r, its r-primary coordinate is zero.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Use the stated annihilation equation to place x in the p-torsion summand.
+2. Apply the native internal-sum inverse evaluation in a different summand.
+3. The actual component transport sends the resulting zero to ambient zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates`, `DirichletPadicLFunctions:L3/kubert-primary-primary-internal`, `DirichletPadicLFunctions:L3/kubert-primary-primary-component-equiv-coe`, `mathlib:DirectSum.IsInternal.ofBijective_coeLinearMap_of_mem_ne`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.other_component_vanishes` (computation): The 2-primary point 3 has zero 3-primary coordinate.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### Point order is the product of primary component orders
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-order` — `DirichletPadic.kubertPrimary_primaryCoordinates_order`
+
+The native additive order of the underlying point x equals the product of the native orders of all its actual primary components.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Native subgroup inclusion and additive equivalence preserve point order.
+2. Native product order is the finite least common multiple of coordinate orders.
+3. Each coordinate order divides its full prime power, so the orders are pairwise coprime by the native coprimality of those prime powers.
+4. Use native Finset.lcm_eq_prod to replace the least common multiple by the product.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `mathlib:Subgroup.orderOf_coe`, `mathlib:MulEquiv.orderOf_eq`, `mathlib:Pi.orderOf`, `mathlib:Finset.lcm_eq_prod`, `mathlib:Nat.pairwise_coprime_pow_primeFactors_factorization`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.order_is_component_product` (characterisation): The ambient point order equals the product of the actual component orders.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### Primitivity is full order in every primary coordinate
+
+`DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-primitive-iff` — `DirichletPadic.kubertPrimary_primaryCoordinates_primitive_iff`
+
+A point x in T_N is primitive of order N if and only if each actual p-primary component is primitive of order q_p.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Every local order is positive and at most q_p by the already-proved level-order facts.
+2. The product of local orders is the order of x, and the product of the full prime powers is N.
+3. If x has order N but one local order is smaller, native strict comparison of positive finite products gives an impossible strict inequality with N.
+4. Conversely, substitute every full local order into the proved order-product formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-order`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-pos`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `mathlib:Finset.prod_lt_prod`, `mathlib:Nat.prod_primeFactors_coe_pow_factorization`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.exact_local_order_criterion` (characterisation): A level-six point is primitive exactly when each actual component has its full prime-power order.
+- `SuggestedKubertPrimaryTests.nonprimitive_missing_factor` (non-example): The order-three point 4 is not a primitive order-six point.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The primitive-point primary product equivalence
+
+`DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates` — `DirichletPadic.kubertPrimitiveCoordinates`
+
+Construct an actual equivalence between primitive order-N points of X and tuples of primitive order-q_p points in the same ambient X.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Place a primitive point into its actual native level kernel and apply primaryCoordinates; the proved primitivity criterion supplies every output certificate.
+2. For the inverse, place each primitive primary point into its actual primary kernel and use the established inverse primary map. The same criterion proves its primitive order N.
+3. Both inverse laws follow from the underlying primary equivalence, using subtype and function extensionality. No unspecified equal-cardinality bijection is chosen.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates`, `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-primitive-iff`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Uses:**
+
+- Kubert 183 primitive-point product: Realizes the source assertion as an actual equivalence.
+- Primitive cardinality factorization: Supplies an equivalence-based proof of the cardinality product.
+- Remaining local replacement product: Provides the primitive coordinates to be combined with the already-proved local swaps after the source-set identification is established.
+
+**API:**
+
+- `kubertPrimary_primitiveCoordinates_coe` (compatibility): For each primitive point and each primary index, the underlying value from the primitive equivalence equals that from primaryCoordinates on its certified level point.
+- `kubertPrimary_primitiveCoordinates_symm_coe` (compatibility): The underlying X-value of the inverse primitive equivalence is the sum of its actual primitive primary points.
+- `kubertPrimary_primitive_torus_card_product` (compatibility): For any natural dimension k and nonzero level N, the cardinality of the primitive subset of (Q/Z)^k equals the product of the primitive cardinalities at its full prime powers.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.primitive_actual_component` (computation): For the actual distinguished order-six rational point, the 3-primary coordinate has first coordinate 2/3.
+- `SuggestedKubertPrimaryTests.primitive_inverse_law` (compatibility): The primitive equivalence recovers each original primitive point.
+- `SuggestedKubertPrimaryTests.primitive_product_inverse_law` (compatibility): Every tuple of actual primitive primary points is recovered by the inverse and forward maps.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The primitive equivalence uses the same actual projections
+
+`DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates-coe` — `DirichletPadic.kubertPrimary_primitiveCoordinates_coe`
+
+For each primitive point and each primary index, the underlying value from the primitive equivalence equals that from primaryCoordinates on its certified level point.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Evaluate the forward restriction: it only adds primitive-membership certificates to the already-established component values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.primitive_value_uses_same_projection` (compatibility): The primitive equivalence uses exactly the established primary projection on the certified native level point.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### The primitive inverse is the actual primary-point sum
+
+`DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates-symm-coe` — `DirichletPadic.kubertPrimary_primitiveCoordinates_symm_coe`
+
+The underlying X-value of the inverse primitive equivalence is the sum of its actual primitive primary points.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. The inverse restriction uses the same primary inverse on the certified kernel tuple.
+2. Apply the established inverse-sum formula; the certificates do not change the values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates`, `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-symm-coe`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.primitive_inverse_is_sum` (compatibility): The inverse primitive equivalence sums the actual primitive primary points.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+### Primitive rational-torus cardinalities multiply
+
+`DirichletPadicLFunctions:L3/kubert-primary-primitive-torus-card-product` — `DirichletPadic.kubertPrimary_primitive_torus_card_product`
+
+For any natural dimension k and nonzero level N, the cardinality of the primitive subset of (Q/Z)^k equals the product of the primitive cardinalities at its full prime powers.
+
+**Hypotheses:** X is a native additive commutative group, N is a nonzero natural level, and T_N is the existing native kernel of multiplication-by-N. The primary indices are the native finite set of prime divisors of N, with q_p=p to its native factorization exponent. No divisibility or finiteness of ambient X is assumed. The integer torsion submodule of T_N at q_p is transported to the actual ambient kernel T_(q_p) without changing underlying point values. The direct-sum theorem is imported from the pinned library. No second primary carrier or assumed decomposition is introduced. Primitive means the already-defined exact native additive order. The source cardinality statement specializes to the finite primitive strata of the rational torus, allowing rank zero and N=1. The empty primary product at N=1 is handled by the native constructions. Primary coordinates are the actual components whose ambient sum is the original point. An unadjusted complementary multiple is not the source component. The global admissible generating set, generation, rank lower bound, relation equality and freeness remain separate obligations.
+
+**Proof:**
+
+1. Every primary factor has positive level and hence a finite primitive rational-torus set by the existing finiteness theorem.
+2. Use the actual primitive equivalence and native Nat.card_congr.
+3. Apply the native dependent-product cardinality formula. This proves the primitive-set product, without identifying the source admissible generating set.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-finite`, `mathlib:Nat.card_congr`, `mathlib:Nat.card_pi`.
+
+**Tests:**
+
+- `SuggestedKubertPrimaryTests.rank_two_cardinal_product` (characterisation): The rank-two primitive set has the product of its prime-power primitive cardinalities.
+- `SuggestedKubertPrimaryTests.rank_zero_unit_cardinality` (degenerate): The zero-dimensional primitive unit set has cardinality one.
+- `SuggestedKubertPrimaryTests.rank_zero_nonunit_empty` (non-example): The zero-dimensional torus has no primitive order-six points.
+
+**Acceptance:** Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations.
+
+**Source:** Published 183, primitive-point primary product preceding equation (1.6), together with 182 equation (1.4) and the local product following Proposition 1.9. Full body 179–202 read; 182–185 text and entire 183 image reread on 1 October 2026. The source primary decomposition is realized on the actual native torsion kernels. Its inverse is the sum of actual components, and the primitive-point restriction is proved in both directions before deriving the cardinality product. Neither reduction coordinates nor complementary scalar multiples replace the source components. The admissible-union identification and generation theorem are not inferred.
+
+**Remaining:** The actual primary-coordinate equivalence, its inverse sum, same/other component evaluations, point-order product, primitive-point product equivalence and primitive cardinality product are now planned from native direct-sum APIs. Next define the source exceptional subsets and T*(M), then the admissible union T(N), using these actual primary components. Prove that this source union equals the product of the already-constructed local replacement factors before concluding its cardinality. Then prove Lemma 1.10 and exceptional-point elimination in Lemma 1.12 to establish generation. The independent Cartan or rational-model rank lower bound is still required for internal/global relation equality and freeness. No local or primitive cardinality theorem proves those distribution-quotient results. Preserve the positive-dimension hypotheses, finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert actual primary coordinates and primitive products validation
+
+All 1430 predecessor nodes, 998 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 15 nodes, 15 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1705 reachable nodes, 7576 edges and 1181 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new routes terminate in native scalar torsion, direct-sum, factorization, order and finite-cardinality APIs or the already-proved level and primitive-point interfaces. No new unresolved supplier stage or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves #5419 verbatim, adds three concrete definitions and 12 complete lemmas, and includes a complete native normalization example. Totals are 66 definitions and 854 lemmas. The 15 suggested declarations and 27 typed examples preserve actual point values and use the native direct-sum theorem; no decomposition theorem is assumed. The separate probe compiles against 2982 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls cover 90 finite levels, 9,950 point decompositions, 9,950 primitive characterizations, 9,950 order products, 16,423 component checks and 14,814 restrictions to other components. The rational point 1/6 has 3-primary component 2/3, distinct from its unadjusted complementary multiple 1/3. Exact rational arithmetic on the actual Q/Z point model. Primary projections use the complementary factor times its modular inverse, independently checking native decomposition normalization. Finite examples are not proof certificates. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after actual merge of #5419. The original issue text and winning claim, unclaimed review #390, policies, library audit, owner interfaces and four predecessor outputs are guarded. Native general primary decomposition and order APIs are imported; the new nodes supply the specific native-kernel transport and actual source projections. No general direct-sum or CRT theorem is replanned, and no supplier request is added.
+
+The separate partial signature file also compiled with zero errors and 4,534 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8.
