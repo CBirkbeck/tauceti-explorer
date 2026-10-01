@@ -37461,7 +37461,8 @@
     "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4169"
   },
   {
    "id": "RT-PAPER-BENOIST-WITTENBERG-20",
