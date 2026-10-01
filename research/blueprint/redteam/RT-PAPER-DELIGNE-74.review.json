@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-DELIGNE-74",
+ "findings": [
+  {
+   "finding": "RT-PAPER-DELIGNE-74/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item s3-3.8-euler-product-convergence still bounds Σ_x q_x^{−1−ε} by N Σ_n q^n·q^{n(−1−ε)} = N Σ_n q^{−nε}, the count for the affine line, although U_0 is an open of P^1 (Weil I, 3.1 and the proof of 3.8, p. 286). The extraction's own accepted E16 corrects exactly this to Σ_n (q^n + 1) q^{n(−1−ε)}. The counterexample holds: over F_2, removing the degree-2 point X² + X + 1 from P^1 leaves the three rational points 0, 1, ∞, so for ε = 5 the left side is at least 3·2^{−6} = 3/64 ≈ 0.047, while Σ_{n≥1} 2^{−5n} = 1/31 ≈ 0.032. The convergence conclusion is unaffected; the item's displayed inequality is not. The fix (propagate E16 into the item and route 2, without a new erratum) is right."
+  },
+  {
+   "finding": "RT-PAPER-DELIGNE-74/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. E8 corrects 6.10 to H = {(a, g) : μ(g) = q^{−na}}, with n the fibre dimension and a ∈ Ẑ, and says that correspondingly in 6.12 CSp_a = {g : μ(g) = q^{−na}}. Item s6-6.10-arithmetic-monodromy-CSp applies this. Item s6-6.12-measure-zero still defines CSp_n = {g : μ(g) = q^{−n}} with n now the Ẑ-coordinate, so for fibre dimension d ≠ 1 its sets are not the fibres of H_1 → Ẑ and the Fubini step is applied to the wrong sets. The fix (separate symbols d and a, CSp_a = {μ(g) = q^{−da}}, Z_a ⊂ CSp_a) implements E8."
+  },
+  {
+   "finding": "RT-PAPER-DELIGNE-74/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item s7-H1-P1-constant-vanishes (H^1(P^1, constant) = 0, used in 7.1.2′, 7.1.4′ and 7.1.5′, p. 300) is planned only at DeligneWeightsAndPurity:DWP.6, and its note concedes that DWP.4 needs it earlier. In the stage graph DWP.4 is an ancestor of DWP.6 (DWP.6 requires DWP.5, which requires DWP.4), so the input sits downstream of its consumer. EtaleDualityAndPerverseSheaves:EDC.4, already a requirement of DWP.4, plans 'the projective-bundle decomposition through powers of c₁(O(1))', which for P^1 over an algebraically closed field gives H^0 = Q_ℓ, H^1 = 0, H^2 = Q_ℓ(−1). The fix (plan the item at EDC.4, keep DWP.6 a consumer, add no DWP.6 → DWP.4 edge) is right."
+  },
+  {
+   "finding": "RT-PAPER-DELIGNE-74/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Weil I 8.11 (p. 306) quotes the Grothendieck–Ogg–Shafarevich formula from Raynaud; it does not prove it. The extraction's item s8-GOS-formula is missing and sent by route 4 to FiniteFieldsAndCharacterSums:FF.2, which would then construct the general theorem. The verdict confirming RT-AREA-finitefields/3 (research/blueprint/redteam/RT-AREA-finitefields.review.json) requires one owner of the curve Euler-characteristic formula on the étale-duality side, with FF.2 as a consumer, and corrects the formula to χ_c(U, F) = rank(F)(2 − 2g − |D|) − Σ_{x∈D} Sw_x(F). The fix (route the general statement to that owner, keep only the Artin–Schreier specialization at FF.2) is right."
+  },
+  {
+   "finding": "RT-PAPER-DELIGNE-74/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The note of s8-8.2-ramanujan-petersson treats |a_p| ≤ 2p^{(k−1)/2} and 'the roots of T² − a_pT + ε(p)p^{k−1} have absolute value p^{(k−1)/2}' as equivalent using only α + β = a_p, αβ = ε(p)p^{k−1} and |ε(p)| = 1. That is false. With r = p^{(k−1)/2}, ε = 1, α = 2ir and β = −ir/2: αβ = r², |α + β| = 3r/2 ≤ 2r, but |α| = 2r and |β| = r/2. Weil I proves root purity directly (both roots are Frobenius eigenvalues in pure cohomology, p. 302), and the trace bound follows by the triangle inequality. The converse needs the extra reality of a_p/√ε(p). The fix is right."
+  }
+ ]
+}
