@@ -33896,7 +33896,8 @@
     "REV-PAPER-DASGUPTA-KAKDE-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4060"
   },
   {
    "id": "REV-RT-PAPER-DASGUPTA-KAKDE-23",
@@ -45493,8 +45494,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-20~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5112"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5112",
+   "finishedAt": "2026-10-01T07:06:35Z"
   },
   {
    "id": "REV-RT-RS-20~3",
