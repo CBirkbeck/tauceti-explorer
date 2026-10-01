@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-GAN-SAVIN-23-B",
+ "findings": [
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23-B/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high); the error is in the extraction. Item 1 defines S_φ = π_0(Z_{G^∨}(φ)) for every split connected reductive G and says the L-packets are 'parametrised by Irr(S_φ)'. The published paper (Forum Math. Pi 11 (2023) e28, read 2026-10-01) asks on p. 2 only for 'a refined parametrization of its fibers' for general G. It states the unquotiented formula only for G₂ (Main Theorem (vii), p. 4, where G₂(C) has trivial centre) and uses Irr(S_φ/Z(Spin₇)) for PGSp₆ in §7(c), p. 22. The counterexample is correct. For G = PGL₃ and φ = Sym² of SL₂(C), trivial on W_F, φ lands in SL₃(C) and is irreducible, so Z_{SL₃}(φ) = μ₃ by Schur and Irr(S_φ) has three elements. φ is the Steinberg parameter, and the packet on split PGL₃ is {St} (LLC for GL₃ restricted to trivial central character). The fix is right: keep the raw S_φ where centralisers are compared, but parametrise packets of a fixed split group by characters trivial on Z(G^∨) (equivalently Irr(π_0(Z_{G^∨}(φ)/Z(G^∨)))), keep the G₂ formula and the Z(Spin₇) quotient for PGSp₆, update item 1, clause (b) of the exceptional-theta route brief and the report, and add no source issue."
+  },
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23-B/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high); the error is in the source. Main Theorem (vi) (p. 4, page image checked) displays θ : Irr_{gen,ds}(G₂) → Irr_{gen,ds}(PGSp₆), and item 9 asserts θ(π) ∈ Irr_{gen,ds}(PGSp₆) for every generic discrete series π. Proposition 2.3 (p. 8) says every discrete series of G₂ has a nonzero discrete-series lift to exactly one of PD×, PGL₃ ⋊ Z/2Z and PGSp₆. The companion arXiv:2102.00372v1 gives a generic discrete series whose discrete lift is to PGL₃ ⋊ Z/2Z. In its Theorem 8.5 and proof (pp. 27–28), θ(St⁺) = π_gen[1], which is a generic discrete series by Proposition 3.1(ii), p. 9. So π_gen[1] ∈ Irr^♣_ds, and Proposition 2.3 excludes a discrete-series PGSp₆ lift. Its PGSp₆ lift is nonzero and tempered: companion Theorem 15.2(iii) (pp. 52–53), with τ = St self-dual and no trivial summand in its parameter, gives θ(π_gen) = I₃(τ)_gen, a summand of a reducible induced representation and so not discrete series. The fix is right: replace the intermediate codomain by generic tempered PGSp₆ representations, add a published-source issue for the diagram, limit the citation of Proposition 5.2 (which assumes θ(π) discrete) to the ◇ locus, and keep the spin identity on the ♣ part as a target with its own argument through the PGL₃/Siegel lifts. Annotate items 9 and 64 and the LLC route."
+  },
+  {
+   "finding": "RT-PAPER-GAN-SAVIN-23-B/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high); the error is in the source. Proposition 11.6 (p. 33, page image checked) concludes that σ 'is a limit of a subsequence of π_n'. The proof only shows that a coefficient of σ is a weak-* limit of coefficients ⟨π_{k(n)}(g)v_n, v_n⟩ drawn from the set of all summands, with repetitions and no increasing indices. The counterexample is correct in the paper's own setting (Appendix B: G a simple Chevalley group over a p-adic field). Take G = G₂(Q₅), π₁ = St_G and π_n = 1_G for n ≥ 2. St_G is a direct summand, so it is weakly contained. Every subsequence is eventually 1_G, and Proposition 11.3 (p. 32) makes St_G isolated in the unitary dual since rank G₂ = 2, so no such subsequence converges to it. The fix is right: σ lies in the Fell closure of {[π_i]}, or is a limit of a sequence drawn from that set with repetition allowed (the 'subsequence of the original list' wording should go), with a published-source issue. Corollary 11.7 (item 118) still follows: an isolated point of the closure of {[π_i]} is some [π_i], so the globalization arguments that use it (p. 29) are unaffected."
+  }
+ ]
+}
