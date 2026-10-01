@@ -33141,7 +33141,8 @@
     "REV-PAPER-CIUBOTARU-HARRIS-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5053"
   },
   {
    "id": "RT-PAPER-LESLIE-25",
@@ -44867,7 +44868,8 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4397"
   },
   {
    "id": "REV-RT-RS-08",
@@ -46573,8 +46575,9 @@
     "REV-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4431"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4431",
+   "finishedAt": "2026-10-01T08:57:24Z"
   },
   {
    "id": "REV-RT-BP-ClassicalSerreModularity--R27.3",
