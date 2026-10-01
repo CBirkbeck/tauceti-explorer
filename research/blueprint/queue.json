@@ -40915,8 +40915,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5014",
+   "finishedAt": "2026-10-01T02:16:39Z"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
