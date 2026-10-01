@@ -36007,3 +36007,239 @@ Exact finite controls check7,236 exponent equalities,7,236 weighted orthogonalit
 All73 captured inputs are unchanged from5356, and all four predecessor outputs and the whole issue text are preserved. RD.6 owner, source versions and policy files remain at the reviewed blobs.
 
 The separate partial signature file also compiled with zero errors and 3,668 expected placeholder warnings across 3,604 pinned source modules. It includes all 9 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78e1e2dae54ecc37a2ea652abc4ede9ae505a14ff975d57e4208489f6c1f870d.
+
+
+## Robert’s Gauss norm and normalized leading unit
+
+Eight L3 nodes derive the normalized Gauss norm, unique embedded unit, Q_p power descent and leading digit-factorial residue from the preceding actual Robert comparison, and extend the norm correctly through character periodicity. All1,132 predecessor nodes,876 baseline records,20 findings and six source versions remain whole.
+
+Rereads Robert2001 publishedp.168 in full for Theorem4, the unit-valued Gamma norm argument and the corrected Corollary1 range, andp.169 for Corollary2’s complete proof and the chosen-root convention. Rereads Gross–Koblitz1979 p.575 Lemma2.11 and its entire proof, distinguishing its external Stickelberger input from the Robert consequence. Reads the complete pinned finite-unit-product, product-norm and inverse-real-power proofs and rereads the p-adic norm and unit characterizations. Fifteen new complete native lemmas check the consequences and the exact right-rotation factorial residues.
+
+### The normalized norm of a Gross–Koblitz root
+
+`DirichletPadicLFunctions:L3/gross-koblitz-pi-power-norm` — `DirichletPadic.grossKoblitzPi_norm_pow`
+
+For every natural s, norm(pi)^s=(p^−1)^(s/(p−1)) in the real numbers.
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number.
+
+**Proof:**
+
+1. Apply the multiplicative norm to pi^(p−1)=−p. Norm preservation by iota and the native Padic.norm_p theorem identify norm(pi)^(p−1) with p^−1.
+2. The prime hypothesis gives p−1>0. The native real pow_rpow_inv_natCast theorem takes the positive real (p−1)-st root without choosing a complex branch.
+3. Raise this equality to s, combine real powers by the existing rpow_mul_natCast theorem, and check the natural-subtraction cast p−1. The complete root_norm_pow proof includes p=2 and s=0.
+
+**Prerequisites:** `mathlib:Padic.norm_p`, `mathlib:Real.pow_rpow_inv_natCast`, `mathlib:Real.rpow_mul_natCast`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.dyadic_root_norm` (computation): The dyadic root is−2 and has norm1/2 inQ2.
+- `SuggestedRobertValuesTests.ternary_root_square_norm` (compatibility): Any normalized embedding and rootpi²=−3 give norm(pi)²=1/3.
+
+**Acceptance:** For p=2, pi=−2 has norm1/2. For p=3, norm(pi)^2=1/3. An arbitrary unnormalized norm does not meet the hypotheses.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work.
+
+### The Gamma residue for right-cyclic digits
+
+`DirichletPadicLFunctions:L3/morita-gamma-right-rotation-residue` — `DirichletPadic.moritaGamma_rightRotation_factorial_residue`
+
+The reduction of product_(i<f) Gamma(y_i), multiplied by product_(i<f) (((a/p^i) mod p)!), is1 in ZMod p.
+
+**Hypotheses:** The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing.
+
+**Proof:**
+
+1. Apply the existing rational Gamma residue to the exact numerator a/p^i+p^(f−i)(a mod p^i) and denominator p^f−1 for each i<f.
+2. Because f−i>0, the second numerator term is divisible by p. Routine quotient/remainder arithmetic reduces its residue to (a/p^i) mod p; the complete right_rotation_residue proof checks this without identifying the two cyclic index conventions.
+3. Multiply the individual equalities over the finite range and use the native ring-homomorphism product law. The factorials include 0!=1, so there is no exceptional zero digit.
+4. This proof needs only the existing Gamma zero value, recurrence and reduction congruence. It does not use a Gauss identity, a Dwork estimate or an external Stickelberger theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-gamma-rational-residue`, `DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.gamma_half_residue` (computation): Atp=3,f=1,a=1 the Gamma half value reduces to1.
+- `SuggestedRobertValuesTests.gamma_two_rotation_residue` (computation): Forp=3,q=9,a=5 the right rotations are5 and7; the digit factorial product is2.
+- `SuggestedRobertValuesTests.dyadic_gamma_residue` (degenerate): Every dyadic Gamma product reduces to1, since all binary digit factorials equal1.
+
+**Acceptance:** For p=3,q=9,a=5 the right rotations5 and7 give the residue2. All binary digit factorials are1.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work. Published p.575/PDF7, Lemma2.11(2)–(3) and its complete proof, reread in full; preceding pp.572–574 conventions retained. The source normalizes the negative Gauss sum to a Z_p unit and compares its residue with the product of digit-factorial inverses. Its original proof uses an external Stickelberger congruence. The present consumer instead deduces the same normalized-unit residue after the independent Robert comparison, using the already proved Gamma factorial congruence. It does not assert that the original external Stickelberger proof has been read or discharged. The original odd-prime source conventions remain distinguished from the Robert/Gamma consumer, which includes p=2.
+
+### The Gauss norm from the digit sum
+
+`DirichletPadicLFunctions:L3/robert-gauss-digit-norm` — `DirichletPadic.robert_gauss_norm`
+
+For 0≤a<q−1, norm(G_a)=norm(pi)^(S_p(a)), where S_p(a) is the actual native base-p digit sum.
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number. The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing. For each actual Gauss consequence K additionally has the native complete ultrametric nonarchimedean local-field structure, finite residue field F=k[K], cardinality q>1, and a continuous norm-preserving embedding. The multiplicative character is the actual inverse Teichmuller character chi_a. The additive character psi is explicitly matched to the actual splitting series at every native Teichmuller unit. The two Dwork inputs remain exactly those of the preceding Robert comparison: coefficients A_n of rescale(pi,exp)*expand(q,rescale(−pi,exp)) satisfy norm(A_n)≤norm(pi)^(n(p−1)^2/(p q)); their convergent Teichmuller value is psi(u). The existing RD.6 requests supply these precise statements. A generic additive character may be used when it satisfies that value identity; the chosen-root trace character is its preceding principal application. The Gauss range is 0≤a<q−1, and x in Z_p satisfies (1−q)x=a. The fixed-point and rotated rational-point inputs are supplied by the existing unit-denominator construction. The negative Gauss convention is G_a=−gaussSum(chi_a,psi). A norm forgets this sign, but the leading residue does not. The normalized unit lies in the image of Z_p units through the explicit embedding into K. Reduction is performed on that unique Z_p unit through the native toZMod map; no unproved comparison between the arbitrary ValuativeRel on K and its norm is required. The power descent gives a displayed Q_p preimage, not an unproved algebraicity conclusion.
+
+**Proof:**
+
+1. Invoke the preceding actual Robert Gross–Koblitz comparison, retaining both exact Dwork hypotheses and the chosen rational points.
+2. The existing moritaGamma is unit-valued. For each factor, native PadicInt.isUnit_iff gives norm1 in Z_p, its coercion preserves that norm in Q_p, and the explicitly norm-preserving embedding preserves it in K. The complete mapped_unit_norm helper checks these coercions.
+3. Apply multiplicativity of the norm, norm_pow and the pinned norm_prod theorem. Every Gamma factor has norm1, so the whole finite product has norm1. Complete gamma_gauss_norm and gauss_norm proofs establish the actual character statement.
+4. The trivial index a=0 gives norm1. The source bound a<q must not be substituted for a<q−1: the endpoint has a different raw digit sum despite giving the same multiplicative character.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:PadicInt.isUnit_iff`, `mathlib:norm_prod`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.trivial_gauss_norm` (degenerate): The exponent-zero Gauss norm is1.
+- `SuggestedRobertValuesTests.ternary_gauss_norm` (compatibility): The nontrivial ternary Gauss norm is the norm ofpi.
+- `SuggestedRobertValuesTests.ternary_gauss_nonzero` (non-example): The nontrivial ternary Gauss sum is nonzero.
+
+**Acceptance:** The nontrivial ternary norm is norm(pi) and is positive. The trivial exponent has norm1.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work.
+
+### The normalized p-adic Gauss norm
+
+`DirichletPadicLFunctions:L3/robert-gauss-normalized-norm` — `DirichletPadic.robert_gauss_norm_standard`
+
+Under the same precise Gauss hypotheses, norm(G_a)=(p^−1)^(S_p(a)/(p−1)).
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number. The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing. For each actual Gauss consequence K additionally has the native complete ultrametric nonarchimedean local-field structure, finite residue field F=k[K], cardinality q>1, and a continuous norm-preserving embedding. The multiplicative character is the actual inverse Teichmuller character chi_a. The additive character psi is explicitly matched to the actual splitting series at every native Teichmuller unit. The two Dwork inputs remain exactly those of the preceding Robert comparison: coefficients A_n of rescale(pi,exp)*expand(q,rescale(−pi,exp)) satisfy norm(A_n)≤norm(pi)^(n(p−1)^2/(p q)); their convergent Teichmuller value is psi(u). The existing RD.6 requests supply these precise statements. A generic additive character may be used when it satisfies that value identity; the chosen-root trace character is its preceding principal application. The Gauss range is 0≤a<q−1, and x in Z_p satisfies (1−q)x=a. The fixed-point and rotated rational-point inputs are supplied by the existing unit-denominator construction. The negative Gauss convention is G_a=−gaussSum(chi_a,psi). A norm forgets this sign, but the leading residue does not. The normalized unit lies in the image of Z_p units through the explicit embedding into K. Reduction is performed on that unique Z_p unit through the native toZMod map; no unproved comparison between the arbitrary ValuativeRel on K and its norm is required. The power descent gives a displayed Q_p preimage, not an unproved algebraicity conclusion.
+
+**Proof:**
+
+1. Use the preceding Gauss norm theorem with the actual base-p digit sum.
+2. Apply the normalized root-power norm theorem at s=S_p(a). This makes the dependence on the chosen normalized p-adic embedding explicit.
+3. The complete gauss_norm_standard proof composes these equalities and never assumes that the value group of K is generated by pi; K may be a larger local field.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gauss-digit-norm`, `DirichletPadicLFunctions:L3/gross-koblitz-pi-power-norm`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.ternary_normalized_norm` (computation): The normalized ternary norm equals3^(−1/2).
+- `SuggestedRobertValuesTests.ternary_squared_norm` (computation): Squaring the real norm gives1/3.
+
+**Acceptance:** At p=q=3,a=1, the squared real norm is1/3. The dyadic exponent denominator is1, not0.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work.
+
+### The unique normalized Gauss unit
+
+`DirichletPadicLFunctions:L3/robert-gauss-normalized-unit` — `DirichletPadic.robert_gauss_normalized_unit`
+
+There is a unique u in Z_p units such that G_a/pi^(S_p(a))=iota(u). Its value in Z_p is product_(i<f) Gamma(y_i).
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number. The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing. For each actual Gauss consequence K additionally has the native complete ultrametric nonarchimedean local-field structure, finite residue field F=k[K], cardinality q>1, and a continuous norm-preserving embedding. The multiplicative character is the actual inverse Teichmuller character chi_a. The additive character psi is explicitly matched to the actual splitting series at every native Teichmuller unit. The two Dwork inputs remain exactly those of the preceding Robert comparison: coefficients A_n of rescale(pi,exp)*expand(q,rescale(−pi,exp)) satisfy norm(A_n)≤norm(pi)^(n(p−1)^2/(p q)); their convergent Teichmuller value is psi(u). The existing RD.6 requests supply these precise statements. A generic additive character may be used when it satisfies that value identity; the chosen-root trace character is its preceding principal application. The Gauss range is 0≤a<q−1, and x in Z_p satisfies (1−q)x=a. The fixed-point and rotated rational-point inputs are supplied by the existing unit-denominator construction. The negative Gauss convention is G_a=−gaussSum(chi_a,psi). A norm forgets this sign, but the leading residue does not. The normalized unit lies in the image of Z_p units through the explicit embedding into K. Reduction is performed on that unique Z_p unit through the native toZMod map; no unproved comparison between the arbitrary ValuativeRel on K and its norm is required. The power descent gives a displayed Q_p preimage, not an unproved algebraicity conclusion.
+
+**Proof:**
+
+1. The root equation and characteristic zero imply pi is nonzero by the existing complete root_ne_zero argument. Divide the preceding actual Gauss/Gamma equality by its nonzero power.
+2. The complete normalize_gamma helper rewrites the product of embedded Gamma values as the image of the product in Z_p through the explicit composite ring homomorphism Z_p→Q_p→K.
+3. The native IsUnit.prod_iff theorem makes the finite product a unit, using the already unit-valued Gamma construction. The complete gamma_product_unit helper and normalize_unit proof give the witness.
+4. Any other witness has the same image in K. Injectivity of the Q_p field embedding, the Z_p subtype inclusion and unit extensionality prove uniqueness. The complete gauss_normalized_unit proof specializes this to the actual negative Gauss sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:IsUnit.prod_iff`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.ternary_normalized_unit` (compatibility): The pi-normalized ternary Gauss sum comes from a uniqueZ3 unit.
+- `SuggestedRobertValuesTests.trivial_normalized_unit` (degenerate): At exponentzero the normalized unit is1.
+
+**Acceptance:** The zero-index unit is1. At p=q=3,a=1 it is Gamma_3(1/2), not an arbitrary unit in K.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work. Published p.575/PDF7, Lemma2.11(2)–(3) and its complete proof, reread in full; preceding pp.572–574 conventions retained. The source normalizes the negative Gauss sum to a Z_p unit and compares its residue with the product of digit-factorial inverses. Its original proof uses an external Stickelberger congruence. The present consumer instead deduces the same normalized-unit residue after the independent Robert comparison, using the already proved Gamma factorial congruence. It does not assert that the original external Stickelberger proof has been read or discharged. The original odd-prime source conventions remain distinguished from the Robert/Gamma consumer, which includes p=2.
+
+### The Gauss power descends to Q_p
+
+`DirichletPadicLFunctions:L3/robert-gauss-power-descent` — `DirichletPadic.robert_gauss_power_descent`
+
+G_a^(p−1)=iota((−p)^(S_p(a))·(product_(i<f) Gamma(y_i))^(p−1)), with the product coerced into Q_p.
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number. The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing. For each actual Gauss consequence K additionally has the native complete ultrametric nonarchimedean local-field structure, finite residue field F=k[K], cardinality q>1, and a continuous norm-preserving embedding. The multiplicative character is the actual inverse Teichmuller character chi_a. The additive character psi is explicitly matched to the actual splitting series at every native Teichmuller unit. The two Dwork inputs remain exactly those of the preceding Robert comparison: coefficients A_n of rescale(pi,exp)*expand(q,rescale(−pi,exp)) satisfy norm(A_n)≤norm(pi)^(n(p−1)^2/(p q)); their convergent Teichmuller value is psi(u). The existing RD.6 requests supply these precise statements. A generic additive character may be used when it satisfies that value identity; the chosen-root trace character is its preceding principal application. The Gauss range is 0≤a<q−1, and x in Z_p satisfies (1−q)x=a. The fixed-point and rotated rational-point inputs are supplied by the existing unit-denominator construction. The negative Gauss convention is G_a=−gaussSum(chi_a,psi). A norm forgets this sign, but the leading residue does not. The normalized unit lies in the image of Z_p units through the explicit embedding into K. Reduction is performed on that unique Z_p unit through the native toZMod map; no unproved comparison between the arbitrary ValuativeRel on K and its norm is required. The power descent gives a displayed Q_p preimage, not an unproved algebraicity conclusion.
+
+**Proof:**
+
+1. Raise the preceding actual Gauss/Gamma comparison to p−1 and distribute the power over multiplication.
+2. Commute the two natural exponents on pi and use pi^(p−1)=−p. Keep the sign in (−p)^(S_p(a)); replacing it with p^(S_p(a)) fails in the ternary nontrivial example.
+3. Transport the finite Gamma product and natural powers through the actual composite Z_p→Q_p→K homomorphism. Complete gamma_gauss_power and gauss_power_descent proofs produce the displayed Q_p preimage.
+4. This is the exact power identity following from Robert Theorem4. Membership in the more precise algebraic field of Corollary2 still needs the cyclotomic and rational-argument proof; it is not inferred just because a number lies in Q_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.ternary_power_descent` (compatibility): The squared negative Gauss sum lies inQ3 and is−3.
+- `SuggestedRobertValuesTests.trivial_power_descent` (degenerate): The trivial-character power is1.
+
+**Acceptance:** For p=q=3,a=1 the square is−3, consistent with the existing Gauss pair. The trivial-character power is1.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work.
+
+### The leading residue of the normalized Gauss unit
+
+`DirichletPadicLFunctions:L3/robert-gauss-leading-unit-residue` — `DirichletPadic.robert_gauss_unit_residue`
+
+If u is the unique Z_p unit with G_a/pi^(S_p(a))=iota(u), then toZMod(u) is the inverse of product_(i<f) (((a/p^i) mod p)!).
+
+**Hypotheses:** p is prime. K is a characteristic-zero normed field with an explicit norm-preserving ring embedding iota:Q_p→K. The element pi satisfies pi^(p−1)=−p. No arbitrary extension norm is silently identified with the normalized p-adic norm. The exponent s is any natural number. The Gamma function is the existing unit-valued moritaGamma on Z_p, with Gamma(0)=1, the two-branch recurrence and the already proved precision-one reduction congruence. Both odd primes and p=2 are allowed. Write q=p^f with f>0. For i<f the chosen rational point y_i in Z_p satisfies (q−1)y_i=a/p^i+p^(f−i)(a mod p^i). Natural quotients and remainders have their literal meanings. The residue lemma alone allows every natural a; the Gauss comparison retains a<q−1. The right-rotation low digit is (a/p^i) mod p. The product uses exactly f indices, including zeros, and 0!=1. This right-rotation indexing is not silently identified termwise with the earlier left-orbit carry indexing. For each actual Gauss consequence K additionally has the native complete ultrametric nonarchimedean local-field structure, finite residue field F=k[K], cardinality q>1, and a continuous norm-preserving embedding. The multiplicative character is the actual inverse Teichmuller character chi_a. The additive character psi is explicitly matched to the actual splitting series at every native Teichmuller unit. The two Dwork inputs remain exactly those of the preceding Robert comparison: coefficients A_n of rescale(pi,exp)*expand(q,rescale(−pi,exp)) satisfy norm(A_n)≤norm(pi)^(n(p−1)^2/(p q)); their convergent Teichmuller value is psi(u). The existing RD.6 requests supply these precise statements. A generic additive character may be used when it satisfies that value identity; the chosen-root trace character is its preceding principal application. The Gauss range is 0≤a<q−1, and x in Z_p satisfies (1−q)x=a. The fixed-point and rotated rational-point inputs are supplied by the existing unit-denominator construction. The negative Gauss convention is G_a=−gaussSum(chi_a,psi). A norm forgets this sign, but the leading residue does not. The normalized unit lies in the image of Z_p units through the explicit embedding into K. Reduction is performed on that unique Z_p unit through the native toZMod map; no unproved comparison between the arbitrary ValuativeRel on K and its norm is required. The power descent gives a displayed Q_p preimage, not an unproved algebraicity conclusion.
+
+**Proof:**
+
+1. Use the actual Robert comparison and the nonzero root to identify the normalized Gauss ratio with the embedded Gamma product, as in normalize_gamma.
+2. Injectivity of the field embedding and of Z_p→Q_p identifies the value of u with that Gamma product inside Z_p. The complete normalized_residue proof performs both injectivity steps explicitly.
+3. Apply the preceding right-rotation Gamma factorial residue, then solve its unit equation in the field ZMod p. The complete gauss_unit_residue proof supplies the actual-character conclusion with the Dwork hypotheses retained.
+4. This is a consequence of the independent Robert route. It is not used to prove that same comparison, so the graph has no circular appeal to the original Stickelberger congruence. The original Gross–Koblitz proof-source gap remains recorded.
+5. The sign of the Gauss sum is retained. For p=3 the source-negative normalized unit has residue1, while negating it gives residue2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gauss-normalized-unit`, `DirichletPadicLFunctions:L3/morita-gamma-right-rotation-residue`, `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.ternary_unit_leading` (computation): The ternary normalized unit has residue1.
+- `SuggestedRobertValuesTests.trivial_unit_leading` (degenerate): The normalized trivial-character unit has residue1.
+- `SuggestedRobertValuesTests.positive_sign_boundary` (non-example): Changing the source-negative Gauss convention negates the ternary leading residue, giving2 rather than1.
+
+**Acceptance:** The ternary nontrivial and zero-index units both reduce to1. Negating the ternary Gauss convention changes the residue to2.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work. Published p.575/PDF7, Lemma2.11(2)–(3) and its complete proof, reread in full; preceding pp.572–574 conventions retained. The source normalizes the negative Gauss sum to a Z_p unit and compares its residue with the product of digit-factorial inverses. Its original proof uses an external Stickelberger congruence. The present consumer instead deduces the same normalized-unit residue after the independent Robert comparison, using the already proved Gamma factorial congruence. It does not assert that the original external Stickelberger proof has been read or discharged. The original odd-prime source conventions remain distinguished from the Robert/Gamma consumer, which includes p=2.
+
+### The Gauss norm for every character exponent
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gauss-modular-norm` — `DirichletPadic.grossKoblitzGauss_norm_modulus`
+
+If the digit-sum norm formula holds for all a<q−1, then for every natural a the norm of gaussSum(chi_a,psi) is norm(pi)^(S_p(a mod(q−1))).
+
+**Hypotheses:** K has the native nonarchimedean local-field and normed-field structures, finite residue field F and q=Nat.card F. pi is any element and psi any additive character. The displayed restricted-range norm identity is an explicit theorem input supplied by the preceding Robert comparison and its existing rational-point construction. The proof is purely character-periodic once that input is supplied; it requires no new Dwork or valuation theorem. Natural a is unrestricted, and the formula uses the reduced exponent before taking base-p digits.
+
+**Proof:**
+
+1. The finite residue field has q>1. Therefore a mod(q−1) lies in the range of the supplied norm formula.
+2. Use the preceding exact inverse-Teichmuller character equality theorem to identify chi_a with chi_(a mod(q−1)). Rewrite the Gauss sum by that actual character equality.
+3. Apply the restricted-range norm formula. The complete gauss_norm_modulus proof imposes no arbitrary range on a and retains the modulus inside the digit sum.
+4. In particular a=q−1 and any multiple of q−1 have norm1. Their raw digit sums generally are nonzero. This supplies the corrected unrestricted form of the source corollary without altering its recorded erratum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gauss-digit-norm`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-equality`, `mathlib:Finite.one_lt_card`.
+
+**Tests:**
+
+- `SuggestedRobertValuesTests.endpoint_norm_one` (degenerate): At a=q−1 the character is trivial and the corrected norm is1.
+- `SuggestedRobertValuesTests.norm_two_periods` (compatibility): The same norm1 holds at twice the character period.
+- `SuggestedRobertValuesTests.two_element_all_norms` (computation): For residue cardinality2 every exponent gives norm1.
+
+**Acceptance:** Both q−1 and2(q−1) give norm1. For q=2 every character exponent gives norm1.
+
+**Source:** Published p.168, Theorem4 and full Corollary1 proof, with the already recorded endpoint correction E19; Corollary2 and its full proof on p.169 motivate the power-descent interface. The source derives the Gauss norm from the Gamma product and unit values. The native consumer proves the precise norm normalization, unique embedded unit, and explicit (p−1)-power preimage from that same product. Corollary1’s printed a<q range is restricted to a<q−1, or corrected by reducing the character exponent modulo q−1. The rational-value algebraicity and precise cyclotomic field assertion of Corollary2 remain separate work.
+
+**Remaining:** The Robert consumer now gives the exact normalized Gauss norm, unique embedded Z_p unit, its digit-factorial leading residue, and a displayed Q_p preimage of the (p−1)-st power. The norm formula for unrestricted exponents reduces moduloq−1 before taking digits. The two precise native RD.6 coefficient-bound and chosen-root splitting-value interfaces still remain open; no unconditional Dwork or source closure is claimed. Next follow Robert2001 Corollary2 in full: rational Gamma values when the denominator dividesp−1, including the exact field Q(mu_(np), nth-root(−p)), the character-order reduction and extension by the Gamma recurrence. The original Katz/Fermat and external Stickelberger proof-source obligations remain explicit alternatives. E18’s distribution repair remains unproved/unused; E19–E20 await independent review. All18 gaps and16 requests remain, with zero closed stages.
+
+### Robert’s Gauss norm and normalized leading unit validation
+
+All 1132 predecessor nodes, 876 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1400 reachable nodes, 6595 edges and 1044 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. The root norm and Gamma residue use only preceding local Gamma nodes and pinned native facts. The six Gauss consumers reach exactly the existing RD.6 requests through the actual Robert comparison. No stage leaf or supplier request is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5357 verbatim and adds15 complete lemmas, with no new private definition. The actual character consequences compose the preceding fully typed conditional Gauss/Gamma theorem; complete helper proofs verify field embeddings, unit uniqueness, exact norms and residue products. Eight suggested declarations and20 typed tests match the promoted nodes. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact finite controls evaluate276 prime-field Gauss sums modulo p^5, check their valuations and leading residues, and check948 right-rotation Gamma factorial residues and normalized exponents. Eight endpoint controls detect the raw-digit range error, and seven odd-prime sign controls distinguish positive from source-negative leading residues. Exact modular controls, not certified p-adic convergence or unconditional Dwork theorems. Prime Gauss sums are evaluated in the finite cyclotomic quotient modulo p^5 with actual Teichmuller approximants; below the precision cutoff the coefficient valuation and leading residue are checked directly. Gamma controls use integer approximants and the prior precision-one congruence, not floating-point values. The largest observed discrepancy is 0 (exact integer and rational comparisons).
+
+All73 captured inputs remain unchanged from5357; predecessor outputs and the whole issue text are preserved. The owner, policies, source versions and library audit remain at the reviewed blobs.
+
+The separate partial signature file also compiled with zero errors and 3,696 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8f80270847e1d17befdf7f6e995af34c95d3d7f4a1c2a7b382e6af4f9a106402.

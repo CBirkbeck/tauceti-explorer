@@ -19961,3 +19961,233 @@ example : (-gaussSum (grossKoblitzInverseChar K (1)) (grossKoblitzTraceChar 3 �
 end Ternary
 end
 end DirichletPadic.SuggestedRobertGaussTests
+
+/- Robert valuation and normalized leading-unit consequences; exact Dwork interfaces remain explicit. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+
+
+lemma grossKoblitzPi_norm_pow {K : Type*} [NormedField K] [CharZero K]
+    (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (s : ℕ) :
+    ‖π‖^s=((p : ℝ)⁻¹)^((s : ℝ)/(p-1)) := by
+  sorry
+
+
+
+
+
+lemma moritaGamma_rightRotation_factorial_residue (f : ℕ) (hf : 0<f)
+
+
+
+    (a : ℕ) (y : ℕ → ℤ_[p])
+    (hy : ∀i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p])) :
+    PadicInt.toZMod (∏i ∈ range f, (moritaGamma p (y i) : ℤ_[p]))*
+      (∏i ∈ range f, (((a/p^i)%p).factorial : ZMod p))=1 := by
+  sorry
+
+
+end DirichletPadic
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset Filter
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+
+lemma robert_gauss_norm (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]))
+     :
+    ‖(-gaussSum (grossKoblitzInverseChar K a) ψ)‖=‖π‖^((p.digits a).sum) := by
+  sorry
+
+lemma robert_gauss_norm_standard (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]))
+     :
+    ‖(-gaussSum (grossKoblitzInverseChar K a) ψ)‖=((p : ℝ)⁻¹)^((((p.digits a).sum) : ℝ)/(p-1)) := by
+  sorry
+
+lemma robert_gauss_normalized_unit (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]))
+     :
+    ∃!u : ℤ_[p]ˣ, (-gaussSum (grossKoblitzInverseChar K a) ψ)/π^((p.digits a).sum)=ι (u : ℤ_[p]) := by
+  sorry
+
+lemma robert_gauss_power_descent (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]))
+     :
+    (-gaussSum (grossKoblitzInverseChar K a) ψ)^(p-1)=ι ((-(p : ℚ_[p]))^((p.digits a).sum)*(((∏i ∈ range f, (moritaGamma p (y i) : ℤ_[p])) : ℤ_[p]) : ℚ_[p])^(p-1)) := by
+  sorry
+
+lemma robert_gauss_unit_residue (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]))
+
+    (u : ℤ_[p]ˣ) (hu : (-gaussSum (grossKoblitzInverseChar K a) ψ)/π^((p.digits a).sum)=ι (u : ℤ_[p])) :
+    PadicInt.toZMod (u : ℤ_[p])=(∏i ∈ range f, (((a/p^i)%p).factorial : ZMod p))⁻¹ := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable (K : Type*) [NormedField K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]]
+
+omit [Fact p.Prime] in
+lemma grossKoblitzGauss_norm_modulus (π : K) (ψ : AddChar 𝓀[K] K)
+    (h : ∀a<Nat.card 𝓀[K]-1,
+      ‖gaussSum (grossKoblitzInverseChar K a) ψ‖=‖π‖^((p.digits a).sum)) (a : ℕ) :
+    ‖gaussSum (grossKoblitzInverseChar K a) ψ‖=
+      ‖π‖^((p.digits (a%(Nat.card 𝓀[K]-1))).sum) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertValuesTests
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+-- dyadic_root_norm
+example : ‖(-2 : ℚ_[2])‖=(1/2 : ℝ) := by sorry
+-- ternary_root_square_norm
+example {K : Type*} [NormedField K] [CharZero K] (ι : ℚ_[3] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (π : K) (hπ : π^2=-3) : ‖π‖^2=(1/3 : ℝ) := by sorry
+-- gamma_half_residue
+example (y : ℤ_[3]) (hy : 2*y=1) : PadicInt.toZMod (moritaGamma 3 y : ℤ_[3])=1 := by sorry
+-- gamma_two_rotation_residue
+example (y z : ℤ_[3]) (hy : 8*y=5) (hz : 8*z=7) : PadicInt.toZMod ((moritaGamma 3 y : ℤ_[3])*(moritaGamma 3 z : ℤ_[3]))=2 := by sorry
+-- dyadic_gamma_residue
+example (f : ℕ) (y : ℕ → ℤ_[2]) : PadicInt.toZMod (∏i ∈ range f, (moritaGamma 2 (y i) : ℤ_[2]))=1 := by sorry
+section Ternary
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K] [IsNonarchimedeanLocalField K]
+  [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K] [Algebra (ZMod 3) 𝓀[K]]
+variable (ι : ℚ_[3] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+variable (π ζ : K) (hπ : π^2=-3) (hζ : IsPrimitiveRoot ζ 3) (hq : Nat.card 𝓀[K]=3)
+variable (hA : ∀n, ‖(PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))‖≤‖π‖^((n : ℝ)*4/9))
+variable (hθ : ∀u : 𝓀[K]ˣ, (∑'n, (PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))*(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=(grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) u)
+include hι hcι hπ hq hA hθ
+-- trivial_gauss_norm
+example : ‖(-gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))‖=1 := by sorry
+-- ternary_gauss_norm
+example : ‖(-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))‖=‖π‖ := by sorry
+-- ternary_gauss_nonzero
+example : (-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))≠0 := by sorry
+-- ternary_normalized_norm
+example : ‖(-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))‖=((3 : ℝ)⁻¹)^((1 : ℝ)/2) := by sorry
+-- ternary_squared_norm
+example : ‖(-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))‖^2=(1/3 : ℝ) := by sorry
+-- ternary_normalized_unit
+example : ∃!u : ℤ_[3]ˣ, (-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))/π=ι (u : ℤ_[3]) := by sorry
+-- trivial_normalized_unit
+example : (-gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=ι ((1 : ℤ_[3]ˣ) : ℤ_[3]) := by sorry
+-- ternary_power_descent
+example : (-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))^2=ι (-3) := by sorry
+-- trivial_power_descent
+example : (-gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))^2=ι 1 := by sorry
+-- ternary_unit_leading
+example (u : ℤ_[3]ˣ) (hu : (-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))/π=ι (u : ℤ_[3])) : PadicInt.toZMod (u : ℤ_[3])=1 := by sorry
+-- trivial_unit_leading
+example (u : ℤ_[3]ˣ) (hu : (-gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=ι (u : ℤ_[3])) : PadicInt.toZMod (u : ℤ_[3])=1 := by sorry
+-- positive_sign_boundary
+example (u : ℤ_[3]ˣ) (hu : (-(-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)))/π=ι (u : ℤ_[3])) : PadicInt.toZMod (u : ℤ_[3])=2 := by sorry
+end Ternary
+section Modulus
+variable (p : ℕ) [Fact p.Prime] (K : Type*) [NormedField K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]]
+variable (π : K) (ψ : AddChar 𝓀[K] K)
+variable (hn : ∀a<Nat.card 𝓀[K]-1, ‖gaussSum (grossKoblitzInverseChar K a) ψ‖=‖π‖^((p.digits a).sum))
+include hn
+-- endpoint_norm_one
+example : ‖gaussSum (grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)) ψ‖=1 := by sorry
+-- norm_two_periods
+example : ‖gaussSum (grossKoblitzInverseChar K (2*(Nat.card 𝓀[K]-1))) ψ‖=1 := by sorry
+-- two_element_all_norms
+example (hq : Nat.card 𝓀[K]=2) (a : ℕ) : ‖gaussSum (grossKoblitzInverseChar K a) ψ‖=1 := by sorry
+end Modulus
+end
+end DirichletPadic.SuggestedRobertValuesTests
