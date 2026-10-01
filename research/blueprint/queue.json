@@ -33784,7 +33784,8 @@
     "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4056"
   },
   {
    "id": "REV-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
