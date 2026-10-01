@@ -48991,3 +48991,639 @@ Independent exact rational controls cover 220 divisibility pairs and 540 chains 
 After actual merge of #5449, all 76 captured inputs and all four predecessor outputs are unchanged. The issue body, original winning claim, blocked unclaimed review #390, policies, reviewed library audit, source registers and owner interfaces remain guarded. Reuses actual primitive points and their established finiteness, support completion, coprime lower roots and same-support lifts. No supplier request, replacement carrier or assumed primitive-root existence is introduced.
 
 The separate partial signature file also compiled with zero errors and 4,932 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 82b4529578d9cea3a588852d4b6122f9e233eb2a274f6d848bc67e7eb1abd6a2.
+
+
+## Actual additive and integral general-linear equivariance of primitive transfers
+
+Twenty-three L3 nodes restrict actual additive equivalences to primitive points, construct native coefficient equivalences and the actual integral general-linear representation, and prove the full primitive-root transfer intertwines those actions. All 1,609 predecessor nodes and 1,082 baseline records remain whole.
+
+Kubert187 equation(2.6) and its GL-module assertion were reread. Native exact-order preservation, subtype restriction, finitely supported domain linear equivalence, the actual matrix-module action, matrix unit group, group-action additive equivalence and Representation were read in full with their hypotheses. The actual integral torus action uses the existing general matrix-module construction on integer modules; coefficients are transported by the native domain equivalence. No replacement action or generic representation machinery is introduced.
+
+### Restriction of an actual additive equivalence to primitive points
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv` — `DirichletPadic.kubertPrimitiveEquiv`
+
+An actual additive equivalence X≃+Y restricts to a native equivalence between the established primitive N-points of X and Y.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. The native additive-equivalence order theorem preserves exact additive order.
+2. Use the existing native subtype equivalence on the two actual exact-order predicates.
+3. The resulting forward and inverse functions are the original maps with only exact-order certificates added.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `mathlib:MulEquiv.orderOf_eq`, `mathlib:Equiv.subtypeEquiv`.
+
+**Uses:**
+
+- Exact-order preservation: Restricts actual ambient maps without changing primitive-point labels.
+- Reduction naturality: Supplies the point identity underlying transfer equivariance.
+- Unit level: Retains and fixes the unique primitive point of order one.
+
+**API:**
+
+- `kubertEquivariance_primitiveEquiv_coe` (compatibility): The ambient value of a restricted primitive image equals the image under the original additive equivalence.
+- `kubertEquivariance_primitiveEquiv_symm_coe` (compatibility): The ambient value of the inverse restricted primitive map is the original inverse additive equivalence applied to the point.
+- `kubertEquivariance_primitiveEquiv_refl` (compatibility): The identity additive equivalence restricts to the native identity on actual primitive points.
+- `kubertEquivariance_primitiveEquiv_symm` (compatibility): The inverse of the restricted primitive equivalence equals the restriction of the inverse additive equivalence.
+- `kubertEquivariance_primitiveEquiv_trans` (compatibility): Restricting two composable additive equivalences and composing them equals restricting their original composition.
+- `kubertEquivariance_primitiveReduction_equivariant` (compatibility): For positive M|N, applying an actual additive equivalence after primitive reduction equals reducing the image under that equivalence.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.actual_point_map` (compatibility): The restricted equivalence acts by the original additive equivalence on the actual torus point.
+- `SuggestedKubertEquivarianceTests.exact_order_is_preserved` (characterisation): The actual transported point still has exact additive order six.
+- `SuggestedKubertEquivarianceTests.unit_primitive_point_is_fixed` (degenerate): Every actual additive automorphism fixes the unique primitive point of order one.
+- `SuggestedKubertEquivarianceTests.inverse_returns_original_point` (compatibility): The restricted inverse recovers every actual primitive point.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The restricted primitive image is the original point image
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe` — `DirichletPadic.kubertEquivariance_primitiveEquiv_coe`
+
+The ambient value of a restricted primitive image equals the image under the original additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Evaluate the native subtype equivalence.
+2. Its actual point value is unchanged by restriction; only the exact-order proof is supplied.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.ambient_value_is_original_image` (compatibility): The ambient value is the actual additive-equivalence image.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The restricted primitive inverse is the original inverse
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-symm-coe` — `DirichletPadic.kubertEquivariance_primitiveEquiv_symm_coe`
+
+The ambient value of the inverse restricted primitive map is the original inverse additive equivalence applied to the point.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Evaluate the inverse of the native subtype equivalence.
+2. The ambient map is definitionally the original inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.inverse_ambient_value` (compatibility): The inverse restricted map uses the actual inverse ambient equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Primitive restriction preserves the identity
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-refl` — `DirichletPadic.kubertEquivariance_primitiveEquiv_refl`
+
+The identity additive equivalence restricts to the native identity on actual primitive points.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Apply native equivalence extensionality.
+2. Every actual point value is definitionally unchanged.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.identity_restriction` (degenerate): The identity additive equivalence restricts to the native identity equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Primitive restriction commutes with inversion
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-symm` — `DirichletPadic.kubertEquivariance_primitiveEquiv_symm`
+
+The inverse of the restricted primitive equivalence equals the restriction of the inverse additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Compare the actual ambient point functions by extensionality.
+2. Both are the original inverse point map; subtype proof components do not affect equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-symm-coe`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.inverse_restriction` (compatibility): Restriction commutes with native equivalence inversion.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Primitive restriction preserves composition
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-trans` — `DirichletPadic.kubertEquivariance_primitiveEquiv_trans`
+
+Restricting two composable additive equivalences and composing them equals restricting their original composition.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Apply native equivalence and subtype extensionality.
+2. Both sides act on an actual point by the same ordered composition of the original maps.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.composition_restriction` (compatibility): Restriction preserves the order of actual equivalence composition.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Actual primitive reduction commutes with additive equivalences
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-reduction-equivariant` — `DirichletPadic.kubertEquivariance_primitiveReduction_equivariant`
+
+For positive M|N, applying an actual additive equivalence after primitive reduction equals reducing the image under that equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Compare the ambient point values using native subtype extensionality.
+2. Reduction is the actual scalar N/M.
+3. The native additive-homomorphism natural-scalar law says that this scalar commutes with the original equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.new_prime_reduction_commutes` (compatibility): Actual reduction from six to two commutes with every actual additive automorphism.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Actual coefficient relabelling on primitive points
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv` — `DirichletPadic.kubertPrimitiveCoefficientEquiv`
+
+Construct the native R-linear equivalence on finitely supported primitive-point coefficients induced by an actual additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Restrict the original additive equivalence to actual primitive points.
+2. Apply the native Finsupp.domLCongr to that exact point equivalence.
+3. No finiteness assumption is needed: native domain equivalence carries finite support forward and coefficients backward.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`, `mathlib:Finsupp.domLCongr`.
+
+**Uses:**
+
+- Actual coefficient action: Records inverse coefficient pullback and forward basis movement.
+- Composition: Checks the order used for the actual group representation.
+- Full primitive-root transfer: Supplies the two sides of the actual transfer square.
+
+**API:**
+
+- `kubertEquivariance_primitiveCoefficientEquiv_apply` (characterisation): The coefficient at an actual target primitive point is the original coefficient at its inverse image under the original additive equivalence.
+- `kubertEquivariance_primitiveCoefficientEquiv_single` (compatibility): The native single vector at an actual primitive point, with any coefficient, moves to the single vector at its actual forward image.
+- `kubertEquivariance_primitiveCoefficientEquiv_refl` (compatibility): The coefficient equivalence induced by the identity point map is the native identity linear equivalence.
+- `kubertEquivariance_primitiveCoefficientEquiv_symm` (compatibility): The inverse coefficient equivalence is the one induced by the inverse additive equivalence.
+- `kubertEquivariance_primitiveCoefficientEquiv_trans` (compatibility): Composing coefficient equivalences agrees with relabelling by the same ordered composition of the original additive equivalences.
+- `kubertEquivariance_primitiveTransfer_equivariant` (compatibility): For every actual additive automorphism of the rational torus and every positive M|N, the primitive transfer commutes with the induced coefficient equivalences at the two levels.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.coefficients_pull_back_by_inverse` (characterisation): Coefficient relabelling evaluates at the inverse image, not the forward image.
+- `SuggestedKubertEquivarianceTests.basis_moves_forward` (compatibility): The actual basis label moves forward under the additive equivalence.
+- `SuggestedKubertEquivarianceTests.integer_linearity` (compatibility): Relabelling preserves arbitrary integer linear combinations.
+- `SuggestedKubertEquivarianceTests.unit_basis_is_fixed` (degenerate): The actual level-one basis vector is fixed, retaining its coefficient.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Relabelled coefficients use the actual inverse image
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-apply` — `DirichletPadic.kubertEquivariance_primitiveCoefficientEquiv_apply`
+
+The coefficient at an actual target primitive point is the original coefficient at its inverse image under the original additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Evaluate native finitely supported domain relabelling.
+2. Its coefficient map is precomposition with the inverse restricted equivalence.
+3. Use the actual inverse point formula. This fixes the orientation independently of a basis presentation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-symm`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.inverse_coefficient_formula` (characterisation): Every relabelled coefficient is the original coefficient at the actual inverse primitive point.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Relabelling moves basis points forward
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-single` — `DirichletPadic.kubertEquivariance_primitiveCoefficientEquiv_single`
+
+The native single vector at an actual primitive point, with any coefficient, moves to the single vector at its actual forward image.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Apply the native single-vector formula for Finsupp.domLCongr.
+2. The domain map is the actual restricted point equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `mathlib:Finsupp.domLCongr_single`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.single_vector_formula` (compatibility): Each native single vector moves to the actual forward primitive image.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Coefficient relabelling preserves identity
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-refl` — `DirichletPadic.kubertEquivariance_primitiveCoefficientEquiv_refl`
+
+The coefficient equivalence induced by the identity point map is the native identity linear equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Use primitive restriction of the identity.
+2. Apply the existing native identity law for domain linear congruence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-refl`, `mathlib:Finsupp.domLCongr_refl`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.coefficient_identity` (degenerate): The native coefficient equivalence for the identity is the identity linear equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Coefficient relabelling preserves inversion
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-symm` — `DirichletPadic.kubertEquivariance_primitiveCoefficientEquiv_symm`
+
+The inverse coefficient equivalence is the one induced by the inverse additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Use the existing inverse law for native domain linear congruence.
+2. Apply the proved inverse law for actual primitive restriction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-symm`, `mathlib:Finsupp.domLCongr_symm`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.coefficient_inverse` (compatibility): The inverse coefficient equivalence is induced by the actual inverse point equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Coefficient relabelling preserves ordered composition
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-trans` — `DirichletPadic.kubertEquivariance_primitiveCoefficientEquiv_trans`
+
+Composing coefficient equivalences agrees with relabelling by the same ordered composition of the original additive equivalences.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Apply the native composition law for domain linear congruence.
+2. Use actual primitive restriction of composition.
+3. The resulting forward basis action and inverse coefficient action remain consistent.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-trans`, `mathlib:Finsupp.domLCongr_trans`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.coefficient_composition` (compatibility): Coefficient relabellings compose in the same order as the forward point equivalences.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The actual primitive transfer intertwines additive automorphisms
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-transfer-equivariant` — `DirichletPadic.kubertEquivariance_primitiveTransfer_equivariant`
+
+For every actual additive automorphism of the rational torus and every positive M|N, the primitive transfer commutes with the induced coefficient equivalences at the two levels.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Compare the two native linear maps on each coefficient vector and primitive upper point.
+2. The transfer coefficient is evaluation at actual primitive reduction; relabelling evaluates at the inverse point image.
+3. Apply primitiveReduction_equivariant to the actual inverse additive automorphism.
+4. The two original coefficients are therefore evaluated at the same actual lower point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-reduction-equivariant`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.automorphism_transfer_square` (compatibility): The actual transfer across a new prime intertwines actual additive-automorphism coefficient maps.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The actual integral general-linear action on the rational torus
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv` — `DirichletPadic.kubertIntegerTorusEquiv`
+
+Each native invertible integer matrix defines an actual additive automorphism of (Q/Z)^(k+1).
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Use the existing scoped matrix-module action of integer matrices on vectors in an integer module.
+2. Restrict the native action to the existing unit group of integer matrices, which is the native general linear group.
+3. Use the native distributive group-action conversion to an additive equivalence. The inverse is supplied by the actual inverse matrix.
+
+**Prerequisites:** `mathlib:Matrix.Module.matrixModule`, `mathlib:Matrix.GeneralLinearGroup`, `mathlib:DistribMulAction.toAddEquiv`.
+
+**Uses:**
+
+- Kubert GL action: Constructs the source actual integral matrix action on the rational torus.
+- Primitive restriction: Exact-order preservation follows from its native additive equivalence.
+- Coordinate tests: Makes negative scalar, swap and non-involutive shear actions checkable.
+
+**API:**
+
+- `kubertEquivariance_integerTorusEquiv_apply` (characterisation): For an actual torus vector x, the i-th coordinate of the integral matrix action is the sum of g_ij times x_j using native integer scalar multiplication.
+- `kubertEquivariance_integerTorusEquiv_one` (compatibility): The actual torus equivalence of the native identity integer matrix equals the native identity additive equivalence.
+- `kubertEquivariance_integerTorusEquiv_mul` (compatibility): The actual torus equivalence for g*h equals the equivalence for h followed by the equivalence for g.
+- `kubertEquivariance_integerTorusEquiv_inv` (compatibility): The actual torus equivalence for g inverse equals the inverse additive equivalence of the actual torus map for g.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.actual_integer_matrix_sum` (characterisation): The first coordinate of the actual integral general-linear action is the specified integer matrix sum.
+- `SuggestedKubertEquivarianceTests.integer_matrix_inverse_recovers_point` (compatibility): The actual inverse integer matrix recovers every torus point.
+- `SuggestedKubertEquivarianceTests.zero_torus_point_is_fixed` (degenerate): Every actual integer matrix automorphism fixes zero.
+- `SuggestedKubertEquivarianceTests.negative_scalar_is_actual_negation` (compatibility): The native scalar matrix minus one acts as actual torus negation.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Integral matrix action has the actual coordinate formula
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-apply` — `DirichletPadic.kubertEquivariance_integerTorusEquiv_apply`
+
+For an actual torus vector x, the i-th coordinate of the integral matrix action is the sum of g_ij times x_j using native integer scalar multiplication.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Evaluate the native additive equivalence of the matrix-unit action.
+2. Unfold the existing scoped matrix-module action at coordinate i.
+3. The result is definitionally the actual finite matrix sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.coordinate_matrix_formula` (characterisation): Every coordinate is the exact sum of integer multiples from the original matrix.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The identity integer matrix fixes the torus
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-one` — `DirichletPadic.kubertEquivariance_integerTorusEquiv_one`
+
+The actual torus equivalence of the native identity integer matrix equals the native identity additive equivalence.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Compare additive equivalences at an arbitrary torus point.
+2. Use the identity law of the existing native matrix-unit action.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.identity_integer_matrix` (degenerate): The native identity integer matrix gives the identity additive equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### Integral matrix multiplication agrees with action composition
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-mul` — `DirichletPadic.kubertEquivariance_integerTorusEquiv_mul`
+
+The actual torus equivalence for g*h equals the equivalence for h followed by the equivalence for g.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Use native additive-equivalence extensionality.
+2. The multiplication law of the existing module action gives (g*h)x=g(hx).
+3. State composition in that precise order, matching native general-linear multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.matrix_product_order` (compatibility): The product g*h acts by h first and g second.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The inverse integer matrix gives the inverse torus map
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-inv` — `DirichletPadic.kubertEquivariance_integerTorusEquiv_inv`
+
+The actual torus equivalence for g inverse equals the inverse additive equivalence of the actual torus map for g.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. The native group-action equivalence uses inverse scalar action as its inverse.
+2. For the matrix-unit group this is exactly the native inverse matrix.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.matrix_inverse_equivalence` (compatibility): The inverse integer matrix supplies the inverse additive equivalence.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The actual integral general-linear representation on primitive coefficients
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation` — `DirichletPadic.kubertPrimitiveGLRepresentation`
+
+Construct a native R-linear representation of the existing integral general-linear group on the actual finitely supported coefficients of primitive N-points.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. For each actual integer matrix unit, take its actual torus additive equivalence and the established primitive coefficient linear equivalence.
+2. Use its native underlying linear map as the value of the representation.
+3. The identity law follows from actual matrix identity and coefficient identity.
+4. The multiplication law follows from the actual matrix-action composition order and the proved coefficient-composition law.
+5. Package these exact maps in the existing native Representation abbreviation for a monoid homomorphism into module endomorphisms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-one`, `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-mul`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-refl`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-trans`, `mathlib:Representation`.
+
+**Uses:**
+
+- Actual native representation: Provides the existing representation object on primitive coefficients.
+- Kubert equation (2.6): Gives the actual representations intertwined by the full primitive-root transfer.
+- Later congruence and Cartan comparison: Exposes exact matrix action and coefficients, without assuming either remaining comparison.
+
+**API:**
+
+- `kubertEquivariance_primitiveGLRepresentation_apply` (characterisation): The coefficient at primitive y after the GL action is the original coefficient at the actual primitive image of y under g inverse.
+- `kubertEquivariance_primitiveGLRepresentation_single` (compatibility): The GL action sends a native basis vector at x to the native basis vector at the actual matrix image g*x, with the same coefficient.
+- `kubertEquivariance_primitiveTransfer_GL_equivariant` (compatibility): For every positive M|N and actual invertible integer matrix g, the full primitive-root transfer intertwines the constructed native GL representations at M and N.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.native_representation_identity` (degenerate): The actual native GL representation sends the identity matrix to the identity linear map.
+- `SuggestedKubertEquivarianceTests.native_representation_multiplication` (compatibility): The representation sends integer matrix multiplication to composition of actual coefficient maps.
+- `SuggestedKubertEquivarianceTests.unit_level_representation_is_trivial` (degenerate): Every actual matrix fixes the level-one primitive coefficient vector.
+- `SuggestedKubertEquivarianceTests.positive_characteristic_representation` (compatibility): The same actual coefficient representation is available over the field of two elements.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### GL coefficients pull back by the actual inverse matrix
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation-apply` — `DirichletPadic.kubertEquivariance_primitiveGLRepresentation_apply`
+
+The coefficient at primitive y after the GL action is the original coefficient at the actual primitive image of y under g inverse.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Evaluate the native representation and its actual coefficient linear equivalence.
+2. Use the inverse coefficient formula and actual inverse matrix equivalence.
+3. The point label stays in the established exact-order subtype.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-inv`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.inverse_matrix_coefficient` (characterisation): The coefficient at y is evaluated at the actual g-inverse image of y.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The GL representation moves actual primitive basis labels
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation-single` — `DirichletPadic.kubertEquivariance_primitiveGLRepresentation_single`
+
+The GL action sends a native basis vector at x to the native basis vector at the actual matrix image g*x, with the same coefficient.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Unfold the representation at the actual matrix g.
+2. Apply the already proved single-vector formula for actual primitive coefficient equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-coefficient-equiv-single`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.matrix_moves_actual_basis_point` (compatibility): A basis vector moves to its actual forward integer-matrix image.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+### The primitive transfer is an actual GL-module map
+
+`DirichletPadicLFunctions:L3/kubert-equivariance-primitive-transfer--g-l-equivariant` — `DirichletPadic.kubertEquivariance_primitiveTransfer_GL_equivariant`
+
+For every positive M|N and actual invertible integer matrix g, the full primitive-root transfer intertwines the constructed native GL representations at M and N.
+
+**Hypotheses:** Primitive points are the established actual points of exact additive order N. Restriction of equivalences and coefficient relabelling work for arbitrary additive commutative groups and natural levels; they do not assume finite primitive-point sets. For the transfer square, use the actual rational torus (Q/Z)^(k+1), positive levels M|N and the already constructed full primitive-root transfer. Its original coefficient semiring R is arbitrary. The integer matrix group is the existing native general linear group, namely units of integer matrices. Its action on the actual torus is the existing scoped matrix-module action, with coordinate sum of integer multiples; no new torus, matrix group or assumed action is introduced. Coefficient maps are the existing native finitely supported linear domain equivalences restricted to actual primitive points. Point labels move forward, while coefficient values pull back by the inverse point equivalence. The actual native Representation preserves matrix multiplication in its usual order: g*h acts by h first and then g. Congruence-level factorization, Cartan torsors and norms, and the independent distribution rank lower bound are not established here.
+
+**Proof:**
+
+1. Use the established transfer square for every actual additive automorphism of the rational torus.
+2. Specialize that square to the actual additive equivalence supplied by g.
+3. The two coefficient maps are exactly the values of the constructed native representations. This establishes the GL-equivariance assertion in Kubert (2.6).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-transfer-equivariant`.
+
+**Tests:**
+
+- `SuggestedKubertEquivarianceTests.actual_GL_transfer_square` (compatibility): The full primitive-root transfer intertwines the native actual GL representations at both positive levels.
+
+**Acceptance:** Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion.
+
+**Source:** Published 187, the GL_k(Z)-module structure and equivariance asserted for the actual primitive-root injection (2.6). The congruence factorization in the same paragraph and the Cartan comparison (2.7) remain separate. Restricts actual additive equivalences to primitive points, transports the actual finitely supported coefficient module, and proves the transfer square coefficientwise. The native integral matrix action gives the actual GL representation and specializes that square to the source assertion.
+
+**Remaining:** The actual primitive-root transfer now intertwines all actual additive torus automorphisms and the constructed native integral general-linear representations. The matrix action and its coefficient orientation, identity, multiplication and inverse are explicit. Next prove the level-N action depends only on the integer matrix entries modulo N and construct the actual finite general-linear action and its comparison, as required in the same paragraph on Kubert187. Then construct and compare the actual Cartan finite rings, units, primitive torsors and norm maps of 186–189, reusing native and owner interfaces. Complete the independent rank lower bound from the Cartan or rational model of 186–199 and combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. No assumed action, Cartan torsor or full-rank certificate substitutes for those constructions. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Actual additive and integral general-linear equivariance of primitive transfers validation
+
+All 1609 predecessor nodes, 1082 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 23 nodes, 23 named suggested declarations and 35 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1892 reachable nodes, 8153 edges and 1254 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in the established actual primitive-point reduction/transfer or native exact-order, subtype, finitely supported domain-equivalence, matrix-module and representation APIs. No supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3610 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains #5452 verbatim and adds four actual constructions and nineteen complete lemmas. Totals are 90 definitions and 1,017 lemmas with zero placeholders. All 23 suggested declarations and 35 typed tests preserve actual primitive points, native matrices, coefficient modules and the native representation type. Three existing imports provide the matrix module, general-linear group and representation; their existing artifacts are reused without a native build. The separate probe compiles against 2986 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent exact rational controls cover 139 level pairs and 1,416 primitive points in dimensions one through three. They check 6,540 actual matrix actions and inverses,31,620 ordered compositions,148 basis images and 20,876 reduction and coefficient-equivariance cases. Non-involutive shears distinguish inverse coefficient pullback, and 77 pairs introduce new primes. Exact actual rational torus representatives in dimensions one through three, using identity, negation, coordinate swaps and non-involutive unimodular shears with explicit inverse matrices. Checks primitive-point permutations, inverse and composition laws, actual matrix sums, basis relabelling, quotient-degree reduction and transfer coefficient equivariance for every positive divisibility in each range, over integers and modulo two and three. A shear distinguishes forward point action from inverse coefficient pullback. These finite controls do not prove Cartan comparison, congruence factorization or the independent distribution lower rank bound. The largest observed discrepancy is 0.
+
+After actual merge of #5452, all 76 captured inputs and all four predecessor outputs are unchanged. The issue body, original winning claim, blocked unclaimed review #390, policies, reviewed library audit, source registers and owner interfaces remain guarded. Actual primitive points and reduction/transfer are retained, while existing native subtype, coefficient, matrix-module and representation APIs supply the new maps. No supplier request or assumed action is introduced.
+
+The separate partial signature file also compiled with zero errors and 4,990 expected placeholder warnings across 3,606 pinned source modules. It includes all 23 new named declarations and 35 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4.

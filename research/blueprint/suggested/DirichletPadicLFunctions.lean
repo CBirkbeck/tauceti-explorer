@@ -1,3 +1,6 @@
+import Mathlib.LinearAlgebra.Matrix.Module
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.RepresentationTheory.Basic
 import Mathlib.Algebra.GCDMonoid.FinsetLemmas
 import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.FieldTheory.AlgebraicClosure
@@ -25020,3 +25023,209 @@ example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) :
 example (f : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ) →₀ ℤ) : (kubertPrimitiveTransfer 0 (ℤ) 3 12 (by decide) f).support=Finset.univ.filter (fun y => kubertPrimitiveReduction 3 12 (by decide) y∈f.support) := by sorry
 end
 end DirichletPadic.SuggestedKubertTransferTests
+
+/- Actual additive and integral general-linear equivariance of primitive transfers. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v w
+variable {X : Type u} {Y : Type v} {Z : Type w}
+variable [AddCommGroup X] [AddCommGroup Y] [AddCommGroup Z]
+
+noncomputable def kubertPrimitiveEquiv (e : X ≃+ Y) (N : ℕ) :
+    kubertPrimitivePoints X N ≃
+      kubertPrimitivePoints Y N := by sorry
+
+lemma kubertEquivariance_primitiveEquiv_coe (e : X ≃+ Y) (N : ℕ)
+    (x : kubertPrimitivePoints X N) :
+    (kubertPrimitiveEquiv e N x : Y)=e (x : X) := by sorry
+
+lemma kubertEquivariance_primitiveEquiv_symm_coe (e : X ≃+ Y) (N : ℕ)
+    (y : kubertPrimitivePoints Y N) :
+    ((kubertPrimitiveEquiv e N).symm y : X)=e.symm (y : Y) := by sorry
+
+lemma kubertEquivariance_primitiveEquiv_refl (N : ℕ) :
+    kubertPrimitiveEquiv (AddEquiv.refl X) N=Equiv.refl _ := by sorry
+
+lemma kubertEquivariance_primitiveEquiv_symm (e : X ≃+ Y) (N : ℕ) :
+    (kubertPrimitiveEquiv e N).symm=kubertPrimitiveEquiv e.symm N := by sorry
+
+lemma kubertEquivariance_primitiveEquiv_trans (e : X ≃+ Y) (f : Y ≃+ Z) (N : ℕ) :
+    (kubertPrimitiveEquiv e N).trans (kubertPrimitiveEquiv f N)=kubertPrimitiveEquiv (e.trans f) N := by sorry
+
+lemma kubertEquivariance_primitiveReduction_equivariant (e : X ≃+ Y) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (y : kubertPrimitivePoints X (N : ℕ)) :
+    kubertPrimitiveEquiv e (M : ℕ) (kubertPrimitiveReduction M N hMN y)=
+      kubertPrimitiveReduction M N hMN (kubertPrimitiveEquiv e (N : ℕ) y) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v w
+variable {X : Type u} {Y : Type v} {Z : Type w}
+variable [AddCommGroup X] [AddCommGroup Y] [AddCommGroup Z]
+
+noncomputable def kubertPrimitiveCoefficientEquiv (R : Type*) [Semiring R]
+    (e : X ≃+ Y) (N : ℕ) :
+    (kubertPrimitivePoints X N →₀ R) ≃ₗ[R]
+      (kubertPrimitivePoints Y N →₀ R) := by sorry
+
+lemma kubertEquivariance_primitiveCoefficientEquiv_apply (R : Type*) [Semiring R]
+    (e : X ≃+ Y) (N : ℕ)
+    (f : kubertPrimitivePoints X N →₀ R)
+    (y : kubertPrimitivePoints Y N) :
+    kubertPrimitiveCoefficientEquiv R e N f y=f (kubertPrimitiveEquiv e.symm N y) := by sorry
+
+lemma kubertEquivariance_primitiveCoefficientEquiv_single (R : Type*) [Semiring R]
+    (e : X ≃+ Y) (N : ℕ)
+    (x : kubertPrimitivePoints X N) (a : R) :
+    kubertPrimitiveCoefficientEquiv R e N (Finsupp.single x a)=
+      Finsupp.single (kubertPrimitiveEquiv e N x) a := by sorry
+
+lemma kubertEquivariance_primitiveCoefficientEquiv_refl (R : Type*) [Semiring R] (N : ℕ) :
+    kubertPrimitiveCoefficientEquiv R (AddEquiv.refl X) N=LinearEquiv.refl R _ := by sorry
+
+lemma kubertEquivariance_primitiveCoefficientEquiv_symm (R : Type*) [Semiring R]
+    (e : X ≃+ Y) (N : ℕ) :
+    (kubertPrimitiveCoefficientEquiv R e N).symm=kubertPrimitiveCoefficientEquiv R e.symm N := by sorry
+
+lemma kubertEquivariance_primitiveCoefficientEquiv_trans (R : Type*) [Semiring R]
+    (e : X ≃+ Y) (f : Y ≃+ Z) (N : ℕ) :
+    (kubertPrimitiveCoefficientEquiv R e N).trans (kubertPrimitiveCoefficientEquiv R f N)=
+      kubertPrimitiveCoefficientEquiv R (e.trans f) N := by sorry
+
+lemma kubertEquivariance_primitiveTransfer_equivariant (k : ℕ) (R : Type*) [Semiring R]
+    (e : (Fin (k+1) → AddCircle (1 : ℚ)) ≃+ (Fin (k+1) → AddCircle (1 : ℚ)))
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertPrimitiveCoefficientEquiv R e (N : ℕ)).toLinearMap.comp
+      (kubertPrimitiveTransfer k R M N hMN)=
+    (kubertPrimitiveTransfer k R M N hMN).comp
+      (kubertPrimitiveCoefficientEquiv R e (M : ℕ)).toLinearMap := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical Matrix.Module
+
+noncomputable def kubertIntegerTorusEquiv (k : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ) :
+    (Fin (k+1) → AddCircle (1 : ℚ)) ≃+ (Fin (k+1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertEquivariance_integerTorusEquiv_apply (k : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (x : Fin (k+1) → AddCircle (1 : ℚ)) (i : Fin (k+1)) :
+    kubertIntegerTorusEquiv k g x i=∑ j,(g : Matrix (Fin (k+1)) (Fin (k+1)) ℤ) i j • x j := by sorry
+
+lemma kubertEquivariance_integerTorusEquiv_one (k : ℕ) :
+    kubertIntegerTorusEquiv k 1=AddEquiv.refl _ := by sorry
+
+lemma kubertEquivariance_integerTorusEquiv_mul (k : ℕ)
+    (g h : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ) :
+    kubertIntegerTorusEquiv k (g*h)=(kubertIntegerTorusEquiv k h).trans (kubertIntegerTorusEquiv k g) := by sorry
+
+lemma kubertEquivariance_integerTorusEquiv_inv (k : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ) :
+    kubertIntegerTorusEquiv k g⁻¹=(kubertIntegerTorusEquiv k g).symm := by sorry
+
+noncomputable def kubertPrimitiveGLRepresentation (k : ℕ) (R : Type*) [Semiring R] (N : ℕ) :
+    Representation R (Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+      (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N →₀ R) := by sorry
+
+lemma kubertEquivariance_primitiveGLRepresentation_apply (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (f : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N →₀ R)
+    (y : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N) :
+    kubertPrimitiveGLRepresentation k R N g f y=
+      f (kubertPrimitiveEquiv (kubertIntegerTorusEquiv k g⁻¹) N y) := by sorry
+
+lemma kubertEquivariance_primitiveGLRepresentation_single (k : ℕ) (R : Type*) [Semiring R] (N : ℕ)
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (x : kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) N)
+    (a : R) :
+    kubertPrimitiveGLRepresentation k R N g (Finsupp.single x a)=
+      Finsupp.single (kubertPrimitiveEquiv (kubertIntegerTorusEquiv k g) N x) a := by sorry
+
+lemma kubertEquivariance_primitiveTransfer_GL_equivariant (k : ℕ) (R : Type*) [Semiring R]
+    (g : Matrix.GeneralLinearGroup (Fin (k+1)) ℤ)
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertPrimitiveGLRepresentation k R (N : ℕ) g).comp
+      (kubertPrimitiveTransfer k R M N hMN)=
+    (kubertPrimitiveTransfer k R M N hMN).comp
+      (kubertPrimitiveGLRepresentation k R (M : ℕ) g) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertEquivarianceTests
+open scoped BigOperators Classical
+noncomputable section
+-- actual_point_map
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : (kubertPrimitiveEquiv e 6 x : (Fin 2 → AddCircle (1 : ℚ)))=e (x : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- exact_order_is_preserved
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : addOrderOf (kubertPrimitiveEquiv e 6 x : (Fin 2 → AddCircle (1 : ℚ)))=6 := by sorry
+-- unit_primitive_point_is_fixed
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)) : kubertPrimitiveEquiv e 1 x=x := by sorry
+-- inverse_returns_original_point
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : (kubertPrimitiveEquiv e 6).symm (kubertPrimitiveEquiv e 6 x)=x := by sorry
+-- ambient_value_is_original_image
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : (kubertPrimitiveEquiv e 6 x : (Fin 2 → AddCircle (1 : ℚ)))=e (x : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- inverse_ambient_value
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : ((kubertPrimitiveEquiv e 6).symm x : (Fin 2 → AddCircle (1 : ℚ)))=e.symm (x : (Fin 2 → AddCircle (1 : ℚ))) := by sorry
+-- identity_restriction
+example : kubertPrimitiveEquiv (AddEquiv.refl (Fin 2 → AddCircle (1 : ℚ))) 6=Equiv.refl _ := by sorry
+-- inverse_restriction
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) : (kubertPrimitiveEquiv e 6).symm=kubertPrimitiveEquiv e.symm 6 := by sorry
+-- composition_restriction
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (f : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) : (kubertPrimitiveEquiv e 6).trans (kubertPrimitiveEquiv f 6)=kubertPrimitiveEquiv (e.trans f) 6 := by sorry
+-- new_prime_reduction_commutes
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveEquiv e 2 (kubertPrimitiveReduction 2 6 (by decide) x)=kubertPrimitiveReduction 2 6 (by decide) (kubertPrimitiveEquiv e 6 x) := by sorry
+-- coefficients_pull_back_by_inverse
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ℤ) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveCoefficientEquiv ℤ e 6 v x=v (kubertPrimitiveEquiv e.symm 6 x) := by sorry
+-- basis_moves_forward
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) (a : ℤ) : kubertPrimitiveCoefficientEquiv ℤ e 6 (Finsupp.single x a)=Finsupp.single (kubertPrimitiveEquiv e 6 x) a := by sorry
+-- integer_linearity
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ℤ) (w : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ℤ) (a : ℤ) : kubertPrimitiveCoefficientEquiv ℤ e 6 (a • v+w)=a • kubertPrimitiveCoefficientEquiv ℤ e 6 v+kubertPrimitiveCoefficientEquiv ℤ e 6 w := by sorry
+-- unit_basis_is_fixed
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)) (a : ℤ) : kubertPrimitiveCoefficientEquiv ℤ e 1 (Finsupp.single x a)=Finsupp.single x a := by sorry
+-- inverse_coefficient_formula
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ℤ) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveCoefficientEquiv ℤ e 6 v x=v (kubertPrimitiveEquiv e.symm 6 x) := by sorry
+-- single_vector_formula
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) (a : ℤ) : kubertPrimitiveCoefficientEquiv ℤ e 6 (Finsupp.single x a)=Finsupp.single (kubertPrimitiveEquiv e 6 x) a := by sorry
+-- coefficient_identity
+example : kubertPrimitiveCoefficientEquiv ℤ (AddEquiv.refl (Fin 2 → AddCircle (1 : ℚ))) 6=LinearEquiv.refl ℤ _ := by sorry
+-- coefficient_inverse
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) : (kubertPrimitiveCoefficientEquiv ℤ e 6).symm=kubertPrimitiveCoefficientEquiv ℤ e.symm 6 := by sorry
+-- coefficient_composition
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) (f : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) : (kubertPrimitiveCoefficientEquiv ℤ e 6).trans (kubertPrimitiveCoefficientEquiv ℤ f 6)=kubertPrimitiveCoefficientEquiv ℤ (e.trans f) 6 := by sorry
+-- automorphism_transfer_square
+example (e : (Fin 2 → AddCircle (1 : ℚ)) ≃+ (Fin 2 → AddCircle (1 : ℚ))) : (kubertPrimitiveCoefficientEquiv ℤ e 6).toLinearMap.comp (kubertPrimitiveTransfer 1 ℤ 2 6 (by decide))=(kubertPrimitiveTransfer 1 ℤ 2 6 (by decide)).comp (kubertPrimitiveCoefficientEquiv ℤ e 2).toLinearMap := by sorry
+-- actual_integer_matrix_sum
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : (Fin 2 → AddCircle (1 : ℚ))) : kubertIntegerTorusEquiv 1 g x 0=∑ j,(g : Matrix (Fin 2) (Fin 2) ℤ) 0 j • x j := by sorry
+-- integer_matrix_inverse_recovers_point
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : (Fin 2 → AddCircle (1 : ℚ))) : kubertIntegerTorusEquiv 1 g⁻¹ (kubertIntegerTorusEquiv 1 g x)=x := by sorry
+-- zero_torus_point_is_fixed
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertIntegerTorusEquiv 1 g (0 : (Fin 2 → AddCircle (1 : ℚ)))=0 := by sorry
+-- negative_scalar_is_actual_negation
+example (x : (Fin 2 → AddCircle (1 : ℚ))) : kubertIntegerTorusEquiv 1 (Matrix.GeneralLinearGroup.scalar (Fin 2) (-1 : ℤˣ)) x=-x := by sorry
+-- coordinate_matrix_formula
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : (Fin 2 → AddCircle (1 : ℚ))) (i : Fin 2) : kubertIntegerTorusEquiv 1 g x i=∑ j,(g : Matrix (Fin 2) (Fin 2) ℤ) i j • x j := by sorry
+-- identity_integer_matrix
+example : kubertIntegerTorusEquiv 1 1=AddEquiv.refl (Fin 2 → AddCircle (1 : ℚ)) := by sorry
+-- matrix_product_order
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (h : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertIntegerTorusEquiv 1 (g*h)=(kubertIntegerTorusEquiv 1 h).trans (kubertIntegerTorusEquiv 1 g) := by sorry
+-- matrix_inverse_equivalence
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertIntegerTorusEquiv 1 g⁻¹=(kubertIntegerTorusEquiv 1 g).symm := by sorry
+-- native_representation_identity
+example : kubertPrimitiveGLRepresentation 1 ℤ 6 1=LinearMap.id := by sorry
+-- native_representation_multiplication
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (h : Matrix.GeneralLinearGroup (Fin 2) ℤ) : kubertPrimitiveGLRepresentation 1 ℤ 6 (g*h)=(kubertPrimitiveGLRepresentation 1 ℤ 6 g).comp (kubertPrimitiveGLRepresentation 1 ℤ 6 h) := by sorry
+-- unit_level_representation_is_trivial
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ) →₀ ℤ) : kubertPrimitiveGLRepresentation 1 ℤ 1 g v=v := by sorry
+-- positive_characteristic_representation
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ZMod 2) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveGLRepresentation 1 (ZMod 2) 6 g v x=v (kubertPrimitiveEquiv (kubertIntegerTorusEquiv 1 g⁻¹) 6 x) := by sorry
+-- inverse_matrix_coefficient
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (v : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ) →₀ ℤ) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveGLRepresentation 1 ℤ 6 g v x=v (kubertPrimitiveEquiv (kubertIntegerTorusEquiv 1 g⁻¹) 6 x) := by sorry
+-- matrix_moves_actual_basis_point
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) (a : ℤ) : kubertPrimitiveGLRepresentation 1 ℤ 6 g (Finsupp.single x a)=Finsupp.single (kubertPrimitiveEquiv (kubertIntegerTorusEquiv 1 g) 6 x) a := by sorry
+-- actual_GL_transfer_square
+example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) : (kubertPrimitiveGLRepresentation 1 ℤ 6 g).comp (kubertPrimitiveTransfer 1 ℤ 2 6 (by decide))=(kubertPrimitiveTransfer 1 ℤ 2 6 (by decide)).comp (kubertPrimitiveGLRepresentation 1 ℤ 2 g) := by sorry
+end
+end DirichletPadic.SuggestedKubertEquivarianceTests
