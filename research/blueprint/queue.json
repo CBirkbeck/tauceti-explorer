@@ -42759,8 +42759,9 @@
     "REV-PAPER-STEVENS-08"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-STEVENS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5100"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5100",
+   "finishedAt": "2026-10-01T10:18:12Z"
   },
   {
    "id": "REV-RT-PAPER-STEVENS-08",
@@ -47023,7 +47024,8 @@
     "REV-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-GlobalGaloisDeformations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4446"
   },
   {
    "id": "REV-RT-BP-GlobalGaloisDeformations",
