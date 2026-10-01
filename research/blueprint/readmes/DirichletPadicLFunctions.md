@@ -51496,3 +51496,473 @@ Independent polynomial models cover 67 positive levels and 3,016 actual unit tup
 After actual merge of #5470, all 77 guarded inputs and four predecessor outputs are unchanged. Exact FF.4 packet and suggested ring interfaces, policies, audit, source registers and all existing owner boundaries remain guarded. The issue body, original winning claim and blocked unclaimed review #390 remain unchanged. No new source finding, independent owner review or supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 5,159 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f30e5fc6276b3230e05857be4c130e03b6c9cf7f76c81356b024b61c1ef9f1fa.
+
+
+## Actual full-Witt unit projections and compatible common Cartan action
+
+Sixteen L3 nodes construct actual surjective full-Witt unit-product projections, compatible finite regular actions and injective native norm intertwiners with identity/composition laws. All 1,697 predecessor nodes and 1,117 baseline records remain whole.
+
+Kubert186(2.5) and187(2.7) were reread. The actual native prime subtype, full-Witt truncation and actual unit criterion, and native intertwining extensionality, identity and composition were read in full. Projections use original actual unit values and native factorization exponents. The common action is constructed algebraically on the exact Witt product; no source local-field, topological inverse-limit or primitive-torsor identification is claimed.
+
+### Projection of actual full-Witt units to a local Cartan level
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection` — `DirichletPadic.kubertCartanWittProjection`
+
+For prime p and positive k,N, construct the native group homomorphism from full-Witt units over the finite field of degree k to the actual local Cartan units at truncation length N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Use the existing full-Witt truncation ring homomorphism.
+2. Apply the existing native map on actual units.
+3. The finite target is exactly the FF.4 Galois-ring model already used by the local Cartan transitions.
+
+**Prerequisites:** `FiniteFieldsAndCharacterSums:FF.4/galois-ring`, `mathlib:WittVector.truncate`, `mathlib:Units.map`.
+
+**Uses:**
+
+- Kubert186 local unit projections: Constructs the full-Witt-model local maps to the exact finite unit carriers.
+- Actual global surjectivity: Provides genuine full-Witt units lifting every finite local unit.
+- Compatible levels: Retains actual values under further finite reductions.
+
+**API:**
+
+- `kubertCartanLimit_cartanWittProjection_coe` (characterisation): The underlying value of the projected full-Witt unit is the native truncation of its original underlying Witt vector.
+- `kubertCartanLimit_cartanWittProjection_surjective` (characterisation): The actual full-Witt unit projection to every positive local truncation length is surjective.
+- `kubertCartanLimit_cartanWittProjection_reduction` (compatibility): For positive exponents M≤N, projecting a full-Witt unit to N and then applying the established actual unit reduction to M equals direct full-Witt projection to M.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.actual_full_Witt_truncation` (compatibility): The local projection retains the native truncation of the original full-Witt unit value.
+- `SuggestedKubertCartanLimitTests.full_Witt_identity_projects_to_identity` (degenerate): The full-Witt unit identity projects to the finite identity unit.
+- `SuggestedKubertCartanLimitTests.full_Witt_projection_preserves_product` (compatibility): The local full-Witt projection is a homomorphism on actual units.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Full-Witt projection retains the actual truncated value
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection-coe` — `DirichletPadic.kubertCartanLimit_cartanWittProjection_coe`
+
+The underlying value of the projected full-Witt unit is the native truncation of its original underlying Witt vector.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Evaluate the actual native map on units.
+2. Its value is the original truncation ring map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.full_Witt_unit_value` (characterisation): The underlying finite unit value is the actual Witt truncation.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Every local Cartan unit has an actual full-Witt unit lift
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection-surjective` — `DirichletPadic.kubertCartanLimit_cartanWittProjection_surjective`
+
+The actual full-Witt unit projection to every positive local truncation length is surjective.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Take an actual finite unit and evaluate its value-times-inverse equality at the zeroth coefficient.
+2. Native full-Witt identity and multiplication coefficients show that the canonical full lift has nonzero zeroth coefficient.
+3. Apply the existing native Witt-vector unit theorem to obtain an actual full-Witt unit with this lifted value.
+4. Native truncation of the canonical full lift recovers the original finite unit. This validates the consumer without adding a generic unit criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection`, `FiniteFieldsAndCharacterSums:FF.4/galois-ring-is-local`, `mathlib:WittVector.mul_coeff_zero`, `mathlib:WittVector.one_coeff_zero`, `mathlib:WittVector.isUnit_of_coeff_zero_ne_zero`, `mathlib:TruncatedWittVector.truncateFun_out`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.finite_unit_has_full_Witt_unit_lift` (characterisation): Every actual finite unit at exponent three has an actual full-Witt unit lift.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Local full-Witt projections commute with actual unit reduction
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection-reduction` — `DirichletPadic.kubertCartanLimit_cartanWittProjection_reduction`
+
+For positive exponents M≤N, projecting a full-Witt unit to N and then applying the established actual unit reduction to M equals direct full-Witt projection to M.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Compare native unit-group homomorphisms at an actual full-Witt unit.
+2. Compare their underlying ring values.
+3. Apply native compatibility of full-Witt truncation with a further truncated-Witt reduction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection`, `DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction`, `mathlib:TruncatedWittVector.truncate_wittVector_truncate`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.full_Witt_two_stage_truncation` (compatibility): Truncating a full-Witt unit to exponent three and then two equals direct projection to two.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### The actual common full-Witt product projection
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection` — `DirichletPadic.kubertCartanWittProductProjection`
+
+For positive degree k and finite level N, construct the native homomorphism from the product of full-Witt unit groups over all native primes to the actual finite Cartan product at N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Use the native actual prime-number subtype; its proof field supplies the routine primality instance.
+2. At each actual prime factor of N, take the same prime coordinate of the full-Witt unit tuple.
+3. Truncate its actual unit value to the native factorization exponent of that prime in N.
+4. Pointwise native unit-map laws supply the homomorphism axioms. The full-Witt group and projection are constructed data, not a package of assumed compatible maps.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:Nat.Primes`, `mathlib:Nat.prime_of_mem_primeFactors`, `mathlib:WittVector.truncate`, `mathlib:Units.map`.
+
+**Uses:**
+
+- Kubert186 equation(2.5): Supplies actual common-unit-product finite projections in the explicit Witt model.
+- Kubert187 common Cartan action: Provides actual homomorphisms along which finite regular representations are pulled back.
+- Changing prime support: The projections agree with actual finite reductions including new primes and the empty level.
+
+**API:**
+
+- `kubertCartanLimit_cartanWittProductProjection_coe` (characterisation): At each prime dividing N, the finite product projection has value equal to truncation, to the actual factorization exponent, of the same original full-Witt prime-coordinate value.
+- `kubertCartanLimit_cartanWittProductProjection_reduction` (compatibility): For every positive M|N, projecting the common full-Witt tuple to N and reducing by the actual finite Cartan product map to M equals direct projection to M.
+- `kubertCartanLimit_cartanWittProductProjection_surjective` (characterisation): The constructed common full-Witt product projection is surjective at every positive finite level.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.actual_product_projection_identity` (degenerate): The identity full-Witt tuple projects to the identity actual finite product at30.
+- `SuggestedKubertCartanLimitTests.actual_product_projection_multiplication` (compatibility): The actual infinite-product projection preserves multiplication.
+- `SuggestedKubertCartanLimitTests.empty_level_projection` (degenerate): Every full-Witt tuple projects to the identity at the empty level1.
+- `SuggestedKubertCartanLimitTests.finite_projection_is_not_injective` (non-example): A finite projection forgets full-Witt coordinates and higher precision; distinct actual full-Witt tuples can have the same level6 image.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### The common projection uses the original prime coordinate
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-coe` — `DirichletPadic.kubertCartanLimit_cartanWittProductProjection_coe`
+
+At each prime dividing N, the finite product projection has value equal to truncation, to the actual factorization exponent, of the same original full-Witt prime-coordinate value.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Evaluate the actual dependent product projection at the chosen lower prime.
+2. The native unit-map coefficient is the actual full-Witt truncation at that prime.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.actual_prime_coordinate_projection` (characterisation): At every prime dividing30, the finite coordinate is the truncation of the same original full-Witt prime coordinate.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Common projections commute with every finite Cartan reduction
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction` — `DirichletPadic.kubertCartanLimit_cartanWittProductProjection_reduction`
+
+For every positive M|N, projecting the common full-Witt tuple to N and reducing by the actual finite Cartan product map to M equals direct projection to M.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Compare actual homomorphisms on an arbitrary full-Witt tuple and each lower prime coordinate.
+2. The prime-index inclusions retain the same original prime value.
+3. The divisibility theorem gives the factorization-exponent inequality.
+4. Native full-Witt truncation compatibility identifies the two actual values; unit and function extensionality recover equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-coe`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-apply`, `mathlib:Nat.factorization_le_iff_dvd`, `mathlib:TruncatedWittVector.truncate_wittVector_truncate`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.common_projection_changed_prime_support` (compatibility): Projecting the common tuple to30 and then reducing to6 equals direct projection to6, despite the new prime5.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Every finite Cartan tuple lifts to the common full-Witt product
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-surjective` — `DirichletPadic.kubertCartanLimit_cartanWittProductProjection_surjective`
+
+The constructed common full-Witt product projection is surjective at every positive finite level.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. For each actual prime dividing N, its native factorization exponent is positive.
+2. Use the proved actual local full-Witt projection surjectivity to lift the prescribed finite unit coordinate.
+3. At every prime absent from N choose the actual full-Witt identity unit.
+4. Assemble the genuine tuple indexed by all native primes.
+5. At each finite prime coordinate the chosen-lift equation proves exact recovery of the original finite tuple.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-projection-surjective`, `mathlib:Nat.Prime.factorization_pos_of_dvd`, `mathlib:Nat.dvd_of_mem_primeFactors`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.actual_product_tuple_has_full_Witt_lift` (characterisation): Every actual finite tuple at30 lifts to a genuine tuple of full-Witt units indexed by all primes.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### The common full-Witt group action on each finite Cartan group ring
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation` — `DirichletPadic.kubertCartanWittRepresentation`
+
+For every positive finite level N and coefficient semiring R, construct a native representation of the same actual all-prime full-Witt unit product on the actual finite Cartan product group ring at N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Reuse the native left regular representation of the actual finite Cartan product.
+2. Precompose it with the constructed actual common full-Witt projection to that finite group.
+3. Native homomorphism composition supplies the representation axioms. No generic regular representation is replanned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection`, `mathlib:Representation.leftRegular`.
+
+**Uses:**
+
+- Common Cartan-module transition: Makes every finite coefficient module a native representation of the same constructed actual group.
+- Coefficient orientation: The actual finite projection enters inverse coefficient pullback and forward basis action.
+- Compatible finite norms: The existing full-lift maps become actual common-group equivariant maps.
+
+**API:**
+
+- `kubertCartanLimit_cartanWittRepresentation_coeff` (characterisation): The coefficient of the common action of g at a finite unit tuple y is the original coefficient at the product of the inverse of the actual finite projection of g with y.
+- `kubertCartanLimit_cartanProductNorm_Witt_equivariant` (compatibility): For positive M|N, the established actual finite product norm intertwines the common full-Witt representations at M and N.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.common_action_identity` (degenerate): The identity of the actual common full-Witt unit group acts identically at level6.
+- `SuggestedKubertCartanLimitTests.common_action_multiplication` (compatibility): The actual common action is a native representation and preserves multiplication.
+- `SuggestedKubertCartanLimitTests.common_action_forward_basis` (compatibility): The common action moves a finite basis label by forward multiplication with the actual projected unit.
+- `SuggestedKubertCartanLimitTests.common_action_unit_level` (degenerate): The common action is trivial on the actual unit-level group ring, while its identity basis remains.
+- `SuggestedKubertCartanLimitTests.finite_action_depends_only_on_projection` (characterisation): Full-Witt tuples with the same finite projection act identically at that level.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Common-action coefficients pull back by the inverse projected unit
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation-coeff` — `DirichletPadic.kubertCartanLimit_cartanWittRepresentation_coeff`
+
+The coefficient of the common action of g at a finite unit tuple y is the original coefficient at the product of the inverse of the actual finite projection of g with y.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Evaluate native representation precomposition at the actual finite projected group element.
+2. Apply the native regular-action coefficient theorem with that actual group element explicitly supplied.
+3. This is inverse coefficient pullback, compatible with forward transport of basis labels.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation`, `mathlib:Representation.coeff_ofMulAction`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.common_action_inverse_coefficient` (characterisation): The coefficient action pulls back by the inverse of the actual finite projection.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Every finite norm commutes with the same common full-Witt action
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-product-norm--witt-equivariant` — `DirichletPadic.kubertCartanLimit_cartanProductNorm_Witt_equivariant`
+
+For positive M|N, the established actual finite product norm intertwines the common full-Witt representations at M and N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. The proved projection compatibility identifies the lower projection of g with reduction of its upper projection.
+2. Expand only the actual precomposition defining the common representation.
+3. Substitute this projection equality into the lower finite regular action.
+4. Apply the already established actual finite Cartan norm equivariance for the upper projected unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-equivariant`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.norm_commutes_with_same_common_group` (compatibility): The actual6 to30 norm intertwines the two representations of the same full-Witt product group.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### The finite norm as a native common-group intertwiner
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining` — `DirichletPadic.kubertCartanWittIntertwining`
+
+For every positive M|N, package the actual finite full-lift group-ring norm as a native intertwining map between the common full-Witt representations at M and N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Both representations are now of the same actual all-prime full-Witt unit group.
+2. Use the existing native intertwining-map constructor on the original actual finite linear norm.
+3. Supply the proved common-action equivariance. The underlying map remains exactly the full-lift norm.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-representation`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-product-norm--witt-equivariant`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `mathlib:Representation.IntertwiningMap`, `mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap`.
+
+**Uses:**
+
+- Kubert187 module injection: Packages the original finite norm as an injective map for the same actual common group.
+- Compatible directed system: Native identities and composition provide the actual transition laws.
+- Future limit construction: Supplies concrete native module transitions without assuming a topological inverse-limit identification.
+
+**API:**
+
+- `kubertCartanLimit_cartanWittIntertwining_toLinearMap` (compatibility): The underlying native linear map of the common-group intertwiner is exactly the established actual finite Cartan product norm.
+- `kubertCartanLimit_cartanWittIntertwining_injective` (characterisation): Every actual common-group norm intertwiner is injective over any coefficient semiring.
+- `kubertCartanLimit_cartanWittIntertwining_self` (compatibility): At equal positive levels, the common-group norm intertwiner equals the native identity intertwiner of the actual common representation.
+- `kubertCartanLimit_cartanWittIntertwining_comp` (compatibility): For positive L|M|N, native composition of the common-group intertwiners from L to M and M to N equals the direct common-group intertwiner from L to N.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.common_intertwiner_underlying_map` (compatibility): The actual native common-group intertwiner has the original finite product norm as underlying linear map.
+- `SuggestedKubertCartanLimitTests.common_intertwiner_zero` (degenerate): The common-group intertwiner preserves zero.
+- `SuggestedKubertCartanLimitTests.common_intertwiner_characteristic_two` (compatibility): The actual common-group intertwiner is injective in characteristic two, with no division by the even lift count.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Forgetting the common action retains the original finite norm
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-to-linear-map` — `DirichletPadic.kubertCartanLimit_cartanWittIntertwining_toLinearMap`
+
+The underlying native linear map of the common-group intertwiner is exactly the established actual finite Cartan product norm.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Evaluate the native intertwining constructor.
+2. It preserves the original supplied linear map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.forget_common_equivariance` (compatibility): Forgetting the common-action equivariance certificate keeps exactly the full-lift norm.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### The common-group norm intertwiner is injective
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-injective` — `DirichletPadic.kubertCartanLimit_cartanWittIntertwining_injective`
+
+Every actual common-group norm intertwiner is injective over any coefficient semiring.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Its underlying function is the original actual finite product norm.
+2. Apply the established native finite norm injectivity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.injective_common_group_transition` (characterisation): The native common-group transition is injective on the actual lower group ring.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Same-level common-group transition is the native identity
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-self` — `DirichletPadic.kubertCartanLimit_cartanWittIntertwining_self`
+
+At equal positive levels, the common-group norm intertwiner equals the native identity intertwiner of the actual common representation.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Apply native intertwining-map extensionality to compare underlying linear maps.
+2. The established same-level finite Cartan norm is the identity linear map.
+3. The native identity intertwiner has this same underlying linear map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-self`, `mathlib:Representation.IntertwiningMap.ext`, `mathlib:Representation.IntertwiningMap.id`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.native_common_identity_intertwiner` (degenerate): At equal levels the transition equals the native identity intertwiner for the actual common representation.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+### Common-group Cartan intertwiners compose
+
+`DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-comp` — `DirichletPadic.kubertCartanLimit_cartanWittIntertwining_comp`
+
+For positive L|M|N, native composition of the common-group intertwiners from L to M and M to N equals the direct common-group intertwiner from L to N.
+
+**Hypotheses:** The degree k and finite levels are positive integers. Local truncation lengths are positive exponents; finite product transitions carry the stated divisibility M|N. The common actual group is the dependent product over the native prime-number subtype of units of full Witt vectors over GaloisField p k. Its native prime certificate comes directly from the prime subtype. No abstract group equipped with assumed reductions is substituted. Finite targets remain the established actual prime-factor products of unit groups in the exact FF.4 Galois-ring model. The local finite rings, generic unit criterion, unramified presentation and locality remain owned by that roadmap. The coefficient semiring R is arbitrary. Native regular representations are pulled back along the constructed actual projections; native intertwining maps contain the original actual finite full-lift norms. This is an algebraic construction in the full-Witt model. The identification with the source unramified local-field integer rings, a topological inverse-limit equivalence, continuity, actual primitive torsor and primitive-transfer comparison remain open. None is assumed by the declarations.
+
+**Proof:**
+
+1. Use native intertwining-map extensionality.
+2. Native intertwiner composition has the actual composite of the underlying linear maps.
+3. Apply the proved composition law for the original actual finite Cartan product norms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-comp`, `mathlib:Representation.IntertwiningMap.ext`, `mathlib:Representation.IntertwiningMap.comp`.
+
+**Tests:**
+
+- `SuggestedKubertCartanLimitTests.native_common_intertwiner_composition` (compatibility): The native common-group intertwiners along6 to12 to60 compose to the direct6 to60 transition.
+
+**Acceptance:** Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open.
+
+**Source:** Published 186, equation(2.5), the common product of local unit groups and its finite quotients;187 equation(2.7), compatible injections of modules for the common Cartan group. Constructs genuine full-Witt unit projections and compatible finite group-ring actions in the existing finite-field model, then proves native identity/composition for the actual norm intertwiners. The source local-field identification and inverse-limit universal property remain unproved bridges, not hypotheses hidden in a replacement object.
+
+**Remaining:** The genuine product of full-Witt unit groups now projects surjectively and compatibly to every actual finite Cartan product. It acts through native regular representations, and the actual finite norms are injective native intertwiners for this same common group, with native identity and composition laws. Next identify the algebraic inverse limit using the existing native truncated-Witt limit APIs or construct the actual primitive-torus coordinates from the owner unramified finite model. The identification of full Witt vectors with the source unramified local-field integer rings, inverse-limit topology and continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Actual full-Witt unit projections and compatible common Cartan action validation
+
+All 1697 predecessor nodes, 1117 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1975 reachable nodes, 8407 edges and 1294 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in established actual finite Cartan constructions, exact FF.4 object/local-unit nodes or native prime, full-Witt, regular-action and intertwining APIs. No supplier-stage leaf, replacement compatible-action package or duplicated generic ring/representation theory is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3632 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains #5473 verbatim and adds four actual constructions and twelve complete lemmas, plus a routine primality instance from the native prime subtype. Totals are 107 definitions and 1,081 lemmas, with two routine primality instances and zero placeholders. The public append contains 16 declarations and 27 typed tests and preserves the actual full-Witt group and finite native carriers. Native APIs are reused without new imports or library builds. The separate probe compiles against 3008 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent finite-precision polynomial models check 67 levels, 3,016 finite unit tuples and 32 sampled compatible acting families. They verify 17,152 projection products, 4,224 projection compatibilities, 3,016 actual finite lifts and 218,272 common-action norm coefficient equations. These controls do not certify infinite native Witt evaluation, the owner presentation, local-field bridge or inverse-limit topology. Independent compatible finite-precision polynomial models of the local factors. Sixteen explicitly sampled acting families in each of degrees one and two are evaluated at every listed positive level; all pairs of sampled families verify projection multiplicativity, and all positive divisibilities verify projection compatibility and common-action norm equivariance at every upper unit tuple. Every finite unit tuple is lifted to a master-precision tuple by retaining its local coordinates and choosing identity elsewhere. These finite-precision controls do not evaluate infinite native Witt vectors, prove the owner presentation or local-field bridge, or certify an inverse-limit topology. Complete native proofs separately construct the genuine full-Witt projections and action. The largest observed discrepancy is 0.
+
+After actual merge of #5473, all 77 guarded inputs and four predecessor outputs are unchanged. This includes exact FF.4 packet/suggested interfaces, policy/audit/source registers and owner boundaries. The issue body, original winning claim and blocked unclaimed review #390 remain unchanged. No new source finding, independent owner review or supplier request is introduced.
+
+The separate partial signature file also compiled with zero errors and 5,202 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7.
