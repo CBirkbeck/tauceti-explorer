@@ -1,0 +1,10 @@
+{
+ "redteam": "RT-RS-08",
+ "findings": [
+  {
+   "finding": "RT-RS-08/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The accepted JSON (data/restructure/RS-08.result.json) carries the corrections REV-RS-08 made (research/blueprint/reviews/REV-RS-08.md, under 'Silent changes of scope undone' and 'Wrong suppliers fixed'): ArithmeticGaloisDuality:D8 is supplied by SelmerIwasawaCohomology:L2 and DeformationAndDerivedPatchingAlgebra:P7 only; GL2ModularityLifting:R22.6 is 'narrow' with suppliers R08.4 and R08.5; and the totals are 36 narrowed layers, 68 owner records and 417 links. The report research/blueprint/restructure/RS-08.md still shows the pre-review state: line 225 tells D8 to import 'control maps from L3'; line 230 keeps the local tangent identifications at R02.5; line 256 marks R22.6 'keep'; line 286 keeps the dyadic hypotheses at R08.4; line 337 keeps the p-adic regulator maps at M.8; line 356 asks PadicFamilies L1 to prove 'family flatness'; and lines 375 and 616 give 385 links. A reader following the report would rebuild what the review removed. Low severity is right: the operational JSON is correct. The fix is right, including keeping the original run's measurements but labelling them as pre-review."
+  }
+ ]
+}
