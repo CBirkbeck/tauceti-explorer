@@ -39005,8 +39005,9 @@
     "REV-PAPER-GAN-SAVIN-23-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-SAVIN-23-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4232"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4232",
+   "finishedAt": "2026-10-01T20:45:20Z"
   },
   {
    "id": "REV-RT-PAPER-GAN-SAVIN-23-B",
@@ -40233,7 +40234,8 @@
     "REV-PAPER-BHARGAVA-GROSS-WANG-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4282"
   },
   {
    "id": "REV-RT-PAPER-BHARGAVA-GROSS-WANG-17",
