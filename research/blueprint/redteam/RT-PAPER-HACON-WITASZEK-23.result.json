@@ -1,0 +1,113 @@
+{
+  "redteam": "RT-PAPER-HACON-WITASZEK-23",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-HACON-WITASZEK-23",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-01",
+  "summary": "Read the complete 35-page published paper and all 163 extraction items. Two medium findings: the Proposition 5.8 proof outline suppresses an actual quasi-projective-target obstruction and a change of ambient resolution hypothesis; three further printed proof slips are silently repaired or bypassed without sourceIssues. No counterexample to the paper's main MMP theorems is claimed. The known coherent-duality ownership consolidation is recorded as an existing follow-up, not a new finding.",
+  "baseline": {
+    "atlasCommit": "e3b895cf3e6bdb7f0f8de6ac0fcae84fc9db26dd",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "targetSha256": "07d008920fed7924b51da8b8d8e572f7f8a581a921f7de2c1a7840183148d79c",
+    "readerSha256": "b72dd2bb4eb7f32ca3b462a9ca388f109fba6e081dc7e5ee073d4a28155862f6",
+    "reviewSha256": "b7be50d19a04fa8fcb004b0d910553f234efcc85f15d20a11abe2b5b011e96d6"
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C2E369C389C6A7DFAD5F8FDEBE6AC4D1/S2050508623000069a.pdf/on-the-relative-minimal-model-program-for-fourfolds-in-positive-and-mixed-characteristic.pdf",
+      "citation": "Hacon and Witaszek, On the relative minimal model program for fourfolds in positive and mixed characteristic, Forum of Mathematics, Pi 11 (2023), e10, 1–35; DOI 10.1017/fmp.2023.6",
+      "read": "2026-10-01",
+      "sha256": "1251b79fed2b1c71d5b375e8aa2ee8af7209f1e5ce847505a98e72a6b7e291ca",
+      "coverage": "All pages, including proofs and bibliography; page images additionally inspected at printed pp.12,19,26,30. Publisher download footer is time-dependent, so its hash differs from the extraction's older download."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.02631v2",
+      "read": "2026-10-01",
+      "sha256": "161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66",
+      "coverage": "Selected parallel passages only; the 2021 preprint has 38 pages and is not substituted for the 2023 version of record."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0605137v2",
+      "citation": "Alexeev–Hacon–Kawamata, Termination of (many) 4-dimensional log flips, v2",
+      "read": "2026-10-01",
+      "sha256": "1d1e5642fdb7b2a2c04ccf9800de13c7b3649eed344034538142116f09c7cf28",
+      "coverage": "Selected pp.3–5: Example 1.4, Lemmas 1.5–1.6, weight conditions and Definitions 2.2–2.3."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0901.0389v3",
+      "citation": "de Fernex–Hacon, Deformations of canonical pairs and Fano varieties, v3",
+      "read": "2026-10-01",
+      "sha256": "28e597c5113ffec80d773ebfe60538b3be38b33141b0ef9df7a474e6d5bd3c34",
+      "coverage": "Selected deformation passage around Proposition 3.1 and Corollary 3.2; no independent completion of its mixed-characteristic transfer."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1512.05003v3",
+      "citation": "Gongyo–Nakamura–Tanaka, Rational points on log Fano threefolds over a finite field, v3",
+      "read": "2026-10-01",
+      "sha256": "472ef5f5ff9b3560a06af836aa787d91d6ba2154419ae675fb3a48050366bd9b",
+      "coverage": "Selected p.19, Remark 3.1, and p.29, Definition 4.5 and neighboring rational-chain-connectedness statements."
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/26158",
+      "citation": "Chatzistamatiou–Rülling, Hodge-Witt cohomology and Witt-rational singularities, Documenta Mathematica 17 (2012), 663–781",
+      "read": "2026-10-01",
+      "sha256": "05f2bee3a99e23ec13b9206e4645aef4db7de8507f9dcd46ae3065279ec82173",
+      "coverage": "Printed p.750, Definition 4.3.1, Remark 4.3.2 and Theorem 4.3.3 opening; not the full 119-page supplier."
+    }
+  ],
+  "checked": [
+    "Independence: neither the target extraction nor its accepted review was done by session codex-rtOQ9t. Earlier Codex sessions appearing in its reading log are different workers. The issue's bot confirmed this session's claim before work began.",
+    "The entire published main paper, pp.1–35: conventions and Frobenius/plus-stable sections; difficulty and special termination; flip construction and relative MMP; Witt-rationality and finite-field point counts; semistable MMP; embedded-resolution reduction; lifting of minimal/canonical/Calabi–Yau models. The images on pp.12,19,26,30 confirm that the reported slips are present in the print, not introduced by text extraction.",
+    "All 163 item statements and their proof outlines, prerequisites, uses and applicable APIs/tests; the complete reader and accepted review; all 9 route briefs, 18 prerequisite records, 14 gap records and 11 existing sourceIssues. Counts: 148 missing, 5 planned, 10 library. The 148 missing items occur once each across the routes. All item prerequisite identifiers resolve and their directed graph is acyclic. All 46 definition/construction items with APIs also carry mathematical planning tests; these were not executed in Lean.",
+    "All 18 declarations named by baseline.declarations were read at the actual pinned commits, not the working-tree HEAD. Mathlib: IsIntegralHom (Morphisms/Integral.lean), IsFinite (Finite.lean), IsProper (Proper.lean), Scheme.Hom.isClosedMap (UniversallyClosed.lean); DerivedCategory and DerivedCategory.Q (DerivedCategory/Basic.lean); localCohomology (LocalCohomology.lean); ModuleCat.exists_isRegular_tfae (Depth/Rees.lean); the cited finite-module Nakayama theorem (Nakayama.lean); WittVector, mk, ext, map (WittVector/Defs.lean and Basic.lean); frobenius and iterateFrobenius (Algebra/CharP/Lemmas.lean). Tau Ceti: InvertibleSheaf and trivial (AlgebraicGeometry/LineBundle/Basic.lean), and SheafOfModules.IsInvertible (Algebra/Category/ModuleCat/Sheaf/Invertible/Basic.lean). None supplies the omitted geometric MMP, coherent duality or Witt-rationality theory by itself.",
+    "Read the reviewed library-coverage entries for SF.0, SF.4, SF.5 and R03.3, including their duplication notes. Pinned whole-tree searches for quasi-resolution, Witt-rationality, the minimal model program and Matlis did not reveal an implementation under those names. This is bounded negative evidence, not a proof of universal absence. In particular the existing Ext-colimit localCohomology functor is correctly distinguished from the geometric derived local-duality comparison, and existing Witt-vector rings from the geometric rational Witt sheaf.",
+    "Reassembled the atlas from the audited repository commit (2,907 stages, 8,322 stage edges), read the relevant SF, formal-geometry and depth owners, and checked candidate ownership against PAPER-BHATT-ETAL-23, the positivity/NumericalPicard coalescence references, the draft AnalyticStacks roadmap, KEYDEF-algebraicgeometry/coherent-duality and RT-AREA-algebraicgeometry/18. AnalyticStacks:AS.1 exists in a draft, not the assembled atlas. Its classical coherent theory is already covered by a consolidation finding; see existingFollowups. No new duplicate roadmap is requested.",
+    "The existing sourceIssues are real constraints on this audit, not new discoveries to report again: canonical versus log index, fixed versus varying coefficient sets, surface intersection signs, difficulty inequalities/domains, local versus global Q-Cartier deformation, numerical versus prescribed Picard lifts, codimension-one flip isomorphisms, trace ambient symbols and positive-degree slope bounds. The extraction retains the corresponding local/global and numerical/line-bundle guards. The source's main resolution assumptions remain explicit, not asserted as proved in characteristic p.",
+    "Inspected the quasi-resolution and rational-chain-connectedness supplier definitions. CR12 Definition 4.3.1 requires a topological finite-quotient source, projective surjective generically finite map and purely inseparable function-field extension. The extraction's exact source-class frontier is explicitly already recorded in gap-witt, so this audit does not relabel that acknowledged incompleteness as a newly discovered false definition.",
+    "Correction search on 2026-10-01: Cambridge article record and published PDF; arXiv submission history through v2 (16 August 2021); Witaszek's Northwestern publications page; Crossref metadata for DOI 10.1017/fmp.2023.6; title/author searches with erratum/corrigendum and Proposition 5.8. No correction of the newly listed passages was located. This search is not a claim that none exists anywhere."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-HACON-WITASZEK-23/1",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json: PAPER-HACON-WITASZEK-23/embedded-to-birational, proofSteps, gaps and sourceIssues; corresponding reader passage",
+      "claim": "The Proposition 5.8 item repeats a two-step principalization proof with gaps:[] although its first step cannot produce the claimed morphism to an arbitrary quasi-projective target. A second application of embedded resolution also changes the ambient variety from the fixed X in the hypothesis to X′ without establishing transfer of that hypothesis. These are defects in the supplied proof, not a demonstrated counterexample to the proposition's conclusion.",
+      "evidence": "Published p.26, Proposition 5.8: X is regular projective, Y only quasi-projective; after a projective birational modification X′→X, the proof invokes a 'corresponding morphism' f′:X′→Y. Take an algebraically closed field of characteristic >5, X=P¹ and Y=A¹, with their birational rational map. The embedded-resolution hypothesis on X holds for proper closed subschemes of the smooth curve. Every projective birational regular curve X′→P¹ is P¹, and H⁰(P¹,O)=k; consequently every morphism X′→A¹ is constant. Resolving the rational linear series produces a morphism to a projective closure, not an extension to A¹ on all of X′. The next paragraph applies Conjecture 5.7 on X′ although the stated assumption quantifies only over subschemes of X. The extraction's proofSteps repeats principalize-then-resolve without either adapter, and none of E1–E11 records this issue. The analogous target problem is also visible in arXiv v2 p.29; the finding is based on the published p.26.",
+      "fix": "Add a sourceIssues gap against published Proposition 5.8, affects:the proof, and link an explicit gap from embedded-to-birational. Construct the rational map to a projective compactification of Y, and restrict the resolved source to the inverse image of Y before producing a proper morphism to Y; prove the exceptional/boundary conclusions survive that restriction. Separately supply the transfer from principalization on all closed subschemes of this fixed X to the subsequent ambient variety, or replace the two applications by a justified simultaneous principalization on X. A provisional stronger theorem may assume embedded resolution for every relevant regular ambient variety, but must be labelled stronger than the printed hypothesis. Add the P¹/A¹ regression test forbidding a birational map from the entire projective modification to A¹. Do not mark the main MMP statements false on this evidence."
+    },
+    {
+      "id": "RT-PAPER-HACON-WITASZEK-23/2",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json: sourceIssues; items echoes, witt-fourfold and partial-terminalization; corresponding reader source-diagnostics section",
+      "claim": "Three printed proof slips require explicit sourceIssues under Protocol §18. The extraction already signals corrections to echo centres and terminalization symbols, but none of E1–E11 records them; the Witt-rationality proof also needs an explicit correction of its direct-image target. A prose hint to correct symbols does not preserve the actual mathematical correction for the next worker.",
+      "evidence": "(a) Published p.12, proof of Proposition 2.15, defines successive echo blowups using 'strict transforms of C'. After the blowup of C its strict transform is empty. AHK07 v2 p.3, Example 1.4, instead takes C₁=E₁∩the strict transform of Bᵢ and iterates the analogous intersection. The extraction's echoes.proofSteps explicitly mentions this correction, but its sourceIssues do not. (b) Published p.19, proof of Corollary 4.7, starts with f:Y→Z over X but writes f_S:S→X and f_{Sν}:Sν→X. Its ensuing identification Rⁱf_*(u_*WO_S,Q)=Rⁱ(f_S)_*WO_S,Q has its left side on Z and its printed right side on X; the relative log-Fano vanishing also belongs over Z. The correct maps are restrictions to Z, followed later by Z→X and Leray. (c) Published p.30, last paragraph of Claim 6.8's proof, is proving terminality of the new total space 𝒴 but switches to discrepancies of (𝒳,0), the plt pair (𝒳,X), and the Cartier divisor X. It must use (𝒴,0), (𝒴,Y), and Y instead. For an exceptional vertical E, A_𝒴(E)=A_(𝒴,Y)(E)+ord_E(Y)>1 because the first term is positive and the second is an integer at least one. partial-terminalization.proofSteps signals source symbol switches without spelling out or registering this one. Page images verified all three printed passages.",
+      "fix": "Add three separate sourceIssues records, with the published locators above, brief exact printed excerpts, the respective intersection-centre/target/ambient corrections, reasons, affects:the proof and the actual correction-search record. Keep the intended theorem conclusions and existing E1–E11. Make echoes' recursive centre explicit and retain its discrepancy tests; state f_S=f∘u with codomain Z and perform pushforward to X only afterward; write the 𝒴 discrepancy identity with E exceptional and vertical. Link each item to its diagnostic and update the reader. These are limited proof corrections, not grounds to withdraw the termination, Witt-rationality or lifting theorems."
+    }
+  ],
+  "existingFollowups": [
+    {
+      "id": "RT-AREA-algebraicgeometry/18",
+      "targetItems": [
+        "PAPER-HACON-WITASZEK-23/dualizing",
+        "PAPER-HACON-WITASZEK-23/derived-local"
+      ],
+      "note": "This target's route to draft AnalyticStacks:AS.1 and its birational Part II brief also need to participate in the previously identified consolidation of scheme coherent duality. The area finding recommends SF.2; KEYDEF-algebraicgeometry/coherent-duality lists this paper and BMP as clients and retains an unresolved owner. The general singular finite-trace/local-duality theory is not supplied merely by AS.1's proper smooth Serre-duality target. Coordinate with that existing owner decision and preserve a separate algebraic derived-torsion/Matlis comparison; do not create another coherent-duality plan here. This is a known cross-target follow-up, not a third independent finding."
+    }
+  ],
+  "limitations": [
+    "Complete refers to the requested independent attack, not to formal verification or full transitive proof closure. The extraction itself carries 14 gap records, including supplier proofs not completed by this audit.",
+    "The full BMP, CR12, GNH19, Kollár and Hartshorne supplier proofs were not reread. Targeted source passages and the original paper were used; no assertion is made that every unresolved supplier frontier is sound.",
+    "No Lean deliverable is authorized for this red-team issue. No Lean compiler, Lake build, cache download or language server was started."
+  ]
+}
