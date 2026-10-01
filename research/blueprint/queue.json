@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33540,8 +33540,9 @@
     "REV-PAPER-LANDESMAN-LITT-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LANDESMAN-LITT-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4050"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4050",
+   "finishedAt": "2026-10-01T06:20:53Z"
   },
   {
    "id": "REV-RT-PAPER-LANDESMAN-LITT-24",
