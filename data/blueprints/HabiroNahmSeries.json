@@ -2033,7 +2033,13 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "addedBy": "REV-HabiroNahmSeries"
+      "addedBy": "REV-HabiroNahmSeries",
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports the remainder estimates when a state-sum comparison meets their hypotheses; contour and state-integral estimates specific to topology remain QT.6 obligations."
+        }
+      ]
     },
     {
       "id": "HabiroNahmSeries:HB.4/pochhammer-radial-asymptotics",
@@ -2300,6 +2306,10 @@
         {
           "where": "HB.9",
           "how": "The Frobenius congruence is proved term by term on these integrals, so their algebraic nature, not their analytic meaning, is what is used."
+        },
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports this single formal Gaussian operator and its algebraic rules to construct the Dimofte-Garoufalidis series; topological invariance is proved by QT.6."
         }
       ],
       "tests": [
@@ -2726,7 +2736,13 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Radial asymptotics of Nahm sums"
-      }
+      },
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports the corrected radial theorem only for positive-definite analytic Nahm data, with the stated root-order, branch and remainder hypotheses. It does not apply this theorem to arbitrary knot matrices."
+        }
+      ]
     },
     {
       "id": "HabiroNahmSeries:HB.4/galois-equivariance-of-the-expansion",
@@ -5269,6 +5285,10 @@
         {
           "where": "HB.10",
           "how": "The explicit computations of the asymptotic series of knots are computations of these integrals."
+        },
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports the formal collection at a non-degenerate solution, without a positivity assumption on A, and owns its comparison with the knot perturbative series and topological invariance."
         }
       ],
       "tests": [
@@ -5565,7 +5585,13 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "The two collections agree"
-      }
+      },
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports the algebraic identification of the admissible-series expansion with the Gaussian collection. This is not an identification with a topological invariant."
+        }
+      ]
     },
     {
       "id": "HabiroNahmSeries:HB.8/ring-S-and-its-level-m-variants",
@@ -7030,7 +7056,13 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Habiro module membership"
-      }
+      },
+      "uses": [
+        {
+          "where": "ArithmeticQuantumTopology:QT.6",
+          "how": "QT.6 imports the Habiro-module membership theorem with its non-degeneracy, coefficient-ring and excluded-prime/root-order restrictions after proving its own knot-series comparison."
+        }
+      ]
     },
     {
       "id": "HabiroNahmSeries:HB.9/descendants-by-specialisation",
@@ -7671,23 +7703,24 @@
       ],
       "title": "The knot matrices, and the boundary between a formal series and a topological invariant",
       "kind": "application",
-      "statement": "Three formal Nahm data reproduce the perturbative series of the three simplest hyperbolic knots (GSWZ Remark 4.2). A_{4_1} = (1 1; 1 1): the Nahm equations force z_1 = z_2 = z with z² − z + 1 = 0, so z = ζ_6, K = Q(√−3), δ = (2 − z)/z = −√−3 and ξ = 2[ζ_6], with Bloch–Wigner value 2.0298832128 = vol(4_1). A_{5_2} = (2 1 1; 1 1 0; 1 0 1): the solution field is the cubic field of discriminant −23 (with u = 1 − z_1, u³ − u² + 2u − 1 = 0). A_{(−2,3,7)} = (1 0 1; 0 1 2; 1 2 4): the solution scheme has a component over the same cubic field (v³ − v + 1 = 0) and one over Q(2cos(2π/7)) (v³ − 2v² − v + 1 = 0, discriminant 49). From an ideal triangulation with Neumann–Zagier matrices (A|B) and B^{-1}A integral, A_Nahm = I − B^{-1}A. For these data the theorems of this roadmap give membership of an explicit series in an explicit Habiro module. They do NOT give that the series is a topological invariant, that it is independent of the triangulation, that it computes a Chern–Simons quantity, or that the knot invariant is quantum modular. Those are ArithmeticQuantumTopology's (QT.5 for triangulations and Pachner moves, QT.6 for the state-integral identification, QT.7 for quantum modularity), which import this roadmap and not conversely.",
+      "statement": "Record the three knot-derived matrices of GSWZ Remark 4.2 as formal Nahm data. Their identification with knot perturbative series is a QT.6 consumer theorem. A_{4_1} = (1 1; 1 1): the Nahm equations force z_1 = z_2 = z with z² − z + 1 = 0, so z = ζ_6, K = Q(√−3), δ = (2 − z)/z = −√−3 and ξ = 2[ζ_6], with Bloch–Wigner value approximately 2.0298832128; its comparison with vol(4_1) belongs to QT.5. A_{5_2} = (2 1 1; 1 1 0; 1 0 1): the solution field is the cubic field of discriminant −23 (with u = 1 − z_1, u³ − u² + 2u − 1 = 0). A_{(−2,3,7)} = (1 0 1; 0 1 2; 1 2 4): the solution scheme has a component over the same cubic field (v³ − v + 1 = 0) and one over Q(2cos(2π/7)) (v³ − 2v² − v + 1 = 0, discriminant 49). From an ideal triangulation with Neumann–Zagier matrices (A|B) and B^{-1}A integral, A_Nahm = I − B^{-1}A. For these data the theorems of this roadmap give membership of an explicit series in an explicit Habiro module. They do NOT give that the series is a topological invariant, that it is independent of the triangulation, that it computes a Chern–Simons quantity, or that the knot invariant is quantum modular. QT.5 supplies the underlying ideal triangulations and gluing equations and owns manifold volume. QT.6 owns the full Neumann-Zagier datum, the knot-series comparison and its independence of the triangulation and auxiliary choices, including the state-integral identification; QT.7 owns quantum modularity. QT.6 and QT.7 consume this roadmap and are not prerequisites of HB.10.",
       "hypotheses": [
         "The three matrices are those recorded by the source; the general recipe requires the integrality of B inverse times A, which may fail for a given triangulation.",
-        "The corresponding solutions of the Nahm equations come from solutions of the gluing equations of the triangulation, which is where the geometry enters.",
+        "HB.3 supplies a chosen non-degenerate solution of the formal Nahm equations. Relating it to a gluing-equation solution and identifying the resulting series with the topological series are QT.6 obligations; the matrix recipe here does not prove them.",
         "The boundary statement is the one the layer's own text insists on and is recorded as a node so that no later work can elide it."
       ],
       "proofSteps": [
         "Record the three matrices and check that each is symmetric and integral.",
         "Record the recipe from a Neumann-Zagier datum, with its integrality condition.",
         "Apply the membership theorem to obtain the module statement for each of the three.",
-        "State explicitly the four assertions that are NOT obtained, and for each name the kind of theorem that would be needed: invariance under the Pachner moves for triangulation independence, a comparison with the state integral for the Chern-Simons identification, and a quantum-modularity theorem for the asymptotic statement.",
+        "Keep the four additional assertions with their owners: QT.6 proves knot-series identification and invariance under changes of triangulation and auxiliary choices, and handles the state-integral/Chern-Simons comparison with its own hypotheses; QT.7 proves any quantum-modularity statement.",
         "Record that ArithmeticQuantumTopology is the consumer of these series and must prove those statements itself."
       ],
       "acceptance": [
         "The figure-eight matrix is not positive definite, so it is a formal and not an analytic datum; the corresponding solution comes from the geometry and not from the cube.",
         "The integrality condition on the Neumann-Zagier datum can fail, in which case the recipe gives nothing and a different quad type must be chosen.",
-        "Membership in a Habiro module is compatible with the series being a topological invariant and does not prove it; the two statements have different content."
+        "Membership in a Habiro module is compatible with the series being a topological invariant and does not prove it; the two statements have different content.",
+        "The singular figure-eight matrix has the nonzero kernel vector (1,-1). HB.4/radial-asymptotic-expansion cannot be applied to it; HB.8 formal Gaussian data use the non-degenerate Hessian at the chosen solution instead."
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.9/module-membership",
@@ -7819,7 +7852,7 @@
       ],
       "title": "What this roadmap exports, and what does not follow from it",
       "kind": "application",
-      "statement": "This roadmap exports: the coefficient rings S and S^{(m)}[z^{1/m}] with their Frobenius lifts (HB.9/frobenius-on-the-coefficient-ring) and the t = 1 specialisation (HB.9/specialisation-at-one); the collections f_A(t, q), f_{A,z} and the descendants; Theorem 4 (HB.9/frobenius-congruence); the potential identity (HB.9/potential-and-the-p-adic-dilogarithm); the Bloch class and its torsion order; and the identities of the examples. The consumers are HabiroRings HR.5–HR.6 (the relative Habiro ring of the étale map Z[t][1/2] → S[1/2] and the coefficient interface), HabiroCohomologyFoundations HQ.5–HQ.8 and ArithmeticQuantumTopology QT.6. They cite this packet's node ids; this packet does not depend on them. No comparison map is constructed here. GSWZ §1.9 describes the Habiro ring of Z[t] → S and a relative-Bloch-graded module containing f_A(t, q) as future work, so the comparison with HR.5 is a gap. What does NOT follow, and must be proved by its owner: the q-Hodge complex; the crystalline, A_inf and prismatic comparisons; Fargues–Fontaine geometry; and, in particular, a cohomology class on an arbitrary scheme from membership in a K_3-indexed Habiro module.",
+      "statement": "This roadmap exports: the coefficient rings S and S^{(m)}[z^{1/m}] with their Frobenius lifts (HB.9/frobenius-on-the-coefficient-ring) and the t = 1 specialisation (HB.9/specialisation-at-one); the collections f_A(t, q), f_{A,z} and the descendants; Theorem 4 (HB.9/frobenius-congruence); the potential identity (HB.9/potential-and-the-p-adic-dilogarithm); the Bloch class and its torsion order; and the identities of the examples. The consumers are HabiroRings HR.5–HR.6 (the relative Habiro ring of the étale map Z[t][1/2] → S[1/2] and the coefficient interface), HabiroCohomologyFoundations HQ.5–HQ.8 and ArithmeticQuantumTopology QT.6. They cite this packet's node ids; this packet does not depend on them. No comparison map is constructed here. GSWZ §1.9 describes the Habiro ring of Z[t] → S and a relative-Bloch-graded module containing f_A(t, q) as future work, so the comparison with HR.5 is a gap. What does NOT follow, and must be proved by its owner: the q-Hodge complex; the crystalline, A_inf and prismatic comparisons; Fargues–Fontaine geometry; and, in particular, a cohomology class on an arbitrary scheme from membership in a K_3-indexed Habiro module. QT.6 specifically imports HB.4/euler-maclaurin-with-remainder, HB.4/formal-gaussian-integration and HB.4/radial-asymptotic-expansion, and HB.8/fgi-collection and HB.8/identification-theorem, followed by HB.9/module-membership. The radial theorem is restricted to positive-definite analytic Nahm data and its root-order hypotheses; the formal HB.8 route instead requires a non-degenerate chosen solution and permits matrices that are not positive definite. QT.6 keeps the Neumann-Zagier construction, Dimofte-Garoufalidis series, topological invariance, contours, Faddeev quantum dilogarithm and state-integral 2-3 move; none is a consequence of membership alone.",
       "hypotheses": [
         "The exports are through actual comparison maps, not through an assertion that two objects are the same.",
         "The consumers named are those of the roadmap text; each is a separate roadmap with its own sources.",
@@ -7834,14 +7867,20 @@
       "acceptance": [
         "The coefficient ring S is exported and is used by the relative Habiro ring of HabiroRings HR.5.",
         "The Frobenius congruence is exported as the arithmetic gluing statement that the modules of HB.7 are defined by.",
-        "A statement of the form the Nahm series gives a class in q-de Rham cohomology is not a consequence of anything in this packet."
+        "A statement of the form the Nahm series gives a class in q-de Rham cohomology is not a consequence of anything in this packet.",
+        "A QT.6 application names the exact HB.4 or HB.8 input and verifies its hypotheses; no QT.6 or QT.7 theorem is required to construct the exported formal data."
       ],
       "prerequisites": [
         "HabiroNahmSeries:HB.9/module-membership",
         "HabiroNahmSeries:HB.9/descendants-by-specialisation",
         "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
         "HabiroNahmSeries:HB.9/specialisation-at-one",
-        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations"
+        "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+        "HabiroNahmSeries:HB.4/euler-maclaurin-with-remainder",
+        "HabiroNahmSeries:HB.4/formal-gaussian-integration",
+        "HabiroNahmSeries:HB.4/radial-asymptotic-expansion",
+        "HabiroNahmSeries:HB.8/fgi-collection",
+        "HabiroNahmSeries:HB.8/identification-theorem"
       ],
       "sources": [
         {
@@ -8277,7 +8316,7 @@
   "requests": [
     {
       "supplier": "ArithmeticQuantumTopology:QT.5",
-      "need": "Ideal triangulations, Neumann–Zagier matrices and gluing equations, for the recipe A_Nahm = I − B^{-1}A.",
+      "need": "Ideal triangulations and gluing equations as geometric context for the knot-derived formal matrix examples. QT.6 owns the full Neumann-Zagier datum and proves the topological interpretation of A_Nahm = I - B^{-1}A. HB.10 records the conditional algebraic recipe with B^{-1}A integral and does not require that interpretation.",
       "neededBy": [
         "HabiroNahmSeries:HB.10/knot-matrices-and-the-topological-boundary"
       ]
@@ -9846,555 +9885,563 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-HabiroNahmSeries",
-    "date": "2026-09-25",
-    "notes": "Independent review of all 74 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, by four checkers (HB.3-HB.4 with Garoufalidis-Zagier and CGZ Section 7; HB.5a-HB.5 with CGZ Sections 1.3 and 7 and the pinned modular-forms library; HB.8 with GSWZ Section 2; HB.9-HB.10 with GSWZ Sections 1.7, 3 and 4 and the packet-level fields), whose key numerical claims the reviewer re-checked with PARI/GP (the Euler-product phase behind GZ Theorem 3.1 to 60 digits, the solution order in CGZ Theorem 7.4, the level-2 counterexample to GSWZ Theorem 7, the Gauss-sum normalisation of GSWZ (43), 1/delta for A = (3), the quartic discriminant and G_4). Sources: CGZ arXiv v3, GSWZ arXiv v2 and GZ arXiv v1, each as PDF and e-print, hashes confirmed. Outcome: 71 nodes corrected, 38 added, 3 deleted (GZ's coefficient-versus-radial node, false as stated; the HB.9 p-adic polylogarithm node, which duplicated HabiroNumberFields HB.7; the HB.9 symmetrisation corollaries, which stated a false corollary and are split into correct nodes); 94 baseline declarations, each confirmed in the pinned index; every test has a kind; 63 source issues recorded (the packet had none). Main corrections: (1) false statements copied from the sources: GZ Theorem 3.1's root of unity chi (right only for alpha = 1/m) and its all-orders series (missing factor, wrong sign, psi not exponentiated), GZ Proposition 2.2 in four places, CGZ Theorem 7.1 without 'n odd', the sign of GZ's C_0(A), GSWZ Theorem 7 (level-m admissibility fails at Phi_d with m | d; corrected ring), the sign of U_m (67), the phase of (121), the Riccati system (89), the Hessian identity (169), the order-m q-difference sign, GSWZ (229) (off by t) and (280), and Corollary 1.10 (the constant term needs delta^{-1/2} and the Kummer root); (2) closure: the ratios and Riccati system, the congruence sums, the formal Pochhammer symbol, the Laurent expansion at a root of unity, the plethystic logarithm, the ring S, the Frobenius lift, the moment and Poisson lemmas, the Euler-Maclaurin remainder, the lemma that an invariant Nahm sum is a modular function, and the rank-one product identities had no nodes; (3) library: HB.5a re-planned Mathlib's arithmetic subgroups, cusps and widths, and the claim that Poisson summation is absent was false; (4) ownership and links: HabiroNumberFields HB.1/HB.2/HB.6/HB.7, QM.0 and HabiroRings HR.1 are cited by node id; the HB.10 exports (HR.6, HQ.5, HQ.8, QT.7) were consumers listed as prerequisites; the HC.1 and HC.2 requests were misdirected. Two dependency cycles created by the checkers' additions were broken by the reviewer (HB.5 meromorphy uses HB.4 at m = 1; the FGI collection is defined before its periodicity lemma). No stage-level or node-level cycle remains, including across roadmaps. Coverage: HB.5a decomposed, the other six stages partial, with 22 gaps and 9 stage-level requests. The packet is accepted: every node is corrected or added, every baseline citation is confirmed, and the open points are recorded.",
-    "checked": [
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/nahm-data",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Tests without kinds and small slips in the data and equations nodes)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/nahm-equations",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Tests without kinds and small slips in the data and equations nodes). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/distinguished-solution",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Distinguished solution: the proof relies on multivariable convexity facts Mathlib lacks, and the acceptance lines misstate the examples); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/nondegenerate-solution-and-discriminant",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gswz, Section 1.7, equation (36) and the sentence before Theorem 5, p. 13-14 (arXiv v2)): Non-degenerate solutions and the discriminant delta."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/nondegenerate-points-are-algebraic",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Section 7.1, observation (i), p. 35 (arXiv v3)): Non-degenerate complex zeros of a polynomial system over Q are algebraic."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/algebraicity-and-the-nahm-field",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Algebraicity: a non-routine step is hidden, non-degeneracy is bundled in, and the A = (3) example uses the other sign convention); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Bloch class is defined with the wrong boundary target, so the node contradicts itself and CGZ); tests given kinds and prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/general-nondegenerate-class",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The GSWZ-class node's tests contradict its own Δ convention, and it has an unneeded Habiro-ring prerequisite)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Rogers value and normalisation tests are false, and the regulator node bundles theorems whose suppliers do not provide them). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Section 7.1, observation (i), p. 35 (arXiv v3)): Torsion of a Bloch class is detected by the Bloch-Wigner evaluations."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Torsion in the algebraic closure: the cited suppliers do not give what the proof uses). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.3/suslin-obstruction-of-the-nahm-element",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Section 2.1, Definition 2.1 and Lemma 2.2, p. 8-9 (arXiv v3)): The Nahm element in Suslin's antisymmetric convention."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/q-pochhammer-symbols",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The q-Pochhammer node re-plans QM.0's objects and states an analytic inversion identity that does not exist); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/analytic-nahm-sum",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Nahm-sum node has false tests)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: D_ζ(1)^{24m} = m^{12m} is false); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/euler-maclaurin-with-remainder",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Section 7.1, paragraph before Theorem 7.1, p. 36 (arXiv v3)): Euler-Maclaurin summation with Bernoulli remainder, uniform in the shift."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/pochhammer-radial-asymptotics",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Pochhammer asymptotics lemma cites a wrong supplier, has no uniform remainder, and one acceptance line is false)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gz, Section 4.2, equation (23), p. 7 (arXiv v1)): The Euler function near a root of unity."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/summand-asymptotics",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The summand node copies four errors of GZ Proposition 2.2); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/formal-gaussian-integration",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Formal Gaussian integration: the statement and acceptance disagree with the tests, and the moment lemma is missing); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/gauss-sum-and-congruence-splitting",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Gauss-sum node's acceptance line and tests are false, and its definition is ambiguous); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/gaussian-moments",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gz, Section 3, equation (13), p. 4 (arXiv v1)): Gaussian moments equal the formal Gaussian bracket."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/lattice-sums-by-poisson-summation",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gz, Section 4.3, equations (35)-(36) and the proof of Claim 4, p. 9-10 (arXiv v1)): Shifted lattice sums of a polynomial times a Gaussian."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/summand-tail-bound",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gz, Section 4.3, Claim 2, equation (32), p. 9 (arXiv v1)): The summand of a Nahm sum away from its peak."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/poisson-summation-and-remainders",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Poisson-summation node: wrong constant, false library claim, missing tail bound); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/kummer-invariance-of-the-expansion",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (gz, Theorem 3.1, equation (21), p. 5 (arXiv v1)): The expansion is invariant under changing the m-th roots, so S^m has coefficients in F_m."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/radial-asymptotic-expansion",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: GZ Theorem 3.1's root of unity χ is wrong unless α = 1/m, and the node copies it; GZ's all-orders series S_{Q,ζ}(ε) is wrong from order ε on, and the stage target is the all-orders expansion); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/galois-equivariance-of-the-expansion",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Theorem 7.1, last sentence, p. 36 (arXiv v3)): Galois transformation law of the expansion coefficients."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: CGZ Theorem 7.1 as quoted is not a theorem: it omits 'n odd', its fixed μ fails for non-integral Q, and (44) is ill-posed); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/unit-corollary-and-nonvanishing",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: Unit corollary: a hypothesis is missing and the prerequisite points to the wrong supplier)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/andrews-gordon-radial-constant",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (cgz, Section 7.2, equations (45)-(49), pp. 37-38 (arXiv v3)): The radial constant of the Andrews-Gordon Nahm sums at e(1/n)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.4/acceptance-andrews-gordon",
-        "verdict": "corrected",
-        "note": "Corrected (checker A: The Andrews–Gordon node misquotes the product, skips half of CGZ's proof, and is really CGZ Theorem 7.4); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/finite-index-subgroups",
-        "verdict": "corrected",
-        "note": "Corrected (checker B): it planned anew what Mathlib has (Subgroup.IsArithmetic, finite index, the cusps and their SL₂(ℤ)-orbits) and is now a comparison with those declarations; it also called the unbounded-denominators statement a conjecture. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/cusps-and-scaling-matrices",
-        "verdict": "corrected",
-        "note": "Corrected (checker B): it planned anew what Mathlib has (cusps as OnePoint ℚ, IsCusp, the SL₂(ℤ)-action and the cusp orbits) and is now a comparison with those declarations; its planet is removed, since these are library notions; tests given kinds. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/cusp-width",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: \"the widths sum to the index\" is false over cusps; Mathlib's classical width is not cited); tests given kinds and prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/modular-function-of-finite-index",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Modular functions: false \"field\" API, missing Mathlib vocabulary, duplication with QM.3, a definition hidden in a theorem node); tests given kinds and prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/laurent-expansion-at-a-cusp",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (gz, Section 7, before Proposition 7.1, p. 13): Order and leading coefficient at a cusp."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/local-parameter-and-laurent-expansion",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Modular functions: false \"field\" API, missing Mathlib vocabulary, duplication with QM.3, a definition hidden in a theorem node); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/radial-growth-at-a-cusp",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: The growth formula is wrong, and the uniform form is missing); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5a/supplier-interface",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Approach inverted, primitive root, d > 0, imprecise shrinking)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/nahm-conjecture-statement",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Tests rest on unread sources; (a) for rational A is ill-posed; no kinds). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (cgz, Section 7.3, before Theorem 7.5, printed p. 40): An invariant Nahm sum is a modular function: moderate growth at every cusp."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/expansion-at-one",
-        "verdict": "corrected",
-        "note": "Corrected (checker B): the exponentially small improvement under modularity must hold uniformly in the complex parameter, and the constant K is proved from HB.4 at m = 1 instead of being quoted from Zagier's survey; the hypotheses now cover rational A."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/comparison-of-expansions",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Phase sign, missing ω and q^C factor, complex ε, and two false acceptance lines); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/torsion-from-unbounded-orders",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: The torsion step: the pure lemma cites an irrelevant supplier, and finite generation of B_CGZ(F) is unsupported)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/excluded-primes-and-hypotheses",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Inverted dependency, wrong prerequisite, imprecise claims)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/torsion-criterion-for-the-cgz-bloch-group",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (cgz, Proof of Theorem 7.5, printed p. 40): Divisibility by infinitely many odd n forces torsion in the CGZ Bloch group of a number field."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/modularity-implies-torsion",
-        "verdict": "corrected",
-        "note": "Corrected (checker B): CGZ's 'modular' means invariance only, which does not give meromorphy at the cusps without an argument (now the lemma HB.5/nahm-sum-meromorphic-at-every-cusp); CGZ Theorem 1.2 is HabiroNumberFields HB.2's (HB.2/R-injectivity-and-image), not HB.1's; the excluded-primes node depended on this theorem the wrong way round; and the introductory formulation (CGZ Theorem 1.8) is split off as HB.5/introductory-formulation."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/boundaries-of-the-implication",
-        "verdict": "corrected",
-        "note": "Corrected (checker B): it called the unbounded-denominators statement a conjecture; it is a theorem (Calegari–Dimitrov–Tang, Theorem 1.0.1), which the node records as unused; and CGZ Remark 7.7 is a sketch, not a reduction that covers modular forms of non-zero weight. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/valuation-bound-at-every-cusp",
-        "verdict": "corrected",
-        "note": "Corrected (checker B: Unproved for most cusps, C₀ sign, false acceptance line); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.5/introductory-formulation",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (cgz, Theorem 1.8 (Nahm's Conjecture), printed p. 6): The introductory formulation: xi_A vanishes in the Bloch group of Qbar (CGZ Theorem 1.8)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 1.6, after (28), p. 11): The formal infinite Pochhammer symbol over Q(q)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/admissible-series",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: Cross-roadmap prerequisites: two misdirected, two coarser than necessary, one in the wrong normalisation); tests given kinds."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/product-expansion-and-dt-exponents",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The statement is false over the Laurent series field; \"non-zero exactly for 3n+1 ≤ i ≤ n²+n+1\" is false); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 1.6, eq. (30), p. 11): Laurent expansion of rational functions at a root of unity."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/expansion-at-roots-of-unity",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The constant U_m (67) has a sign error; the node that defers to it is false, and so is (167) as printed; Residue bookkeeping in expansion-at-roots-of-unity); tests given kinds and prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/dwork-quotient-admissible",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: Dwork quotient: the stated reason for p ∤ m is wrong); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/series-F-A",
-        "verdict": "corrected",
-        "note": "Corrected (checker C): the specialisation t = (−1)^{diag A}q^b is not a formal operation for indefinite A (it converges q-adically only for positive definite A); the congruence variants are now their own node HB.8/congruence-sum-series and the ratios with their corrected Riccati system HB.8/ratio-riccati-system; the HC.1 request is replaced by HB.8/formal-pochhammer-symbol; tests given kinds, with a non-example for the sign normalisation."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: A false test and a false acceptance line); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/fgi-collection",
-        "verdict": "corrected",
-        "note": "Corrected (checker C): prerequisites made precise (HB.8/formal-pochhammer-symbol, HB.8/laurent-expansion-at-a-root-of-unity and Polylogarithms:P.1/classical-polylogarithm instead of HB.4/q-pochhammer-symbols, the HB.4 dilogarithm interface and HabiroCyclotomicCompletions HC.2); the periodicity of the Gaussian integrals is split off as HB.8/periodicity-of-the-gaussian-integrals, proved after this definition (the reviewer broke the two-node cycle the split created); the false test 'periodicity' is dropped and the tests given kinds. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/congruence-sum-series",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 1.6, eq. (32), p. 12): The congruence sums F_{A,m,k} and their order-m q-difference system."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/periodicity-of-the-gaussian-integrals",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 2.5, after Definition 2.11, p. 30): Periodicity of the Gaussian integrals and the first-order relation."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/q-difference-for-the-gaussian-collection",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/gaussian-pieces-are-power-series-in-t",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Proof of Theorem 8, after (166), p. 36): The refined Gaussian pieces are power series in t."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/identification-theorem",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The constant U_m (67) has a sign error; the node that defers to it is false, and so is (167) as printed; Hidden dependency cycle between the potential lemma, Theorem 7 and the identification theorem; The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/ring-S-and-its-level-m-variants",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 1.7, eqs. (35)-(37), p. 13): The rings S and S^{(m)} of the t-deformed equations."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/fgi-coefficients-in-S",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The phase in U_m^FGI (121) is wrong); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/potential-pole-lemma",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: Hidden dependency cycle between the potential lemma, Theorem 7 and the identification theorem); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/ratio-riccati-system",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, eqs. (83)-(84) and (88)-(89), pp. 24-25): The ratios of F_A and their (corrected) Riccati system."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/integral-plethystic-logarithm",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, (84)-(85), p. 24): Integral plethystic logarithm over Z[q^{±1}]."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/pole-location-lemma",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, before (87), p. 24): Where a non-integral L_n can have poles."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/finite-support-theorem",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The multivariable Riccati system (89) is misprinted, and the packet adopts it); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/level-m-admissible-series",
-        "verdict": "corrected",
-        "note": "Corrected (checker C): GSWZ Definition 2.8 with Theorem 7 is false as printed (poles at Φ_d with m | d and gcd(d/m, m) > 1, source issue E28, recomputed by the reviewer), so the definition uses the corrected ring; the test pochhammer_level_m contradicted the definition the node stated; prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/residues-of-congruence-sums",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Proof of Theorem 7, after (105), p. 27): Residues of the congruence sums at all roots of unity of order divisible by m."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/congruence-sums-are-level-m-admissible",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/wkb-algebraicity",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: (242) prefactor: e^{V/x} must be e^{V/log(1+x)}); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/equality-of-invariants",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Section 2.7, eq. (167), p. 36): The potential, discriminant and constants of the two sides agree."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/potential-determines-the-matrix",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: The Hessian identity is false); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/acceptance-rank-one",
-        "verdict": "corrected",
-        "note": "Corrected (checker C: (242) prefactor: e^{V/x} must be e^{V/log(1+x)}). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/dwork-quotient-level-m",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Lemma 2.10, eq. (108), p. 28): The Dwork quotient of a level m admissible series."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.8/admissible-recognition",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (gswz, Corollary 2.4, p. 22): Recognising an admissible series from its expansions."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.7, after (36), p. 13 (arXiv v2)): The Frobenius lift on the p-completed coefficient rings."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/dwork-difference-for-the-gaussian-data",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Correct statement, wrong prerequisites and notation)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/frobenius-congruence",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: The statement is right (verified), but acceptance line 1 and the proof step (170) need correction, and the Frobenius node is missing); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/habiro-module-interface",
-        "verdict": "corrected",
-        "note": "Corrected (checker D): it imported the HabiroNumberFields stages instead of the reviewed HB.6 and HB.7 nodes, quoted GSWZ's misprinted Definition 1.3 (HabiroNumberFields/E24) and did not say what Theorem 5's target ring is."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/specialisation-at-one",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.7, (40), p. 14): The specialisation t = 1 and the choice of m-th roots."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
-        "verdict": "corrected",
-        "note": "Corrected (checker D): it was false as stated (the constant term is δ^{−1/2}ε_m(ξ)^{1/m} times an element of K[ζ_m]; for the figure-eight datum at m = 1 it is (−3)^{−1/4}), it cited CGZ (14) where the displays used are (12)-(13), and its proof has a step no source gives (gap 'The constant term and the Kummer value')."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: States misprinted recursions and overstates the descent); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/potential-and-the-p-adic-dilogarithm",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.7, after (41), p. 14 (arXiv v2; same in v1)): The potential specialises to the p-adic dilogarithm (the p-adic regulator identity)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/module-membership",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Δ, R and the target ring are imprecise; the proof omits three steps); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/descendants-by-specialisation",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Tests without kinds, an unproved API item, an undefined level-m meaning, and an omitted proof recorded as done)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/p-adic-regulator-input",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: \"owned jointly\" violates single ownership, and an acceptance line is false); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, Corollary 1.11(b), p. 15, and proof of Corollary 1.11, p. 44): Torsion powers of the Nahm collection lie in the Habiro ring (Corollary 1.11(b))."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/bloch-torsion-converse",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.7, after Corollary 1.11, p. 15): The converse: a power in the Habiro ring forces Bloch-torsion, under a non-vanishing hypothesis."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/hypotheses-that-cannot-be-dropped",
-        "verdict": "corrected",
-        "note": "Corrected (checker D): the fourth item ('false with ξ replaced by zero unless the class is torsion') needs the non-vanishing of the constant terms (gap 'Non-vanishing of the constant terms'); if they vanished, both memberships could hold. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/verifying-the-defining-conditions",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Duplicates HabiroNumberFields HB.7, misdescribes the conditions and omits (24)); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/constant-terms-of-the-series",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, Corollary 1.10 and (43), §1.7, p. 15 (arXiv v2; same in v1)): Constant terms of the Nahm collection at roots of unity of order prime to Δ."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, Corollary 1.11(a), (44), p. 15, and proof of Corollary 1.11, p. 44): The symmetrised collection lies in the Habiro ring (Corollary 1.11(a))."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/symmetrisation-and-residue-formula",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: \"z runs over the solutions\" is wrong); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: The proof route is wrong and the ring must invert δ); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/cubic-example",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Its displayed (229) is wrong by a factor t, its title is wrong, and it omits the Bloch class and the excluded primes); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/nonabelian-quartic-example",
-        "verdict": "corrected",
-        "note": "Corrected (checker D): the two printed discriminants are resolved (the field has −5²·19, the polynomial −5⁴·19, index 5; source issue E50), the second Galois orbit, δ and its norm are recorded as the stage text asks, and the torsion of the class is verified. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/knot-matrices-and-the-topological-boundary",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: A consumer is cited as a prerequisite, and data is missing). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/p-adic-computations-example",
-        "verdict": "corrected",
-        "note": "Corrected in its prerequisites only (checker D): the statement is right as a record of GSWZ Example 4.3 (the checker verified that α³ − α² + 1 is linear times quadratic modulo 5 and that the element has Bloch–Wigner sum 2.8281220883 = vol(5_2)); the stage HabiroNumberFields:HB.6 is replaced by the node HB.6/coefficient-rings-and-frobenius, and the deleted HB.9 node's content by the PadicHodgeRegulators D.3 request. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/modularity-examples-and-their-lesson",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: The excerpt of (289) is not literal: the source prints \"2 if m ≡ 4 (mod 4)\"); prerequisites revised."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/export-interfaces-and-non-consequences",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Consumers as prerequisites, citations of sections declared unread, and a stage target unrealised)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/knot-series-pair-example",
-        "verdict": "corrected",
-        "note": "Corrected (checker D: Asserts a false equality (GSWZ (280))); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/rank-one-product-identities",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.6, after (28), p. 12 (arXiv v2)): Rank-one product identities as a check of the conventions."
-      },
-      {
-        "nodeId": "HabiroNahmSeries:HB.10/figure-eight-example",
-        "verdict": "added",
-        "note": "Added from checker D's decomposition (gswz, §1.5, after Theorem 2, p. 11): The abelian worked example: the figure-eight datum over Q(√−3)."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
+    "date": "2026-09-30",
+    "notes": "Independent supplier review of FIX-RT-AREA-topology~2 (#5166, PR #5232, 95281ad), following independent-review-REV-HabiroNahmSeries (archived verbatim in reviewHistory). Accepted /11 and the supplier side of /21: the six HB.4/HB.8/HB.9 exports retain analytic positivity/root-order/branch/remainder hypotheses or formal non-degeneracy/coefficient-ring/excluded-prime restrictions; HB.10 records formal knot-derived Nahm data without importing QT.6/QT.7 as inputs or proving their topological/quantum-modularity claims. Read GSWZ v2 pp.14-17,48 and GZ v1 pp.2-5; checked the actual positive-definite Gaussian density theorem at Tau Ceti f790474 as a near miss for formal integration. Figure-eight A*(1,-1)=0 exactly, excluding use of the analytic radial theorem. Checked the two HB.10 reader interfaces and the suggested comments; no new nodes, baseline citations, theorem signatures, or errata introduced. Existing sourceIssues/sourceVersions preserved, including prior GZ/GSWZ corrections. BP-ArithmeticQuantumTopology consumer rewiring remains that blueprint's task; /22-/123 are maintainer notices outside this review. Packet remains partial/unchecked. Checker with the pinned index: zero errors and zero warnings. No matching pre-existing Lean build exists; no compilation performed."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-HabiroNahmSeries",
+      "date": "2026-09-25",
+      "notes": "Independent review of all 74 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, by four checkers (HB.3-HB.4 with Garoufalidis-Zagier and CGZ Section 7; HB.5a-HB.5 with CGZ Sections 1.3 and 7 and the pinned modular-forms library; HB.8 with GSWZ Section 2; HB.9-HB.10 with GSWZ Sections 1.7, 3 and 4 and the packet-level fields), whose key numerical claims the reviewer re-checked with PARI/GP (the Euler-product phase behind GZ Theorem 3.1 to 60 digits, the solution order in CGZ Theorem 7.4, the level-2 counterexample to GSWZ Theorem 7, the Gauss-sum normalisation of GSWZ (43), 1/delta for A = (3), the quartic discriminant and G_4). Sources: CGZ arXiv v3, GSWZ arXiv v2 and GZ arXiv v1, each as PDF and e-print, hashes confirmed. Outcome: 71 nodes corrected, 38 added, 3 deleted (GZ's coefficient-versus-radial node, false as stated; the HB.9 p-adic polylogarithm node, which duplicated HabiroNumberFields HB.7; the HB.9 symmetrisation corollaries, which stated a false corollary and are split into correct nodes); 94 baseline declarations, each confirmed in the pinned index; every test has a kind; 63 source issues recorded (the packet had none). Main corrections: (1) false statements copied from the sources: GZ Theorem 3.1's root of unity chi (right only for alpha = 1/m) and its all-orders series (missing factor, wrong sign, psi not exponentiated), GZ Proposition 2.2 in four places, CGZ Theorem 7.1 without 'n odd', the sign of GZ's C_0(A), GSWZ Theorem 7 (level-m admissibility fails at Phi_d with m | d; corrected ring), the sign of U_m (67), the phase of (121), the Riccati system (89), the Hessian identity (169), the order-m q-difference sign, GSWZ (229) (off by t) and (280), and Corollary 1.10 (the constant term needs delta^{-1/2} and the Kummer root); (2) closure: the ratios and Riccati system, the congruence sums, the formal Pochhammer symbol, the Laurent expansion at a root of unity, the plethystic logarithm, the ring S, the Frobenius lift, the moment and Poisson lemmas, the Euler-Maclaurin remainder, the lemma that an invariant Nahm sum is a modular function, and the rank-one product identities had no nodes; (3) library: HB.5a re-planned Mathlib's arithmetic subgroups, cusps and widths, and the claim that Poisson summation is absent was false; (4) ownership and links: HabiroNumberFields HB.1/HB.2/HB.6/HB.7, QM.0 and HabiroRings HR.1 are cited by node id; the HB.10 exports (HR.6, HQ.5, HQ.8, QT.7) were consumers listed as prerequisites; the HC.1 and HC.2 requests were misdirected. Two dependency cycles created by the checkers' additions were broken by the reviewer (HB.5 meromorphy uses HB.4 at m = 1; the FGI collection is defined before its periodicity lemma). No stage-level or node-level cycle remains, including across roadmaps. Coverage: HB.5a decomposed, the other six stages partial, with 22 gaps and 9 stage-level requests. The packet is accepted: every node is corrected or added, every baseline citation is confirmed, and the open points are recorded.",
+      "checked": [
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/nahm-data",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Tests without kinds and small slips in the data and equations nodes)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/nahm-equations",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Tests without kinds and small slips in the data and equations nodes). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/distinguished-solution",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Distinguished solution: the proof relies on multivariable convexity facts Mathlib lacks, and the acceptance lines misstate the examples); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/nondegenerate-solution-and-discriminant",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gswz, Section 1.7, equation (36) and the sentence before Theorem 5, p. 13-14 (arXiv v2)): Non-degenerate solutions and the discriminant delta."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/nondegenerate-points-are-algebraic",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Section 7.1, observation (i), p. 35 (arXiv v3)): Non-degenerate complex zeros of a polynomial system over Q are algebraic."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/algebraicity-and-the-nahm-field",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Algebraicity: a non-routine step is hidden, non-degeneracy is bundled in, and the A = (3) example uses the other sign convention); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/bloch-class-of-a-solution",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Bloch class is defined with the wrong boundary target, so the node contradicts itself and CGZ); tests given kinds and prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/general-nondegenerate-class",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The GSWZ-class node's tests contradict its own Δ convention, and it has an unneeded Habiro-ring prerequisite)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/embeddings-and-regulator-evaluations",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Rogers value and normalisation tests are false, and the regulator node bundles theorems whose suppliers do not provide them). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/torsion-criterion-by-regulators",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Section 7.1, observation (i), p. 35 (arXiv v3)): Torsion of a Bloch class is detected by the Bloch-Wigner evaluations."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/torsion-in-the-algebraic-closure",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Torsion in the algebraic closure: the cited suppliers do not give what the proof uses). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.3/suslin-obstruction-of-the-nahm-element",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Section 2.1, Definition 2.1 and Lemma 2.2, p. 8-9 (arXiv v3)): The Nahm element in Suslin's antisymmetric convention."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/q-pochhammer-symbols",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The q-Pochhammer node re-plans QM.0's objects and states an analytic inversion identity that does not exist); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/analytic-nahm-sum",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Nahm-sum node has false tests)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/cyclic-dilogarithm-interface",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: D_ζ(1)^{24m} = m^{12m} is false); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/euler-maclaurin-with-remainder",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Section 7.1, paragraph before Theorem 7.1, p. 36 (arXiv v3)): Euler-Maclaurin summation with Bernoulli remainder, uniform in the shift."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/pochhammer-radial-asymptotics",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Pochhammer asymptotics lemma cites a wrong supplier, has no uniform remainder, and one acceptance line is false)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/euler-function-at-a-root-of-unity",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gz, Section 4.2, equation (23), p. 7 (arXiv v1)): The Euler function near a root of unity."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/summand-asymptotics",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The summand node copies four errors of GZ Proposition 2.2); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/formal-gaussian-integration",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Formal Gaussian integration: the statement and acceptance disagree with the tests, and the moment lemma is missing); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/gauss-sum-and-congruence-splitting",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Gauss-sum node's acceptance line and tests are false, and its definition is ambiguous); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/gaussian-moments",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gz, Section 3, equation (13), p. 4 (arXiv v1)): Gaussian moments equal the formal Gaussian bracket."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/lattice-sums-by-poisson-summation",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gz, Section 4.3, equations (35)-(36) and the proof of Claim 4, p. 9-10 (arXiv v1)): Shifted lattice sums of a polynomial times a Gaussian."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/summand-tail-bound",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gz, Section 4.3, Claim 2, equation (32), p. 9 (arXiv v1)): The summand of a Nahm sum away from its peak."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/poisson-summation-and-remainders",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Poisson-summation node: wrong constant, false library claim, missing tail bound); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/kummer-invariance-of-the-expansion",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (gz, Theorem 3.1, equation (21), p. 5 (arXiv v1)): The expansion is invariant under changing the m-th roots, so S^m has coefficients in F_m."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/radial-asymptotic-expansion",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: GZ Theorem 3.1's root of unity χ is wrong unless α = 1/m, and the node copies it; GZ's all-orders series S_{Q,ζ}(ε) is wrong from order ε on, and the stage target is the all-orders expansion); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/galois-equivariance-of-the-expansion",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Theorem 7.1, last sentence, p. 36 (arXiv v3)): Galois transformation law of the expansion coefficients."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/simplified-form-and-the-unit",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: CGZ Theorem 7.1 as quoted is not a theorem: it omits 'n odd', its fixed μ fails for non-integral Q, and (44) is ill-posed); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/unit-corollary-and-nonvanishing",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: Unit corollary: a hypothesis is missing and the prerequisite points to the wrong supplier)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/andrews-gordon-radial-constant",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (cgz, Section 7.2, equations (45)-(49), pp. 37-38 (arXiv v3)): The radial constant of the Andrews-Gordon Nahm sums at e(1/n)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.4/acceptance-andrews-gordon",
+          "verdict": "corrected",
+          "note": "Corrected (checker A: The Andrews–Gordon node misquotes the product, skips half of CGZ's proof, and is really CGZ Theorem 7.4); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/finite-index-subgroups",
+          "verdict": "corrected",
+          "note": "Corrected (checker B): it planned anew what Mathlib has (Subgroup.IsArithmetic, finite index, the cusps and their SL₂(ℤ)-orbits) and is now a comparison with those declarations; it also called the unbounded-denominators statement a conjecture. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/cusps-and-scaling-matrices",
+          "verdict": "corrected",
+          "note": "Corrected (checker B): it planned anew what Mathlib has (cusps as OnePoint ℚ, IsCusp, the SL₂(ℤ)-action and the cusp orbits) and is now a comparison with those declarations; its planet is removed, since these are library notions; tests given kinds. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/cusp-width",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: \"the widths sum to the index\" is false over cusps; Mathlib's classical width is not cited); tests given kinds and prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/modular-function-of-finite-index",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Modular functions: false \"field\" API, missing Mathlib vocabulary, duplication with QM.3, a definition hidden in a theorem node); tests given kinds and prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/laurent-expansion-at-a-cusp",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (gz, Section 7, before Proposition 7.1, p. 13): Order and leading coefficient at a cusp."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/local-parameter-and-laurent-expansion",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Modular functions: false \"field\" API, missing Mathlib vocabulary, duplication with QM.3, a definition hidden in a theorem node); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/radial-growth-at-a-cusp",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: The growth formula is wrong, and the uniform form is missing); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5a/supplier-interface",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Approach inverted, primitive root, d > 0, imprecise shrinking)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/nahm-conjecture-statement",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Tests rest on unread sources; (a) for rational A is ill-posed; no kinds). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/nahm-sum-meromorphic-at-every-cusp",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (cgz, Section 7.3, before Theorem 7.5, printed p. 40): An invariant Nahm sum is a modular function: moderate growth at every cusp."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/expansion-at-one",
+          "verdict": "corrected",
+          "note": "Corrected (checker B): the exponentially small improvement under modularity must hold uniformly in the complex parameter, and the constant K is proved from HB.4 at m = 1 instead of being quoted from Zagier's survey; the hypotheses now cover rational A."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/comparison-of-expansions",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Phase sign, missing ω and q^C factor, complex ε, and two false acceptance lines); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/torsion-from-unbounded-orders",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: The torsion step: the pure lemma cites an irrelevant supplier, and finite generation of B_CGZ(F) is unsupported)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/excluded-primes-and-hypotheses",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Inverted dependency, wrong prerequisite, imprecise claims)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/torsion-criterion-for-the-cgz-bloch-group",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (cgz, Proof of Theorem 7.5, printed p. 40): Divisibility by infinitely many odd n forces torsion in the CGZ Bloch group of a number field."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/modularity-implies-torsion",
+          "verdict": "corrected",
+          "note": "Corrected (checker B): CGZ's 'modular' means invariance only, which does not give meromorphy at the cusps without an argument (now the lemma HB.5/nahm-sum-meromorphic-at-every-cusp); CGZ Theorem 1.2 is HabiroNumberFields HB.2's (HB.2/R-injectivity-and-image), not HB.1's; the excluded-primes node depended on this theorem the wrong way round; and the introductory formulation (CGZ Theorem 1.8) is split off as HB.5/introductory-formulation."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/boundaries-of-the-implication",
+          "verdict": "corrected",
+          "note": "Corrected (checker B): it called the unbounded-denominators statement a conjecture; it is a theorem (Calegari–Dimitrov–Tang, Theorem 1.0.1), which the node records as unused; and CGZ Remark 7.7 is a sketch, not a reduction that covers modular forms of non-zero weight. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/valuation-bound-at-every-cusp",
+          "verdict": "corrected",
+          "note": "Corrected (checker B: Unproved for most cusps, C₀ sign, false acceptance line); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.5/introductory-formulation",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (cgz, Theorem 1.8 (Nahm's Conjecture), printed p. 6): The introductory formulation: xi_A vanishes in the Bloch group of Qbar (CGZ Theorem 1.8)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/formal-pochhammer-symbol",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 1.6, after (28), p. 11): The formal infinite Pochhammer symbol over Q(q)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/admissible-series",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: Cross-roadmap prerequisites: two misdirected, two coarser than necessary, one in the wrong normalisation); tests given kinds."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/product-expansion-and-dt-exponents",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The statement is false over the Laurent series field; \"non-zero exactly for 3n+1 ≤ i ≤ n²+n+1\" is false); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/laurent-expansion-at-a-root-of-unity",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 1.6, eq. (30), p. 11): Laurent expansion of rational functions at a root of unity."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/expansion-at-roots-of-unity",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The constant U_m (67) has a sign error; the node that defers to it is false, and so is (167) as printed; Residue bookkeeping in expansion-at-roots-of-unity); tests given kinds and prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/dwork-quotient-admissible",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: Dwork quotient: the stated reason for p ∤ m is wrong); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/series-F-A",
+          "verdict": "corrected",
+          "note": "Corrected (checker C): the specialisation t = (−1)^{diag A}q^b is not a formal operation for indefinite A (it converges q-adically only for positive definite A); the congruence variants are now their own node HB.8/congruence-sum-series and the ratios with their corrected Riccati system HB.8/ratio-riccati-system; the HC.1 request is replaced by HB.8/formal-pochhammer-symbol; tests given kinds, with a non-example for the sign normalisation."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/t-deformed-nahm-equations",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: A false test and a false acceptance line); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/fgi-collection",
+          "verdict": "corrected",
+          "note": "Corrected (checker C): prerequisites made precise (HB.8/formal-pochhammer-symbol, HB.8/laurent-expansion-at-a-root-of-unity and Polylogarithms:P.1/classical-polylogarithm instead of HB.4/q-pochhammer-symbols, the HB.4 dilogarithm interface and HabiroCyclotomicCompletions HC.2); the periodicity of the Gaussian integrals is split off as HB.8/periodicity-of-the-gaussian-integrals, proved after this definition (the reviewer broke the two-node cycle the split created); the false test 'periodicity' is dropped and the tests given kinds. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/congruence-sum-series",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 1.6, eq. (32), p. 12): The congruence sums F_{A,m,k} and their order-m q-difference system."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/periodicity-of-the-gaussian-integrals",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 2.5, after Definition 2.11, p. 30): Periodicity of the Gaussian integrals and the first-order relation."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/q-difference-for-the-gaussian-collection",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/gaussian-pieces-are-power-series-in-t",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Proof of Theorem 8, after (166), p. 36): The refined Gaussian pieces are power series in t."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/identification-theorem",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The constant U_m (67) has a sign error; the node that defers to it is false, and so is (167) as printed; Hidden dependency cycle between the potential lemma, Theorem 7 and the identification theorem; The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/ring-S-and-its-level-m-variants",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 1.7, eqs. (35)-(37), p. 13): The rings S and S^{(m)} of the t-deformed equations."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/fgi-coefficients-in-S",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The phase in U_m^FGI (121) is wrong); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/potential-pole-lemma",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: Hidden dependency cycle between the potential lemma, Theorem 7 and the identification theorem); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/ratio-riccati-system",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, eqs. (83)-(84) and (88)-(89), pp. 24-25): The ratios of F_A and their (corrected) Riccati system."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/integral-plethystic-logarithm",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, (84)-(85), p. 24): Integral plethystic logarithm over Z[q^{±1}]."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/pole-location-lemma",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Proof of Theorem 6, before (87), p. 24): Where a non-integral L_n can have poles."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/finite-support-theorem",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The multivariable Riccati system (89) is misprinted, and the packet adopts it); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/level-m-admissible-series",
+          "verdict": "corrected",
+          "note": "Corrected (checker C): GSWZ Definition 2.8 with Theorem 7 is false as printed (poles at Φ_d with m | d and gcd(d/m, m) > 1, source issue E28, recomputed by the reviewer), so the definition uses the corrected ring; the test pochhammer_level_m contradicted the definition the node stated; prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/residues-of-congruence-sums",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Proof of Theorem 7, after (105), p. 27): Residues of the congruence sums at all roots of unity of order divisible by m."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/congruence-sums-are-level-m-admissible",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The order-m q-difference equations (98), (137), (165) have the wrong sign; (137) has an index slip); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/wkb-algebraicity",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: (242) prefactor: e^{V/x} must be e^{V/log(1+x)}); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/equality-of-invariants",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Section 2.7, eq. (167), p. 36): The potential, discriminant and constants of the two sides agree."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/potential-determines-the-matrix",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: The Hessian identity is false); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/acceptance-rank-one",
+          "verdict": "corrected",
+          "note": "Corrected (checker C: (242) prefactor: e^{V/x} must be e^{V/log(1+x)}). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/dwork-quotient-level-m",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Lemma 2.10, eq. (108), p. 28): The Dwork quotient of a level m admissible series."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.8/admissible-recognition",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (gswz, Corollary 2.4, p. 22): Recognising an admissible series from its expansions."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.7, after (36), p. 13 (arXiv v2)): The Frobenius lift on the p-completed coefficient rings."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/dwork-difference-for-the-gaussian-data",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Correct statement, wrong prerequisites and notation)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/frobenius-congruence",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: The statement is right (verified), but acceptance line 1 and the proof step (170) need correction, and the Frobenius node is missing); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/habiro-module-interface",
+          "verdict": "corrected",
+          "note": "Corrected (checker D): it imported the HabiroNumberFields stages instead of the reviewed HB.6 and HB.7 nodes, quoted GSWZ's misprinted Definition 1.3 (HabiroNumberFields/E24) and did not say what Theorem 5's target ring is."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/specialisation-at-one",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.7, (40), p. 14): The specialisation t = 1 and the choice of m-th roots."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/constant-term-is-the-unit",
+          "verdict": "corrected",
+          "note": "Corrected (checker D): it was false as stated (the constant term is δ^{−1/2}ε_m(ξ)^{1/m} times an element of K[ζ_m]; for the figure-eight datum at m = 1 it is (−3)^{−1/4}), it cited CGZ (14) where the displays used are (12)-(13), and its proof has a step no source gives (gap 'The constant term and the Kummer value')."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/gluing-by-uniqueness-of-q-difference-solutions",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: States misprinted recursions and overstates the descent); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/potential-and-the-p-adic-dilogarithm",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.7, after (41), p. 14 (arXiv v2; same in v1)): The potential specialises to the p-adic dilogarithm (the p-adic regulator identity)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/module-membership",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Δ, R and the target ring are imprecise; the proof omits three steps); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/descendants-by-specialisation",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Tests without kinds, an unproved API item, an undefined level-m meaning, and an omitted proof recorded as done)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/p-adic-regulator-input",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: \"owned jointly\" violates single ownership, and an acceptance line is false); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/torsion-powers-lie-in-the-ring",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, Corollary 1.11(b), p. 15, and proof of Corollary 1.11, p. 44): Torsion powers of the Nahm collection lie in the Habiro ring (Corollary 1.11(b))."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/bloch-torsion-converse",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.7, after Corollary 1.11, p. 15): The converse: a power in the Habiro ring forces Bloch-torsion, under a non-vanishing hypothesis."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/hypotheses-that-cannot-be-dropped",
+          "verdict": "corrected",
+          "note": "Corrected (checker D): the fourth item ('false with ξ replaced by zero unless the class is torsion') needs the non-vanishing of the constant terms (gap 'Non-vanishing of the constant terms'); if they vanished, both memberships could hold. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/verifying-the-defining-conditions",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Duplicates HabiroNumberFields HB.7, misdescribes the conditions and omits (24)); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/constant-terms-of-the-series",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, Corollary 1.10 and (43), §1.7, p. 15 (arXiv v2; same in v1)): Constant terms of the Nahm collection at roots of unity of order prime to Δ."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.9/symmetrisation-lies-in-the-ring",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, Corollary 1.11(a), (44), p. 15, and proof of Corollary 1.11, p. 44): The symmetrised collection lies in the Habiro ring (Corollary 1.11(a))."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/symmetrisation-and-residue-formula",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: \"z runs over the solutions\" is wrong); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/descendant-elements-of-the-habiro-ring",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: The proof route is wrong and the ring must invert δ); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/cubic-example",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Its displayed (229) is wrong by a factor t, its title is wrong, and it omits the Bloch class and the excluded primes); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/nonabelian-quartic-example",
+          "verdict": "corrected",
+          "note": "Corrected (checker D): the two printed discriminants are resolved (the field has −5²·19, the polynomial −5⁴·19, index 5; source issue E50), the second Galois orbit, δ and its norm are recorded as the stage text asks, and the torsion of the class is verified. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/knot-matrices-and-the-topological-boundary",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: A consumer is cited as a prerequisite, and data is missing). The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/p-adic-computations-example",
+          "verdict": "corrected",
+          "note": "Corrected in its prerequisites only (checker D): the statement is right as a record of GSWZ Example 4.3 (the checker verified that α³ − α² + 1 is linear times quadratic modulo 5 and that the element has Bloch–Wigner sum 2.8281220883 = vol(5_2)); the stage HabiroNumberFields:HB.6 is replaced by the node HB.6/coefficient-rings-and-frobenius, and the deleted HB.9 node's content by the PadicHodgeRegulators D.3 request. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/modularity-examples-and-their-lesson",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: The excerpt of (289) is not literal: the source prints \"2 if m ≡ 4 (mod 4)\"); prerequisites revised."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/export-interfaces-and-non-consequences",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Consumers as prerequisites, citations of sections declared unread, and a stage target unrealised)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/knot-series-pair-example",
+          "verdict": "corrected",
+          "note": "Corrected (checker D: Asserts a false equality (GSWZ (280))); prerequisites revised. The reviewer shortened its over-long excerpts to at most 300 characters (literal segments)."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/rank-one-product-identities",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.6, after (28), p. 12 (arXiv v2)): Rank-one product identities as a check of the conventions."
+        },
+        {
+          "nodeId": "HabiroNahmSeries:HB.10/figure-eight-example",
+          "verdict": "added",
+          "note": "Added from checker D's decomposition (gswz, §1.5, after Theorem 2, p. 11): The abelian worked example: the figure-eight datum over Q(√−3)."
+        }
+      ]
+    }
+  ]
 }

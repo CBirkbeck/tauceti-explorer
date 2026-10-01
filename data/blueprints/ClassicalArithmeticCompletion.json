@@ -26094,7 +26094,7 @@
       "proofSteps": [
         "Work modulo permutations and double sign changes, with sorted absolute coordinates ≥3 and either a positive representative or a representative (−u₁,u₂,u₃). The Δ polynomial is invariant under these narrow equivalences.",
         "Use (4.1): each bracket 2(k−5)+(x_j²−4)(x_l²−4) is strictly positive on this locus, without needing genericity of k. At a negative root all three moves strictly increase Δ and keep every absolute coordinate ≥3.",
-        "At a positive representative 3≤x₁≤x₂≤x₃, V₁ and V₂ increase Δ and replace their coordinate by at least 2x₃. The descent calculation of Lemma 2.1 gives x₁x₂−2x₃<0 for k≥5, so V₃ is the unique Δ-decreasing neighbour, provided it remains in the large-coordinate locus. For vertices reached upwards from a negative root, it is exactly their previous parent, hence it remains in that locus.",
+        "At a positive representative 3≤x₁≤x₂≤x₃, V₁ and V₂ increase Δ and replace their coordinate by at least 2x₃. The descent calculation of Lemma 2.1 gives x₁x₂−2x₃<0 for k≥5: otherwise evaluating c²−x₁x₂c+x₁²+x₂²−k between c=x₂ and its vertex would force 0≤x₁²−(x₁−2)x₂²−k≤(3−x₁)x₁²−k<0. Thus V₃ is the unique Δ-decreasing neighbour, provided it remains in the large-coordinate locus. For vertices reached upwards from a negative root, it is exactly their previous parent, hence it remains in that locus.",
         "Induct on a word from a negative root: an increasing step stays large, and a decreasing step follows the already constructed parent. Distinct increasing branches cannot merge: a finite path between distinct negative roots, or a cycle, has a maximal-Δ vertex with two decreasing neighbours. Thus the whole orbit remains large and has one negative root."
       ],
       "acceptance": [
@@ -26286,7 +26286,7 @@
         "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits",
         "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
       ],
-      "detail": "The existing Martin/BGS coefficient-three nodes do not supply V_k, the signed Γ quotient, Δ, F±, class numbers/finiteness, generic/exceptional predicates, the local-solubility theorem or the Hasse-failure results. The 25 explicit CA.4 requests enumerate the still-missing extraction items; root-orbit and class-number nodes depend on that contract. Coalesce the carrier and descent with GMR/1,5. ArithmeticDynamics Part II imports are conditional until this work is decomposed. The pending NonabelianLevelStructures early trace prefix supplies the ring-valued Fricke identity; the explicit Corollary 6.3 point alternatively uses direct algebra. No fictional stage or closed source coverage is asserted."
+      "detail": "The existing Martin/BGS coefficient-three nodes do not supply V_k, the signed Γ quotient, Δ, F±, class numbers/finiteness, generic/exceptional predicates, the local-solubility theorem or the Hasse-failure results. The 25 explicit CA.4 requests enumerate the still-missing extraction items; root-orbit and class-number nodes depend on that contract. Coalesce the carrier and descent with GMR/1,5. ArithmeticDynamics Part II imports are conditional until this work is decomposed. The pending NonabelianLevelStructures early trace prefix supplies the ring-valued Fricke identity; the explicit Corollary 6.3 point alternatively uses direct algebra. No fictional stage or closed source coverage is asserted. The descent contract for item 7 must account explicitly for the coordinate-two exceptional branch; it does not assert that S⁺ plus points with a coordinate 0 or 1 exhausts every exceptional orbit. The corrected inequality uses only the independently checked absolute-coordinate-at-least-3 component."
     }
   ],
   "requests": [
@@ -26496,7 +26496,7 @@
     },
     {
       "supplier": "ClassicalArithmeticCompletion:CA.4",
-      "need": "PAPER-GHOSH-SARNAK-22/7 — Lemma 2.1 (descent for k > 4) and the cases 1 ≤ k ≤ 3. If k > 4, every x ∈ V_k(ℤ) is Γ-equivalent to a point of the finite set S⁺(k) ∪ T(k), where S⁺(k) = {(−x₁, x₂, x₃) : 3 ≤ x₁ ≤ x₂ ≤ x₃, x₁² + x₂² + x₃² + x₁x₂x₃ = k} ∩ ℤ³ and T(k) is the finite set of solutions with a coordinate 0 or 1; otherwise it is narrowly equivalent to a point with 3 ≤ x₁x₂ − x₃ < x₂ ≤ x₃, x₁ ≥ 3, to which a Vieta move applies. V₃(ℤ) = ∅; V₂(ℤ) is the infinite Γ-orbit of (0, 1, 1); V₁(ℤ) is the finite orbit of (0, 0, 1). Source: §2, pp.9–10, Lemma 2.1, arXiv:1706.06712v3 (final version). Revisits the descent of Markoff [Mar80], Hurwitz [Hur07] and Mordell [Mor53] without the height |x₁|+|x₂|+|x₃|. Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed.",
+      "need": "PAPER-GHOSH-SARNAK-22/7 — Level-k descent for k>4, with small-coordinate cases explicit, and the cases 1≤k≤3. For a sorted positive point 3≤x₁≤x₂≤x₃, V₃ replaces x₃ by x₁x₂−x₃<x₃; iteration either reaches a negative representative, a small-coordinate point, or the next smaller positive triple. Negative representatives with all absolute coordinates ≥3 give S⁺(k), defined by 3≤u₁≤u₂≤u₃ and u₁²+u₂²+u₃²+u₁u₂u₃=k. The general exceptional descent must separately treat coordinates 0,±1,±2 before asserting a finite orbit-representative set; S⁺ together with points of coordinate 0 or 1 is not asserted to exhaust all exceptional orbits. For example, k=29 has the small negative root (−2,2,3), outside S⁺, and its orbit remains in the absolute-coordinate-at-least-2 locus by the same strict-Δ/unique-parent argument. Keep V₃(ℤ)=∅, the infinite V₂(ℤ) orbit of (0,1,1), and the finite V₁(ℤ) orbit of (0,0,1). Source: §2, Lemma 2.1 and its preceding descent, pp.9–10; §4.1 (4.1), pp.13–14, arXiv:1706.06712v3. Coalesce the carrier and descent with PAPER-GAMBURD-MAGEE-RONAN-19/1,5 at n=3,a=1, retaining Γ’s permutation/double-sign action. This is an outstanding source-completion contract, not a completed general fundamental-domain theorem.",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.4",
         "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
@@ -27595,7 +27595,12 @@
         "Bounded title/DOI erratum search and Springer/Crossmark metadata on 2026-09-30 found no explicit correction notice. Springer main text/PDF was not obtained; its HTML exposes appendices, but these findings are not asserted against the published article.",
         "The same inequality was read in v1 p.5 and v2 p.3; this per-finding comparison does not assert that other issues persist."
       ],
-      "source": "ghosh-sarnak-2022-v3"
+      "source": "ghosh-sarnak-2022-v3",
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
+        "reason": "Confirmed against arXiv 1706.06712v3 p.5, with the corrected large-coordinate argument from (4.1), pp.13–14. Its brackets are positive for k≥5 and |x_j|≥3; negative roots have only increasing moves, positive vertices have a unique decreasing parent, and upward moves stay large. Hence F⁺ roots inject into disjoint Γ-orbits; an exceptional orbit containing a coordinate of absolute value at most 2 is additional. k=5 supplies the explicit contradiction to the printed direction. The finite regressions independently reproduce 7105 exceptional empty-F⁺ levels through 100800 and validate all three Δ identities on 4132 large-coordinate triples. The same printed inequality was freshly read only at v1 p.5 and v2 p.3; no published-text or blanket version claim is made."
+      }
     }
   ],
   "sourceVersions": [
@@ -27899,8 +27904,16 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+    "reviewer": "independent-review-REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
     "date": "2026-09-30",
-    "notes": "Codex — codex-J6LwjP independently reviewed Claude Code cc-f805bf’s fix for confirmed medium findings /1-/5, following REV-RT-PAPER-KOYMANS-PAGANO. No prior top-level review object. Checked /5’s mod-8 order/unit bridge against the pinned declarations and fresh Conrad sources; added its named API, uses and unit tests, and excluded the degree-one d=1 case from the direct supplier’s norm/bijectivity clauses. Other extraction changes were checked read-only, including qualified library/planned status, Jutila/Smith attribution and route-7 separation. The extraction’s historical route-review verdicts remain untouched. Low findings /6-/13 were not part of the fix. Acceptance is for these scoped fixes and clear corrections, not proof closure of the partial packet. The report records source hashes, finite checks and all limitations; no Lean file was assigned or compiled."
-  }
+    "notes": "Independent review of #4999 / PR #5217 (8fa893e), authored by Codex codex-J6LwjP; this Codex codex-5ebb6f session did none of that fix. Follows the latest independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO, preserved verbatim in reviewHistory, without reopening its unrelated fixes. Checked all nine confirmed finding dispositions within the authorized CA packet and read the extraction/reader as evidence. Verified the three new nodes, actual coefficient-three suppliers, all 25 remaining CA.4 source contracts, FF.1 ownership, source-version provenance and E507; added E507's independent confirmed verdict, without copying or changing older errata verdicts. Fresh GS v1/v2/v3 and Loughran–Mitankin v3 focused readings reproduce the hashes and corrected pagination. Corrected item-7's pending descent contract to expose coordinate-two exceptional branches; made the positive-root proof's algebraic descent step explicit and synchronized its existing gap. The general level-k carrier, Δ, finite orbit count and remaining sources stay open; no full CA.4 closure is claimed. Exact regressions reproduce 7105 exceptional empty-F⁺ levels, 7630 generic Hasse failures, 720 local points, 41 integral zero-fibre rescalings and 4132 large-coordinate triples' Δ identities. Preserved other node payloads, prior source-issue verdicts, baseline/status/coverage and concurrent review provenance. Packet checker with the pinned index: zero errors and warnings; source-version, intake and diff checks pass. General carrier/trace-prefix and queue/reader/suggested follow-ups remain with their owners. No Lean file is authorized or compiled, and no matching built pins are available. No atlas promotion was run."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+      "date": "2026-09-30",
+      "notes": "Codex — codex-J6LwjP independently reviewed Claude Code cc-f805bf’s fix for confirmed medium findings /1-/5, following REV-RT-PAPER-KOYMANS-PAGANO. No prior top-level review object. Checked /5’s mod-8 order/unit bridge against the pinned declarations and fresh Conrad sources; added its named API, uses and unit tests, and excluded the degree-one d=1 case from the direct supplier’s norm/bijectivity clauses. Other extraction changes were checked read-only, including qualified library/planned status, Jutila/Smith attribution and route-7 separation. The extraction’s historical route-review verdicts remain untouched. Low findings /6-/13 were not part of the fix. Acceptance is for these scoped fixes and clear corrections, not proof closure of the partial packet. The report records source hashes, finite checks and all limitations; no Lean file was assigned or compiled."
+    }
+  ]
 }
