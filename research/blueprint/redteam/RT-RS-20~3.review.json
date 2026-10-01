@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-RS-20~3",
+ "findings": [
+  {
+   "finding": "RT-RS-20~3/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Fargues–Scholze, Geometrization (author PDF, SHA-256 9ab9efbd…ae905, the same file the red team read), proof of Proposition II.1.1, printed p. 48, defines A^+_0 = (W_{O_E}(R^+) ⊗̂_{O_E} O_{E_∞})[(π/[ϖ])^{1/p^∞}]^∧_{[ϖ]}: the roots are of the whole quotient π/[ϖ]. The inherited proof step 3 (index 2) of RelativeFarguesFontaine:RF0:integral-Y/chart-cover-perfectoidness-and-sheafiness, in data/decompositions/RelativeFarguesFontaine.json and in the RF0 packet, adjoins '(pi^{1/p^infty}/[varpi])', that is π^{1/p^m}/[ϖ]. Its own next relation π^{1/p^m} − [ϖ]^{1/p^m}t_1^{1/p^m} needs t_1^{1/p^m} = π^{1/p^m}/[ϖ]^{1/p^m}. On the chart |π| ≤ |[ϖ]| ≠ 0, at a point with |π| = |[ϖ]| = c < 1 the printed generator has absolute value c^{1/p^m − 1} > 1 for m > 0, so it is not power-bounded and cannot lie in A^+. Its p-th power is π^{1/p^{m−1}}/[ϖ]^p, not the previous generator. RS-20's accepted reason for RF0:integral-Y orders only the reciprocal t_1^♯ = π/[ϖ] corrected (the last proof step) and leaves step 3 as it is. The fix is right; severity high is right, because the step defines the integral algebra the blueprint must build."
+  },
+  {
+   "finding": "RT-RS-20~3/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RS-20's layer RelativeFarguesFontaine:RF2:untilts (action narrow) keeps 'source-qualified Div^1 properness/smoothness obligations'. In the assembled graph (data/atlas.json requires and stageEdges plus RS-20's 79 links) RF2:untilts has 67 ancestors, and neither DiamondEtaleCohomology:C4 ('Proper, partially proper, and canonical compactification') nor DiamondSixOperations:S5 ('Examples: the ball, quotients and analytic smooth maps') is among them. Fargues–Scholze Proposition II.1.21 (printed p. 56) proves cohomological smoothness by [Sch17a, Proposition 24.5] and properness by the valuative criterion [Sch17a, Proposition 18.3]. RT-AREA-padic-1/17 was confirmed for exactly this, and its fix (RT-AREA-padic-1.fixes.md) proposed a late stage RF2:div1-properness fed by RF2:untilts, C4 and S5. RS-20~3 does not carry it. The fix is right; coordinate it with the /17 fix so that it is made once."
+  },
+  {
+   "finding": "RT-RS-20~3/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RS-20's RF2:untilts is supplied by PerfectoidSpaces:P1 and RF2:integral-divisors only, and PadicHodgeTheory:R06.1 is not among its ancestors in the assembled graph. The accepted R06.1 node bdr-plus-of-perfectoid-affinoid-algebras (data/decompositions/PadicHodgeTheory.json) constructs A_inf, B_inf, B_dR^+ and B_dR for a perfectoid affinoid (K, K^+)-algebra over any perfectoid field K of characteristic 0 (Scholze, p-adic Hodge theory for rigid-analytic varieties, Lemma 6.3 and Corollary 6.4), not only for C_p. Naming Mathlib's BDeRhamPlus and BDeRham (Mathlib/RingTheory/Perfectoid/BDeRham.lean at 082e2d3, lines 77 and 90, carrier definitions) does not route those theorem obligations. This is the scoped gap of the confirmed RT-AREA-padic-1/20 and RT-AREA-padic-2/21; the latter's verdict also rejected a blanket replacement of RF2 by R06.1, and this finding's fix respects that (reuse only on the matching mixed-characteristic p-typical affinoid case, with RF2 keeping the all-E, integral and equal-characteristic constructions). Medium is right."
+  }
+ ]
+}
