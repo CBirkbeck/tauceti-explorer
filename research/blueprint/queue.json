@@ -38629,7 +38629,8 @@
     "REV-PAPER-BHATT-MATHEW-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4220"
   },
   {
    "id": "REV-RT-PAPER-BHATT-MATHEW-23",
@@ -39238,8 +39239,9 @@
     "REV-PAPER-HE-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4246"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4246",
+   "finishedAt": "2026-10-01T11:29:36Z"
   },
   {
    "id": "REV-RT-PAPER-HE-21",
@@ -39634,8 +39636,9 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4257"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4257",
+   "finishedAt": "2026-10-01T11:29:41Z"
   },
   {
    "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
