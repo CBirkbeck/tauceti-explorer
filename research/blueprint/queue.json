@@ -34418,8 +34418,9 @@
     "REV-PAPER-NGODAC-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4079"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4079",
+   "finishedAt": "2026-10-01T14:06:12Z"
   },
   {
    "id": "REV-RT-PAPER-NGODAC-21",
