@@ -4,14 +4,23 @@ Issue #1336. Claude Code, session cc-442dc5. The extraction is complete. Impleme
 
 Laurent Clozel and Jack A. Thorne, *Level-raising and symmetric power functoriality, III*, Duke Math. J. 166 (2017), 325–402 (doi 10.1215/00127094-3714971). The paper is not on arXiv.
 
-The result has **56 items: 9 planned and 47 missing**. No item is in Mathlib or Tau Ceti. The routes are:
+The current result has **81 items: 17 planned and 64 missing**, with no composite item
+classified as a library theorem. All 64 missing items have exactly one route:
 
-- a **Part II of ModularityAndLanglandsExtensions** (33 items), for the level-raising method;
-- a **source route into ModularityAndLanglandsExtensions ML.0/ML.2/ML.3** (8 items), for the symmetric-power endpoints and the §7 reductions;
-- a **source route into SmoothRepresentationsOfLocalGroups SR.1–SR.3** (4 items), for general local representation theory;
-- a **source route into LocalGaloisDeformationRings L7** (2 items), for the partition deformation rings R^m_v.
+- ModularityAndLanglandsExtensions ML.0/ML.2/ML.3: 11 endpoint/source items;
+- SmoothRepresentationsOfLocalGroups SR.1–SR.4: five source items, including the shared concrete Iwahori presentation;
+- LocalGaloisDeformationRings L7: two source items;
+- SymmetricPowersByUnitaryLevelRaising: 38 missing items;
+- PolarizedAutomorphyLifting: five missing items;
+- SmoothRepresentationsPartIIParahoricCenters: two missing Kazhdan–Lusztig items;
+- ArithmeticGaloisRepresentations: two source items;
+- AutomorphicGaloisRepresentationsPartII: three source items.
 
-Five misprints are recorded under `sourceIssues`. No stated result is affected.
+There are **23 active source issues**, E1–E21 and E23–E24. E22 is a retracted audit
+observation, preserved with its original independent verdict under
+`resolvedSourceObservations`. The fixes for [issue #5516](https://github.com/CBirkbeck/tauceti-explorer/issues/5516),
+by Codex, session `codex-rtOQ9t`, await independent fix review. See
+[the fixes report](../redteam/RT-PAPER-CLOZEL-THORNE-17.fixes.md).
 
 ## What the paper proves
 
@@ -39,7 +48,7 @@ Five misprints are recorded under `sourceIssues`. No stated result is affected.
 4. **Automorphic level-raising (§4).** This uses algebraic modular forms, a perfect pairing that vanishes on the parahoric-level subspace when q_{v_0} ≡ −1 mod l (Proposition 4.3), and a rank count (Lemma 4.4, Proposition 2.9).
    - It shows that some form has more ramification at a place above v_0 than the initial endoscopic one (Theorem 4.2).
    - The count works only for l ≤ 7 (Remark 4.5).
-5. **Galois-theoretic level-raising (§5).** Deformation theory of the reducible residual representation, with a new local condition R^m_v bounding monodromy by a partition (Lemmas 5.2–5.6), upgrades this to a lift that is Steinberg at some place (Theorem 5.1).
+5. **Galois-theoretic level-raising (§5).** Deformation theory of the reducible residual representation, with a new local condition R^m_v bounding monodromy by a partition (Lemmas 5.2–5.6; Lemma 5.3 has the unipotent restriction at R_0), upgrades this to a lift that is Steinberg at some place (Theorem 5.1).
    - Combining this with Thorne 2015 gives a new automorphy lifting theorem (Theorem 5.7).
 6. **Assembly and the mixed-parity case (§§6–7).**
    - Theorem 6.2 assembles the argument, using Ramakrishnan's GL_2 × GL_2 → GL_4, Gelbart–Jacquet and Kim.
@@ -63,7 +72,7 @@ All sources were accessed on 22 September 2026.
 
 ## Mistakes found (`sourceIssues`)
 
-All five are misprints with reach "nothing". None is corrected in the accepted manuscript; the published text was not available.
+The original extraction recorded the following five misprints with reach "nothing". The accepted review added E6–E23. The present fixes retract E22 and add E24, leaving 23 active records. The original five remain as historical provenance; these issues have not been compared with the unavailable journal printing.
 
 | Id | Where (accepted manuscript) | Printed | Should be |
 |---|---|---|---|
@@ -105,10 +114,10 @@ Neither library has Iwahori–Hecke algebras with their presentations, p-adic re
 - **AutomorphicFormsOnReductiveGroups.** AF.5 plans algebraic modular forms as functions on adelic double cosets; it is named in item 031's note.
 - **Planned nowhere:**
   - level-raising for GL_n or unitary groups (the only level-raising layer is ModularCurvesPartII R14.4, Ihara for GL_2);
-  - Iwahori–Hecke algebra presentations;
+  - the full concrete Iwahori–Hecke coefficient interface is assigned as missing source work to SR.1/SR.4, shared with Kisin–Pappas and Venkatesh;
   - Kazhdan–Lusztig;
   - Thorne's residually reducible deformation theory.
-- **Related proposal on main.** The Boxer–Calegari–Gee extraction proposed a Part II PolarizedAutomorphyLifting (parent PotentialAutomorphyInfrastructure) for polarized automorphy lifting on definite unitary groups: Thorne 2012/2017, Geraghty and BLGGT §2. It does not cover Thorne 2015, and it is not yet designed.
+- **Related proposal on main.** The Boxer–Calegari–Gee extraction proposed a Part II PolarizedAutomorphyLifting (parent PotentialAutomorphyInfrastructure) for polarized automorphy lifting on definite unitary groups: Thorne 2012/2017, Geraghty and BLGGT §2. The accepted review assigned Thorne 2015’s general inputs to that same proposal; Clozel–Thorne’s own Theorems 5.1 and 5.7 remain in the level-raising Part II.
 
 ## Routes
 
@@ -120,29 +129,40 @@ Neither library has Iwahori–Hecke algebras with their presentations, p-adic re
 
 ML.3 asks to "record weight, level, field and regularity assumptions per source", and these theorems keep their own hypotheses (linear disjointness from Q(ζ_5), Q(ζ_7), Q(ζ_35)). They are superseded in range, by another method, by Newton–Thorne.
 
-**2. Source: SmoothRepresentationsOfLocalGroups SR.1–SR.3** (items 005, 006, 008, 013). These are four general results of local representation theory, planned nowhere:
+**2. Source: SmoothRepresentationsOfLocalGroups SR.1–SR.4**
+(items 005, 061, 062, 006, 008). Casselman, Borel–Casselman and the notation
+inputs retain their original supplier. Items 006/008 supply the common concrete
+Iwahori–Matsumoto/Bernstein–Lusztig presentation at the shared **SR.1/SR.4**
+interface recorded by Kisin–Pappas route 11 and Venkatesh item 29. This is a
+missing source contribution, not a claim that the existing layers already prove
+all coefficient regimes. Route 6 imports it and retains the additional
+Kazhdan–Lusztig classification/standard modules and its generic extensions.
 
-- Casselman's lemma on Iwahori invariants and Jacquet modules (Lemma 2.1);
-- the Iwahori–Matsumoto presentation of the Hecke algebra of a Tits system;
-- the Bernstein–Lusztig presentation;
-- Kazhdan–Lusztig's classification of tempered Iwahori-spherical representations (Theorem 2.4).
+Over Z, the corrected presentation uses the positive braid monoid. The braid-group
+presentation requires q invertible; the inverse is q^{-1}(T_s−(q−1)). For the
+Bernstein subalgebra over O retain l≠p and a chosen square root of q. The generic
+specialization v↦q^{1/2} must preserve the concrete basis, Bernstein subalgebra
+and Jacquet-exponent action. Venkatesh’s split q=1 modular specialization needs
+its separate S=Z/l^r, q≡1 mod l^r, l prime to |W| and averaging-volume
+hypotheses. It supplies no proof of the other coefficient regimes. The abstract
+Tau Ceti double-coset algebra and degree map are reused.
 
 **3. Source: LocalGaloisDeformationRings L7** (items 036, 037). The rings R^m_v bound the monodromy by a partition, using Taylor's Pol_n(m, q_v). Lemma 5.2 describes their smooth points and minimal primes. L7 plans "semistable, Steinberg and minimally ramified analogues away from p for rank n, preserving the nilpotent monodromy operator", which is exactly this direction. The ordinary, R^χ and Steinberg rings are named in item 036's note as planned in L7 and R08.2.
 
-**4. Part II: "Modularity, automorphy and Langlands endpoint extensions, Part II: symmetric power functoriality by level-raising on definite unitary groups"** (`SymmetricPowersByUnitaryLevelRaising`, area `automorphic`, 33 items). It takes the method:
+**4. Part II: "Modularity, automorphy and Langlands endpoint extensions, Part II: symmetric power functoriality by level-raising on definite unitary groups"** (`SymmetricPowersByUnitaryLevelRaising`, area `automorphic`, 38 missing items). It takes the method:
 
 - §2's modules and integral structures;
 - §3's packet identification and compact transfer counts;
 - §4's automorphic level-raising;
 - §5's Galois level-raising and Theorem 5.7, with Thorne 2015 as a stated input;
-- the congruence and Theorem 6.2.
+- Theorem 6.2, importing the congruence from ArithmeticGaloisRepresentations G7.
 
 It is a Part II rather than part of ML.3 because ML.3 records endpoints, and this is a 50-page proof with its own infrastructure. The Boxer–Calegari–Gee extraction made the same choice for level-one change of weight (`LevelOneCuspidalCohomologyGLn`).
 
 - **Imports** (in the brief):
   - ML.4, ML.5 and the ML source route;
   - ET.0, ET.1, ET.4, ET.6, ET.7;
-  - SR.1–SR.3 with route 2;
+  - SR.1–SR.4 with route 2 for the common presentation/coefficient interface, and route 6 for Kazhdan–Lusztig;
   - RG2.2, RG2.4;
   - AF.5;
   - AG2.0/AG2.2/AG2.5;
@@ -155,8 +175,8 @@ It is a Part II rather than part of ML.3 because ML.3 records endpoints, and thi
 
 ## Judgement calls for the reviewer
 
-- **Where Thorne 2015 and Theorem 5.7 live.** They are routed into this Part II. They could instead join the proposed PolarizedAutomorphyLifting Part II when it is designed, since both concern automorphy lifting on definite unitary groups. The brief asks the two design jobs to agree which one owns them.
-- **Kazhdan–Lusztig as a source of SR.3.** It is a deep theorem, and SR.3's description does not name it. A reviewer may prefer a separate Part II of SmoothRepresentationsOfLocalGroups for Iwahori-spherical representation theory.
+- **Where Thorne 2015 and Theorem 5.7 live.** The accepted review settled the original choice: general Thorne 2015 inputs are in PolarizedAutomorphyLifting; the paper’s Theorems 5.1 and 5.7 stay in SymmetricPowersByUnitaryLevelRaising.
+- **Kazhdan–Lusztig.** The classification and standard-module results belong to the Part II. The common concrete Iwahori presentation has the upstream SR.1/SR.4 source owner.
 - **Endpoints routed as a source, not into the Part II.** Theorem 6.1 and the §7 reductions go to ML.3 as a source, while Theorem 6.2 goes to the Part II. The line is drawn between the final endpoint, which ML.3 owns, and the method's own theorem.
 
 ## Prerequisites not yet covered by the atlas
@@ -199,7 +219,7 @@ The review accepted the extraction after corrections made in place, and added fo
   - coefficient conjugation, Dickson and Fontaine–Laffaille.
 - **Routes:**
   - The Part II (route 4) is accepted, and the owner question left open is settled: Thorne 2015 goes to PolarizedAutomorphyLifting (route 5), while Theorems 5.1 and 5.7 stay.
-  - The Iwahori–Hecke presentations and Kazhdan–Lusztig's classification move to SmoothRepresentationsPartIIParahoricCenters (route 6).
+  - Historically the review moved both presentations and classification to route 6. Fix #5516 reconciles the later Kisin–Pappas coalescence: the shared concrete presentations are in route 2, and the classification remains in route 6.
   - The congruence (1.1) moves to ArithmeticGaloisRepresentations G7 (route 7), with the Newton–Thorne decomposition.
   - [CHT08, Lemma 4.1.4] and coefficient conjugation go to AutomorphicGaloisRepresentationsPartII (route 8).
 
@@ -211,6 +231,71 @@ The review accepted the extraction after corrections made in place, and added fo
     - E10: a false uniqueness claim in §3.5;
     - E20: primitivity of r_{𝔭₀} is unproved;
     - E21: Lemma 5.3 is proved only for unipotent conditions;
-    - E22: Theorem 6.2 needs F(ζ_l) ⊄ F(ad ρ̄) for Theorem 5.7(4);
+    - E22: the review alleged a missing cyclotomic hypothesis. The confirmed red-team verification retracts this conclusion: Theorem 6.2(3) and the S-split argument already verify Theorem 5.7(4). The original review file is unchanged;
     - E23: the descent in Theorem 7.1 is ambiguous up to η_{E/F}.
   - All have direct repairs, and none affects Theorem 1.1 or Corollaries 1.2–1.3 under their stated hypotheses.
+
+## Corrected theorem contracts
+
+**The integral presentation (006; E24).** The accessed manuscript’s use of
+Z[B_W] is a coefficient error separate from E6’s sign. Every braid-group
+generator is a unit, whereas the unital degree character sends [BsB] to q>1
+in Z. The integral algebra therefore uses positive braid generators with
+braid and quadratic relations. This preserves the application over O with
+l≠p, where q is a unit. E24 is scoped to the accepted manuscript pp.6–7;
+the journal printing is unexamined.
+
+**Local and global duality (064–065; route 4).** Theorem 3.3 supplies the
+perfect **K-valued** pairing on Y_K^B used in Proposition 2.9, including the
+localized K-subspaces and the contragredient anti-involution. It implies no
+perfect pairing on a chosen integral lattice. Proposition 2.6 constructs its
+lattice under a primitive-root hypothesis; Proposition 2.9 uses q≡−1 mod l,
+which has order two rather than l−1 for l=5,7. Its rational matrices remain
+available by Remark 2.7. The projector e_P=(1+T_{s_k})/(q+1) exists over
+C/K, or in an applicable averaging regime with q+1 invertible. It is not
+an integral Hecke element at the level-raising place. Integral Hecke actions
+and Bernstein localizations remain separate. The perfect integral **global**
+pairing needed for level raising is independently supplied by Proposition 4.3
+(item 033), not by local rational self-duality.
+
+**Theorem 6.2 (049; retracted E22).** Its hypothesis (3) makes q_{u_0} a
+primitive root modulo l, so arithmetic Frobenius on μ_l has order l−1.
+Consequently [F(ζ_l):F]=l−1, which is 4 or 6. The PSL_2/PGL_2 projective
+image has abelianization of order at most two and cannot contain that
+cyclotomic field. The adjoint field of the residual symmetric power is a
+subfield of the original projective field; equality of the kernels is not
+needed.
+
+The proof’s auxiliary E_0 has a soluble S-split Galois closure M/F. If its
+intersection with the joint residual/cyclotomic extension L/F were nontrivial,
+the soluble intersection group would have a simple quotient. That would give
+a simple Galois subextension of L/F split at every S-place, contrary to the
+choice of S on p.45. Thus L∩M=F, preserving both images and the cyclotomic
+degree over E_0. This verifies Theorem 5.7(4). Theorem 6.2 gains no hypothesis.
+E22 corrects an earlier audit conclusion, not a mathematical source gap.
+
+**Lemma 5.3 (040; E21).** Under the standing §5.1 hypotheses, at each
+v∈R_0 require R_v^1, R_v^St or R_v^m, with v∤l and q_v≡1 mod l.
+The bound dim R_D^red≤1+n[L^+:Q]−d and finiteness over Λ_L are stated
+with this restriction. A nontrivial-character R_v^{χ_v} version requires a
+separate twisting/character argument before it is advertised. The existing
+application on p.43 has R_0 empty and remains valid.
+
+## Fix reading and validation
+
+On 2026-10-01 Codex downloaded the actual 53-page Cambridge accepted manuscript,
+SHA-256 `fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742`,
+and reread pp.6–8,12,17–18,35–36,39–46, including images 7,18,45. This is a
+bounded fix reading; the earlier extraction, review and red-team full readings
+remain provenance. The publisher’s Crossref download returned HTTP 200 HTML
+rather than a PDF, so no journal comparison is claimed. Crossref metadata has
+no correction relation; a bounded title/erratum search found no applicable
+correction. Author-page fetches failed; an indexed listing was only a lead.
+No author was contacted.
+
+The paper checker, intake checks, source-issue/version schema checks, structural
+and route checks, exact rank-one coefficient/projector calculations and finite
+cyclotomic-order tests passed, as did git diff --check. All 81 IDs and item
+classifications remain; only 006/008 move between routes. The independent
+review file and historical source verdicts remain unchanged. No Lean artifact
+is required or compiled. Independent fix review remains pending.
