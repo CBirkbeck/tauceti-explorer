@@ -1,52 +1,52 @@
-# BP-DirichletPadicLFunctions: Robert’s rational Gamma values in the precise algebraic field
+# BP-DirichletPadicLFunctions: Robert’s dyadic and all-prime Gamma reflection
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #5360,
-merged 8d16ed9a21ed17b887df38ba654bc1c4581ab8b4 with head 1837fe708937ecbdf089c00f102502939aa56882.
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #5362,
+merged 1487a97f4339cdb535733c234f4961b5dc8dc37d with head 69abc00ae3832f69a6ecd96cb3eb304e363e2258.
 Original claim5854790528, winning bot5854791937; no additional claim.
 Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Plans denominator-character torsion, finite Gauss field membership, the proper-rational comparison and exact field, reversible integer shifts, all-integer numerator membership, actualQ_p algebraicity and radical-choice independence.
+Plans the continuous dyadic sign, natural and all-Z2 reflection, opposite/shifted dyadic reflection, actual quotient low-digit compatibility and unified all-prime negative-argument formula.
 
-Totals: 1148 unchecked nodes (2 definitions, 515 lemmas, 112 constructions, 314 theorems, 205 comparisons), 828 API entries,
-2243 packet tests (487 on definitions/constructions),
-2246 typed examples, 24 planets and 889 baseline records.
+Totals: 1154 unchecked nodes (2 definitions, 517 lemmas, 112 constructions, 318 theorems, 205 comparisons), 828 API entries,
+2262 packet tests (487 on definitions/constructions),
+2265 typed examples, 24 planets and 890 baseline records.
 20 findings, 18 gaps, 16 requests and zero closed stages.
-All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. The proper-fraction range avoids the already recorded E19 endpoint.
+All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added; the dyadic source formulas are consistent with the exact recurrence and boundary values.
 
-Robert2001 Corollary2 now has an exact native consumer proof: every integer numerator over a positive divisor ofp−1 gives a Gamma value inQ(mu_(np),nth-root(−p)), with root-choice independence and algebraicity of the actualQ_p value. The two exact native RD.6 coefficient and chosen-root splitting-value interfaces remain open, so this is still conditional consumer work. Next inspect the explicit dyadic Gamma reflection formula in Robert2001 Appendix1, separating its two low binary digits from the odd-prime reflection already proved, then resume the Gross–Koblitz multiplication consequences with the previously recorded common-period boundary. The original Katz/Fermat and external Stickelberger proof-source obligations remain explicit alternatives. E18’s distribution repair remains unproved/unused; E19–E20 await independent review. All18 gaps and16 requests remain; zero stages close.
+The explicit Robert Appendix1 reflection formulas now have complete native consumer proofs, including the exceptional binary second digit and the unified sign for every prime. This checkpoint uses only existing Gamma laws and native facts, and needs no Dwork theorem. Resume the Gross–Koblitz multiplication consequences and the exact common-period issue before drawing distribution conclusions. The original Katz/Fermat and external Stickelberger proof-source alternatives remain open, as do the two exact native RD.6 Dwork interfaces needed by the separate Robert Gauss route. E18’s distribution repair remains unproved/unused; E19–E20 await independent review. All18 gaps and16 requests remain, with zero closed stages.
 
 ## Reading and validation
 
-Rereads Robert2001 p.168 Corollary2 and its entire proof onp.169, together with Theorem4 and the Appendix2 character convention. Reads the complete pinned adjoin, finite field-closure, algebraicity-of-powers, relative algebraic closure, ring-homomorphism transport, digit and character-power proofs. Reads the matching core integer division/remainder proofs. Searches native Kummer APIs; their irreducibility/splitting hypotheses do not supply this elementary generated-field equality. Seventeen complete new native lemmas establish the consumer route without a new private mathematical definition.
+Rereads Robert2001 p.169 Appendix1 in full from the original page image, with exact signs1+x1,1+x0+x1 and1+x0+(p+1)x1. Rereads the complete existing all-prime Gamma reflection step, odd-prime reflection and dense-extension proofs. Reads the pinned negated ZMod value proof, full norm/ideal and quotient-kernel proofs, quotient transition proof and parity reduction; checks the low-digit carrier compatibility. Nine new complete native lemmas establish the dyadic and unified consequences.
 
-All 1140 predecessor nodes, 879 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1408 reachable nodes, 6626 edges and 1054 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. The character, finite Gauss field, integer-shift and radical-choice nodes use only preceding local nodes and pinned native facts. The four actual rational-Gamma consumers reach exactly the existing RD.6 requests through the Robert comparison. No stage leaf or request is added.
+All 1148 predecessor nodes, 889 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 6 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1414 reachable nodes, 6646 edges and 1055 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All six new routes terminate in preceding local Gamma nodes and pinned native facts. No new route reaches a stage request, and no stage leaf or supplier request is added.
 
 **The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
 
 The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
 
-The complete probe preserves5360 verbatim and adds17 complete lemmas with no new private definition. It proves finite Gauss membership, actual Robert specialization, field-preserving recurrence, exact Euclidean reduction, algebraicity transport and root-choice equality. Eight suggested declarations and20 typed tests match the promoted nodes. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+The complete probe preserves5362 verbatim and adds9 complete lemmas, with no new private definition. It proves all residue signs, recurrence, continuity, dense extension and actual quotient compatibility. Six suggested declarations and19 typed tests match the promoted nodes. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
 
-Exact finite controls check623 actual Teichmuller character powers,69 proper-fraction exponents,572 signed Euclidean reductions and Gamma recurrence steps,15 half-value polynomial/sign samples, and six excluded p-denominator cases. Exact finite modular controls using native character conventions and integer Gamma approximants. They test torsion, proper-fraction range, negative Euclidean division, both recurrence branches and the half-value polynomial/sign; they do not prove analytic convergence or replace the conditional Dwork inputs. The largest observed discrepancy is 0 (exact arithmetic).
+Exact finite controls check10,000 sign recurrences,1,224 dyadic reflection values,1,224 dyadic negative-argument values,2,142 all-prime values and low-digit comparisons, six same-parity sign failures and the excluded dyadic half. Exact finite modular controls using buffered integer approximants to the existing Gamma function, including negative rational numerators and odd denominators. Sign, recurrence and residue identities are checked without floating-point arithmetic. The controls do not replace the native continuity and density proof. The largest observed discrepancy is 0 (exact arithmetic).
 
-All73 captured inputs are unchanged from5360; exact predecessor outputs and the whole issue text are preserved. The existing Dwork owner, policy, source versions and library audit remain at the reviewed blobs.
+All73 captured inputs are unchanged from5362; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
 
-The publication guard at ad39a258a3be6c503b28c44535d96cd37a8b1750 checks 73 inputs,
+The publication guard at dcdbf90709b9a223f674ce32cda646d675bd0068 checks 73 inputs,
 four predecessor outputs, unchanged issue text, the original winning claim
 and unclaimed review #390.
-Suggested SHA256: `5b8e2cf410c4286ffe415a69df841862199bb062f847a6138fa032c9b32f44c2`.
-Native probe SHA256: `9a34658d70a8c8c258b120c59cf0b693010a2639a0e8f4fbd8efec374e5ae3e4`.
+Suggested SHA256: `47d7eabb84f783b4829b606a7467e0d607d8692a44f0a9b13c5b512a542f161e`.
+Native probe SHA256: `4e97d28f4ad751107ded4003471a6f1717f77e3851f8e5a572da95e32875d76d`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain RobertAlgebraicProbe.lean and its compiler/result/source audit, finite
+Retain RobertDyadicProbe.lean and its compiler/result/source audit, finite
 control code and results, the full-module NOT-COMPILED receipt and source
 audit, artifact-availability and source-review assessment, dependency and
 preservation receipts, captured inputs and guard, and exact submitted files
 with remote receipts. These are retained with this PR's local evidence;
 scratch is retired after submission. The seven-module Teichmuller reuse receipt and artifact hashes are retained alongside the artifact audit. No private path or source PDF is published.
 
-The separate partial signature file also compiled with zero errors and 3,724 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: b82c86ad56ce44cd4d518aa488d9669a3de6e58ed0bc19aa17fa983099c6a3b6.
+The separate partial signature file also compiled with zero errors and 3,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 6 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1e841e6d0c099ed8cfc92555e8b4df589f3bbf345a9aa8d924b1327dd398392d.
