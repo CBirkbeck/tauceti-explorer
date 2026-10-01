@@ -35336,8 +35336,9 @@
     "REV-PAPER-YUAN-ZHANG-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4104"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4104",
+   "finishedAt": "2026-10-01T17:42:10Z"
   },
   {
    "id": "REV-RT-PAPER-YUAN-ZHANG-18",
@@ -39815,7 +39816,8 @@
     "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4264"
   },
   {
    "id": "REV-RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
