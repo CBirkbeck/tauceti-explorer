@@ -35335,7 +35335,8 @@
     "REV-PAPER-YUAN-ZHANG-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4104"
   },
   {
    "id": "REV-RT-PAPER-YUAN-ZHANG-18",
@@ -37518,7 +37519,8 @@
     "REV-PAPER-BENOIST-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4171"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-18",
@@ -38536,8 +38538,9 @@
     "REV-PAPER-IM-KIM-LE-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4214"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4214",
+   "finishedAt": "2026-10-01T17:23:09Z"
   },
   {
    "id": "REV-RT-PAPER-IM-KIM-LE-ETAL-24",
@@ -39093,8 +39096,9 @@
     "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4235"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4235",
+   "finishedAt": "2026-10-01T17:23:15Z"
   },
   {
    "id": "RT-PAPER-LI-LIU-22",
