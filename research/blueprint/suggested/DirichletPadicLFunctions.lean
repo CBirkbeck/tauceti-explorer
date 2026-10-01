@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.Wilson
+import Mathlib.RingTheory.RootsOfUnity.Lemmas
 import Mathlib.Data.Nat.Digits.Lemmas
 import Mathlib.NumberTheory.GaussSum
 import Mathlib.Data.Nat.Digits.Defs
@@ -18801,3 +18803,196 @@ example [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]] (hcard : Nat.card 𝓀[K]=9
 example [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]] (hcard : Nat.card 𝓀[K]=9) (ζ : K) (hζ : IsPrimitiveRoot ζ 3) (ι : ℤ_[3] →+* K) (x : ℕ → ℤ_[3]) (hx : ∀ j,8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (-gaussSum (grossKoblitzInverseChar K 5) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))*(-gaussSum (grossKoblitzInverseChar K 3) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=ι ((-3 : ℤ_[3])^2*(∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))) := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzCharacterTests
+
+/- The source-normalized Gross–Koblitz pi. -/
+namespace DirichletPadic
+open IsLocalRing Polynomial Finset ValuativeRel
+open scoped Classical
+def grossKoblitzCycloUnit (p : ℕ) {R : Type*} [CommRing R] (ζ : R) : R := by sorry
+
+lemma grossKoblitzCycloUnit_def (p : ℕ) {R : Type*} [CommRing R] (ζ : R) :
+    grossKoblitzCycloUnit p ζ=-(∏ i ∈ range (p-1), ∑ j ∈ range (i+1), ζ^j) := by sorry
+
+section Cyclotomic
+variable (p : ℕ) [Fact p.Prime] {R : Type*} [CommRing R]
+
+
+
+omit [Fact p.Prime] in
+lemma grossKoblitzCycloUnit_map_one {A : Type*} [CommRing A] (φ : R →+* A) (ζ : R)
+    (hζ : φ ζ=1) : φ (grossKoblitzCycloUnit p ζ)=-((p-1).factorial : A) := by sorry
+
+variable [IsDomain R]
+
+lemma grossKoblitzCycloUnit_congruence (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    ζ-1 ∣ grossKoblitzCycloUnit p ζ-1 := by sorry
+
+lemma grossKoblitzCycloUnit_power (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    (ζ-1)^(p-1)*grossKoblitzCycloUnit p ζ=-(p : R) := by sorry
+
+end Cyclotomic
+
+section Normalization
+variable (p : ℕ) [Fact p.Prime] {R : Type*} [CommRing R] [HenselianLocalRing R]
+  [IsDomain R] [CharP (ResidueField R) p]
+
+
+
+lemma grossKoblitzCycloUnit_isUnit (ζ : R) (hζ : IsPrimitiveRoot ζ p) : IsUnit (grossKoblitzCycloUnit p ζ) := by sorry
+
+lemma grossKoblitzCycloUnit_root (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    ∃! u : R, u^(p-1)=grossKoblitzCycloUnit p ζ ∧ ζ-1 ∣ u-1 := by sorry
+
+lemma grossKoblitzPi_exists_unique (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    ∃! π : R, π^(p-1)=-(p : R) ∧ (ζ-1)^2 ∣ π-(ζ-1) := by sorry
+
+noncomputable def grossKoblitzPi (p : ℕ) [Fact p.Prime] {R : Type*}
+    [CommRing R] [HenselianLocalRing R] [IsDomain R] [CharP (ResidueField R) p] (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) : R := by sorry
+
+lemma grossKoblitzPi_def (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    grossKoblitzPi p hp ζ hζ=(grossKoblitzPi_exists_unique p hp ζ hζ).choose := by sorry
+
+lemma grossKoblitzPi_power (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    (grossKoblitzPi p hp ζ hζ)^(p-1)=-(p : R) := by sorry
+
+lemma grossKoblitzPi_congruence (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    (ζ-1)^2 ∣ grossKoblitzPi p hp ζ hζ-(ζ-1) := by sorry
+
+lemma grossKoblitzPi_unique (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) (π : R)
+    (hpow : π^(p-1)=-(p : R)) (hcong : (ζ-1)^2 ∣ π-(ζ-1)) :
+    π=grossKoblitzPi p hp ζ hζ := by sorry
+
+lemma grossKoblitzPi_ne_zero (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p) :
+    grossKoblitzPi p hp ζ hζ≠0 := by sorry
+
+lemma grossKoblitzPi_map (hp : p≠2) (ζ : R) (hζ : IsPrimitiveRoot ζ p)
+    {A : Type*} [CommRing A] [HenselianLocalRing A] [IsDomain A] [CharP (ResidueField A) p]
+    (φ : R →+* A) (hφζ : IsPrimitiveRoot (φ ζ) p) :
+    φ (grossKoblitzPi p hp ζ hζ)=grossKoblitzPi p hp (φ ζ) hφζ := by sorry
+
+end Normalization
+
+section Ternary
+variable {R : Type*} [CommRing R] [HenselianLocalRing R] [IsDomain R]
+  [CharP (ResidueField R) 3]
+
+lemma grossKoblitzPi_ternary (ζ : R) (hζ : IsPrimitiveRoot ζ 3) :
+    grossKoblitzPi 3 (by decide) ζ hζ=ζ*(ζ-1) := by sorry
+
+end Ternary
+
+
+section Field
+variable (p : ℕ) [Fact p.Prime] (K : Type*) [Field K] [ValuativeRel K]
+  [TopologicalSpace K] [IsNonarchimedeanLocalField K] [CharP 𝓀[K] p]
+
+lemma grossKoblitzFieldPi_exists_unique (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    ∃! π : K, π^(p-1)=-(p : K) ∧
+      ∃ a : 𝒪[K], π-(ζ-1)=(ζ-1)^2*(a : K) := by sorry
+
+noncomputable def grossKoblitzFieldPi (p : ℕ) [Fact p.Prime] (K : Type*) [Field K]
+    [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+    [CharP 𝓀[K] p] (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) : K := by sorry
+
+lemma grossKoblitzFieldPi_def (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    grossKoblitzFieldPi p K hp ζ hζ=(grossKoblitzFieldPi_exists_unique p K hp ζ hζ).choose := by sorry
+
+lemma grossKoblitzFieldPi_power (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    grossKoblitzFieldPi p K hp ζ hζ^(p-1)=-(p : K) := by sorry
+
+lemma grossKoblitzFieldPi_congruence (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    ∃ a : 𝒪[K], grossKoblitzFieldPi p K hp ζ hζ-(ζ-1)=(ζ-1)^2*(a : K) := by sorry
+
+lemma grossKoblitzFieldPi_unique (hp : p≠2) (ζ : K) (hζ : IsPrimitiveRoot ζ p) (π : K)
+    (hpow : π^(p-1)=-(p : K))
+    (hcong : ∃ a : 𝒪[K], π-(ζ-1)=(ζ-1)^2*(a : K)) :
+    π=grossKoblitzFieldPi p K hp ζ hζ := by sorry
+
+lemma grossKoblitzFieldPi_integer (hp : p≠2) (ζ : 𝒪[K]) (hζ : IsPrimitiveRoot ζ p) :
+    grossKoblitzFieldPi p K hp (ζ : K)
+      (hζ.map_of_injective (f := 𝒪[K].subtype) Subtype.val_injective)=
+      ((grossKoblitzPi p hp ζ hζ : 𝒪[K]) : K) := by sorry
+
+end Field
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzPiTests
+open IsLocalRing Finset ValuativeRel
+noncomputable section
+section Cyclotomic
+variable {R : Type*} [CommRing R]
+-- unit_at_one
+example : grossKoblitzCycloUnit 3 (1 : R)=-2 := by sorry
+-- unit_at_zero
+example : grossKoblitzCycloUnit 3 (0 : R)=-1 := by sorry
+-- unit_ternary_polynomial
+example (ζ : R) : grossKoblitzCycloUnit 3 ζ=-(1+ζ) := by sorry
+-- unit_map_one
+example {A : Type*} [CommRing A] (φ : R →+* A) (ζ : R) (h : φ ζ=1) : φ (grossKoblitzCycloUnit 3 ζ)=-2 := by sorry
+variable [IsDomain R]
+-- unit_congruence
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : ζ-1 ∣ grossKoblitzCycloUnit 3 ζ-1 := by sorry
+-- unit_power_ternary
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : (ζ-1)^2*grossKoblitzCycloUnit 3 ζ=-3 := by sorry
+-- unit_power_wrong_sign
+example [CharZero R] (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : (ζ-1)^2*grossKoblitzCycloUnit 3 ζ≠3 := by sorry
+end Cyclotomic
+section Integral
+variable {R : Type*} [CommRing R] [HenselianLocalRing R] [IsDomain R]
+  [CharP (ResidueField R) 3]
+-- cyclotomic_is_unit
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : IsUnit (grossKoblitzCycloUnit 3 ζ) := by sorry
+-- normalized_unit_root
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : ∃! u : R, u^2=grossKoblitzCycloUnit 3 ζ ∧ ζ-1 ∣ u-1 := by sorry
+-- ternary_unit_root
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : ζ^2=grossKoblitzCycloUnit 3 ζ ∧ ζ-1 ∣ ζ-1 := by sorry
+-- integral_pi_exists
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : ∃! π : R, π^2=-3 ∧ (ζ-1)^2 ∣ π-(ζ-1) := by sorry
+-- pi_is_nonzero
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ≠0 := by sorry
+-- pi_ternary_value
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ=ζ*(ζ-1) := by sorry
+-- pi_definition
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ=(grossKoblitzPi_exists_unique 3 (by decide) ζ hζ).choose := by sorry
+-- pi_square
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ^2=-3 := by sorry
+-- opposite_square
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : (-grossKoblitzPi 3 (by decide) ζ hζ)^2=-3 := by sorry
+-- pi_exact_ternary_congruence
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ-(ζ-1)=(ζ-1)^2 := by sorry
+-- opposite_wrong_congruence
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : ¬(ζ-1)^2 ∣ -grossKoblitzPi 3 (by decide) ζ hζ-(ζ-1) := by sorry
+-- normalized_candidate_unique
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) (π : R) (h : π^2=-3 ∧ (ζ-1)^2 ∣ π-(ζ-1)) : π=grossKoblitzPi 3 (by decide) ζ hζ := by sorry
+-- pi_nonzero
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ≠0 := by sorry
+-- pi_identity_map
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : (RingHom.id R) (grossKoblitzPi 3 (by decide) ζ hζ)=grossKoblitzPi 3 (by decide) ζ hζ := by sorry
+-- pi_map_compatibility
+example {A : Type*} [CommRing A] [HenselianLocalRing A] [IsDomain A] [CharP (ResidueField A) 3] (φ : R →+* A) (ζ : R) (hζ : IsPrimitiveRoot ζ 3) (hφζ : IsPrimitiveRoot (φ ζ) 3) : φ (grossKoblitzPi 3 (by decide) ζ hζ)=grossKoblitzPi 3 (by decide) (φ ζ) hφζ := by sorry
+-- pi_ternary_polynomial
+example (ζ : R) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzPi 3 (by decide) ζ hζ=ζ^2-ζ := by sorry
+end Integral
+section Field
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [CharP 𝓀[K] 3]
+-- field_pi_exists
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : ∃! π : K, π^2=-3 ∧ ∃ a : 𝒪[K], π-(ζ-1)=(ζ-1)^2*(a : K) := by sorry
+-- field_pi_square
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzFieldPi 3 K (by decide) ζ hζ^2=-3 := by sorry
+-- field_pi_integral_difference
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : ∃ a : 𝒪[K], grossKoblitzFieldPi 3 K (by decide) ζ hζ-(ζ-1)=(ζ-1)^2*(a : K) := by sorry
+-- field_opposite_root
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : (-grossKoblitzFieldPi 3 K (by decide) ζ hζ)^2=-3 := by sorry
+-- field_power
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzFieldPi 3 K (by decide) ζ hζ^2=-(3 : K) := by sorry
+-- field_congruence
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : ∃ a : 𝒪[K], grossKoblitzFieldPi 3 K (by decide) ζ hζ-(ζ-1)=(ζ-1)^2*(a : K) := by sorry
+-- field_candidate_unique
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) (π : K) (hpow : π^2=-3) (hcong : ∃ a : 𝒪[K], π-(ζ-1)=(ζ-1)^2*(a : K)) : π=grossKoblitzFieldPi 3 K (by decide) ζ hζ := by sorry
+-- field_integral_comparison
+example (ζ : 𝒪[K]) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzFieldPi 3 K (by decide) (ζ : K) (hζ.map_of_injective (f := 𝒪[K].subtype) Subtype.val_injective)=((grossKoblitzPi 3 (by decide) ζ hζ : 𝒪[K]) : K) := by sorry
+end Field
+end
+end DirichletPadic.SuggestedGrossKoblitzPiTests
