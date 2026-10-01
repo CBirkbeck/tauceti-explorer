@@ -1,0 +1,88 @@
+{
+  "redteam": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+  "summary": "Five findings: two high-severity false statements inherited from the published source (geometric-fibre closedness before base change and the missing finite-residue-field hypothesis in Lemma 3.35), and three medium-severity omissions (Hochschild–Ext input, derived-deformation homotopy discreteness, and Remark 6.2 density refinements). Existing source corrections are not duplicated.",
+  "checked": [
+    "Independence: extraction by Claude Code cc-442dc5 and accepted review by Claude Code cc-fb70e5; neither was authored or reviewed by this Codex session. Audited repository base 6613ed8d1e3731718da1f17704005a40a21e6f0d.",
+    "Read the published 54-page article in full: introduction, §§2–6, Appendix A and references. Visually checked publisher PDF pages 8 and 24 for the two false statements. Read the complete one-page published corrigendum; it concerns only the affiliation.",
+    "Read all 148 extraction items, seven routes and briefs, prerequisite list, sourceIssues and accepted review. Compared theorem hypotheses, coefficients, dimension counts, fixed determinant versus fixed torsion determinant, Kummer-irreducibility and density regimes with the published text.",
+    "Checked the two counterexamples in the report. Read Böckle–Juschka published pp. 16–19, especially Corollary 3.3.4 and Lemma 3.3.5 and their proofs, to test the corrected completion statement.",
+    "Checked the nine recorded source corrections against their published passages and the review; kept them separate from the new findings. Searched the Cambridge corrigendum, current arXiv version history (v2, 22 August 2023), Iyengar’s publication page, and title/erratum and Lemma-3.35 web searches on 2026-10-01. No correction to the two new passages was found in those searches.",
+    "Reassembled the atlas without distances. All 137 missing items are assigned exactly once; route item references are valid; no duplicate route assignments; all 13 explicit planned/source stage references resolve. Read the relevant stage descriptions for R03.1–3, P7–9, R08.1/R08.3, IHG.0–1, R04.1, D7, R06.2, R31.5, LP2–3, RefinedTraceMethods RT.1 and upstream DGAInfinity Layer 8, ClassFieldTheory Layers 5/7 and ModularCurves Layer 4D. Checked proposed-roadmap files for competing relevant owners.",
+    "Read available reviewed library-coverage entries for R03.1/R03.3, D7, LP3, R31.5 and DGAInfinity Layer 8. Several named layers have no reviewed coverage entry; their stage descriptions were checked directly rather than treating that absence as a library verdict.",
+    "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 read the seven cited declarations: RingTheory.Sequence.IsRegular, IsRegularLocalRing, IsJacobsonRing, RingHom.FiniteType.isJacobsonRing, Algebra.HasGoingDown.of_flat, PolynomialLaw and UniqueFactorizationMonoid. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 inspected the finite-type Krull-dimension results and searched the full tree. Bounded searches of both pinned trees found no implementation of the Hochschild, deformation-ring, complete-intersection or Cohen–Macaulay targets; matrix Cayley–Hamilton results are not determinant-law Cayley–Hamilton algebras.",
+    "Applied PROTOCOL §16: a directly cited result needs an item and status/route; its proof closure and detailed APIs/tests are not extraction deliverables. No Lean build, Lake project or language server was started."
+  ],
+  "findings": [
+    {
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json items /001 and sourceIssues; route 6 GIT brief",
+      "claim": "Item /001 identifies the fibre over an arbitrary geometric point of X//G with a closed G-invariant subscheme of X. This is false before base change. It copies an uncorrected sentence of the published source.",
+      "evidence": "Böckle–Iyengar–Paškūnas, published article, p. 8, paragraph between Lemmas 2.1 and 2.2: “We may identify the fibre X_y with a closed G-invariant subscheme of X.” This was checked in the rendered publisher PDF. Take an algebraically closed field k, S=Spec k, X=A¹_k, and G=G_m acting trivially. Then X//G=X. For the geometric generic point y=Spec(overline{k(t)}), X_y=Spec(overline{k(t)}) maps to the generic point of X; its image is not closed. The corrected closed immersion is X_y → X×_S Spec κ, over the κ-rational point of (X//G)×_S Spec κ. The nine existing sourceIssues do not record this.",
+      "fix": "Replace the last assertion of /001 by the closed G_κ-invariant immersion into X×_S Spec κ. Use G_κ on the geometric fibre in /003–/004 and route 6. Add a version-scoped sourceIssues entry for the p. 8 sentence, with this counterexample and the base-change correction; the tangent-space inequality of Lemma 2.2 remains intact. Do not change the theorem to a claim about closed subschemes of the original X.",
+      "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/1"
+    },
+    {
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json item /049; route 1, Lemma 3.35; sourceIssues",
+      "claim": "The single-variable completion formula in /049 needs κ(𝔭) finite over κ(𝔭∩R). Merely requiring 𝔭∩R∈P₁R, with A a finite-type R-algebra, does not imply this. The extraction carries the overly broad published Lemma 3.35 forward as a build target.",
+      "evidence": "Published p. 24, Lemma 3.35, states precisely those weaker hypotheses. Its proof asserts that finite generation of A over R makes κ(𝔭)/κ(𝔭∩R) finite. Counterexample: k=F_p, R=k[[t]], A=R[x], 𝔭=(0). Its contraction is in P₁R, but K=κ(𝔭)=k((t))(x) is transcendental over k((t)); Â_𝔭=K. For B=K⊗_k A and the diagonal kernel 𝔮, differentiation in t and x gives two independent K-valued derivations of B_𝔮 at the residue map. They extend to its 𝔮-adic completion and detect respectively 1⊗t−t⊗1 and 1⊗x−x⊗1. Thus the completed local ring has cotangent dimension at least two, whereas K[[T]] has dimension one. Böckle–Juschka, published Forum Math. Sigma 11 (2023), e102, Corollary 3.3.4 and Lemma 3.3.5, pp. 17–19, use the local-field diagonal completion; their proof supports the correction.",
+      "fix": "Add the finite-residue-extension hypothesis to /049, or require 𝔭 to be closed in the inverse image of the punctured spectrum. Then κ(𝔭) is a characteristic-p local field and the one-variable argument applies. Retain the separate hypotheses of /050–/051. Explain that the uses in Corollary 3.38 and Proposition 4.9 concern closed points, where Lemma 3.18(3) supplies finiteness. Add a sourceIssues error affecting the stated Lemma 3.35 (not a retraction of the main theorems), with the published version, counterexample and corrected hypothesis; update the route-1 reader accordingly.",
+      "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/2"
+    },
+    {
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json item /026, items, prerequisites and route 6",
+      "claim": "The extraction omits the Hochschild-cohomology input to the tangent-space computation. Item /026 gives the final dimension formula but neither states the Hochschild–Ext comparison used in its proof nor records its supplier.",
+      "evidence": "Published p. 14, equation (11), identifies HH¹(E_y,Hom_κ(U,V)) with Ext¹_{E_y}(U,V) and HH⁰(E_y,Hom_κ(U,V)) with Hom_{E_y}(U,V), and uses dim Z¹=dim HH¹+dim Hom_κ(U,V)−dim HH⁰. The paragraph explicitly cites Cartan–Eilenberg, Proposition IX.4.4.1 and Corollary IX.4.4.4. None of the 148 items or prerequisites names Hochschild cohomology or Cartan–Eilenberg. The pinned trees have no algebraic Hochschild cochain implementation; the reviewed audit of upstream DGAInfinity Layer 8 agrees. That layer owns the cochain framework, while RefinedTraceMethods RT.1 concerns the chain/cyclic theory.",
+      "fix": "Record the cited Cartan–Eilenberg comparison as a supplier item, with the field, associative algebra, finite-dimensional modules, Hom bimodule and degrees 0 and 1 explicit. Record the cochain/derivation object it uses and import the planned carrier from tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality. Add the named comparison to route 6 as the input to /026 and identify any general coefficient-comparison extension with its DGAInfinity owner; do not build a second Hochschild carrier. Add Cartan–Eilenberg to prerequisites with this locator. The supplier proof and its closure belong to the subsequent blueprint, not this extraction.",
+      "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/3"
+    },
+    {
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json item /059, prerequisites and route 6; extraction reader main-results section",
+      "claim": "The homotopy-discreteness consequence of Theorem 1.1 is absent. The extraction records the complete intersection and lifting statements, but leaves out the derived deformation ring and the explicitly stated comparison with ordinary deformation theory.",
+      "evidence": "Published p. 2, immediately after Theorem 1.1, says the expected dimension implies, by Galatius–Venkatesh Lemma 7.5, that the derived deformation ring is homotopy discrete. References [26] (Derived Galois deformation rings) and [12] (Cai, Derived deformation rings allowing congruences) supply the context. No item, prerequisite or route brief records this consequence. DeformationAndDerivedPatchingAlgebra P7–P9 plan perfect complexes, coefficient change and patched complexes, not the Galatius–Venkatesh derived deformation functor or its comparison with the ordinary ring.",
+      "fix": "Add a source-bound item for the derived deformation object in the exact local/framed setting used here, the cited Galatius–Venkatesh criterion as an imported result, and the consequence that its positive homotopy groups vanish and its degree-zero ring recovers the ordinary deformation ring. Route the local consequence once to LocalGaloisDeformationRingsPartIIComponentsAndNormality and extend its brief and prerequisite list with [26, Lemma 7.5] (and [12] where its model is used). Keep the generic derived prerequisites as named imports; do not equate derived deformation rings with the already planned perfect-complex patching theory or require supplier proof closure at extraction time.",
+      "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/4"
+    },
+    {
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json item /147 and route 7; extraction reader density discussion",
+      "claim": "Remark 6.2 is present only in /147’s locator. Its stronger density variants are missing from the statement, items and design brief, so a count of numbered locators overstates mathematical coverage.",
+      "evidence": "Published p. 46, Remark 6.2, allows requiring the crystalline representations to be benign in the sense of Emerton–Paškūnas Definition 6.8; it also mentions fixing an inertial type and replacing the unramified extension E in the supercuspidal construction by a ramified extension, referring to [25, §5.3]. Item /131 defines only the unramified-E set, /147 states only the three original sets from Theorem 6.1, and route 7 repeats those original targets. The stronger variants are not stated elsewhere among the 148 items.",
+      "fix": "Extract the variants in Remark 6.2 as separate source-bound items, preserving p∤2d and the precise regular-weight, type and extension hypotheses from the referenced definitions/statements. Include the benign notion and the generalized supercuspidal set where needed. Route them to CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity and update its brief and reader. Give [25, Definition 6.8 and §5.3] as the supplier locators; do not infer an unrestricted fixed-type density theorem from the shorthand in the remark.",
+      "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/5"
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508623000252",
+      "citation": "Böckle–Iyengar–Paškūnas, Forum Math. Pi 11 (2023), e30; DOI 10.1017/fmp.2023.25",
+      "read": "2026-10-01",
+      "sha256": "37c30825ddee2b5b3a9127b358f5f3da3733bba639356b0f88825af0ba0cbc3c"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508624000039",
+      "citation": "Corrigendum, Forum Math. Pi 12 (2024), e5; DOI 10.1017/fmp.2024.3",
+      "read": "2026-10-01",
+      "sha256": "f3d3648535d86a84ad5528ca6d62e2c3b533ecc63a9f8be89c1e0449b52c8596"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050509423000828",
+      "citation": "Böckle–Juschka, Forum Math. Sigma 11 (2023), e102; DOI 10.1017/fms.2023.82; only pp. 16–19 read",
+      "read": "2026-10-01",
+      "sha256": "8a8e268e6f64dc08daf0be601a07207860545e901bd7c58e0e9fe0f546bbd12d"
+    }
+  ]
+}
