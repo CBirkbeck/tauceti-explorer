@@ -33943,8 +33943,9 @@
     "REV-PAPER-YU-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4062"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4062",
+   "finishedAt": "2026-10-01T08:47:11Z"
   },
   {
    "id": "REV-RT-PAPER-YU-23",
