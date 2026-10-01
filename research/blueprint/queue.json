@@ -34328,7 +34328,8 @@
     "REV-PAPER-ZHANG-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ZHANG-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4075"
   },
   {
    "id": "REV-RT-PAPER-ZHANG-21",
@@ -38586,7 +38587,8 @@
     "REV-PAPER-CANNING-LARSON-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4218"
   },
   {
    "id": "REV-RT-PAPER-CANNING-LARSON-PAYNE-24",
@@ -38629,8 +38631,9 @@
     "REV-PAPER-BHATT-MATHEW-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4220"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4220",
+   "finishedAt": "2026-10-01T11:44:37Z"
   },
   {
    "id": "REV-RT-PAPER-BHATT-MATHEW-23",
