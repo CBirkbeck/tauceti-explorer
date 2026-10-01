@@ -38224,7 +38224,9 @@
     "REV-PAPER-CLOZEL-THORNE-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CLOZEL-THORNE-17.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4199",
+   "finishedAt": "2026-10-01T19:10:58Z"
   },
   {
    "id": "RT-PAPER-DEMARCO-MAVRAKI-YE-26",
