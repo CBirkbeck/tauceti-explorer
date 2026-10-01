@@ -19,12 +19,14 @@ version. Every source issue was confirmed against the printed text.
 everything else declared `[thm]`), so a number determines its statement uniquely. There are 109 numbered
 statements, of which 22 are remarks and 4 examples; no duplicate labels, no undefined references.
 
-The paper has been extracted into **107 items**: 3 `library`, 15 `planned` by existing layers, and
-**89 missing, each routed exactly once** — 40 to a new roadmap, 23 to a Part II of *Global shtukas and
-Langlands over function fields*, 26 to a Part II of *Smooth representations of local groups* — together
-with a `source` route naming 8 planned items the paper is a good source for.
+After the accepted review, the current extraction has **142 items**: 3 `library`, 11 `planned`, and
+**128 missing, each routed exactly once** — 63 Smith, 33 global, 32 local — with six items in the
+source route. Codex, session `codex-rtOQ9t`, applied all four independently confirmed red-team findings
+for [issue #5518](https://github.com/CBirkbeck/tauceti-explorer/issues/5518) on 2026-10-01.
+See [the fixes report](../redteam/RT-PAPER-FENG-24.fixes.md). These fixes await independent fix review.
+The four original route memberships, statuses and supplier assignments are retained.
 
-## What the paper proves
+## What the paper states and the qualified construction contracts
 
 Let `k` be an algebraic closure of `F_p`. Throughout, *geometry* is over fields of characteristic `ℓ ≠ p`
 while *coefficients* have characteristic `p` — the Smith-theory convention, deliberately at odds with the
@@ -69,12 +71,13 @@ torus through hyperbolic localisation, identifies `BC` with restriction `Res_BC`
 `Ĥ → Ĝ` on tilting modules — a **categorification of the normalized Brauer homomorphism** of
 Treumann–Venkatesh.
 *(3)* **Shtukas and excursion operators** (§5–§6). `Sht_H` is the `σ`-fixed locus of `Sht_G` on
-representable truncations (Lemma 5.7); Tate cohomology of shtukas carries an excursion action (Drinfeld's
+representable truncations **for finite étale covers** (qualified Lemma 5.7); Tate cohomology of shtukas carries an excursion action (Drinfeld's
 lemma for Tate cohomology, Proposition 5.6, proved in Appendix B); and Theorem 5.11 converts the
 geometric identity `BC = Res_BC` into an identity of excursion operators, with the complementary
 vanishing on the norm-element part. The Tate diagonal `Δ^p : A → T^0(A)` and the unique extension of
-characters (Lemma 5.15) then pin down the base change parameter. Local-global compatibility of
-Genestier–Lafforgue transfers all of this to `F_v`.
+characters (Lemma 5.15) then pin down the base change parameter under the qualified comparison. Local-global compatibility
+imports that comparison to `F_v`; the ramified global input remains a separate proof obligation
+for both routes.
 
 ## What the atlas already has
 
@@ -111,7 +114,7 @@ entirely in characteristic `p`.
 
 ## The routes
 
-**1. `SheafTheoreticSmithTheory` — a new roadmap (40 items, area `geomlanglands`).** *Sheaf-theoretic
+**1. `SheafTheoreticSmithTheory` — a new roadmap (63 missing items, area `geomlanglands`).** *Sheaf-theoretic
 Smith theory, parity sheaves and the base change functor for the Satake category.* This takes §3, §4 and
 Appendix A. A new roadmap rather than a Part II because there is no direction to extend:
 `GeometricSatakeAndFusion` plans the Satake category but nothing about a second, exotic localisation of
@@ -122,16 +125,16 @@ theory, used by Riche–Williamson for the linkage principle and by Leslie–Lon
 contraction functor — so those papers and this one are all sources for it.
 
 **2. `ShtukaTateCohomologyAndGlobalBaseChange` — Part II of `GlobalShtukasAndFunctionFieldLanglands`
-(23 items, area `functionfields`).** *…, Part II: mod p coefficients, Tate cohomology of shtukas and
+(33 missing items, area `functionfields`).** *…, Part II: mod p coefficients, Tate cohomology of shtukas and
 cyclic base change.* §5 and Appendix B act on exactly the objects the parent owns, and add new layers in
 the same direction: the mod `p` coefficient theory where Xue's extension replaces the Hecke-finite
-cuspidal sector; a `Z/pZ`-action on the whole shtuka tower with `Sht_H` as its fixed locus; Tate
+cuspidal sector; a `Z/pZ`-action on the shtuka tower with `Sht_H` as its fixed locus for finite étale covers; Tate
 cohomology of shtukas in place of cohomology; Drinfeld's lemma for Tate cohomology; and the resulting
 identity of excursion operators. The excursion-algebra functoriality `φ_BC^*` and the comparison of the
 algebraic and geometric `L`-groups go here too.
 
 **3. `ModPBernsteinCentersAndLocalBaseChange` — Part II of `SmoothRepresentationsOfLocalGroups`
-(26 items, area `langlands`).** *…, Part II: mod p Bernstein centers, the Brauer homomorphism and local
+(32 missing items, area `langlands`).** *…, Part II: mod p Bernstein centers, the Brauer homomorphism and local
 cyclic base change.* §6 is local representation theory with characteristic `p` coefficients: Hecke
 algebras at Moy–Prasad level and their centers, the Bernstein center as an inverse limit, the Brauer
 homomorphism, `Z_TV`, and the Genestier–Lafforgue correspondence with its local-global compatibility,
@@ -150,7 +153,7 @@ into `SmithTheoryAndModPFunctoriality`, a Part II of `ArithmeticLocallySymmetric
 jobs must not both plan them**: whichever runs first owns them and the other imports them. Both briefs say
 so.
 
-**4. `GlobalShtukasAndFunctionFieldLanglands` — source for GS.1, GS.2, GS.4, GS.5 (8 planned items).**
+**4. `GlobalShtukasAndFunctionFieldLanglands` — source for GS.0, GS.1, GS.2, GS.4, GS.5 (six planned items).**
 §2 and §5.1 are a careful self-contained account of what those layers plan: the excursion algebra in two
 presentations with the comparison between them, Lafforgue's reconstruction of semisimple parameters in
 the modular form proved by Böckle–Harris–Khare–Thorne, and the shtuka stacks with legs, level, iterated
@@ -158,8 +161,8 @@ shtukas and partial Frobenius. The paper is a good source for them even though i
 
 ## Source issues
 
-Seven misprints, all **`affects: nothing`**, and all **confirmed in the published text** (the Cambridge
-Core article page lists no erratum or corrigendum, and arXiv:2009.14236 has no version after v6).
+The original extraction recorded seven misprints, all **`affects: nothing`**, and all **confirmed in the published text** (its version checks are historical). The accepted review added E8–E57. This fix adds E58–E60,
+so the current JSON has **60 source issues**; the original verdicts remain as provenance.
 
 * **E1 (§6.2.1).** "Let `E_v/F_v` be a finite Galois **assumption**" — should read *extension*.
 * **E2 (§6.2.3).** "`Z_F = Z_H(S_H)`" — `S_H` is never defined; the torus just introduced is `S_F`, and
@@ -230,3 +233,88 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and its 
   - The proof of Theorem 5.13 misses the α-components.
   - Proposition 6.3 and Corollary 6.4 are false at r = 0, and the Galois-fixed special vertex need not exist. Both are repaired at r > 0 at any point of B(H/F_v).
   - Theorem 6.26 at r = 0 is unproved.
+
+## Corrected contracts from the confirmed red-team findings
+
+**Ramified descent (finding 1; E58).** Item /60 is now a finite-étale-cover
+statement. For a finite étale $C_p$-torsor, the relation
+$X'\times_X X'=C_p\times X'$ makes the unique equivariance cocycle an actual
+fppf descent datum. Effective descent supplies the torsors, Frobenius,
+modifications and level; the separately routed HN comparison supplies the
+truncation. Items /62–/64 use this same hypothesis. Smith localization itself
+still uses the whole fixed scheme; it does not replace that scheme by a
+smaller descended locus for a ramified cover.
+
+The counterexample is $t=u^3$ over $\mathbf F_7$, with $\sigma(u)=2u$ and the
+trivial line bundle framed by $u$ modulo $(u^3-1)^n$ at $t=1$. It is fixed
+via multiplication by $4$, has no framed automorphisms, but has nontrivial
+inertia at $u=0$ and is not descended, for **every** $n\ge1$. Deep auxiliary
+level therefore does not repair the asserted identification. E41's active
+component repair is now conditional: its $\beta=\phi_*(\alpha)$-sector must
+have a valid, excursion-compatible fixed-locus/summand comparison.
+
+The unrestricted global and local main theorems remain **published targets**,
+with explicit ramified proof obligations in their existing routes; this
+counterexample does not disprove them. Route 2 must build the ramified
+descent/localization comparison and its naturality. Any branch-level repair
+must specify sufficient level at every branch place and prove descent,
+change-of-level compatibility and the claimed level control. No sufficient
+branch-level theorem is asserted here. Route 3 imports that repair.
+Items /85–/87,/91,/94,/95 state working comparisons conditional on a
+compatible finite étale globalization and faithful local-global input;
+such a cover has unramified completion at $v$, so it supplies no ramified
+local result. Their unrestricted formulas are retained in `sourceTarget`.
+The positive-depth double-coset repair alone does not complete these proofs.
+
+**Excursion actions (findings 2–3; E59–E60).** Item /56 uses a central
+$k$-algebra $A$, additive $k$-linear geometric functors
+$F_I:\operatorname{Rep}_k(\widehat G^I)\to\operatorname{Mod}_A$, natural
+coherent fusion, unit normalization and explicit transport in unused legs.
+For a full-L-group representation $W$, put $V=W|_{\widehat G^I}$.
+Its descent maps $r_\gamma:T_\gamma V\to V$ combine with geometric transport
+$a_\gamma$ to give $D^W_\gamma=F_I(r_\gamma)a_\gamma$.
+Creation and annihilation are evaluated on the geometric functors before
+requiring arithmetic equivariance. All six relations, with their actual
+hypotheses, are proved in the fixes report and passed to route 2's design
+contract, including the ordinary-cohomology and Tate instances.
+
+Item /13 still permits only diagonal-$\widehat G$ invariance for $x,\xi$.
+For $p=3$ and a quadratic $\Gamma$-character $\chi$, $W=k(\chi)$ with trivial
+dual-group action allows $x=\xi=1$, although neither is an L-group morphism.
+The corrected construction gives $S=\chi(\gamma)\operatorname{id}$ by
+inflation. The constant ordinary functor sending every arrow to the identity
+is excluded by linearity: creation by zero must give zero. E35's index repair
+remains separate from these two defects.
+
+**Finite tor-amplitude (finding 4).** Review-added /rev-6 now distinguishes
+$Rf_!$ from $Rj_*$. For the stated torsion coefficients, fibre-dimension
+bound $d$ and projection-formula hypotheses, compact-support pushforward
+has the bound $[a,b+2d]$. Open direct image retains finite-amplitude
+preservation, with an ambient cohomological-dimension bound. It has no bound
+by twice the open immersion's relative dimension. The adic $W(k)$ passage
+requires a compatible torsion system with a uniform bound and its limit
+justification. The missing group-ring preservation result keeps its Smith
+owner and imports the six-operations foundation.
+
+For $j:\mathbf G_m\hookrightarrow\mathbf A^1$ over $\overline{\mathbf F}_7$
+and $A=\overline{\mathbf F}_3[C_3]$, the constant free $A$-sheaf has amplitude
+$[0,0]$, yet $(R^1j_*A)_0\ne0$: the punctured-trait cover $z^3=t$ is a
+nontrivial Kummer torsor. Relative dimension is zero. The false numerical
+bound belongs to the extraction review's /rev-6, not to Feng or Stacks.
+
+## Fix reading and validation
+
+On 2026-10-01 downloaded the actual 66-page Cambridge published PDF and reread
+pp.10–13,15–17,32–45,50–56, checking page images 33 and 37. This is a bounded
+fix reading; the earlier red-team report records the complete article reading.
+The new PDF hash is
+`0e6d8a7577bd20408f2c9b0d42f8f1f96e089701ee581373293a4714011ea666`;
+Cambridge embeds a per-download timestamp, so this copy differs in hash from
+the earlier red-team download. The JSON records the actual source version.
+Correction/version checks and their limits are recorded in the fixes report.
+
+The paper checker, intake path/JSON checks, source-issue/version checks,
+structural-preservation checks, exact counterexample/component calculations
+and `git diff --check` passed. No Lean artifact is required or compiled.
+The unrestricted ramified theorems are source targets with explicit routed
+proof obligations, not newly established results.
