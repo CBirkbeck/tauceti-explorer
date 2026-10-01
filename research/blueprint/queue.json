@@ -36181,8 +36181,9 @@
     "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5062"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5062",
+   "finishedAt": "2026-10-01T09:48:09Z"
   },
   {
    "id": "RT-PAPER-KALETHA-16",
@@ -44912,7 +44913,8 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-08.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4396"
   },
   {
    "id": "RT-RS-10~2",
