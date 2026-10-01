@@ -45497,3 +45497,701 @@ Independent exact controls cover 60 levels/dimensions, 9,920 source-union member
 All 76 captured inputs remain byte-identical after the actual merge of #5423. Original issue text and winning claim, unclaimed review #390, policies, reviewed library audit, supplier interfaces and four predecessor outputs are guarded. The new nodes use native subgroup inclusions, coordinate evaluation, factorization and finite-product APIs; no general CRT, direct-sum or finite-cardinality theory is replanned, and no supplier request is added.
 
 The separate partial signature file also compiled with zero errors and 4,619 expected placeholder warnings across 3,604 pinned source modules. It includes all 37 new named declarations and 48 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087.
+
+
+## Kubert primitive lifts and admissible-order spanning
+
+Twenty-six L3 nodes prove the source primitive-root order assertion, identify actual full and primitive root fibers, complete a point order to an admissible full-primary divisor, and derive Kubert Lemma 1.10 in the actual internal ordinary quotient. All 1,482 predecessor nodes and 1,032 baseline records remain whole.
+
+Kubert 184–185 was reread, including the entire page 185 image. The source equal-prime-support hypothesis, actual root sums and internal input-image condition are explicit. Native order after scalar multiplication, quotient/gcd factorization, prime-support comparison, subtype product transport, prime divisibility, finite-type equivalence transport and free-abelian induction were read at the pinned source. The explicit integer-divisibility binders in the suggested signatures prevent proof-only assumptions from disappearing when proofs become placeholders.
+
+### Roots of primitive points lie at the larger level
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-mem-level` — `DirichletPadic.kubertPrimitiveLifts_root_mem_level`
+
+If x has exact order E, E divides M and (M/E)y=x, then y lies in the actual native level kernel T_M.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Multiply the root equation by E.
+2. Use E times M/E equals M and the primitive E-annihilation certificate.
+3. This proves the native M-kernel certificate without requiring any prime-support assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.roots_have_larger_level` (compatibility): Every double root of an order-two point is killed by four.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Same-support primitive roots have full order
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes` — `DirichletPadic.kubertPrimitiveLifts_root_primitive_same_primes`
+
+If E divides nonzero M and M has no prime divisor outside E, every M/E-root of a primitive order-E point is primitive of exact order M.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. The root lies in T_M by root_mem_level, so its order d is positive and divides M.
+2. The native nsmul-order formula gives E=d/gcd(d,M/E).
+3. At a prime p dividing M, equality of supports makes the exponent of E positive. Native quotient and gcd factorization give v_p(E)=v_p(d)−min(v_p(d),v_p(M/E)), and v_p(M/E)=v_p(M)−v_p(E). Positivity and the divisibility bounds force v_p(d)=v_p(M).
+4. Outside the prime support of M both exponents vanish. Use the native equality theorem for positive naturals with equal factorization exponents.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-mem-level`, `mathlib:orderOf_pow'`, `mathlib:Nat.factorization_div`, `mathlib:Nat.factorization_gcd`, `mathlib:Nat.factorization_le_iff_dvd`, `mathlib:Nat.Prime.factorization_pos_of_dvd`, `mathlib:Nat.support_factorization`, `mathlib:Nat.eq_of_factorization_eq`, `mathlib:orderOf_dvd_of_pow_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.roots_have_exact_larger_order` (characterisation): Every double root of an order-two point has exact order four.
+- `SuggestedKubertPrimitiveLiftsTests.new_prime_invalidates_root_order` (non-example): Without equal prime support, zero is a double root of the unit primitive point but is not primitive of order two.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Full roots are the actual primitive root fiber
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-equiv` — `DirichletPadic.kubertPrimitiveFiberEquiv`
+
+For E dividing nonzero M with equal prime support and primitive x of order E, construct an equivalence from all actual ambient M/E-roots of x to the M-primitive roots of that same x.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. For each ambient root, root_primitive_same_primes supplies its exact-order-M certificate; keep its actual point and root equation.
+2. The inverse only forgets the primitive certificate.
+3. Both inverse laws are subtype reflexivity. This is an actual fiber identification, not a selected family of roots.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`.
+
+**Uses:**
+
+- Kubert Lemma 1.10 root sum: Identifies the complete ambient root fiber with the primitive root fiber.
+- Actual root transport: Ensures primitive certification never replaces a root by a scalar multiple.
+- Finite root enumeration: Provides the precise fiber and its finite rational-torus carrier.
+
+**API:**
+
+- `kubertPrimitiveLifts_primitiveFiberEquiv_coe` (compatibility): The underlying X-point of the forward primitive-fiber equivalence equals the input root.
+- `kubertPrimitiveLifts_primitiveFiberEquiv_symm_coe` (compatibility): The inverse primitive-fiber equivalence preserves the same actual ambient root value.
+- `kubertPrimitiveLifts_primitive_lift_exists` (compatibility): If X is divisible by integers, E divides nonzero M and the levels have the same prime support, every primitive E-point has an actual primitive M-root under multiplication by M/E.
+- `kubertPrimitiveLifts_primitive_fiber_finite` (compatibility): For any natural dimension k, nonzero M, natural E and primitive E-point x, the actual primitive M-root fiber over x is finite.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.primitive_fiber_retains_values` (compatibility): Restricting the complete root fiber to primitive roots retains every ambient point.
+- `SuggestedKubertPrimitiveLiftsTests.primitive_fiber_inverse_law` (characterisation): Forward and inverse primitive-fiber transport recover every complete-fiber point.
+- `SuggestedKubertPrimitiveLiftsTests.primitive_fiber_reverse_inverse` (characterisation): Every primitive root occurs in the complete actual division fiber.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Primitive fiber transport retains every root
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-equiv-coe` — `DirichletPadic.kubertPrimitiveLifts_primitiveFiberEquiv_coe`
+
+The underlying X-point of the forward primitive-fiber equivalence equals the input root.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Evaluate the forward map, which only adds the proved exact-order certificate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.root_projection_unchanged` (compatibility): The primitive output point is the original root, not its scalar multiple.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Inverse primitive fiber transport retains every root
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-equiv-symm-coe` — `DirichletPadic.kubertPrimitiveLifts_primitiveFiberEquiv_symm_coe`
+
+The inverse primitive-fiber equivalence preserves the same actual ambient root value.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Evaluate the inverse map, which forgets only the primitive-membership certificate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.inverse_root_projection_unchanged` (compatibility): Forgetting the primitive certificate preserves the same actual root.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Primitive lifts exist in the native divisible group
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-lift-exists` — `DirichletPadic.kubertPrimitiveLifts_primitive_lift_exists`
+
+If X is divisible by integers, E divides nonzero M and the levels have the same prime support, every primitive E-point has an actual primitive M-root under multiplication by M/E.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Convert native integer divisibility to native natural divisibility.
+2. The quotient degree M/E is positive. Native scalar-multiplication surjectivity supplies an actual root.
+3. The proved root-order theorem certifies its exact order M. No primitive-lift existence is assumed separately.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes`, `mathlib:Group.rootableByNatOfRootableByInt`, `mathlib:RootableBy.surjective_pow`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.primitive_double_root_exists` (characterisation): Every order-two rational-torus point has a primitive order-four double root.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Primitive rational-torus fibers are finite
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-fiber-finite` — `DirichletPadic.kubertPrimitiveLifts_primitive_fiber_finite`
+
+For any natural dimension k, nonzero M, natural E and primitive E-point x, the actual primitive M-root fiber over x is finite.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Use the existing finiteness of the primitive M-subset of the rational torus.
+2. The root fiber is a native subtype of that finite set. No divisibility of E into M is required for this finiteness assertion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-finite`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.primitive_root_fiber_finite` (compatibility): The actual primitive order-four root fiber over an order-two point is finite.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Internal level fibers equal primitive root fibers
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv` — `DirichletPadic.kubertLevelPrimitiveFiberEquiv`
+
+If E divides M, M divides positive N, M is nonzero and M and E have the same prime support, identify the complete native T_N root fiber over a primitive E-point with its actual primitive M-root fiber.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. From an internal root, forget the level certificate and apply root_primitive_same_primes, retaining its underlying point and root equation.
+2. Conversely the primitive M-certificate and M dividing N supply the actual T_N membership; keep the same root and certify the equality in the subgroup by subtype extensionality.
+3. Both inverse laws are reflexive on the actual points and their proof-irrelevant certificates.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-root-primitive-same-primes`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Uses:**
+
+- Internal distribution relation: Transports the existing complete internal fiber sum to primitive labels.
+- Kubert Lemma 1.10: Makes the equality of actual summands explicit before proving spanning.
+- Finite-type reuse: Supplies the primitive fiber finite type from the existing finite level kernel.
+
+**API:**
+
+- `kubertPrimitiveLifts_levelPrimitiveFiberEquiv_coe` (compatibility): The forward internal-to-primitive fiber map preserves the underlying ambient root point.
+- `kubertPrimitiveLifts_levelPrimitiveFiberEquiv_symm_coe` (compatibility): The inverse fiber map adds the level-N certificate without changing the underlying ambient root.
+- `kubertPrimitiveLifts_primitive_quotient_relation` (compatibility): In the internal ordinary quotient at positive N, assume native integer divisibility of X, E divides nonzero M dividing N, and E and M have the same prime support. The label of a primitive E-point equals the sum of labels over its complete actual primitive M-root fiber under M/E.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.internal_primitive_fiber_same_points` (compatibility): The internal level-twelve root fiber and primitive order-four root fiber retain the same ambient points.
+- `SuggestedKubertPrimitiveLiftsTests.internal_fiber_inverse` (characterisation): The internal-fiber equivalence recovers every actual level-twelve root.
+- `SuggestedKubertPrimitiveLiftsTests.primitive_internal_reverse_inverse` (characterisation): Every primitive order-four root is recovered after internal-level transport.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The internal fiber map keeps the ambient point
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv-coe` — `DirichletPadic.kubertPrimitiveLifts_levelPrimitiveFiberEquiv_coe`
+
+The forward internal-to-primitive fiber map preserves the underlying ambient root point.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Evaluate the map that replaces its level certificate by the proved primitive certificate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.internal_forward_value` (compatibility): Forward internal-fiber transport leaves the ambient root value unchanged.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The inverse internal fiber map keeps the ambient point
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv-symm-coe` — `DirichletPadic.kubertPrimitiveLifts_levelPrimitiveFiberEquiv_symm_coe`
+
+The inverse fiber map adds the level-N certificate without changing the underlying ambient root.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Evaluate the inverse map and project through the two existing native subtypes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.internal_inverse_value` (compatibility): Inverse internal-fiber transport supplies the level certificate without changing the root.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The ordinary relation at a valid internal input
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation` — `DirichletPadic.kubertPrimitiveLifts_internal_ordinary_relation`
+
+Let positive m divide positive N and a lie in T_N. If a=m b for some b in T_N, then the sum of all actual internal m-root labels of a equals the label of a in the existing weight-zero internal quotient.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Choose the certified internal preimage b.
+2. Use the existing internal quotient relation at that valid image label.
+3. Specialize its scalar factor m^w to weight zero, where it is one. The input-image condition remains explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-quotient-relation`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.valid_internal_relation` (compatibility): At a certified multiplication-by-two image in level twelve, the sum of all root labels equals the image label.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Full-primary completion of a divisor
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion` — `DirichletPadic.kubertSupportCompletion`
+
+Define the completion of E inside N as the product, over native primes dividing E, of their full prime powers in N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Use the existing native prime-factor finite set and native factorization exponents.
+2. The admissibility, containment, positivity and exact-support properties for E dividing nonzero N are proved separately.
+
+**Prerequisites:** `mathlib:Nat.primeFactors`, `mathlib:Nat.factorization`.
+
+**Uses:**
+
+- Kubert Lemma 1.10: Enlarges any point order to an admissible level with identical prime support.
+- Primitive-root theorem: Supplies precisely the divisibility and prime-support hypotheses required.
+- Unit and already-admissible cases: Ensures the construction preserves source boundary cases.
+
+**API:**
+
+- `kubertPrimitiveLifts_supportCompletion_admissible` (compatibility): For E dividing nonzero N, its completion is an admissible divisor of N.
+- `kubertPrimitiveLifts_dvd_supportCompletion` (compatibility): For E dividing nonzero N, E divides its full-primary completion inside N.
+- `kubertPrimitiveLifts_supportCompletion_pos` (compatibility): For E dividing nonzero N, its full-primary completion is positive.
+- `kubertPrimitiveLifts_supportCompletion_dvd` (compatibility): For E dividing nonzero N, the completed divisor divides N.
+- `kubertPrimitiveLifts_supportCompletion_one` (compatibility): The completion of one inside any natural N is one.
+- `kubertPrimitiveLifts_supportCompletion_self` (compatibility): For nonzero N, its completion inside itself equals N.
+- `kubertPrimitiveLifts_supportCompletion_primeFactors` (compatibility): For E dividing nonzero N, the completed divisor has exactly the same native prime-factor set as E.
+- `kubertPrimitiveLifts_supportCompletion_admissible_fixed` (compatibility): If E is an admissible divisor of nonzero N, completing E inside N returns E.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.two_in_twelve_completes_to_four` (computation): The full-primary completion of two inside twelve is four.
+- `SuggestedKubertPrimitiveLiftsTests.six_in_twelve_completes_to_twelve` (computation): The full-primary completion of six inside twelve is twelve.
+- `SuggestedKubertPrimitiveLiftsTests.unit_support_stays_unit` (degenerate): The unit support remains the admissible divisor one.
+- `SuggestedKubertPrimitiveLiftsTests.completion_not_original_nonadmissible_level` (non-example): Completion must enlarge the nonadmissible level two inside twelve.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The full-primary completion is admissible
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_admissible`
+
+For E dividing nonzero N, its completion is an admissible divisor of N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Native prime-factor monotonicity places the prime support of E inside that of N.
+2. Express the completion as the product over the corresponding finite subset of N-primary indices, using native subtype-product transport.
+3. Apply the established admissibility theorem for a product of full primary factors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `DirichletPadicLFunctions:L3/kubert-generator-product-primary-subproduct-admissible`, `mathlib:Nat.primeFactors_mono`, `mathlib:Finset.prod_subtype_of_mem`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.completion_is_admissible` (characterisation): The completed level is an admissible divisor of twelve.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The original divisor divides its completion
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-dvd-support-completion` — `DirichletPadic.kubertPrimitiveLifts_dvd_supportCompletion`
+
+For E dividing nonzero N, E divides its full-primary completion inside N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Expand E as its native prime-power factorization product.
+2. Each full E-primary factor divides the corresponding full N-primary factor by native factorization monotonicity.
+3. Apply native factorwise divisibility of finite products over the same E-prime index set.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `mathlib:Nat.prod_primeFactors_pow_factorization`, `mathlib:Nat.ordProj_dvd_ordProj_of_dvd`, `mathlib:Finset.prod_dvd_prod_of_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.original_level_divides_completion` (compatibility): The original level divides its completed full-primary level.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The completed divisor is positive
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-pos` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_pos`
+
+For E dividing nonzero N, its full-primary completion is positive.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Use admissibility of the completion and the existing positivity theorem for admissible divisors.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-pos`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.completion_positive` (compatibility): The full-primary completion is positive.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The completion still divides the ambient level
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-dvd` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_dvd`
+
+For E dividing nonzero N, the completed divisor divides N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Extract the divisibility component from its established admissible membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.completion_inside_ambient_level` (compatibility): The completed level still divides the original ambient level.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The empty prime support completes to one
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-one` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_one`
+
+The completion of one inside any natural N is one.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. The native prime-factor set of one is empty, so its finite product is one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.unit_completion_at_thirty` (degenerate): The empty primary product gives one at ambient level thirty.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### The ambient level is fixed by completion
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-self` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_self`
+
+For nonzero N, its completion inside itself equals N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. The defining product is exactly the native full prime-factorization product of N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `mathlib:Nat.prod_primeFactors_pow_factorization`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.full_level_completion_fixed` (computation): Completing the full level does not change it.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Completion preserves exactly the prime support
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-prime-factors` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_primeFactors`
+
+For E dividing nonzero N, the completed divisor has exactly the same native prime-factor set as E.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. A prime dividing the completion divides one of its prime-power factors by the native prime-divides-product theorem.
+2. Native prime divisibility of a power and equality of mutually related prime factors identify it with a prime from E.
+3. Conversely E divides its positive completion, so native prime-factor monotonicity gives the other containment.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-dvd-support-completion`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-pos`, `mathlib:Prime.dvd_finsetProd_iff`, `mathlib:Nat.Prime.dvd_of_dvd_pow`, `mathlib:Nat.prime_dvd_prime_iff_eq`, `mathlib:Nat.prime_iff`, `mathlib:Nat.primeFactors_mono`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.prime_support_preserved` (characterisation): Completion changes exponents but preserves exactly the original prime-factor set.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Admissible divisors are fixed by completion
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible-fixed` — `DirichletPadic.kubertPrimitiveLifts_supportCompletion_admissible_fixed`
+
+If E is an admissible divisor of nonzero N, completing E inside N returns E.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. The established admissible full-primary-power theorem identifies every factor in the defining product with the corresponding full factor of E.
+2. Apply the native prime-factorization product formula for positive E.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `DirichletPadicLFunctions:L3/kubert-generator-product-admissible-primary-power`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-pos`, `mathlib:Nat.prod_primeFactors_pow_factorization`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.admissible_level_fixed` (computation): The already-admissible divisor three of twelve is fixed by completion.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### A lower primitive label is the complete primitive-root sum
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-quotient-relation` — `DirichletPadic.kubertPrimitiveLifts_primitive_quotient_relation`
+
+In the internal ordinary quotient at positive N, assume native integer divisibility of X, E divides nonzero M dividing N, and E and M have the same prime support. The label of a primitive E-point equals the sum of labels over its complete actual primitive M-root fiber under M/E.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Primitive_lift_exists supplies an actual primitive M-root. Its native level-N certificate proves that the lower point is a valid input image for the internal degree M/E relation; the degree is positive and divides N.
+2. Apply internal_ordinary_relation at this certified input.
+3. Use the actual levelPrimitiveFiberEquiv and the native equivalence finite-sum transport to replace the full internal root fiber by the actual primitive root fiber.
+4. Both maps preserve the underlying points, so the labels and every term of the complete sum agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-lift-exists`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.exact_primitive_root_sum` (characterisation): The order-two label is the sum over the complete primitive order-four double-root fiber inside the internal level-twelve quotient.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Admissible primitive-label subgroup
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span` — `DirichletPadic.kubertAdmissiblePrimitiveSpan`
+
+Define A′(N) as the native additive subgroup closure in the existing internal ordinary quotient of labels of level-N points whose exact native orders are admissible divisors of N.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Use the actual native quotient map on the free generator of each certified level point.
+2. The generating-set condition tests its native point order against the existing admissible-divisor set.
+3. Take the existing native additive subgroup closure. This is the source subgroup generated by primitive strata at admissible levels, without a new quotient carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-divisors`, `mathlib:Subgroup.closure`, `mathlib:FreeAbelianGroup`, `mathlib:QuotientGroup.mk'`.
+
+**Uses:**
+
+- Kubert Lemma 1.10: Defines the exact subgroup claimed equal to the internal quotient.
+- Kubert Proposition 1.9: Separates admissible-order spanning from the later removal of exceptional primary coordinates.
+- Quotient induction: Keeps the actual free abelian and quotient carriers for the spanning proof.
+
+**API:**
+
+- `kubertPrimitiveLifts_admissible_label_mem` (compatibility): If a level-N point has an admissible exact order, its actual quotient label belongs to A′(N).
+- `kubertPrimitiveLifts_primitive_label_mem` (compatibility): For an admissible divisor M of N, every primitive M-point, certified as a point of T_N, has its quotient label in A′(N).
+- `kubertPrimitiveLifts_every_label_mem_admissible_span` (compatibility): Assuming native integer divisibility of X, every actual level-N point label belongs to A′(N).
+- `kubertPrimitiveLifts_admissiblePrimitiveSpan_eq_top` (characterisation): If X is divisible by integers and T_N has its existing finite-type structure, A′(N) equals the whole internal ordinary quotient A(N). This is Kubert Lemma 1.10 for the rational torus.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.zero_label_in_admissible_span` (degenerate): The zero point has admissible order one, so its label belongs to the source admissible-primitive subgroup.
+- `SuggestedKubertPrimitiveLiftsTests.all_labels_in_source_span` (characterisation): The closure of admissible-order primitive labels contains every level-twelve point label.
+- `SuggestedKubertPrimitiveLiftsTests.source_span_is_whole_quotient` (characterisation): The actual source subgroup equals the whole internal ordinary quotient.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Admissible-order labels lie in the source subgroup
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-label-mem` — `DirichletPadic.kubertPrimitiveLifts_admissible_label_mem`
+
+If a level-N point has an admissible exact order, its actual quotient label belongs to A′(N).
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. The point and its admissible-order certificate give membership in the defining generating set.
+2. Use native subset-of-closure membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.admissible_order_label_inclusion` (compatibility): A label whose actual point order is admissible is one of the subgroup generators.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Every admissible primitive stratum supplies subgroup generators
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-label-mem` — `DirichletPadic.kubertPrimitiveLifts_primitive_label_mem`
+
+For an admissible divisor M of N, every primitive M-point, certified as a point of T_N, has its quotient label in A′(N).
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Its exact-order certificate rewrites the native point-order test to M.
+2. Apply admissible_label_mem with the given admissible membership.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-label-mem`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.primitive_admissible_label_inclusion` (compatibility): A primitive order-three point supplies an admissible label at level twelve.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Every point label reduces to admissible primitive labels
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-every-label-mem-admissible-span` — `DirichletPadic.kubertPrimitiveLifts_every_label_mem_admissible_span`
+
+Assuming native integer divisibility of X, every actual level-N point label belongs to A′(N).
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Let E be the positive native order of the point, which divides N. Complete its prime support to M inside N.
+2. The completion is nonzero, admissible, divisible by E, divides N and has exactly the same prime support as E.
+3. Use the actual internal-to-primitive fiber equivalence to transfer the existing finite-type structure to the primitive root fiber.
+4. Apply primitive_quotient_relation to express the original label as the complete sum of primitive M-labels.
+5. Every summand belongs to A′(N) by primitive_label_mem; native additive-subgroup finite-sum closure gives membership of the original label.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-dvd-support-completion`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-pos`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-dvd`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-prime-factors`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-level-primitive-fiber-equiv`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-quotient-relation`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-label-mem`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `DirichletPadicLFunctions:L3/kubert-generators-level-order-pos`, `mathlib:Fintype.ofEquiv`, `mathlib:Subgroup.prod_mem`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.nonadmissible_order_label_reduced` (characterisation): Even an order-two point at level twelve lies in the admissible-primitive span via its primitive order-four roots.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+### Kubert admissible-order spanning lemma
+
+`DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span-eq-top` — `DirichletPadic.kubertPrimitiveLifts_admissiblePrimitiveSpan_eq_top`
+
+If X is divisible by integers and T_N has its existing finite-type structure, A′(N) equals the whole internal ordinary quotient A(N). This is Kubert Lemma 1.10 for the rational torus.
+
+**Hypotheses:** X is a native additive commutative group. E divides the nonzero natural level M. The primitive-root assertion additionally requires every prime divisor of M to divide E; together with E dividing M this is equality of prime supports. Primitive points use exact native additive order, not merely a level annihilation condition. The finite-level quotient uses a positive natural level N, the native level kernel T_N, its native free abelian group, and the existing internal ordinary relation subgroup at weight zero. An existing finite-type structure on T_N is assumed where finite root sums occur. The rational torus supplies it by the established native finiteness theorem. Existence of a primitive lift, the primitive-label sum and the admissible spanning theorem require the existing native integer divisibility structure on X. This includes the rational torus in any finite dimension. These assumptions are explicit in the suggested signatures, including when only the proof uses them. Equivalences and root-order calculations themselves do not assume divisibility. The source subgroup A′(N) is the native closure of actual quotient labels with admissible exact point orders. The planned result is Lemma 1.10, A′(N)=A(N). It does not assert generation by the smaller reduced source set T(N), nor any rank lower bound, independence, freeness or internal/global relation equality.
+
+**Proof:**
+
+1. Native quotient-map surjectivity represents an arbitrary quotient element by an element of the actual free abelian group on T_N.
+2. Use the existing native free-abelian induction.
+3. The zero case is subgroup zero membership, each generator case is every_label_mem_admissible_span, and the negation and addition cases use the native quotient homomorphism and subgroup closure laws.
+4. This gives every element membership and hence equality with the top subgroup. No independence or reduced-generator assertion is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-every-label-mem-admissible-span`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:FreeAbelianGroup.induction_on`.
+
+**Tests:**
+
+- `SuggestedKubertPrimitiveLiftsTests.source_lemma_one_ten` (characterisation): Every element of the actual internal quotient lies in the admissible-order primitive subgroup.
+
+**Acceptance:** Derive primitive root order from the stated prime-support hypothesis. Reject the E=1, M=2 zero-root counterexample when that hypothesis is omitted. Keep the complete actual root fibers and the valid internal-relation input. Completion of two inside twelve is four; it is not the original nonadmissible divisor. Prove only admissible-primitive spanning until the exceptional-point induction is supplied.
+
+**Source:** Published 184, primitive lift relation and Lemma 1.10 with its proof, using 182 equations (1.2)–(1.4). The full 179–202 body was read; 184–185 text and the entire page 185 image were reread for the next exceptional-elimination step. The same-prime-support condition is retained and proved to force exact order M for every full M/E-root of a primitive E-point. The valid internal relation is transported along an actual point-preserving fiber equivalence. Full-primary completion reduces every point label to admissible primitive labels, proving the source Lemma 1.10 without assuming the later generation theorem.
+
+**Remaining:** Kubert Lemma 1.10 is now planned with complete actual primitive-root fibers, valid internal quotient relations, full-primary support completion and equality of the admissible-primitive label subgroup with the internal ordinary quotient. Next construct B(N), the native subgroup generated by the already-defined reduced source set T(N), and prove Proposition 1.9. This requires the prime-power primitive-sum relation, transport of availability from proper admissible levels, the precise fiber argument of Lemma 1.12, and induction on exceptional primary coordinates. The independent Cartan or rational-model rank lower bound is still required for freeness and internal/global relation equality. Neither admissible-primitive spanning nor the already-planned cardinality theorem supplies those conclusions. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert primitive lifts and admissible-order spanning validation
+
+All 1482 predecessor nodes, 1032 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 26 nodes, 26 named suggested declarations and 36 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1768 reachable nodes, 7783 edges and 1210 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in native order, factorization, prime-divisibility, finite-sum, free-abelian or quotient APIs and the previously established level interfaces. No new supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe retains #5429 verbatim and adds four concrete definitions and 22 complete lemmas. Totals are 74 definitions and 909 lemmas, with zero placeholders. All 26 suggested declarations and 36 typed tests retain exact point orders, complete fibers, and the required integer-divisibility assumptions. Native quotient induction proves admissible-primitive spanning; reduced-generator spanning is not assumed. The separate probe compiles against 2982 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent exact controls over 72 levels/dimensions enumerate 5,672 primitive root fibers with 7,878 roots, 5,224 valid all-point relations, 84 full-primary admissible completions, 72 unit-order boundary cases and 7,240 admissible summands. The E=1, M=2 zero-root example rejects dropping equal prime support. Independent exact rational arithmetic enumerates every actual root at finite level N for primitive E-points and same-prime-support M. For every level point it constructs the full-primary admissible completion, checks the valid internal relation input and verifies every summand has that admissible exact order. These controls do not certify arbitrary quotient equalities or prove freeness. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after the actual merge of #5429. The original issue and winning claim, unclaimed review #390, policies, reviewed library audit, ownership interfaces and four predecessor outputs are guarded. This continuation imports native factorization, root surjectivity, finite-type transport, group closure and quotient APIs, and adds only the source-specific primitive-root and spanning arguments. No general quotient, divisibility or factorization theory is replanned, and no supplier request is added.
+
+The separate partial signature file also compiled with zero errors and 4,681 expected placeholder warnings across 3,604 pinned source modules. It includes all 26 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 03dfb57db21df89b3490465dfd9d7f5d898d925c9e59dac44b417dc7a1509325.
