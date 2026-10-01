@@ -13,7 +13,8 @@
       "Entire published main paper pp533–638, all proofs and references (106 pages; text1–5862).",
       "Entire revised author erratum dated18Dec2022 pp1–11, all proofs and references (text1–553); publisher metadata checked, final journal text not collated.",
       "Selected arXiv v3 §2.2 and appended November2021 erratum opening/application only; no whole-v3 read claim.",
-      "Review REV-PAPER-YUAN-ZHANG-18 (Claude Code, cc-39fac3, 23 September 2026): the published paper (same SHA-256 29dfd5f1…) and the authors' erratum revision of 18 December 2022 (same SHA-256 18b46acd…) read in full again with four checkers; every item checked against them, and arXiv v3 compared where a passage was in doubt."
+      "Review REV-PAPER-YUAN-ZHANG-18 (Claude Code, cc-39fac3, 23 September 2026): the published paper (same SHA-256 29dfd5f1…) and the authors' erratum revision of 18 December 2022 (same SHA-256 18b46acd…) read in full again with four checkers; every item checked against them, and arXiv v3 compared where a passage was in doubt.",
+      "Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): selected main-paper pp. 546–548, 562, 568–570, 575–576, 581–583, 591–592, 603–604, 607–608, 619, 623–626, 628, 633–635 and author-erratum p. 10 re-read; rendered images inspected for pp. 568–569, 575–576, 591, 607, 619, 628 and author-erratum p. 10. Main/author-erratum SHA-256 hashes match the recorded provenance. No new whole-paper or final-journal-erratum collation claim."
     ],
     "provenance": {
       "main": {
@@ -189,7 +190,7 @@
     ],
     "sourceScope": "Whole-main and revised-author-erratum reading checkpoint; original external proof closure and final erratum collation remain open."
   },
-  "summary": "Yuan–Zhang prove the averaged Colmez conjecture: the average over CM types of the Faltings heights is −½L_f'(0,η)/L_f(0,η) − ¼log(d_{E/F}d_F). They reduce it to quaternionic Shimura curves, comparing CM component heights with an arithmetic Hodge height (Theorem 1.6) and computing that height by a Gross–Zagier-type kernel and arithmetic adjunction (Theorem 1.7). The 2023 erratum replaces Theorem 2.7 by a weaker statement that suffices. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and twenty-three findings are recorded; only E1 (the erratum) affects a stated result, and none affects Theorems 1.1, 1.6 or 1.7. Not formalised. After the review (REV-PAPER-YUAN-ZHANG-18) there are 139 items (6 library, 14 planned, 119 missing) and 55 source issues. The review found further gaps in the printed proof of Theorem 1.6. At primes of F ramified over Q, the τ-quotient arguments of §5.2 and of the erratum's Proposition 6 do not hold as written. Theorems 1.6 and 1.7 need Ô_𝔹 ⊇ Ô_E, which is stronger than the stated hypothesis when a dyadic place of F with residue field F_2 splits in E. Theorem 1.6 is proved only for compact X_U. Theorem 1.1 still holds (AGHMP18 prove it independently), but on this paper's route the ramified-prime gap of §5.2 must be closed first; the other two restrictions are met by choosing the auxiliary datum. Lemmas 7.6(2) and 8.7(2) are false at the places S2, but their errors cancel, so Proposition 9.2(2), Theorem 9.1 and Theorem 1.7 stand.",
+  "summary": "Yuan–Zhang prove the averaged Colmez conjecture: the average over CM types of the Faltings heights is −½L_f'(0,η)/L_f(0,η) − ¼log(d_{E/F}d_F). They reduce it to quaternionic Shimura curves, comparing CM component heights with an arithmetic Hodge height (Theorem 1.6) and computing that height by a Gross–Zagier-type kernel and arithmetic adjunction (Theorem 1.7). The 2023 erratum replaces Theorem 2.7 by a weaker statement that suffices. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and the original continuation recorded twenty-three findings. That historical count and classification are superseded by the independent review described below. Not formalised. After the review (REV-PAPER-YUAN-ZHANG-18) there are 139 items (6 library, 14 planned, 119 missing) and 55 source issues. The review found further gaps in the printed proof of Theorem 1.6. At primes of F ramified over Q, the τ-quotient arguments of §5.2 and of the erratum's Proposition 6 do not hold as written. Theorems 1.6 and 1.7 need Ô_𝔹 ⊇ Ô_E, which is stronger than the stated hypothesis when a dyadic place of F with residue field F_2 splits in E. Theorem 1.6 is proved only for compact X_U. Theorem 1.1 still holds (AGHMP18 prove it independently), but on this paper's route the ramified-prime gap of §5.2 must be closed first; the other two restrictions are met by choosing the auxiliary datum. Lemmas 7.6(2) and 8.7(2) are false at the places S2, but their errors cancel, so Proposition 9.2(2), Theorem 9.1 and Theorem 1.7 stand.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -514,14 +515,15 @@
       "locator": "§2.2, Theorem 2.3, p. 546; proof pp. 546–548",
       "status": "missing",
       "proofOutline": [
-        "Compare determinant of Ω→⊕W with dual map; archimedean map is an isometry; local Vandermonde square equals discriminant. Repair monogenic step by factorwise/unramified descent (E5), whose full descent is a gate."
+        "Compare det(Ω → ⊕_τ W) with its dual; the archimedean comparison is an isometry. Enlarge K by a finite unramified extension at p with sufficiently large residue fields. Shift local generators so their reduced minimal polynomials are pairwise coprime; CRT makes O_E ⊗ O_σ monogenic over O_σ (E5).",
+        "R_Φ is torsion-free over the Dedekind ring O_{E_Φ}. After flat base change its image in the Φ-factors is O_σ[t]/P_Φ; discriminants commute with this base change. The local Vandermonde determinant squared gives ∆(Φ), and the two determinant norms give the factor −1/(4[E_Φ:Q]). Use h(Φc) = h(Φ) for the dual abelian variety. This E5 repair is established in the accepted review, not an outstanding descent gate."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/pairing-metric",
         "PAPER-YUAN-ZHANG-18/reflex-order",
         "PAPER-YUAN-ZHANG-18/vandermonde"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: Statement checked (sign and constant: (1/(2[K:Q]))·Σ log|∆(Φ)∆(Φc)|^{1/2} summed gives −log(d_Φ d_Φc)/(4[E_Φ:Q])). The E5 repair closes the proof, and the 'full descent is a gate' caveat in the outline is unnecessary. R_Φ is torsion-free over the Dedekind ring O_{E_Φ}, so R_Φ ⊗ O_σ is the image of O_E⊗O_σ = O_σ[t]/P in ∏_{τ∈Φ} K_σ, namely O_σ[t]/P_Φ, and discriminants commute with this flat base change. The proof also uses deg ω(A^t) = deg ω(A), i.e. h(A^t) = h(Φ): A^t has type Φc for the action of p. 544, and h(Φc) = h(Φ). dependsOn should include the missing h(Φ) item (coverage)."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: Statement checked (sign and constant: (1/(2[K:Q]))·Σ log|∆(Φ)∆(Φc)|^{1/2} summed gives −log(d_Φ d_Φc)/(4[E_Φ:Q])). The E5 repair closes the proof, and the 'full descent is a gate' caveat in the outline is unnecessary. R_Φ is torsion-free over the Dedekind ring O_{E_Φ}, so R_Φ ⊗ O_σ is the image of O_E⊗O_σ = O_σ[t]/P in ∏_{τ∈Φ} K_σ, namely O_σ[t]/P_Φ, and discriminants commute with this flat base change. The proof also uses deg ω(A^t) = deg ω(A), i.e. h(A^t) = h(Φ): A^t has type Φc for the action of p. 544, and h(Φc) = h(Φ). dependsOn should include the missing h(Φ) item (coverage). Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/hodge-polynomial-sequence",
@@ -869,17 +871,22 @@
       "id": "PAPER-YUAN-ZHANG-18/integral-ks",
       "kind": "theorem",
       "name": "Integral Kodaira–Spencer discriminant twist",
-      "statement": "Let ℘ | p, K = F̂^ur_℘, and 𝒳_℘ the tower of regular models 𝒳_{1,U^p} ⊗ O_K (Theorem 4.5), with the special formal O_{B,℘}-module ℋ_℘ (Theorem 4.9). Let M_℘ be its O_℘-relative covariant Dieudonné crystal (for F_℘/Q_p unramified, the τ-part of the absolute crystal), with Hodge filtration 0 → W^t_℘ → M_℘ → W_℘^∨ → 0, where W_℘ = Lie(ℋ_℘)^∨ and W^t_℘ = Lie(ℋ^t_℘)^∨ both have rank 2. Put N_℘ := det W^t_℘ ⊗ det W_℘ (E8), and let KS_℘: N_℘ → ω^{⊗2} be induced by W^t_℘ → M_℘ →(∇) M_℘ ⊗ ω → W_℘^∨ ⊗ ω, where ω is the relative dualizing sheaf of 𝒳_℘/O_K. Let d_{B,℘} = ℘ if B_℘ is a division algebra and 0 otherwise. Then KS_℘ extends to an isomorphism N_℘ ≅ ω^{⊗2}(−d_{B,℘}).",
+      "statement": "Let ℘ | p, K = F̂^ur_℘, and 𝒳_℘ be the tower of regular models 𝒳_{1,U^p} ⊗ O_K, with special formal O_{B,℘}-module ℋ_℘. Use O_℘-relative Hodge data: a rank-four crystal M_℘ and filtration 0 → W^t_℘ → M_℘ → W_℘^∨ → 0 with both W^t_℘ and W_℘ locally free of rank two. Here W^t_℘ means the relative Hodge submodule, not the full differential module of the absolute Cartier dual ℋ_℘^t. If F_℘/Q_p is unramified, M_℘ is the τ-summand of the absolute crystal and W^t_℘ = e_τ Ω(ℋ_℘^t), W_℘ = e_τ Ω(ℋ_℘), where e_τ is the corresponding idempotent after the unramified base change. The full Ω(ℋ_℘^t) has rank 4[F_℘:Q_p]−2. At ramified places a genuine relative theory, or images in the generic τ-pieces, must be specified, with local freeness, this filtration, the connection and compatibility with determinant lattices proved; a raw τ-quotient is not asserted to be locally free (E3/E31). With these relative-data hypotheses, put N_℘ = det W^t_℘ ⊗ det W_℘. The Gauss–Manin composite W^t_℘ → M_℘ → M_℘ ⊗ ω → W_℘^∨ ⊗ ω induces KS_℘: N_℘ → ω^{⊗2}, where ω is the relative dualizing sheaf. Let d_{B,℘} be the special-fibre divisor ℘ for division B_℘, and zero otherwise. Then N_℘ ≅ ω^{⊗2}(−d_{B,℘}). The comparison with the paper’s raw τ-quotients at ramified F_℘ remains an obligation, not a proved input to Theorem 1.6.",
       "locator": "Theorem4.10 pp569–570, corrected determinant convention E8",
       "status": "missing",
       "proofOutline": [
-        "Split case uses matrix idempotents/Morita; division case uses the two eigenspaces and j²=π. The printed unit argument at nodes is not sufficient (E9); establish on the smooth locus and extend across codimension two on the regular model if justified."
+        "Work with the same relative W^t and W throughout; prove the relative Hodge-data hypotheses before applying KS. At unramified F_℘ they are the idempotent summands of the absolute filtration. At ramified F_℘ do not obtain exactness or local freeness by taking raw τ-quotients; the relative/image comparison is the existing E3/E31 gate.",
+        "In the split quaternion case use matrix idempotents/Morita. In the division case use the two eigenspaces and j² = π. Off the double points of the reduced special fibre, exactly one of j1,j2 is a unit; on the generic fibre both are. The resulting equality is ω^{-2} = πN^∨, hence N = πω². Extend the equality of invertible lattices across the codimension-two nodes on the regular model. The source E9 display π^{-1}N^∨ is corrected to πN^∨ in the accepted review."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/integral-pdiv",
         "PAPER-YUAN-ZHANG-18/hodge-qline"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: The item should name the base and the objects. X_℘ is the tower of regular models 𝒳_{1,U^p} ⊗ O_K at maximal level at ℘ (K = F̂^ur_℘), not a 'small-level' model at ℘. For [F_℘:Q_p] > 1, W_℘ and W^t_℘ must be the rank-2 τ-parts, or the O_℘-relative Dieudonné objects of the strict module ℋ_℘; the absolute Lie(ℋ^t_℘)^∨ has rank 4[F_℘:Q_p] − 2 (new issue). Review note: REPAIR VERDICT: sound. The E8 convention N_℘ = det W^t ⊗ det W is forced by the construction: taking determinants of W^t → W^∨ ⊗ ω gives det W^t → (det W)^{-1} ⊗ ω^{⊗2}, that is, det W^t ⊗ det W → ω^{⊗2}. It is also what the split-case line on p. 569 computes, ω^{-2} ≅ (det W^t)^∨ ⊗ (det W)^∨, and it matches Theorem 3.7 and Corollary 5.5. With it, the division-case computation gives ω^{-2} = πN^∨, i.e. N = πω^2 = ω^{⊗2}(−d_{B,℘}). The E9 repair in the proof outline is valid, not merely 'if justified'. Off the nodes, π is a prime local equation of the reduced special fibre, so exactly one of j1, j2 is a unit and the printed computation applies. The nodes are closed points, of codimension 2, of the regular finite-level models 𝒳_{1,U^p} ⊗ O_K, and a map of line bundles on a normal scheme that is an isomorphism off codimension 2 is an isomorphism. Caveats: (i) the extraction's E9 correction writes π^{-1}N^∨ where πN^∨ is meant; (ii) the rank caveat for [F_℘:Q_p] > 1 (new issue at p. 569); (iii) the proof also contains misprints: Ω(H_0) for Ω(H_℘), and 'nonsplit in F' for 'nonsplit in B' (new misprint). Status missing is right; R18.2 and R18.5 plan the models and the Čerednik–Drinfeld uniformization, not this isomorphism."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: The item should name the base and the objects. X_℘ is the tower of regular models 𝒳_{1,U^p} ⊗ O_K at maximal level at ℘ (K = F̂^ur_℘), not a 'small-level' model at ℘. For [F_℘:Q_p] > 1, W_℘ and W^t_℘ must be the rank-2 τ-parts, or the O_℘-relative Dieudonné objects of the strict module ℋ_℘; the absolute Lie(ℋ^t_℘)^∨ has rank 4[F_℘:Q_p] − 2 (new issue). Review note: REPAIR VERDICT: sound. The E8 convention N_℘ = det W^t ⊗ det W is forced by the construction: taking determinants of W^t → W^∨ ⊗ ω gives det W^t → (det W)^{-1} ⊗ ω^{⊗2}, that is, det W^t ⊗ det W → ω^{⊗2}. It is also what the split-case line on p. 569 computes, ω^{-2} ≅ (det W^t)^∨ ⊗ (det W)^∨, and it matches Theorem 3.7 and Corollary 5.5. With it, the division-case computation gives ω^{-2} = πN^∨, i.e. N = πω^2 = ω^{⊗2}(−d_{B,℘}). The E9 repair in the proof outline is valid, not merely 'if justified'. Off the nodes, π is a prime local equation of the reduced special fibre, so exactly one of j1, j2 is a unit and the printed computation applies. The nodes are closed points, of codimension 2, of the regular finite-level models 𝒳_{1,U^p} ⊗ O_K, and a map of line bundles on a normal scheme that is an isomorphism off codimension 2 is an isomorphism. Caveats: (i) the extraction's E9 correction writes π^{-1}N^∨ where πN^∨ is meant; (ii) the rank caveat for [F_℘:Q_p] > 1 (new issue at p. 569); (iii) the proof also contains misprints: Ω(H_0) for Ω(H_℘), and 'nonsplit in F' for 'nonsplit in B' (new misprint). Status missing is right; R18.2 and R18.5 plan the models and the Čerednik–Drinfeld uniformization, not this isomorphism. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues.",
+      "unitTests": [
+        "For local degree d = 2, the absolute Cartier-dual differential rank is 6, while the relative Hodge submodule rank is 2; never substitute the former into the rank-four filtration.",
+        "For ramified F_℘, no theorem infers local freeness of a raw τ-quotient from its generic rank. A relative/image comparison must provide the integral filtration and determinant compatibility."
+      ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/bridge-torus",
@@ -947,17 +954,18 @@
       "id": "PAPER-YUAN-ZHANG-18/cotangent-tensor",
       "kind": "theorem",
       "name": "Cotangent cancellation under the torus tensor",
-      "statement": "Let L ⊃ K′ be finite, (x,y) ∈ (X_1×Y_1)(L) with image x″, W(−) the τ-quotients for τ: O_{F,p} ⊗_{Z_p} O_L → O_L, and O_{E,L} = O_{E,℘} ⊗_{O_℘} O_L. If F_℘/Q_p is unramified, then W(I_y) = 0 and W(I^t_y) is free of rank 1 over O_{E,L}, and there are canonical isomorphisms W(ℋ″^t_{x″}) ≃ W(ℋ^t_x) ⊗_{O_{E,L}} W(ℐ^t_y) and W(ℋ″_{x″}) ≃ W(ℋ_x) ⊗_{O_{E,L}} W(ℐ^t_y)^∨. When F_℘/Q_p is ramified, W(I_y) is a nonzero torsion module, the τ-quotient sequences need not be left exact, and the isomorphisms need an integral argument that the paper does not give.",
+      "statement": "Let L ⊃ K′ be finite, (x,y) ∈ (X_1×Y_1)(L) with image x″, W(−) the τ-quotients for τ: O_{F,p} ⊗_{Z_p} O_L → O_L, and O_{E,L} = O_{E,℘} ⊗_{O_℘} O_L. If F_℘/Q_p is unramified, then W(I_y) = 0 and W(I^t_y) is free of rank 1 over O_{E,L}, and there are canonical isomorphisms W(ℋ″^t_{x″}) ≃ W(ℋ^t_x) ⊗_{O_{E,L}} W(ℐ^t_y) and W(ℋ″_{x″}) ≃ W(ℋ_x) ⊗_{O_{E,L}} W(ℐ^t_y)^∨. When F_℘/Q_p is ramified, W(I_y) is a nonzero torsion module, the τ-quotient sequences need not be left exact, and the isomorphisms need an integral argument that the paper does not give. In the unramified branch these W-modules are the τ-idempotent Hodge pieces of integral-ks, with W(ℋ^t) = W^t_℘, not Ω of the full absolute Cartier dual. A ramified extension of the formula must use the same relative/image convention as integral-ks and prove the comparison with the actual τ-quotients, including any torsion contributions (E3/E31).",
       "locator": "Proposition 5.4 p575",
       "status": "missing",
       "proofOutline": [
-        "Extract the Hodge terms from the filtered tensor comparison of Proposition 5.3."
+        "At unramified F_℘, apply the τ-idempotent to the filtered tensor comparison of Proposition 5.3; this direct-summand operation is exact. The selected Hodge piece of I_y is zero and W(I_y^t) is an invertible O_{E,L}-module, giving the two inverse tensor twists.",
+        "At ramified F_℘ a raw τ-quotient can retain torsion and is not left exact. Prove the relative/image filtration comparison before importing these tensor formulas; the printed proof supplies no such argument."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/dieudonne-tensor",
         "PAPER-YUAN-ZHANG-18/integral-ks"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: 'W(I_y) = 0' is false integrally when e(F_℘/Q_p) > 1 (new error at p. 575). With W(−) the τ-quotient for O_{F,p} ⊗ O_L → O_L, the τ′-components of Ω(I_y) (τ′ ≠ τ, same residue embedding) leave a nonzero torsion module O_L/(τ′(x) − τ(x) : x ∈ O_℘). So the displayed isomorphisms are proved only when F_℘/Q_p is unramified. The ring is O_L (L ⊃ K′), not O_K."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: 'W(I_y) = 0' is false integrally when e(F_℘/Q_p) > 1 (new error at p. 575). With W(−) the τ-quotient for O_{F,p} ⊗ O_L → O_L, the τ′-components of Ω(I_y) (τ′ ≠ τ, same residue embedding) leave a nonzero torsion module O_L/(τ′(x) − τ(x) : x ∈ O_℘). So the displayed isomorphisms are proved only when F_℘/Q_p is unramified. The ring is O_L (L ⊃ K′), not O_K. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/cm-alignment",
@@ -978,18 +986,19 @@
       "id": "PAPER-YUAN-ZHANG-18/comparison-line",
       "kind": "theorem",
       "name": "Isometric comparison of CM determinant lines",
-      "statement": "Let A0 be the abelian variety with O_E-action represented by P′_{U′}, defined over a finite extension K of F′(P′_{U′}) containing F(P_U) over which it has good reduction. Let N̄_U := L̄_U^{⊗2}(−d_B). Then N̄(A0,τ) ≃ N̄_{P_U} ⊗_{O_{F(P_U)}} O_K as hermitian line bundles over O_K. Here N̄(A0,τ) = det W(A0,τ) ⊗ det W(A0^t,τ) is formed with the O_F-action at the distinguished place τ of F, and N̄_{P_U} is the restriction of N̄_U to the closure of P_U.",
+      "statement": "Let A0 be the abelian variety with O_E-action represented by P′_{U′}, defined over a finite extension K of F′(P′_{U′}) containing F(P_U) over which it has good reduction. Let N̄_U := L̄_U^{⊗2}(−d_B). Provided the E3/E31 integral comparison is proved at each ramified F_℘/Q_p, N̄(A0,τ) ≃ N̄_{P_U} ⊗_{O_{F(P_U)}} O_K as hermitian line bundles over O_K. Here N̄(A0,τ) = det W(A0,τ) ⊗ det W(A0^t,τ) is formed with the same relative/image Hodge pieces used in integral-ks and determinant-cancellation, for the O_F-action at the distinguished place τ of F; at unramified places they equal the τ-idempotent summands, and at ramified places identification with the paper’s τ-quotients requires the stated integral comparison, and N̄_{P_U} is the restriction of N̄_U to the closure of P_U.",
       "locator": "§5.3, Proposition 5.7, p. 577",
       "status": "missing",
       "proofOutline": [
-        "Combine complex KS with local filtered tensor cancellation at every finite place; use good reduction of A0."
+        "Combine the complex Kodaira–Spencer isometry with the unramified local determinant cancellation, after passing to a common field of good reduction for A0. The two sides use identical relative Hodge pieces.",
+        "For each ramified F_℘/Q_p prove the E3/E31 relative/image comparison, including the integral determinant lattice and compatibility with the component-height convention. Good reduction alone does not remove τ-quotient torsion. The full hermitian-line isometry remains conditional on these local comparisons."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/cm-alignment",
         "PAPER-YUAN-ZHANG-18/determinant-cancellation",
         "PAPER-YUAN-ZHANG-18/complex-ks"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Imprecise ('over the required common field'). The line N(A0,τ) is formed with the O_F-action, which is the version Theorem 1 of the erratum supplies."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Imprecise ('over the required common field'). The line N(A0,τ) is formed with the O_F-action, which is the version Theorem 1 of the erratum supplies. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/different-kernel",
@@ -1203,13 +1212,14 @@
       "locator": "Erratum Proposition6 pp9–10",
       "status": "missing",
       "proofOutline": [
-        "Take invariant-differential exact sequences; the determinant order is length Ω(Q,τ)−length Ω(Q^t,τc), which vanishes by the two separate hypotheses. Equal torsion-free ranks suffice; rank need not be two."
+        "Under the stated local-freeness hypotheses for all four τ-quotients, take the invariant-differential sequences and justify their induced determinant length computation. The isogeny changes the determinant order by length Ω(𝒬,τ) − length Ω(𝒬^t,τc). The separate self-duality and conjugation-invariance hypotheses identify these lengths; the common locally free rank need not be two.",
+        "Do not replace local freeness by equality of generic ranks. If a raw τ-quotient has torsion, specify a determinant/image convention and reprove the exactness and length comparison; this is the unresolved E3/E31 obligation at ramified F_℘."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/component-line",
         "PAPER-YUAN-ZHANG-18/cartier-duality"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: As printed, the proposition is stated for every τ: E → K, but its proof asserts that Ω(X,τ) and Ω(Y,τ) are 'locally free of rank 2'. That claim is false in general (E3). The ranks are the multiplicities of τ, and the τ-quotients can have torsion when E/F, or F/Q for the O_F version, is ramified at σ. Theorem 1 uses the O_F version, where the rank is 2. The item's outline ('equal torsion-free ranks suffice') misses the torsion. Review note: missing. The isogeny variation is ArakelovGeometryAndAbelianHeights:R35.4; the identification ker(f^t) = 𝒬^D is an extra input (new coverage item)."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: As printed, the proposition is stated for every τ: E → K, but its proof asserts that Ω(X,τ) and Ω(Y,τ) are 'locally free of rank 2'. That claim is false in general (E3). The ranks are the multiplicities of τ, and the τ-quotients can have torsion when E/F, or F/Q for the O_F version, is ramified at σ. Theorem 1 uses the O_F version, where the rank is 2. The item's outline ('equal torsion-free ranks suffice') misses the torsion. Review note: missing. The isogeny variation is ArakelovGeometryAndAbelianHeights:R35.4; the identification ker(f^t) = 𝒬^D is an extra input (new coverage item). Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/height-bridge",
@@ -1323,12 +1333,12 @@
       "locator": "§6.2, equation (6.2.1), p. 581",
       "status": "missing",
       "proofOutline": [
-        "Factor archimedean Gaussian/weight and compare finite local sections on a common right stabilizer."
+        "Factor the archimedean Gaussian/weight terms and retain the full adelic δ. At finite places outside S′, splitting V = V_i ⊕ V_i^⊥ contributes χ_{V_i^⊥}(a(g)) as well as δ^{(d−d_i)/2}. Choose a common stabilizer K_{S′} at the exceptional places. Compare the V1 theta series and the truncated V0 term on K_{S′}GL2(A^{S′}); omit a discriminant character only where it is actually trivial."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/pseudo-theta"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Two real errors in the item, and one in the paper. (i) The item writes (ρ∞δ∞); (6.2.1) uses the full adelic δ(g) = ∏_{all v}δ_v(g_v). The finite part matters: the Lemma 6.1 proof uses δ(gg0) = δ∞(g)δ_f(g0). (ii) The identity holds for g ∈ K_{S′}GL2(A^{S′}), where S′ ⊇ S also contains the places at which φ_v is not standard, not for g_S in a small compact. (iii) The paper's (6.2.1) is itself missing an unramified quadratic character (new issue on p. 581): r_V(g)φ_w = δ_w(g)^{(d−d1)/2} r_{V1}(g)φ_w fails by χ_{V1^⊥,w}(a_w). The corrected statement includes the character. Locator: (6.2.1) is on p. 581, not p. 582."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Two real errors in the item, and one in the paper. (i) The item writes (ρ∞δ∞); (6.2.1) uses the full adelic δ(g) = ∏_{all v}δ_v(g_v). The finite part matters: the Lemma 6.1 proof uses δ(gg0) = δ∞(g)δ_f(g0). (ii) The identity holds for g ∈ K_{S′}GL2(A^{S′}), where S′ ⊇ S also contains the places at which φ_v is not standard, not for g_S in a small compact. (iii) The paper's (6.2.1) is itself missing an unramified quadratic character (new issue on p. 581): r_V(g)φ_w = δ_w(g)^{(d−d1)/2} r_{V1}(g)φ_w fails by χ_{V1^⊥,w}(a_w). The corrected statement includes the character. Locator: (6.2.1) is on p. 581, not p. 582. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/pseudo-automorphic",
@@ -1354,12 +1364,12 @@
       "locator": "Lemma6.1(2) pp582–583",
       "status": "missing",
       "proofOutline": [
-        "Use the same distinct-value Vandermonde argument; isolate the codimension-two/weight-one identity needed in §9."
+        "Apply pseudo-comparison including its discriminant characters. Choose distinct positive sufficiently divisible N so |(1+iN)^{−[F:Q]}| are distinct; the Vandermonde argument isolates the character-twisted coefficient in each codimension. The common quadratic character hypothesis in that codimension permits cancellation of that nonzero factor to give the stated untwisted theta identity. Without it keep only the twisted identity. The §9 application has common character η in codimension two and trivial character in codimension four."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/pseudo-automorphic"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: As printed, Lemma 6.1(2) rests on (6.2.1), which lacks the discriminant characters (new issue, p. 581). The proof then gives Σ_{ℓ∈L_{k,1}} χ_{V_{ℓ,1}^⊥}(a(g0))θ_{A_ℓ,1}(g0) − Σ_{ℓ∈L_{k,0}} χ_{V_{ℓ,0}^⊥}(a(g0))θ_{A_ℓ,0}(g0) = 0 only for g0 ∈ GL2(A_f^S). The untwisted identity follows only when, in each codimension, all the complements have the same discriminant character. §9 meets this condition (codimension 2: complements E·j with character η; codimension 4: quaternionic complements with trivial character), so the application stands. The item should state the hypothesis. Also note that L_{k,*} is indexed by codimension k, which is always even."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: As printed, Lemma 6.1(2) rests on (6.2.1), which lacks the discriminant characters (new issue, p. 581). The proof then gives Σ_{ℓ∈L_{k,1}} χ_{V_{ℓ,1}^⊥}(a(g0))θ_{A_ℓ,1}(g0) − Σ_{ℓ∈L_{k,0}} χ_{V_{ℓ,0}^⊥}(a(g0))θ_{A_ℓ,0}(g0) = 0 only for g0 ∈ GL2(A_f^S). The untwisted identity follows only when, in each codimension, all the complements have the same discriminant character. §9 meets this condition (codimension 2: complements E·j with character η; codimension 4: quaternionic complements with trivial character), so the application stands. The item should state the hypothesis. Also note that L_{k,*} is indexed by codimension k, which is always even. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/mixed-kernel",
@@ -1475,7 +1485,7 @@
       "id": "PAPER-YUAN-ZHANG-18/test-function",
       "kind": "construction",
       "name": "Special test function and integral j",
-      "statement": "Setting: F, E, B as in Theorem 1.7, with no finite place ramified in both E and B. U = ∏_{v∤∞}U_v is a maximal open compact subgroup of B_f^× containing Ô_E^×, and O_{B_v} is the O_{F_v}-algebra generated by U_v (a maximal order, U_v = O_{B_v}^×, O_{E_v} ⊂ O_{B_v}). Take φ = ⊗φ_v with: (1) v|∞: the standard Gaussian; (2) v finite, nonsplit in E, split in B: 1_{O_{B_v}×O_{F_v}^×}; (3) v nonsplit in B: 1_{O_{B_v}^××O_{F_v}^×}; (4) v ∈ S2, a set of two finite places split in E and unramified over ℚ: 1_{O_{B_v}^××O_{F_v}^×} − (1+N_v+N_v²)^{−1}·1_{ϖ_v^{−1}(O_{B_v})_2×O_{F_v}^×}, where (O_{B_v})_2 = {x ∈ O_{B_v} : v(q(x)) = 2}; (5) v split in E, v ∉ S2: 1_{O_{B_v}×O_{F_v}^×}. For each finite v, fix 𝔧_v ∈ O_{B_v} orthogonal to E_v with v(q(𝔧_v)) ∈ {0,1}, equal to 1 iff B_v is nonsplit (then E_v/F_v is inert). In the split-B case, 𝔧_v acts as Galois conjugation on O_{E_v} ≅ M = O_{F_v}², transported by t ↦ t·m0 with m0 an O_{E_v}-module generator of M, and q(𝔧_v) = −1.",
+      "statement": "Consume quaternion-datum: choose a maximal order Ô_𝔹 ⊇ Ô_E in the finite incoherent quaternion algebra, and put U = Ô_𝔹^×, U_v = O_{𝔹_v}^×. Retain compactness |Σ(𝔹)| ≥ 2 and no common finite ramification of E and 𝔹. Every O_{B_v} below denotes this same chosen local order O_{𝔹_v}. Order containment is an explicit hypothesis, not an inference from Ô_E^× ⊂ U (E28). Take φ = ⊗φ_v with: (1) v|∞: the standard Gaussian; (2) v finite, nonsplit in E, split in B: 1_{O_{B_v}×O_{F_v}^×}; (3) v nonsplit in B: 1_{O_{B_v}^××O_{F_v}^×}; (4) v ∈ S2, a set of two finite places split in E and unramified over ℚ: 1_{O_{B_v}^××O_{F_v}^×} − (1+N_v+N_v²)^{−1}·1_{ϖ_v^{−1}(O_{B_v})_2×O_{F_v}^×}, where (O_{B_v})_2 = {x ∈ O_{B_v} : v(q(x)) = 2}; (5) v split in E, v ∉ S2: 1_{O_{B_v}×O_{F_v}^×}. For each finite v, fix 𝔧_v ∈ O_{B_v} orthogonal to E_v with v(q(𝔧_v)) ∈ {0,1}, equal to 1 iff B_v is nonsplit (then E_v/F_v is inert). In the split-B case, 𝔧_v acts as Galois conjugation on O_{E_v} ≅ M = O_{F_v}², transported by t ↦ t·m0 with m0 an O_{E_v}-module generator of M, and q(𝔧_v) = −1.",
       "locator": "§7.2 pp590–592",
       "status": "missing",
       "api": [
@@ -1486,27 +1496,31 @@
       ],
       "unitTests": [
         "At a division place use units, not the full order.",
-        "At S2 the correction coefficient is 1/(1+q+q²), not 1/(q+1)."
+        "At S2 the correction coefficient is 1/(1+q+q²), not 1/(q+1).",
+        "Dyadic split E with residue field F_2: unit-group containment alone does not establish O_E ⊂ O_B (E28). Require the chosen maximal order from quaternion-datum.",
+        "Consumers retain that chosen order and its original integral 𝔧_v with q(𝔧_v) = −1 at split quaternion places; do not substitute a nearby quaternionic j."
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Omits the §7.2 setting: U = ∏U_v is a maximal open compact subgroup containing Ô_E^×, O_{B_v} is the order generated by U_v, and no finite place ramifies in both E and B. It also omits the defining conditions of S2 (two finite places split in E and unramified over ℚ). The item uses q both for the norm form and for N_v, which is ambiguous. The existence of 𝔧_v in the split-B case needs E11's fix (m0 an O_{E_v}-generator of M).",
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Current review propagation: the §7.2 construction imports quaternion-datum with a chosen maximal order Ô_𝔹 ⊇ Ô_E and U = Ô_𝔹^×. The weaker printed unit-containment argument is rejected in E28. S2 consists of two finite places split in E and unramified over Q. Use N_v for residue cardinality and q for the norm form. E11 requires an O_{E_v}-module generator m0, rather than an arbitrary nonzero vector, when constructing integral 𝔧_v in the split quaternion case. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues.",
       "dependsOn": [
-        "PAPER-YUAN-ZHANG-18/s2-assumption"
+        "PAPER-YUAN-ZHANG-18/s2-assumption",
+        "PAPER-YUAN-ZHANG-18/quaternion-datum"
       ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/order-sandwich",
       "kind": "theorem",
       "name": "Integral order sandwich",
-      "statement": "At a finite place, Dv OBv⊂OEv+OEv jv⊂OBv, with equality OEv+OEv jv=OBv iff E/F is unramified at v.",
+      "statement": "Use the chosen O_{B_v} ⊇ O_{E_v} and original integral 𝔧_v of test-function, with no common finite ramification. If D_v is the relative discriminant ideal of E_v/F_v, then D_v O_{B_v} ⊂ O_{E_v} + O_{E_v}𝔧_v ⊂ O_{B_v}, with equality on the right iff E_v/F_v is unramified (including split E_v).",
       "locator": "Lemma7.3 p592",
       "status": "missing",
       "proofOutline": [
-        "Compute trace-form discriminants 1 and Dv² and the explicit conjugation basis; compare indices."
+        "When B_v is split, identify the chosen maximal order with End_{O_F}(O_E) using a primitive O_E-generator. Compare the trace-form discriminants of the maximal order and O_E + O_E𝔧_v and compute the dual lattice to obtain D_v O_{B_v} ⊂ O_E + O_E𝔧_v. The index is trivial precisely for unramified E_v/F_v.",
+        "When B_v is division, E_v/F_v is unramified by the no-common-ramification hypothesis, and O_{B_v} = O_{E_v} + O_{E_v}𝔧_v directly. Do not apply the split maximal-order discriminant-one calculation to this branch."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/test-function"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): Minor: state the §7.2 setting (O_{B_v} ⊇ O_{E_v} the maximal order generated by U_v; 𝔧_v as chosen there; no common finite ramification of E and B) and that D_v is the relative discriminant. Verified: d_{O_{E_v}+O_{E_v}𝔧_v} = D_v²q(𝔧_v)², with q(𝔧_v) a unit when B_v is split, and a finite O_{F_v}-module of length v(D_v) is killed by D_v, which gives the sandwich."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): Minor: state the §7.2 setting (O_{B_v} ⊇ O_{E_v} the maximal order generated by U_v; 𝔧_v as chosen there; no common finite ramification of E and B) and that D_v is the relative discriminant. Verified: d_{O_{E_v}+O_{E_v}𝔧_v} = D_v²q(𝔧_v)², with q(𝔧_v) a unit when B_v is split, and a finite O_{F_v}-module of length v(D_v) is killed by D_v, which gives the sandwich. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/norm-shells",
@@ -1779,16 +1793,17 @@
       "locator": "Theorem8.6 pp616–617",
       "status": "missing",
       "proofOutline": [
-        "Two auxiliary split places kill Hodge cross-terms; decompose proper horizontal and vertical intersections, isolate the self-term, and use CU-invariance of N."
+        "Use rev-hodge-class-terms-vanish-and coefficientwise over finite permitted fields, with pairings normalized by [H:F]. Its two S2 places kill the Hodge cross terms. Decompose proper horizontal and vertical intersections, isolate the self-term, and use C_U-invariance of N; retain normalized C_U averages and log N_v = 1 at real v."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/arch-proper",
         "PAPER-YUAN-ZHANG-18/nonsplit-proper",
         "PAPER-YUAN-ZHANG-18/split-proper",
         "PAPER-YUAN-ZHANG-18/omega-self",
-        "PAPER-YUAN-ZHANG-18/s2-assumption"
+        "PAPER-YUAN-ZHANG-18/s2-assumption",
+        "PAPER-YUAN-ZHANG-18/rev-hodge-class-terms-vanish-and"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: The standing hypotheses of §8.1 are missing. (B,E,U) must be as in §7.2 (U maximal at every finite place and containing Ô_E^×, no finite place ramified in both E and 𝔹), with |Σ| > 1. φ must be U×U-invariant and satisfy Assumption 7.1. Heights are computed on X_{U,O_H}, where H is unramified above Σ(𝔹_f). The item also blurs the arguments: M^{(v)} is averaged over C_U at (g,(tt1,tt2)), while N^{(v)} and j_v are taken at (g,(t1,t2)). Review note: The derivation was checked: −i−j, then i = i_proper + (Ω/e)i(t2,t2), then the proper part comes from Propositions 8.2, 8.3 and 8.5. Note that N^{(v)} ≠ 0 at v ∈ S2 (see the new issue on Lemma 8.7(2))."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: The standing hypotheses of §8.1 are missing. (B,E,U) must be as in §7.2 (U maximal at every finite place and containing Ô_E^×, no finite place ramified in both E and 𝔹), with |Σ| > 1. φ must be U×U-invariant and satisfy Assumption 7.1. Heights are computed on X_{U,O_H}, where H is unramified above Σ(𝔹_f). The item also blurs the arguments: M^{(v)} is averaged over C_U at (g,(tt1,tt2)), while N^{(v)} and j_v are taken at (g,(t1,t2)). Review note: The derivation was checked: −i−j, then i = i_proper + (Ω/e)i(t2,t2), then the proper part comes from Propositions 8.2, 8.3 and 8.5. Note that N^{(v)} ≠ 0 at v ∈ S2 (see the new issue on Lemma 8.7(2)). Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/local-m-inert",
@@ -1845,13 +1860,16 @@
       "locator": "Lemma8.7(2) pp617–619",
       "status": "missing",
       "proofOutline": [
-        "Nonsplit split-algebra case omits conductor c=0; division case is zero; split case shell counts give v(a),v(d); S2 gives zero."
+        "Use the chosen order and original 𝔧_v of test-function. Outside S2, omit conductor c = 0 in the nonsplit-E/split-B sum; at division B the norm valuation vanishes on support; in the split case the shell counts give ½(v(a)+v(d)).",
+        "At S2 compute each summand separately: n_{ψ1} = 0, while n_{ψ2} = ½((1+v(a))+(1+v(d))) = 1 on ψ2 support because v(a)+v(d) = 0. Thus n_φ = −ψ2/(1+N_v+N_v²), not zero. Use c_φ = −2ψ2 log N_v/(1+N_v+N_v²) = 2n_φ log N_v, and log|u q(y)| = 0 there, to obtain d_φ = 0."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/ordinary-pairing",
-        "PAPER-YUAN-ZHANG-18/finite-multiplicity"
+        "PAPER-YUAN-ZHANG-18/finite-multiplicity",
+        "PAPER-YUAN-ZHANG-18/test-function",
+        "PAPER-YUAN-ZHANG-18/c-finite"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: False at v ∈ S2. Here φ_v = ψ1 − (1+N_v+N_v²)^{-1}ψ2, with ψ1 = 1_{O_{𝔹_v}^×}⊗1_{O^×} and ψ2 = 1_{ϖ^{-1}(O_{𝔹_v})_2}⊗1_{O^×}. Then n_{φ_v}(y,u) = −(1+N_v+N_v²)^{-1}ψ2(y,u), for example n_{φ_v}(1,1) = −1/(1+N_v+N_v²). The printed formula gives φ_v(1,1)·0 = 0. The proofOutline's 'S2 gives zero' copies the paper's false claim on p. 619 (new issue). The formula is correct for v ∉ S2."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: False at v ∈ S2. Here φ_v = ψ1 − (1+N_v+N_v²)^{-1}ψ2, with ψ1 = 1_{O_{𝔹_v}^×}⊗1_{O^×} and ψ2 = 1_{ϖ^{-1}(O_{𝔹_v})_2}⊗1_{O^×}. Then n_{φ_v}(y,u) = −(1+N_v+N_v²)^{-1}ψ2(y,u), for example n_{φ_v}(1,1) = −1/(1+N_v+N_v²). The printed formula gives φ_v(1,1)·0 = 0. The proofOutline's 'S2 gives zero' copies the paper's false claim on p. 619 (new issue). The formula is correct for v ∉ S2. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/superspecial-m",
@@ -1876,13 +1894,14 @@
       "locator": "Lemma8.9,Remark8.10 pp622–624",
       "status": "missing",
       "proofOutline": [
-        "Represent the admissible vertical divisor by components of the uniformization tree; norm support yields compactness. E17 flags the printed component-fixing assertion; equivariant lift/descent must be proved, not assumed."
+        "Use the direct kernel in the second displayed formula on p. 623 with the fixed lift Ṽ. Its dependence on t1,t2 enters through q(t2)/q(t1); on φ_v = 1_{O_{𝔹_v}^×}⊗1_{O_F^×} the x-sum reduces to the unit-norm indicator times (γ^{-1}z0·Ṽ). No assertion that t2 fixes every component, and no equivariant-lift argument, is needed.",
+        "Index the finitely many components of Ṽ by α_i F_v^×GL2(O_F). Their indicators give the direct component pairing on p. 624. Combined with the fixed norm valuation, each such support is a finite union of GL2(O_F)-cosets, hence compact and open away from singular matrices. Extend by zero to a Schwartz function and apply the finite C_U average. This is the accepted amended E17 repair."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/superspecial-m",
         "PAPER-YUAN-ZHANG-18/pseudo-theta"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: By E17, the (t1,t2)-covariant form 'r(t1,t2)l_φ' rests on the false claim that t2 ∈ F_v^×GL2(O_{F_v}) fixes every component, so it is unjustified. The pseudo-theta conclusion still holds with a kernel that depends on (t1,t2) only through q(t1) and q(t2); this is the paper's own second display on p. 623. The item also leaves out Remark 8.10: it suffices that φ_v(0,u) = 0. Under the §7.2 data the unit-norm condition becomes q(γ) ∈ q(t1t2^{-1})O^×. Review note: Also planned in part by HilbertModularVarietiesAndShimuraCurves:R18.5, which supplies the uniformization. No equivariant lift or descent is needed. The proofOutline's 'equivariant lift/descent must be proved' can be replaced by 'use the second display on p. 623 directly'."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: By E17, the (t1,t2)-covariant form 'r(t1,t2)l_φ' rests on the false claim that t2 ∈ F_v^×GL2(O_{F_v}) fixes every component, so it is unjustified. The pseudo-theta conclusion still holds with a kernel that depends on (t1,t2) only through q(t1) and q(t2); this is the paper's own second display on p. 623. The item also leaves out Remark 8.10: it suffices that φ_v(0,u) = 0. Under the §7.2 data the unit-norm condition becomes q(γ) ∈ q(t1t2^{-1})O^×. Review note: Also planned in part by HilbertModularVarietiesAndShimuraCurves:R18.5, which supplies the uniformization. No equivariant lift or descent is needed. The proofOutline's 'equivariant lift/descent must be proved' can be replaced by 'use the second display on p. 623 directly'. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/vertical-split-zero",
@@ -1940,17 +1959,18 @@
       "id": "PAPER-YUAN-ZHANG-18/local-cancel-split",
       "kind": "theorem",
       "name": "Split diagonal cancellation",
-      "statement": "For split finite v, dφ(1,y,u)=−log|dv q(jv)|φv(y,u).",
+      "statement": "For split finite v, with the chosen order and original 𝔧_v of test-function, d_φ(1,y,u) = −log|d_v q(𝔧_v)| φ_v(y,u). At v ∉ S2 use the usual local-n and c-finite formulas. At v ∈ S2 one has c_φ = 2n_φ log N_v, log|u q(y)| = 0 on support, q(𝔧_v) = −1 and |d_v| = 1, so both sides are zero.",
       "locator": "Proposition9.2(2) p628",
       "status": "missing",
       "proofOutline": [
-        "2n logq cancels log|q(y)|; u is a unit on support; use c-finite."
+        "For v ∉ S2, n_φ = ½v(q(y))φ_v, c_φ = φ_v log|d_v q(𝔧_v)|, and u is a unit on support. Substitute in d_φ = 2n_φ log N_v − c_φ + log|u q(y)|φ_v (p. 626). Since log|q(y)| = −v(q(y))log N_v, the valuation terms cancel, leaving −c_φ.",
+        "At S2 use the separate corrected formulas n_φ = −ψ2/(1+N_v+N_v²), c_φ = 2n_φ log N_v and log|u q(y)| = 0. With the same d_φ convention as Proposition 9.2, the two correction contributions cancel, giving d_φ = 0. The different is a unit since F_v/Q_p is unramified, and the original 𝔧_v has norm −1. Never replace the S2 computation by the usual valuation formula."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/local-n",
         "PAPER-YUAN-ZHANG-18/c-finite"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: The statement is correct. Here 𝗃_v is the original §7.2 element, q(𝗃_v) = −1 at split v, so the right side is −log|d_v|_vφ_v. The proofOutline ('2n log q cancels log|q(y)|; use c-finite') fails at v ∈ S2. There n_{φ_v} = −(1+N+N²)^{-1}ψ2|_E ≠ φ·½v(q), and c_{φ_v}(1,·) = −(2log N/(1+N+N²))ψ2|_E ≠ 0 (the paper's Lemmas 8.7(2) and 7.6(2) both claim 0 there). The two cancel in d_{φ_v}, and log|uq(y)| = 0 on supp φ_v, so d = 0 = −log|d_vq(𝗃_v)|φ_v. The outline should treat S2 separately."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: The statement is correct. Here 𝗃_v is the original §7.2 element, q(𝗃_v) = −1 at split v, so the right side is −log|d_v|_vφ_v. The proofOutline ('2n log q cancels log|q(y)|; use c-finite') fails at v ∈ S2. There n_{φ_v} = −(1+N+N²)^{-1}ψ2|_E ≠ φ·½v(q), and c_{φ_v}(1,·) = −(2log N/(1+N+N²))ψ2|_E ≠ 0 (the paper's Lemmas 8.7(2) and 7.6(2) both claim 0 there). The two cancel in d_{φ_v}, and log|uq(y)| = 0 on supp φ_v, so d = 0 = −log|d_vq(𝗃_v)|φ_v. The outline should treat S2 separately. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/nonzero-theta",
@@ -1960,13 +1980,18 @@
       "locator": "§9.1, p. 628",
       "status": "missing",
       "proofOutline": [
-        "Use the Weil action for E itself, not ambient B; compute rE(g)φ(0,1)>0 and rE(g)φ(0,u)≥0, then finite summation."
+        "Use the Weil action of E itself, rather than the ambient quaternion algebra, at the specified g. Inert division places contribute their Weil index λ(E_v/F_v,ψ_v), which is independent of u on the allowed support. Their product is the common sign ε.",
+        "Every constant-term summand is ε times a nonnegative quantity. At S2 the integral is (1−N_v^{-1})²(1−3/(1+N_v+N_v²)) > 0, and the remaining factors at u = 1 have nonzero absolute value. Therefore |r_E(g)φ(0,1)| > 0; the finite sum over O_F^{×,+}/μ_U² has sign ε and cannot vanish. Positivity of the signed constant term is not required."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/test-function",
         "PAPER-YUAN-ZHANG-18/unit-theta"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: 'Strictly positive' is not justified. At v ∈ Σ_f (E_v/F_v inert) the local factor is r_E(w)φ_v(0,u) = λ(E_v/F_v,ψ_v)·vol(O_{E_v}^×)·1_{O^×}(u). The Weil index λ = η_v(d_v) = (−1)^{v(d_v)} is −1 when F_v/Q_p has odd different exponent. Every u-term therefore has the same sign ε = Π_{v∈Σ_f}(−1)^{v(d_v)}. The constant term is nonzero, which is all the proof needs, but it need not be positive (new issue)."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: 'Strictly positive' is not justified. At v ∈ Σ_f (E_v/F_v inert) the local factor is r_E(w)φ_v(0,u) = λ(E_v/F_v,ψ_v)·vol(O_{E_v}^×)·1_{O^×}(u). The Weil index λ = η_v(d_v) = (−1)^{v(d_v)} is −1 when F_v/Q_p has odd different exponent. Every u-term therefore has the same sign ε = Π_{v∈Σ_f}(−1)^{v(d_v)}. The constant term is nonzero, which is all the proof needs, but it need not be positive (new issue). Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues.",
+      "unitTests": [
+        "A single odd local different exponent can give ε = −1: the constant term is negative and still nonzero.",
+        "For every residue cardinality N ≥ 2, (1−1/N)²(1−3/(1+N+N²)) is strictly positive."
+      ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/modified-self-height",
@@ -2045,13 +2070,14 @@
       "locator": "Lemma9.4 pp632–635, with E18 caveat",
       "status": "missing",
       "proofOutline": [
-        "Use small-level diagonal vanishing and the U/U' projection formula with central-unit correction. Establish the CM lift as a section separately; do not infer it from global étaleness of the coarse cover."
+        "Choose U′ away from v so the model is regular and E^× ∩ U′μ_U = μ_U. Since U′_v = U_v contains O_{E_v}^×, the class fields defining the CM lifts and their U-translates are unramified at w over the Hilbert class field H. Thus the lifts are H_w^ur-rational; properness extends them to sections over R.",
+        "The stabilizer condition gives ramification multiplicity e in π^*𝒫_R. Use small-level diagonal vanishing, Lemma 9.5 and the U/U′ projection sum, dividing by [μ_U:μ_{U′}], to obtain the proper intersection. The coarse projection need not be étale (E18)."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/small-level-diagonal",
         "PAPER-YUAN-ZHANG-18/omega-self"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Review note: REPAIR VERDICT: sound. The statement is the paper's Lemma 9.4 plus the section property, and it is true. The printed reason 'π is étale' is false: π is ramified of index e at 𝒫′ (E18). The section property still holds, for the reason in E18's correction. U′_v = U_v contains O_{E_v}^×, so [1]_{U′} and all its U-translates [β]_{U′} are defined over the class field of E attached to E^×(E^×(A_f)∩U′). That field is unramified over H at w, so these points lie in X_{U′}(H_w^ur), and their closures in the proper R-scheme X_{U′,R} are sections by the valuative criterion. Multiplicity exactly e needs E^×∩U′μ_U = μ_U, which holds after shrinking U′^v. The intersection is then proper, and the identity follows from Lemma 9.5 and the projection computation on p. 635, which I checked: Σ_{β∈U^v/U′^v}1_{U′^v}(β^{-1}γ) = 1_{U^v}(γ), then divide by [μ_U:μ_{U′}]. The item's proofOutline only says 'establish the CM lift as a section separately'. To be complete it must carry the class-field argument above and state the regularity of X_{U′,R} and the condition E^×∩U′μ_U = μ_U, as in the corrected statement."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Review note: REPAIR VERDICT: sound. The statement is the paper's Lemma 9.4 plus the section property, and it is true. The printed reason 'π is étale' is false: π is ramified of index e at 𝒫′ (E18). The section property still holds, for the reason in E18's correction. U′_v = U_v contains O_{E_v}^×, so [1]_{U′} and all its U-translates [β]_{U′} are defined over the class field of E attached to E^×(E^×(A_f)∩U′). That field is unramified over H at w, so these points lie in X_{U′}(H_w^ur), and their closures in the proper R-scheme X_{U′,R} are sections by the valuative criterion. Multiplicity exactly e needs E^×∩U′μ_U = μ_U, which holds after shrinking U′^v. The intersection is then proper, and the identity follows from Lemma 9.5 and the projection computation on p. 635, which I checked: Σ_{β∈U^v/U′^v}1_{U′^v}(β^{-1}γ) = 1_{U^v}(γ), then divide by [μ_U:μ_{U′}]. The item's proofOutline only says 'establish the CM lift as a section separately'. To be complete it must carry the class-field argument above and state the regularity of X_{U′,R} and the condition E^×∩U′μ_U = μ_U, as in the corrected statement. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/adjunction-finite",
@@ -2083,7 +2109,7 @@
         "PAPER-YUAN-ZHANG-18/adjunction-arch",
         "PAPER-YUAN-ZHANG-18/adjunction-finite"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: The assembly of Theorem 1.7 was checked. Theorem 9.1 (i_0/e = L′_f/L_f(0,η) + ½log(d_{E/F}/d_𝔹)) and Theorem 9.3 (i_0/e = −h_{L̄_U}(P)) give h_{L̄_U}(P_U) = −L′_f(0,η)/L_f(0,η) + ½log(d_𝔹/d_{E/F}). This is Theorem 1.7 exactly; e = [O_E^×:O_F^×] cancels, and the hypotheses are |Σ| ≥ 2, no common finite ramification, and U maximal with Ô_E^× ⊂ U. With Theorem 1.6 (2^{-g}Σh(Φ) = ½h_{L_U}(P_U) − ¼log(d_𝔹d_F)), d_𝔹 cancels and Theorem 1.1 follows: −½L′_f/L_f(0,η) − ¼log(d_{E/F}d_F). The reduction on p. 629 to deg(M̄|_P) = e^{-1}Σ_w i_w(1,1)log N_w was also checked."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review note: The assembly of Theorem 1.7 was checked. Theorem 9.1 (i_0/e = L′_f/L_f(0,η) + ½log(d_{E/F}/d_𝔹)) and Theorem 9.3 (i_0/e = −h_{L̄_U}(P)) give h_{L̄_U}(P_U) = −L′_f(0,η)/L_f(0,η) + ½log(d_𝔹/d_{E/F}). This is Theorem 1.7 exactly; e = [O_E^×:O_F^×] cancels, and the hypotheses are |Σ| ≥ 2, no common finite ramification, and U = Ô_𝔹^× for a chosen maximal order Ô_𝔹 ⊇ Ô_E (E28); unit-group containment alone is insufficient. With Theorem 1.6 (2^{-g}Σh(Φ) = ½h_{L_U}(P_U) − ¼log(d_𝔹d_F)), d_𝔹 cancels and Theorem 1.1 follows: −½L′_f/L_f(0,η) − ¼log(d_{E/F}d_F). The reduction on p. 629 to deg(M̄|_P) = e^{-1}Σ_w i_w(1,1)log N_w was also checked. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/quaternion-height",
@@ -2171,17 +2197,22 @@
       "id": "PAPER-YUAN-ZHANG-18/determinant-cancellation",
       "kind": "theorem",
       "name": "Determinant lattice at the torus point",
-      "statement": "Let L ⊃ K′ be finite and x″ ∈ X″_1(L) the image of (x,y) ∈ (X_1×Y_1)(L). Let N″ be the bundle on 𝒳″_{1,℘′} induced, through (X_1 ×_K Y_1)/Δ(F̂^×) ≅ X″_1, from N_{1,℘} ≅ ω^{⊗2}(−d_{B,℘}) (Theorem 4.10). Then N″_{x″} = det W(ℋ″_{x″}) ⊗ det W(ℋ″^t_{x″}) as O_L-lattices in N″_{x″} ⊗ L = ω^{⊗2}_{X″_{1,℘′},x″} ⊗ L. Proof: by Proposition 5.4 both sides equal det W(ℋ_x) ⊗ det W(ℋ^t_x) ⊗ O_L = N_{1,℘,x} ⊗ O_L.",
+      "statement": "Let L ⊃ K′ be finite and x″ the image of (x,y) ∈ (X_1×Y_1)(L). Let N″ be induced on 𝒳″_{1,℘′} from N_{1,℘} ≅ ω^{⊗2}(−d_{B,℘}). If F_℘/Q_p is unramified, use the relative τ-Hodge pieces of integral-ks and cotangent-tensor. Then N″_{x″} = det W(ℋ″_{x″}) ⊗ det W(ℋ″^t_{x″}) = N_{1,℘,x} ⊗ O_L as O_L-lattices in the generic line ω^{⊗2}_{X″_{1,℘′},x″} ⊗ L. At ramified F_℘ this equality is conditional on proving the E3/E31 relative/image comparison, local freeness and compatible tensor identities; it is not established for raw τ-quotients.",
       "locator": "Corollary 5.5 and the display before it, pp575–576",
       "status": "missing",
       "proofOutline": [
-        "Identify Hom_{O_{E,p}}(Ω(H''^t), Ω(H'')^∨) with Hom_{O_{B,℘}}(W(H^t), W(H)^∨)⊗O_K' via Proposition 5.4 and the O_E/O_B type computation, apply integral Kodaira–Spencer (Theorem 4.10), and take determinants."
+        "Set T = W(I_y^t), an invertible O_{E,L}-module in the unramified branch. Proposition 5.4 gives W(ℋ″) ≅ W(ℋ) ⊗ T^∨ and W(ℋ″^t) ≅ W(ℋ^t) ⊗ T. Locally trivialize T; changing its trivialization by a ∈ O_{E,L}^× multiplies the two O_L-determinants by inverse norm factors, which cancel. Thus their product is det W(ℋ) ⊗ det W(ℋ^t), canonically.",
+        "Use integral-ks with these same pieces to identify the resulting lattice N_{1,℘,x} ⊗ O_L in the generic ω²-line. No isomorphism between rank-two O_E-linear Hom and rank-one O_B-linear Hom is used (E32). At ramified F_℘ first prove the compatible integral relative/image tensor comparison; E3/E31 is retained."
       ],
       "dependsOn": [
         "PAPER-YUAN-ZHANG-18/cotangent-tensor",
         "PAPER-YUAN-ZHANG-18/integral-ks"
       ],
-      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Two problems. (a) The first clause is false. The completion of 𝒳″_{1,℘′} at x″ is not the universal deformation of ℋ″_{x″} as a bare p-divisible O_{E,p}-module: that deformation space has relative dimension 2 (the τ1- and τ2-lines move independently), while X″ is a curve. The paper's supporting identity (3), Hom_{O_{E,℘}}(W(H^t_x), W(H_x)^∨) = Hom_{O_{B,℘}}(…), compares modules of O_K-ranks 2 and 1 (new error). (b) The lattices live in the generic fibre of N″ ≅ ω^{⊗2}, not in ω^{-2}. Corollary 5.5 itself holds by a direct argument: by Proposition 5.4 the W(I^t_y)-twists cancel in det W(ℋ″) ⊗ det W(ℋ″^t), and with the E8 convention N_{1,℘,x} = det W(ℋ_x) ⊗ det W(ℋ^t_x). Review note: missing. It inherits the ramified-F_℘ gap of Proposition 5.4."
+      "note": "No exact declaration located in the bounded pinned-library/atlas screen. Source route supplies a finer specialized target, not a claim that its broad owner is absent. Review (REV-PAPER-YUAN-ZHANG-18): statement corrected against the paper: Two problems. (a) The first clause is false. The completion of 𝒳″_{1,℘′} at x″ is not the universal deformation of ℋ″_{x″} as a bare p-divisible O_{E,p}-module: that deformation space has relative dimension 2 (the τ1- and τ2-lines move independently), while X″ is a curve. The paper's supporting identity (3), Hom_{O_{E,℘}}(W(H^t_x), W(H_x)^∨) = Hom_{O_{B,℘}}(…), compares modules of O_K-ranks 2 and 1 (new error). (b) The lattices live in the generic fibre of N″ ≅ ω^{⊗2}, not in ω^{-2}. Corollary 5.5 itself holds by a direct argument: by Proposition 5.4 the W(I^t_y)-twists cancel in det W(ℋ″) ⊗ det W(ℋ″^t), and with the E8 convention N_{1,℘,x} = det W(ℋ_x) ⊗ det W(ℋ^t_x). Review note: missing. It inherits the ramified-F_℘ gap of Proposition 5.4. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues.",
+      "unitTests": [
+        "Changing a local O_{E,L}-basis of T by a unit a gives determinant factors Norm(a) and Norm(a)^{-1}; the product line is independent of that basis.",
+        "For two one-dimensional E-eigenspaces, O_E-linear Hom has O_L-rank 2 while the O_B-linear submodule has rank 1; the proof must not identify them."
+      ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/s2-assumption",
@@ -2387,10 +2418,25 @@
       "id": "PAPER-YUAN-ZHANG-18/rev-hodge-class-terms-vanish-and",
       "kind": "theorem",
       "name": "Hodge-class terms vanish and the height series splits into horizontal and vertical parts",
-      "statement": "Let (B,E,U) be as in §7.2 with |Σ| > 1, and let φ be U×U-invariant and satisfy Assumption 7.1. Let H/F be finite, with every point of CM_U defined over H and H unramified above Σ(𝔹_f), so that X_{U,O_H} is Q-factorial (Cor. 4.6). Use ξ̂-admissible arithmetic extensions on X_{U,O_H} ([YZZ13, §7.1.6]). For t1,t2 ∈ C_U, first Z(g,(t1,t2))_U = ⟨Z_*(g)t1,t2⟩ − ⟨Z_*(g)t1,ξ_{t2}⟩ − ⟨Z_*(g)ξ_{t1},t2⟩ + ⟨Z_*(g)ξ_{t1},ξ_{t2}⟩, and the last three terms vanish, so Z(g,(t1,t2))_U = ⟨Z_*(g)_Ut1,t2⟩. Second, ⟨Z_*(g)t1,t2⟩ = −i(Z_*(g)t1,t2) − j(Z_*(g)t1,t2), where i is the horizontal part (finite horizontal intersections plus archimedean Green values) and j the vertical part. Third, j = Σ_v j_v(Z_*(g)t1,t2)log N_v (log N_v = 1 at real v) and j_v(Z_*(g)t1,t2) = ∫_{C_U} j̄_v(Z_*(g)tt1,tt2)dt, with j̄_v the pairing of [YZZ13, §7.1.7]; likewise i_v = ∫_{C_U} ī_v.",
+      "statement": "Let (B,E,U) be as in §7.2 with |Σ| > 1, and let φ be U×U-invariant and satisfy Assumption 7.1. For each fixed coefficient/intersection calculation, first fix the finite collection of CM points and supports entering Z_*(g)t1 and t2 (and any finite C_U averages used). Choose a finite extension H/F defining these points and supports, unramified above Σ(𝔹_f), by taking a finite compositum of their permitted fields of definition. This is a coefficientwise choice, not one field defining all of the varying-conductor set CM_U. A single field may be chosen for the finite orbit C_U. The model X_{U,O_H} is Q-factorial by Corollary 4.6; use ξ̂-admissible arithmetic extensions on it ([YZZ13, §7.1.6]). For any further permitted finite extension H′/H, arithmetic degrees/intersection pairings scale by [H′:H]; hence their values divided by [H:F] are independent of the chosen H and agree after passing to a common permitted compositum. Assemble the height series coefficientwise using these normalized pairings. For t1,t2 ∈ C_U, Z(g,(t1,t2))_U = ⟨Z_*(g)t1,t2⟩ − ⟨Z_*(g)t1,ξ_{t2}⟩ − ⟨Z_*(g)ξ_{t1},t2⟩ + ⟨Z_*(g)ξ_{t1},ξ_{t2}⟩; the last three terms vanish by Assumption 7.1, so Z = ⟨Z_*t1,t2⟩ = −i(Z_*t1,t2) − j(Z_*t1,t2). Here i comprises finite horizontal intersections and archimedean Green values, and j is the vertical part. In the paper’s F-relative normalization j = Σ_v j_v log N_v, with log N_v = 1 at real v, and j_v = ∫_{C_U} j̄_v(Z_*(g)tt1,tt2)dt; likewise i_v = ∫_{C_U} ī_v. The C_U integrals are normalized finite-orbit averages. Local base-change scaling includes ramification and residue-degree weights; it is the total weighted pairing divided by [H:F] that is invariant.",
       "locator": "§8.1, pp. 607–608 ([YZZ13, Prop. 7.5])",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUAN-ZHANG-18 (coverage of the paper): Theorem 8.6 starts from Z = ⟨Z_*t1,t2⟩ = −i − j, j = Σ_v j_v log N_v and j_v = ∫_{C_U} j̄_v. This rests on the S2 assumption killing the three Hodge-class cross terms. No item states it; height-decomposition-series only mentions it in its proofOutline. Route: GrossZagierAndArithmeticHeights."
+      "note": "Added by the review REV-PAPER-YUAN-ZHANG-18 (coverage of the paper): Theorem 8.6 starts from Z = ⟨Z_*t1,t2⟩ = −i − j, j = Σ_v j_v log N_v and j_v = ∫_{C_U} j̄_v. This rests on the S2 assumption killing the three Hodge-class cross terms. No item states it; height-decomposition-series only mentions it in its proofOutline. Route: GrossZagierAndArithmeticHeights. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues.",
+      "proofOutline": [
+        "For each finite support use the pointwise field-of-definition statement rev-cm-points-on-x-u and its finite compositum, preserving unramifiedness above the division places. Use qfactorial and the ξ̂-admissible extension construction.",
+        "Compare two choices of H over a common permitted compositum. Pullback of the arithmetic pairing multiplies its arithmetic degree by the extension degree, with local ramification/residue-degree weights and archimedean multiplicities. Divide by the degree over F; this proves coefficientwise independence and permits assembly without a common field for CM_U.",
+        "Apply the two S2 vanishing conditions to the three Hodge-class cross terms; decompose the remaining admissible pairing into horizontal and vertical terms. Take the normalized average over the finite C_U orbit and keep log N_v = 1 at real v."
+      ],
+      "dependsOn": [
+        "PAPER-YUAN-ZHANG-18/rev-cm-points-on-x-u",
+        "PAPER-YUAN-ZHANG-18/qfactorial",
+        "PAPER-YUAN-ZHANG-18/s2-assumption"
+      ],
+      "unitTests": [
+        "Two finite support calculations with permitted fields H1,H2 are compared over their finite compositum, not over a field defining every point of CM_U.",
+        "If an arithmetic pairing equals a over H and becomes m·a over a permitted extension of degree m, then (m·a)/[H′:F] = a/[H:F]. Include residue-degree and ramification factors in local terms.",
+        "The normalized average over finite C_U is distinct from the varying-conductor CM_U set; the real-place log factor remains 1."
+      ]
     },
     {
       "id": "PAPER-YUAN-ZHANG-18/rev-admissible-arithmetic-extension-of-a",
@@ -2423,7 +2469,7 @@
       "statement": "Fix τ: F ↪ C and the uniformization X_{U,τ}(C) = B(τ)^×\\h^± × 𝔹_f^×/U. Let z0 ∈ h be the unique fixed point of E^× under E ↪ B(τ), and write [β]_U = [z0,β]_U. Then P_U = [1]_U, C_U = {[t]_U : t ∈ E^×(A_f)} ≅ E^×\\E^×(A_f)/(E^×(A_f)∩U), and CM_U = {[β]_U : β ∈ 𝔹_f^×} ≅ E^×\\𝔹_f^×/U. Under the §7.2 hypotheses every point of CM_U is defined over a finite extension of F unramified above Σ(𝔹_f). P_U is defined over the Hilbert class field H of E, and its ramification index in the uniformization is e_P = [E^×∩U:μ_U] = [O_E^×:O_F^×]. Points of C_U are Galois conjugates of P_U. For t ∈ E^×(A_f), t° = [t]_U − ξ_{U,t}.",
       "locator": "§8.1, pp. 606–607; §9.2, p. 629",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-YUAN-ZHANG-18 (coverage of the paper): Sections 8–9 use C_U ≅ E^×\\E^×(A_f)/(E^×(A_f)∩U), CM_U ≅ E^×\\𝔹_f^×/U, the field H, and e_P = [O_E^×:O_F^×] throughout. No item in this range defines them; hecke-height-series only uses t°. Another range may already define P_U from §1.2; if so, merge. Route: HilbertModularVarietiesAndShimuraCurves."
+      "note": "Added by the review REV-PAPER-YUAN-ZHANG-18 (coverage of the paper): Sections 8–9 use C_U ≅ E^×\\E^×(A_f)/(E^×(A_f)∩U), CM_U ≅ E^×\\𝔹_f^×/U, the field H, and e_P = [O_E^×:O_F^×] throughout. No item in this range defines them; hecke-height-series only uses t°. Another range may already define P_U from §1.2; if so, merge. Route: HilbertModularVarietiesAndShimuraCurves. Fix RT/3: the field-of-definition quantifier is pointwise on CM_U. Only the finite orbit C_U, or finitely many supports of a fixed coefficient, is put over a single finite compositum. Fix FIX-RT-PAPER-YUAN-ZHANG-18 (Codex, codex-J6LwjP, 2026-10-01): current statement/proof instructions synchronized with confirmed RT findings; historical source assertions remain in sourceIssues."
     }
   ],
   "prerequisites": [
@@ -4037,6 +4083,36 @@
       },
       "scriptSha256": "e511ddda809a354822ebfec5f97305e12f5e368f0fc6913bd8cb695c7515ef36",
       "scope": "Exact finite/rational diagnostics, not proof of the global theorems or the proposed repairs. Reproduction recipe in report; scratch script is not a deliverable."
+    },
+    "fixRT": {
+      "job": "FIX-RT-PAPER-YUAN-ZHANG-18",
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "date": "2026-10-01",
+      "findings": [
+        "RT-PAPER-YUAN-ZHANG-18/1",
+        "RT-PAPER-YUAN-ZHANG-18/2",
+        "RT-PAPER-YUAN-ZHANG-18/3",
+        "RT-PAPER-YUAN-ZHANG-18/4"
+      ],
+      "scope": "Propagation/consistency corrections only. Item identities, statuses, route membership and all 55 reviewed sourceIssues preserved. Relative/image and ramified-base E3/E31 obligations remain open; no library or Lean formalization claim.",
+      "checks": [
+        "check_paper: passed",
+        "intake check-files: three deliverables, zero problems",
+        "139 identities/statuses, nine routes and 55 sourceIssues unchanged",
+        "139 vertices, all targets resolve, acyclic"
+      ],
+      "finiteDiagnostics": {
+        "S2_unsigned_volume": 17,
+        "S2_n_c_cancellation": 51,
+        "ordinary_split_cancellation": 357,
+        "common_sign": 6,
+        "determinant_twist": 9,
+        "normalized_base_change": 16,
+        "absolute_relative_ranks": 8,
+        "dyadic_units_preserve_lattice": 16,
+        "dyadic_order_counterexample": 1
+      }
     }
   },
   "summaryBefore": "Routes the corrected averaged Colmez proof through CM component heights, PEL/quaternionic integral comparisons, different-torsion Kisin modules, pseudo-theta cancellation and arithmetic adjunction. Reuses the pending CM-height Part II from Tsimerman and existing general suppliers. Status remains partial: reading the main sources is complete, full atomic/external-source closure is not.",

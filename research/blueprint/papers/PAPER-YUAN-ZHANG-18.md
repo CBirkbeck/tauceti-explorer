@@ -6,10 +6,27 @@ Issue [#1145](https://github.com/CBirkbeck/tauceti-explorer/issues/1145). Status
 - **The paper.** X. Yuan and S.-W. Zhang, *On the averaged Colmez conjecture*, Ann. of Math. 187 (2018), 533–638, with the erratum in Ann. of Math. 198 (2023), 867–878.
   - The published main paper was re-fetched; its SHA-256 (29dfd5f1…) matches the checkpoint.
   - The author revision of the erratum (Erratum5.pdf, 18 December 2022) was re-fetched; its SHA-256 (18b46acd…) matches. The 12-page journal version is not openly available.
-- **Items.** The result has **115 items: 6 library, 4 planned and 105 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
-- **Mistakes.** Twenty-three are recorded under `sourceIssues`. Only E1, the error the published erratum corrects, affects a stated result (Theorem 2.7). None affects Theorems 1.1, 1.6 or 1.7.
+- **Items.** After the independent review, the result has **139 items: 6 library, 14 planned and 119 missing**, across nine routes. This fix preserves every item identity, status and route membership.
+- **Mistakes.** The result retains **55 reviewed `sourceIssues`**. The original continuation's count of 23 and its claim that only E1 affects a stated result are superseded. In particular, E28 requires a chosen maximal order containing Ô_E; E3/E31 leave the ramified-prime determinant comparison unresolved. The paper's route to Theorem 1.6, and hence its proof of Theorem 1.1, still needs that comparison. Extraction completeness is not proof closure.
 
-## This continuation (cc-442dc5)
+## Confirmed red-team fixes (Codex, codex-J6LwjP)
+
+Issue [#5502](https://github.com/CBirkbeck/tauceti-explorer/issues/5502), 1 October 2026. All four confirmed findings are addressed in the current statements and proof outlines; the historical source assertions and all 55 reviewed issue records are preserved.
+
+1. **Relative Hodge pieces.** `integral-ks` uses a rank-four relative crystal with two rank-two Hodge pieces. Its left term is the relative Hodge submodule, identified at unramified places with the τ-summand of the absolute Cartier-dual differential module. The full absolute dual has differential rank `4[F_℘:Q_p]−2`. `cotangent-tensor`, `determinant-cancellation` and `comparison-line` use the same convention. At ramified places a relative theory or images in generic τ-pieces must be specified and compared integrally, including local freeness, filtration, connection and determinant lattices. A raw τ-quotient is never declared free from its generic rank. The E3/E31 gate stays open.
+2. **Chosen maximal order.** `test-function` explicitly imports `quaternion-datum` with `Ô_𝔹 ⊇ Ô_E` and `U = Ô_𝔹^×`. The order sandwich and local computations use this same order and the original integral `𝔧_v`; unit containment alone is insufficient (E28). The primitive-generator requirement of E11 remains.
+3. **Coefficientwise fields of definition.** Fix the finite support of an intersection calculation first, then take a finite compositum of its permitted fields, unramified above `Σ(𝔹_f)`. Pairings divided by `[H:F]` are independent of this choice under permitted base change, with all local degree weights included. This permits coefficientwise assembly of the height series. The varying-conductor set `CM_U` is distinct from the finite orbit `C_U`, for which one field can be chosen. Q-factoriality, ξ̂-admissibility, both S2 conditions, normalized `C_U` averages and the real-place convention `log N_v = 1` remain explicit.
+4. **Current proof instructions.** Corollary 5.5 cancels the two inverse `W(I^t)` determinant twists directly; it never identifies O_E-linear and O_B-linear Hom modules of different ranks. At S2, `n_φ = −ψ2/(1+N+N²)` and `c_φ = 2n_φ log N` cancel in `d_φ`; the usual valuation formula applies outside S2. The theta constant term is nonzero because all summands have a common Weil-index sign and one has nonzero absolute value, even when that sign is negative.
+
+The outline audit also synchronized the accepted monogenic repair, the codimension-two Kodaira–Spencer extension, local-freeness requirements for self-dual height invariance, the direct vertical kernel, full adelic δ and discriminant characters, common-character cancellation, and the class-field proof that CM lifts are sections. It does not assert additional blueprint-level proof closure or create another generic Dieudonné owner.
+
+**Source scope.** The main PDF and the December 2022 author erratum were re-fetched and their full hashes match the provenance below. Selected main-paper pages 546–548, 562, 568–570, 575–576, 581–583, 591–592, 603–604, 607–608, 619, 623–626, 628 and 633–635, and author-erratum page 10 were re-read. Rendered images were inspected for main pages 568–569, 575–576, 591, 607, 619, 628 and author-erratum page 10. This fix makes no new whole-paper reading claim and does not collate the final journal erratum.
+
+**Validation.** The paper schema, intake checks on all three deliverables, dependency graph and preservation checks pass. Exact rational diagnostics check the S2 formulas and cancellation, possible negative common sign, determinant-basis cancellation, degree normalization and the dyadic lattice witness. They are regression checks, not proofs of the global arithmetic geometry. No Lean file is requested or compiled.
+
+## Historical continuation (cc-442dc5)
+
+The following continuation records the earlier extraction. Its counts, issue classifications and open-proof descriptions are superseded by the reviewed JSON and the current fixes above where they differ.
 
 **New items.** Seven numbered statements that the checkpoint had merged into other items now have their own:
 - Proposition 3.5 and Corollary 3.6 (`level-integral`, `level-projective-system`);
