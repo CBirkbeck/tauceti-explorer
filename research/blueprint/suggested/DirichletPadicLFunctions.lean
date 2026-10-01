@@ -23270,3 +23270,327 @@ example : Nat.card (kubertPrimitivePoints (Fin 0 → AddCircle (1 : ℚ)) 1)=1 :
 example : Nat.card (kubertPrimitivePoints (Fin 0 → AddCircle (1 : ℚ)) 6)=0 := by sorry
 end
 end DirichletPadic.SuggestedKubertPrimaryTests
+
+/- Actual source admissible generating sets and their primary product. -/
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertGeneratorProduct_level_mono {M N : ℕ} (hMN : M ∣ N) :
+    (nsmulAddMonoidHom (α := X) M).ker ≤ (nsmulAddMonoidHom (α := X) N).ker := by sorry
+
+lemma kubertGeneratorProduct_lifted_component_same {M N : ℕ} (hN : N ≠ 0) (hMN : M ∣ N)
+    (p : M.primeFactors)
+    (y : (nsmulAddMonoidHom (α := X) (p.val ^ M.factorization p.val)).ker) :
+    (kubertPrimaryCoordinates N hN
+      (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono ((Nat.ordProj_dvd M p.val).trans hMN)) y)
+      ⟨p.val,Nat.primeFactors_mono hMN hN p.property⟩ : X) = (y : X) := by sorry
+
+lemma kubertGeneratorProduct_lifted_component_other {M N : ℕ} (hN : N ≠ 0) (hMN : M ∣ N)
+    (p : M.primeFactors) (r : N.primeFactors) (hpr : p.val ≠ r.val)
+    (y : (nsmulAddMonoidHom (α := X) (p.val ^ M.factorization p.val)).ker) :
+    (kubertPrimaryCoordinates N hN
+      (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono ((Nat.ordProj_dvd M p.val).trans hMN)) y) r : X) = 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertGeneratorProduct_included_primary_sum {M N : ℕ} (hM : M ≠ 0) (hMN : M ∣ N)
+    (x : (nsmulAddMonoidHom (α := X) M).ker) :
+    AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x =
+      ∑ p : M.primeFactors,
+        AddSubgroup.inclusion (kubertGeneratorProduct_level_mono ((Nat.ordProj_dvd M p.val).trans hMN))
+          (kubertPrimaryCoordinates M hM x p) := by sorry
+
+lemma kubertGeneratorProduct_primaryCoordinates_inclusion {M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0) (hMN : M ∣ N)
+    (x : (nsmulAddMonoidHom (α := X) M).ker) (p : M.primeFactors) :
+    (kubertPrimaryCoordinates N hN
+      (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x)
+      ⟨p.val,Nat.primeFactors_mono hMN hN p.property⟩ : X) =
+        (kubertPrimaryCoordinates M hM x p : X) := by sorry
+
+lemma kubertGeneratorProduct_primaryCoordinates_outside {M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0) (hMN : M ∣ N)
+    (x : (nsmulAddMonoidHom (α := X) M).ker)
+    (r : N.primeFactors) (hr : r.val ∉ M.primeFactors) :
+    (kubertPrimaryCoordinates N hN
+      (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) x) r : X) = 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertGeneratorProduct_admissible_factorization {M N : ℕ} (hN : N ≠ 0)
+    (hM : M ∈ kubertAdmissibleDivisors N)
+    (p : M.primeFactors) : N.factorization p.val = M.factorization p.val := by sorry
+
+lemma kubertGeneratorProduct_admissible_primary_power {M N : ℕ} (hN : N ≠ 0)
+    (hM : M ∈ kubertAdmissibleDivisors N)
+    (p : M.primeFactors) : p.val ^ N.factorization p.val = p.val ^ M.factorization p.val := by sorry
+
+lemma kubertGeneratorProduct_primitive_coordinate_inclusion {M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0)
+    (hMN : M ∣ N) (x : kubertPrimitivePoints X M)
+    (p : M.primeFactors) :
+    (kubertPrimaryCoordinates N hN
+      ⟨x.val, kubertGenerators_primitive_mem_level hMN x.property⟩
+      ⟨p.val, Nat.primeFactors_mono hMN hN p.property⟩ : X) =
+      (kubertPrimitiveCoordinates X M hM x p : X) := by sorry
+
+lemma kubertGeneratorProduct_primitive_coordinate_outside {M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0)
+    (hMN : M ∣ N) (x : kubertPrimitivePoints X M)
+    (p : N.primeFactors) (hp : p.val ∉ M.primeFactors) :
+    (kubertPrimaryCoordinates N hN
+      ⟨x.val, kubertGenerators_primitive_mem_level hMN x.property⟩ p : X) = 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+noncomputable def kubertExceptionalPrimitive (k N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    Set (Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+noncomputable def kubertReducedPrimitive (k N : ℕ) (hN : N ≠ 0) :
+    Set (Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGeneratorProduct_exceptional_mem_iff (k N : ℕ) (hN : N ≠ 0) (p : N.primeFactors)
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) :
+    x ∈ kubertExceptionalPrimitive k N hN p ↔
+      ∃ hx : x ∈ kubertPrimitivePoints _ N,
+        (kubertPrimitiveCoordinates _ N hN ⟨x, hx⟩ p :
+          Fin (k + 1) → AddCircle (1 : ℚ)) =
+          kubertDistinguishedPoint k (p.val ^ N.factorization p.val) := by sorry
+
+lemma kubertGeneratorProduct_exceptional_subset (k N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    kubertExceptionalPrimitive k N hN p ⊆ kubertPrimitivePoints _ N := by sorry
+
+lemma kubertGeneratorProduct_reduced_mem_iff (k N : ℕ) (hN : N ≠ 0)
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) :
+    x ∈ kubertReducedPrimitive k N hN ↔
+      ∃ hx : x ∈ kubertPrimitivePoints _ N,
+        ∀ p : N.primeFactors,
+          (kubertPrimitiveCoordinates _ N hN ⟨x, hx⟩ p :
+            Fin (k + 1) → AddCircle (1 : ℚ)) ≠
+            kubertDistinguishedPoint k (p.val ^ N.factorization p.val) := by sorry
+
+lemma kubertGeneratorProduct_reduced_subset (k N : ℕ) (hN : N ≠ 0) :
+    kubertReducedPrimitive k N hN ⊆ kubertPrimitivePoints _ N := by sorry
+
+lemma kubertGeneratorProduct_reduced_one (k : ℕ) : kubertReducedPrimitive k 1 (by decide) = {0} := by sorry
+
+lemma kubertGeneratorProduct_reduced_zero_iff (k N : ℕ) (hN : N ≠ 0) :
+    (0 : Fin (k + 1) → AddCircle (1 : ℚ)) ∈ kubertReducedPrimitive k N hN ↔ N = 1 := by sorry
+
+lemma kubertGeneratorProduct_reduced_finite (k N : ℕ) (hN : N ≠ 0) :
+    (kubertReducedPrimitive k N hN).Finite := by sorry
+
+lemma kubertGeneratorProduct_reduced_disjoint (k M N : ℕ) (hM : M ≠ 0) (hN : N ≠ 0) (hne : M ≠ N) :
+    Disjoint (kubertReducedPrimitive k M hM) (kubertReducedPrimitive k N hN) := by sorry
+
+noncomputable def kubertAdmissibleGenerators (k N : ℕ) (hN : N ≠ 0) :
+    Set (Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGeneratorProduct_generators_mem_iff (k N : ℕ) (hN : N ≠ 0)
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) :
+    x ∈ kubertAdmissibleGenerators k N hN ↔
+      ∃ M : kubertAdmissibleDivisors N,
+        x ∈ kubertReducedPrimitive k M.val
+          (kubertGenerators_admissible_pos (Nat.pos_of_ne_zero hN) M.property).ne' := by sorry
+
+lemma kubertGeneratorProduct_generators_mem_level (k N : ℕ) (hN : N ≠ 0)
+    {x : Fin (k + 1) → AddCircle (1 : ℚ)} (hx : x ∈ kubertAdmissibleGenerators k N hN) :
+    x ∈ (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker := by sorry
+
+lemma kubertGeneratorProduct_generators_zero (k N : ℕ) (hN : N ≠ 0) :
+    (0 : Fin (k + 1) → AddCircle (1 : ℚ)) ∈ kubertAdmissibleGenerators k N hN := by sorry
+
+lemma kubertGeneratorProduct_generators_one (k : ℕ) : kubertAdmissibleGenerators k 1 (by decide) = {0} := by sorry
+
+lemma kubertGeneratorProduct_generators_finite (k N : ℕ) (hN : N ≠ 0) :
+    (kubertAdmissibleGenerators k N hN).Finite := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+lemma kubertGeneratorProduct_generators_coordinates (k N : ℕ) (hN : N ≠ 0)
+    (x : kubertAdmissibleGenerators k N hN) (p : N.primeFactors) :
+    (kubertPrimaryCoordinates N hN
+      ⟨x.val, kubertGeneratorProduct_generators_mem_level k N hN x.property⟩ p : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertLocalChoices k (p.val ^ N.factorization p.val) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+lemma kubertGeneratorProduct_primary_subproduct_admissible (N : ℕ) (hN : N ≠ 0) (s : Finset N.primeFactors) :
+    (∏ p ∈ s, p.val ^ N.factorization p.val) ∈
+      kubertAdmissibleDivisors N := by sorry
+
+lemma kubertGeneratorProduct_local_order_admissible (k N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker)
+    (hx : ∀ p : N.primeFactors,
+      (kubertPrimaryCoordinates N hN x p : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+        kubertLocalChoices k (p.val ^ N.factorization p.val)) :
+    addOrderOf (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+      kubertAdmissibleDivisors N := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+lemma kubertGeneratorProduct_primary_power_gt_one (N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    1 < p.val ^ N.factorization p.val := by sorry
+
+lemma kubertGeneratorProduct_generators_of_coordinates (k N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker)
+    (hx : ∀ p : N.primeFactors,
+      (kubertPrimaryCoordinates N hN x p : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+        kubertLocalChoices k (p.val ^ N.factorization p.val)) :
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈ kubertAdmissibleGenerators k N hN := by sorry
+
+lemma kubertGeneratorProduct_generators_coordinates_iff (k N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := Fin (k + 1) → AddCircle (1 : ℚ)) N).ker) :
+    (x : Fin (k + 1) → AddCircle (1 : ℚ)) ∈ kubertAdmissibleGenerators k N hN ↔
+      ∀ p : N.primeFactors,
+        (kubertPrimaryCoordinates N hN x p : Fin (k + 1) → AddCircle (1 : ℚ)) ∈
+          kubertLocalChoices k (p.val ^ N.factorization p.val) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+
+noncomputable def kubertGeneratorCoordinates (k N : ℕ) (hN : N ≠ 0) :
+    kubertAdmissibleGenerators k N hN ≃
+      ((p : N.primeFactors) → kubertLocalChoices k
+        (p.val ^ N.factorization p.val)) := by sorry
+
+lemma kubertGeneratorProduct_generatorCoordinates_coe (k N : ℕ) (hN : N ≠ 0)
+    (x : kubertAdmissibleGenerators k N hN) (p : N.primeFactors) :
+    (kubertGeneratorCoordinates k N hN x p : Fin (k + 1) → AddCircle (1 : ℚ)) =
+      (kubertPrimaryCoordinates N hN
+        ⟨x.val, kubertGeneratorProduct_generators_mem_level k N hN x.property⟩ p : Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGeneratorProduct_generatorCoordinates_symm_coe (k N : ℕ) (hN : N ≠ 0)
+    (v : (p : N.primeFactors) → kubertLocalChoices k
+      (p.val ^ N.factorization p.val)) :
+    ((kubertGeneratorCoordinates k N hN).symm v : Fin (k + 1) → AddCircle (1 : ℚ)) =
+      ∑ p, (v p : Fin (k + 1) → AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertGeneratorProduct_generators_card_product (k N : ℕ) (hN : N ≠ 0) :
+    Nat.card (kubertAdmissibleGenerators k N hN) =
+      ∏ p : N.primeFactors, Nat.card (kubertLocalChoices k
+        (p.val ^ N.factorization p.val)) := by sorry
+
+lemma kubertGeneratorProduct_generators_card_primitive (k N : ℕ) (hN : N ≠ 0) :
+    Nat.card (kubertAdmissibleGenerators k N hN) =
+      Nat.card (kubertPrimitivePoints
+        (Fin (k + 1) → AddCircle (1 : ℚ)) N) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertGeneratorProductTests
+open scoped BigOperators Classical
+noncomputable section
+-- level_four_inside_twelve
+example : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 4).ker ≤ (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 12).ker := by sorry
+-- included_primary_point_fixed
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 4).ker) : (kubertPrimaryCoordinates 12 (by decide) (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (by decide : 4 ∣ 12)) x) (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=(x : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- included_primary_other_zero
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 4).ker) : (kubertPrimaryCoordinates 12 (by decide) (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (by decide : 4 ∣ 12)) x) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- included_sum_reconstructs
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 6).ker) : ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (by decide : 6 ∣ 12)) x) : (Fin 1 → AddCircle (1 : ℚ)))=∑ p : (6 : ℕ).primeFactors, (kubertPrimaryCoordinates 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- nonadmissible_level_compatibility
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 2).ker) : (kubertPrimaryCoordinates 12 (by decide) (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (by decide : 2 ∣ 12)) x) (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=(kubertPrimaryCoordinates 2 (by decide) x (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (2 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- new_prime_coordinate_zero
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 4).ker) : (kubertPrimaryCoordinates 12 (by decide) (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (by decide : 4 ∣ 12)) x) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- admissible_exponent_agreement
+example : Nat.factorization 12 2 = Nat.factorization 4 2 := by sorry
+-- nonadmissible_exponents_differ
+example : Nat.factorization 2 2 ≠ Nat.factorization 12 2 := by sorry
+-- admissible_primary_power_four
+example : (2 : ℕ)^Nat.factorization 12 2=2^Nat.factorization 4 2 := by sorry
+-- primitive_coordinate_value_compatible
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 4) : (kubertPrimaryCoordinates 12 (by decide) ⟨x.val,kubertGenerators_primitive_mem_level (by decide : 4 ∣ 12) x.property⟩ (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=(kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 4 (by decide) x (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (4 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- primitive_missing_prime_zero
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 4) : (kubertPrimaryCoordinates 12 (by decide) ⟨x.val,kubertGenerators_primitive_mem_level (by decide : 4 ∣ 12) x.property⟩ (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (12 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- exceptional_third
+example : kubertDistinguishedPoint 0 3 ∈ kubertExceptionalPrimitive 0 3 (by decide) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (3 : ℕ).primeFactors) := by sorry
+-- nonexceptional_two_thirds
+example : (fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ))) ∉ kubertExceptionalPrimitive 0 3 (by decide) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (3 : ℕ).primeFactors) := by sorry
+-- zero_not_exceptional
+example : (0 : (Fin 1 → AddCircle (1 : ℚ))) ∉ kubertExceptionalPrimitive 0 3 (by decide) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (3 : ℕ).primeFactors) := by sorry
+-- reduced_level_one
+example : kubertReducedPrimitive 0 1 (by decide)={0} := by sorry
+-- reduced_thirds
+example : kubertReducedPrimitive 0 3 (by decide)={fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ))} := by sorry
+-- excluded_distinguished_third
+example : kubertDistinguishedPoint 0 3 ∉ kubertReducedPrimitive 0 3 (by decide) := by sorry
+-- exceptional_requires_actual_projection
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertExceptionalPrimitive 0 6 (by decide) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) ↔ (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=kubertDistinguishedPoint 0 3 := by sorry
+-- exceptional_points_are_primitive
+example : kubertExceptionalPrimitive 0 6 (by decide) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) ⊆ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 := by sorry
+-- avoid_all_primary_exceptions
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (x : (Fin 1 → AddCircle (1 : ℚ))) ∈ kubertReducedPrimitive 0 6 (by decide) ↔ ∀ p : (6 : ℕ).primeFactors,(kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ))) ≠ kubertDistinguishedPoint 0 (p.val ^ Nat.factorization 6 p.val) := by sorry
+-- reduced_points_have_exact_order
+example : kubertReducedPrimitive 0 6 (by decide) ⊆ kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 := by sorry
+-- rank_two_unit_reduced_set
+example : kubertReducedPrimitive 1 1 (by decide)={0} := by sorry
+-- no_zero_in_nonunit_stratum
+example : (0 : (Fin 1 → AddCircle (1 : ℚ)))∉kubertReducedPrimitive 0 6 (by decide) := by sorry
+-- finite_reduced_stratum
+example : (kubertReducedPrimitive 1 12 (by decide)).Finite := by sorry
+-- distinct_order_strata_disjoint
+example : Disjoint (kubertReducedPrimitive 0 3 (by decide)) (kubertReducedPrimitive 0 4 (by decide)) := by sorry
+-- source_union_at_six
+example : kubertAdmissibleGenerators 0 6 (by decide)={0,fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ))} := by sorry
+-- wrong_multiplier_rejected
+example : kubertDistinguishedPoint 0 3 ∉ kubertAdmissibleGenerators 0 6 (by decide) := by sorry
+-- unit_source_union
+example : kubertAdmissibleGenerators 0 1 (by decide)={0} := by sorry
+-- admissible_union_witness
+example (x : (Fin 1 → AddCircle (1 : ℚ))) : x∈kubertAdmissibleGenerators 0 12 (by decide) ↔ ∃ M : kubertAdmissibleDivisors 12,x∈kubertReducedPrimitive 0 M.val (kubertGenerators_admissible_pos (by decide : 0<12) M.property).ne' := by sorry
+-- generator_annihilation
+example (x : kubertAdmissibleGenerators 0 12 (by decide)) : (12 : ℕ) • (x : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- zero_is_generator_at_six
+example : (0 : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 6 (by decide) := by sorry
+-- rank_two_unit_union
+example : kubertAdmissibleGenerators 1 1 (by decide)={0} := by sorry
+-- source_union_is_finite
+example : (kubertAdmissibleGenerators 1 12 (by decide)).Finite := by sorry
+-- source_generator_local_choices
+example (x : kubertAdmissibleGenerators 0 6 (by decide)) (p : (6 : ℕ).primeFactors) : (kubertPrimaryCoordinates 6 (by decide) ⟨x.val,kubertGeneratorProduct_generators_mem_level 0 6 (by decide) x.property⟩ p : (Fin 1 → AddCircle (1 : ℚ)))∈kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val) := by sorry
+-- full_primary_subproducts_admissible
+example (s : Finset (12 : ℕ).primeFactors) : (∏ p ∈ s,(p.val ^ Nat.factorization 12 p.val))∈kubertAdmissibleDivisors 12 := by sorry
+-- proper_primary_piece_not_admissible
+example : 2∉kubertAdmissibleDivisors 12 := by sorry
+-- allowed_tuple_order_admissible
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 6).ker) (hx : ∀ p : (6 : ℕ).primeFactors, (kubertPrimaryCoordinates 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ))) ∈ kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val)) : addOrderOf (x : (Fin 1 → AddCircle (1 : ℚ))) ∈ kubertAdmissibleDivisors 6 := by sorry
+-- full_primary_power_nonunit
+example (p : (12 : ℕ).primeFactors) : 1 < (p.val ^ Nat.factorization 12 p.val) := by sorry
+-- product_lies_in_source_union
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 6).ker) (hx : ∀ p : (6 : ℕ).primeFactors, (kubertPrimaryCoordinates 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ))) ∈ kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val)) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 6 (by decide) := by sorry
+-- source_union_product_criterion
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) 6).ker) : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 6 (by decide) ↔ ∀ p : (6 : ℕ).primeFactors, (kubertPrimaryCoordinates 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ))) ∈ kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val) := by sorry
+-- generator_inverse_law
+example (x : kubertAdmissibleGenerators 0 6 (by decide)) : (kubertGeneratorCoordinates 0 6 (by decide)).symm (kubertGeneratorCoordinates 0 6 (by decide) x)=x := by sorry
+-- local_tuple_inverse_law
+example (v : (p : (6 : ℕ).primeFactors) → kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val)) : kubertGeneratorCoordinates 0 6 (by decide) ((kubertGeneratorCoordinates 0 6 (by decide)).symm v)=v := by sorry
+-- zero_coordinates
+example (p : (6 : ℕ).primeFactors) : (kubertGeneratorCoordinates 0 6 (by decide) ⟨0,kubertGeneratorProduct_generators_zero 0 6 (by decide)⟩ p : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- generator_map_actual_projection
+example (x : kubertAdmissibleGenerators 0 6 (by decide)) (p : (6 : ℕ).primeFactors) : (kubertGeneratorCoordinates 0 6 (by decide) x p : (Fin 1 → AddCircle (1 : ℚ)))=(kubertPrimaryCoordinates 6 (by decide) ⟨x.val,kubertGeneratorProduct_generators_mem_level 0 6 (by decide) x.property⟩ p : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- generator_inverse_actual_sum
+example (v : (p : (6 : ℕ).primeFactors) → kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val)) : ((kubertGeneratorCoordinates 0 6 (by decide)).symm v : (Fin 1 → AddCircle (1 : ℚ)))=∑ p,(v p : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- source_cardinality_product
+example : Nat.card (kubertAdmissibleGenerators 0 6 (by decide))=∏ p : (6 : ℕ).primeFactors,Nat.card (kubertLocalChoices 0 (p.val ^ Nat.factorization 6 p.val)) := by sorry
+-- source_theorem_cardinality
+example : Nat.card (kubertAdmissibleGenerators 1 12 (by decide))=Nat.card (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 12) := by sorry
+-- dimension_one_level_six_cardinality
+example : Nat.card (kubertAdmissibleGenerators 0 6 (by decide))=2 := by sorry
+end
+end DirichletPadic.SuggestedKubertGeneratorProductTests
