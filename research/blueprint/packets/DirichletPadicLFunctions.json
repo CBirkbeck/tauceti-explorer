@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eighteen L3 nodes make the actual integral rational orbit, finite logarithm sum and period mean explicit, with their full basic APIs and endpoint, reflection, Frobenius and period laws. All1,201 predecessor nodes,914baseline records,20findings and six source versions remain whole.",
+  "summary": "Fifteen L3 nodes extend the actual Gamma logarithm distribution to every integral rational, constructing all preimage periods and handling negative inputs, integer endpoints and arbitrary positive-period means. All1,219 predecessor nodes,917baseline records,20findings and six source versions remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6433,6 +6433,34 @@
         "module": "Mathlib/Algebra/Order/ToIntervalMod.lean",
         "provides": "Adding an integral period multiple preserves the positive fractional representative.",
         "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026, including supporting toIocDiv uniqueness. Existing toIocMod_eq_iff and range-sum successor proofs were reread. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:PadicInt.isUnit_den",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The reduced denominator of an actual p-adically integral rational is a native Z_p unit.",
+        "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads PadicInt.isUnit_den through its reduced-coprimality contradiction and isUnit_iff; Rat.mul_den_eq_num and num_div_den through rational division; native type-tag cancellation. Also reads the core integer Euclidean-division proof used by the exact affine reindexing. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:Rat.mul_den_eq_num",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/Rat.lean",
+        "provides": "Multiplying a rational by its reduced denominator gives its integer numerator.",
+        "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads PadicInt.isUnit_den through its reduced-coprimality contradiction and isUnit_iff; Rat.mul_den_eq_num and num_div_den through rational division; native type-tag cancellation. Also reads the core integer Euclidean-division proof used by the exact affine reindexing. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:toAdd_ofAdd",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "The native Multiplicative type-tag equivalence cancels on an additive value.",
+        "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads PadicInt.isUnit_den through its reduced-coprimality contradiction and isUnit_iff; Rat.mul_den_eq_num and num_div_den through rational division; native type-tag cancellation. Also reads the core integer Euclidean-division proof used by the exact affine reindexing. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:EuclideanDomain.mod_add_div",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/EuclideanDomain/Defs.lean",
+        "provides": "The remainder plus the divisor times the quotient equals the original element in a native Euclidean domain; specialize to integers for the translation carry.",
+        "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads PadicInt.isUnit_den through its reduced-coprimality contradiction and isUnit_iff; Rat.mul_den_eq_num and num_div_den through rational division; native type-tag cancellation. Also reads the core integer Euclidean-division proof used by the exact affine reindexing. Complete native consumer evidence compiles."
       }
     ]
   },
@@ -81816,6 +81844,862 @@
       "acceptance": [
         "Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-denominator-coprime",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Prime-to-p denominators of integral rationals",
+      "kind": "lemma",
+      "statement": "For every rational q with norm(q in Q_p)≤1, its native reduced denominator is prime to p.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Apply the pinned PadicInt.isUnit_den theorem to the actual rational q and its norm bound. Its proof uses the reduced numerator/denominator coprimality to exclude simultaneous divisibility by p.",
+        "Use the native unit/norm equivalence and norm_natCast_eq_one_iff to identify the denominator unit condition with gcd(p,q.den)=1. Complete rational_denominator_coprime includes negative numerators and the zero rational."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.isUnit_den",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_rational_denominator_coprime"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_denominator_prime",
+          "kind": "computation",
+          "statement": "The reduced denominatorof−2/13isprimeto3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.nonintegral_third",
+          "kind": "non-example",
+          "statement": "The rational1/3isnot3-adicallyintegral."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-all-rational-orbit-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Positive periods for every integral rational orbit",
+      "kind": "lemma",
+      "statement": "For every integral rational q, the actual sequence X_j(q) has a positive period.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Take f=totient(q.den), which is positive because a rational denominator is positive. The preceding coprimality and native Euler congruence show q.den divides p^f−1.",
+        "Write p^f−1=q.den*t. The native identity q*q.den=q.num gives (p^f−1)*q=t*q.num, an actual integer even when q is negative.",
+        "Apply the established integer-difference fractional-period proof and the integral-orbit coe comparison. Complete rational_period_exists proves actual periodicity of X at every natural index. It no longer requires a nonnegative numerator supplied separately."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-denominator-coprime",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe",
+        "DirichletPadicLFunctions:L3/gross-koblitz-fractional-period-existence",
+        "mathlib:Nat.totient_pos",
+        "mathlib:Nat.ModEq.pow_totient",
+        "mathlib:Nat.ModEq.dvd'",
+        "mathlib:Rat.mul_den_eq_num"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralOrbit_period_exists_all"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_rational_period",
+          "kind": "computation",
+          "statement": "The negative2/13orbitadmitsapositiveperiod."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.integer_period_exists",
+          "kind": "degenerate",
+          "statement": "Everyintegerclassadmitsperiodone."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integrality of all rational division preimages",
+      "kind": "lemma",
+      "statement": "Every rational (q+h)/m is p-adically integral when q is integral and m is a positive native unit; h may be any natural number.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Let x be the native integral point with rational image q and b the inverse of the native unit m. The point b*(x+h) lies in Z_p.",
+        "The previously proved affine rational cast identity identifies its Q_p image with (q+h)/m. Its subtype norm bound is exactly the desired integrality certificate.",
+        "Complete affine_integral supplies the actual proof argument used by the constructed orbit functions. No orbit point or integrality field is merely assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence",
+        "mathlib:PadicInt.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_affine_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.affine_half_integral",
+          "kind": "computation",
+          "statement": "Divisionby2preservesintegralityofq+1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.nonunit_divisor_rejected",
+          "kind": "non-example",
+          "statement": "The excludeddivisor3isnot aunitofZ3."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-preimage-common-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A common period for an input and all rational preimages",
+      "kind": "lemma",
+      "statement": "There is a positive f that is a period of X(q) and of every X((q+h)/m), for h in the native finite type Fin m.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Use the preceding affine integrality certificates and all-rational period theorem to obtain a positive period for each actual point sequence.",
+        "Form a family indexed by Fin(m+1): the last entry is the input q and the first m entries are its division preimages. This prevents accidentally omitting the input period.",
+        "Apply the preceding finite common-period existence theorem and extract its last and first m components. Complete rational_common_period gives the actual family, with m=1 included."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-all-rational-orbit-period",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-common-period-existence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralOrbit_common_period"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.two_preimages_common",
+          "kind": "compatibility",
+          "statement": "The orbitof−2/13andits twohalvingpreimageshaveacommonpositiveperiod."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.integer_family_common",
+          "kind": "degenerate",
+          "statement": "The integerclassandhalfintegerpreimagehaveperiodone."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-numerator-equation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The numerator equation for the constructed orbit",
+      "kind": "lemma",
+      "statement": "If f>0, M=p^f−1 and0<k<M, then M*X_j(k/M)=p^j*k mod M in native Z_p.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "The integral-orbit coe theorem expresses the left orbit point as the positive fractional representative of p^j*k/M.",
+        "Apply the already proved proper fractional-orbit numerator identity. Cast the resulting rational quotient into Q_p, multiply by M and cancel its nonzero cast.",
+        "Use the injectivity of Z_p→Q_p to recover the native equation. Complete orbit_numerator_equation supplies exactly the actual-family hypothesis of the earlier Gamma multiplication and logarithmic distribution theorems."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe",
+        "DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit",
+        "DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit",
+        "mathlib:PadicInt.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzIntegralOrbit_numerator_equation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.eighths_numerator",
+          "kind": "computation",
+          "statement": "The ternaryeighthsrotationhasnumerator3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.thirteenths_numerator",
+          "kind": "computation",
+          "statement": "The period3presentation2/13=4/26hasrotatednumerator12."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-positive-period-numerator",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A proper numerator from a positive rational orbit period",
+      "kind": "lemma",
+      "statement": "If0<q<1 and f>0 is a period of X(q), then q=k/(p^f−1) for some natural k satisfying0<k<p^f−1.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Evaluate periodicity at0, apply the native inclusion and the orbit coe comparison. Since q itself lies in the positive interval, the equality says <p^f*q>=q.",
+        "The native toIocMod equality characterization produces an integer t with p^f*q=q+t. Thus (p^f−1)*q=t.",
+        "Positivity of p^f−1 and0<q<1 put t strictly between0 and p^f−1. Convert the positive integer to a natural numerator and divide by the nonzero denominator. Complete positive_period_numerator excludes the integer endpoint explicitly."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe",
+        "DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit",
+        "mathlib:toIocMod_eq_iff",
+        "mathlib:PadicInt.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_positive_period_numerator"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.period_three_presentation",
+          "kind": "computation",
+          "statement": "The positive2/13pointatperiod3ispresentedby4/26."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.endpoint_is_not_proper",
+          "kind": "non-example",
+          "statement": "Theintegerendpoint1hasnopropernumeratorbetween0and26."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-proper-rational-log-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The logarithmic distribution for proper rational inputs",
+      "kind": "lemma",
+      "statement": "For0<q<1 and any positive input-orbit period f, sum_(h<m)S_f((q+h)/m)=S_f(q).",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Use the preceding period-to-numerator theorem to write q=k/(p^f−1) with the proper bounds0<k<M.",
+        "The constructed input orbit satisfies the required numerator equation, and each constructed preimage orbit has precisely the rational image required by the preceding literal source-log theorem.",
+        "Apply that proved theorem to actual Gamma and the supplied logarithm laws. Complete proper_source_sum retains the displayed length f; individual preimage-period interpretations are separate hypotheses, not consequences of this step."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-positive-period-numerator",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-numerator-equation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-source-log-sum",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum",
+        "ColemanIntegration:L0/iwasawa-logarithm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitSum_distribution_proper"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.proper_eighths_distribution",
+          "kind": "computation",
+          "statement": "The twohalvingpreimagesattheinputperiod2sumtothe1/8orbitlogarithm."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.unit_multiplier",
+          "kind": "degenerate",
+          "statement": "Themultiplier1hasasinglepreimageandpreservesthefiniteorbitsum."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-integer-class-log-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The logarithmic distribution at the integer endpoint",
+      "kind": "lemma",
+      "statement": "For q=1 and every finite length f, sum_(h<m)S_f((1+h)/m)=S_f(1)=0.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Interchange the two finite sums. At each orbit index j, separate the m-th preimage, whose rational argument is1, from the m−1 nonzero normalizer fractions.",
+        "The previously proved actual Gamma normalizer-product permutation identifies the remaining product with the finite Gamma normalizer. Expand its logarithm as a sum and use the proved normalizer log-zero theorem.",
+        "The last preimage has positive fractional orbit identically1. Gamma(1)=−1 has logarithmzero by the root-vanishing law, so the separated term vanishes as well.",
+        "Sum the zero values over j and compare with the preceding integer-class sum theorem. Complete integer_source_sum includes f=0 and m=1, and does not try to use a forbidden proper numerator k=M."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-normalizer-product",
+        "DirichletPadicLFunctions:L3/morita-gamma-normalizer-log-sum",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer",
+        "mathlib:Finset.prod_range_succ",
+        "ColemanIntegration:L0/iwasawa-logarithm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitSum_distribution_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.integer_halves_distribution",
+          "kind": "computation",
+          "statement": "Theintegerendpointpreimages1/2and1havelogarithmorbitsumzero."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.integer_empty_sum",
+          "kind": "degenerate",
+          "statement": "Theendpointdistributionalsoholdsattheemptylength."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-integral-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer translation preserves rational integrality",
+      "kind": "lemma",
+      "statement": "If q is p-adically integral, so is q+n for every integer n.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Add the native integer n to the actual Z_p point representing q.",
+        "Its inclusion into Q_p is the rational cast of q+n. The subtype norm bound therefore proves the required rational integrality. Complete rational_integral_translation supplies certificates for both signs of n."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_integral_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_translate_integral",
+          "kind": "computation",
+          "statement": "Integralrationalsremainintegralafteradding−2."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.integer_translate_zero",
+          "kind": "degenerate",
+          "statement": "Thezerotranslationpreservesanactualintegralrational."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-translation-reindex",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer translation of rational division preimages",
+      "kind": "lemma",
+      "statement": "For any rational q, integer n and positive natural m, there is a natural c such that for every natural h, (q+n+h)/m=(q+((h+c) mod m))/m+t_h for an integer t_h.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Choose c as the nonnegative Euclidean remainder of n modulo m, converted to a natural number. Integer Euclidean division gives n=c+m*floor(n/m).",
+        "Apply natural Euclidean division to h+c. Combining the two decompositions gives t_h=floor(n/m)+floor((h+c)/m).",
+        "Cast these integer identities to Q and divide by the positive m. Complete affine_translation_reindex checks the exact carry, including negative n. The core integer Euclidean-division proof and natural cast identities were read; no private quotient structure is introduced."
+      ],
+      "prerequisites": [
+        "mathlib:EuclideanDomain.mod_add_div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_affine_translation_reindex"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_affine_shift",
+          "kind": "computation",
+          "statement": "Translatingby−2atmultiplier3givesresidue1andintegercarry−1forh0."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_reindex_permutation",
+          "kind": "computation",
+          "statement": "Thethreepreimageresiduesfortranslation−2are1,2,0."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-log-preimage-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Translation of the sum over logarithmic preimages",
+      "kind": "lemma",
+      "statement": "For every integer n and finite length f, the sum over h<m of S_f((q+n+h)/m) equals the sum over h<m of S_f((q+h)/m).",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Use the preceding exact affine reindexing. Each translated preimage differs from the residue-indexed preimage by an integer, so the existing orbit-sum translation law identifies their values.",
+        "The map h↦h+c modulo m is injective by native modular addition cancellation and equality of bounded residues. Finite.injective_iff_bijective makes it bijective, and Function.Bijective.prod_comp gives the product permutation. Apply this through the native Multiplicative type tag and then apply toAdd to obtain the finite-sum permutation.",
+        "Complete preimage_sum_translation uses the actual rational integrality proofs on both sides and works for negative translations. It does not assume that translating q leaves each individually numbered preimage unchanged."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-translation-reindex",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-integral-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation",
+        "mathlib:Function.Bijective.prod_comp",
+        "mathlib:Finite.injective_iff_bijective",
+        "mathlib:Nat.ModEq.add_right_cancel'",
+        "mathlib:Finset.prod_range",
+        "mathlib:toAdd_prod",
+        "mathlib:toAdd_ofAdd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitSum_preimages_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.translated_preimage_sums",
+          "kind": "compatibility",
+          "statement": "Translating1/8by−2preservesthesumofthetwohalvingpreimageorbits."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.one_preimage_translation",
+          "kind": "degenerate",
+          "statement": "Atmultiplier1thepreimageidentityistheordinaryintegertranslationlaw."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-log-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The logarithmic distribution for every integral rational",
+      "kind": "theorem",
+      "statement": "For every integral rational q and positive period f of its actual orbit, sum_(h<m)S_f((q+h)/m)=S_f(q).",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Write q=r+n using the native positive fractional representative r in(0,1] and integer n. The constructed initial integral orbit point proves r is integral.",
+        "Integer translation identifies the input orbit and its finite logarithm sum with those for r, so the period certificate also transfers. The preceding preimage translation theorem identifies the whole preimage sum.",
+        "If r=1, apply the separately proved integer-endpoint distribution. If r<1, apply the proper-rational distribution. Complete rational_source_sum combines the two cases and covers negative rationals and integers without omitted endpoints."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-proper-rational-log-distribution",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integer-class-log-distribution",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-preimage-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-integral-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-translation",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation",
+        "mathlib:toIocMod_mem_Ioc",
+        "mathlib:toIocMod_add_toIocDiv_zsmul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitSum_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_rational_distribution",
+          "kind": "computation",
+          "statement": "The twohalvingpreimagesof−2/13atthecommonperiod3givetheactualnegativeinputsum."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.zero_class_distribution",
+          "kind": "degenerate",
+          "statement": "Thezero-classhalvingpreimages0and1/2havelogarithmsumzero."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-weighted-log-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The period-weighted distribution on all integral rationals",
+      "kind": "theorem",
+      "statement": "For periods d_h and e dividing the common length f, sum_(h<m)(f/d_h)*S_(d_h)((q+h)/m)=(f/e)*S_e(q).",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Apply the preceding all-rational identity at the positive length f.",
+        "Use the previously proved actual orbit-sum repetition theorem for every preimage and for the input, preserving each quotient f/d_h and f/e.",
+        "Complete rational_weighted_sum covers all integral q. Choosing least positive periods gives the corrected formula for the source’s unnormalized values; the existing varying-period counterexample still forbids dropping the weights."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-log-distribution",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-repetition"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitSum_distribution_weighted"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.varying_period_weight_certificate",
+          "kind": "computation",
+          "statement": "Theexistingp7periodweights1,1,1,4,1give4timesinput14modulo49."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.omit_weights_fails",
+          "kind": "non-example",
+          "statement": "Omittingtheperiodweightsstillfailsevenafterallrationalinputshavebeencovered."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-common-log-average",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The common-length distribution for rational orbit averages",
+      "kind": "lemma",
+      "statement": "At a positive input-orbit period f, sum_(h<m)A_f((q+h)/m)=A_f(q).",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Expand each named average as its actual finite sum divided by f.",
+        "Move the common division outside the finite sum and apply the all-rational logarithmic distribution. Complete rational_common_average supplies the bridge to period-independent means; the preimages need not individually have period f for this finite-length equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-log-distribution",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitAverage_distribution_common"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.negative_common_mean",
+          "kind": "computation",
+          "statement": "Thecorrectedmeanidentityholdsfor−2/13withperiod3divisiblebytheprime3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.zero_mean_distribution",
+          "kind": "degenerate",
+          "statement": "Thezero-classmeanandits1/2preimagemeanvanish."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-rational-log-average-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The intrinsic rational Gamma logarithm distribution",
+      "kind": "theorem",
+      "statement": "Choose any positive period d_h of each preimage orbit and any positive input period e. Then sum_(h<m)A_(d_h)((q+h)/m)=A_e(q), with no supplied common length or divisibility among the chosen periods.",
+      "hypotheses": [
+        "The prime p may be2. The input q is any rational number with the explicit native integrality proof norm(q in Q_p)≤1, including negative rationals and integers. X_j(q), S_f(q) and A_f(q) are the preceding concrete integral positive fractional orbit, actual Morita Gamma logarithm sum and period mean. The representative interval is(0,1], so every integer class is represented by1.",
+        "For logarithmic distribution formulas K is a field, iota:Z_p→K is a ring homomorphism, and ell:K→K is supplied with multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. These are the established consumer laws of Coleman’s Iwasawa logarithm, not a new logarithm construction. Gamma is the existing actual Morita Gamma and uses its proved all-prime reflection, recurrence and admissible reduction congruences.",
+        "The integer multiplier m is positive and prime to p; its native Z_p cast has a unit certificate. The actual preimages are the integral rationals (q+h)/m for0≤h<m. A chosen common-length identity uses f>0 and a period certificate for the input orbit. That alone does not assert that f is a period of each individual preimage.",
+        "For the weighted identity, d_h and e are periods of the respective preimage and input orbits and divide f. For the intrinsic mean identity K has characteristic zero, all d_h and e are positive periods, and no supplied common length or divisibility between these chosen periods is required. A positive common period is constructed inside the proof.",
+        "The unnormalized least-period source value remains S_d. The corrected mean is A_d=S_d/d and can lie outside p*Z_p, as recorded by the preceding p3,2/13 certificate. No claim of universal odd-distribution structure, integral means or a correction published by the source authors is made."
+      ],
+      "proofSteps": [
+        "Construct an actual positive common period f of the input and all its preimages using rational_common_period.",
+        "The previously proved independence from positive periods replaces each chosen preimage mean A_(d_h) by A_f, even if d_h does not divide f.",
+        "Apply the common-length mean identity at f, then replace the input mean A_f by A_e using the same period-independence theorem.",
+        "Complete rational_average_distribution proves the corrected unweighted distribution for the named intrinsic means on every integral rational. Periods divisible by p are allowed in K; finite controls scale by a sufficient p-power before reduction instead of inverting a nonunit modulo p^k."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-preimage-common-period",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-common-log-average",
+        "DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average-independence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzRationalDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzLogOrbitAverage_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, published575–577/PDF7–9: Gamma multiplication, the least-period definition and relations(3.4)–(3.6), followed by the universal odd-distribution paragraph. These complete published pages have been read in the retained scan.",
+          "excerpt": "the least integer",
+          "match": "The preceding corrected distribution was proved for proper k/(p^f−1) and explicit orbit families. These nodes supply all integral rational inputs, the integer endpoint, actual preimage integrality, translation reindexing and positive common periods for the named functions. Weighted unnormalized sums and normalized means remain distinct. E18 remains unchanged; the universal-distribution paragraph is not imported as an established consequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.independent_period_choices",
+          "kind": "compatibility",
+          "statement": "Thetwopreimagesmayuseperiods6and9whiletheinputusesperiod3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRationalDistributionTests.preserved_average_certificate",
+          "kind": "computation",
+          "statement": "Thep7least-periodmeansstillsatisfythecorrecteddistributionmodulo49."
+        }
+      ],
+      "acceptance": [
+        "The two displayed tests pin a concrete case and an endpoint, compatibility or non-example. All native statements have complete consumer proofs; finite residue controls are exact but do not claim general analytic or integrality certification."
+      ]
     }
   ],
   "requests": [
@@ -81962,7 +82846,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The finite actual rational orbit, unnormalized sum and distinct mean now have concrete definitions and APIs, including endpoint-aware reflection, Frobenius and period independence. Next connect the named functions to the corrected distribution theorem for all integral rational inputs, then assess the corrected universal odd-distribution target against Kubert, whose body remains unread. The corrected mean cannot inherit the source’s p*Z_p codomain without qualification: the p3,2/13 witness gives a unit mean. No nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
+        "The corrected finite, weighted and intrinsic mean distributions now cover every p-adically integral rational, including negative inputs and integer classes. Next construct the intrinsic mean from its positive-period independence on the native rational quotient domain and assess the universal odd-distribution claim against Kubert1979, whose body remains unread. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness gives a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -81994,7 +82878,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The finite actual rational orbit, unnormalized sum and distinct mean now have concrete definitions and APIs, including endpoint-aware reflection, Frobenius and period independence. Next connect the named functions to the corrected distribution theorem for all integral rational inputs, then assess the corrected universal odd-distribution target against Kubert, whose body remains unread. The corrected mean cannot inherit the source’s p*Z_p codomain without qualification: the p3,2/13 witness gives a unit mean. No nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The corrected finite, weighted and intrinsic mean distributions now cover every p-adically integral rational, including negative inputs and integer classes. Next construct the intrinsic mean from its positive-period independence on the native rational quotient domain and assess the universal odd-distribution claim against Kubert1979, whose body remains unread. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness gives a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -82449,36 +83333,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. The p3 codomain witness limits the new averaged normalization; it is not another counterexample to the source’s original unnormalized codomain. Kubert universality is not claimed.",
+    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now cover all integral rational inputs. The preceding averaged-codomain boundary remains in force; Kubert universality is not claimed.",
     "validation": {
-      "nodes": 1219,
+      "nodes": 1234,
       "kinds": {
         "definition": 6,
-        "lemma": 564,
+        "lemma": 576,
         "construction": 112,
-        "theorem": 330,
+        "theorem": 333,
         "comparison": 207
       },
       "api": 865,
-      "packetTests": 2399,
+      "packetTests": 2429,
       "definitionConstructionTests": 505,
-      "typedExamples": 2402,
+      "typedExamples": 2432,
       "planets": 24,
-      "baseline": 917,
-      "preservedWholeNodes": 1201,
-      "preservedBaseline": 914,
+      "baseline": 921,
+      "preservedWholeNodes": 1219,
+      "preservedBaseline": 917,
       "preservedSourceIssues": 20,
       "newSourceIssues": 0,
-      "newNodes": 18,
-      "newNamedDeclarations": 30,
-      "newTypedTests": 29,
+      "newNodes": 15,
+      "newNamedDeclarations": 15,
+      "newTypedTests": 30,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1479,
-      "dependencyEdges": 6888,
+      "reachableNodes": 1494,
+      "dependencyEdges": 6950,
       "acyclic": true,
-      "baselineLeaves": 1082,
+      "baselineLeaves": 1086,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -82493,7 +83377,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 625733,
+      "readerWords": 634180,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -82520,24 +83404,26 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 38,
-      "scratchCompleteLemmas": 653,
+      "scratchCompleteLemmas": 668,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "actual_positive_orbit": 14848,
-        "period_repetition": 14848,
-        "integer_translation": 29696,
-        "frobenius_shift": 14848,
-        "reflection_endpoint": 14848,
-        "integrality": 14848,
-        "log_orbit_oddness": 249,
-        "log_orbit_frobenius": 249,
-        "log_orbit_translation": 249,
-        "log_sum_repetition": 498,
-        "log_average_independence": 373
+        "integral_denominator": 579,
+        "arbitrary_rational_period": 579,
+        "affine_integrality": 2734,
+        "common_period": 2734,
+        "translation_permutation": 2734,
+        "affine_integer_reindex": 8905,
+        "proper_numerator": 1091,
+        "rational_common_sum": 2419,
+        "integer_endpoint_sum": 489,
+        "weighted_distribution": 2419,
+        "averaged_distribution_scaled": 2419,
+        "arbitrary_period_average": 4838,
+        "nonunit_period_denominators": 244
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -82545,11 +83431,11 @@
       ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c",
+        "sourceSha256": "261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3",
         "modules": 3604,
-        "warnings": 3966,
+        "warnings": 4011,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,966 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -82559,7 +83445,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "a82a3d8aba872a3777992e833230cdc47f008474e613b7d13485dd3e3dcb4698",
+      "sha256": "4694b02a98d83ccf937349cc5f892053f7ece20d4f8ba29ada85f8ce02d29da7",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -82574,11 +83460,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 653,
+        "completeLemmas": 668,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "fc4aad3d086c73ab6b7dec150d08c4538d26aef5964c9aa68fd8fcece118499c"
+        "sha256": "7529b62bb75b4982bbf07d89ad6e61170ced7f8083d886f77cb6243e09dec75d"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -82716,17 +83602,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c",
+        "sourceSha256": "261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3",
         "modules": 3604,
-        "warnings": 3966,
+        "warnings": 4011,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,966 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "265c31fa89374605459f5ac4060d3f11d6effa23",
+      "base": "cbdba58266091adad17f6a4955d19ab9e43b600f",
       "unchangedInputs": 73,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -92845,6 +93731,60 @@
         "warnings": 3966,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 3,966 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "grossKoblitzRationalDistribution": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5388,
+      "previousHead": "7b5079f01373e4335e06e7a90e2d3f30eaa5033c",
+      "previousMerge": "a955b0a8690e48ce9817d6980087ec0710f5175a",
+      "preservedWholeNodes": 1219,
+      "preservedBaseline": 917,
+      "preservedFindings": 20,
+      "newNodes": 15,
+      "reading": "Uses the fully read Gross–Koblitz1979 published575–577 and the existing exact corrected logarithmic distribution, period and named-function proofs. Reads the pinned native denominator-unit theorem and its reduced-coprimality proof, rational numerator/denominator identity, type-tag cancellation, and complete core integer Euclidean-division proof. The newly accessible Kubert1979 paper has been acquired but its body remains unread; no result from it is used.",
+      "boundary": "The corrected finite, weighted and intrinsic mean distributions now cover every p-adically integral rational, including negative inputs and integer classes. Next construct the intrinsic mean from its positive-period independence on the native rational quotient domain and assess the universal odd-distribution claim against Kubert1979, whose body remains unread. The corrected mean still cannot inherit the source’s p*Z_p codomain: the retained p3,2/13 witness gives a unit mean. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "a955b0a8690e48ce9817d6980087ec0710f5175a",
+      "sourceBoundary": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now cover all integral rational inputs. The preceding averaged-codomain boundary remains in force; Kubert universality is not claimed.",
+      "publication": {
+        "base": "cbdba58266091adad17f6a4955d19ab9e43b600f",
+        "unchangedInputs": 73,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "integral_denominator": 579,
+        "arbitrary_rational_period": 579,
+        "affine_integrality": 2734,
+        "common_period": 2734,
+        "translation_permutation": 2734,
+        "affine_integer_reindex": 8905,
+        "proper_numerator": 1091,
+        "rational_common_sum": 2419,
+        "integer_endpoint_sum": 489,
+        "weighted_distribution": 2419,
+        "averaged_distribution_scaled": 2419,
+        "arbitrary_period_average": 4838,
+        "nonunit_period_denominators": 244
+      },
+      "numericalMethod": "Exact integer and Fraction controls check all integral rational signs, Euler periods, common periods, proper numerator presentations, integer endpoints and affine integer reindexing. Canonical odd-prime unit logarithms use the explicit tail bound n-vp(n)>=k for n>=2k. Mean comparisons multiply byp^V before modular reduction and increase precision byV; no nonunit period is inverted inside Z/p^k. This verifies scaled residue identities, not a general integrality claim for the means.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3",
+        "modules": 3604,
+        "warnings": 4011,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,011 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 261a9a6840bce1727b59ec07da26695527554a09516bc06bbfb1080846e4c4a3.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
