@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Nineteen L3 nodes give the actual finite Cartan ring system, exact agreement with the prior unit maps, and the unique algebraic full-Witt lift of every compatible finite-ring cone. All 1,713 predecessor nodes and 1,121 baseline records remain whole.",
+  "summary": "Nine L3 nodes construct the unique actual all-prime full-Witt group lift of every compatible finite Cartan cone, by native integral group-ring extension and the preceding concrete ring limit. All 1,732 predecessor nodes and 1,129 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7917,6 +7917,41 @@
         "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
         "provides": "Truncation of an actual full Witt vector preserves each coefficient below the target length.",
         "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.liftNCRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Lift.lean",
+        "provides": "The native ring-hom extension from a monoid algebra of a coefficient ring map and a commuting monoid-value map.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.liftNCRingHom_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Lift.lean",
+        "provides": "The native extension sends a basis coefficient to its coefficient-ring image times the actual monoid-element image.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.ringHom_ext",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Native ring homomorphisms out of a monoid algebra are determined by scalar basis elements and coefficient-one group basis elements.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.of",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The native multiplicative homomorphism sending a group element to its coefficient-one basis element in its actual integral group ring.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:MonoidHom.toHomUnits",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "A native homomorphism from a group into a monoid lifts to actual units, whose inverse is the image of the actual source inverse.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
       }
     ]
   },
@@ -113380,6 +113415,556 @@
       "acceptance": [
         "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Extending an actual finite Cartan group map to the integral group ring",
+      "kind": "construction",
+      "statement": "For any actual family f_N:G→U(k,N), construct the ring map F_N:ℤ[G]→A(k,N) obtained from native integral group-ring lifting of the actual underlying finite unit values.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Apply native MulEquiv.piUnits in the inverse direction to turn an actual tuple of finite units into an actual unit of A(k,N).",
+        "Compose with the native unit-value homomorphism to obtain G→A(k,N).",
+        "Use Int.castRingHom for the ordinary integer coefficients and the native group-ring liftNCRingHom.",
+        "The finite target ring is commutative, so the scalar/group-value commutation hypothesis is satisfied. No commutativity of G or compatibility of the family is needed for this construction."
+      ],
+      "prerequisites": [
+        "mathlib:MulEquiv.piUnits",
+        "mathlib:Units.coeHom",
+        "mathlib:Int.castRingHom",
+        "mathlib:MonoidAlgebra.liftNCRingHom",
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanUnitConeRing"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.integral_basis_retains_actual_unit_tuple",
+          "kind": "compatibility",
+          "statement": "At level30, the integral group basis element of g evaluates to the actual finite Cartan tuple values."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.integral_coefficient_is_not_discarded",
+          "kind": "computation",
+          "statement": "The group-ring element with coefficient minus two at g maps to minus two times the actual finite unit tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.integral_group_ring_unit_level",
+          "kind": "degenerate",
+          "statement": "At the empty finite level1, every actual group-ring input has the unique zero-ring value."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.group_ring_extension_preserves_product",
+          "kind": "compatibility",
+          "statement": "The actual extension preserves multiplication in the integral group ring for any group, without commutativity of the source."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanGroupLimit_cartanUnitConeRing_single",
+          "role": "compatibility",
+          "statement": "For actual g in G and integer z, F_N applied to the native basis element with coefficient z at g equals z times the tuple of underlying values of f_N(g)."
+        },
+        {
+          "name": "kubertCartanGroupLimit_cartanUnitConeRing_compat",
+          "role": "compatibility",
+          "statement": "If f is compatible, then actual finite ring reduction r_MN composed with F_N equals F_M for every positive M|N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Actual Cartan group limit",
+          "how": "Converts the actual finite unit-group cone to the exact input of the previously constructed ring lift."
+        },
+        {
+          "where": "Native group-ring basis",
+          "how": "Retains integer coefficients and original unit values; no abstract replacement representation is introduced."
+        },
+        {
+          "where": "Changing finite support",
+          "how": "Actual group reduction compatibility gives ring compatibility at all divisible levels."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring-single",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite group-ring extension preserves original basis values",
+      "kind": "lemma",
+      "statement": "For actual g in G and integer z, F_N applied to the native basis element with coefficient z at g equals z times the tuple of underlying values of f_N(g).",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Apply the native integral group-ring lift basis formula.",
+        "Evaluate native units-of-product inversion and the unit-value homomorphism.",
+        "Retain the original integer coefficient and original actual unit coordinate at every prime."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring",
+        "mathlib:MonoidAlgebra.liftNCRingHom_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanUnitConeRing_single"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.original_basis_value_at_level_six",
+          "kind": "characterisation",
+          "statement": "Each integral basis coefficient multiplies the original actual unit values at level6."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring-compat",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A compatible finite Cartan group cone gives a compatible ring cone",
+      "kind": "lemma",
+      "statement": "If f is compatible, then actual finite ring reduction r_MN composed with F_N equals F_M for every positive M|N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Use native group-ring extensionality on scalar basis elements and group basis elements.",
+        "On scalars, native finite ring reduction preserves the ordinary integer cast and ring identity.",
+        "On group basis elements, the extension formula exposes the underlying original unit tuple.",
+        "Evaluate the given actual finite Cartan group compatibility at g and each lower prime, then take native unit values. The prior ring reduction and unit reduction use the same native truncation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring-single",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-units",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction",
+        "mathlib:MonoidAlgebra.ringHom_ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanUnitConeRing_compat"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.compatible_ring_cone_changes_prime_support",
+          "kind": "compatibility",
+          "statement": "The group-ring maps of a compatible actual unit cone commute with ring reduction from30 to6, including the additional prime5."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-product-projection-jointly-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All finite Cartan unit projections determine the common unit tuple",
+      "kind": "lemma",
+      "statement": "If x,y in V(k) have the same actual finite Cartan projection at every positive level N, then x=y.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Take the underlying full-Witt value in every actual prime coordinate.",
+        "The given equality of finite unit tuples gives equality of the corresponding finite ring projections on these values.",
+        "Apply the established joint injectivity of actual finite Cartan ring projections.",
+        "Native unit extensionality at each prime recovers equality of the original actual unit tuples."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-jointly-injective",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-units",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanWittProductProjection_jointly_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.all_actual_unit_projections_determine_tuple",
+          "kind": "characterisation",
+          "statement": "Two actual full-Witt unit tuples agreeing at every positive finite Cartan level are equal."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual common Cartan group lift of a compatible finite cone",
+      "kind": "construction",
+      "statement": "For compatible actual finite group maps f_N:G→U(k,N), construct Lift(f):G→V(k). Extend to the compatible integral group-ring cone, take the preceding actual full-Witt ring lift, restrict along the native group-basis homomorphism, lift its values to actual units, and use native piUnits.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Use the constructed compatible ring cone F_N:ℤ[G]→A(k,N).",
+        "Apply the preceding concrete Cartan ring inverse-limit lift to obtain the actual ring map ℤ[G]→C(k).",
+        "Compose its multiplicative homomorphism with native MonoidAlgebra.of on G.",
+        "Native MonoidHom.toHomUnits constructs the inverse of each image from the actual source inverse.",
+        "Apply native MulEquiv.piUnits to obtain the homomorphism into the original all-prime full-Witt unit product. No common group with assumed projections is substituted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring",
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring-compat",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift",
+        "mathlib:MonoidAlgebra.of",
+        "mathlib:MonoidHom.toHomUnits",
+        "mathlib:MulEquiv.piUnits"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanWittGroupLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_group_lift_identity",
+          "kind": "degenerate",
+          "statement": "The constructed actual common-unit lift preserves the group identity."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_group_lift_multiplication",
+          "kind": "compatibility",
+          "statement": "The constructed lift is a homomorphism to the genuine all-prime full-Witt unit product."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_group_lift_inverse",
+          "kind": "compatibility",
+          "statement": "The lift uses actual units and sends the source inverse to the actual inverse tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.lift_of_actual_projection_cone",
+          "kind": "characterisation",
+          "statement": "Lifting the actual common Cartan projection cone gives the identity homomorphism of the original all-prime unit product."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanGroupLimit_cartanWittGroupLift_coe",
+          "role": "compatibility",
+          "statement": "For g in G and actual prime p, the underlying p-coordinate value of Lift(f)(g) is the original concrete ring lift of F evaluated at the native group-basis element of g and then at p."
+        },
+        {
+          "name": "kubertCartanGroupLimit_cartanWittGroupLift_projection",
+          "role": "universal-property",
+          "statement": "For every positive N, the actual finite Cartan projection from V(k) composed with Lift(f) equals the original f_N."
+        },
+        {
+          "name": "kubertCartanGroupLimit_cartanWittGroupLift_unique",
+          "role": "universal-property",
+          "statement": "If g:G→V(k) is an actual group homomorphism with every finite Cartan projection equal to the prescribed f_N, then Lift(f)=g."
+        },
+        {
+          "name": "kubertCartanGroupLimit_cartanWittGroupLift_existsUnique",
+          "role": "universal-property",
+          "statement": "For every group G and compatible family of actual homomorphisms f_N:G→U(k,N), there exists exactly one homomorphism g:G→V(k) whose actual finite Cartan projection at N is f_N for every positive N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert 186 equation (2.5)",
+          "how": "Supplies the algebraic universal property of the concrete full-Witt Cartan unit product."
+        },
+        {
+          "where": "Original finite Cartan maps",
+          "how": "Recovers the exact maps already used by finite regular actions and norm intertwiners."
+        },
+        {
+          "where": "Source model comparison",
+          "how": "Provides the actual algebraic group limit for the still-open unramified local-field and topological identifications."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Each common unit value comes from the original ring lift",
+      "kind": "lemma",
+      "statement": "For g in G and actual prime p, the underlying p-coordinate value of Lift(f)(g) is the original concrete ring lift of F evaluated at the native group-basis element of g and then at p.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Evaluate native homomorphism composition, toHomUnits and piUnits.",
+        "These native constructions retain exactly the original supplied ring value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanWittGroupLift_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_group_lift_uses_original_ring_lift",
+          "kind": "compatibility",
+          "statement": "Each actual full-Witt unit value is the prior constructed ring lift evaluated on the original group-basis element."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-projection",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual group lift recovers every prescribed finite Cartan map",
+      "kind": "lemma",
+      "statement": "For every positive N, the actual finite Cartan projection from V(k) composed with Lift(f) equals the original f_N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the established actual ring projection recovery on the native group-basis element of g.",
+        "The native group-ring basis formula at coefficient one recovers the original finite unit values.",
+        "The actual full-Witt unit projection formula and lift value formula identify the left side with the actual projected group lift.",
+        "Native unit and product extensionality recover the original group homomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-coe",
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-unit-cone-ring-single",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanWittGroupLift_projection"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.group_lift_recovers_all_original_finite_maps",
+          "kind": "characterisation",
+          "statement": "The actual full-Witt group lift recovers the prescribed finite unit map at every positive level, including1."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual common Cartan group lift is unique",
+      "kind": "lemma",
+      "statement": "If g:G→V(k) is an actual group homomorphism with every finite Cartan projection equal to the prescribed f_N, then Lift(f)=g.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Compare the two homomorphisms at an arbitrary source element.",
+        "The proved finite recovery law and the prescribed projection law of g give equality at every actual finite level.",
+        "Apply joint injectivity of actual common-unit projections."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-product-projection-jointly-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanWittGroupLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_group_lift_uniqueness",
+          "kind": "characterisation",
+          "statement": "Any actual group homomorphism to the full-Witt unit product with the prescribed finite projections equals the constructed lift."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-exists-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The concrete Cartan group inverse-limit universal property",
+      "kind": "lemma",
+      "statement": "For every group G and compatible family of actual homomorphisms f_N:G→U(k,N), there exists exactly one homomorphism g:G→V(k) whose actual finite Cartan projection at N is f_N for every positive N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M are positive integers. A(k,N) is the actual product over p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k). U(k,N) is the actual product of the units of these factors. V(k) is the actual product, over all native primes p, of units of WittVector p (GaloisField p k).",
+        "G is any group, without a commutativity assumption. Each f_N:G→U(k,N) is an actual group homomorphism. Compatibility, where required, means that actual finite Cartan reduction from N to M composed with f_N equals f_M for every positive M|N.",
+        "The source ring is the native integral group ring of G, with ordinary integer coefficients and actual group-basis elements. The established native units-of-product equivalence and the preceding actual Cartan ring inverse-limit lift are reused.",
+        "This is the concrete algebraic full-Witt model. FF.4 owns the local finite Galois-ring model and generic unit/presentation/locality theory. Source unramified integer-ring identification, inverse-limit topology, continuity, actual primitive torsor and rank comparisons remain open."
+      ],
+      "proofSteps": [
+        "Use the constructed actual common group lift.",
+        "Apply its exact finite projection recovery for existence.",
+        "Apply the proved uniqueness against every competing actual group homomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanGroupLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupLimit_cartanWittGroupLift_existsUnique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5): the common product of local Cartan unit groups as the projective limit of the finite Cartan groups; 187, equation (2.7), compatible finite group-ring maps.",
+          "excerpt": "the projective limit",
+          "match": "Proves the exact algebraic group universal property for the already constructed all-prime full-Witt unit product and its actual finite Cartan projections. Uses the native integral group-ring universal property and prior concrete ring lift. It does not assert the still-open source local-field or topological identifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanGroupLimitTests.actual_Cartan_group_limit_property",
+          "kind": "characterisation",
+          "statement": "Every compatible cone of actual Cartan group maps has a unique actual group-homomorphism lift into the all-prime full-Witt unit group."
+        }
+      ],
+      "acceptance": [
+        "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
+      ]
     }
   ],
   "requests": [
@@ -113526,7 +114111,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual finite Cartan rings now form a surjective reduction system; their full-Witt product projections agree exactly on units with the established Cartan group maps. The actual full-Witt ring product satisfies the algebraic inverse-limit universal property: every compatible cone of ring maps from any semiring has a unique constructed lift with every finite projection prescribed. Next connect this concrete algebraic limit to the source unramified local-field model and its topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. The source integer-ring identification, continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert, p. 186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The actual full-Witt Cartan unit product now satisfies the concrete algebraic inverse-limit universal property for compatible homomorphisms from every group, including noncommutative source groups. The construction extends each actual finite group map through the native integral group ring, uses the actual ring limit, and recovers every original finite unit projection uniquely. Next connect these concrete algebraic limits with the source unramified local-field rings and their topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. Source integer-ring identification, continuity, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -113558,7 +114143,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual finite Cartan rings now form a surjective reduction system; their full-Witt product projections agree exactly on units with the established Cartan group maps. The actual full-Witt ring product satisfies the algebraic inverse-limit universal property: every compatible cone of ring maps from any semiring has a unique constructed lift with every finite projection prescribed. Next connect this concrete algebraic limit to the source unramified local-field model and its topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. The source integer-ring identification, continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert, p. 186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual full-Witt Cartan unit product now satisfies the concrete algebraic inverse-limit universal property for compatible homomorphisms from every group, including noncommutative source groups. The construction extends each actual finite group map through the native integral group ring, uses the actual ring limit, and recovers every original finite unit projection uniquely. Next connect these concrete algebraic limits with the source unramified local-field rings and their topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. Source integer-ring identification, continuity, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -114109,36 +114694,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic full-Witt inverse-limit universal property is supplied. FF.4 ownership, source local-field and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic Cartan group inverse-limit universal property is supplied. FF.4 ownership, source unramified integer-ring and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1732,
+      "nodes": 1741,
       "kinds": {
         "definition": 22,
-        "lemma": 975,
-        "construction": 169,
+        "lemma": 982,
+        "construction": 171,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1197,
-      "packetTests": 3168,
-      "definitionConstructionTests": 759,
-      "typedExamples": 3171,
+      "api": 1203,
+      "packetTests": 3183,
+      "definitionConstructionTests": 767,
+      "typedExamples": 3186,
       "planets": 24,
-      "baseline": 1129,
-      "preservedWholeNodes": 1713,
-      "preservedBaseline": 1121,
+      "baseline": 1134,
+      "preservedWholeNodes": 1732,
+      "preservedBaseline": 1129,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 19,
-      "newNamedDeclarations": 19,
-      "newTypedTests": 29,
+      "newNodes": 9,
+      "newNamedDeclarations": 9,
+      "newTypedTests": 15,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1994,
-      "dependencyEdges": 8467,
+      "reachableNodes": 2003,
+      "dependencyEdges": 8497,
       "acyclic": true,
-      "baselineLeaves": 1302,
+      "baselineLeaves": 1307,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -114153,7 +114738,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 883431,
+      "readerWords": 888295,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -114179,35 +114764,32 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 111,
-      "scratchCompleteLemmas": 1096,
+      "scratchCompleteDefinitions": 113,
+      "scratchCompleteLemmas": 1103,
       "scratchMathlibModules": 3008,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 72,
-        "ringTuples": 2628,
-        "divisibilityPairs": 326,
-        "changedPrimePairs": 204,
-        "ringLifts": 4332,
-        "ringAdditions": 44276,
-        "ringProducts": 44276,
-        "compositions": 41350,
-        "unitComparisons": 6545,
-        "shiftedExtractions": 1600,
-        "coefficientRecoveries": 2400
+        "levels": 48,
+        "sourceGroupElements": 6,
+        "coherentSignFamilies": 16,
+        "groupProducts": 27648,
+        "ringProducts": 76800,
+        "basisValues": 4608,
+        "projectionRecoveries": 4608,
+        "compatibleTransitions": 19008
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773",
+        "sourceSha256": "aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577",
         "modules": 3628,
-        "warnings": 5250,
+        "warnings": 5274,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -114217,7 +114799,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "d5aa0d5617b13e3a01ab4eea59e0931e9a74dbd3d3f8caccc0fe212c9d59b4c7",
+      "sha256": "4a67f993fe5639363af55636cb4aac3edeb5ffa1abcd2a91c7eba8de39a16d72",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -114232,11 +114814,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1096,
+        "completeLemmas": 1103,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "a6dc6b7467074db2434e72b7d9e01be9ba35c646e6f76817533a532f8d923eed"
+        "sha256": "46e6dfe8988445d02b10b72078e3a15162527cc2064fd0c7f05792fd93dfb8d3"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -114374,17 +114956,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773",
+        "sourceSha256": "aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577",
         "modules": 3628,
-        "warnings": 5250,
+        "warnings": 5274,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "30c3dd792e7de851cc2b1f2a1a4646f3661a19dd",
+      "base": "68a2b517890884d2e41bf347ea01e66c1e8e960a",
       "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -125795,6 +126377,55 @@
         "warnings": 5250,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanGroupLimit": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5478,
+      "previousHead": "fd3ab9d1ae093b692802ca626c6b6ba7058ec70d",
+      "previousMerge": "3a67c41ff1513c0af4e2f194e46dfa6345e3ca8f",
+      "preservedWholeNodes": 1732,
+      "preservedBaseline": 1129,
+      "preservedFindings": 26,
+      "newNodes": 9,
+      "reading": "Kubert 186 equation (2.5) supplies the common Cartan group inverse-limit target. The full native integral group-ring lift, basis formula, ring-map extensionality, group-basis homomorphism, group-to-units construction and units-of-product equivalence were read with hypotheses and bodies. The exact preceding Cartan ring lift is reused. The source group is arbitrary and need not commute; the actual finite ring targets are commutative. No generic group-ring or Witt universal property is replanned.",
+      "boundary": "The actual full-Witt Cartan unit product now satisfies the concrete algebraic inverse-limit universal property for compatible homomorphisms from every group, including noncommutative source groups. The construction extends each actual finite group map through the native integral group ring, uses the actual ring limit, and recovers every original finite unit projection uniquely. Next connect these concrete algebraic limits with the source unramified local-field rings and their topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. Source integer-ring identification, continuity, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "68a2b517890884d2e41bf347ea01e66c1e8e960a",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic Cartan group inverse-limit universal property is supplied. FF.4 ownership, source unramified integer-ring and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "68a2b517890884d2e41bf347ea01e66c1e8e960a",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 48,
+        "sourceGroupElements": 6,
+        "coherentSignFamilies": 16,
+        "groupProducts": 27648,
+        "ringProducts": 76800,
+        "basisValues": 4608,
+        "projectionRecoveries": 4608,
+        "compatibleTransitions": 19008
+      },
+      "numericalMethod": "Exact integral group-ring convolution for the noncommutative symmetric group on three letters, evaluated in independent finite degree-one residue-product analogues. Sixteen compatible sign families include differing prime coordinates. Tests verify group multiplication, group-ring multiplication, original basis values, all finite projections and divisibility transitions. These controls do not certify the native Witt equivalence, infinite uniqueness or source unramified/topological bridges.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577",
+        "modules": 3628,
+        "warnings": 5274,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
