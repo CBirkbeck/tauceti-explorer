@@ -19732,3 +19732,232 @@ example (x : ℤ_[3]) : ‖robertCoefficientSeries 3 (ι.comp (algebraMap ℤ_[3
 end OddBound
 end
 end DirichletPadic.SuggestedRobertDecayTests
+
+/- Robert finite-field coefficient orthogonality and the conditional Gross–Koblitz comparison. -/
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical
+noncomputable section
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+
+
+
+lemma grossKoblitzInverseChar_order : orderOf (grossKoblitzInverseChar K 1)=Nat.card 𝓀[K]-1 := by
+  sorry
+
+lemma grossKoblitzInverseChar_eq_iff (a n : ℕ) :
+    grossKoblitzInverseChar K a=grossKoblitzInverseChar K n ↔ a%(Nat.card 𝓀[K]-1)=n%(Nat.card 𝓀[K]-1) := by
+  sorry
+
+lemma grossKoblitzInverseChar_orthogonality [Fintype 𝓀[K]] (a n : ℕ) :
+    (∑ z : 𝓀[K], (grossKoblitzInverseChar K a*(grossKoblitzInverseChar K n)⁻¹) z)=
+      if a%(Nat.card 𝓀[K]-1)=n%(Nat.card 𝓀[K]-1) then ((Nat.card 𝓀[K]-1 : ℕ) : K) else 0 := by
+  sorry
+
+
+variable [Fintype 𝓀[K]] [IsTopologicalRing K]
+lemma robert_weighted_character_hasSum (A : ℕ → K) (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, HasSum (fun n => A n*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n) (ψ u)) (a : ℕ) :
+    HasSum (fun n => if a%(Nat.card 𝓀[K]-1)=n%(Nat.card 𝓀[K]-1)
+      then ((Nat.card 𝓀[K]-1 : ℕ) : K)*A n else 0) (gaussSum (grossKoblitzInverseChar K a) ψ) := by
+  sorry
+
+end
+end DirichletPadic
+
+
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [IsTopologicalRing K]
+
+
+lemma robert_negativeGauss_hasSum (A : ℕ → K) (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, HasSum (fun n => A n*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n) (ψ u))
+    (a : ℕ) (ha : a<Nat.card 𝓀[K]-1) :
+    HasSum (fun k => (1-(Nat.card 𝓀[K] : K))*A (a+k*(Nat.card 𝓀[K]-1)))
+      (-gaussSum (grossKoblitzInverseChar K a) ψ) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset Filter
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Topology
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [CompleteSpace K]
+
+lemma robert_exponential_summable (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 0<q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (Nat.ne_of_gt hq) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q))) (z : K) (hz : ‖z‖≤1) :
+    Summable (fun n => PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (Nat.ne_of_gt hq) (PowerSeries.rescale (-π) (PowerSeries.exp K)))*z^n) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset Filter
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+
+
+lemma robertCoefficientSeries_eq_negativeGauss (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=ψ u)
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : K)-q)*ι (x : ℚ_[p])=a) :
+    robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (by omega) a x=
+      -gaussSum (grossKoblitzInverseChar K a) ψ := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset Filter
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+
+lemma robert_grossKoblitz_formula (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (q : ℕ) (hq : 1<q) (hcard : Nat.card 𝓀[K]=q)
+    (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q (by omega) (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+    [Algebra (ZMod p) 𝓀[K]] (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (hθ : ∀ u : 𝓀[K]ˣ, (∑' n, PowerSeries.coeff n
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand q (by omega)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=(grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one) u)
+    (f : ℕ) (hf : 0<f) (hqf : q=p^f)
+
+
+    (a : ℕ) (ha : a<q-1) (x : ℤ_[p]) (hx : ((1 : ℤ_[p])-q)*x=a)
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p])) :
+    -gaussSum (grossKoblitzInverseChar K a) (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one)=
+      π^((p.digits a).sum)*(∏ i ∈ range f, ι ((moritaGamma p (y i) : ℤ_[p]))) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [IsTopologicalRing K]
+
+
+lemma robert_negativeGauss_endpoint_hasSum (A : ℕ → K) (ψ : AddChar 𝓀[K] K)
+    (hθ : ∀ u : 𝓀[K]ˣ, HasSum (fun n => A n*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n) (ψ u)) :
+    HasSum (fun k => (1-(Nat.card 𝓀[K] : K))*A ((Nat.card 𝓀[K]-1)+k*(Nat.card 𝓀[K]-1)))
+      (-gaussSum (grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)) ψ-(1-(Nat.card 𝓀[K] : K))*A 0) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertGaussTests
+open IsLocalRing ValuativeRel Finset Filter
+open scoped Classical Topology
+noncomputable section
+section Characters
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]]
+-- order_residue_2
+example (hq : Nat.card 𝓀[K]=2) : orderOf (grossKoblitzInverseChar K (1))=1 := by sorry
+-- order_residue_3
+example (hq : Nat.card 𝓀[K]=3) : orderOf (grossKoblitzInverseChar K (1))=2 := by sorry
+-- zero_endpoint_character
+example : (grossKoblitzInverseChar K (0))=(grossKoblitzInverseChar K ((Nat.card 𝓀[K]-1))) := by sorry
+-- character_shift_period
+example (a : ℕ) : (grossKoblitzInverseChar K (a+(Nat.card 𝓀[K]-1)))=(grossKoblitzInverseChar K (a)) := by sorry
+-- character_one_nontrivial
+example (hq : 2<Nat.card 𝓀[K]) : (grossKoblitzInverseChar K (1))≠(grossKoblitzInverseChar K (0)) := by sorry
+-- diagonal_orthogonality
+example (a : ℕ) : (∑z : 𝓀[K], ((grossKoblitzInverseChar K (a))*(grossKoblitzInverseChar K (a))⁻¹) z)=((Nat.card 𝓀[K]-1) : ℕ) := by sorry
+-- off_diagonal_orthogonality
+example (hq : 2<Nat.card 𝓀[K]) : (∑z : 𝓀[K], ((grossKoblitzInverseChar K (0))*(grossKoblitzInverseChar K (1))⁻¹) z)=0 := by sorry
+-- dyadic_orthogonality
+example (hq : Nat.card 𝓀[K]=2) : (∑z : 𝓀[K], ((grossKoblitzInverseChar K (0))*(grossKoblitzInverseChar K (14))⁻¹) z)=1 := by sorry
+-- zero_extension_boundary
+example (ψ : AddChar 𝓀[K] K) : (grossKoblitzInverseChar K (0)) 0=0 ∧ ψ 0=1 := by sorry
+variable [IsTopologicalRing K]
+-- constant_polynomial_weight
+example : HasSum (fun n : ℕ => if 0=n%(Nat.card 𝓀[K]-1) then ((Nat.card 𝓀[K]-1) : ℕ)*(if n=0 then (1 : K) else 0) else 0) ((Nat.card 𝓀[K]-1) : ℕ) := by sorry
+-- constant_negative_gauss
+example : HasSum (fun k : ℕ => (1-(Nat.card 𝓀[K] : K))*(if k*(Nat.card 𝓀[K]-1)=0 then (1 : K) else 0)) (-gaussSum (grossKoblitzInverseChar K (0)) (1 : AddChar 𝓀[K] K)) := by sorry
+-- constant_endpoint_correction
+example : HasSum (fun k : ℕ => (1-(Nat.card 𝓀[K] : K))*(if (Nat.card 𝓀[K]-1)+k*(Nat.card 𝓀[K]-1)=0 then (1 : K) else 0)) (-gaussSum (grossKoblitzInverseChar K ((Nat.card 𝓀[K]-1))) (1 : AddChar 𝓀[K] K)-(1-(Nat.card 𝓀[K] : K))) := by sorry
+-- range_endpoint_missing_zero
+example : ¬ ∃k : ℕ, (Nat.card 𝓀[K]-1)+k*(Nat.card 𝓀[K]-1)=0 := by sorry
+end Characters
+section Convergence
+variable (hA : ∀ n, ‖(PowerSeries.coeff (n) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))‖≤‖(-2 : ℚ_[2])‖^((n : ℝ)/4))
+include hA
+-- splitting_series_one
+example : Summable (fun n => (PowerSeries.coeff (n) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))*(1 : ℚ_[2])^n) := by sorry
+-- splitting_series_minus_one
+example : Summable (fun n => (PowerSeries.coeff (n) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))*(-1 : ℚ_[2])^n) := by sorry
+end Convergence
+-- individual_exponential_boundary
+example : ¬ Summable (fun n : ℕ => (-2 : ℚ_[2])^n/(n.factorial : ℚ_[2])) := by sorry
+section Ternary
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K] [IsNonarchimedeanLocalField K]
+  [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K] [Algebra (ZMod 3) 𝓀[K]]
+variable (ι : ℚ_[3] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+variable (π ζ : K) (hπ : π^2=-3) (hζ : IsPrimitiveRoot ζ 3) (hq : Nat.card 𝓀[K]=3)
+variable (hA : ∀n, ‖(PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))‖≤‖π‖^((n : ℝ)*4/9))
+variable (hθ : ∀u : 𝓀[K]ˣ, (∑'n, (PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))*(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=(grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) u)
+include hι hcι hπ hq hA hθ
+-- gauss_constant_comparison
+example : (robertCoefficientSeries 3 (ι.comp (algebraMap ℤ_[3] ℚ_[3])) π 3 (by norm_num) 0 (0))=-gaussSum (grossKoblitzInverseChar K (0)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) := by sorry
+-- gauss_ternary_comparison
+example (y : ℤ_[3]) (hy : 2*y=1) : (robertCoefficientSeries 3 (ι.comp (algebraMap ℤ_[3] ℚ_[3])) π 3 (by norm_num) 1 (-y))=-gaussSum (grossKoblitzInverseChar K (1)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) := by sorry
+-- gamma_trivial_value
+example : -gaussSum (grossKoblitzInverseChar K (0)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+-- gamma_ternary_value
+example (y : ℤ_[3]) (hy : 2*y=1) : -gaussSum (grossKoblitzInverseChar K (1)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=π*ι (moritaGamma 3 y : ℤ_[3]) := by sorry
+-- gamma_ternary_square
+example : (-gaussSum (grossKoblitzInverseChar K (1)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))^2=-3 := by sorry
+end Ternary
+end
+end DirichletPadic.SuggestedRobertGaussTests
