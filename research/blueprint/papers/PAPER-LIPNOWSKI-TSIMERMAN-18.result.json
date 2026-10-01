@@ -84,7 +84,7 @@
   },
   "atlasCommit": "14482fbdbea546a681b66b8bb4ff336bdc8830c6"
  },
- "summary": "Lipnowski and Tsimerman count abelian varieties over a prime field F_p as g→∞. Isogeny classes number q^((1/4)g²(1+o(1))) (Lemma 2.1 corrected, with DiPippo–Howe). Each isogeny class is a class set of Frobenius-stable lattices, bounded locally with Yun's Hilbert-scheme count and globally with class numbers, giving log B(p,g) = O_p(g²) (Theorem 0.1). The printed exponent 17/2 is not established: the corrected argument gives 2^(34g²)p^((69/4)g²) (Lee 2022). Principal polarizations are Rosati orbits of positive symmetric units; E^g carries exp((1/2)g² log g) of them (Lemma 5.11, printed coefficient 1), so most ppavs have repeated factors (Theorem 0.3). Assuming a model-ring conjecture, a factor E^h or, as corrected here, B0^(h/2) with h ≥ 0.99g is typical (Theorem 0.2), with consequences for random-matrix and Cohen–Lenstra heuristics. The atlas lacks Honda–Tate theory, finite-field lattice counting and polarization counting: these form a Part II of Abelian Schemes and Arithmetic Moduli; hermitian masses go to GeometryOfNumbersAndQuadraticArithmetic GN.2–GN.3, level maps to AdelicAlgebraicGroups AA.4, Dieudonné inputs to R07.2, and the statistics to ArithmeticStatistics ST.0/ST.5. Twenty-two findings are recorded, five already corrected in Lee 2022.",
+ "summary": "Lipnowski and Tsimerman count abelian varieties over a prime field F_p as g→∞. Isogeny classes number q^((1/4)g²(1+o(1))) (Lemma 2.1 corrected, with DiPippo–Howe). Each isogeny class is a class set of Frobenius-stable lattices, bounded locally with Yun's Hilbert-scheme count and globally with class numbers, giving log B(p,g) = O_p(g²) (Theorem 0.1). The printed exponent 17/2 is not established: the corrected argument gives 2^(34g²)p^((69/4)g²) (Lee 2022). Principal polarizations are Rosati orbits of positive symmetric units; E^g carries exp((1/2)g² log g) of them (Lemma 5.11, printed coefficient 1), so most ppavs have repeated factors (Theorem 0.3). Assuming a model-ring conjecture, a factor E^h or, as corrected here, B0^(h/2) with h ≥ 0.99g is typical (Theorem 0.2), with consequences for random-matrix and Cohen–Lenstra heuristics. The atlas lacks Honda–Tate theory, finite-field lattice counting and polarization counting: these form a Part II of Abelian Schemes and Arithmetic Moduli; hermitian masses go to GeometryOfNumbersAndQuadraticArithmetic GN.2–GN.3, level maps to AdelicAlgebraicGroups AA.4, Dieudonné inputs to R07.2, and the statistics to ArithmeticStatistics ST.0/ST.5. Twenty-five source findings are recorded, including Lee v3’s false repeated-root intermediate estimate and two LT v1 quaternionic corrections; the 45/4 theorem is stated by Lee but its cited proof is not certified here. Model applications allow repeated CM fields and require common-p Weil generators for uniform estimates.",
  "items": [
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/abelian-variety",
@@ -137,10 +137,10 @@
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-unpolarized-source",
    "kind": "theorem",
    "name": "Theorem 0.1, corrected: abelian varieties over F_p number p^(O(g²))",
-   "statement": "Fix a prime p and let B(p,g) be the number of isomorphism classes of g-dimensional abelian varieties over F_p. Then log B(p,g) = O_p(g²). Explicitly, the paper's argument with the corrections of Lee 2022 §3.1 gives B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))) as g→∞ (Lee, Theorem 1.1), and Lee's refinement gives B(p,g) ≤ p^((45/4)g²(1+o(1))) (Lee, Theorem 1.4). The printed bound B(p,g) = o_ε(p^((17/2+ε)g²)) is not established (E21).",
+   "statement": "Fix a prime p and let B(p,g) count isomorphism classes of g-dimensional abelian varieties over F_p. Then log B(p,g)=O_p(g²). The argument corrected in Lee arXiv:2002.04420v3 §3.1 gives B(p,g)≤2^(34g²)·p^((69/4)g²(1+o(1))) (Theorem 1.1). The printed 17/2 exponent is not established (E21). Lee states B(p,g)≤p^((45/4)g²(1+o(1))) in Theorems 1.4/3.4, but the cited v3 proof uses the false repeated-root estimate (11), recorded in E22; that sharper bound is not a verified target on this proof evidence.",
    "locator": "Theorem 0.1; §3.2.3 (28), with Corollary 2.2",
    "status": "missing",
-   "note": "Corrected statement (PROTOCOL §18). The printed exponent 17/2 = 1/4 + 33/4 comes from (28), which undercounts ordered root pairs in (14) and (20) (E19), halves the class-group exponent in (26)–(27) (E6, E20) and drops powers of 2 with exponent of order g² (E7). Lee 2022 corrects the first three and keeps the power of 2. The v1 local-counting steps (13) and §3.2.1 have further failing steps (E1–E4), which the published version may already revise (Lee quotes a different local count from published p.3421); the replacement items repeated-block-orbit-bound, adelic-local-orbit-bound, nonisotypic-stabilizer-bound and conditional-rational-orbit-bound are what the design job proves. For comparison Lee, Theorem 1.2 gives B(p,g) ≥ p^((1/2)g²(1+o(1))). Routed to the finite-field Part II as its main theorem. [cc-442dc5] Earlier note: G0/G1/G2: recorded source claim, not an accepted numerical target. Equations (26)–(28) lose discriminant squares and fixed-p powers of 2; the exact exponent needs the final paper and a repaired local argument. Unrouted."
+   "note": "Corrected statement (PROTOCOL §18). The printed exponent 17/2 = 1/4 + 33/4 comes from (28), which undercounts ordered root pairs in (14) and (20) (E19), halves the class-group exponent in (26)–(27) (E6, E20) and drops powers of 2 with exponent of order g² (E7). Lee 2022 corrects the first three and keeps the power of 2. The v1 local-counting steps (13) and §3.2.1 have further failing steps (E1–E4), which the published version may already revise (Lee quotes a different local count from published p.3421); the replacement items repeated-block-orbit-bound, adelic-local-orbit-bound, nonisotypic-stabilizer-bound and conditional-rational-orbit-bound are what the design job proves. For comparison Lee, Theorem 1.2 gives B(p,g) ≥ p^((1/2)g²(1+o(1))). Routed to the finite-field Part II as its main theorem. [cc-442dc5] Earlier note: G0/G1/G2: recorded source claim, not an accepted numerical target. Equations (26)–(28) lose discriminant squares and fixed-p powers of 2; the exact exponent needs the final paper and a repaired local argument. Unrouted. E22 distinguishes the stated 45/4 theorem from its cited proof route. Adopting it requires a multiplicity-sensitive replacement for (11), or a separate argument treating repeated simple factors. No counterexample to the final theorem is claimed. The IMRN abstract states the sharper result, but its proof pages were not obtainable for comparison."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/main-repeated-source",
@@ -469,7 +469,7 @@
    "statement": "Let K₀=Q(√p), D₀/K₀ the quaternion algebra ramified at both real places and split at every finite place, and d≥2. With maximal finite compact U₀,d=∏_v GL_(2d)(O_(K₀,v)), reduced norm identifies GL_d(D₀)(K₀)\\GL_d(D₀)(A_(K₀,fin))/U₀,d with the narrow ideal class group Cl⁺(K₀). For each CM field K_i, determinant identifies GL_(n_i)(K_i)\\GL_(n_i)(A_(K_i,fin))/GL_(n_i)(Ohat_(K_i)) with Cl(K_i). Their product gives the mixed class set. The d=1 quaternion factor remains its own class set; d=0 omits it.",
    "locator": "§3.2.2 (21)",
    "status": "missing",
-   "note": "Explicit corrected supplier target derived from strong approximation and the reduced-norm image theorem, not a verbatim statement of (21). At real ramified places norms are positive; Cl⁺ rather than Cl occurs. Its ratio to Cl is at most 2^[K₀:Q]=4, harmless for fixed-p exponential scale. G8: acquire the original approximation and norm-image proofs; the rank-one finite quaternion class number is separate. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+   "note": "Explicit corrected supplier target derived from strong approximation and the reduced-norm image theorem, not a verbatim statement of (21). At real ramified places norms are positive; Cl⁺ rather than Cl occurs. Its ratio to Cl is at most 2^[K₀:Q]=4, harmless for fixed-p exponential scale. G8: acquire the original approximation and norm-image proofs; the rank-one finite quaternion class number is separate. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. Source corrections are now explicitly registered as E23 (finite maximal compact) and E24 (narrow class group), scoped to LT v1 p.14. The d=1 quaternion class set remains separate. At p=3, Cl(Q(√3)) has order 1 whereas Cl⁺ has order 2; the bounded ratio affects the exact class-set identity but not the coarse fixed-p exponential estimate."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/class-formula",
@@ -796,10 +796,10 @@
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-ring",
    "kind": "definition",
    "name": "Model ring with positive involution",
-   "statement": "For distinct CM fields L_i with real subfields K_i and n_i>0 satisfying Σ_i n_i[L_i:Q]=2g, R_(L,n)=∏_i M_(n_i)(O_(L_i)) with conjugate-transpose involution.",
+   "statement": "For a finite indexed collection of CM fields L_i with real subfields K_i and n_i>0 satisfying Σ_i n_i[L_i:Q]=2g, R_(L,n)=∏_i M_(n_i)(O_(L_i)) with factorwise conjugate-transpose involution. Repeated isomorphism classes of L_i are allowed. In an abelian-variety application, i indexes pairwise non-isogenous simple factors, with separate central idempotents even when their endomorphism fields are isomorphic.",
    "locator": "Definition 5.1",
    "status": "missing",
-   "note": " API: Define the product ring, adjoint and positive symmetric unit locus; expose factorwise congruence orbits. Tests: (1) one imaginary quadratic factor has n=g; (2) different factors retain separate ranks; (3) this ring need not be realized by a principally polarized variety. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+   "note": "Definition 5.1 imposes no field distinctness and no p-Weil restriction; those restrictions belong to particular applications. API: retain factorwise congruence orbits and separate ranks/idempotents. Regression: over F_5, E: y²=x³+x and E′: y²=x³+4x have traces 2 and −2, so they are non-isogenous ordinary curves but both have End⁰=Q(i). Their integral model is Z[i]×Z[i], with two central idempotents, rather than M_2(Z[i]). The F_5-defined automorphism (x,y)↦(−x,2y) gives i in each endomorphism order, hence both orders are maximal. The general model ring need not be realized by a principally polarized variety. Existing GN.2 ownership and CM-field carriers are retained. Corrected under FIX-RT #5515, finding /1."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-orbit-count",
@@ -814,10 +814,10 @@
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-comparison-conjecture",
    "kind": "theorem",
    "name": "Conjectural comparison with the model ring",
-   "statement": "CONJECTURE: for fixed p, A/F_p principally polarizable with simple rational endomorphism fields L_i CM and multiplicities n_i satisfies |log n_A−log n_(L,n)|≤C_p g², uniformly in A and g.",
+   "statement": "CONJECTURE: for fixed p, let A/F_p be principally polarizable and isogenous to ∏_i A_i^(n_i), with A_i pairwise non-isogenous simple factors and L_i=End⁰(A_i) CM fields. Allow repeated isomorphism classes of L_i, retaining each isogeny factor and its rank as a separate model-ring factor. Then |log n_A−log n_(L,n)|≤C_p g² uniformly in A and g.",
    "locator": "Conjecture 5.2",
    "status": "missing",
-   "note": "Explicit proposition-valued hypothesis; never register it as a proved theorem. It excludes the real Frobenius field Q(√p) case and is not repaired by enlarging an O-constant. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+   "note": "Explicit proposition-valued hypothesis; never register it as a proved theorem. It excludes the real Frobenius field Q(√p) case and is not repaired by enlarging an O-constant. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. The indexing is by simple isogeny factors, not by field isomorphism classes; E×E′ over F_5 uses two Q(i) factors. Its CM fields are generated by p-Weil numbers for the same p, so GN.3/ST.5 uniform bounds apply under their explicit restriction."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/unit-norm-label",
@@ -1016,10 +1016,10 @@
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-count-source",
    "kind": "theorem",
    "name": "Orbit count on a model ring, corrected (55)",
-   "statement": "For a model ring R_(L,n) = ∏_i End_(n_i)(O_(L_i)) with Σ_i [K_i:Q]n_i = g, the number n_(L,n) of ∗-conjugation orbits of R_(L,n)^× on its positive symmetric units satisfies log n_(L,n) ≤ (1/2)Σ_i [K_i:Q] n_i² log n_i + O_p(g²), with equality up to O_p(g²) when every Cl(O_(L_i)) is trivial. (Printed: leading coefficient 1, and \"n_(L,n) ≤\" for \"log n_(L,n) ≤\".)",
+   "statement": "Fix a prime p and assume every L_i is generated over Q by a p-Weil number for this same p. For a model ring R_(L,n) = ∏_i End_(n_i)(O_(L_i)) with Σ_i [K_i:Q]n_i = g, the number n_(L,n) of ∗-conjugation orbits of R_(L,n)^× on its positive symmetric units satisfies log n_(L,n) ≤ (1/2)Σ_i [K_i:Q] n_i² log n_i + O_p(g²), with equality up to O_p(g²) when every Cl(O_(L_i)) is trivial. (Printed: leading coefficient 1, and \"n_(L,n) ≤\" for \"log n_(L,n) ≤\".)",
    "locator": "§5.4.5 (55)",
    "status": "missing",
-   "note": "Corrected by E13: the factorial product in (39) contributes (1/2)[K:Q]n² log n (item factorial-asymptotic). The O_p(g²) error uses Σ[K_i:Q]²n_i² ≤ g² and the p-Weil discriminant bounds; its two-sidedness also needs the residue-ratio lower bound of E12. Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3. [cc-442dc5] Earlier note: G4: the displayed line calls the count itself bounded by this logarithmic quantity, but context requires log count. Its leading coefficient inherits the (39)/(51) discrepancy. Unrouted."
+   "note": "Corrected by E13: the factorial product in (39) contributes (1/2)[K:Q]n² log n (item factorial-asymptotic). The O_p(g²) error uses Σ[K_i:Q]²n_i² ≤ g² and the p-Weil discriminant bounds; its two-sidedness also needs the residue-ratio lower bound of E12. Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3. [cc-442dc5] Earlier note: G4: the displayed line calls the count itself bounded by this logarithmic quantity, but context requires log count. Its leading coefficient inherits the (39)/(51) discrepancy. Unrouted. The p-Weil hypothesis is part of this theorem: the O_p(g²) constant is uniform over that restricted family, not over arbitrary CM fields in Definition 5.1."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/convex-concentration",
@@ -1034,10 +1034,10 @@
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/model-concentration-source",
    "kind": "theorem",
    "name": "Proposition 5.10, corrected threshold",
-   "statement": "There is g_0, depending on p through the implied constants of (55), such that for g ≥ g_0 and every model ring R_(L,n) with Σ_i [K_i:Q]n_i = g: if log n_(L,n) ≥ 0.495 g² log g then some i_0 has [K_(i_0):Q] = 1 and n_(i_0) ≥ 0.99g. (Printed: threshold 0.99 g² log g, for every g.)",
+   "statement": "Fix a prime p and assume every L_i is generated over Q by a p-Weil number for this same p. There is g_0, depending on p through the implied constants of (55), such that for g ≥ g_0 and every model ring R_(L,n) with Σ_i [K_i:Q]n_i = g: if log n_(L,n) ≥ 0.495 g² log g then some i_0 has [K_(i_0):Q] = 1 and n_(i_0) ≥ 0.99g. (Printed: threshold 0.99 g² log g, for every g.)",
    "locator": "Proposition 5.10",
    "status": "missing",
-   "note": "With the corrected (55), log n_(L,n) ≤ (1/2)Σ[K_i:Q]n_i² log n_i + O_p(g²). If every x_i = [K_i:Q]n_i < 0.99g, Lemma 5.9 gives at most (1/2)(0.9802)g² log g + O(g²); if x_(i_0) ≥ 0.99g with [K_(i_0):Q] ≥ 2, the total is at most 0.255 g² log g + O(g²). Both are below 0.495 g² log g for large g. Routed to ArithmeticStatistics ST.5. [cc-442dc5] Earlier note: G4: at minimum this is an eventual-in-g statement after controlling uniform O_p(g²) errors, not an all-g implication. The correct threshold also requires the reconciled leading coefficient. Unrouted."
+   "note": "With the corrected (55), log n_(L,n) ≤ (1/2)Σ[K_i:Q]n_i² log n_i + O_p(g²). If every x_i = [K_i:Q]n_i < 0.99g, Lemma 5.9 gives at most (1/2)(0.9802)g² log g + O(g²); if x_(i_0) ≥ 0.99g with [K_(i_0):Q] ≥ 2, the total is at most 0.255 g² log g + O(g²). Both are below 0.495 g² log g for large g. Routed to ArithmeticStatistics ST.5. [cc-442dc5] Earlier note: G4: at minimum this is an eventual-in-g statement after controlling uniform O_p(g²) errors, not an all-g implication. The correct threshold also requires the reconciled leading coefficient. Unrouted. The threshold g_0 is uniform only over the stated common-p Weil family; unrestricted CM-field discriminants are not bounded in terms of p and degree."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/split-prime-density",
@@ -1151,7 +1151,7 @@
    "statement": "Let p be an odd prime and E/F_p an elliptic curve. Then E(F_p) and E(F_(p²)) are not both p-groups. For p = 2 the statement is false exactly for the curves with trace a = ±1, for example y²+xy = x³+x²+1 (a = 1), with #E(F_2) = 2 and #E(F_4) = 8.",
    "locator": "Lemma 5.19 (corrected: p odd)",
    "status": "missing",
-   "note": "Proof: put #E(F_p) = p+1−a and #E(F_(p²)) = (p+1−a)(p+1+a). If both are p-powers, p^i + p^j = 2p+2 with p^i = p+1−a and p^j = p+1+a. For odd p, reduction mod p forces i = 0 or j = 0, and then p^(j) = 2p+1 (or p^(i) = 2p+1), which has no solution. For p = 2, {i,j} = {1,2}, that is a = ±1. This replaces the p ≥ 7 repair of the earlier checkpoints (whose argument is kept in the history) and the withheld literal item elliptic-pgroups-source. The printed proof (a = b = 1, then det = 0) is wrong for every p: see E17. [cc-442dc5]"
+   "note": "Proof: put #E(F_p) = p+1−a and #E(F_(p²)) = (p+1−a)(p+1+a). If both are p-powers, p^i + p^j = 2p+2 with p^i = p+1−a and p^j = p+1+a. For odd p, reduction mod p forces i = 0 or j = 0, and then p^(j) = 2p+1 (or p^(i) = 2p+1), which has no solution. For p = 2, {i,j} = {1,2}, that is a = ±1. This replaces the p ≥ 7 repair of the earlier checkpoints (whose argument is kept in the history) and the withheld literal item elliptic-pgroups-source. For p≥5 the printed proof is valid: the Hasse intervals 1<(√p−1)²≤#E(F_p)≤(√p+1)²<p² and p<(p−1)²≤#E(F_(p²))≤(p+1)²<p³ force a=b=1. The identity b=a²−2p then gives the printed contradiction p=0. Its unqualified Hasse inference has a small-prime gap. For p=3, the p-power possibilities for #E(F_3) are 1 or 3, hence a=3 or 1 and #E(F_9)=7 or 15, neither a 3-power. The p=2 counterexamples remain genuine. See E17. [cc-442dc5]"
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/point-count-isogeny",
@@ -3007,7 +3007,7 @@
     "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-dvr-determinant-index",
     "PAPER-LIPNOWSKI-TSIMERMAN-18/good-prime-lattice-orbit"
    ],
-   "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built. The continuation adds coefficient-DVR, monogenic conductor and isotypic congruence-kernel adapters on these same carriers. S1 adds only the finite-residue DVR determinant-index assembly on existing Smith and ideal-quotient APIs."
+   "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built. The continuation adds coefficient-DVR, monogenic conductor and isotypic congruence-kernel adapters on these same carriers. S1 adds only the finite-residue DVR determinant-index assembly on existing Smith and ideal-quotient APIs. The general model ring allows repeated CM-field isomorphism classes; index by simple isogeny factors and preserve separate central idempotents (E×E′ over F_5 regression)."
   },
   {
    "route": "source",
@@ -3041,7 +3041,7 @@
     "PAPER-LIPNOWSKI-TSIMERMAN-18/mass-asymptotic-source",
     "PAPER-LIPNOWSKI-TSIMERMAN-18/model-count-source"
    ],
-   "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. L1–L9 supply the coarse local-orbit count; S2–S3 now give a separate non-isotypic stabilizer replacement using graded-lattice profiles. The printed sharper local estimates and the literal disputed source claims remain withheld; generic right-level maps go to AA.4. It also takes the mass formula's stabilizer volume (39), the corrected mass asymptotic (51)–(53) and the corrected orbit count (55), all with leading coefficient 1/2 (E13). [cc-442dc5]"
+   "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. L1–L9 supply the coarse local-orbit count; S2–S3 now give a separate non-isotypic stabilizer replacement using graded-lattice profiles. The printed sharper local estimates and the literal disputed source claims remain withheld; generic right-level maps go to AA.4. It also takes the mass formula's stabilizer volume (39), the corrected mass asymptotic (51)–(53) and the corrected orbit count (55), all with leading coefficient 1/2 (E13). [cc-442dc5] The model-count application requires every L_i to be generated by a p-Weil number for the same fixed p, making its O_p(g²) constants uniform; the general model-ring definition remains unrestricted."
   },
   {
    "route": "source",
@@ -3092,7 +3092,7 @@
     "PAPER-LIPNOWSKI-TSIMERMAN-18/spacing-source",
     "PAPER-LIPNOWSKI-TSIMERMAN-18/enhanced-failure-source"
    ],
-   "reason": "ST.5 explicitly owns random-matrix laws and function-field statistics. Conjectures stay hypotheses, and the enhanced limit is a separate existence task. No disputed 0.99 endpoint is routed here. It also takes the conditional results as corrected: Theorem 0.2/Corollary 5.13 (with the B0 alternative of E14), Proposition 5.10 (threshold 0.495g² log g), Corollary 5.14 (Kolmogorov distance) and Corollary 5.20 (odd p). [cc-442dc5]"
+   "reason": "ST.5 explicitly owns random-matrix laws and function-field statistics. Conjectures stay hypotheses, and the enhanced limit is a separate existence task. Only corrected conditional endpoints are routed here. It also takes the conditional results as corrected: Theorem 0.2/Corollary 5.13 (with the B0 alternative of E14), Proposition 5.10 (threshold 0.495g² log g), Corollary 5.14 (Kolmogorov distance) and Corollary 5.20 (odd p). [cc-442dc5] Proposition 5.10 uses the common-p Weil family from GN.3, with g_0 depending only on p; Conjecture 5.2 indexes the model by simple isogeny factors even when CM fields repeat."
   },
   {
    "route": "part-ii",
@@ -3152,7 +3152,7 @@
     "PAPER-LIPNOWSKI-TSIMERMAN-18/ambiguous-unit-norms"
    ],
    "reason": "AbelianSchemesAndArithmeticModuli A1–A6 construct abelian schemes, duals, polarizations and realizations but have no Honda–Tate or Waterhouse classification and no counting over finite fields. This Part II consumes them, and GN.2–GN.3, AA.3–AA.4, R07.2 and PELModuli M6, to count abelian varieties and principally polarized abelian varieties over F_p. The statistical and conditional statements stay with ArithmeticStatistics. The p-adic coefficient-recognition lemmas are now part of this route (the separate LocalFields Part II proposal is withdrawn). Earlier reason:  [cc-442dc5]A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners. S6 adds only the finite-field consumer of GN/AA counting suppliers, conditional on the exact global action/classification interfaces. C1–C6 add the original Tate proof spine and the prime-field marked-lattice/adelic assembly. Generic bicommutant and compactness are library imports; moduli finiteness remains with PELModuli.",
-   "brief": "Count abelian varieties and principally polarized abelian varieties over a prime field F_p as g→∞, following Lipnowski–Tsimerman, \"How large is A_g(F_q)?\" (Duke Math. J. 167 (2018)), with the corrections of J. Lee (IMRN 2022, §3.1) and those recorded in PAPER-LIPNOWSKI-TSIMERMAN-18 sourceIssues. Final theorems, as corrected: (T1) Isogeny classes (Lemma 2.1, Corollary 2.2 and DiPippo–Howe, Theorem 1.3): the number of isogeny classes of g-dimensional abelian varieties over F_q is at most (4g+1)^g q^(g(g+1)/4), and its logarithm is (1/4)g² log q (1+o(1)). (T2) Theorem 0.1: for fixed p, B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))); in particular log B(p,g) = O_p(g²). Do not state the printed exponent 17/2+ε. Lee's sharper p^((45/4)g²(1+o(1))) is optional. (T3) Proposition 4.16: an abelian variety over F_p with no repeated simple isogeny factor and Frobenius polynomial coprime to x²−p has at most p^(Cg²) principal polarizations up to isomorphism, C absolute. (T4) Lemma 5.11: if p splits in Q(√−d) for one of the nine class-number-one d, some E/F_p with End(E) the maximal order has exp((1/2)g² log g + O_p(g²)) principal polarizations on E^g (printed coefficient 1). (T5) Theorem 0.3 (Proposition 4.17): for such p, the proportion of g-dimensional ppavs over F_p that have no repeated isogeny factor and Frobenius polynomial coprime to x²−p tends to 0. What to cover: (1) Frobenius polynomials, their integrality, independence of ℓ and reciprocity; Tate's isogeny theorem over finite fields and its p-adic analogue on Dieudonné modules, including the characteristic-polynomial comparison (via R07.2's Witt descent and this route's resultant-recognition lemmas); Honda–Tate with Tate's local invariants; Waterhouse's realization of orders (Theorem 6.1) in the nonreal prime-field case; Proposition 4.14 (End⁰ of a simple A/F_p is a CM field unless Frobenius is ±√p). (2) The lattice description of an isogeny class (§3): marked quasi-isogenies correspond to Frobenius-stable lattice tuples; isomorphism classes are G(Q)-orbits; over F_p the p-component reduces to one Z_p-linear Frobenius (Remark 3.2). (3) Local lattice-orbit counts and stabilizer indices (the checkpoint replacement items: repeated-block, adelic and non-isotypic bounds) and the adelic assembly with class sets via reduced norms. (4) Class-number bounds (22)–(27) with the corrected exponents, or the library bound h_K ≤ |D_K|·4^[K:Q] where constants do not matter. (5) Principal polarizations as Rosati orbits (Proposition 4.11), the CM case (Example 4.13) with the Hasse norm theorem and Lemmermeyer's exact sequence, and T3–T5. Keep the real-Weil factor B0 (Frobenius ±√p, quaternionic End⁰) explicit throughout. Imports, by title and id: Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2, A4, A6; Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, including the hermitian mass formula; Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups) AA.3–AA.4; Siegel and PEL moduli problems (PELModuli) M6, for finiteness at fixed polarization degree in Tate's proof (never the count being proved); Deligne weights and purity (DeligneWeightsAndPurity) DWP.1, for the Riemann hypothesis for abelian varieties; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layers 5 and 13; Effective bounds (tauceti:Completed/EffectiveBounds) Layers 1 and 3; Analytic number theory (AnalyticNumberTheory) AN.4; Reductive groups, Part II (ReductiveGroupsPartII) RG2.3, for Lang's theorem. Arithmetic statistics (ArithmeticStatistics) ST.0 owns the counting measures and ST.5 the conditional statements (Theorem 0.2, Corollaries 5.13, 5.14, 5.20). Scope: T2–T5 are over prime fields only (Remarks 3.2 and 4.18). The published text (51 pages) was not available to the extraction: locators are to arXiv v1, and Lee's corrections cite the published numbering (Corollaries 3.16–3.18 and 3.22, Proposition 3.23, equations (25), (31), (32))."
+   "brief": "Count abelian varieties and principally polarized abelian varieties over a prime field F_p as g→∞, following Lipnowski–Tsimerman, \"How large is A_g(F_q)?\" (Duke Math. J. 167 (2018)), with the corrections of J. Lee (IMRN 2022, §3.1) and those recorded in PAPER-LIPNOWSKI-TSIMERMAN-18 sourceIssues. Final theorems, as corrected: (T1) Isogeny classes (Lemma 2.1, Corollary 2.2 and DiPippo–Howe, Theorem 1.3): the number of isogeny classes of g-dimensional abelian varieties over F_q is at most (4g+1)^g q^(g(g+1)/4), and its logarithm is (1/4)g² log q (1+o(1)). (T2) Theorem 0.1: for fixed p, B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))); in particular log B(p,g) = O_p(g²). Do not state the printed exponent 17/2+ε. Lee states the sharper p^((45/4)g²(1+o(1))) theorem, but its v3 proof uses the false repeated-root estimate (11) (E22). This is a possible enhancement only after a multiplicity-sensitive replacement or a separate repeated-factor argument is verified; no counterexample to the final theorem is asserted. (T3) Proposition 4.16: an abelian variety over F_p with no repeated simple isogeny factor and Frobenius polynomial coprime to x²−p has at most p^(Cg²) principal polarizations up to isomorphism, C absolute. (T4) Lemma 5.11: if p splits in Q(√−d) for one of the nine class-number-one d, some E/F_p with End(E) the maximal order has exp((1/2)g² log g + O_p(g²)) principal polarizations on E^g (printed coefficient 1). (T5) Theorem 0.3 (Proposition 4.17): for such p, the proportion of g-dimensional ppavs over F_p that have no repeated isogeny factor and Frobenius polynomial coprime to x²−p tends to 0. What to cover: (1) Frobenius polynomials, their integrality, independence of ℓ and reciprocity; Tate's isogeny theorem over finite fields and its p-adic analogue on Dieudonné modules, including the characteristic-polynomial comparison (via R07.2's Witt descent and this route's resultant-recognition lemmas); Honda–Tate with Tate's local invariants; Waterhouse's realization of orders (Theorem 6.1) in the nonreal prime-field case; Proposition 4.14 (End⁰ of a simple A/F_p is a CM field unless Frobenius is ±√p). (2) The lattice description of an isogeny class (§3): marked quasi-isogenies correspond to Frobenius-stable lattice tuples; isomorphism classes are G(Q)-orbits; over F_p the p-component reduces to one Z_p-linear Frobenius (Remark 3.2). (3) Local lattice-orbit counts and stabilizer indices (the checkpoint replacement items: repeated-block, adelic and non-isotypic bounds) and the adelic assembly with class sets via reduced norms. (4) Class-number bounds (22)–(27) with the corrected exponents, or the library bound h_K ≤ |D_K|·4^[K:Q] where constants do not matter. (5) Principal polarizations as Rosati orbits (Proposition 4.11), the CM case (Example 4.13) with the Hasse norm theorem and Lemmermeyer's exact sequence, and T3–T5. Keep the real-Weil factor B0 (Frobenius ±√p, quaternionic End⁰) explicit throughout. Imports, by title and id: Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2, A4, A6; Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, including the hermitian mass formula; Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups) AA.3–AA.4; Siegel and PEL moduli problems (PELModuli) M6, for finiteness at fixed polarization degree in Tate's proof (never the count being proved); Deligne weights and purity (DeligneWeightsAndPurity) DWP.1, for the Riemann hypothesis for abelian varieties; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layers 5 and 13; Effective bounds (tauceti:Completed/EffectiveBounds) Layers 1 and 3; Analytic number theory (AnalyticNumberTheory) AN.4; Reductive groups, Part II (ReductiveGroupsPartII) RG2.3, for Lang's theorem. Arithmetic statistics (ArithmeticStatistics) ST.0 owns the counting measures and ST.5 the conditional statements (Theorem 0.2, Corollaries 5.13, 5.14, 5.20). Scope: T2–T5 are over prime fields only (Remarks 3.2 and 4.18). The published text (51 pages) was not available to the extraction: locators are to arXiv v1, and Lee's corrections cite the published numbering (Corollaries 3.16–3.18 and 3.22, Proposition 3.23, equations (25), (31), (32)). Model-ring applications keep separate simple isogeny factors when their CM fields are isomorphic (GN.2). GN.3’s uniform orbit bound and ST.5’s concentration conclusion require each CM field to be generated by a p-Weil number for the same fixed p. These hypotheses belong to those applications, not to the general model-ring definition. The quaternionic class-set input uses E23’s finite maximal compact and E24’s narrow class group, with d=1 kept separate."
   },
   {
    "route": "source",
@@ -3347,7 +3347,7 @@
    "correction": "Keep powers of 2 with exponents proportional to g² in the fixed-p leading coefficient, or export only exp(O_p(g²)).",
    "reason": "For fixed p, log_p(2) is a nonzero constant; C·g²·log_p(2) is not o(g²). Neither the displayed equality nor the stated sharp main coefficient follows from discarding it.",
    "affects": "the proof",
-   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 and (9)–(10) keep the factor 2^(34g²); Lee's Lemma 3.1 (|d′(A_0)|_∞ ≤ (2g)^(2g) p^(C(2g,2))) removes it in his improved bound.",
+   "known": "Lee arXiv:2002.04420v3, Theorem 1.1 and §3.1 (9)–(10), corrects the omitted factor by keeping 2^(34g²). The separate sharper 45/4 theorem is stated in Theorems 1.4/3.4; its v3 proof uses the false (11) for repeated roots (E22), so it does not supply a verified removal of this factor on the evidence read. IMRN 2022, DOI 10.1093/imrn/rnaa153: abstract read, full proof not obtained.",
    "searched": [
     "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
     "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
@@ -3355,14 +3355,22 @@
     "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
     "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
-    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1.",
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
    ],
    "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
-   "review": {
-    "verdict": "confirmed",
-    "reason": "The observation is elementary and right: for fixed p the quantity log_p 2 is a positive constant, so a factor 2^{Cg^2} is p^{C g^2 log_p 2}, which is not p^{o(g^2)}, and an asymptotic stated as p^{(33/4) g^2 (1+o(1))} cannot absorb it. Lee's corrected Theorem 1.1, which keeps the factor 2^{34 g^2} explicitly outside the p-power, confirms that this is how the published argument has to be stated.",
-    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
-   }
+   "reviewHistory": [
+    {
+     "scope": "Review of the pre-FIX-RT extraction; retained as historical evidence, not certification of the amended correction/known fields.",
+     "verdict": "confirmed",
+     "reason": "The observation is elementary and right: for fixed p the quantity log_p 2 is a positive constant, so a factor 2^{Cg^2} is p^{C g^2 log_p 2}, which is not p^{o(g^2)}, and an asymptotic stated as p^{(33/4) g^2 (1+o(1))} cannot absorb it. Lee's corrected Theorem 1.1, which keeps the factor 2^{34 g^2} explicitly outside the p-power, confirms that this is how the published argument has to be stated.",
+     "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+    }
+   ],
+   "fixAttribution": "Codex — codex-5ebb6f, 2026-10-01; FIX-RT #5515. Amended entry awaits independent fix review."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E8",
@@ -3594,7 +3602,7 @@
    "kind": "error",
    "locator": "v1 p.36, Lemma 5.19 and its proof; Corollary 5.20 at p = 2",
    "printed": "The source asserts that at least one of E(F_p) and E(F_(p²)) fails to be a p-group.",
-   "correction": "The lemma holds exactly for odd p. For odd p: if p^i = p+1−a and p^j = p+1+a then p^i+p^j = 2p+2, which forces i = 0 or j = 0 modulo p and then p^(j) = 2p+1, impossible. For p = 2 the curves with a = ±1 are counterexamples. The printed proof (\"a = 1 and b = 1\") is wrong for every p, since #E(F_(p²)) = p²+1−(a²−2p). Corollary 5.20 must exclude p = 2.",
+   "correction": "Restrict the lemma and Corollary 5.20 to odd p; the all-odd-p factorization proof is retained. For p≥5 the printed proof is valid: the Hasse intervals 1<(√p−1)²≤#E(F_p)≤(√p+1)²<p² and p<(p−1)²≤#E(F_(p²))≤(p+1)²<p³ force a=b=1. The identity b=a²−2p then gives the printed contradiction p=0. Its unqualified Hasse inference has a small-prime gap. For p=3, the p-power possibilities for #E(F_3) are 1 or 3, hence a=3 or 1 and #E(F_9)=7 or 15, neither a 3-power. The p=2 counterexamples remain genuine.",
    "reason": "Over F₂, y²+xy=x³+x²+1 is smooth and has 2 points over F₂ and 8 over F₄. Both groups are 2-groups. PR #1652 enumerated them; the continuation retains its finite check and the source argument's small-prime failure. p = 2 satisfies the hypothesis of Lemma 5.11 (2 splits in Q(√−7)), so Corollary 5.20 as stated covers p = 2, where its proof fails; there #B0(F_2) = #B0(F_4) = 1 as well. [cc-442dc5]",
    "affects": "a stated result",
    "known": "new",
@@ -3605,14 +3613,22 @@
     "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections.",
     "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
-    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1.",
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
    ],
    "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed.",
-   "review": {
-    "verdict": "confirmed",
-    "reason": "Recomputed the counterexample. Over F_2 the curve y^2 + xy = x^3 + x^2 + 1 has the single affine point (0,1) together with the point at infinity, so it has 2 points over F_2, whence a = 1 and it has 2^2 + 1 - (a^2 - 2 p) = 8 points over F_4. Both are 2-groups, so the printed lemma fails at p = 2, and the extraction's corrected statement, that the lemma holds exactly for odd p, is right. The correction to Corollary 5.20 follows.",
-    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
-   }
+   "reviewHistory": [
+    {
+     "scope": "Review of the pre-FIX-RT extraction; retained as historical evidence, not certification of the amended correction/known fields.",
+     "verdict": "confirmed",
+     "reason": "Recomputed the counterexample. Over F_2 the curve y^2 + xy = x^3 + x^2 + 1 has the single affine point (0,1) together with the point at infinity, so it has 2 points over F_2, whence a = 1 and it has 2^2 + 1 - (a^2 - 2 p) = 8 points over F_4. Both are 2-groups, so the printed lemma fails at p = 2, and the extraction's corrected statement, that the lemma holds exactly for odd p, is right. The correction to Corollary 5.20 follows.",
+     "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+    }
+   ],
+   "fixAttribution": "Codex — codex-5ebb6f, 2026-10-01; FIX-RT #5515. Amended entry awaits independent fix review."
   },
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E-MILNE68-NEWTON-ABSCISSA",
@@ -3706,23 +3722,82 @@
   {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E21",
    "kind": "error",
-   "locator": "v1 p.1, Theorem 0.1, and p.16, (28); published Theorem 0.1 and Proposition 3.23",
+   "locator": "LT arXiv:1511.02212v1, p.1 Theorem 0.1 and p.16 (28); published numbering/statement reported indirectly by Lee v3 §3.1, not freshly read in the Duke journal",
    "printed": "The source infers B(p,g) = o_ε(p^((17/2+ε)g²)) using (28): #{isomorphism classes in an isogeny class} ≤ p^((33/4)g²(1+o(1))).",
-   "correction": "B(p,g) ≤ 2^(34g²)·p^((69/4)g²(1+o(1))) by the corrected argument; the sharpest published bound is B(p,g) ≤ p^((45/4)g²(1+o(1))) (Lee, Theorem 1.4). The exponent 17/2 is not established.",
+   "correction": "Retain B(p,g)≤2^(34g²)·p^((69/4)g²(1+o(1))) from the corrected §3.1 argument and log B(p,g)=O_p(g²). The exponent 17/2 is not established. Lee v3 states the 45/4 theorem, but E22 blocks adopting its displayed proof without a repeated-root repair; this does not disprove that final theorem.",
    "reason": "Combine E19 (a factor 2 in two exponents), E20 (a factor 4 in the class-group exponent) and E7 (powers of 2 with exponent of order g² are not p^(o(g²)) for fixed p): (28) becomes 2^(34g²)p^(17g²(1+o(1))) and B(p,g) gains the factor p^(g²/4) of Corollary 2.2.",
    "affects": "a stated result",
-   "known": "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3), Theorem 1.1 (\"a (corrected) main result of [7]\") and Theorem 1.4.",
+   "known": "Lee arXiv:2002.04420v3, Theorem 1.1 and §3.1 (9)–(10), corrects the LT coefficient. Theorem 1.4/3.4 states the sharper 45/4 bound; its proof support is separately limited by E22. Published abstract at DOI 10.1093/imrn/rnaa153 confirms the stated bounds, not their proof validity.",
    "searched": [
     "J. Lee, \"On the lower bound of the number of abelian varieties over F_p\", Int. Math. Res. Not. IMRN 2022, no. 6, 4290–4317, DOI 10.1093/imrn/rnaa153 (arXiv:2002.04420v3): §3.1 read in full on 23 September 2026 by cc-442dc5. It corrects the published Corollary 3.18 and equations (25), (31), (32) and states the corrected Theorem 0.1 (its Theorem 1.1); it records no other correction.",
     "OpenAlex, works citing DOI 10.1215/00127094-2018-0029 (queried 23 September 2026): Xue–Yu, Acta Math. Sin. 2020; Lee, Math. Z. 2020; a 2022 Finite Fields Appl. paper; a 2025 J. London Math. Soc. paper. Only Lee 2022 (IMRN, found by web search) corrects LT.",
-    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1."
+    "Crossref record for 10.1215/00127094-2018-0029: no update-to or erratum relation (23 September 2026). Project Euclid PDF blocked by a JavaScript challenge; Unpaywall lists only that PDF and arXiv v1.",
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
    ],
    "attribution": "Claude Code, cc-442dc5, 23 September 2026; checked against the v1 page images of pp.11, 14–16.",
-   "review": {
-    "verdict": "confirmed",
-    "reason": "Checked against the correcting paper directly. Lee 2022 states as his Theorem 1.1, attributed to Lipnowski-Tsimerman Theorem 0.1 as corrected, the bound B(p,g) <= 2^{34 g^2} p^{(69/4) g^2 (1+o(1))}, and as his Theorem 1.4 the improved bound B(p,g) <= p^{(45/4) g^2 (1+o(1))}. Both are exactly as the extraction records them, including the theorem numbers, which I recomputed from Lee's own counter, where a remark shares the theorem numbering. The printed exponent 17/2 is therefore not established, and the extraction is right to say so.",
-    "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
-   }
+   "reviewHistory": [
+    {
+     "scope": "Review of the pre-FIX-RT extraction; retained as historical evidence, not certification of the amended correction/known fields.",
+     "verdict": "confirmed",
+     "reason": "Checked against the correcting paper directly. Lee 2022 states as his Theorem 1.1, attributed to Lipnowski-Tsimerman Theorem 0.1 as corrected, the bound B(p,g) <= 2^{34 g^2} p^{(69/4) g^2 (1+o(1))}, and as his Theorem 1.4 the improved bound B(p,g) <= p^{(45/4) g^2 (1+o(1))}. Both are exactly as the extraction records them, including the theorem numbers, which I recomputed from Lee's own counter, where a remark shares the theorem numbering. The printed exponent 17/2 is therefore not established, and the extraction is right to say so.",
+     "by": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
+    }
+   ],
+   "fixAttribution": "Codex — codex-5ebb6f, 2026-10-01; FIX-RT #5515. Amended entry awaits independent fix review."
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E22",
+   "kind": "error",
+   "locator": "Lee arXiv:2002.04420v3, §2.1 p.3 definition of d′, §3.2 p.6 (11), Corollary 3.3 p.8 and Theorem 3.4 p.9; journal proof not read",
+   "printed": "|d′(A_0)|∞≤(2g)^(2g) p^binom(2g,2)=p^(2g²(1+o(1)))",
+   "correction": "Use a multiplicity-sensitive estimate for the product over unequal root values, counted with multiplicity, or treat repeated factors separately. A full Vandermonde upper bound does not bound the product after its zero factors are deleted. Do not adopt the 45/4 refinement through this unrepaired proof. Keep the independent 69/4 route; no assertion that the final 45/4 theorem is false.",
+   "reason": "E/F_2: y²+y=x³ has three points and Frobenius polynomial X²+2. For A_0=E^g, ±i√2 each occur g times; 2g² ordered unequal-root pairs give |d′|=2^(3g²). At g=16 this is 2^768, while the displayed bound gives 32^32·2^496=2^656. The normalized exponent tends to 3, rather than 2, so an eventual threshold cannot fix (11). Corollary 3.3 and the displayed proof of Theorem 3.4 explicitly use it. Lemma 3.1’s full Vandermonde statement itself is not disproved.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
+   ],
+   "attribution": "Recorded by Codex — codex-5ebb6f under FIX-RT #5515, following independently confirmed red-team finding /2 or /4. No independent-review verdict added."
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E23",
+   "kind": "error",
+   "locator": "LT arXiv:1511.02212v1, p.14 §3.2.2 definition of U_0,d preceding (21); Duke journal text not read",
+   "printed": "The source defines U_0,d as the image of GL_(4d)(Ẑ) through a chosen isomorphism realizing finite splitness.",
+   "correction": "Use U_0,d=∏_(v finite of K_0) GL_(2d)(O_(K_0,v)) inside GL_d(D_0)(A_(K_0,fin)), with the chosen local splitting. Viewed over Q_ℓ this is restriction of scalars from K_0⊗Q Q_ℓ, not GL_(4d)(Q_ℓ).",
+   "reason": "D_0/K_0 splits at every finite place as M_2(K_0,v), so its d×d matrices give GL_(2d)(K_0,v) and its maximal compact is the corresponding integral group. Restriction of scalars retains the K_0-linear condition; for [K_0:Q]=2 its Q_ℓ dimension is 8d², whereas GL_(4d) has dimension 16d². Embedding it in GL_(4d) does not give the asserted isomorphism.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
+   ],
+   "attribution": "Recorded by Codex — codex-5ebb6f under FIX-RT #5515, following independently confirmed red-team finding /2 or /4. No independent-review verdict added."
+  },
+  {
+   "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E24",
+   "kind": "error",
+   "locator": "LT arXiv:1511.02212v1, p.14 §3.2.2 (21), d>1 branch; Duke journal text not read",
+   "printed": "The source asserts a bijection from the quaternion factor for d>1 to Cl(O_(Q(√p))).",
+   "correction": "Use Cl⁺(K_0), K_0=Q(√p), in the reduced-norm class-set comparison for d≥2. Retain the separate d=1 quaternion class set and omit it for d=0. The narrow/ordinary ratio is bounded by 2^[K_0:Q], so the coarse fixed-p exponential conclusion is unchanged.",
+   "reason": "Reduced norms of global invertible matrices over the totally definite quaternion algebra are positive at both real places. Quotienting finite ideles by these norms and local integral units therefore gives the narrow class group. For p=3, the Minkowski bound √12/2<2 gives ordinary class number 1, but x²−3y²=−1 has no solution modulo 3, so no unit has norm −1 and the narrow class number is 2. The two asserted exact targets cannot be interchanged.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv histories for 1511.02212 and 2002.04420, and Jungin Lee’s research page; LT still v1 and Lee v3 (1 June 2020).",
+    "2026-10-01: searches for 2002.04420 / rnaa153 with erratum, correction and corrigendum, and LT title / 1511.02212 with correction or erratum; no correction of these exact defects located in this limited search. No priority or exhaustive-absence claim.",
+    "2026-10-01: IMRN DOI, article page and candidate article-PDF endpoint returned errors/HTTP 403; publisher abstract was readable and states 45/4, but full proof was not obtained. Lee’s author page links arXiv and the journal, without a located separate correction.",
+    "2026-10-01: LT Project Euclid PDF endpoint returned 1158 bytes of non-PDF HTML; no journal-proof comparison claimed."
+   ],
+   "attribution": "Recorded by Codex — codex-5ebb6f under FIX-RT #5515, following independently confirmed red-team finding /2 or /4. No independent-review verdict added."
   }
  ],
  "verification": {
@@ -5658,6 +5733,30 @@
     "tree": "abfdeee9230fb2148a8a53e03e239d11dcc2741a",
     "scope": "Fresh main snapshot; LT original deliverables, protocols, reviewed audit, relevant atlas/docs and candidate-owner inputs unchanged. Other workers' paper/queue/source-issue changes preserved. Newly added/changed Bhatt18, Le–LeHung–Levin23, BCGP21 and Pan26 routes/items screened for the coefficient-recognition targets; no overlap found."
    }
+  },
+  "fixReading": {
+   "agent": "Codex",
+   "session": "codex-5ebb6f",
+   "date": "2026-10-01",
+   "status": "complete",
+   "issue": 5515,
+   "baseCommit": "2208b4ddbb9c0c897488ba6c3c6f681f6bbecafb",
+   "changes": [
+    "All five confirmed findings addressed; seven item objects corrected, no item IDs/statuses added or removed.",
+    "GN.2/GN.3/ST.5 reasons and finite-field Part II brief corrected without changing assignments.",
+    "E7/E17/E21 amended with earlier review verdicts explicitly archived; E22–E24 added awaiting independent review; sourceVersions added.",
+    "Current reader synchronized; attributed checkpoint record retained byte-for-byte."
+   ],
+   "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+   },
+   "checks": [
+    "check_paper.py and §18 errata projection; intake.py check-files on the exact three deliverables; staged whitespace check.",
+    "Exact point-count/exponent regressions, quadratic Weil discriminants, narrow-class congruence, small-prime traces and source/routing preservation checks."
+   ],
+   "lean": "No Lean deliverable or elaboration claimed; no Lake build/cache/LSP run.",
+   "limits": "Targeted source and owner reads only. Full journal proof pages unavailable; other source findings, historical supplier appendices and 61 pinned declarations are inherited, not freshly recertified. No proof of or counterexample to Lee’s final 45/4 theorem is supplied."
   }
  },
  "gaps": [
@@ -5710,6 +5809,38 @@
    "id": "G9",
    "status": "withdrawn",
    "detail": "API outlines and unit tests are blueprint requirements (PROTOCOL §§4, 12), not paper-v1 extraction requirements (§16). The design and blueprint jobs derive them. [cc-442dc5] Earlier: Legacy schema/API normalization: of 44 definition/construction items, 37 inherited entries retain API/tests only in prose notes, and the inherited double-coset-level-map has string tests. The six structured entries (three inherited and three new here) each have a nonempty API, explicit uses and ≥3 typed tests. Preserve the existing mathematical content, but normalize the 38 legacy entries to consumer-derived API/uses and §12 name/kind/statement test objects before claiming complete. check_paper.py does not enforce this requirement."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1511.02212v1",
+   "version": "v1, 6 November 2015",
+   "read": "2026-10-01",
+   "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+   "extent": "Fresh targeted read pp.14,24–25,27,30–31,36; images pp.14,24,36. Complete earlier readings remain attributed in source.readSections."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2002.04420v3",
+   "version": "v3, 1 June 2020",
+   "read": "2026-10-01",
+   "sha256": "2521898dfcd96c22950c026058b0b4e68e147aa89989964649eb317718fbbd3b",
+   "extent": "Fresh targeted read p.1 and pp.3–9 through Theorem 3.4; images pp.3,6. §4 lower-bound proof not read."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.jmilne.org/math/articles/1968a.pdf?download=1",
+   "read": "2026-09-23",
+   "sha256": "8abdaf4fa604d5ed7faee3f9d4e9dc9382dc35d7b79382fe3540f495fe98fc35",
+   "extent": "Inherited reading attributed to codex-7e92bd and codex-a71f92; published p.67 supports E-MILNE68-NEWTON-ABSCISSA. Not freshly read by this fix session."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://virtualmath1.stanford.edu/~conrad/vigregroup/vigre04/polarization.pdf",
+   "read": "2026-09-21",
+   "sha256": "7156a718e879f7cc752a460ad61c14dbcfd2978a13149b7024c9809ac487af6b",
+   "extent": "Inherited complete reading as attributed in source.readSections; no fresh reading of E8’s supplier in this fix."
   }
  ]
 }
