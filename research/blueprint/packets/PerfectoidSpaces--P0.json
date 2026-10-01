@@ -33354,58 +33354,66 @@
       "citation": "Scholze, Erratum to p-adic Hodge theory for rigid-analytic varieties, three-page author PDF; all three pages read."
     }
   ],
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-PerfectoidSpaces--P0",
+      "date": "2026-09-26",
+      "completion": "partial",
+      "notes": "Review checkpoint by Codex — codex-hjdg0j, independent of the blueprint authors. Nine nodes corrected; all 46 inherited source findings examined (39 confirmed, 7 rejected), with 12 added findings. Both duplicate pairs E21/E41 and E34/E43 are retained. All 324 baseline names/modules match the pinned index; 32 declaration statements were independently read, and four baseline descriptions were clarified. This does not confirm fitness at every citing node: the remaining 292 statements and the comprehensive source/dependency/API/test/planet audit are unfinished. P1 is partial with a new gap for the general-base mod-pseudouniformizer category. No node is certified fully verified and the packet is not accepted. See the review report and handoff for the exact boundary and continuation work.",
+      "checked": [
+        {
+          "nodeId": "PerfectoidSpaces:P1/frobenius-inverse-limit-lifting-in-characteristic-p",
+          "verdict": "corrected",
+          "note": "Distinguish root-ideal almost flatness from ordinary flatness; the Lean body already states the almost annihilator condition. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P1/perfectoid-mod-varpi-equivalence",
+          "verdict": "corrected",
+          "note": "Correct the impossible Z-coefficient auxiliary ring to F_p, specify root-ideal almost flatness, make the divisibility hypothesis explicit, and record the unproved criterion comparison. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
+          "verdict": "corrected",
+          "note": "Restore S⁺ = S° in the source definition of p-finiteness. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P2/products-in-perf",
+          "verdict": "corrected",
+          "note": "Give the missing inverse-Frobenius continuity estimate; simplify the title, which overstated the absence of any particular fibre-product presentation. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P4/completed-tensor-over-analytic-field-kernel",
+          "verdict": "corrected",
+          "note": "Correct source locator: §2.2, Lemma 2.2.9, p. 29 (arXiv v5) → §2.2, Lemma 2.2.9, p. 31 (arXiv v5) This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P5/completed-colimit-is-perfectoid",
+          "verdict": "corrected",
+          "note": "Replace A ⊆ R-plus by the canonical completion map: the uncompleted filtered colimit need not be separated, as the packet own shrinking-disc test already demonstrates. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P5/countable-perfectoid-hull",
+          "verdict": "corrected",
+          "note": "Make the subspace in the boundedness comparison explicit: use R-prime intersect R-plus. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P6/uniformly-kappa-small-perfectoid-space",
+          "verdict": "corrected",
+          "note": "Use λ = 1 for the empty-space test (the zero ring has one element); restrict the source-match singularity claim to the exhibited cutoff. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        },
+        {
+          "nodeId": "PerfectoidSpaces:P6/kappa-bounded-pro-etale-presentations",
+          "verdict": "corrected",
+          "note": "Remove the false full-subcategory cardinal bound, construct non-full cofiltered subcategories including selected arrows and compositions, and remove the surviving κ-cofiltered consumer claim. Add a one-object zero-monoid regression example. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
+        }
+      ]
+    }
+  ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PerfectoidSpaces--P0",
-    "date": "2026-09-26",
-    "completion": "partial",
-    "notes": "Review checkpoint by Codex — codex-hjdg0j, independent of the blueprint authors. Nine nodes corrected; all 46 inherited source findings examined (39 confirmed, 7 rejected), with 12 added findings. Both duplicate pairs E21/E41 and E34/E43 are retained. All 324 baseline names/modules match the pinned index; 32 declaration statements were independently read, and four baseline descriptions were clarified. This does not confirm fitness at every citing node: the remaining 292 statements and the comprehensive source/dependency/API/test/planet audit are unfinished. P1 is partial with a new gap for the general-base mod-pseudouniformizer category. No node is certified fully verified and the packet is not accepted. See the review report and handoff for the exact boundary and continuation work.",
-    "checked": [
-      {
-        "nodeId": "PerfectoidSpaces:P1/frobenius-inverse-limit-lifting-in-characteristic-p",
-        "verdict": "corrected",
-        "note": "Distinguish root-ideal almost flatness from ordinary flatness; the Lean body already states the almost annihilator condition. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P1/perfectoid-mod-varpi-equivalence",
-        "verdict": "corrected",
-        "note": "Correct the impossible Z-coefficient auxiliary ring to F_p, specify root-ideal almost flatness, make the divisibility hypothesis explicit, and record the unproved criterion comparison. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P2/p-finite-acyclicity-from-tate",
-        "verdict": "corrected",
-        "note": "Restore S⁺ = S° in the source definition of p-finiteness. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P2/products-in-perf",
-        "verdict": "corrected",
-        "note": "Give the missing inverse-Frobenius continuity estimate; simplify the title, which overstated the absence of any particular fibre-product presentation. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P4/completed-tensor-over-analytic-field-kernel",
-        "verdict": "corrected",
-        "note": "Correct source locator: §2.2, Lemma 2.2.9, p. 29 (arXiv v5) → §2.2, Lemma 2.2.9, p. 31 (arXiv v5) This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P5/completed-colimit-is-perfectoid",
-        "verdict": "corrected",
-        "note": "Replace A ⊆ R-plus by the canonical completion map: the uncompleted filtered colimit need not be separated, as the packet own shrinking-disc test already demonstrates. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P5/countable-perfectoid-hull",
-        "verdict": "corrected",
-        "note": "Make the subspace in the boundedness comparison explicit: use R-prime intersect R-plus. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P6/uniformly-kappa-small-perfectoid-space",
-        "verdict": "corrected",
-        "note": "Use λ = 1 for the empty-space test (the zero ring has one element); restrict the source-match singularity claim to the exhibited cutoff. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      },
-      {
-        "nodeId": "PerfectoidSpaces:P6/kappa-bounded-pro-etale-presentations",
-        "verdict": "corrected",
-        "note": "Remove the false full-subcategory cardinal bound, construct non-full cofiltered subcategories including selected arrows and compositions, and remove the surviving κ-cofiltered consumer claim. Add a one-object zero-monoid regression example. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
-      }
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
+    "date": "2026-10-01",
+    "notes": "Follows the partial independent-review-REV-PerfectoidSpaces--P0. Scoped independent review of FIX-RT-AREA-padic-2~2 (53f4c49), by Codex, codex-J6LwjP. The three P1 use-record changes correctly leave primitive-kernel generation and nonzerodivisibility with P1; R06.1 supplies the uniform chosen generator and mixed-characteristic filtration, and AI.0 specializes through Q0. Checked ECD Lemmas 3.14/3.16 and proof, BMS Lemma 3.10/Remark 3.11, Scholze 2013 Lemma 6.3/Corollary 6.4, and the relevant pinned Mathlib PreTilt, untilt, theta, Frobenius and BDeRham declarations including hypotheses and TODOs. Accept these ownership fixes; retain needs_changes because the preceding review explicitly left the comprehensive source/dependency/API/test/planet audit and most declaration statements unfinished. Later FIX-RT-AREA-padic-1~2 modifications are preserved and outside this review. This limited supplier audit does not certify that wider work or close its general-base gaps. No Lean compilation. See REV-FIX-RT-AREA-padic-2~2.md."
   }
 }

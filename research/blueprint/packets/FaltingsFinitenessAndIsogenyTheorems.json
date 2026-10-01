@@ -1333,14 +1333,15 @@
    ],
    "title": "Erratum (a): the Zariski closures form an l-divisible group only after passing to A_m",
    "kind": "lemma",
-   "statement": "Let A, l, v_i, K_i, R_i, D_i and Â be as in Lemma 6, and let W ⊆ T_l(Â) be a D_i-invariant sublattice. It corresponds to an l-divisible subgroup of A/K_i, and taking the Zariski (schematic) closures of its levels gives a system of finite flat group schemes G_{i,n} ⊆ Â over Spf(R_i), equivalently over Spec(R_i). This system is an l-divisible group only if the maps G_{i,n+1}/G_{i,n} → G_{i,n}/G_{i,n−1} are isomorphisms for all n ≥ 1, which cannot be expected in general. A consideration of discriminants shows that they are isomorphisms for all n ≥ n_0, for some n_0. Passing from A = A_0 to A_m means that only the maps with n > m have to be considered, so for m ≥ n_0 the closures attached to A_m form an l-divisible group over R_i.",
+   "statement": "Let A, l, v_i, K_i, R_i, D_i and Â be as in Lemma 6, and let W ⊆ T_l(Â) be a D_i-invariant saturated sublattice (equivalently a ℤ_l-direct summand). It corresponds to an l-divisible subgroup of A/K_i, and taking the Zariski (schematic) closures of its levels gives a system of finite flat group schemes G_{i,n} ⊆ Â over Spf(R_i), equivalently over Spec(R_i). This system is an l-divisible group only if the maps G_{i,n+1}/G_{i,n} → G_{i,n}/G_{i,n−1} are isomorphisms for all n ≥ 1, which cannot be expected in general. A consideration of discriminants shows that they are isomorphisms for all n ≥ n_0, for some n_0. Passing from A = A_0 to A_m means that only the maps with n > m have to be considered, so for m ≥ n_0 the closures attached to A_m form an l-divisible group over R_i.",
    "hypotheses": [
-    "the setting of Lemma 6 and of the proof of Satz 2; W ⊆ T_l(Â) a D_i-invariant sublattice (in the application, W = T_l(G/G_m) ∩ T_l(Â_m) after the shift of erratum b))",
+    "the setting of Lemma 6 and of the proof of Satz 2; W ⊆ T_l(Â) a D_i-invariant saturated sublattice (in the application, W = T_l(G/G_m) ∩ T_l(Â_m) after the shift of erratum b))",
     "G_{i,n} ⊆ Â the schematic closure over Spf(R_i) of the n-th level of the l-divisible subgroup of A/K_i attached to W",
-    "the condition is for all n ≥ 1 (printed 'n ≧ 1'); after passing to A_m only n > m matters"
+    "the condition is for all n ≥ 1 (printed 'n ≧ 1'); after passing to A_m only n > m matters",
+    "Saturation means l·x ∈ W implies x ∈ W for x ∈ T_l(Â); for a submodule of this finite free ℤ_l-module it is equivalent to being a direct summand. Tate Proposition 12 (p. 181) explicitly assumes a ℤ_p-direct summand. The application uses the intersection of saturated Tate submodules; it must supply this hypothesis."
    ],
    "proofSteps": [
-    "The generic l-divisible group attached to W lies in H_i ⊗ K_i; the schematic closures G_{i,n} of its levels in the finite flat H_i[l^n] (equivalently in Â) are finite flat over the discrete valuation ring R_i, with G_{i,n} ⊆ G_{i,n+1} and multiplication by l mapping G_{i,n+1} into G_{i,n} (closure of a generic finite flat subgroup: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, requested).",
+    "Saturation identifies W with the Tate module of a closed generic l-divisible subgroup, as required by Tate Proposition 12; an arbitrary finite-index sublattice does not give this embedded subgroup. The generic l-divisible group attached to W lies in H_i ⊗ K_i; the schematic closures G_{i,n} of its levels in the finite flat H_i[l^n] (equivalently in Â) are finite flat over the discrete valuation ring R_i, with G_{i,n} ⊆ G_{i,n+1} and multiplication by l mapping G_{i,n+1} into G_{i,n} (closure of a generic finite flat subgroup: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, requested).",
     "The maps G_{i,n+1}/G_{i,n} → G_{i,n}/G_{i,n−1} are isomorphisms on generic fibres; the system is an l-divisible group exactly when they are isomorphisms over R_i for all n ≥ 1, which can fail at finitely many levels.",
     "Faltings: 'lehrt eine Betrachtung der Diskriminanten, daß dies für große n der Fall ist', referring to Tate, p-divisible groups, p. 182. The erratum gives no further argument. The argument is Tate's proof of Proposition 12 (p. 182): the affine algebras D_i of E_{i+1}/E_i form an increasing sequence of orders in a finite separable K-algebra, so D_i = D_{i+1} for i ≥ i_0, and Γ_v = E_{i_0+v}/E_{i_0} is p-divisible. Imported from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (requested), which plans Proposition 12 (RT-AREA-padic-2/5).",
     "Passing from A = A_0 to A_m (the global quotient by G_m, extended over R by Lemma 1), only the maps with n > m occur; for m ≥ n_0 the closures form an l-divisible group over R_i. This is the tail the R28.3 stage asks to construct."
@@ -1348,7 +1349,8 @@
    "acceptance": [
     "The defect sits in finitely many levels only: from n_0 on the tail is l-divisible.",
     "Degenerate case W = T_l(Â): the closures are the levels H_i[l^n] themselves, the maps are isomorphisms for all n ≥ 1, and n_0 = 1.",
-    "Nothing is claimed for A_0: the roadmap forbids asserting that the original closure tower is l-divisible."
+    "Nothing is claimed for A_0: the roadmap forbids asserting that the original closure tower is l-divisible.",
+    "In T = ℤ_l, W = lℤ_l is not saturated: l·1 ∈ W but 1 ∉ W. It must fail the hypothesis for an embedded l-divisible subgroup with Tate module W; multiplication by l on ℚ_l/ℤ_l has nonzero kernel. W = 0 and W = T are saturated."
    ],
    "prerequisites": [
     "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
@@ -1376,6 +1378,11 @@
      "sourceId": "tate-1967-p-divisible-groups",
      "locator": "(4.2), proof of Proposition 12, p. 182",
      "match": "Literal, page image of the public scan, read 30 September 2026 (FIX-RT-AREA-padic-2~2). This is the page the erratum cites ('Dies Argument findet man schon bei Tate ([1], S. 182)')."
+    },
+    {
+     "sourceId": "tate-1967-p-divisible-groups",
+     "locator": "(4.2), Proposition 12, printed p. 181; proof p. 182",
+     "match": "The direct-summand hypothesis was checked on the public page image in REV-FIX-RT-AREA-padic-2~2; it makes the erratum’s sublattice convention explicit."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4481,292 +4488,300 @@
    }
   }
  ],
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FaltingsFinitenessAndIsogenyTheorems",
+   "date": "2026-09-24",
+   "notes": "Independent review by Claude Code, session cc-2aeb03 (the blueprint is by cc-7b31c4). Faltings 1983 was re-read in full on the page images of the public GDZ scan, the erratum on the free Springer PDF, and Raynaud 1974 and SGA 7 I IX on their public copies; Milne's public Abelian Varieties notes were added for the Zarhin and Tate-conjecture arguments Faltings cites. Every one of the 32 original nodes was corrected (locators, literal German excerpts, statements, prerequisites, splits); 24 nodes were added for hidden steps, split results and unrealised stage targets; one duplicate proposal was merged. The packet no longer defines objects other roadmaps own (semiabelian schemes: ShimuraCompactifications C4; the Hodge line, arithmetic degree and height: ArakelovGeometryAndAbelianHeights R35.1-R35.3); those nodes became a lemma and a comparison with requests. Statements that the erratum refutes (the height formula and the local count for A itself) are stated under the explicit hypothesis R28.3 establishes. Baseline: every citation read at the pins; 5 removed (a near miss for Hermite–Minkowski replaced by NumberField.finite_of_discr_bdd, and four unused or wrong), 33 added. 22 source issues recorded and confirmed (E8 is Satz 2 as printed, corrected by the erratum). The suggested Lean file stated every theorem and structure field as True; it is rewritten with honest statements and elaborates against the pins. Status needs_changes only because the roadmap document research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md, which this review may not edit, still describes the uncorrected packet and must be regenerated from it before promotion.",
+   "checked": [
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/semiabelian-scheme-and-its-hodge-line-bundle",
+     "verdict": "corrected",
+     "note": "Checked on the GDZ page images, pp. 350–351. Locator right; excerpt over 300 characters and not literal (split into three literal excerpts). Bemerkung d)'s factor (i/2)^g gives a negative product for g ≡ 2, 3 mod 4 (E11); the drafted positivity test repeated the error. The drafted genus-one stable-curve test is not an instance (stable curves have genus ≥ 2). Section 15: the object is C4's and the Hodge line R35.2's; the node becomes a lemma recording a)–d), with requests to C4, R35.2 and R11.4; api/tests/planet removed."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/extension-of-homomorphisms-of-semiabelian-schemes-over-a-normal-base",
+     "verdict": "corrected",
+     "note": "Statement and locator verified against p. 350. Proof steps now name the facts: the uniqueness argument, the discrete-valuation-ring case (Néron mapping property, R11.1), Mathlib's valuative criterion, and Zariski's main theorem (absent at the pin: gap). The Tau Ceti abelian-variety citation (over a field) is replaced by Mathlib's group objects and homomorphisms."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
+     "verdict": "corrected",
+     "note": "Checked on pp. 351–352. Printed ω_{C/ℤ} is ω_{C/J} (E13); the curve has genus g̃ ≥ 2, not g; the Korollar needs ψ̄ surjective with ψ̄^{−1}(A_g ⊗ ℚ) ⊆ U, unstated (E14). Prerequisites were only Lemma 1 and IsProper; the moduli inputs (stacks, 𝔄_g, Baily–Borel, Namikawa, Picard schemes, quotients of Jacobians) now have requests, M̄_g̃ is a gap. Tests lacked kind; the g = 1 test was wrong. Excerpt over 300 characters; second locator is pp. 351–352."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles",
+     "verdict": "corrected",
+     "note": "Statement and locator verified (pp. 352–353). Prerequisites lacked Lemma 1 (cited in the proof), Bemerkungen b), c), the Beispiel (R11.4) and the stack valuative criterion (R09.4). Proof steps now justify the lift ρ̃, derive d^g ρ̃^*L ⊆ ω ⊆ ρ̃^*L and make e = e_1·d^{gr} explicit."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/faltings-modular-height-of-a-semiabelian-model",
+     "verdict": "corrected",
+     "note": "Checked on pp. 353–354: Grad, ε_v and h(A) as printed. The metric's sign (E11) and its integration domain A(K_v), meaningless at real places (E12), are corrected. Section 15: the arithmetic degree, metrized Hodge line and height are R35.1–R35.3's; the node becomes a comparison fixing Faltings' normalisation against them, with requests, and adds (iv) (h depends only on A_K, by Lemma 1). Concrete instance for elliptic curves over ℚ added; planet and api removed."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hodge-metric-has-logarithmic-singularities-along-the-boundary",
+     "verdict": "corrected",
+     "note": "Checked on pp. 355–356. Granularity: Faltings' Definition split into a new definition node. Prerequisites were empty; now the definition, Bemerkungen, Lemmas 1–2, C2/C4 (Namikawa), R11.4, R35.2 and ComplexComparisonPartII:C0. The sketch's p_*(Ω^1_{A/X}) should be s^*(Ω^1_{A/X}) (E15). The annulus computation behind the |log|t|| growth is supplied; [6] remains a gap."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/northcott-property-for-heights-from-log-singular-metrics",
+     "verdict": "corrected",
+     "note": "Statement and locator verified (p. 356; 400 dpi zoom on the inequality). The printed log|‖ ‖/‖ ‖_1| must be |log ‖ ‖/‖ ‖_1|, and ‖f_i‖_1 needs normalising (E17). Lemma 3 needs the definition, not the Hodge-metric theorem. Mathlib's Northcott covers only mulHeight₁ on K; ℙ^n(K) follows from three named Mathlib declarations; the comparison of h_1 with logHeight is requested from R35.1. Excerpt over 300 characters, now shortened."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
+     "verdict": "corrected",
+     "note": "Statement and one-word proof verified (p. 357). Baseline near miss: finite_of_discr_bdd_of_isReal counts only fields with a real place; NumberField.finite_of_discr_bdd is the full theorem. Class number unused. Route closed except the wild different bound (Serre LF III §6), planned by the Tau Ceti NumberFieldArithmetic roadmap, layer 6.4, and absent at the pin: gap updated."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
+     "verdict": "corrected",
+     "note": "Statement and locator verified (pp. 356–357). Prerequisites lacked the log-singularity theorem, the height comparison, Lemma 1 and the moduli point (M6). The descent is now its own node, as the stage's 'descent and level-structure' target requires. The bound |h(x) − r·h(A)| ≤ log e is derived."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/metric-with-logarithmic-singularities-along-a-closed-subvariety",
+     "verdict": "added",
+     "note": "Faltings' Definition (p. 355), split out of the log-singularity node; API (tensor powers, determinants, pullback, the log-ratio estimate Lemma 3 uses) and four unit tests. The printed bound only makes sense near Φ^{−1}(Y) (E16). While elaborating the suggested file, the unit test with c_1 = c_2 = 1 was found false near |t| = 1/2; it now asserts suitable constants."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finitely-many-K-forms-with-semiabelian-models-in-a-geometric-class",
+     "verdict": "added",
+     "note": "The descent and level-structure step of Satz 1 (p. 357), which the stage names as a target and the packet left as a gloss inside Satz 1: same bad places for semistable members, Lemma 4 for 3-division fields, Serre rigidity (M2), forms classified by H^1 (M6), finite Aut (A6)."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/principal-polarization-after-a-uniform-extension-and-finiteness-transfer",
+     "verdict": "added",
+     "note": "The stage's 'appropriate polarisation argument … with a proof of the resulting finiteness transfer'. Faltings' route (pp. 362–363) passes from degree d to principal polarizations by a √d-isogeny after an extension that Lemma 4 makes uniform for fixed S; Zarhin's trick and Jordan–Zassenhaus are not needed here. The R28.4 Korollar 3 and R28.5 Satz 6 nodes should cite it."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
+     "verdict": "corrected",
+     "note": "Checked on the page images of pp. 357-358: statement, formula and sign agree with the source. Corrected: prerequisites (semiabelian definition, Lemma 1, the owner stage R35.4 of the isogeny formula, A3, Tau Ceti IsIsogeny), explicit proof steps, literal excerpts, acceptance tests with numbers."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/bounded-denominators-of-height-differences-under-isogeny",
+     "verdict": "corrected",
+     "note": "Checked on the page image of p. 358. The statement now gives the explicit two-sided bound −(2g−1)[K:ℚ]v_p(Grad φ) ≤ v_p ≤ [K:ℚ]v_p(Grad φ), which is what Korollar 3 (p. 362) uses; the literal reading is shown false for [K:ℚ] ≥ 2. Reviewer commentary removed from hypotheses; a wrong acceptance test (prime-to-p) replaced; A3 added."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
+     "verdict": "corrected",
+     "note": "Lemma 6 and its proof checked on the page images of pp. 358-359 (zoom on p. 359); SGA 7 I IX 7.3-7.4 re-read on the public page images (pp. 407-409), and the orthogonality and ranks confirmed, including that 7.3 allows ℓ equal to the residue characteristic. Corrected: the excerpt had dropped '§7'; prerequisites were only the finite-locally-free property, now the six suppliers the proof uses; proof steps and acceptance made concrete."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
+     "verdict": "corrected",
+     "note": "Checked on the page image of p. 359. The old node bundled three imported Tate results with Faltings' combination step and asserted the count for G ∩ H_i of A itself, which the erratum refutes. Now it states Tate's local count for an l-divisible group over R_i plus the finite-part reduction; the Hodge-Tate step is a new node, and the tower application is the new R28.3 differential-count node. Prerequisites (Lemma 5, R35.4, R07.1) added."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
+     "verdict": "corrected",
+     "note": "Checked on the page images of pp. 359-360. The node stated, 'as printed', the height formula for A itself, which the erratum and Gabber's counterexample refute. It is now the identity Σ m_i d_i = mh/2 under the hypothesis (H_i) that R28.3 establishes after the shift. Three hidden non-routine steps are split into new nodes, and the class field theory input is routed to Tau Ceti ClassFieldTheory Layer 13 (Kronecker-Weber) by a request. The packet's gap said no request could be filed; the layer is a valid request supplier. The height formula along the tower moved to the corrected Satz 2."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift",
+     "verdict": "corrected",
+     "note": "Checked on the page image of the erratum (zoom on part a)). Corrected 'G_{i,n} ⊆ A' to 'G_{i,n} ⊆ Â'. Stated the conclusion about the tail for A_m, m ≥ n_0. Separated the imported discriminant argument (Tate p. 182, unread) from the rest, and added prerequisites (Lemma 6, Lemma 1, R07.1)."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/intersection-with-the-toric-l-divisible-group-after-a-shift",
+     "verdict": "corrected",
+     "note": "Checked on the page image of the erratum. The node had no prerequisites and no argument for the repair; added a short lattice computation in V_l(A) that gives the threshold m_1 (marked as the reviewer's argument), a toy example of the defect, and prerequisites (Lemma 6, Lemma 1, A3, R07.1)."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
+     "verdict": "corrected",
+     "note": "Checked Satz 2 (p. 358), the formula on p. 359, the Zusatz (p. 366) and the erratum on page images. The statement is correct as the erratum's; made the threshold explicit, removed a non-hypothesis, rewrote the proof through the corrected R28.2 identity and the new differential count, added Lemma 5 and R11.3, literal excerpts."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
+     "verdict": "corrected",
+     "note": "Checked on the page image of p. 361. Added the field-of-definition statement the stage asks for, the descent of the principal polarization (A3; statement read in Milne's public notes, Prop. 13.8 and Rem. 13.9), the semiabelian models of the A_n (R11.3) and the Tate module (R01.6); the excerpt was not literal."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/reduction-to-a-principally-polarized-semiabelian-model",
+     "verdict": "corrected",
+     "note": "Checked on the page images of pp. 361-362. The construction node bundled three things. Its tests lacked kinds and were partly commentary, and its hypotheses held reviewer commentary. Now: the construction with a proper API (eight items) and five kinded unit tests. The Satz 3/4 invariance is split into a new lemma node. The descent of polarizations was read in Milne's public notes (Prop. 13.8, Rem. 13.9) and routed to A3, and the stray product prerequisite was dropped."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l",
+     "verdict": "added",
+     "note": "Added by the reviewer: Hodge-Tate determinant at a place above l: Λ^h V_l(G) ⊗ C_i ≅ C_i(d_i). Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/l-adic-characters-of-the-absolute-galois-group-of-q-are-cyclotomic-up-to-finite-order",
+     "verdict": "added",
+     "note": "Added by the reviewer: l-adic characters of Gal(ℚ̄/ℚ) are l-adic powers of the cyclotomic character up to finite order. Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/determinant-of-the-induced-tate-module-at-the-decomposition-group-of-l",
+     "verdict": "added",
+     "note": "Added by the reviewer: The determinant line at the decomposition group of l: L ⊗ C ≅ C(Σ m_i d_i). Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/frobenius-weights-on-the-induced-tate-module",
+     "verdict": "added",
+     "note": "Added by the reviewer: Frobenius weights on the induced Tate module: |χ(F_p)| = p^{mh/2} for almost all p. Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/differential-count-along-the-shifted-tower",
+     "verdict": "added",
+     "note": "Added by the reviewer: After the shift: #s*(Ω¹_{A_m/A_{m+n}}) = l^{n Σ m_i d_i}. Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/powers-of-a-principally-polarized-semiabelian-model",
+     "verdict": "added",
+     "note": "Added by the reviewer: Powers of a principally polarized abelian variety with semiabelian model. Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/invariance-of-satz-3-and-satz-4-under-field-extension-and-isogeny",
+     "verdict": "added",
+     "note": "Added by the reviewer: Satz 3 and the rational form of Satz 4 are invariant under finite extension and isogeny. Source passage read on the page images; see the node's sources."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/quaternion-construction-of-an-invariant-maximal-isotropic-subspace",
+     "verdict": "corrected",
+     "note": "Checked on the GDZ page image of p. 361 (300 dpi): coefficients in ℚ_l, v·ᵗv = −1, W_1 defined with ⊕ in T_l(A)^8 ⊗ ℚ_l. Verified v·ᵗv = (a²+b²+c²+d²)·1 by computation. Rewrote statement (similitude action, recovery map), hypotheses, proof (cross terms, direct sum, dimension), API (the drafted API described an action of a quaternion algebra and called the integral statement false), unit tests with kinds, uses, literal excerpts; replaced Module.Dual/IsSemisimpleModule by the bilinear-form declarations actually used; the existence of a, b, c, d is a new node. While elaborating the suggested file, quatMatrix was found to be the matrix of right multiplication; its API statement is corrected."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+     "verdict": "corrected",
+     "note": "Statements checked on the page image of p. 360 and the proof on p. 361. The idempotent step and 'der Rest des Beweises' were unproved imports from Zarhin [16]; they are now closed through three new nodes (Zarhin's lemma, the quaternion transfer, the existence of a, b, c, d) using the public Milne notes, IV §2. Added the missing reduction prerequisite and Tau Ceti's double centralizer theorem; integral-from-rational step made explicit."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+     "verdict": "corrected",
+     "note": "Checked on the page image of p. 361. The node bundled Korollar 1 and Korollar 2 (separate results with separate proofs); split: this node keeps Korollar 1 (the id still mentions the isogeny criterion), Korollar 2 is a new theorem node. Added the Hom-group and product citations; literal excerpt."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/finiteness-of-polarized-varieties-with-all-tate-modules-isomorphic",
+     "verdict": "corrected",
+     "note": "Checked on the page image of p. 362 (isogeny of degree √d confirmed). Statement uses ≅ as printed; added the missing Satz 1 prerequisite and a new node for the reduction ('Man kommt dann leicht auf …'), whose finite-fibre and uniform-extension arguments the source omits; the isogeny of degree prime to l is now derived from Korollar 1."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
+     "verdict": "corrected",
+     "note": "Checked on the page images of pp. 362–363 (≦ l^{8g²} as printed). Rerouted the generic test-set argument to MordellLawrenceVenkatesh LV.1/frobenius-test-set (same statement, T = S ∪ {v | l}, d = 2g); added Satz 3, Korollar 2 and R11.5; removed exists_auxiliaryPrime (irrelevant) and frobeniusPrimeSet (a definition, not the theorem). The v_i must avoid S and the places above l, and the passage from equal traces to isogeny is not printed (source issue)."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
+     "verdict": "corrected",
+     "note": "Checked on the page images of pp. 363–364 (800 dpi zooms of 'p^{+h/2}' and 'j ‡ ½h'). Statement verified. Proof now computes Frobenius on the induced module directly (A6 kept as the equivalent Weil-restriction reading); removed the unused Module.Finite; literal excerpts."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
+     "verdict": "corrected",
+     "note": "Checked on p. 364 (page image, 400 dpi) and on Raynaud pp. 271–272 and 279 (page images; SHA-256 of the Numdam file matches). Raynaud's character is τ_p^{v(𝔇̄(𝒢))} (level-one tame character to the power of the absolute-different valuation), not 'the tame character of level equal to the different exponent'. Split the bundle: unramifiedness and class field theory are new nodes, the height equality a new theorem node; the Ω^1/different identification is recorded in the Raynaud gap. Misprints '[10], Théorème 4.11' and 'Ind(V)' recorded."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity",
+     "verdict": "corrected",
+     "note": "Checked on p. 363. Narrowed to the algebraic finite-lattice statement (the height consequence is a new node); removed the unrelated NumberField.classNumber citation (the baseline entry is still used by the Hermite–Minkowski node of R28.1); proof plan via a maximal order with the two unread inputs isolated in the lattice gap; added a non-example showing semisimplicity is needed."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
+     "verdict": "corrected",
+     "note": "Checked on pp. 363–365. Statement verified. Proof now closes through the new nodes (finiteness reduction, equal heights for l > N, small primes) with the factorization of an isogeny into l-primary and prime-to-l parts made explicit; added missing prerequisites (reduction, Bemerkung after Lemma 5). The stage's unpolarized target is realised by a new node."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S",
+     "verdict": "corrected",
+     "note": "Checked on p. 365. Statement verified (g ≧ 2, good reduction outside S). The form of Torelli used (injectivity on K-isomorphism classes, g ≥ 2, perfect field) is located in Milne IV Theorem 4.2; the Jacobian inputs are routed to Tau Ceti JacobianChallenge layers D/E with requests; literal excerpt."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mordell-conjecture-by-the-parshin-construction",
+     "verdict": "corrected",
+     "note": "Checked on p. 365 at 400 dpi: 'vom Grad m>2' (the drafted excerpt still said m >= 2) and 'y∈p^{-1}(x)' (misprint for φ^{-1}). Made de Franchis, the genus bound and the role of m > 2 explicit. Set realises to [] because RP.4 owns the Parshin construction and R28.5's stage text does not ask for Mordell (PROTOCOL §15)."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/commutant-statement-for-almost-all-primes",
+     "verdict": "corrected",
+     "note": "Checked on p. 365. Statement verified; removed the irrelevant Chebotarev citation; recorded the rational version (Milne IV Corollary 2.7) and the missing proof of the integral version as a gap; literal excerpt."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/siegel-theorem-without-diophantine-approximation",
+     "verdict": "corrected",
+     "note": "Checked on p. 365; the remark is recorded exactly. Set realises to [] (not an R28.6 target; RP.4 owns Siegel finiteness) and made the prerequisite the curve corollary the remark refers to."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/minus-one-is-a-sum-of-four-squares-in-Q_l",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/invariant-maximal-isotropic-subspace-is-the-image-of-an-idempotent",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/every-invariant-subspace-is-the-image-of-an-idempotent",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/isogeny-criterion-by-rational-tate-modules-and-local-factors",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/twisted-determinant-character-is-unramified-outside-l",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mod-l-characters-unramified-outside-l-are-cyclotomic-powers",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/equal-heights-along-isogenies-of-large-prime-power-degree",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/bounded-small-prime-parts-of-height-differences-in-an-isogeny-class",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness-without-polarization",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/tate-hom-comparison-for-elliptic-curves",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/isogeny-criterion-for-elliptic-curves",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/finiteness-of-the-isogeny-class-of-an-elliptic-curve",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    },
+    {
+     "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/hom-to-an-isogenous-elliptic-curve-is-infinite-cyclic",
+     "verdict": "added",
+     "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
+    }
+   ]
+  }
+ ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FaltingsFinitenessAndIsogenyTheorems",
-  "date": "2026-09-24",
-  "notes": "Independent review by Claude Code, session cc-2aeb03 (the blueprint is by cc-7b31c4). Faltings 1983 was re-read in full on the page images of the public GDZ scan, the erratum on the free Springer PDF, and Raynaud 1974 and SGA 7 I IX on their public copies; Milne's public Abelian Varieties notes were added for the Zarhin and Tate-conjecture arguments Faltings cites. Every one of the 32 original nodes was corrected (locators, literal German excerpts, statements, prerequisites, splits); 24 nodes were added for hidden steps, split results and unrealised stage targets; one duplicate proposal was merged. The packet no longer defines objects other roadmaps own (semiabelian schemes: ShimuraCompactifications C4; the Hodge line, arithmetic degree and height: ArakelovGeometryAndAbelianHeights R35.1-R35.3); those nodes became a lemma and a comparison with requests. Statements that the erratum refutes (the height formula and the local count for A itself) are stated under the explicit hypothesis R28.3 establishes. Baseline: every citation read at the pins; 5 removed (a near miss for Hermite–Minkowski replaced by NumberField.finite_of_discr_bdd, and four unused or wrong), 33 added. 22 source issues recorded and confirmed (E8 is Satz 2 as printed, corrected by the erratum). The suggested Lean file stated every theorem and structure field as True; it is rewritten with honest statements and elaborates against the pins. Status needs_changes only because the roadmap document research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md, which this review may not edit, still describes the uncorrected packet and must be regenerated from it before promotion.",
-  "checked": [
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/semiabelian-scheme-and-its-hodge-line-bundle",
-    "verdict": "corrected",
-    "note": "Checked on the GDZ page images, pp. 350–351. Locator right; excerpt over 300 characters and not literal (split into three literal excerpts). Bemerkung d)'s factor (i/2)^g gives a negative product for g ≡ 2, 3 mod 4 (E11); the drafted positivity test repeated the error. The drafted genus-one stable-curve test is not an instance (stable curves have genus ≥ 2). Section 15: the object is C4's and the Hodge line R35.2's; the node becomes a lemma recording a)–d), with requests to C4, R35.2 and R11.4; api/tests/planet removed."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/extension-of-homomorphisms-of-semiabelian-schemes-over-a-normal-base",
-    "verdict": "corrected",
-    "note": "Statement and locator verified against p. 350. Proof steps now name the facts: the uniqueness argument, the discrete-valuation-ring case (Néron mapping property, R11.1), Mathlib's valuative criterion, and Zariski's main theorem (absent at the pin: gap). The Tau Ceti abelian-variety citation (over a field) is replaced by Mathlib's group objects and homomorphisms."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/stable-curve-correspondence-stack-over-Z",
-    "verdict": "corrected",
-    "note": "Checked on pp. 351–352. Printed ω_{C/ℤ} is ω_{C/J} (E13); the curve has genus g̃ ≥ 2, not g; the Korollar needs ψ̄ surjective with ψ̄^{−1}(A_g ⊗ ℚ) ⊆ U, unstated (E14). Prerequisites were only Lemma 1 and IsProper; the moduli inputs (stacks, 𝔄_g, Baily–Borel, Namikawa, Picard schemes, quotients of Jacobians) now have requests, M̄_g̃ is a gap. Tests lacked kind; the g = 1 test was wrong. Excerpt over 300 characters; second locator is pp. 351–352."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/commensurability-of-the-modular-and-hodge-line-bundles",
-    "verdict": "corrected",
-    "note": "Statement and locator verified (pp. 352–353). Prerequisites lacked Lemma 1 (cited in the proof), Bemerkungen b), c), the Beispiel (R11.4) and the stack valuative criterion (R09.4). Proof steps now justify the lift ρ̃, derive d^g ρ̃^*L ⊆ ω ⊆ ρ̃^*L and make e = e_1·d^{gr} explicit."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/faltings-modular-height-of-a-semiabelian-model",
-    "verdict": "corrected",
-    "note": "Checked on pp. 353–354: Grad, ε_v and h(A) as printed. The metric's sign (E11) and its integration domain A(K_v), meaningless at real places (E12), are corrected. Section 15: the arithmetic degree, metrized Hodge line and height are R35.1–R35.3's; the node becomes a comparison fixing Faltings' normalisation against them, with requests, and adds (iv) (h depends only on A_K, by Lemma 1). Concrete instance for elliptic curves over ℚ added; planet and api removed."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hodge-metric-has-logarithmic-singularities-along-the-boundary",
-    "verdict": "corrected",
-    "note": "Checked on pp. 355–356. Granularity: Faltings' Definition split into a new definition node. Prerequisites were empty; now the definition, Bemerkungen, Lemmas 1–2, C2/C4 (Namikawa), R11.4, R35.2 and ComplexComparisonPartII:C0. The sketch's p_*(Ω^1_{A/X}) should be s^*(Ω^1_{A/X}) (E15). The annulus computation behind the |log|t|| growth is supplied; [6] remains a gap."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/northcott-property-for-heights-from-log-singular-metrics",
-    "verdict": "corrected",
-    "note": "Statement and locator verified (p. 356; 400 dpi zoom on the inequality). The printed log|‖ ‖/‖ ‖_1| must be |log ‖ ‖/‖ ‖_1|, and ‖f_i‖_1 needs normalising (E17). Lemma 3 needs the definition, not the Hodge-metric theorem. Mathlib's Northcott covers only mulHeight₁ on K; ℙ^n(K) follows from three named Mathlib declarations; the comparison of h_1 with logHeight is requested from R35.1. Excerpt over 300 characters, now shortened."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S",
-    "verdict": "corrected",
-    "note": "Statement and one-word proof verified (p. 357). Baseline near miss: finite_of_discr_bdd_of_isReal counts only fields with a real place; NumberField.finite_of_discr_bdd is the full theorem. Class number unused. Route closed except the wild different bound (Serre LF III §6), planned by the Tau Ceti NumberFieldArithmetic roadmap, layer 6.4, and absent at the pin: gap updated."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finiteness-of-principally-polarized-semiabelian-models-of-bounded-height",
-    "verdict": "corrected",
-    "note": "Statement and locator verified (pp. 356–357). Prerequisites lacked the log-singularity theorem, the height comparison, Lemma 1 and the moduli point (M6). The descent is now its own node, as the stage's 'descent and level-structure' target requires. The bound |h(x) − r·h(A)| ≤ log e is derived."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/metric-with-logarithmic-singularities-along-a-closed-subvariety",
-    "verdict": "added",
-    "note": "Faltings' Definition (p. 355), split out of the log-singularity node; API (tensor powers, determinants, pullback, the log-ratio estimate Lemma 3 uses) and four unit tests. The printed bound only makes sense near Φ^{−1}(Y) (E16). While elaborating the suggested file, the unit test with c_1 = c_2 = 1 was found false near |t| = 1/2; it now asserts suitable constants."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/finitely-many-K-forms-with-semiabelian-models-in-a-geometric-class",
-    "verdict": "added",
-    "note": "The descent and level-structure step of Satz 1 (p. 357), which the stage names as a target and the packet left as a gloss inside Satz 1: same bad places for semistable members, Lemma 4 for 3-division fields, Serre rigidity (M2), forms classified by H^1 (M6), finite Aut (A6)."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.1/principal-polarization-after-a-uniform-extension-and-finiteness-transfer",
-    "verdict": "added",
-    "note": "The stage's 'appropriate polarisation argument … with a proof of the resulting finiteness transfer'. Faltings' route (pp. 362–363) passes from degree d to principal polarizations by a √d-isogeny after an extension that Lemma 4 makes uniform for fixed S; Zarhin's trick and Jordan–Zassenhaus are not needed here. The R28.4 Korollar 3 and R28.5 Satz 6 nodes should cite it."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/height-change-under-an-isogeny-of-semiabelian-models",
-    "verdict": "corrected",
-    "note": "Checked on the page images of pp. 357-358: statement, formula and sign agree with the source. Corrected: prerequisites (semiabelian definition, Lemma 1, the owner stage R35.4 of the isogeny formula, A3, Tau Ceti IsIsogeny), explicit proof steps, literal excerpts, acceptance tests with numbers."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/bounded-denominators-of-height-differences-under-isogeny",
-    "verdict": "corrected",
-    "note": "Checked on the page image of p. 358. The statement now gives the explicit two-sided bound −(2g−1)[K:ℚ]v_p(Grad φ) ≤ v_p ≤ [K:ℚ]v_p(Grad φ), which is what Korollar 3 (p. 362) uses; the literal reading is shown false for [K:ℚ] ≥ 2. Reviewer commentary removed from hypotheses; a wrong acceptance test (prime-to-p) replaced; A3 added."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion",
-    "verdict": "corrected",
-    "note": "Lemma 6 and its proof checked on the page images of pp. 358-359 (zoom on p. 359); SGA 7 I IX 7.3-7.4 re-read on the public page images (pp. 407-409), and the orthogonality and ranks confirmed, including that 7.3 allows ℓ equal to the residue characteristic. Corrected: the excerpt had dropped '§7'; prerequisites were only the finite-locally-free property, now the six suppliers the proof uses; proof steps and acceptance made concrete."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower",
-    "verdict": "corrected",
-    "note": "Checked on the page image of p. 359. The old node bundled three imported Tate results with Faltings' combination step and asserted the count for G ∩ H_i of A itself, which the erratum refutes. Now it states Tate's local count for an l-divisible group over R_i plus the finite-part reduction; the Hodge-Tate step is a new node, and the tower application is the new R28.3 differential-count node. Prerequisites (Lemma 5, R35.4, R07.1) added."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two",
-    "verdict": "corrected",
-    "note": "Checked on the page images of pp. 359-360. The node stated, 'as printed', the height formula for A itself, which the erratum and Gabber's counterexample refute. It is now the identity Σ m_i d_i = mh/2 under the hypothesis (H_i) that R28.3 establishes after the shift. Three hidden non-routine steps are split into new nodes, and the class field theory input is routed to Tau Ceti ClassFieldTheory Layer 13 (Kronecker-Weber) by a request. The packet's gap said no request could be filed; the layer is a valid request supplier. The height formula along the tower moved to the corrected Satz 2."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift",
-    "verdict": "corrected",
-    "note": "Checked on the page image of the erratum (zoom on part a)). Corrected 'G_{i,n} ⊆ A' to 'G_{i,n} ⊆ Â'. Stated the conclusion about the tail for A_m, m ≥ n_0. Separated the imported discriminant argument (Tate p. 182, unread) from the rest, and added prerequisites (Lemma 6, Lemma 1, R07.1)."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/intersection-with-the-toric-l-divisible-group-after-a-shift",
-    "verdict": "corrected",
-    "note": "Checked on the page image of the erratum. The node had no prerequisites and no argument for the repair; added a short lattice computation in V_l(A) that gives the threshold m_1 (marked as the reviewer's argument), a toy example of the defect, and prerequisites (Lemma 6, Lemma 1, A3, R07.1)."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/corrected-satz-2-stationarity-of-heights-along-an-l-divisible-tower",
-    "verdict": "corrected",
-    "note": "Checked Satz 2 (p. 358), the formula on p. 359, the Zusatz (p. 366) and the erratum on page images. The statement is correct as the erratum's; made the threshold explicit, removed a non-hypothesis, rewrote the proof through the corrected R28.2 identity and the new differential count, added Lemma 5 and R11.3, literal excerpts."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/infinitely-many-isomorphic-quotients-along-a-maximal-isotropic-tower",
-    "verdict": "corrected",
-    "note": "Checked on the page image of p. 361. Added the field-of-definition statement the stage asks for, the descent of the principal polarization (A3; statement read in Milne's public notes, Prop. 13.8 and Rem. 13.9), the semiabelian models of the A_n (R11.3) and the Tate module (R01.6); the excerpt was not literal."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/reduction-to-a-principally-polarized-semiabelian-model",
-    "verdict": "corrected",
-    "note": "Checked on the page images of pp. 361-362. The construction node bundled three things. Its tests lacked kinds and were partly commentary, and its hypotheses held reviewer commentary. Now: the construction with a proper API (eight items) and five kinded unit tests. The Satz 3/4 invariance is split into a new lemma node. The descent of polarizations was read in Milne's public notes (Prop. 13.8, Rem. 13.9) and routed to A3, and the stray product prerequisite was dropped."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/hodge-tate-determinant-of-the-tate-module-at-a-place-above-l",
-    "verdict": "added",
-    "note": "Added by the reviewer: Hodge-Tate determinant at a place above l: Λ^h V_l(G) ⊗ C_i ≅ C_i(d_i). Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/l-adic-characters-of-the-absolute-galois-group-of-q-are-cyclotomic-up-to-finite-order",
-    "verdict": "added",
-    "note": "Added by the reviewer: l-adic characters of Gal(ℚ̄/ℚ) are l-adic powers of the cyclotomic character up to finite order. Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/determinant-of-the-induced-tate-module-at-the-decomposition-group-of-l",
-    "verdict": "added",
-    "note": "Added by the reviewer: The determinant line at the decomposition group of l: L ⊗ C ≅ C(Σ m_i d_i). Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.2/frobenius-weights-on-the-induced-tate-module",
-    "verdict": "added",
-    "note": "Added by the reviewer: Frobenius weights on the induced Tate module: |χ(F_p)| = p^{mh/2} for almost all p. Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/differential-count-along-the-shifted-tower",
-    "verdict": "added",
-    "note": "Added by the reviewer: After the shift: #s*(Ω¹_{A_m/A_{m+n}}) = l^{n Σ m_i d_i}. Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/powers-of-a-principally-polarized-semiabelian-model",
-    "verdict": "added",
-    "note": "Added by the reviewer: Powers of a principally polarized abelian variety with semiabelian model. Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.3/invariance-of-satz-3-and-satz-4-under-field-extension-and-isogeny",
-    "verdict": "added",
-    "note": "Added by the reviewer: Satz 3 and the rational form of Satz 4 are invariant under finite extension and isogeny. Source passage read on the page images; see the node's sources."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/quaternion-construction-of-an-invariant-maximal-isotropic-subspace",
-    "verdict": "corrected",
-    "note": "Checked on the GDZ page image of p. 361 (300 dpi): coefficients in ℚ_l, v·ᵗv = −1, W_1 defined with ⊕ in T_l(A)^8 ⊗ ℚ_l. Verified v·ᵗv = (a²+b²+c²+d²)·1 by computation. Rewrote statement (similitude action, recovery map), hypotheses, proof (cross terms, direct sum, dimension), API (the drafted API described an action of a quaternion algebra and called the integral statement false), unit tests with kinds, uses, literal excerpts; replaced Module.Dual/IsSemisimpleModule by the bilinear-form declarations actually used; the existence of a, b, c, d is a new node. While elaborating the suggested file, quatMatrix was found to be the matrix of right multiplication; its API statement is corrected."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
-    "verdict": "corrected",
-    "note": "Statements checked on the page image of p. 360 and the proof on p. 361. The idempotent step and 'der Rest des Beweises' were unproved imports from Zarhin [16]; they are now closed through three new nodes (Zarhin's lemma, the quaternion transfer, the existence of a, b, c, d) using the public Milne notes, IV §2. Added the missing reduction prerequisite and Tau Ceti's double centralizer theorem; integral-from-rational step made explicit."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
-    "verdict": "corrected",
-    "note": "Checked on the page image of p. 361. The node bundled Korollar 1 and Korollar 2 (separate results with separate proofs); split: this node keeps Korollar 1 (the id still mentions the isogeny criterion), Korollar 2 is a new theorem node. Added the Hom-group and product citations; literal excerpt."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/finiteness-of-polarized-varieties-with-all-tate-modules-isomorphic",
-    "verdict": "corrected",
-    "note": "Checked on the page image of p. 362 (isogeny of degree √d confirmed). Statement uses ≅ as printed; added the missing Satz 1 prerequisite and a new node for the reduction ('Man kommt dann leicht auf …'), whose finite-fibre and uniform-extension arguments the source omits; the isogeny of degree prime to l is now derived from Korollar 1."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-isogeny-classes-with-good-reduction-outside-S",
-    "verdict": "corrected",
-    "note": "Checked on the page images of pp. 362–363 (≦ l^{8g²} as printed). Rerouted the generic test-set argument to MordellLawrenceVenkatesh LV.1/frobenius-test-set (same statement, T = S ∪ {v | l}, d = 2g); added Satz 3, Korollar 2 and R11.5; removed exists_auxiliaryPrime (irrelevant) and frobeniusPrimeSet (a definition, not the theorem). The v_i must avoid S and the places above l, and the passage from equal traces to isogeny is not printed (source issue)."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/weil-bounds-on-exterior-powers-and-the-choice-of-N",
-    "verdict": "corrected",
-    "note": "Checked on the page images of pp. 363–364 (800 dpi zooms of 'p^{+h/2}' and 'j ‡ ½h'). Statement verified. Proof now computes Frobenius on the induced module directly (A6 kept as the equivalent Weil-restriction reading); removed the unused Module.Finite; literal excerpts."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud",
-    "verdict": "corrected",
-    "note": "Checked on p. 364 (page image, 400 dpi) and on Raynaud pp. 271–272 and 279 (page images; SHA-256 of the Numdam file matches). Raynaud's character is τ_p^{v(𝔇̄(𝒢))} (level-one tame character to the power of the absolute-different valuation), not 'the tame character of level equal to the different exponent'. Split the bundle: unramifiedness and class field theory are new nodes, the height equality a new theorem node; the Ω^1/different identification is recorded in the Raynaud gap. Misprints '[10], Théorème 4.11' and 'Ind(V)' recorded."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-pi-invariant-lattices-from-semisimplicity",
-    "verdict": "corrected",
-    "note": "Checked on p. 363. Narrowed to the algebraic finite-lattice statement (the height consequence is a new node); removed the unrelated NumberField.classNumber citation (the baseline entry is still used by the Hermite–Minkowski node of R28.1); proof plan via a maximal order with the two unread inputs isolated in the lattice gap; added a non-example showing semisimplicity is needed."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness",
-    "verdict": "corrected",
-    "note": "Checked on pp. 363–365. Statement verified. Proof now closes through the new nodes (finiteness reduction, equal heights for l > N, small primes) with the factorization of an isogeny into l-primary and prime-to-l parts made explicit; added missing prerequisites (reduction, Bemerkung after Lemma 5). The stage's unpolarized target is realised by a new node."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/finiteness-of-curves-of-genus-at-least-two-with-good-reduction-outside-S",
-    "verdict": "corrected",
-    "note": "Checked on p. 365. Statement verified (g ≧ 2, good reduction outside S). The form of Torelli used (injectivity on K-isomorphism classes, g ≥ 2, perfect field) is located in Milne IV Theorem 4.2; the Jacobian inputs are routed to Tau Ceti JacobianChallenge layers D/E with requests; literal excerpt."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mordell-conjecture-by-the-parshin-construction",
-    "verdict": "corrected",
-    "note": "Checked on p. 365 at 400 dpi: 'vom Grad m>2' (the drafted excerpt still said m >= 2) and 'y∈p^{-1}(x)' (misprint for φ^{-1}). Made de Franchis, the genus bound and the role of m > 2 explicit. Set realises to [] because RP.4 owns the Parshin construction and R28.5's stage text does not ask for Mordell (PROTOCOL §15)."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/commutant-statement-for-almost-all-primes",
-    "verdict": "corrected",
-    "note": "Checked on p. 365. Statement verified; removed the irrelevant Chebotarev citation; recorded the rational version (Milne IV Corollary 2.7) and the missing proof of the integral version as a gap; literal excerpt."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/siegel-theorem-without-diophantine-approximation",
-    "verdict": "corrected",
-    "note": "Checked on p. 365; the remark is recorded exactly. Set realises to [] (not an R28.6 target; RP.4 owns Siegel finiteness) and made the prerequisite the curve corollary the remark refers to."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/minus-one-is-a-sum-of-four-squares-in-Q_l",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/invariant-maximal-isotropic-subspace-is-the-image-of-an-idempotent",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/every-invariant-subspace-is-the-image-of-an-idempotent",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.4/isogeny-criterion-by-rational-tate-modules-and-local-factors",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/twisted-determinant-character-is-unramified-outside-l",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/mod-l-characters-unramified-outside-l-are-cyclotomic-powers",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/equal-heights-along-isogenies-of-large-prime-power-degree",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/bounded-small-prime-parts-of-height-differences-in-an-isogeny-class",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness-without-polarization",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/tate-hom-comparison-for-elliptic-curves",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/isogeny-criterion-for-elliptic-curves",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/finiteness-of-the-isogeny-class-of-an-elliptic-curve",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   },
-   {
-    "nodeId": "FaltingsFinitenessAndIsogenyTheorems:R28.6/hom-to-an-isogenous-elliptic-curve-is-infinite-cyclic",
-    "verdict": "added",
-    "note": "Added by the reviewer to close the proof graph or realise a stage target; source passages read on page images (Faltings, GDZ scan) or in the public Milne notes."
-   }
-  ]
+  "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
+  "date": "2026-10-01",
+  "notes": "Follows independent-review-REV-FaltingsFinitenessAndIsogenyTheorems. Scoped independent review of FIX-RT-AREA-padic-2~2 (53f4c49), by Codex, codex-J6LwjP. The six changed nodes and their supplier requests were checked against Tate pp.164–165,176–182, Faltings pp.359–360,364 and the 1984 erratum, and Raynaud pp.271–272,279. The local differential count is derived from the formal-group calculation, not a relabelled discriminant; the character criterion is finite on inertia and global finiteness uses class field theory. Corrected the closure node and suggested signature to require a saturated lattice, as Tate Proposition 12 requires; added the lℤ_l negative example. R07.1 owns the Tate/Raynaud inputs, with the different-versus-differential comparison still explicitly requested and unread. R06.1 is a provisional supplier for the proposed early Tate–Sen substage, not permission for the cyclic R06.1→R07.1 edge. These fixes are accepted in scope, but the previous needs_changes remains: the reader document still describes 32 rather than 56 reviewed nodes and must be synchronized by its owner. No whole-packet re-review or Lean compilation claimed. See REV-FIX-RT-AREA-padic-2~2.md."
  }
 }
