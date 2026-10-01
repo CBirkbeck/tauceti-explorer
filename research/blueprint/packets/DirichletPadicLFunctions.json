@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Seven L3 nodes prove that the actual degree-one Cartan unit equivalence is a continuous multiplicative equivalence with the native p-adic unit product and identifies their topologies while preserving original finite fibers. All1,776 predecessor nodes and1,170 baseline records remain whole.",
+  "summary": "Ten L3 nodes identify the actual degree-one finite Cartan unit product with native units modulo N and preserve its original full-Witt projection and all divisibility transitions. All1,783 predecessor nodes and1,175 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8239,6 +8239,34 @@
         "module": "Mathlib/Topology/Order.lean",
         "provides": "Every subset of an existing discrete topological space is open, including each original finite Cartan singleton fiber target.",
         "checked": "Full native statement, surrounding hypotheses and body read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Exact ranges are retained in the reading note. Existing p-adic norms, residue kernels, unit topology and homeomorphism theory are reused directly."
+      },
+      {
+        "ref": "mathlib:ZMod.equivPi",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/QuotientRing.lean",
+        "provides": "The existing native ring CRT equivalence from ZMod N for nonzero N to the product over original p in N.primeFactors of ZMod(p^v_p(N)).",
+        "checked": "Full statement, hypotheses and body read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Exact source ranges are recorded in the retained reading note. Existing native CRT, units and quotient theory are reused directly."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
+        "provides": "The native multiplicative first-isomorphism equivalence from the quotient by the actual kernel of a surjective group homomorphism to its target; quotient classes evaluate by the original homomorphism.",
+        "checked": "Full statement, hypotheses and body read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Exact source ranges are recorded in the retained reading note. Existing native CRT, units and quotient theory are reused directly."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.quotientMulEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Basic.lean",
+        "provides": "The existing multiplicative equivalence between group quotients by equal actual normal subgroups, retaining their original quotient representatives.",
+        "checked": "Full statement, hypotheses and body read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Exact source ranges are recorded in the retained reading note. Existing native CRT, units and quotient theory are reused directly."
+      },
+      {
+        "ref": "mathlib:RingHom.ext_zmod",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Two ring homomorphisms from the same native ZMod N into a nonassociative semiring are equal; the native proof uses the surjectivity of integer casts.",
+        "checked": "Full statement, hypotheses and body read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Exact source ranges are recorded in the retained reading note. Existing native CRT, units and quotient theory are reused directly."
       }
     ]
   },
@@ -115031,6 +115059,599 @@
       "acceptance": [
         "Retain the original prime coordinates, native p-adic norms and exact finite residue equalities. At prime3 the bound at precision2 is weak and sharp for ordinary units1 and10. The topology comparison must preserve the actual algebraic forward and inverse values and every original finite projection."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original full-Witt Cartan residue modulo N",
+      "kind": "construction",
+      "statement": "Define rho_N:V(1)→(ZMod N)ˣ as follows: apply the original degree-one p-adic unit equivalence E, reduce its coordinate at each original p dividing N modulo p^v_p(N), and apply the inverse of the existing native CRT equivalence on units. This is an actual group homomorphism.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Compose the original full-Witt unit equivalence with the native p-adic unit residues at the same original primes and exponents.",
+        "The pointwise product is an actual group homomorphism into the native prime-power residue unit product.",
+        "Compose with the inverse of native ZMod.equivPi on units, using existing Units.mapEquiv and piUnits."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:ZMod.equivPi",
+        "mathlib:Units.mapEquiv",
+        "mathlib:MulEquiv.piUnits"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.residue_unit_modulus",
+          "kind": "degenerate",
+          "statement": "At modulus1 every original full-Witt tuple maps to the sole unit."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.residue_preserves_original_product",
+          "kind": "compatibility",
+          "statement": "The actual residue preserves the product of original full-Witt unit tuples."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.residue_identity",
+          "kind": "computation",
+          "statement": "The actual identity tuple has residue1 at every positive modulus."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanDegreeOneResidue_crt",
+          "role": "compatibility",
+          "statement": "For positive N, actual x in V(1) and original prime p dividing N, the p-coordinate of the native CRT image of rho_N(x) equals the native unit residue of E(x)_p modulo p^v_p(N)."
+        },
+        {
+          "name": "kubertCartanDegreeOneResidue_eq_iff",
+          "role": "compatibility",
+          "statement": "For positive N and actual x,y in V(1), rho_N(x)=rho_N(y) if and only if pi_N(x)=pi_N(y) in the original finite Cartan unit product U(1,N)."
+        },
+        {
+          "name": "kubertCartanDegreeOneResidue_surjective",
+          "role": "compatibility",
+          "statement": "For each positive N, the actual homomorphism rho_N:V(1)→(ZMod N)ˣ is surjective."
+        },
+        {
+          "name": "kubertCartanDegreeOneResidue_ker",
+          "role": "compatibility",
+          "statement": "For each positive N, the kernel of the original projection pi_N:V(1)→U(1,N) equals the kernel of rho_N:V(1)→(ZMod N)ˣ as actual subgroups of V(1)."
+        },
+        {
+          "name": "kubertCartanDegreeOneResidue_cast",
+          "role": "compatibility",
+          "statement": "For positive N, actual x in V(1) and original prime p dividing N, the native cast of the underlying value of rho_N(x) from ZMod N to ZMod(p^v_p(N)) equals the native p-adic residue of the underlying value of E(x)_p at that precision."
+        },
+        {
+          "name": "kubertCartanDegreeOneResidue_reduction",
+          "role": "compatibility",
+          "statement": "For positive M,N with M dividing N and actual x in V(1), the native unit cast from ZMod N to ZMod M sends rho_N(x) to rho_M(x)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert186, the actual degree-one finite Cartan projective system",
+          "how": "Identifies the original full-Witt finite unit projections with native residue units and preserves all original divisibility transitions."
+        },
+        {
+          "where": "Kubert187, actual primitive-circle comparison",
+          "how": "Supplies the residue-unit coordinates needed to construct the primitive-circle bijection and compare finite full-lift norms with primitive transfer. That subsequent comparison is not assumed here."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-crt",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The residue retains each original CRT coordinate",
+      "kind": "lemma",
+      "statement": "For positive N, actual x in V(1) and original prime p dividing N, the p-coordinate of the native CRT image of rho_N(x) equals the native unit residue of E(x)_p modulo p^v_p(N).",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Cancel the native CRT equivalence with its inverse in the definition of rho_N.",
+        "Evaluate at the same original prime; the unit-valued formula is exactly the pointwise native residue."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_crt"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_crt_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive N, actual x in V(1) and original prime p dividing N, the p-coordinate of the native CRT image of rho_N(x) equals the native unit residue of E(x)_p modulo p^v_p(N)."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-eq-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Residue equality is exactly original Cartan projection equality",
+      "kind": "lemma",
+      "statement": "For positive N and actual x,y in V(1), rho_N(x)=rho_N(y) if and only if pi_N(x)=pi_N(y) in the original finite Cartan unit product U(1,N).",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Compare all original CRT coordinates of the two residue units.",
+        "The established degree-one finite-equality criterion identifies equality of those native p-adic unit residues with equality of the original finite Cartan projections.",
+        "Use native CRT injectivity in the reverse direction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-crt",
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv-finite-eq-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_eq_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive N and actual x,y in V(1), rho_N(x)=rho_N(y) if and only if pi_N(x)=pi_N(y) in the original finite Cartan unit product U(1,N)."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every residue unit comes from the original full-Witt product",
+      "kind": "lemma",
+      "statement": "For each positive N, the actual homomorphism rho_N:V(1)→(ZMod N)ˣ is surjective.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "For an actual residue unit u, take the ordinary natural representative a of its underlying ZMod N value. Native val_coe_unit_coprime gives gcd(a,N)=1.",
+        "At each original prime dividing N, native norm_natCast_eq_one_iff and isUnit_iff show that the ordinary cast of a in the p-adic integers is a unit. At every other prime choose the identity unit.",
+        "Apply the inverse of the original actual degree-one p-adic unit equivalence to this all-prime family.",
+        "Its original CRT residues equal those of u by native ring-hom natural-cast laws and the representative identity. Native CRT injectivity proves that its rho_N image is u, including N=1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-crt",
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv",
+        "mathlib:ZMod.val_coe_unit_coprime",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:IsUnit.unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_surjective_typed_api",
+          "kind": "compatibility",
+          "statement": "For each positive N, the actual homomorphism rho_N:V(1)→(ZMod N)ˣ is surjective."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-ker",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The two actual Cartan residue kernels agree",
+      "kind": "lemma",
+      "statement": "For each positive N, the kernel of the original projection pi_N:V(1)→U(1,N) equals the kernel of rho_N:V(1)→(ZMod N)ˣ as actual subgroups of V(1).",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Apply the proved equality-of-fibers criterion to x and the identity tuple.",
+        "Both homomorphisms preserve the identity, so the resulting equivalence is exactly equality of kernel membership."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-eq-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_ker"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_ker_typed_api",
+          "kind": "compatibility",
+          "statement": "For each positive N, the kernel of the original projection pi_N:V(1)→U(1,N) equals the kernel of rho_N:V(1)→(ZMod N)ˣ as actual subgroups of V(1)."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual finite degree-one Cartan group is the residue unit group",
+      "kind": "construction",
+      "statement": "Construct an actual multiplicative equivalence e_N:U(1,N)≃(ZMod N)ˣ by descending rho_N through the original projection pi_N. Concretely compose the inverse native first-isomorphism equivalence for pi_N, native quotient transport across the proved equality of their actual kernels, and the native first-isomorphism equivalence for rho_N.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Use the previously established surjectivity of the original full-Witt finite projection.",
+        "Use the proved surjectivity of rho_N and equality of the two actual kernel subgroups.",
+        "Compose existing native quotientKerEquivOfSurjective equivalences and quotientMulEquivOfEq. The construction has the actual original finite Cartan carrier, not a substituted residue-unit carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-surjective",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-surjective",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-ker",
+        "mathlib:QuotientGroup.quotientKerEquivOfSurjective",
+        "mathlib:QuotientGroup.quotientMulEquivOfEq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneFiniteEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.finite_comparison_identity",
+          "kind": "degenerate",
+          "statement": "The actual finite Cartan identity maps to the native residue unit1."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.finite_comparison_product",
+          "kind": "compatibility",
+          "statement": "The actual finite comparison preserves products."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.finite_comparison_original_roundtrip",
+          "kind": "characterisation",
+          "statement": "The inverse recovers the original finite Cartan unit tuple, at the same original prime indices."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.finite_comparison_residue_roundtrip",
+          "kind": "characterisation",
+          "statement": "Every native unit of ZMod N is recovered by the original finite Cartan comparison and its inverse."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanDegreeOneFiniteEquiv_projection",
+          "role": "compatibility",
+          "statement": "For every positive N and actual x in V(1), e_N(pi_N(x))=rho_N(x). Thus the finite comparison is the descent of the specified original common-group residue."
+        },
+        {
+          "name": "kubertCartanDegreeOneFiniteEquiv_reduction",
+          "role": "compatibility",
+          "statement": "For positive M,N with M dividing N and actual u in U(1,N), e_M(r_M,N(u)) is the native unit cast of e_N(u) from ZMod N to ZMod M. This includes new prime factors in N and the empty modulus1 product."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert186, the actual degree-one finite Cartan projective system",
+          "how": "Identifies the original full-Witt finite unit projections with native residue units and preserves all original divisibility transitions."
+        },
+        {
+          "where": "Kubert187, actual primitive-circle comparison",
+          "how": "Supplies the residue-unit coordinates needed to construct the primitive-circle bijection and compare finite full-lift norms with primitive transfer. That subsequent comparison is not assumed here."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-projection",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite comparison agrees with the original full-Witt residue",
+      "kind": "lemma",
+      "statement": "For every positive N and actual x in V(1), e_N(pi_N(x))=rho_N(x). Thus the finite comparison is the descent of the specified original common-group residue.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Represent pi_N(x) by the actual quotient class of x under the native first-isomorphism equivalence.",
+        "Cancel that equivalence with its inverse. Native quotient transport across equal kernels preserves the class of x.",
+        "The final native first-isomorphism equivalence evaluates the class to rho_N(x)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneFiniteEquiv_projection"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneFiniteEquiv_projection_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive N and actual x in V(1), e_N(pi_N(x))=rho_N(x). Thus the finite comparison is the descent of the specified original common-group residue."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-cast",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The ordinary prime-power cast equals the original p-adic residue",
+      "kind": "lemma",
+      "statement": "For positive N, actual x in V(1) and original prime p dividing N, the native cast of the underlying value of rho_N(x) from ZMod N to ZMod(p^v_p(N)) equals the native p-adic residue of the underlying value of E(x)_p at that precision.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Take underlying unit values in the original CRT coordinate formula.",
+        "Native RingHom.ext_zmod identifies the coordinate ring homomorphism of ZMod.equivPi with the native cast homomorphism for p^v_p(N) dividing N.",
+        "Evaluate that native ring-hom equality on the original residue value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-crt",
+        "mathlib:RingHom.ext_zmod",
+        "mathlib:Nat.ordProj_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_cast"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.original_prime_power_residue_12",
+          "kind": "computation",
+          "statement": "The unit5 at modulus12 has original prime-power residue1 modulo4 and2 modulo3."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_cast_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive N, actual x in V(1) and original prime p dividing N, the native cast of the underlying value of rho_N(x) from ZMod N to ZMod(p^v_p(N)) equals the native p-adic residue of the underlying value of E(x)_p at that precision."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-reduction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original Cartan residue commutes with modulus reduction",
+      "kind": "lemma",
+      "statement": "For positive M,N with M dividing N and actual x in V(1), the native unit cast from ZMod N to ZMod M sends rho_N(x) to rho_M(x).",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Check equality after the existing CRT equivalence at each original prime dividing M; that same prime also divides N.",
+        "Native factorization monotonicity gives v_p(M)≤v_p(N). Native RingHom.ext_zmod identifies the two composite ordinary residue casts.",
+        "Replace each original prime-power cast by the proved native p-adic residue formula.",
+        "Apply native zmod_cast_comp_toZModPow at those same original exponents and finish by native CRT injectivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-cast",
+        "mathlib:ZMod.equivPi",
+        "mathlib:RingHom.ext_zmod",
+        "mathlib:Nat.Prime.mem_primeFactors",
+        "mathlib:Nat.factorization_le_iff_dvd",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneResidue_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.lower_precision_loses_distinction",
+          "kind": "non-example",
+          "statement": "Units1 and5 modulo8 have the same image modulo4 although they are distinct modulo8; reduction need not be injective."
+        },
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneResidue_reduction_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive M,N with M dividing N and actual x in V(1), the native unit cast from ZMod N to ZMod M sends rho_N(x) to rho_M(x)."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-reduction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite Cartan equivalences preserve all original transitions",
+      "kind": "lemma",
+      "statement": "For positive M,N with M dividing N and actual u in U(1,N), e_M(r_M,N(u)) is the native unit cast of e_N(u) from ZMod N to ZMod M. This includes new prime factors in N and the empty modulus1 product.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. V(1) is the actual product over native primes p of units in WittVector p (GaloisField p 1). E is its established multiplicative equivalence with the product of native p-adic integer unit groups at the same original primes.",
+        "Every modulus is positive. U(1,N) is the original finite product over p in N.primeFactors of units in TruncatedWittVector p v_p(N) (GaloisField p 1). The original projection pi_N and reductions r_M,N are the previously constructed actual homomorphisms.",
+        "The native CRT on units is the composite of Units.mapEquiv applied to ZMod.equivPi and native MulEquiv.piUnits. Its coordinates retain each original prime and factorization exponent; at N=1 its target is the empty product.",
+        "FF.4 owns generic finite Galois-ring theory and local degree-one ring comparison. The statements here concern this actual Cartan product and its transitions. No generic CRT or quotient theory is replanned, and no primitive torsor, general-degree local-field identification or rank conclusion is assumed."
+      ],
+      "proofSteps": [
+        "Lift the actual finite Cartan tuple u through the established surjective original full-Witt projection at N.",
+        "The established common-group projection compatibility identifies its original reduction with pi_M of that same lift.",
+        "Apply the finite comparison evaluation on both projections and the proved rho reduction equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-projection",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-residue-reduction",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-surjective",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDegreeOneFiniteCartan",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOneFiniteEquiv_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published186, equations(2.1)–(2.5), degree-one specialization of the original finite Cartan groups and projective system;187, comparison with primitive elements and equations(2.6)–(2.7) as the subsequent consumer.",
+          "match": "Identifies the actual degree-one finite Cartan unit product with units modulo N and preserves every original divisibility reduction. The primitive-circle and group-ring norm comparisons are subsequent consumers, not hypotheses of this finite identification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDegreeOneFiniteCartanTests.cartanDegreeOneFiniteEquiv_reduction_typed_api",
+          "kind": "compatibility",
+          "statement": "For positive M,N with M dividing N and actual u in U(1,N), e_M(r_M,N(u)) is the native unit cast of e_N(u) from ZMod N to ZMod M. This includes new prime factors in N and the empty modulus1 product."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual full-Witt and finite Cartan carriers and their original prime coordinates. The unique empty tuple at modulus1 maps to the sole residue unit. Unit5 modulo12 has residues1 modulo4 and2 modulo3; units1 and5 modulo8 coalesce modulo4, so reduction is not assumed injective."
+      ]
     }
   ],
   "requests": [
@@ -115177,7 +115798,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual full-Witt Cartan unit group is now profinite, and its degree-one equivalence with the native p-adic unit product is an actual continuous multiplicative equivalence preserving the same original finite fibers. The Cartan topology is exactly the topology induced by that original algebraic equivalence. Next construct actual primitive-torus coordinates from the FF.4-owned finite Cartan model and compare its finite group-ring norm with the already established primitive transfer. General-degree unramified integer-ring identification and the simply transitive primitive torsor remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
+        "The actual degree-one finite Cartan group U(1,N) is identified with native units modulo N, compatibly with every original full-Witt projection and every divisibility reduction. The full group is already profinite and identified topologically with the native p-adic unit product. Next construct the actual degree-one primitive-circle bijection and compare the finite Cartan full-lift group-ring norm with the established primitive transfer. General-degree coherent primitive coordinates and unramified integer-ring identification remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -115209,7 +115830,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual full-Witt Cartan unit group is now profinite, and its degree-one equivalence with the native p-adic unit product is an actual continuous multiplicative equivalence preserving the same original finite fibers. The Cartan topology is exactly the topology induced by that original algebraic equivalence. Next construct actual primitive-torus coordinates from the FF.4-owned finite Cartan model and compare its finite group-ring norm with the already established primitive transfer. General-degree unramified integer-ring identification and the simply transitive primitive torsor remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual degree-one finite Cartan group U(1,N) is identified with native units modulo N, compatibly with every original full-Witt projection and every divisibility reduction. The full group is already profinite and identified topologically with the native p-adic unit product. Next construct the actual degree-one primitive-circle bijection and compare the finite Cartan full-lift group-ring norm with the established primitive transfer. General-degree coherent primitive coordinates and unramified integer-ring identification remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -115759,36 +116380,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one Cartan topology is now identified with the native p-adic unit product topology. General-degree unramified-ring identification, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one finite Cartan group and its reductions are identified with native residue units. Actual primitive-circle transfer comparison, general-degree unramified-ring identification, lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1783,
+      "nodes": 1793,
       "kinds": {
         "definition": 22,
-        "lemma": 1012,
-        "construction": 183,
+        "lemma": 1020,
+        "construction": 185,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1236,
-      "packetTests": 3256,
-      "definitionConstructionTests": 809,
-      "typedExamples": 3259,
+      "api": 1244,
+      "packetTests": 3273,
+      "definitionConstructionTests": 816,
+      "typedExamples": 3276,
       "planets": 24,
-      "baseline": 1175,
-      "preservedWholeNodes": 1776,
-      "preservedBaseline": 1170,
+      "baseline": 1179,
+      "preservedWholeNodes": 1783,
+      "preservedBaseline": 1175,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 7,
-      "newTypedTests": 12,
+      "newNodes": 10,
+      "newNamedDeclarations": 10,
+      "newTypedTests": 17,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2045,
-      "dependencyEdges": 8629,
+      "reachableNodes": 2055,
+      "dependencyEdges": 8663,
       "acyclic": true,
-      "baselineLeaves": 1344,
+      "baselineLeaves": 1348,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -115803,7 +116424,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 907716,
+      "readerWords": 912818,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -115829,28 +116450,31 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 125,
-      "scratchCompleteLemmas": 1133,
+      "scratchCompleteDefinitions": 127,
+      "scratchCompleteLemmas": 1141,
       "scratchMathlibModules": 3030,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "primes": 4,
-        "unitPairs": 96776,
-        "finiteFiberBounds": 20120,
-        "sharpBounds": 16668
+        "moduli": 72,
+        "units": 1588,
+        "crtCoordinates": 2487,
+        "unitProducts": 53774,
+        "reductions": 6545,
+        "transitionCoordinates": 6683,
+        "compositionTriples": 18286
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "596ba8953e98286fde5815ca500a9a19b3a91f9a5593e8e334bd2011e5ed70ee",
+        "sourceSha256": "ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7",
         "modules": 3644,
-        "warnings": 5387,
+        "warnings": 5414,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,387 expected placeholder warnings across 3,644 pinned source modules. It includes all 7 new named declarations and 12 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 596ba8953e98286fde5815ca500a9a19b3a91f9a5593e8e334bd2011e5ed70ee.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,414 expected placeholder warnings across 3,644 pinned source modules. It includes all 10 new named declarations and 17 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -115860,7 +116484,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "165ee3cc5acd15a7f449f981fab310823ab4ca58fbfc3e8d60aee05a17958ff2",
+      "sha256": "a35140bc746d98e171d8704faad257381dd52e7168752b2dcd82b10b420d590e",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -115875,11 +116499,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1133,
+        "completeLemmas": 1141,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "db0c154373dca52fb13e789fd85b9d453728e24d77b21069fe1c207ef11ecd40"
+        "sha256": "ac91ca4c22abd6e3d1bb2e2a56275df751317873a05128934fc387f9004e87c3"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -116017,17 +116641,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "596ba8953e98286fde5815ca500a9a19b3a91f9a5593e8e334bd2011e5ed70ee",
+        "sourceSha256": "ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7",
         "modules": 3644,
-        "warnings": 5387,
+        "warnings": 5414,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,387 expected placeholder warnings across 3,644 pinned source modules. It includes all 7 new named declarations and 12 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 596ba8953e98286fde5815ca500a9a19b3a91f9a5593e8e334bd2011e5ed70ee.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,414 expected placeholder warnings across 3,644 pinned source modules. It includes all 10 new named declarations and 17 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "2793026f3695160d66a7483004e5e8840b03a833",
+      "base": "844ce3da495ebb0cbd425ae6cf423c05e2afb614",
       "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -127628,6 +128252,54 @@
         "warnings": 5387,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,387 expected placeholder warnings across 3,644 pinned source modules. It includes all 7 new named declarations and 12 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 596ba8953e98286fde5815ca500a9a19b3a91f9a5593e8e334bd2011e5ed70ee.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertDegreeOneFiniteCartan": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5493,
+      "previousHead": "d832531cee70374a80596ef6807d95a3f3354ef4",
+      "previousMerge": "3b996d50f3ffdf9fd77f8b6b648bbc3c7614d5ce",
+      "preservedWholeNodes": 1783,
+      "preservedBaseline": 1175,
+      "preservedFindings": 26,
+      "newNodes": 10,
+      "reading": "Kubert186–187 supplies the original finite Cartan projective system and the primitive-point consumer. Native ZMod.equivPi already has exactly the required prime-factor CRT carrier and is reused. Native quotient first-isomorphism constructions are read with their representative formulas. Ordinary residue representatives, native p-adic unit/norm criteria, native ZMod ring-hom uniqueness and p-adic residue reduction give the explicit surjection and transition comparison. FF.4 ownership of local finite Galois-ring theory is retained; no generic CRT, quotient theory or finite local ring comparison is replanned.",
+      "boundary": "The actual degree-one finite Cartan group U(1,N) is identified with native units modulo N, compatibly with every original full-Witt projection and every divisibility reduction. The full group is already profinite and identified topologically with the native p-adic unit product. Next construct the actual degree-one primitive-circle bijection and compare the finite Cartan full-lift group-ring norm with the established primitive transfer. General-degree coherent primitive coordinates and unramified integer-ring identification remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "7c443c6198b994d4b7d1a8070e96e0fc70f7cfdc",
+      "sourceBoundary": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one finite Cartan group and its reductions are identified with native residue units. Actual primitive-circle transfer comparison, general-degree unramified-ring identification, lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "844ce3da495ebb0cbd425ae6cf423c05e2afb614",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "moduli": 72,
+        "units": 1588,
+        "crtCoordinates": 2487,
+        "unitProducts": 53774,
+        "reductions": 6545,
+        "transitionCoordinates": 6683,
+        "compositionTriples": 18286
+      },
+      "numericalMethod": "Exhaustive exact integer arithmetic on actual native residue-unit models and their original prime-power CRT coordinates at positive moduli1 through72. Checks bijection, multiplication, divisibility reductions, composition and the empty modulus1 product. These finite controls do not certify the infinite full-Witt lift or the native quotient descent; those are proved independently in the complete Lean probe.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7",
+        "modules": 3644,
+        "warnings": 5414,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,414 expected placeholder warnings across 3,644 pinned source modules. It includes all 10 new named declarations and 17 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ff870adbd36b3667b81e151b88e72545bc4fa0f5bb2e2973ef556be446094bd7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
