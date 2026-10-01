@@ -35179,3 +35179,253 @@ Exact calculations in Q[pi]/(pi^(p−1)+p) check eight constant terms,63 low coe
 Capture at e660ddba13e0fd7f9dee2da59e6a58fb82d1daf1 after actual merge5350 has no changes among the73 guarded inputs. All four predecessor deliverables and the whole issue are unchanged; review390 remains unclaimed.
 
 The separate partial signature file also compiled with zero errors and 3,570 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: fca2205ab8c77446b44b67de809725333bb00af739f6b2d8f4d105384cc2447e.
+
+
+## Robert’s coefficient recurrence and extended-family telescope
+
+Eight L3 nodes establish the actual formal coefficient recurrence, finite boundary identity and all-a coefficient family, then prove Robert’s telescope with summability on Z_p explicit. All1,104 predecessor nodes,839 baseline records,20 findings and five source versions remain whole.
+
+Rereads all of Robert2001 pp.164–167 from the published page images, including the coefficient recurrence, all-a definition, complete Theorem3 proof, finite boundary and subsequent norm argument. Reads the native formal derivative/chain rule, falling-polynomial recurrences and finite-support evaluations, and the full native sum-shift, sum arithmetic and uniqueness proofs. A complete native proof supplies the formal equation, exact finite identity and summability-conditional telescope on Z_p.
+
+### The differential equation of the exponential product
+
+`DirichletPadicLFunctions:L3/robert-exponential-derivative` — `DirichletPadic.robert_exp_derivative`
+
+For the actual formal product Theta_q, its native formal derivative is C(pi)Theta_q−C(pi q)Theta_q X^(q−1).
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. The complete derivative_rescale_exp helper checks coefficients: the derivative multiplies degree n+1 by n+1, which cancels the corresponding factorial factor. Thus D(exp(pi T))=C(pi)exp(pi T). Factorials and n+1 are nonzero in the characteristic-zero field.
+2. Read native expand_apply and HasSubst.X_pow. The existing chain rule for formal substitution gives D(expand_q F)=expand_q(D F) C(q)X^(q−1). This is the complete derivative_expand helper; it does not require analytic substitution.
+3. Apply the native derivation Leibniz rule to the actual product. Expand preserves multiplication and constants, so the second factor contributes−pi q. The complete exponential_derivative proof closes the ring identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-coefficient`, `mathlib:PowerSeries.derivative`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.coeff_exp`, `mathlib:PowerSeries.expand_apply`, `mathlib:PowerSeries.HasSubst.X_pow`, `mathlib:PowerSeries.derivative_subst`, `mathlib:PowerSeries.derivative_pow`, `mathlib:Derivation.leibniz`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.derivative_constant` (computation): The constant coefficient of the dyadic formal derivative is−2.
+- `SuggestedRobertTelescopeTests.derivative_first` (computation): The first derivative coefficient is8, retaining the negative inner exponential.
+
+**Acceptance:** The q=2,pi=−2 derivative has first coefficients−2 and8. The inner sign is not changed to the inverse Frobenius convention.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### The coefficient recurrence
+
+`DirichletPadicLFunctions:L3/robert-exponential-recurrence` — `DirichletPadic.robert_exp_recurrence`
+
+For every n≥0, (n+q)A_(n+q)=pi(A_(n+q−1)−q A_n). Together with the predecessor’s low coefficients this gives the printed recurrence in every positive degree.
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Apply the native coefficient map in degree n+q−1 to the differential equation.
+2. Use coeff_derivative on the left and coeff_C_mul on the two right terms. Native coeff_mul_X_pow removes the shift q−1 exactly.
+3. Since q≠0, n+q−1+1=n+q and the natural subtraction casts correctly. The complete exponential_recurrence proof retains these arithmetic equalities before simplifying the field identity.
+4. A routine coefficient_recurrence helper substitutes n=a+qk, giving (a+q(k+1))A_(a+q(k+1))=pi(A_(a+q−1+qk)−qA_(a+qk)). This is the precise index alignment used below.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-derivative`, `DirichletPadicLFunctions:L3/robert-exponential-low-coefficient`, `mathlib:PowerSeries.coeff_mul_X_pow`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.recurrence_first_boundary` (computation): At q=2,n=0 the recurrence reads2A2=−2(A1−2A0).
+- `SuggestedRobertTelescopeTests.recurrence_next` (computation): At q=2,n=1 the recurrence reads3A3=−2(A2−2A1).
+
+**Acceptance:** The first case is qA_q=pi(A_(q−1)−qA_0); the constant subtraction must be present.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### The finite falling-factorial difference
+
+`DirichletPadicLFunctions:L3/robert-finite-coefficient-difference` — `DirichletPadic.robert_exp_finite_difference`
+
+Put B_(a,k)(x)=A_(a+qk)(x)_k/pi^k and C_(a,k)(x)=A_(a+q(k+1))(x−1)_k/pi^(k+1). Then sum_(k≤M)B_(a,k)(x)−sum_(k<M)B_(a+q−1,k)(x−1)=(1−q)A_a+((1−q)x−a)sum_(k<M)C_(a,k)(x)+q B_(a,M)(x−1).
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. The native falling-polynomial identities give (x)_(k+1)=x(x−1)_k and (x−1)_(k+1)=(x−1−k)(x−1)_k. Both remain polynomial identities when x equals an integer k.
+2. Use the coefficient recurrence and cancel only powers of the nonzero pi. The complete recurrence_summand helper rewrites the shifted summand as B_(a,k+1)(x)−qB_(a,k+1)(x−1)+qB_(a,k)(x−1)−((1−q)x−a)C_(a,k)(x).
+3. Induct on M, expanding exactly the three indicated finite sums by their range-successor identities. The complete finite_difference proof retains qB_(a,M)(x−1), including the cutoff0 case.
+4. Specialize the generic sequence helper to the actual native formal coefficients using the complete coefficient_recurrence helper. The resulting exponential_finite_difference statement has no coefficient-recurrence hypothesis to discharge.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-recurrence`, `mathlib:descPochhammer`, `mathlib:descPochhammer_succ_left`, `mathlib:descPochhammer_succ_eval`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.partial_general_zero` (degenerate): At cutoff0 the finite identity retainsqA_a as its boundary term.
+- `SuggestedRobertTelescopeTests.partial_general_defect` (computation): At a=0,x=1,M=1 the nonzero fixed-point defect is retained.
+
+**Acceptance:** No summability is needed. Omitting the boundary term fails already for p=q=2,a=x=0,M=1.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### The finite fixed-point cancellation
+
+`DirichletPadicLFunctions:L3/robert-finite-fixed-difference` — `DirichletPadic.robert_exp_finite_fixed`
+
+If (1−q)x=a, the finite difference above is (1−q)A_a+q B_(a,M)(x−1).
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Substitute the fixed-point equation in the proven finite identity, making its defect coefficient exactly zero.
+2. Keep the finite boundary term. At pi=−2,q=2,a=x=0,M=1, the unequal finite sums differ by3 while the constant term is−1; the boundary is4.
+3. The complete exponential_finite_fixed proof makes no division by x−k and no passage to an infinite sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-finite-coefficient-difference`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.partial_fixed_value` (computation): At a=0,x=0,M=1 the unequal partial sums differ by3.
+- `SuggestedRobertTelescopeTests.partial_boundary_not_zero` (non-example): The finite fixed-point difference is not the constant−1; the omitted boundary is4.
+
+**Acceptance:** Fixed-point cancellation alone does not annihilate a finite truncation boundary.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### Robert’s extended coefficient family
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series` — `DirichletPadic.robertCoefficientSeries`
+
+Define the all-a function on Z_p by robertCoefficientSeries(a,x)=tsum_k A_(a+qk)(iota(x))_k/pi^k. At0 its value is A_a. At a naturalm it is the finite sum for0≤k≤m, with native m.descFactorial k replacing the falling polynomial.
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Use the existing native tsum, actual PowerSeries coefficients and descPochhammer evaluation. The definition takes the source coefficient embedding explicitly and permits every naturala.
+2. At0 all falling polynomials of positive degree vanish; native tsum_eq_single yields A_a without a convergence assumption.
+3. At a naturalm the native evaluation theorem identifies (m)_k with m.descFactorial k. The native vanishing criterion says this is0 for k>m. Native tsum_eq_sum then gives the exact finite formula.
+4. The characterisation API uses native HasSum.tsum_eq in a Hausdorff target: any proved sum of the displayed series equals this function. Existence of a convergent sum is supplied separately by the promoted HasSum node.
+5. The complete series, series_apply, series_zero, series_nat and series_unique declarations establish these properties. Continuity, the comparison with the old factorial quotient for a<q, and summability for generalx are not inferred from the definition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-exponential-coefficient`, `mathlib:descPochhammer`, `mathlib:descPochhammer_ne_zero_eval_zero`, `mathlib:descPochhammer_eval_eq_descFactorial`, `mathlib:Nat.descFactorial_eq_zero_iff_lt`, `mathlib:tprod_eq_prod`, `mathlib:tprod_eq_mulSingle`, `mathlib:HasProd.tprod_eq`.
+
+**Uses:**
+
+- Robert2001 p.165 definition before Theorem3: Extends the coefficient family to all a, where the old Gamma product formula is not valid.
+- Robert2001 pp.165–166 Theorem3 and limiting Gauss proof: The finite telescope shifts a byN(q−1) and x by−N; later uniform decay must control this actual function.
+- Robert2001 p.167 norm estimate: Summability and the uniform norm bound must use Z_p as their domain, as corrected by E20.
+
+**API:**
+
+- `DirichletPadic.robertCoefficientSeries_apply` (data): Evaluation is exactly the native coefficient tsum, with the explicit embedding and falling polynomial.
+- `DirichletPadic.robertCoefficientSeries_zero` (simp): For everya, the value at0 is the actual coefficientA_a, independently of summability.
+- `DirichletPadic.robertCoefficientSeries_nat` (compatibility): At naturalm the tsum is the native finite sum to m, using m.descFactorial k.
+- `DirichletPadic.robertCoefficientSeries_unique` (characterisation): In a Hausdorff target, any HasSum of the displayed terms identifies the function value with its sum.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.series_natural_0` (computation): The dyadic all-a coefficient family at a=0,x=0 has value1.
+- `SuggestedRobertTelescopeTests.series_natural_1` (computation): The dyadic all-a coefficient family at a=0,x=1 has value-1.
+- `SuggestedRobertTelescopeTests.series_natural_2` (computation): The dyadic all-a coefficient family at a=0,x=2 has value(1/3 : ℚ_[2]).
+- `SuggestedRobertTelescopeTests.series_above_range` (non-example): At a=q=2,x=0 the coefficient family is4, whereas pi² times the old Gamma quotient is2.
+- `SuggestedRobertTelescopeTests.series_zero_compatibility` (compatibility): For everya, evaluating the extended family at0 gives the actuala-th formal coefficient.
+
+**Acceptance:** At p=q=2,a=0 its values at0,1,2 are1,−1,1/3. At a=q=2,x=0 its value is4, while pi² times the old Gamma quotient is2.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### The summable coefficient family
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-has-sum` — `DirichletPadic.robertCoefficientSeries_hasSum`
+
+If the displayed coefficient series is Summable at(a,x), it HasSum robertCoefficientSeries(a,x).
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Unfold only the new consumer definition, which is the native tsum of precisely those terms.
+2. Apply the existing native Summable.hasSum theorem, whose multiplicative indexed source is Multipliable.hasProd. The complete series_hasSum proof introduces no additional analytic claim.
+3. The natural-input tests have finite support, while the general all-a summability needed by the telescope remains an explicit input for the future Dwork coefficient estimate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series`, `mathlib:Multipliable.hasProd`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.sum_at_zero` (degenerate): The actualseries at a=0,x=0 sums to1 without a Dwork estimate, because its support is finite.
+- `SuggestedRobertTelescopeTests.sum_at_one` (computation): At a=0,x=1 the actualseries sums to−1 by finite support.
+
+**Acceptance:** Do not reverse this conditional statement into an unconditional convergence claim.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### The convergent fixed-point step
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-step` — `DirichletPadic.robertCoefficientSeries_step`
+
+Assuming the displayed coefficient series is summable for every a and x∈Z_p, and (1−q)iota(x)=a, the actual function satisfies Gtilde_a(x)−Gtilde_(a+q−1)(x−1)=(1−q)A_a.
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Use the promoted HasSum node for the actual function atx andx−1.
+2. The native sum-shift equivalence removes the zeroth term from each series. Multiply the shiftedx−1 sum byq, subtract it from the shiftedx sum, then addq times the unshiftedx−1 sum.
+3. At the fixed point the complete recurrence_summand identity identifies this combined series with the series indexed by a+q−1. Its sum is Gtilde_a(x)−(1−q)A_a; the auxiliary Gtilde_a(x−1) cancels.
+4. Native HasSum uniqueness identifies this with Gtilde_(a+q−1)(x−1). The complete shift_hasSum, exponential_step and series_step proofs use only convergent-sum algebra; they never divide by x−k or drop a finite boundary term.
+5. Ring-hom compatibility sends x−1 in Z_p to iota(x)−1 in K. No summability outside Z_p is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-has-sum`, `DirichletPadicLFunctions:L3/robert-exponential-recurrence`, `mathlib:descPochhammer_succ_left`, `mathlib:descPochhammer_succ_eval`, `mathlib:hasProd_nat_add_iff'`, `mathlib:HasProd.div`, `mathlib:HasSum.mul_left`, `mathlib:HasProd.unique`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.step_zero_fixed` (degenerate): Given the displayed all-a summability onZ2, the step at a=0,x=0 has right side−1.
+- `SuggestedRobertTelescopeTests.step_one_fixed` (computation): Given summability, the next fixed pointa=1,x=−1 has step value2.
+
+**Acceptance:** The dyadic fixed pointsa=0,x=0 anda=1,x=−1 give step values−1 and2. Summability remains displayed in each statement.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+### Robert’s finite telescope for the extended family
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-telescope` — `DirichletPadic.robertCoefficientSeries_telescope`
+
+Under the same summability and fixed-point hypotheses, for everyN≥0: Gtilde_a(x)−Gtilde_(a+N(q−1))(x−N)=(1−q)sum_(j<N)A_(a+j(q−1)).
+
+**Hypotheses:** The formal series is the existing native product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)), where K is a characteristic-zero field and q is a nonzero natural number. Write A_n for its native coefficient. The source sign is pi(T−T^q). Formal differentiation and coefficient extraction do not assert analytic exponential convergence. The finite falling-factorial identities require pi≠0. They hold for every natural a and cutoff M, with no a<q restriction. All falling polynomials are native descPochhammer and no factorial or finite-difference theory is reconstructed. For the coefficient-defined family take p prime, a topology on K and an explicit ring homomorphism iota:Z_p→K. The variable x belongs to Z_p and its polynomial evaluation uses iota(x). The source specialization is q=p^f and pi^(p−1)=−p, but the finite algebra and conditional series identities need only the displayed weaker assumptions. The all-a function is the native tsum of A_(a+qk)/pi^k times the falling polynomial at iota(x). This specifies a function even before summability is established; no convergence is inferred from a total tsum. At natural inputs the terms have finite support, so their evaluation is unconditional. The HasSum and telescope consumers state summability explicitly. The telescope also requires K to be a Hausdorff topological ring, pi≠0 and (1−q)iota(x)=a. Its summability hypothesis concerns every a and x in Z_p, not every x in K or the unit ball of C_p. The future Dwork bound must discharge this input. Neither the Gamma product formula nor the source integer factorial ratio is extended to a≥q. The coefficient-defined family is a new consumer function, not another definition of a Dwork series. Its comparison with pi^a times the old G_a for a<q and its uniform varying-a decay remain to be proved. RD.6/dwork-isocrystal continues to own quantitative Dwork overconvergence and primitive trace-character values. This checkpoint supplies the exact algebraic telescope conditional on summability. It does not discharge the analytic owner, the vanishing varying-a tail or the full Gauss formula.
+
+**Proof:**
+
+1. Induct onN, with the empty telescope atN=0.
+2. The shifted pointx−N satisfies (1−q)iota(x−N)=a+N(q−1). This uses map_sub, map_natCast andq≥1, which follows fromq≠0.
+3. Apply the convergent fixed-point step to the shifted natural index and point. Add it to the induction hypothesis; the intermediate function value cancels.
+4. Identify a+N(q−1)+q−1 witha+(N+1)(q−1), and x−N−1 withx−(N+1). The complete exponential_telescope and series_telescope proofs establish the source finite-N identity.
+5. This identity retains the terminal actual function value. PassingN→infinity still requires a separate quantitative varying-a estimate and the Gauss/Dwork character comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-step`.
+
+**Tests:**
+
+- `SuggestedRobertTelescopeTests.telescope_empty` (degenerate): At N=0 the telescope is0.
+- `SuggestedRobertTelescopeTests.telescope_two` (computation): With summability, theN=2 telescope at a=0 has value1.
+- `SuggestedRobertTelescopeTests.telescope_three` (computation): With summability, theN=3 telescope at a=0 has value−3.
+
+**Acceptance:** Atp=q=2,a=x=0 theN=2 andN=3 telescopes have values1 and−3. No terminal value is set tozero without proof.
+
+**Source:** Published pp.164–166, Section4 coefficient-recurrence lemma, all-a definition and Theorem3 with its full proof; p.167 norm argument reread to distinguish the remaining analytic input. The source differentiates Theta_q, extends the coefficient family to all a and telescopes at a/(1−q). The complete native proof first establishes a finite polynomial identity retaining the boundary term. Native infinite-sum algebra then proves the source telescope with explicit summability on Z_p. No division by x−k is used.
+
+**Remaining:** The actual all-a coefficient family and the exact telescope are now planned with complete native proofs. The infinite-series step and telescope still require explicitly displayed all-a summability on Z_p. Next compare this family with pi^a times the old factorial quotient for a<q, then obtain summability, continuity and quantitative uniform varying-a decay from the existing RD.6 Dwork owner. Read the primary proof of its coefficient estimate and splitting-character values; request any missing precise interface rather than duplicate Dwork theory. Fixed-a Mahler decay is insufficient. The terminal function value in Theorem3 is not discarded. Gauss/Teichmuller orthogonality and normalized splitting-character compatibility still need their exact analytic hypotheses. The original Katz/Fermat and Gauss-side Stickelberger route remains open until the alternate proof is completed. E18’s repair remains unproved/unused; E19–E20 await independent review. All18 gaps and14 requests remain; no stage closes.
+
+### Robert’s coefficient recurrence and extended-family telescope validation
+
+All 1104 predecessor nodes, 839 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 12 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1372 reachable nodes, 6489 edges and 1019 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All eight new routes terminate in existing coefficient nodes and pinned native facts. Conditional summability is explicit and is not counted as an analytic closure. No new unresolved stage leaf is introduced; all14 existing requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5352 verbatim and adds one definition and21 complete lemmas, including routine formal-derivative, falling-polynomial and convergent-sum helpers. No target telescope is assumed; the actual coefficient summability is the explicit unresolved analytic input. Twelve suggested declarations and20 typed tests match the eight nodes and four API entries. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. No native library was built. General roadmap declarations remain unchecked.
+
+Exact rational controls after extracting pi^a check5,040 finite differences,1,064 fixed-point cancellations,720 finite-support cases,315 natural Gamma comparisons,720 telescopes retaining all boundary terms, and two explicit boundary failures. They make no convergence or tail-decay claim. Exact rational arithmetic after extracting pi^a in Q[pi]/(pi^(p-1)+p); all falling factors evaluated exactly. The largest observed discrepancy is 0.
+
+All73 captured policy, source, ownership, registry and roadmap input blobs match5352; four deliverables equal the merged predecessor. The whole713 issue body is unchanged. Review390 remains unclaimed; same-session continuation, no new claim.
+
+The separate partial signature file also compiled with zero errors and 3,602 expected placeholder warnings across 3,604 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 46206b71ab31a667e88afeac208a03ad2adca794ac75ea25cedec692601ee04e.
