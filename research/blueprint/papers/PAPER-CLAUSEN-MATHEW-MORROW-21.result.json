@@ -39,7 +39,7 @@
   "atlasChecked": "eeedeb8 (tauceti-explorer main, 22 September 2026)",
   "note": "Library citations read at the pinned commit: Mathlib/RingTheory/Henselian.lean (HenselianRing R I with fields jac and is_henselian for monic polynomials; HenselianLocalRing with TFAE; IsAdicComplete.henselianRing). The pinned Mathlib and Tau Ceti have no spectra-level algebraic K-theory, THH/TC, cyclotomic spectra, de Rham–Witt complexes, henselization of pairs or nonunital henselian rings (declaration index searched for Henselization, Cyclotomic, TopologicalHochschild, DeRhamWitt, AlgebraicKTheory, Nonunital)."
  },
- "summary": "Clausen, Mathew and Morrow prove that for a henselian pair (R, I) the relative K-theory and relative topological cyclic homology agree with finite coefficients: K^inv(R) → K^inv(R/I) is an equivalence mod p (Theorem A). This extends Gabber rigidity (n invertible) and the profinite Dundas–Goodwillie–McCarthy theorem (I nilpotent). The key new input is that TC/p commutes with all colimits on connective cyclotomic spectra (Theorem G), proved by showing that the Frobenius of HF_p^triv kills the periodicity class. That finiteness enters a pseudocoherence formalism for functors on henselian nonunital rings, which axiomatizes the first half of Gabber's proof. The equal-characteristic case comes from Geisser–Levine and Geisser–Hesselholt. Consequences: K/p and TC/p agree in high degrees for rings henselian along p with finite p-rank residue fields (Theorem B, a p-adic Lichtenbaum–Quillen statement); K^inv/p vanishes at strictly henselian points (Theorem C) and p-adic étale K-theory of schemes proper over such rings is TC; the trace is split injective for local F_p-algebras (Theorem D); K-theory is continuous for F-finite complete noetherian rings (Theorem F), and not without F-finiteness (Theorem 5.7); p-adic continuity of K for rings henselian along p; and a pro Geisser–Levine theorem (Theorem E). The atlas plans cyclotomic spectra, the trace and Dundas–Goodwillie–McCarthy (RefinedTraceMethods RT.2–RT.3), Gabber rigidity away from p (KTheoryFiniteLocalFields L.2), K-theory foundations and de Rham–Witt theory. The paper's own theory goes to a new Part II of RefinedTraceMethods, p-adic continuity to the AMMN Part II, Gabber's affine proper base change to ArcTopologyAndDescent, and standard inputs to sources of existing layers. Seven misprints are recorded; no error or gap was found.",
+ "summary": "Clausen, Mathew and Morrow prove that for a henselian pair (R, I) the relative K-theory and relative topological cyclic homology agree with finite coefficients: K^inv(R) → K^inv(R/I) is an equivalence mod p (Theorem A). This extends Gabber rigidity (n invertible) and the profinite Dundas–Goodwillie–McCarthy theorem (I nilpotent). The key new input is that TC/p commutes with all colimits on connective cyclotomic spectra (Theorem G), proved by showing that the Frobenius of HF_p^triv kills the periodicity class. That finiteness enters a pseudocoherence formalism for functors on henselian nonunital rings, which axiomatizes the first half of Gabber's proof. The equal-characteristic case comes from Geisser–Levine and Geisser–Hesselholt. Consequences: K/p and TC/p agree in high degrees for rings henselian along p with finite p-rank residue fields (Theorem B, a p-adic Lichtenbaum–Quillen statement); K^inv/p vanishes at strictly henselian points (Theorem C) and p-adic étale K-theory of schemes proper over such rings is TC; the trace is split injective for local F_p-algebras (Theorem D); K-theory is continuous for F-finite complete noetherian rings (Theorem F), and not without F-finiteness (Theorem 5.7); p-adic continuity of K for rings henselian along p; and a pro Geisser–Levine theorem (Theorem E). The atlas plans cyclotomic spectra, the trace and Dundas–Goodwillie–McCarthy (RefinedTraceMethods RT.2–RT.3), Gabber rigidity away from p (KTheoryFiniteLocalFields L.2), K-theory foundations and de Rham–Witt theory. The paper's own theory goes to a new Part II of RefinedTraceMethods, p-adic continuity to the AMMN Part II, Gabber's affine proper base change to ArcTopologyAndDescent, and standard inputs to sources of existing layers. Eleven version-scoped source issues are recorded: ten misprints and one error in the unbounded-tower characterization, corrected by a common lower bound. The main continuity theorem statements are unchanged. Basic nonunital algebra/morphism/unitization data are imported from pinned Mathlib, while their residual categorical and henselian theory remains in the Part II.",
  "items": [
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/001",
@@ -389,12 +389,38 @@
    "note": "Stated with the remark that it 'can be proved in an entirely analogous manner' to Proposition 2.26; no separate proof is given."
   },
   {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/038-library",
+   "kind": "construction",
+   "name": "Nonunital algebra data, morphisms and unitization",
+   "statement": "Let R be a commutative ring. The data of a nonunital commutative R-algebra I are NonUnitalCommRing I, Module R I, IsScalarTower R I I and SMulCommClass R I I: multiplication is associative, commutative and R-bilinear. Morphisms are NonUnitalAlgHom (MonoidHom.id R) I J. Unitization R I has underlying R × I and product (r,i)(s,j)=(rs,r•j+s•i+ij); it is a commutative R-algebra, with augmentation fstHom to R and inclusion inrNonUnitalAlgHom from I. For every unital R-algebra C, Unitization.lift is the equivalence (I →ₙₐ[R] C) ≃ (Unitization R I →ₐ[R] C), extending f by (r,i) ↦ algebraMap R C r+f(i).",
+   "locator": "Definition 3.1 and its following paragraph, pp. 17–18",
+   "status": "library",
+   "library": [
+    "mathlib:NonUnitalCommRing",
+    "mathlib:Module",
+    "mathlib:IsScalarTower",
+    "mathlib:SMulCommClass",
+    "mathlib:NonUnitalAlgHom",
+    "mathlib:Unitization",
+    "mathlib:Unitization.instCommRing",
+    "mathlib:Unitization.instAlgebra",
+    "mathlib:Unitization.fstHom",
+    "mathlib:Unitization.inrNonUnitalAlgHom",
+    "mathlib:Unitization.lift"
+   ],
+   "note": "Actual declarations read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: Algebra/Ring/Defs.lean:397; Algebra/Module/Defs.lean:54; Algebra/Group/Action/Defs.lean:149,211; Algebra/Algebra/NonUnitalHom.lean:57; Algebra/Algebra/Unitization.lean:68,441–460,557,631,660,675,766. Reviewed GeneralAlgebraicKTheory:K.5 target explicitly credits Unitization and its universal property. This credit is only for data and the displayed mapping equivalence; the augmented-category equivalence and local/henselian theory remain missing."
+  },
+  {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/038",
    "kind": "definition",
-   "name": "Nonunital algebras",
-   "statement": "For a commutative ring R, a nonunital R-algebra is an R-module I with a commutative associative multiplication I ⊗_R I → I; the category Ring^nu_R has all limits and colimits and is equivalent to augmented R-algebras via I ↦ R ⋉ I. R[x_1,…,x_n]^+ is free on n generators; a short exact sequence I′ → I ↠ Ī is one of underlying abelian groups.",
+   "name": "Category of nonunital algebras and augmented-algebra equivalence",
+   "statement": "For a commutative ring R, bundle nonunital commutative R-algebras and their scalar-compatible morphisms (the existing data in item 038-library) into Ring^nu_R. This category has all limits and colimits, and its forgetful functor to sets preserves all limits and sifted colimits. It is equivalent to augmented commutative R-algebras, via I ↦ Unitization R I with augmentation fstHom and inverse the augmentation ideal. R[x_1,…,x_n]^+, the ideal generated by the variables, is free on n generators. A short exact sequence I′ → I ↠ Ī is one of underlying abelian groups, with I′ the pullback 0 ×_Ī I.",
    "locator": "Definition 3.1, Examples 3.2–3.3, pp. 17–18",
-   "status": "missing"
+   "status": "missing",
+   "note": "Residual categorical/free-object work only. Reuse item 038-library for the carriers, morphisms and unitization. Unitization.lift proves extension/uniqueness of maps to a unital algebra; it is not itself a categorical equivalence, a construction of limits/colimits, or a henselian reflection. Items 039–041 keep the local/henselian extensions missing.",
+   "dependencies": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/038-library"
+   ]
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/039",
@@ -840,7 +866,8 @@
    "name": "Nilpotent and quickly converging towers",
    "statement": "A tower {A_i} of abelian groups is nilpotent if all A_{i+N} → A_i vanish for some N, and quickly converging if some r makes {im(A_{i+r} → A_i)} eventually constant; these form an abelian subcategory closed under extensions ([Mat15, Lem. 3.10]). A tower of spectra is nilpotent if some A_{i+N} → A_i are nullhomotopic, quickly converging if cofib({lim X_i} → {X_i}) is nilpotent, almost nilpotent/almost quickly converging if every τ_{≤n} truncation is.",
    "locator": "Definitions 5.11, 5.12, 5.14, p. 42",
-   "status": "missing"
+   "status": "missing",
+   "note": "Keep the upper-truncation definition for arbitrary towers. The degreewise nilpotence characterization is used only for uniformly bounded-below towers; without a common lower bound it is false (sourceIssues E9 and the explicit negative test there). With a common lower bound, each upper truncation has finitely many homotopy degrees and finite Postnikov dévissage restores the converse. The connective/uniformly bounded-below continuity applications in Theorems 5.19–5.22 retain their hypotheses."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/092",
@@ -880,7 +907,8 @@
    "name": "Derived p-adic continuity of K-theory",
    "statement": "If R is a connective E_1-algebra in Mod_HZ with π_0R commutative and henselian along (p), then {K(R ⊗_HZ HZ/p^i)/p} is almost quickly converging and K(R) → lim_i K(R ⊗_HZ HZ/p^i) is an equivalence modulo p.",
    "locator": "Theorem 5.21, p. 44",
-   "status": "missing"
+   "status": "missing",
+   "note": "The statement is unchanged. In the proof of Theorem 5.21, sourceIssues E10 replaces the integral equality by K^inv(R)/p ≃ K^inv(R ⊗_HZ HZ/p^i)/p. Apply Dundas–Goodwillie–McCarthy to pass from each connective E_1-algebra to π_0, then Theorem 4.36 to the henselian pair (π_0R,(p^i)); use Theorem 5.20 for TC."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/097",
@@ -908,9 +936,10 @@
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/099",
    "kind": "theorem",
    "name": "Morrow's structure results for logarithmic Hodge–Witt groups",
-   "statement": "For any F_p-algebra R: pro short exact sequences {W_rΩ^n_log}_r → {W_rΩ^n}_r →^{R−F} {W_{r−1}Ω^n}_r of étale sheaves ([Morrow-HW, Cor. 4.1(ii),(iii)]); ker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^m_R) = W_rΩ^m_{R,log} ([Morrow-HW, Cor. 4.2(iii)]); R − F is surjective on relative forms for F-finite noetherian I-adically complete R ([Morrow-HW, Prop. 2.20]); and the pro Illusie sequence for formal completions ([Morrow-HW, Cor. 4.8]).",
+   "statement": "For any F_p-algebra R: pro short exact sequences {W_rΩ^n_log}_r → {W_rΩ^n}_r →^{R−F} {W_{r−1}Ω^n}_r of étale sheaves ([Morrow-HW, Cor. 4.1(ii),(iii)]); ker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^{m−1}_R) = W_rΩ^m_{R,log} ([Morrow-HW, Cor. 4.2(iii)]); R − F is surjective on relative forms for F-finite noetherian I-adically complete R ([Morrow-HW, Prop. 2.20]); and the pro Illusie sequence for formal completions ([Morrow-HW, Cor. 4.8]).",
    "locator": "§5.3 and §6.4, pp. 45–48 and 55",
-   "status": "missing"
+   "status": "missing",
+   "note": "Corrected quotient from sourceIssues E8: for m=0 use Ω_R^{−1}=0; r≥1 and m≥0, with arbitrary F_p-algebra R. At r=1 it is Ω_R^m/dΩ_R^{m−1}, with F̄=C^{−1}. Do not impose smoothness or regularity."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/100",
@@ -967,7 +996,8 @@
    "name": "Pro comparison with Milnor K-theory and p-torsion-freeness",
    "statement": "For R F-finite regular noetherian and I ⊆ R with R/I local, and n, r ≥ 0: {K^M_n(R/I^s)/p^r}_s → {K_n(R/I^s; Z/p^r)}_s is surjective with the same kernel as dlog[·] : {K^M_n(R/I^s)/p^r}_s → {W_rΩ^n_{R/I^s}}_s (for classical or Kerz's improved Milnor K-theory), and {K_n(R/I^s)}_s is p-torsion-free.",
    "locator": "Corollary 5.33, p. 49",
-   "status": "missing"
+   "status": "missing",
+   "note": "The statement is unchanged. In the last proof paragraph, sourceIssues E11 corrects the claimed integral-to-mod-p isomorphism to {K_n(R/I^s)/p}_s ≃ {K_n(R/I^s;Z/p)}_s. The Bockstein sequence also gives {K_{n−1}(R/I^s)[p]}_s=0. These are pro statements, not assertions of torsion-freeness at every individual level."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/107",
@@ -1099,10 +1129,10 @@
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/121",
    "kind": "theorem",
    "name": "Identification of the complementary summand",
-   "statement": "For any F_p-algebra R, ν̃^m_r(R) := H^1(Spec(R′)_et; π_m(𝒯𝒞/p^r)) (R′ → R the henselized free ind-smooth cover) is naturally coker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^m_R); for r = 1 it is ν̃^m(R). The cokernel of π − F̄ is rigid for henselian pairs and π − F̄ is surjective étale-locally.",
+   "statement": "For any F_p-algebra R, ν̃^m_r(R) := H^1(Spec(R′)_et; π_m(𝒯𝒞/p^r)) (R′ → R the henselized free ind-smooth cover) is naturally coker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^{m−1}_R); for r = 1 it is ν̃^m(R). The cokernel of π − F̄ is rigid for henselian pairs and π − F̄ is surjective étale-locally.",
    "locator": "Proposition 6.12, p. 55; before Theorem 6.11, p. 54",
    "status": "missing",
-   "note": "The paragraph before Theorem 6.11 defines π_{n+1}(𝒯𝒞/p^r) as the sheafification of π_n(TC(−)/p^r) (sourceIssues E7)."
+   "note": "The paragraph before Theorem 6.11 defines π_{n+1}(𝒯𝒞/p^r) as the sheafification of π_n(TC(−)/p^r) (sourceIssues E7). Corrected quotient from sourceIssues E8: for m=0 use Ω_R^{−1}=0; r≥1 and m≥0, with arbitrary F_p-algebra R. At r=1 it is Ω_R^m/dΩ_R^{m−1}, with F̄=C^{−1}. Do not impose smoothness or regularity."
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/122",
@@ -1288,8 +1318,8 @@
     "PAPER-CLAUSEN-MATHEW-MORROW-21/120",
     "PAPER-CLAUSEN-MATHEW-MORROW-21/121"
    ],
-   "brief": "First prerequisite: Hochschild, cyclotomic and refined trace methods (RefinedTraceMethods). RT.2 plans cyclotomic spectra, TC, TC^−, TP and the Nikolaus–Scholze formula. RT.3 plans the cyclotomic trace and the Dundas–Goodwillie–McCarthy theorem, and asks for 'the map-level square for … a henselian pair in the proven range' without planning a proof. This Part II supplies that theorem with its proof and its consequences. RT.3's henselian export, and the Part II proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses), should import Theorem 4.36 from here.\n\nFinal theorems, as the paper states them (arXiv v2 numbering):\n- Theorem 4.36 (Theorem A). For a henselian pair (R, I) and every prime p, K^inv(R) → K^inv(R/I) is an equivalence modulo p; equivalently K(R, I)/p ≃ TC(R, I)/p.\n- Theorem 2.7 and Corollary 2.15 (Theorem G). TC/p commutes with all colimits on CycSp_{≥0}, and with sifted colimits of connective E_1-rings.\n- Theorem 6.5 (Theorem B). If R is henselian along (p), R/p has finite Krull dimension and [k(x):k(x)^p] ≤ p^d with d ≥ 1, then K(R)/p^r → TC(R)/p^r is an equivalence in degrees ≥ d. Corollary 6.6 is the p-adic Lichtenbaum–Quillen statement.\n- Theorem 6.1 (Theorem C) and Theorem 6.3. K^inv(R)/p = 0 for R strictly henselian local of residue characteristic p, and K̂^ét(X)/p ≃ TC(X)/p for X proper over a ring henselian along (p).\n- Theorem 6.11 (Theorem D). Split injectivity for local F_p-algebras, with the complement identified in Proposition 6.12.\n- Theorem 5.5 (Theorem F). K(R) → lim K(R/I^s) is an equivalence mod p for R noetherian, I-adically complete, with R/p F-finite. Theorem 5.7 shows the F-finiteness hypothesis is needed.\n- Theorems 5.26 and 5.31 (Theorem E). Pro Geisser–Levine for F-finite regular local F_p-algebras, with Corollaries 5.33–5.35.\n\nCover every construction on the way, in this order.\n(1) Finiteness of TC/p (§2):\n- connectivity (Lemma 2.5);\n- HF_p^triv, with Lemma 2.10 (Frobenius kills x), importing −^triv, its symmetric monoidal structure and its adjunction with TC from RT.2;\n- the cofibre sequences of Lemma 2.11 and TC(X) ≃ fib(X → X_{hS^1}) for HF_p^triv-modules (Proposition 2.12);\n- the approximation of Proposition 2.19 and the pro-constancy of TC^r/p (Lemmas 2.20–2.21, Proposition 2.22);\n- the de Rham–Witt route for F_p-algebras (Proposition 2.26), and Proposition 2.27 for strict Dieudonné complexes, which the paper leaves to the reader: supply its proof.\n(2) Nonunital henselian rings (§3):\n- nonunital, local and henselian nonunital algebras, their reflections and free objects, and the Lawvere-theory point of view;\n- Gabber's criterion that henselianity depends only on I (Proposition 3.16);\n- henselization and Milnor squares (Lemma 3.21, Corollary 3.22), and free henselian Q-algebras as colimits (Corollary 3.23).\n(3) Pseudocoherence (§4.1):\n- perfect and pseudocoherent functors, relative to a subcategory;\n- their characterizations and closure properties;\n- the Goodwillie tower of Σ^∞Ω^∞ and the passage through Σ^∞Ω^∞ and HZ.\n(4) The axiomatic rigidity argument: Lemma 4.15 and Proposition 4.16, with the simplicial-resolution description (Corollary 4.18).\n(5) Projective pseudocoherence of C_*(BGL_∞(Z ⋉ I)), K(Z ⋉ I), HI, THH and TC/p (Propositions 4.19–4.26), using van der Kallen's homological stability, which nothing else plans.\n(6) The equal-characteristic case:\n- ν^n and ν̃^n, and Lemma 4.28;\n- the Geisser–Levine and Geisser–Hesselholt theorems, stated as imported theorems with their exact hypotheses;\n- Proposition 4.31 (rigidity of ν̃) and Proposition 4.32.\n(7) The proof of Theorem 4.36 via K^inv of nonunital rings and Proposition 4.34 / Corollary 4.35. Record Remark 4.39's integral counterexample.\n(8) I-adic continuity: Lemmas 5.2–5.3, Proposition 5.4 with Dundas–Morrow, Remark 5.6, Theorem 5.7 with Lemma 5.8 and the Bloch–Esnault–Kerz bound (correcting the index slips of sourceIssues E3).\n(9) Pro Geisser–Levine:\n- Morrow's logarithmic Hodge–Witt results;\n- Proposition 5.27, Lemmas 5.29–5.30 and the pro HKR theorem of Dundas–Morrow;\n- Theorem 5.31 and Corollaries 5.32–5.35.\n(10) §6:\n- Theorem 6.1, Proposition 6.2 and the étale sheaf reformulation;\n- Theorem 6.3, with Clausen–Mathew's hyperdescent inputs and Lemma 6.4;\n- Theorem 6.5, Corollary 6.6 and Examples 6.7–6.10;\n- Theorem 6.11 and Proposition 6.12.\n\nImport, never re-plan:\n- RefinedTraceMethods RT.2 (cyclotomic spectra, trivial cyclotomic spectra −^triv with their symmetric monoidal structure and their adjunction with TC, the Nikolaus–Scholze formula, classical TR/TC, THH of rings, and Hesselholt's HKR theorem routed there by this extraction) and RT.3 (the trace, Dundas–Goodwillie–McCarthy, K^inv excision).\n- GeneralAlgebraicKTheory K.2, K.5, K.6, K.7 (K-theory of rings and the plus construction, relative and nonconnective K-theory, Bass excision, filtered colimits) and StableHomotopyKTheory H.3, H.6 (plus construction, E/m, Bockstein and Milnor sequences).\n- KTheoryFiniteLocalFields L.2 (Gabber rigidity away from p).\n- SchemeKTheoryOperations S.4 (Thomason–Trobaugh descent) and S.6 (Adams operations).\n- CrystallineCohomology CR.4 (de Rham–Witt complexes, strict Dieudonné complexes, logarithmic forms and Illusie's sequence) and DerivedDeRhamCohomology DD.3 (Cartier isomorphism).\n- HigherLocalFieldsAndHigherClassFieldTheory HL.2 (logarithmic de Rham–Witt coefficients).\n- EnhancedDerivedSheaves E3 (Kan extensions).\n- ArithmeticLocallySymmetricSpaces ALS.2 (Borel–Serre).\n- SchemeAndStackFoundations SF.0 and SF.2 (henselian pairs, henselization, Elkik, Popescu, étale cohomology and proper base change) and Tau Ceti's Modular Curves layer 4D (strict henselization).\n- DeformationAndDerivedPatchingAlgebra R03.1/R03.3 (F-finiteness and excellence).\n- ArcTopologyAndDescent (Gabber's affine proper base change).\n- Mathlib's HenselianRing and HenselianLocalRing.\nThe p-adic continuity theorems of §5.2 go to the AMMN Part II, which this roadmap supplies with Theorem 4.36.\n\nUnit tests:\n- a square-zero extension (Dundas–Goodwillie–McCarthy);\n- (Z_p, (p)) and O_{C_p} (Example 6.10);\n- F_p[t]^h at (t) against F_p;\n- the perfection of F_p[[x]] for Remark 4.39;\n- k[[t]] with k = F_p(t_1, t_2, …) for Theorem 5.7;\n- F_p[x]/(x^2) for Theorem D.\nSupply a suggested Lean file.",
-   "reason": "The rigidity of K^inv for henselian pairs is the henselian extension of RT.3's Dundas–Goodwillie–McCarthy theorem, and it rests on RT.2's cyclotomic spectra. Nothing in the atlas plans the finiteness of TC/p, nonunital henselian rings, pseudocoherent functors, the equal-characteristic Geisser–Levine/Geisser–Hesselholt input, or the paper's consequences (I-adic continuity, pro Geisser–Levine, étale K = TC, the asymptotic comparison, split injectivity). These are new layers in RefinedTraceMethods' direction, so they form a Part II; the AMMN Part II covers deformation of classes, not rigidity."
+   "brief": "First prerequisite: Hochschild, cyclotomic and refined trace methods (RefinedTraceMethods). RT.2 plans cyclotomic spectra, TC, TC^−, TP and the Nikolaus–Scholze formula. RT.3 plans the cyclotomic trace and the Dundas–Goodwillie–McCarthy theorem, and asks for 'the map-level square for … a henselian pair in the proven range' without planning a proof. This Part II supplies that theorem with its proof and its consequences. RT.3's henselian export, and the Part II proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses), should import Theorem 4.36 from here.\n\nFinal theorems, as the paper states them (arXiv v2 numbering):\n- Theorem 4.36 (Theorem A). For a henselian pair (R, I) and every prime p, K^inv(R) → K^inv(R/I) is an equivalence modulo p; equivalently K(R, I)/p ≃ TC(R, I)/p.\n- Theorem 2.7 and Corollary 2.15 (Theorem G). TC/p commutes with all colimits on CycSp_{≥0}, and with sifted colimits of connective E_1-rings.\n- Theorem 6.5 (Theorem B). If R is henselian along (p), R/p has finite Krull dimension and [k(x):k(x)^p] ≤ p^d with d ≥ 1, then K(R)/p^r → TC(R)/p^r is an equivalence in degrees ≥ d. Corollary 6.6 is the p-adic Lichtenbaum–Quillen statement.\n- Theorem 6.1 (Theorem C) and Theorem 6.3. K^inv(R)/p = 0 for R strictly henselian local of residue characteristic p, and K̂^ét(X)/p ≃ TC(X)/p for X proper over a ring henselian along (p).\n- Theorem 6.11 (Theorem D). Split injectivity for local F_p-algebras, with the complement identified in Proposition 6.12.\n- Theorem 5.5 (Theorem F). K(R) → lim K(R/I^s) is an equivalence mod p for R noetherian, I-adically complete, with R/p F-finite. Theorem 5.7 shows the F-finiteness hypothesis is needed.\n- Theorems 5.26 and 5.31 (Theorem E). Pro Geisser–Levine for F-finite regular local F_p-algebras, with Corollaries 5.33–5.35.\n\nCover every construction on the way, in this order.\n(1) Finiteness of TC/p (§2):\n- connectivity (Lemma 2.5);\n- HF_p^triv, with Lemma 2.10 (Frobenius kills x), importing −^triv, its symmetric monoidal structure and its adjunction with TC from RT.2;\n- the cofibre sequences of Lemma 2.11 and TC(X) ≃ fib(X → X_{hS^1}) for HF_p^triv-modules (Proposition 2.12);\n- the approximation of Proposition 2.19 and the pro-constancy of TC^r/p (Lemmas 2.20–2.21, Proposition 2.22);\n- the de Rham–Witt route for F_p-algebras (Proposition 2.26), and Proposition 2.27 for strict Dieudonné complexes, which the paper leaves to the reader: supply its proof.\n(2) Nonunital henselian rings (§3):\n- reuse Mathlib’s NonUnitalCommRing, Module, IsScalarTower, SMulCommClass, NonUnitalAlgHom and Unitization (including instCommRing, instAlgebra, fstHom, inrNonUnitalAlgHom and lift) for the basic algebraic data; plan the residual bundled category, equivalence with augmented R-algebras, limits/colimits and free polynomial ideals (item 038), then the local and henselian nonunital extensions, reflections and free objects (039–041), and the Lawvere-theory point of view;\n- Gabber's criterion that henselianity depends only on I (Proposition 3.16);\n- henselization and Milnor squares (Lemma 3.21, Corollary 3.22), and free henselian Q-algebras as colimits (Corollary 3.23).\n(3) Pseudocoherence (§4.1):\n- perfect and pseudocoherent functors, relative to a subcategory;\n- their characterizations and closure properties;\n- the Goodwillie tower of Σ^∞Ω^∞ and the passage through Σ^∞Ω^∞ and HZ.\n(4) The axiomatic rigidity argument: Lemma 4.15 and Proposition 4.16, with the simplicial-resolution description (Corollary 4.18).\n(5) Projective pseudocoherence of C_*(BGL_∞(Z ⋉ I)), K(Z ⋉ I), HI, THH and TC/p (Propositions 4.19–4.26), using van der Kallen's homological stability, which nothing else plans.\n(6) The equal-characteristic case:\n- ν^n and ν̃^n, and Lemma 4.28;\n- the Geisser–Levine and Geisser–Hesselholt theorems, stated as imported theorems with their exact hypotheses;\n- Proposition 4.31 (rigidity of ν̃) and Proposition 4.32.\n(7) The proof of Theorem 4.36 via K^inv of nonunital rings and Proposition 4.34 / Corollary 4.35. Record Remark 4.39's integral counterexample.\n(8) I-adic continuity: Lemmas 5.2–5.3, Proposition 5.4 with Dundas–Morrow, Remark 5.6, Theorem 5.7 with Lemma 5.8 and the Bloch–Esnault–Kerz bound (correcting the index slips of sourceIssues E3).\n(9) Pro Geisser–Levine:\n- Morrow's logarithmic Hodge–Witt results;\n- Proposition 5.27, Lemmas 5.29–5.30 and the pro HKR theorem of Dundas–Morrow;\n- Theorem 5.31 and Corollaries 5.32–5.35.\n(10) §6:\n- Theorem 6.1, Proposition 6.2 and the étale sheaf reformulation;\n- Theorem 6.3, with Clausen–Mathew's hyperdescent inputs and Lemma 6.4;\n- Theorem 6.5, Corollary 6.6 and Examples 6.7–6.10;\n- Theorem 6.11 and Proposition 6.12: for every F_p-algebra R, r≥1 and m≥0 use coker(π−F̄ : W_rΩ_R^m → W_rΩ_R^m/dV^{r−1}Ω_R^{m−1}), correcting arXiv-v2 equations (26)–(27) and every quotient in the proof (sourceIssues E8; Morrow Corollary 4.2(ii)–(iii)). Use Ω_R^{−1}=0 for m=0. Recover Ω_R^m/dΩ_R^{m−1} and F̄=C^{−1} at r=1; do not restrict R to smooth or regular algebras.\n\nImport, never re-plan:\n- RefinedTraceMethods RT.2 (cyclotomic spectra, trivial cyclotomic spectra −^triv with their symmetric monoidal structure and their adjunction with TC, the Nikolaus–Scholze formula, classical TR/TC, THH of rings, and Hesselholt's HKR theorem routed there by this extraction) and RT.3 (the trace, Dundas–Goodwillie–McCarthy, K^inv excision).\n- GeneralAlgebraicKTheory K.2, K.5, K.6, K.7 (K-theory of rings and the plus construction, relative and nonconnective K-theory, Bass excision, filtered colimits) and StableHomotopyKTheory H.3, H.6 (plus construction, E/m, Bockstein and Milnor sequences).\n- KTheoryFiniteLocalFields L.2 (Gabber rigidity away from p).\n- SchemeKTheoryOperations S.4 (Thomason–Trobaugh descent) and S.6 (Adams operations).\n- CrystallineCohomology CR.4 (de Rham–Witt complexes, strict Dieudonné complexes, logarithmic forms and Illusie's sequence) and DerivedDeRhamCohomology DD.3 (Cartier isomorphism).\n- HigherLocalFieldsAndHigherClassFieldTheory HL.2 (logarithmic de Rham–Witt coefficients).\n- EnhancedDerivedSheaves E3 (Kan extensions).\n- ArithmeticLocallySymmetricSpaces ALS.2 (Borel–Serre).\n- SchemeAndStackFoundations SF.0 and SF.2 (henselian pairs, henselization, Elkik, Popescu, étale cohomology and proper base change) and Tau Ceti's Modular Curves layer 4D (strict henselization).\n- DeformationAndDerivedPatchingAlgebra R03.1/R03.3 (F-finiteness and excellence).\n- ArcTopologyAndDescent (Gabber's affine proper base change).\n- Mathlib’s HenselianRing and HenselianLocalRing, and the nonunital carrier/morphism/unitization declarations in item 038-library. Unitization.lift alone does not supply the augmented-category equivalence or henselian reflection.\nThe p-adic continuity theorems of §5.2 go to the AMMN Part II, which this roadmap supplies with Theorem 4.36.\n\nUnit tests:\n- a square-zero extension (Dundas–Goodwillie–McCarthy);\n- (Z_p, (p)) and O_{C_p} (Example 6.10);\n- F_p[t]^h at (t) against F_p;\n- the perfection of F_p[[x]] for Remark 4.39;\n- k[[t]] with k = F_p(t_1, t_2, …) for Theorem 5.7;\n- F_p[x]/(x^2) for Theorem D.\nSupply a suggested Lean file.\n\nFurther regression contracts: unitization of a square-zero R-module has product (rs,r•j+s•i), fstHom∘inr=0, and lift followed by restriction recovers the given nonunital map. For Proposition 6.12 test r=1 and m=0 separately, checking differential degrees before forming quotients. In Corollary 5.33’s proof use the pro Bockstein quotient-by-p isomorphism of sourceIssues E11, not an integral-to-mod-p isomorphism.",
+   "reason": "The rigidity of K^inv for henselian pairs is the henselian extension of RT.3's Dundas–Goodwillie–McCarthy theorem, and it rests on RT.2's cyclotomic spectra. Nothing in the atlas plans the finiteness of TC/p, the residual category and henselian theory of nonunital rings, pseudocoherent functors, the equal-characteristic Geisser–Levine/Geisser–Hesselholt input, or the paper's consequences (I-adic continuity, pro Geisser–Levine, étale K = TC, the asymptotic comparison, split injectivity). These are new layers in RefinedTraceMethods' direction, so they form a Part II; the AMMN Part II covers deformation of classes, not rigidity."
   },
   {
    "route": "part-ii",
@@ -1308,7 +1338,7 @@
     "PAPER-CLAUSEN-MATHEW-MORROW-21/096",
     "PAPER-CLAUSEN-MATHEW-MORROW-21/097"
    ],
-   "brief": "This route adds a source to the Part II of Hochschild, cyclotomic and refined trace methods proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses). That brief already requires 'continuous invariants F^cts(X) = lim_n F(X_n) … with the continuity theorems saying which comparison maps F(X) → F^cts(X) are p-adic equivalences'. Clausen–Mathew–Morrow §5.2 proves those theorems for K and TC.\n\nPlan:\n- nilpotent, quickly converging, almost nilpotent and almost quickly converging towers of abelian groups and spectra, with Mathew's Lemmas 3.10–3.11 (Geom. Topol. 19) and Lemmas 5.13, 5.15–5.18;\n- Theorem 5.19 (continuity of THH and TC along almost quickly converging towers of connective E_1-rings);\n- Theorem 5.20 (derived p-adic continuity of TC for HZ-algebras);\n- Theorem 5.21 (derived p-adic continuity of K when π_0 is commutative and henselian along p);\n- Theorem 5.22 (p-adic continuity of K for commutative rings henselian along p with bounded p-power torsion, generalizing Geisser–Hesselholt's Theorem 5.10);\n- Remark 5.23's variant over the sphere.\n\nImport Theorem 4.36 (rigidity for henselian pairs) and Remark 2.8 from the proposed RefinedTraceMethodsPartIIHenselianPairs, and TC and THH from RefinedTraceMethods RT.2.\n\nUnit tests:\n- R = Z_p;\n- R = Z_p[x]/(px), with bounded p-torsion;\n- a ring with unbounded p-power torsion, where Theorem 5.22 does not apply.",
+   "brief": "This route adds a source to the Part II of Hochschild, cyclotomic and refined trace methods proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses). That brief already requires 'continuous invariants F^cts(X) = lim_n F(X_n) … with the continuity theorems saying which comparison maps F(X) → F^cts(X) are p-adic equivalences'. Clausen–Mathew–Morrow §5.2 proves those theorems for K and TC.\n\nPlan:\n- nilpotent, quickly converging, almost nilpotent and almost quickly converging towers of abelian groups and spectra, with Mathew's Lemmas 3.10–3.11 (Geom. Topol. 19) and Lemmas 5.13, 5.15–5.18;\n- Theorem 5.19 (continuity of THH and TC along almost quickly converging towers of connective E_1-rings);\n- Theorem 5.20 (derived p-adic continuity of TC for HZ-algebras);\n- Theorem 5.21 (derived p-adic continuity of K when π_0 is commutative and henselian along p);\n- Theorem 5.22 (p-adic continuity of K for commutative rings henselian along p with bounded p-power torsion, generalizing Geisser–Hesselholt's Theorem 5.10);\n- Remark 5.23's variant over the sphere.\n\nImport Theorem 4.36 (rigidity for henselian pairs) and Remark 2.8 from the proposed RefinedTraceMethodsPartIIHenselianPairs, and TC and THH from RefinedTraceMethods RT.2.\n\nUnit tests:\n- R = Z_p;\n- R = Z_p[x]/(px), with bounded p-torsion;\n- a ring with unbounded p-power torsion, where Theorem 5.22 does not apply.\n\nCorrected source boundary (E9): use the upper-truncation definitions of Definition 5.14 on arbitrary spectrum towers. Invoke the degreewise characterization only with a uniform lower bound, proved by finite Postnikov dévissage; the unbounded tail tower X_i=⊕_{j≥i}Σ^{−j}HF_p is a required negative test (each homotopy tower nilpotent, but τ_{≤0}X_i=X_i has no uniform vanishing exponent). Keep the connective inputs and bounded-p-power-torsion hypothesis in Theorems 5.19–5.22. In the proof of Theorem 5.21 correct E10: use K^inv(R)/p ≃ K^inv(R⊗_HZ HZ/p^i)/p, with Dundas–Goodwillie–McCarthy for passage to π_0 before henselian rigidity. No integral equality is imported.",
    "reason": "The AMMN extraction's proposed Part II already owns the continuity theorems for K and TC of p-adic formal schemes; §5.2 proves them, so routing it there keeps one owner for p-adic continuity. Area corrected from 'motivic' to 'ktheory' by REV-PAPER-CLAUSEN-MATHEW-MORROW-21: 'motivic' is the atlas group of the parent roadmap, not a galaxy id in data/galaxies.json, and the sibling Part II of the same parent in this extraction uses 'ktheory'. The same invalid area is in PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22, which proposes this roadmap id too and is not this job's file."
   },
   {
@@ -1527,6 +1557,99 @@
     "reason": "Confirmed at the source (line 3887): 'pi_{n+1}(\\mathcal{TC}/p^r) denotes the etale sheafification of the presheaf pi_n(TC(-)/p^r)'. The summand comes from the E_2^{1,-(n+1)} term of the etale descent spectral sequence, so the sheafified presheaf is pi_{n+1}, as the proof of Theorem 6.11 and Theorem 4.29 confirm.",
     "by": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
    }
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E8",
+   "kind": "misprint",
+   "locator": "§6.4, pp. 55–56, equations (26)–(27), preceding F̄/π definitions and proof of Proposition 6.12 (arXiv 1803.10897v2 only; JAMS text not compared)",
+   "printed": "W_rΩ_R^m/dV^{r−1}Ω_R^m",
+   "correction": "Every target and relative/base-change quotient is W_rΩ_R^m/dV^{r−1}Ω_R^{m−1}, including R/I. Set Ω_R^{−1}=0 for m=0. For r=1 recover Ω_R^m/dΩ_R^{m−1} and F̄=C^{−1}; retain arbitrary F_p-algebras.",
+   "reason": "V preserves differential degree while d raises it; the printed denominator lies in degree m+1, not m. The preceding r=1 display on p.55 already has m−1. Morrow, K-theory and logarithmic Hodge–Witt sheaves (published Numdam PDF https://www.numdam.org/item/ASENS_2019__52_6_1537_0.pdf), Corollary 4.2(ii)–(iii), p.1567, explicitly gives the m−1 quotient for an arbitrary F_p-algebra; Remark 4.3 identifies inverse Cartier at r=1. The intended map is unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv 1803.10897 version history (v2 latest), and the affected v2 PDF passages",
+    "2026-10-01: Crossref 10.1090/jams/961, relation={} and no update-to entry",
+    "2026-10-01: Morrow’s publication page and title/erratum search; no correction located",
+    "2026-10-01: Crossref version-of-record and accepted-manuscript AMS URLs both returned HTTP 403; neither text read"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E9",
+   "kind": "error",
+   "locator": "Definition 5.14, pp. 42–43 (arXiv 1803.10897v2 only; JAMS text not compared)",
+   "printed": "The definition equates almost nilpotence with nilpotence of each tower {π_n(X_i)}.",
+   "correction": "Define almost nilpotent by nilpotence of every upper-truncated tower {τ_{≤n}X_i}; assert equivalence with degreewise nilpotence only for uniformly bounded-below towers.",
+   "reason": "Counterexample: for i≥1 let X_i=⊕_{j≥i}Σ^{−j}HF_p with tail inclusions. For fixed j≥1, π_{−j}X_i is F_p for i≤j and zero thereafter, so its tower is nilpotent with exponent j; other homotopy groups vanish. But τ_{≤0}X_i=X_i, and for every i,N>0 the map X_{i+N}→X_i is nonzero on π_{−(i+N)}. There is no uniform nilpotence exponent. With a common lower bound, any upper truncation has only finitely many relevant homotopy degrees; closure of nilpotent towers under extensions and finite Postnikov dévissage give the corrected converse. The continuity applications use connective or uniformly bounded-below spectra, so Theorems 5.19–5.22 are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv 1803.10897 version history (v2 latest), and the affected v2 PDF passages",
+    "2026-10-01: Crossref 10.1090/jams/961, relation={} and no update-to entry",
+    "2026-10-01: Morrow’s publication page and title/erratum search; no correction located",
+    "2026-10-01: Crossref version-of-record and accepted-manuscript AMS URLs both returned HTTP 403; neither text read"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E10",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.21, p. 44 (arXiv 1803.10897v2 only; JAMS text not compared)",
+   "printed": "K^inv(R)=K^inv(R⊗_{HZ}HZ/p^iZ)",
+   "correction": "K^inv(R)/p ≃ K^inv(R⊗_{HZ}HZ/p^iZ)/p, not an integral equality.",
+   "reason": "Theorem 4.36 supplies finite-coefficient henselian rigidity. For these connective E_1-algebras use Dundas–Goodwillie–McCarthy to identify K^inv with K^inv of π_0 (the variant on p.42), then apply rigidity to (π_0R,(p^i)). Only the mod-p equivalence is needed to combine with TC continuity in Theorem 5.20. Item 096’s theorem remains unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv 1803.10897 version history (v2 latest), and the affected v2 PDF passages",
+    "2026-10-01: Crossref 10.1090/jams/961, relation={} and no update-to entry",
+    "2026-10-01: Morrow’s publication page and title/erratum search; no correction located",
+    "2026-10-01: Crossref version-of-record and accepted-manuscript AMS URLs both returned HTTP 403; neither text read"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E11",
+   "kind": "misprint",
+   "locator": "Final paragraph of proof of Corollary 5.33, p. 49 (arXiv 1803.10897v2 only; JAMS text not compared)",
+   "printed": "The source declares {K_n(R/I^s)}_s→{K_n(R/I^s;Z/p)}_s to be an isomorphism.",
+   "correction": "The isomorphism has source {K_n(R/I^s)/p}_s; the pro Bockstein sequence also gives {K_{n−1}(R/I^s)[p]}_s=0.",
+   "reason": "For R=F_p, I=0, n=0, the printed map is the constant-tower reduction Z→Z/p, whose kernel pZ is nonzero. The exact Bockstein sequence factors it through the quotient by p. Surjectivity forces the following pro p-torsion term to vanish and makes that quotient map an isomorphism. This repairs the proof transcription without changing Corollary 5.33 or item 106.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-01: arXiv 1803.10897 version history (v2 latest), and the affected v2 PDF passages",
+    "2026-10-01: Crossref 10.1090/jams/961, relation={} and no update-to entry",
+    "2026-10-01: Morrow’s publication page and title/erratum search; no correction located",
+    "2026-10-01: Crossref version-of-record and accepted-manuscript AMS URLs both returned HTTP 403; neither text read"
+   ]
   }
- ]
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1803.10897v2",
+   "citation": "Clausen–Mathew–Morrow, arXiv v2, 20 July 2020, 59 pages; this fix read selected pp.17–18,42–44,49,55–56, not the whole paper anew",
+   "read": "2026-10-01",
+   "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/ASENS_2019__52_6_1537_0.pdf",
+   "citation": "Morrow, Ann. Sci. ENS 52 (2019), 1537–1601; selected Corollary 4.2 and Remark 4.3, pp.1566–1567 only",
+   "read": "2026-10-01",
+   "sha256": "54988085dbe216661b2e3e7ff5ddc6479240f424b10a8c83727973f828ded4e2"
+  }
+ ],
+ "fixes": {
+  "job": "FIX-RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-10-01",
+  "findings": [
+   "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/1",
+   "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/2",
+   "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/3",
+   "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/4"
+  ],
+  "note": "Added one library split item (038-library), keeping 038 as its missing categorical residual. Original item IDs, all other statuses and all nine route IDs are preserved. E1–E7 and their independent verdicts are unchanged; E8–E11 await independent fix review. Whole-paper reads in source belong to the original extractor/reviewer; fix reads are selected and recorded in sourceVersions."
+ }
 }
