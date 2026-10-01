@@ -1,6 +1,6 @@
 # KEYDEF-algebraicnt — Number fields and class field theory
 
-Complete input accounting by **Codex — codex-J6LwjP**, independently corrected by **Codex — codex-5ebb6f**, 2026-09-30. Review status: **needs_changes**; see [the review report](../reviews/REV-KEYDEF-algebraicnt.md) for the remaining account-independence certification and routing boundaries. This is a definition/API survey under PROTOCOL §19, not a paper extraction, proof-closure certificate, or claim of Lean formalization.
+Complete input accounting by **Codex — codex-J6LwjP**, independently corrected by **Codex — codex-5ebb6f**, 2026-09-30. Review status: **needs_changes**; see [the review report](../reviews/REV-KEYDEF-algebraicnt.md). Revision round 2 (`KEYDEF-algebraicnt~2`) by **Claude Code — cc-c2c06b**, 1 October 2026, is described in the last section: it checked every correction the review made in place and reconciled the survey with the since-accepted `KEYDEF-algebraicgeometry`. The review's account-independence objection no longer applies: PROTOCOL §§8 and 19 now require a reviewer session that did none of the work, not a different account. The routing questions are in the handoff note. This is a definition/API survey under PROTOCOL §19, not a paper extraction, proof-closure certificate, or claim of Lean formalization.
 
 The 382 input definitions/constructions from 44 papers were read in full. The whole catalogue index and all 207 paper item files were searched (28,537 items); matching definition/construction statements and their surrounding catalogue records were then read. This does **not** mean that all 207 papers or all their proofs were reread. Fresh primary-source reading was selective and is recorded below.
 
@@ -25,7 +25,7 @@ Fourteen notions survive the definition, substantial missing work, two-paper, im
 
 ## Coverage and decisions
 
-Exactly **50** distinct input items witness the retained entries, **49** are owned elsewhere, **136** are in the reasoned reserve, and **147** are routine: **382/382**, with no unaccounted item. The entries additionally cite **32** items outside the input, for 82 distinct evidence items. Every evidence item is a catalogue definition or construction, not a theorem used to inflate a count.
+Exactly **50** distinct input items witness the retained entries, **50** are owned elsewhere, **136** are in the reasoned reserve, and **146** are routine: **382/382**, with no unaccounted item. The entries additionally cite **32** items outside the input, for 82 distinct evidence items. Every evidence item is a catalogue definition or construction, not a theorem used to inflate a count.
 
 The JSON is the item-level ledger. Its reserve records criterion-specific reasons; “routine” follows §19 and includes single-paper specializations and technical proof constructions, not just easy proofs. In particular, routine classification does not certify a theorem, validate a source conjecture, or mark a library item as built.
 
@@ -59,7 +59,7 @@ The JSON is the item-level ledger. Its reserve records criterion-specific reason
 
 4. **Continuous étale cohomology:** `owners: []`. D7 explicitly owns arithmetic/Galois coefficient constructions. Its text does not own continuous cohomology of arbitrary scheme étale sheaf systems, bounded-below complexes and continuous equivariant rational realizations. Analytic adic-space étale cohomology and v-derived diamond coefficients do not by themselves fill that scheme-system scope. Assign or extend one geometric supplier and let D7 consume its Galois comparison.
 
-These are the checker’s four expected warnings, not unaccounted items. No upstream roadmap was edited. At the review base, the pending `KEYDEF-algebraicgeometry` survey is also present. Its Chow/intersection, scheme Brauer and Galois-gerb entries are dependencies here, not rival constructions. Its discrete equivariant-sheaf entry does not supply the continuous profinite adic-system extension.
+These are four of the checker’s six warnings; the other two are explained in the round-2 section. None is an unaccounted item. No upstream roadmap was edited. At the review base, the pending `KEYDEF-algebraicgeometry` survey is also present. Its Chow/intersection, scheme Brauer and Galois-gerb entries are dependencies here, not rival constructions. Its discrete equivariant-sheaf entry does not supply the continuous profinite adic-system extension.
 
 Additional boundaries are recorded rather than hidden dependencies. The ordinary theta kernel belongs to `MetaplecticAutomorphicForms:MP.5`; GN.3 should supply arithmetic lattice/density interfaces. Generic Selmer mapping fibres belong to L2. Derived completion remains with `DerivedDeRhamCohomology:DD.1`; citing a completion definition here witnesses its Rlim prerequisite, not ownership of derived completion. MotivicEtaleKTheory:M.1 imports arithmetic continuous coefficients from D7; its KU checkpoints are aggregations and are not additional generic owners.
 
@@ -129,7 +129,7 @@ The attempted publisher path `annals-v202-n1-p01-p.pdf` for Kings–Sprang retur
 
 ## Validation
 
-- `scripts/check_keydefs.py research/blueprint/keydefs/KEYDEF-algebraicnt.json`, with the pinned declaration index: **0 errors, 4 expected warnings**, explained above.
+- `scripts/check_keydefs.py research/blueprint/keydefs/KEYDEF-algebraicnt.json`, with the pinned declaration index: **0 errors, 6 warnings**, explained above and in the round-2 section.
 - The input-accounting audit finds no missing item and no duplicate routine ID; entries are sorted by distinct cited-paper count. All library references resolve in the pinned declaration index.
 - Finite arithmetic spot checks enumerate the unramified hermitian line over Z/3^N with norm x²+y²: counts 4, 12, 36 for N=1,2,3, each giving 4/3 after normalization. The quadratic-line counts are 2 at p=3,5 and 4 at p=2 for N=3,4. The rank-one Siegel polynomials at valuations 0,1,3 give (value at 1, central derivative)=(1,0),(0,1),(0,2). The binary-form discriminants are 20,20,200. These are spot checks of worked values, not proofs of general API theorems.
 - Swarm deliverable/path validation and whitespace checks are run before submission. No Lean file is a deliverable for this survey, and no Lean compilation or new library build was performed.
@@ -152,3 +152,29 @@ The additional primary PDFs below were downloaded and the indicated passages rea
 | [Colmez–Niziol syntomic](https://webusers.imj-prg.fr/~wieslawa.niziol/logvanishing6.pdf) | PDF 52–53, §5.1.1: absolute log-crystalline and syntomic holim_n | `161d72d919c0798bec4dcec88550bf38b09b9e5c8a5fc554177aadb214124db0` |
 
 The original fifteen primary PDFs were freshly retrieved for the review as well. The review report records the passages actually checked, including HW20 PDF 6 for the completed zero-cycle complex and FGV PDF 79–80 for the line-valued exclusion.
+
+## Revision round 2 (KEYDEF-algebraicnt~2)
+
+Claude Code, session `cc-c2c06b`, 1 October 2026. This session did none of the survey or its review. It did review `KEYDEF-algebraicgeometry` (REV-KEYDEF-algebraicgeometry, PR #5327), whose entries this survey imports; that is disclosed here because the reconciliation below concerns its entries.
+
+**Corrections checked.** Each correction the review made in place was checked against the catalogue, the atlas and the pinned libraries.
+- **Derived limits.** All eight added sequential-derived-limit IDs exist in `data/items` and state a sequential Rlim, R¹lim or holim. They are FKW24/033–034, BMS19/038, CDN20-B/in-stein-spaces, CDN21/2-zp-hat and /3-kummer-and-artin-schreier, CN25/807 and CN17/151. The entry cites 14 papers.
+- **ℓ-adic declarations.** `AlgebraicGeometry.Scheme.ellAdicSheaf` and `EllAdicCohomology` are at `Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean` (lines 63 and 75 at 082e2d3) and are as described.
+- **Ownership.** The D7 stage text is Galois/profinite continuous derived cohomology, so `owners: []` for continuous étale systems is right.
+- **Hypotheses and scope.**
+  - The Kato-complex definition is restricted to separated finite-type schemes over a field with n invertible.
+  - Local quadratic lattices require char F ≠ 2 and keep residue characteristic 2.
+  - The density exponents are scoped to a nonempty generic space.
+- **Dependencies.** The GW entry depends on `QuadraticFormInvariants#layer-4`. The zero-cycle and stabilizer entries depend on `algebraicgeometry/chow-intersection`, `scheme-brauer` and `galois-gerbs`, all present in the accepted survey.
+- **Catalogue.** It is unchanged since the review base (207 paper files).
+
+**Reconciliation with the accepted algebraic-geometry survey.** That survey was accepted after this one was reviewed, and five of this survey's items are now also cited by its entries.
+- **PAPER-ZAVYALOV-25/31:** kept. It defines the dualizing complex ω^•_𝔛 as R lim ω^•_{𝔛_n}, so it witnesses both the derived-limit prerequisite (here) and coherent duality (there).
+- **PAPER-HARPAZ-WITTENBERG-16/4:** kept. It defines the modified adelic Chow group built on CH_0, so it witnesses both the zero-cycle complex (here) and Chow groups (there), which this entry already lists as a dependency.
+
+  These two account for the checker's two new "also cited" warnings. An item may witness two distinct notions.
+- **PAPER-DITTMANN-POP-23/resolution-f2** moves from routine to `elsewhere`, owned by `algebraicgeometry/normal-crossings`. It is a hypothesis using strict-normal-crossings compactifications, which that accepted entry defines.
+- **PAPER-BRIGHT-NEWTON-23/1** stays in reserve, for the evaluation filtration. The reserve reason now says that the Br X it filters is `algebraicgeometry/scheme-brauer`.
+- **PAPER-HARPAZ-WITTENBERG-23/82** stays under `elsewhere` with its ProfiniteCohomology owner. It is a torsor under Hom(C, A) for discrete Γ-modules, a continuous-cohomology construction rather than a geometric fppf torsor. The accepted survey's citation of it under `flat-torsors` is noted in the handoff for the maintainer.
+
+**Accounting** is now 50 entry, 50 elsewhere, 136 reserve and 146 routine input items: 382/382. `check_keydefs.py` reports 0 errors and 6 warnings: the four gaps and duplication above, and the two shared-evidence notices. No entry was added or removed; all 14 entries and their 84 API statements are unchanged from the reviewed version.
