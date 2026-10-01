@@ -1,0 +1,48 @@
+{
+  "redteam": "RT-PAPER-MASSER-ZANNIER-20",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-MASSER-ZANNIER-20",
+  "summary": "Full published-paper red team finds two high-severity supplementary-target problems and one medium ownership conflict: a global closed analytic hypersurface is necessarily algebraic, geometric theta level does not justify full rational 16-torsion over the coordinate field, and the functional-transcendence route duplicates the accepted shared Part II. These findings do not disprove the principal existence theorem. Agent Codex, session codex-rtOQ9t; issue #5061; base 1487a97f4339cdb535733c234f4961b5dc8dc37d.",
+  "checked": [
+    "Read all 40 published pages, pp. 635–674 including references, of Masser–Zannier (2020), https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf, on 2026-10-01; SHA-256 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60. Inspected the delicate pp. 666–667 and 669–670 as page images as well as text.",
+    "Read the entire accepted extraction and reader, all 72 items, eight routes, 19 prerequisites and 12 source issues, and the review JSON/report and handoff. Compared all source issues against the paper without counting already recorded errors as new findings.",
+    "Checked the journal record, targeted erratum searches and Crossref DOI 10.4007/annals.2020.191.2.7 on 2026-10-01; no update relation was returned. This is a search result, not proof that no correction exists.",
+    "Read the relevant compactification and arithmetic-level statements in Le Fourn, ANT 13 (2019), printed pp. 180–182, especially 6.4, 6.5(b), 6.6(a), https://msp.org/ant/2019/13-1/ant-v13-n1-p04-s.pdf; and Demailly, Complex Analytic and Differential Geometry, Chapter II pp. 118/121, (8.7)/(8.10), https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf. Selected-source reads only, accessed 2026-10-01.",
+    "Assembled a fresh 2907-stage atlas and read the owner contracts D1/D4/D5, A3/A5, M2/M5, V0/V2/V5, B4/B5, AA.3, R01.6, R12.1/R13.4, IG.2, LD.6, DT.0, GN.1, R35.3/R35.4, R28.2/R28.4 and CM.0/CM.2. Compared the functional-transcendence, CM-height and quantitative-isogeny supplier routes with related extractions. No global graph certification is claimed.",
+    "Compared accepted PAPER-MOK-PILA-TSIMERMAN-19 route 1 and its review against this extraction's LD.6 route. Read the current Tsimerman shared-supplier items and revision metadata: #5252/#4985 is a merged fix with independent review still pending, not an accepted fix used as authority.",
+    "Read reviewed data/library-coverage.json entries for D1, R01.6, R13.4, IG.2, A3, M2, M5 and GN.1 and acceptance metadata for AUDIT-02/08/09/10/31; no LD.6 audit entry in that snapshot.",
+    "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 read actual upper-half-plane, modular fundamental-domain, Frattini, number-field height, Weierstrass j, Minkowski first-theorem and polynomial resultant statements. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 read IsIsogeny and Cholesky factorization, continuity and homeomorphism statements. Did not infer full target coverage from declaration names.",
+    "Rejected the apparent OCR error in the reciprocal map (49); preserved the existing one-parameter, Rosati/discriminant and strict-order source issues. Did not promote an incompletely checked Hecke-correspondence degree concern to a finding. No Lean compilation or formalization claim.",
+    "Ran scripts/check_redteam.py, research/blueprint/intake.py check-files for the two allowed deliverables, and the staged git whitespace check. No other tracked files changed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-MASSER-ZANNIER-20/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json: item PAPER-MASSER-ZANNIER-20/66 and route 7; corresponding reader endpoint",
+      "claim": "For g >= 2 the claimed transcendental hypersurface cannot be a globally closed analytic hypersurface of A_g. The extraction promotes an unsupported local-to-global step into that theorem. Local or nonclosed analytic objects require a different statement.",
+      "evidence": "Masser–Zannier §5.4, pp. 669–670, is the source of the globalization. Le Fourn 6.4(a,b), printed p. 181, supplies the projective Satake compactification with boundary dimension G-g. For a hypersurface dim W=G-1>G-g. Demailly II(8.7), p. 118, extends its analytic closure across that boundary, including in a singular complex space; II(8.10), p. 121, makes the projective closure algebraic. Thus W is algebraic, contradicting the extracted transcendence property and the combination with item 58. The report provides the full argument and exact primary-source URLs.",
+      "fix": "Keep the real-analytic interpolation image separately. Record the failed globalization as a new source issue and gate the global endpoint in item 66, route 7 and the reader. State and prove a suitably local/germ or nonclosed replacement with its ambient domain explicit before enabling that replacement; do not claim a transcendental closed hypersurface in all A_g. Preserve the main algebraic hypersurface-avoidance theorem."
+    },
+    {
+      "id": "RT-PAPER-MASSER-ZANNIER-20/2",
+      "kind": "missing",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json: items PAPER-MASSER-ZANNIER-20/56 and /58, route 7; reader discussion of rational 16-torsion",
+      "claim": "The full rational 16-torsion conclusion requires an arithmetic fine-level model and descent comparison absent from the planned inference from the complex congruence subgroup. A Q-model of the theta variety does not establish that every associated coordinate field trivializes the torsion; the distinction affects the target's field-degree bound.",
+      "evidence": "The inference occurs at the end of Masser–Zannier §5.2, p. 666. A perfect Galois-equivariant Weil pairing on a principally polarized A/K with all A[16] rational forces mu_16 into K, excluding real K. Le Fourn 6.5(b)/6.6(a), printed p. 182, places full symplectic level over Z[zeta_n,1/n]. The report gives a real-theta-coordinate diagnostic at tau=i I_g and distinguishes its coordinate-field obstruction from the still-possible extra existential torsion theorem.",
+      "fix": "Separate the theta coordinate model, arithmetic fine-level moduli/universal scheme, and torsion field. Prove their comparison using existing PELModuli M2/M5 and AbelianSchemes A3/A5 suppliers; account for cyclotomic and any further descent extensions in D(Atilde,Psi) and the final bound. Either prove the supplementary torsion conclusion with that bound or explicitly gate it as unresolved. Add a source issue and propagate it to items 56/58, route 7 and the reader. Do not assert that adjoining zeta_16 alone suffices or that Theorem 1.1 itself is false."
+    },
+    {
+      "id": "RT-PAPER-MASSER-ZANNIER-20/3",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json: items /19–/23, route 1 and route 7's imports; reader owner map",
+      "claim": "The LD.6 source route and planned statuses for functional-transcendence foundations conflict with LD.6's supplier-consuming contract and duplicate the accepted LogicAndDefinabilityPartII proposal. Deferring selection of a single owner leaves incompatible executable briefs.",
+      "evidence": "LD.6 constructs its applications from separate suppliers and requires independent functional-transcendence input. Accepted PAPER-MOK-PILA-TSIMERMAN-19 route 1 and its review assign weakly special geometry, uniformization definability and functional transcendence to LogicAndDefinabilityPartII, importing only early LD.6 counting. The target's historical Tsimerman precedent is also superseded in the current file by a merged, still-review-pending fix; that pending fix is corroboration only, not the acceptance basis for this finding.",
+      "fix": "Keep items 16–18 and 38 at LD.6. Coalesce items 19–23 with the existing LogicAndDefinabilityPartII ID/parent/title, distinguish missing shared foundations from completed library work, and specify genus-one/Siegel adapters and a shared Ax–Lindemann deduction. Update route 7 and the reader to import this owner. Preserve early counting -> Part II -> arithmetic applications; do not add a whole-stage LD.6 cycle."
+    }
+  ]
+}
