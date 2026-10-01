@@ -37050,7 +37050,8 @@
     "REV-PAPER-SKOROBOGATOV-SOFOS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4155"
   },
   {
    "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -40228,8 +40229,9 @@
     "REV-PAPER-GAO-GE-KUHNE-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4284"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4284",
+   "finishedAt": "2026-10-01T15:15:13Z"
   },
   {
    "id": "RT-PAPER-DING-25",
