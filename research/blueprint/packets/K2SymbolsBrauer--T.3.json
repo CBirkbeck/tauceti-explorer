@@ -472,6 +472,42 @@
     "module": "TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
     "provides": "For a field k, P = k[X_1, …, X_r] with fraction field K and a finite purely inseparable extension M/K, every integral closure of P in M is a finite P-module (Stacks 032O); no separability is assumed. The declaration is in namespace TauCeti.",
     "checked": "statement read at the pinned commit (PurelyInseparable.lean:167)"
+   },
+   {
+    "ref": "mathlib:rootsOfUnity_one",
+    "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+    "provides": "rootsOfUnity 1 M = ⊥; the same file supplies Subsingleton (rootsOfUnity 1 M), so every first-root-valued symbol and finite-place family is 1.",
+    "checked": "statement and subsingleton instance read at the pinned commit (Basic.lean:78 and 111), FIX-RT-BP-K2SymbolsBrauer--T.3"
+   },
+   {
+    "ref": "mathlib:DualNumber",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "DualNumber R abbreviates TrivSqZeroExt R R. Iterating it over ZMod 3 supplies the actual ring F_3[x,y]/(x²,y²) of the relative D3 non-example.",
+    "checked": "definition read at the pinned commit (DualNumber.lean:46), FIX-RT-BP-K2SymbolsBrauer--T.3"
+   },
+   {
+    "ref": "mathlib:DualNumber.eps",
+    "module": "Mathlib/Algebra/DualNumber.lean",
+    "provides": "The element TrivSqZeroExt.inr 1 of DualNumber R; eps_mul_eps and eps_pow_two in the same file assert it squares to zero.",
+    "checked": "definition and square-zero statements read at the pinned commit (DualNumber.lean:50, 82), FIX-RT-BP-K2SymbolsBrauer--T.3"
+   },
+   {
+    "ref": "mathlib:IsLocalRing.ResidueField.map",
+    "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+    "provides": "A ring homomorphism between local rings induces a residue-field map only with an IsLocalHom instance; positivity of the valuation ramification index supplies that instance. map_residue is the compatibility used in its test.",
+    "checked": "map and map_residue statements read at the pinned commit (Basic.lean:96, 121), FIX-RT-BP-K2SymbolsBrauer--T.3"
+   },
+   {
+    "ref": "mathlib:Ideal.mul_mem_left",
+    "module": "Mathlib/RingTheory/Ideal/Defs.lean",
+    "provides": "If b ∈ I, then a*b ∈ I; derives the relative D3 pair witnesses from the entry-in-ideal guard.",
+    "checked": "statement read at the pinned commit (Defs.lean:61), FIX-RT-BP-K2SymbolsBrauer--T.3"
+   },
+   {
+    "ref": "mathlib:Ideal.mul_mem_right",
+    "module": "Mathlib/RingTheory/Ideal/Defs.lean",
+    "provides": "For a two-sided ideal and a ∈ I, a*b ∈ I; commutative-ring ideals have this instance. Derives the remaining relative D3 pair witnesses.",
+    "checked": "statement and commutative instance read at the pinned commit (Defs.lean:64), FIX-RT-BP-K2SymbolsBrauer--T.3"
    }
   ]
  },
@@ -669,6 +705,16 @@
      "name": "tameSymbol_place",
      "role": "compatibility",
      "statement": "For a place P of a function field, a uniformiser t at P and f with P.ord f = 0: tameSymbol P f t = Place.residueUnit P f."
+    },
+    {
+     "name": "TauCeti.TameSymbol.valuationSubringMap",
+     "role": "functoriality",
+     "statement": "For a field embedding F → E and discrete valuations with ord_w(f(r)) = e·ord_v(r), e ∈ ℕ, the restricted ring map 𝒪_v →+* 𝒪_w is defined without a finiteness assumption."
+    },
+    {
+     "name": "TauCeti.TameSymbol.residueFieldMap",
+     "role": "functoriality",
+     "statement": "For the same embedding, require he : 0 < e. The valuation-ring map is local, since ord_w(f(r)) > 0 iff ord_v(r) > 0 for r ≠ 0, and IsLocalRing.ResidueField.map yields k_v →+* k_w. No finite-dimensionality assumption is used."
     }
    ],
    "tests": [
@@ -696,6 +742,16 @@
      "name": "tameSymbol_not_kbook",
      "kind": "non-example",
      "statement": "tameSymbol 5 2 = 3 ≠ 2 = ∂_5(5,2) of Lemma III.6.3: a silent use of the source's formula fails this."
+    },
+    {
+     "name": "TauCeti.TameSymbol.residueFieldMap_residue",
+     "kind": "compatibility",
+     "statement": "For e > 0 and a ∈ 𝒪_v, residueFieldMap v w e he hvw (res_v a) = res_w (valuationSubringMap v w e hvw a)."
+    },
+    {
+     "name": "TauCeti.TameSymbol.residueFieldMap_requires_positive",
+     "kind": "non-example",
+     "statement": "For ℚ → ℚ(u) with w the u-adic valuation, ord_w is zero on every nonzero rational (e = 0). The 5-adic nonunit 5 maps to a unit of 𝒪_w, so the valuation-ring map is not local and no residue-field map F_5 → ℚ is asserted."
     }
    ],
    "planet": {
@@ -708,7 +764,8 @@
     "mathlib:ValuationSubring.unitGroupToResidueFieldUnits",
     "mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible",
     "tauceti:TauCeti.Place.residueUnit",
-    "mathlib:Units"
+    "mathlib:Units",
+    "mathlib:IsLocalRing.ResidueField.map"
    ],
    "library": {
     "module": "TauCeti/Algebra/KTheory/TameSymbol",
@@ -819,15 +876,15 @@
    "realises": [
     "K2SymbolsBrauer:T.3:symbols"
    ],
-   "title": "Behaviour under a finite extension: the ramification formula",
+   "title": "Behaviour under a valued field embedding: the ramification formula",
    "kind": "lemma",
-   "statement": "Let E/F be a finite extension, v a discrete valuation on F and w a discrete valuation on E lying over v, so that w(r) = e·v(r) for r ∈ F with e ≥ 1 the ramification index and k_v ⊆ k_w. Then tameSymbol w r₁ r₂ = (tameSymbol v r₁ r₂)^e in k_w^× for r₁, r₂ ∈ F^×; equivalently ∂_w ∘ res_{E/F} = (·)^e ∘ ∂_v on K^M_2(F). If w₁, …, w_n are the valuations of E over v (the primes of the integral closure S of R over 𝔪_v) and all e_i = 1, the diagonal k_v^× → ∏_i k_{w_i}^× carries ∂_v(x) to (∂_{w_i}(x))_i. The formula reads the same in the roadmap's and in the K-book's normalisation, both sides being inverted.",
+   "statement": "Let F → E be any field embedding, v and w normalised surjective discrete valuations with ord_w(f(r)) = e·ord_v(r) and e ≥ 1; the induced local map of valuation rings gives k_v → k_w. No finite-dimensionality assumption is needed. Then tameSymbol w r₁ r₂ = (tameSymbol v r₁ r₂)^e in k_w^× for r₁, r₂ ∈ F^×; equivalently ∂_w ∘ res_{E/F} = (·)^e ∘ ∂_v on K^M_2(F). For the finite-extension refinement only, if E/F is finite and w₁, …, w_n are the valuations of E over v (the primes of the integral closure S of R over 𝔪_v) and all e_i = 1, the diagonal k_v^× → ∏_i k_{w_i}^× carries ∂_v(x) to (∂_{w_i}(x))_i. The formula reads the same in the roadmap's and in the K-book's normalisation, both sides being inverted.",
    "hypotheses": [
-    "E is a finite extension of F; v is a discrete valuation on F and w a discrete valuation on E with w|_F = e·v, e ≥ 1.",
-    "For the unramified refinement: w₁, …, w_n are all the valuations of E over v and each e_i = 1."
+    "F → E is a field embedding; v and w are normalised surjective discrete valuations with ord_w(f(r)) = e·ord_v(r), e ≥ 1.",
+    "For the unramified refinement only: E/F is finite, w₁, …, w_n are all its valuations over v and each e_i = 1."
    ],
    "proofSteps": [
-    "From w|_F = e·v: ord_w(r) = e·ord_v(r) for r ∈ F^×; a unit of R is a unit of the valuation ring of w, and its residue in k_w is the image of its residue in k_v.",
+    "The order identity gives an inclusion 𝒪_v → 𝒪_w. Positivity e > 0 gives the equivalence of positive orders for nonzero elements, hence a local map and the residue-field embedding k_v → k_w; units stay units and their residues commute with this map. This argument uses no finite-dimensionality.",
     "By the uniformiser-free form (T.3/tame-symbol-uniformizer-independence): tameSymbol w r₁ r₂ = (−1)^{e²ab}·res_w(r₁^{eb}r₂^{−ea}) = ((−1)^{ab})^{e}·(res_v(r₁^{b}r₂^{−a}))^{e}, with a = ord_v r₁, b = ord_v r₂, using e² ≡ e (mod 2) for the sign.",
     "On K^M_2(F): both sides are homomorphisms (T.3/tame-symbol-hom and the functoriality of K^M_2 in K2SymbolsBrauer:T.2/milnor-k-theory) agreeing on symbols.",
     "The unramified refinement is the case e_i = 1 at each w_i, collected into the product."
@@ -836,7 +893,8 @@
     "ℚ ⊂ ℚ(√5), v 5-adic, w over 5 with e = 2 and k_w = F_5: tameSymbol w 5 5 = 1 = (−1)² and tameSymbol w 2 5 = 4 = 2².",
     "ℚ ⊂ ℚ(i) at 5 (5 splits, e₁ = e₂ = 1, residue fields F_5): both w_i give tameSymbol 2 5 = 2, the diagonal image of 2.",
     "The sign transforms uniformly because e² ≡ e (mod 2); no case split on the parity of e is needed.",
-    "The formula concerns classes from F; for classes of E the relevant statement is the norm–residue formula (T.3/transfer-and-norm-residue)."
+    "The formula concerns classes from F; for classes of E the relevant statement is the norm–residue formula (T.3/transfer-and-norm-residue).",
+    "Infinite example: ℚ → ℚ(u), v the 5-adic valuation and w its Gauss extension (minimum coefficient order), e = 1, k_w = F_5(u): ∂_w{2,5} = 2. The map with w the u-adic valuation instead has trivial restriction and is not this positive-e case."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
@@ -848,12 +906,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark III.6.3.1 (PDF p. 242)",
-     "match": "The ramification index."
+     "match": "The ramification index. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "Remark III.6.3.1 (PDF p. 242)",
-     "match": "The formula, stated in the source's normalisation; inverting both sides gives it in the roadmap's."
+     "match": "The formula, stated in the source's normalisation; inverting both sides gives it in the roadmap's. The embedding-general statement is derived here from the order/unit calculation, not quoted from the finite source."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1892,19 +1950,23 @@
    ],
    "title": "Ramification and the higher residue",
    "kind": "lemma",
-   "statement": "Let E/F be a finite extension and w a discrete valuation on E over v with ramification index e, so k_v ⊆ k_w. For x ∈ K^M_n(F): ∂_w(res_{E/F} x) = e·res_{k_w/k_v}(∂_v x) in K^M_{n−1}(k_w). In degree two this is T.3/ramification-formula. The statement reads the same in both normalisations, each side changing by (−1)^{n−1}. This is Exercise III.7.8, one of the elementary Milnor residue identities Kato's proof uses (with Exercises III.7.7 and III.7.9 and Corollary III.7.6.3); it is parented in T.4, before T.4/milnor-transfer-transitivity, and realises the ramification clause of T.3:localization-comparison.",
+   "statement": "Let F → E be any field embedding and v, w normalised surjective discrete valuations satisfying ord_w(f(r)) = e·ord_v(r), e ≥ 1, with the induced residue-field embedding k_v → k_w. No finite-dimensionality hypothesis is imposed. For x ∈ K^M_n(F): ∂_w(res_{E/F} x) = e·res_{k_w/k_v}(∂_v x) in K^M_{n−1}(k_w). In degree two this is T.3/ramification-formula. The statement reads the same in both normalisations, each side changing by (−1)^{n−1}. The finite-extension special case is Exercise III.7.8; the same elementary uniformiser/unit proof gives the stated embedding generalisation, one of the elementary Milnor residue identities Kato's proof uses (with Exercises III.7.7 and III.7.9 and Corollary III.7.6.3); it is parented in T.4, before T.4/milnor-transfer-transitivity, and realises the ramification clause of T.3:localization-comparison.",
    "hypotheses": [
-    "E is a finite extension of F; w is a discrete valuation on E with w|_F = e·v, e ≥ 1."
+    "F → E is an arbitrary field embedding, v and w are normalised surjective discrete valuations, ord_w(f(r)) = e·ord_v(r), and e ≥ 1. A valuation on E trivial on F is a separate case, not a positive-e extension of v."
    ],
    "proofSteps": [
-    "Choose uniformisers t for v and s for w; then t = c·s^e with c a unit of the valuation ring of w.",
+    "First construct the local valuation-ring map and residue-field embedding using e > 0 (T.3/tame-symbol, residueFieldMap). Choose uniformisers t for v and s for w; then f(t) = c·s^e with c a unit of the valuation ring of w. No step uses [E : F] or algebraicity.",
     "K^M_n(F) is generated by symbols {u_1, …, u_n} and {u_1, …, u_{n−1}, t} with u_i ∈ R^× (the generation step of T.3/serre-map-kernel).",
-    "∂_w{u_1, …, u_n} = 0 = e·∂_v{u_1, …, u_n}; and ∂_w{u_1, …, u_{n−1}, c s^e} = ∂_w{u_1, …, u_{n−1}, c} + e·∂_w{u_1, …, u_{n−1}, s} = 0 + e·{ū_1, …, ū_{n−1}} = e·res(∂_v{u_1, …, u_{n−1}, t})."
+    "∂_w{u_1, …, u_n} = 0 = e·∂_v{u_1, …, u_n}; and ∂_w{u_1, …, u_{n−1}, c s^e} = ∂_w{u_1, …, u_{n−1}, c} + e·∂_w{u_1, …, u_{n−1}, s} = 0 + e·{ū_1, …, ū_{n−1}} = e·res(∂_v{u_1, …, u_{n−1}, t}).",
+    "For a valuation w on E whose restriction to F is trivial, every f(a), a ∈ F^×, is a unit of 𝒪_w. The residue of each imported symbol vanishes by higher-milnor-residues (milnorResidue_symbol_units), and therefore ∂_w ∘ res = 0 on the whole Milnor group by generation. Do not construct a residue-field map for e = 0."
    ],
    "acceptance": [
     "n = 1: ord_w(r) = e·ord_v(r).",
     "n = 2: the e-th power formula of T.3/ramification-formula.",
-    "The residue fields enter only through res_{k_w/k_v}; the inertia degree does not appear."
+    "The residue fields enter only through res_{k_w/k_v}; the inertia degree does not appear.",
+    "Infinite constant extension F(t) → F(u)(t): at the place t, e = 1 and k_v = F → F(u) = k_w; ∂_w{a,t} is the image of a for a ∈ F^×. For F = ℚ and a = 2 this is 2, not its inverse.",
+    "Completion F → F̂_v has e = 1 and the same residue field, so the formula gives ∂_{v̂} ∘ res = ∂_v without requiring the completion to be finite over F.",
+    "Trivial-restriction case: the place t−u of F(u)(t) is trivial on F(t), because every nonzero polynomial p(t) ∈ F[t] has p(u) ≠ 0. Every imported Milnor symbol therefore has zero residue there."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.3/higher-milnor-residues",
@@ -1916,11 +1978,23 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "Ex. III.7.8 (PDF p. 265)",
-     "match": "The statement, left as an exercise in the source."
+     "match": "The statement, left as an exercise in the source. The arbitrary-embedding extension is derived by the displayed uniformiser/unit calculation; the printed exercise only assumes a finite extension."
     }
    ],
    "implementationStatus": "unchecked",
-   "addedBy": "REV-K2SymbolsBrauer--T.3"
+   "addedBy": "REV-K2SymbolsBrauer--T.3",
+   "tests": [
+    {
+     "name": "TauCeti.MilnorK.higher_ramification_infinite",
+     "kind": "compatibility",
+     "statement": "Instantiate higher_ramification_formula at ℚ → ℚ(u), the 5-adic valuation and its e = 1 Gauss extension: the residues commute in every degree, with k_w = F_5(u). The suggested instance has the actual RatFunc ℚ carrier and no FiniteDimensional hypothesis."
+    },
+    {
+     "name": "TauCeti.MilnorK.higher_residue_trivial_restriction",
+     "kind": "degenerate",
+     "statement": "For any field embedding F → E and surjective discrete w trivial on F^×, the residue of every imported symbol {a_1,…,a_{n+1}} is 0. In particular this applies to F(t) → F(u)(t) at t−u, which has no positive ramification index over a nontrivial place of F(t)."
+    }
+   ]
   },
   {
    "id": "K2SymbolsBrauer:T.4/bass-tate-sequence",
@@ -2651,13 +2725,14 @@
    "proofSteps": [
     "The identity is the defining relation −∂_∞ = Σ_π N_π ∂_π of T.4/simple-transfer; the generator t̄ of F[t]/(π) is fixed, so no independence of generators is used.",
     "Finiteness: a symbol has nonzero residue only at the places dividing a numerator or denominator of an entry, and at ∞.",
-    "Degree two: N_π is the field norm (T.4/transfer-low-degrees) and the degree-two residue is the inverse of the roadmap's tame symbol; the product form follows.",
+    "Degree two: N_π is the field norm (T.4/transfer-low-degrees) and the degree-two residue equals the roadmap's tame symbol; the product form follows.",
     "Record the source's independent check in degree two: extend scalars to an algebraic closure, where K_2 F̄(t) is generated modulo K_2(F̄) by the symbols {a, t − b}, with (a, t − b)_∞ = a and ∂_{t−b}(a, t − b) = a^{−1}."
    ],
    "acceptance": [
     "For {a, t − b} the factor at ∞ is a and the factor at t − b is a^{−1} (K-book normalisation); all other factors are 1.",
     "The place at infinity is needed: over ℚ, {2, t} has factor 1/2 at the place t and 2 at ∞ (K-book normalisation), so the finite places alone do not give 1.",
-    "In degree one (n = 0) it says that a principal divisor on the projective line has degree zero, Σ_v deg(v)·ord_v(f) = 0."
+    "In degree one (n = 0) it says that a principal divisor on the projective line has degree zero, Σ_v deg(v)·ord_v(f) = 0.",
+    "Roadmap convention check at 5 over ℚ: both the degree-two higher residue and tameSymbol send {2,5} to 2 in F_5^×; its inverse is 3. Only the separately named K-book residue is inverse."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.4/simple-transfer",
@@ -2834,13 +2909,15 @@
    ],
    "proofSteps": [
     "Choose y ∈ K^M_{n+1}F(t) with ∂_π(y) = x and no other finite residue (T.4/bass-tate-sequence).",
-    "Its image y′ in K^M_{n+1}F′(t) has ∂_{π_i}(y′) = e_i·res_i(x) by the higher ramification formula (the place of π_i restricts to e_i times the place of π; T.3/higher-ramification-formula), zero residue at every other finite place of F′(t), and ∂_∞(y′) = res ∂_∞(y), since ∞ is unramified with residue field F ⊂ F′.",
+    "Along the constant-extension embedding F(t) → F′(t), a finite place w with nontrivial restriction to F(t) lies over a finite π′ with positive index e_w; by the embedding-general higher ramification formula (T.3/higher-ramification-formula), its residue is e_w times the image of ∂_{π′}(y). Hence at each factor π_i of π it is e_i·res_i(x), and at other such finite places it is zero. A finite place w restricting trivially to F(t) makes every imported nonzero entry a unit, so ∂_w(y′) = 0 by milnorResidue_symbol_units and generation; no e = 0 residue-field map is used. Infinity has index 1 with residue embedding F → F′, so ∂_∞(y′) = res ∂_∞(y). This includes transcendental constant extensions and completions.",
     "Apply the computation formula of T.4/simple-transfer over F′ to y′."
    ],
    "acceptance": [
     "In degree zero it is deg π = Σ_i e_i·deg π_i.",
     "If π stays irreducible over F′, it says res ∘ N_{a/F} = N_{a/F′} ∘ res.",
-    "For F′ = E and E/F normal it expresses res_{E/F} ∘ N_{a/F} as a sum over the conjugates of a, which is what Lemma III.7.6.2 uses."
+    "For F′ = E and E/F normal it expresses res_{E/F} ∘ N_{a/F} as a sum over the conjugates of a, which is what Lemma III.7.6.2 uses.",
+    "For F′ = F(u) transcendental and π = t²−2 over F = ℚ, π remains irreducible and the residue/transfer comparison is available without finite-dimensionality of F′(t)/F(t). The extra place t−u has trivial restriction and zero residue on imported classes.",
+    "For F′ = F̂_v, use the e = 1 residue comparison for completion; F̂_v/F need not be finite. This preserves the completion input required by Exercise III.7.9 and sourceIssue E10."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.4/simple-transfer",
@@ -4083,17 +4160,22 @@
    ],
    "proofSteps": [
     "Generators: the symbols with s ∈ I are the relative symbols of K2SymbolsBrauer:T.6/relative-steinberg-group; those with r ∈ I are the words of ((0, r), (s, 0)) in St(R ⊕ I), whose image under pr is ⟨0, s⟩ = 1.",
-    "The relations hold in K₂(R, I): the relative form of K2SymbolsBrauer:T.6/dennis-stein-relations, which the source states in the parenthesis after (D3).",
+    "The relations hold in K₂(R, I): use the relative form of T.6/dennis-stein-relations. In D3 require hI3 : r ∈ I ∨ s ∈ I ∨ t ∈ I, as III.5.11.1(b) does. Derive the three pair-membership witnesses by ideal closure; their admissibility alone is not a hypothesis permitting D3. For quotient descent, check D1 and D2 as before and split D3 on hI3, using D1 to swap ideal entries where needed. This checks only the source-allowed relation set; completeness remains the cited-source gap.",
     "Completeness of the relations: cite Theorem III.5.11.1(b); the proof (Keune [103]; Maazen–Stienstra) was not obtained and is recorded as a gap."
    ],
    "acceptance": [
     "For I = 0 the presentation gives the trivial group.",
     "For I² = 0 it specialises to K2SymbolsBrauer:T.6/relative-square-zero.",
-    "It is asserted only for a radical ideal of a commutative ring."
+    "It is asserted only for a radical ideal of a commutative ring.",
+    "Non-example: R = F_3[x,y]/(x²,y²), z = xy, I = (z), r = x, s = y, t = x+y. Here I² = 0 and I lies in the Jacobson radical; rs = st = tr = z but no entry is in I, so this triple is not admitted as relative D3. In the differential detector I ⊗_R Ω¹_{(R/I)/ℤ} ≅ F_3², ⟨x,z⟩−⟨z,x+y⟩−⟨z,y⟩ has image (1,1), not 0."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.6/relative-steinberg-group",
-    "K2SymbolsBrauer:T.6/dennis-stein-relations"
+    "K2SymbolsBrauer:T.6/dennis-stein-relations",
+    "mathlib:DualNumber",
+    "mathlib:DualNumber.eps",
+    "mathlib:Ideal.mul_mem_left",
+    "mathlib:Ideal.mul_mem_right"
    ],
    "sources": [
     {
@@ -4105,10 +4187,54 @@
      "sourceId": "Kbook.2013",
      "locator": "III.5.11 (PDF p. 234)",
      "match": "The attribution; the source gives no proof. [103] is F. Keune, The relativization of K2, J. Algebra 54 (1978), 159–177."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "Exercise III.5.14(a), PDF p. 237 (printed p. 229)",
+     "match": "Primary-source differential detector δ⟨i,a⟩ = i⊗dā for the relative-D3 non-example; the F_3² tensor calculation and exhaustive finite-ring checks are derived here, not quoted as a worked example from the source."
     }
    ],
    "implementationStatus": "unchecked",
-   "addedBy": "REV-K2SymbolsBrauer--T.3"
+   "addedBy": "REV-K2SymbolsBrauer--T.3",
+   "api": [
+    {
+     "name": "TauCeti.K2.RelDSGen",
+     "role": "data",
+     "statement": "The subtype of R × R with at least one entry in I."
+    },
+    {
+     "name": "TauCeti.K2.relDSRel",
+     "role": "relation",
+     "statement": "D1 and D2 on relative generators and D3 only for r ∈ I ∨ s ∈ I ∨ t ∈ I. The three generator witnesses for D3 are derived from that entry condition, never used as a weaker substitute."
+    },
+    {
+     "name": "TauCeti.K2.relDennisSteinGroup",
+     "role": "data",
+     "statement": "FreeAbelianGroup (RelDSGen I) modulo AddSubgroup.closure (relDSRel I), with the guarded D3 set."
+    },
+    {
+     "name": "TauCeti.K2.relDennisSteinGroup.toRelK2",
+     "role": "compatibility",
+     "statement": "For I ≤ Ideal.jacobson ⊥, the relative generator map descends through exactly the source-allowed D1–D3 relations. Bijectivity is relative_presentation; its cited completeness proof remains unobtained."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.K2.relative_D3_guard",
+     "kind": "non-example",
+     "statement": "On the actual ring DualNumber (DualNumber (ZMod 3)), let x be the inner epsilon, y the outer epsilon and I = (xy). The three D3 pairs for (x,y,x+y) are admissible but x, y and x+y are outside I; the corrected D3 clause rejects the triple."
+    },
+    {
+     "name": "TauCeti.K2.relative_D3_detector",
+     "kind": "computation",
+     "statement": "For the same ring/ideal, in the basis xy⊗dx, xy⊗dy of I ⊗_R Ω¹_{(R/I)/ℤ}, δ⟨x,xy⟩ = (2,0), δ⟨xy,x+y⟩ = (1,1), δ⟨xy,y⟩ = (0,1). The extra D3 defect is (1,1) ≠ 0; all source-allowed D1/D2/D3 defects vanish."
+    },
+    {
+     "name": "TauCeti.K2.relative_presentation_bot",
+     "kind": "degenerate",
+     "statement": "For I = ⊥, relDennisSteinGroup I and relative K₂ are trivial; the guarded quotient has no spurious nonzero generators."
+    }
+   ]
   },
   {
    "id": "K2SymbolsBrauer:T.7/symbol-formula",
@@ -4437,20 +4563,20 @@
    ],
    "title": "The Hilbert symbol as a Steinberg symbol",
    "kind": "construction",
-   "statement": "For a nonarchimedean local field F in which 2 is invertible, the source's Hilbert symbol c_F(r, s) ∈ {±1}, which is +1 exactly when rx² + sy² = 1 has a solution in F, equals the Hilbert symbol hilbertSymbol r s of QuadraticFormInvariants Layer 6C (+1 exactly when s = x² − ry² is solvable), which that layer defines and proves bimultiplicative and symmetric. It satisfies c_F(r, 1 − r) = 1 (x = y = 1), so by Matsumoto's theorem it defines a Steinberg symbol K₂(F) → {±1}. For F = ℝ, c_ℝ is the sign symbol. The definition makes sense over any field of characteristic different from 2 but is not bilinear there, and no Steinberg symbol is claimed.",
+   "statement": "For unit arguments r, s ∈ F^× and a nonarchimedean local field F in which 2 is invertible, the source's Hilbert symbol c_F(r, s) ∈ {±1}, which is +1 exactly when rx² + sy² = 1 has a solution in F, equals the Hilbert symbol hilbertSymbol r s of QuadraticFormInvariants Layer 6C (+1 exactly when s = x² − ry² is solvable), which that layer defines and proves bimultiplicative and symmetric. It satisfies c_F(r, 1 − r) = 1 (x = y = 1), so by Matsumoto's theorem it defines a Steinberg symbol K₂(F) → {±1}. For F = ℝ and r, s ∈ ℝ^×, c_ℝ is the sign symbol. The total auxiliary conicSymbol allows all field elements, but its value at (0,0) is −1 and is not governed by the strict-negative Hilbert criterion. The definition makes sense over any field of characteristic different from 2 but is not bilinear there, and no Steinberg symbol is claimed.",
    "hypotheses": [
-    "F is a nonarchimedean local field with 2 invertible; for the real comparison, F = ℝ."
+    "F is a nonarchimedean local field with 2 invertible; for the real comparison, F = ℝ. The Hilbert/Steinberg comparisons require unit inputs (equivalently nonzero field elements); the total conic helper is not a symbol on all field elements."
    ],
    "proofSteps": [
     "Show c_F(r, s) = hilbertSymbol r s: both say that the ternary form rX² + sY² − Z², equivalently X² − rY² − sZ² up to the factor −1, is isotropic. A solution of rx² + sy² = 1 is an isotropic vector with Z = 1, and an isotropic vector with Z = 0 makes ⟨r, s⟩ hyperbolic, so that it represents 1; s = x² − ry² is the same statement for the second form.",
     "Import bimultiplicativity and symmetry from QuadraticFormInvariants Layer 6C (its milestones 3 and 5), in place of the O'Meara citation of the source.",
     "Steinberg identity: x = y = 1 solves rx² + (1 − r)y² = 1.",
     "Descend to K₂(F) → {±1} through Matsumoto's theorem (K2SymbolsBrauer:T.2/matsumoto).",
-    "For F = ℝ, rx² + sy² = 1 is solvable unless r < 0 and s < 0, so c_ℝ is the sign symbol (K-book Example III.6.2.1), which is a Steinberg symbol because x and 1 − x are never both negative. The same map is constructed as K2SymbolsBrauer:T.5/real-sign-symbol, the lower bound for K₂(ℤ); it is not imported from there. Contrary to an earlier revision of this node, no stage cycle forbids importing it: with the edges proposed for RT-AREA-ktheory-1 both T.5 → T.7 and T.7 → T.5 are acyclic, so the choice of the owner of the real sign symbol is left to the maintainer; the test hilbertSymbol_real checks that the two maps agree."
+    "For F = ℝ and nonzero r, s, rx² + sy² = 1 is solvable unless r < 0 and s < 0, so c_ℝ is the sign symbol (K-book Example III.6.2.1), which is a Steinberg symbol because x and 1 − x are never both negative. The same map is constructed as K2SymbolsBrauer:T.5/real-sign-symbol, the lower bound for K₂(ℤ); it is not imported from there. Contrary to an earlier revision of this node, no stage cycle forbids importing it: with the edges proposed for RT-AREA-ktheory-1 both T.5 → T.7 and T.7 → T.5 are acyclic, so the choice of the owner of the real sign symbol is left to the maintainer; the test hilbertSymbol_real checks that the two maps agree."
    ],
    "acceptance": [
     "c_{ℚ₂}(−1, −1) = −1.",
-    "c_ℝ is the sign symbol.",
+    "On ℝ^× × ℝ^×, c_ℝ is the sign symbol; the zero-input total helper is a separate non-example.",
     "Over ℚ the conic definition is not bilinear."
    ],
    "uses": [
@@ -4467,7 +4593,7 @@
     {
      "name": "TauCeti.NormResidueSymbol.hilbertSymbol_eq_one_iff_conic",
      "role": "characterisation",
-     "statement": "hilbertSymbol r s = 1 ↔ ∃ x y : F, r x² + s y² = 1."
+     "statement": "For r, s ∈ F^×, hilbertSymbol r s = 1 ↔ ∃ x y : F, r x² + s y² = 1."
     },
     {
      "name": "TauCeti.NormResidueSymbol.hilbertK2",
@@ -4482,7 +4608,7 @@
     {
      "name": "TauCeti.NormResidueSymbol.hilbertK2_real",
      "role": "compatibility",
-     "statement": "Over ℝ, outside the local-field hypotheses of hilbertK2, the conic symbol c_ℝ is the Steinberg symbol with value −1 exactly when both entries are negative."
+     "statement": "For r, s ∈ ℝ^×, outside the nonarchimedean local-field hypotheses of hilbertK2, the conic symbol agrees with the real Steinberg sign: value −1 exactly when both unit entries are negative."
     },
     {
      "name": "TauCeti.NormResidueSymbol.hilbertK2_eq_normResidueK2",
@@ -4499,7 +4625,7 @@
     {
      "name": "TauCeti.NormResidueSymbol.hilbertSymbol_real",
      "kind": "compatibility",
-     "statement": "c_ℝ(r, s) = −1 exactly when r < 0 and s < 0: it is the sign symbol of K-book Example III.6.2.1, the same map as the sign symbol of K2SymbolsBrauer:T.5/real-sign-symbol."
+     "statement": "For r, s ∈ ℝ^×, c_ℝ(r, s) = −1 exactly when (r : ℝ) < 0 and (s : ℝ) < 0: it is the sign symbol of K-book Example III.6.2.1, agreeing with T.5/real-sign-symbol. Zero inputs are excluded."
     },
     {
      "name": "TauCeti.NormResidueSymbol.hilbertSymbol_eq_qfi",
@@ -4515,6 +4641,11 @@
      "name": "TauCeti.NormResidueSymbol.conicSymbol_Q_not_bilinear",
      "kind": "non-example",
      "statement": "Over ℚ, c_ℚ(3, −1) = c_ℚ(7, −1) = c_ℚ(21, −1) = −1: clearing denominators, 3a² = b² + c², 7a² = b² + c² and 21a² = b² + c² force b and c to be divisible by 3, 7 and 3 respectively (−1 is not a square modulo 3 or 7), and then a as well. So c_ℚ(21, −1) ≠ c_ℚ(3, −1) c_ℚ(7, −1), and the local-field hypothesis cannot be dropped."
+    },
+    {
+     "name": "TauCeti.NormResidueSymbol.conicSymbol_zero_not_hilbert",
+     "kind": "non-example",
+     "statement": "The total helper has conicSymbol ℝ 0 0 = −1, while ¬(0 < 0 ∧ 0 < 0). Thus its strict-negative comparison cannot be extended to arbitrary real inputs; the all-real no-solution criterion would use nonpositivity."
     }
    ],
    "prerequisites": [
@@ -4715,14 +4846,15 @@
     "The local symbols define a homomorphism K₂(F) → ⊕_v μ_m(F): each is a Steinberg symbol (classical-local-symbols; the constant 1 symbol for m = 1, the sign symbol for m = 2 at the real places), and (a, b)_v = 1 at every finite v not dividing m at which a and b are units, because the Kummer extension of F_v generated by an m-th root of a unit is unramified and units are norms from unramified extensions (ClassFieldTheory Layer 6); only finitely many v divide m or have v(a) ≠ 0 or v(b) ≠ 0 (mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite). Symbols generate K₂(F) (K2SymbolsBrauer:T.2/matsumoto).",
     "(a): import the m-th power Hilbert reciprocity law ∏_v (a, b)_v = 1 from ClassicalArithmeticCompletion:CA.1, read in the normalisation of classical-local-symbols (if CA.1 fixes the opposite variable order, every local factor is inverted and the product formula is unchanged); for m = 2 it is ClassFieldTheory Layer 14's hilbertProductFormula, translated into signs by QuadraticFormInvariants 6E; extend from symbols to K₂(F) by multiplicativity.",
     "(b): β_ζ(x) ∈ Br(F) (brauer-valued-symbol), its restrictions to the completions are the local Brauer-valued symbols because restriction commutes with Kummer classes and the cup product (ProfiniteCohomology Layers 6 and 8), and ClassFieldTheory Layer 10's sumLocalInv_eq_zero gives Σ_v inv_v = 0.",
-    "(c): by local-comparison, (x)_v = ζ^{ε·m·inv_v(res_v β_ζ(x))} at each finite place, and the real places match through Layer 10's archimedean invariant; so ∏_v (x)_v = ζ^{ε·m·Σ_v inv_v}, and (a) and (b) are equivalent. This rests on local-comparison, whose proof is a gap.",
+    "For m = 1, μ_1 is trivial, β_1 = 0 and every factor (including the real factors) is 1, independently of the unresolved local-comparison sign. For m = 2, the real quadratic sign agrees with Layer 10's archimedean invariant; for m > 2 a primitive m-th root cannot embed in ℝ, so there are no real places. At finite places use local-comparison, reading the invariant through the coordinate map (ℚ/ℤ)[m] ≅ ZMod m, [a/m] ↦ a (not multiplication by m inside ℚ/ℤ), and the named ζ and sign ε. The resulting product/sum compatibility still rests on the recorded local-comparison source gap.",
     "Check m = 2 and F = ℚ against Ex. III.6.8."
    ],
    "acceptance": [
     "(x)_v = 1 for almost all v, and ∏_v (x)_v = 1.",
     "For m = 2 and F = ℚ: (r, s)_∞ (r, s)_2 ∏_{p odd} (r, s)_p = +1 (K-book Ex. III.6.8), which is ClassFieldTheory Layer 14's quadratic reciprocity.",
     "No reciprocity law is proved here: the m-th power law is CA.1's, the quadratic law is ClassFieldTheory Layer 14's, and the vanishing of the sum of invariants is Layer 10's; T.7 contributes the statement on K₂(F) and the compatibility (c).",
-    "m = 1, F = ℚ, x = {−1, −1}: every factor is 1, including the real place. An unconditional quadratic real factor would incorrectly make the product −1."
+    "m = 1, F = ℚ, x = {−1, −1}: every factor is 1, including the real place. An unconditional quadratic real factor would incorrectly make the product −1.",
+    "m = 2, F = ℚ, x = {−1,−1}: the real factor and the dyadic factor are each −1 and cancel; each odd-prime factor is 1. This is not the m = 1 law."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.7/local-comparison",
@@ -4730,7 +4862,8 @@
     "K2SymbolsBrauer:T.7/classical-local-symbols",
     "K2SymbolsBrauer:T.2/matsumoto",
     "ClassicalArithmeticCompletion:CA.1",
-    "mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite"
+    "mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite",
+    "mathlib:rootsOfUnity_one"
    ],
    "sources": [
     {
@@ -4740,7 +4873,19 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "addedBy": "REV-K2SymbolsBrauer--T.3"
+   "addedBy": "REV-K2SymbolsBrauer--T.3",
+   "tests": [
+    {
+     "name": "TauCeti.NormResidueSymbol.global_reciprocity_one",
+     "kind": "degenerate",
+     "statement": "For m = 1, every finite-place family c valued in rootsOfUnity 1 F is identically 1 and has empty multiplicative support; the conditional real product is also 1. Instantiate the whole corrected law at F = ℚ, a = b = −1."
+    },
+    {
+     "name": "TauCeti.NormResidueSymbol.global_reciprocity_two_real_dyadic",
+     "kind": "computation",
+     "statement": "For F = ℚ, m = 2 and {−1,−1}, conicSymbol ℝ (−1) (−1) = −1, conicSymbol ℚ_2 (−1) (−1) = −1, and their product is 1; at odd p both entries are units and the quadratic factor is 1."
+    }
+   ]
   },
   {
    "id": "K2SymbolsBrauer:T.7/chern-class-agreement",
