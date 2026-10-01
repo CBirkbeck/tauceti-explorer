@@ -88,6 +88,7 @@ Output packet: {OUTPUT} (set "part": {PART}).
 If {OUTPUT} already exists from an earlier attempt, read it and continue: keep what is right, extend what is missing, and do not start over.
 {EXTRA}
 <<HANDED-FINDINGS>>
+<<HANDED-KEYDEFS>>
 """ + COMMON_INPUTS + "\n\n" + METHOD
 
 DESIGN_TEMPLATE = HEADER + """
@@ -99,6 +100,7 @@ Step 1. Write the roadmap definition research/blueprint/roadmaps/{ROADMAP}.json 
 Step 2. Write the blueprint packet {OUTPUT} covering every stage of the new roadmap ("part": null), following the method below. The roadmap definition may be revised while you write the packet; keep both consistent.
 If either file already exists from an earlier attempt, continue from it.
 <<HANDED-FINDINGS>>
+<<HANDED-KEYDEFS>>
 """ + COMMON_INPUTS + "\n\n" + METHOD
 
 PAPER_TEMPLATE = HEADER + """
@@ -211,7 +213,7 @@ If {OUTPUT} already exists from an earlier attempt, read it and continue: keep w
    - what to define, with the conventions pinned;
    - what Mathlib and Tau Ceti have and what is missing, read at the pinned commits (search {BASELINE}/declarations.tsv, then open the Lean file and read the statement);
    - the papers that need it, with their items;
-   - the layers that own it;
+   - the layers that own it; for one no layer plans, `plannedBy` may name the roadmap that should plan it, where the default rule of section 19 would choose badly;
    - the key definitions it depends on, in any area;
    - its size;
    - at least five sample API statements: worked examples with their values, a counterexample showing that a hypothesis or distinction matters, and the theorems the definition exists to support. A plausible wrong definition must fail one of them.
@@ -241,7 +243,7 @@ JOB: review the key-definition survey {OUTPUT} of the area "{LABEL}" ({AREA}){PA
 1. For every entry, check the five criteria of section 19. Open the cited catalogue items (data/items/<n>.json), confirm that each is an instance of the notion and that the paper count is right, and search the catalogue (data/items/index.json) for papers it missed.
 2. Read every declaration behind a library claim at the pinned commits ({BASELINE}/declarations.tsv, then the Lean file), and search for declarations the survey missed: a notion the libraries already have is not a key definition.
 3. Check each sample API statement. It must be true as stated, and do the discriminating job it claims: a counterexample really fails for the plausible wrong definition, and an example's value is right.
-4. Check the owners, dependencies and sizes against the atlas (data/atlas.json, research/blueprint/roadmaps/) and the other surveys (research/blueprint/keydefs/, data/keydefs/).
+4. Check the owners, dependencies and sizes against the atlas (data/atlas.json, research/blueprint/roadmaps/) and the other surveys (research/blueprint/keydefs/, data/keydefs/). For a key definition no layer plans, check who will plan it (section 19, research/blueprint/keydefs/owners.json), and set `plannedBy` where that choice is wrong.
 5. Check the reserve and routine decisions, and add any key definition of the input that the survey missed, with its full entry.
 6. Correct {OUTPUT} and {REPORT} in place where the fix is clear. Run `python3 scripts/check_keydefs.py {OUTPUT}` until it reports no errors, then write into {OUTPUT}: "review": {{"status": "accepted" | "needs_changes" | "rejected", "reviewer": "independent-review-{JOB}", "date": "<YYYY-MM-DD>", "notes": "what you checked, what you corrected and what remains"}}. Accept only a survey whose every entry meets the criteria.
 7. Write your report to research/blueprint/reviews/{JOB}.md.
@@ -296,6 +298,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
 9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
 <<HANDED-FINDINGS-REVIEW>>
+<<HANDED-KEYDEFS-REVIEW>>
 Then add a top-level "review" object to each packet:
 {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected>", "checked": [{{"nodeId": "...", "verdict": "verified|corrected|added|unverifiable", "note": "..."}}]}}
 Use "accepted" only when all of the following hold:
@@ -534,6 +537,137 @@ def keydef_slices(stages, galaxy_of, new_roadmaps, areas, root=REPO):
                                      "statement": item.get("statement", ""), "status": item.get("status"),
                                      "planned": item.get("planned") or [], "owner": owner, "layer": layer})
     return slices
+
+
+def promoted_keydefs(root=REPO):
+    """[(survey file, entry)] for every key definition of the promoted surveys (data/keydefs/)."""
+    found = []
+    for path in sorted((root / "data" / "keydefs").glob("KEYDEF-*.json")):
+        try:
+            survey = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        found += [(str(path.relative_to(root)), entry) for entry in survey.get("definitions") or [] if isinstance(entry, dict)]
+    return found
+
+
+def route_job(route, by_id):
+    """The job that plans what a paper route sends, or None: the blueprint of a source route's layers,
+    the one design of every Part II of the same parent (paper_designs), or the design of a new roadmap."""
+    if route.get("route") == "part-ii":
+        base = str(route.get("parent", "")).split("/")[-1].split(":")[-1]
+        return next(("DESIGN-" + rid for rid in (base + "PartIII", base + "PartII") if "DESIGN-" + rid in by_id), None)
+    rid = str(route.get("roadmap", ""))
+    if route.get("route") != "new":
+        stages = set(route.get("stages") or [])
+        parts = sorted((j for j in by_id.values() if j["kind"] == "blueprint" and rid in (j.get("roadmapIds") or [])),
+                       key=lambda j: (j.get("order", 0), j["id"]))
+        if parts:
+            return next((j["id"] for j in parts if stages & set(j.get("scope") or [])), parts[0]["id"])
+    return "DESIGN-" + rid if "DESIGN-" + rid in by_id else None
+
+
+def keydef_owners(entries, routes, jobs, states, suppliers_of, titles):
+    """{key definition id: assignment} for each promoted key definition that no layer plans (PROTOCOL.md section 19).
+
+    Its owner is one queued job that plans it once, as generally as all its uses need: the roadmap its
+    survey names in `plannedBy`, else, among the queued jobs its catalogue items are routed to, the most
+    foundational (the one whose roadmap supplies most of the others), then the one receiving most items.
+    The other queued jobs receiving its items cite it under a reserved node id. Owner None: no queued job
+    receives any of its items, which the maintainer must route.
+    entries: [(survey file, entry)]; routes: {catalogue item: accepted paper route};
+    suppliers_of: {roadmap: its suppliers, transitively}; titles: {roadmap id: title} of the atlas's roadmaps."""
+    by_id = {j["id"]: j for j in jobs}
+
+    def live(jid):
+        return jid in by_id and by_id[jid]["kind"] in ("blueprint", "design") and states.get(jid, by_id[jid].get("state", "pending")) == "pending"
+
+    def roadmap(jid):
+        return (by_id[jid].get("roadmapIds") or [None])[0]
+
+    def parent(jid):
+        """The roadmap a Part II (or III) design continues, by paper_designs' naming."""
+        rid = roadmap(jid) or ""
+        for suffix in ("PartIII", "PartII"):
+            if by_id[jid]["kind"] == "design" and rid.endswith(suffix):
+                base = rid[:-len(suffix)]
+                return next((r for r in sorted(titles) if r.split("/")[-1].split(":")[-1] == base), None)
+        return None
+
+    def ancestors(jid):
+        found = set(suppliers_of.get(roadmap(jid), ()))
+        if parent(jid):
+            found |= {parent(jid)} | set(suppliers_of.get(parent(jid), ()))
+        return found
+
+    def supplies(a, b):
+        return by_id[a]["kind"] == "blueprint" and roadmap(a) != roadmap(b) and roadmap(a) in ancestors(b)
+
+    assigned = {}
+    for where, entry in entries:
+        if entry.get("owners") or not entry.get("id"):
+            continue
+        counts, unrouted = Counter(), 0
+        for paper in entry.get("papers") or []:
+            for item in (paper.get("items") or []) if isinstance(paper, dict) else []:
+                job = route_job(routes[item], by_id) if item in routes else None
+                if job and live(job):
+                    counts[job] += 1
+                else:
+                    unrouted += 1
+        owner, reason = None, "no queued job receives its items"
+        named = entry.get("plannedBy")
+        if named:
+            options = [jid for jid in sorted(by_id) if live(jid) and roadmap(jid) == named]
+            owner = max(options, key=lambda jid: (counts.get(jid, 0), -by_id[jid].get("order", 0)), default=None)
+            reason = f"its survey names {named}" if owner else f"its survey names {named}, which has no queued job"
+        elif counts:
+            def rank(jid):
+                return (sum(supplies(jid, other) for other in counts if other != jid), counts[jid],
+                        by_id[jid]["kind"] == "blueprint", -by_id[jid].get("order", 0), jid)
+            owner = max(counts, key=rank)
+            reason = ("its items go to this job only" if len(counts) == 1 else
+                      f"the most foundational of the {len(counts)} queued jobs its items go to" if rank(owner)[0] else
+                      f"most of its items go here, of the {len(counts)} queued jobs they go to")
+        slug = entry["id"].split("/", 1)[-1]
+        rid = roadmap(owner) if owner else None
+        title = re.sub(r"^Roadmap:\s*", "", titles.get(rid) or by_id[owner].get("name") or rid, flags=re.I) if owner else None
+        assigned[entry["id"]] = {
+            "name": entry.get("name", entry["id"]), "survey": where, "owner": owner, "roadmap": rid, "title": title,
+            "reserved": f"{roadmap(owner)}:key/{slug}" if owner else None, "reason": reason,
+            "importers": sorted(jid for jid in counts if jid != owner), "items": sum(counts.values()), "unrouted": unrouted}
+    return assigned
+
+
+KEYDEF_HANDED_ENTRY = 2400
+
+
+def handed_keydefs_text(owned, cited, entries):
+    """The prompt section of a blueprint or design job: the key definitions it owns, and those it cites from their owners."""
+    if not owned and not cited:
+        return ""
+    by_id = {entry["id"]: (where, entry) for where, entry in entries}
+    out = []
+    if owned:
+        out.append("Key definitions this roadmap owns (PROTOCOL.md section 19). The atlas's key-definition surveys found these notions, which "
+                   "several papers need and no layer plans yet, and this job is their owner. Plan each once, as generally as all its uses need, "
+                   "not only the special case your sources state: as nodes of the layers where it belongs, the main node with exactly the "
+                   "reserved id given, or, if no layer fits, with a `restructure` proposal for a new layer. Its sample API becomes unit tests "
+                   "and API items of that node. Other jobs that receive its items cite the reserved id. Say in the handoff note how each was planned.")
+        for kid in owned:
+            where, entry = by_id[kid]
+            papers = ", ".join(paper.get("paper", "") for paper in entry.get("papers") or [] if isinstance(paper, dict))
+            api = " ".join(f"({item.get('kind')}) {item.get('statement', '')}" for item in entry.get("api") or [] if isinstance(item, dict))
+            line = (f"- {entry['name']}: reserved node id `{owned[kid]['reserved']}`; the full entry is {kid} in {where}. "
+                    f"What to define: {entry.get('define', '')} Papers needing it: {papers}. Sample API: {api}")
+            out.append(line if len(line) <= KEYDEF_HANDED_ENTRY else line[:KEYDEF_HANDED_ENTRY].rsplit(" ", 1)[0] + f" … (the rest is in {where})")
+    if cited:
+        out.append("Key definitions planned elsewhere (PROTOCOL.md section 19). Some of your sources' items are instances of key definitions "
+                   "that another roadmap owns. Cite the reserved node id as the prerequisite (it is listed in research/blueprint/reserved-ids.json) "
+                   "and plan here only what your use adds.")
+        for kid in cited:
+            out.append(f"- {cited[kid]['name']}: reserved node id `{cited[kid]['reserved']}`, planned by {cited[kid]['owner']} ({cited[kid]['roadmap']}).")
+    return "\n".join(out) + "\n"
 
 
 def keydef_parts(items, size=KEYDEF_PART):
@@ -1557,6 +1691,43 @@ def main():
              "outputs": [f"research/blueprint/reviews/REV-{errata}.md"] + files, "after": [errata], "avoidAccountOf": errata},
             ERRATA_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + errata, **fields))
 
+    # Key definitions no layer plans (PROTOCOL.md section 19) go to one owner each, among the queued jobs
+    # their items are routed to; the owner plans the definition under a reserved node id, and the other
+    # jobs that receive its items cite that id.
+    supply = defaultdict(set)
+    for a, b in edges:
+        supply[b].add(a)
+    suppliers_of = {}
+    for rid in roadmaps:
+        found, stack = set(), list(supply.get(rid, ()))
+        while stack:
+            r = stack.pop()
+            if r not in found:
+                found.add(r)
+                stack.extend(supply.get(r, ()))
+        suppliers_of[rid] = found
+    item_routes = {}
+    for path in sorted((BP / "papers").glob("PAPER-*.result.json")):
+        for route in accepted_routes(path.name[:-len(".result.json")]):
+            for item in route.get("items") or []:
+                item_routes.setdefault(item, route)
+    key_entries = promoted_keydefs()
+    owned_by = keydef_owners(key_entries, item_routes, jobs, states, suppliers_of, {rid: r.get("title", rid) for rid, r in roadmaps.items()})
+    keydefs_owned, keydefs_cited = defaultdict(dict), defaultdict(dict)
+    for kid, assignment in owned_by.items():
+        if assignment["owner"]:
+            keydefs_owned[assignment["owner"]][kid] = assignment
+            RESERVED.setdefault(assignment["reserved"], (assignment["owner"], f"{assignment['name']}: the key definition {kid}, "
+                                                         f"planned once, as generally as all its uses need (PROTOCOL.md section 19)."))
+            for importer in assignment["importers"]:
+                keydefs_cited[importer][kid] = assignment
+    if not args.dry_run:
+        (BP / "keydefs").mkdir(exist_ok=True)
+        (BP / "keydefs" / "owners.json").write_text(json.dumps({
+            "purpose": "Who plans each promoted key definition that no layer plans yet (PROTOCOL.md section 19), as research/blueprint/make_queue.py "
+                       "assigns it: the owner job plans it under the reserved node id, and the importers cite that id.",
+            "definitions": owned_by}, indent=1, ensure_ascii=False, sort_keys=True) + "\n")
+
     # Findings about roadmaps whose blueprint is not written yet go to the jobs that will write it,
     # and to their reviews (PROTOCOL.md section 17).
     for job in jobs:
@@ -1564,6 +1735,19 @@ def main():
         text = prompts.get(path)
         if not text:
             continue
+        if "<<HANDED-KEYDEFS>>" in text:
+            text = text.replace("<<HANDED-KEYDEFS>>\n", handed_keydefs_text(keydefs_owned.get(job["id"]), keydefs_cited.get(job["id"]), key_entries))
+        if "<<HANDED-KEYDEFS-REVIEW>>" in text:
+            target = next((t for t in job.get("after") or [] if keydefs_owned.get(t) or keydefs_cited.get(t)), None)
+            note = ""
+            if target and keydefs_owned.get(target):
+                note += ("9b. This roadmap owns key definitions (PROTOCOL.md section 19): "
+                         + "; ".join(f"{a['name']} (`{a['reserved']}`)" for a in keydefs_owned[target].values())
+                         + ". Check that each is planned once, as generally as its entry asks, with the reserved node id, and that its sample API is among that node's unit tests and API. ")
+            if target and keydefs_cited.get(target):
+                note += ("It cites key definitions other roadmaps own: " + "; ".join(f"{a['name']} (`{a['reserved']}`)" for a in keydefs_cited[target].values())
+                         + ". Check that it cites them rather than planning them again.")
+            text = text.replace("<<HANDED-KEYDEFS-REVIEW>>\n", (note.strip() + "\n") if note else "")
         if "<<HANDED-FINDINGS>>" in text:
             items = handed.get(job["id"], [])
             text = text.replace("<<HANDED-FINDINGS>>\n", handed_text(items) if items else "")

@@ -854,6 +854,7 @@ The survey writes `research/blueprint/keydefs/KEYDEF-<area>.json`:
    "papers": [{"paper": "PAPER-<id>", "items": ["PAPER-<id>/<n>"]}],
    "owners": ["<stage id of the layer that plans it>"],
    "dependsOn": ["<id of another key definition>", "tauceti:TauCetiRoadmap/<roadmap>#<layer>"],
+   "plannedBy": "<optional: the roadmap that should plan it, when no layer does yet>",
    "size": "M | L | XL",
    "api": [{"kind": "example | counterexample | theorem | compatibility", "statement": "..."}]
  }],
@@ -868,6 +869,18 @@ The survey writes `research/blueprint/keydefs/KEYDEF-<area>.json`:
   `data/atlas.json` or in a new roadmap under `research/blueprint/roadmaps/`. An
   empty list says that nothing plans it yet, which is a gap. Owners in two
   different roadmaps are a duplication (section 15). The report lists both.
+- **Who plans a gap.** A key definition no layer plans is given to one owner when
+  the queue is generated: the roadmap its entry names in the optional
+  `"plannedBy": "<roadmap id>"`, else, among the queued blueprint and design jobs
+  its catalogue items are routed to (section 16), the most foundational (the one
+  whose roadmap supplies most of the others), then the one receiving most items.
+  The owner plans it once, as generally as all its uses need, under a reserved
+  node id (`<roadmap>:key/<slug>`, in `research/blueprint/reserved-ids.json`);
+  the other jobs that receive its items cite that id and plan only what their use
+  adds. `research/blueprint/keydefs/owners.json` records each assignment. A key
+  definition no queued job receives is left for the maintainer to route. Name a
+  `plannedBy` owner when the rule would choose badly: a notion all of whose uses
+  are special cases belongs with the general theory, not with one use.
 - **One entry per notion, across the atlas.** A notion owned in another area,
   or already covered by another survey (`research/blueprint/keydefs/`,
   `data/keydefs/`), is listed under `elsewhere`, not given an entry. So is a

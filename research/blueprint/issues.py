@@ -447,7 +447,7 @@ def main():
         unchanged = 0
         for job in jobs:
             number = mapping.get(job["id"])
-            if not number or number not in open_issues:
+            if not number or number not in open_issues or (args.ids and job["id"] not in set(args.ids.split(","))):
                 continue
             text = body(job, jobs, roadmaps, stages)
             if re.search(r"/Users/|/private/|/home/|mcu22seu", text):
