@@ -34373,8 +34373,9 @@
     "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4077"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4077",
+   "finishedAt": "2026-10-01T13:16:30Z"
   },
   {
    "id": "REV-RT-PAPER-DIMITROV-GAO-HABEGGER-21",
