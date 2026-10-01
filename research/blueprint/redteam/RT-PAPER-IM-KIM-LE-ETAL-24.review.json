@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-IM-KIM-LE-ETAL-24",
+ "findings": [
+  {
+   "finding": "RT-PAPER-IM-KIM-LE-ETAL-24/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it medium. Item /1 is 'library', citing Polynomial, RatFunc, LaurentSeries and Polynomial.Monic, but its statement includes K_∞, C_∞ and the extended valuation, and its own note says C_∞ is 'assumed by the DrinfeldModulesAndTModules roadmap … without being constructed'. At the pinned Mathlib, RatFunc.inftyValuation and RatFunc.CompletionAtInfty (FieldTheory/RatFunc/Valuation.lean) give K_∞. The density criterion IsAlgClosed.of_denseRange (Analysis/Normed/Field/Dense.lean:45) assumes [CharZero L], so it does not give C_∞ in characteristic p. The library status is therefore wrong for part of the item. It is one item's status, and an owner exists (DM.2), so medium rather than high. The fix is right: split the item, cite the inftyValuation and CompletionAtInfty declarations, and plan C_∞ at DM.2."
+  },
+  {
+   "finding": "RT-PAPER-IM-KIM-LE-ETAL-24/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it medium. Item tate-algebra-E-and-a-of-t bundles the general Tate algebra 𝕋 and its Gauss norm with the special ring ℰ, and routes all of it as new Part II work. At the pins, Mathlib has PowerSeries.IsRestricted and isRestricted_iff' (RingTheory/PowerSeries/Restricted.lean) and PowerSeries.gaussNorm and gaussNorm_eq (RingTheory/PowerSeries/GaussNorm.lean). Tau Ceti has TauCeti.PowerSeries.hasGaussNorm_of_isRestricted and gaussNorm_mul_of_isRestricted. The upstream stage tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras exists. This is one bundled item, so medium rather than high. The fix, splitting off the general Tate-algebra part with library citations and the upstream import, is right."
+  },
+  {
+   "finding": "RT-PAPER-IM-KIM-LE-ETAL-24/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /28's statement still assumes only Condition (2.1) on the whole tuple before forming Ψ, whose entries include every consecutive-subtuple series; its note says 'Correction: … the construction needs the termwise bound (E14)'. Item /30's setup likewise uses 'pairs satisfying Condition (2.1)'. By the extraction's accepted E14 (with the counterexample s = (q−1, q−1), Q = (1, θ^{q+1})), the full-tuple condition does not make the subtuple series converge. So the statements permit undefined entries, and §18 requires the corrected hypothesis in the item. The fix, putting the termwise bound into /28, /30 and the difference-system setup, is right."
+  },
+  {
+   "finding": "RT-PAPER-IM-KIM-LE-ETAL-24/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it medium. The reader says that 'Theorem 3.4 determines all K-linear relations between ACMPL values: a non-trivial relation forces (q − 1) | w, and then there is exactly one'. The theorem concerns indices in J'_w, normalised periods and relations involving 1. The paper itself (arXiv v2, p. 22) derives from R_ε that Li(q) = −ε^{−1}D₁Li(1, q−1), a nontrivial K-linear relation in weight q. For q = 3 the weight is 3 and 2 ∤ 3. The sentence is false, but it is reader prose, and item /34 states the theorem correctly, so medium rather than high. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-IM-KIM-LE-ETAL-24/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The 20 prerequisites omit Chang–Papanikolas–Yu (JEMS 2019), Chen–Harada (Doc. Math. 2021) and the authors' Note on the linear independence of alternating multiple zeta values (Acta Math. Vietnam. 2024). The paper cites these for the motive construction and Frobenius property, for (3.5), and for the small-weight details of §5.4. The extraction's own items locate these uses. The fix, adding them with public links and cross-references, is right."
+  }
+ ]
+}
