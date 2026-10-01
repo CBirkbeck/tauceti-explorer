@@ -1,0 +1,35 @@
+{
+ "redteam": "RT-PAPER-GAO-GE-KUHNE-26",
+ "findings": [
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The published proof of Theorem 1.1′ (p. 224) says that Γ_0 of rank ρ exists with Γ in its division hull and adds 'Moreover, we may choose such a Γ_0 satisfying that Γ_0 = End(A)·Γ_0'. Items /4 and /85 copy this. The red team's counterexample is right. In A = E × E with P non-torsion and Γ = Z(P, 0), a rank-one Γ_0 must contain some (nP, 0), and End(A)-stability under the swap then forces (0, nP) ∈ Γ_0, giving rank 2. The fix, dropping End(A)-stability (Lemma 7.3 needs only finite generation) and recording a sourceIssue, is right."
+  },
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). In Lemma 7.4 (p. 225) the paper writes 'each x_{B,j} can be chosen to be in X°_B(F) ∩ Γ'. The red team's example shows this can fail. Take A = E × J, X = E × C′ with C′ a translate of the Abel–Jacobi curve avoiding 0, B = E × {0} and Γ = Z(P, c). Then X°_B ∩ Γ = ({0} × C′) ∩ Z(P, c) is empty, because mP = 0 forces m = 0 and 0 ∉ C′. Yet (P, c) ∈ X ∩ Γ lies on the coset E × {c}. Item /89 relies on this step. The fix, using Γ_B = pr_2(f^{−1}(Γ)) ⊆ B^⊥(F), of rank ≤ ρ, and recording a sourceIssue, is right. Neither the finding nor I claim that Lemma 7.4 is false."
+  },
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Route 5's acceptance example 'the diagonal of a non-isotrivial elliptic surface over a curve is non-degenerate' is false. The relative diagonal Δ(E) ⊂ E ×_S E has complex dimension 2, so non-degeneracy needs real Betti rank 4. The product Betti map restricted to it is (b, b), of rank at most 2, so the diagonal is degenerate. Non-isotriviality does not help, since the rank condition counts the total dimension, not the fibre dimension. The fix is right. Disclosure: finding /1 of my red team RT-PAPER-DIMITROV-GAO-HABEGGER-21 (PR #5415) reported a different false acceptance test in that paper's brief for the same Part II, namely 'every subvariety of a constant family is non-degenerate'. It cited this extraction's brief as correct for the constant family with S a point. That finding did not examine the diagonal example, so this verdict does not review my own finding."
+  },
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium); E8 is a false positive. Proposition 6.1's proof (pp. 219–220) sets c_1 := min{c_3″/max{1, 2c_3′/c_1′}, c_1′/2} and c_2 := max{c_2′, c_2″}. Write H = max{1, h_Fal(A)} and B = max{1, 2c_3′/c_1′}; H is fixed by A. If H ≤ B, every P in (6.1) has height ≤ c_1H ≤ c_3″, so the whole set lies in the (6.3) locus. If H > B, then c_1H ≤ c_1′H/2 ≤ c_1′H − c_3′, so the whole set lies in the (6.2) locus. Either way one locus of degree < max{c_2′, c_2″} contains the set, and no sum is needed. The fix, retracting E8 with a correction note and restoring the casewise choice, is right."
+  },
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). On the rendered p. 215, (5.8) and (5.9) are stated 'for all x … with ĥ(x) ≥ δ_{ε_{S′},1}' and 'with ĥ(x′) ≥ δ_{ε_{S′},2}'. The Claim's proof then assumes both height conditions fail, so both heights are below δ, and uses (5.8) and (5.9). The equidistribution hypotheses must therefore be small height, as item /64 correctly states. The fix, a misprint sourceIssue for both signs, is right."
+  },
+  {
+   "finding": "RT-PAPER-GAO-GE-KUHNE-26/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). On p. 213 the generic fibres of D are orbits under G_η = {0} × Stab(X_η)^m. This group is finite but need not be trivial. In Step 3 (p. 214) the paper makes f_{S′,1} constant on the fibres of D over a finite étale locus and writes f_{S′,1} = f_{S′,2} ∘ D. Step 4 (p. 215) then derives |∫ f_{S′,1} μ_{S′,1} − ∫ f_{S′,2} μ_{S′,2}| ≤ 2ε and says this contradicts (5.7). But (5.7) separates ∫ f_{S′,1} μ_{S′,1} from ∫ f_{S′,1} D*μ_{S′,2}. By change of variables, the latter equals deg(D)·∫ f_{S′,2} μ_{S′,2}, and the paper fixes no normalized pullback. So the contradiction needs deg D = 1. The fix, using ν = (1/d)D*μ_{S′,2} throughout and recording a proof gap, is right; the theorem is not challenged."
+  }
+ ]
+}
