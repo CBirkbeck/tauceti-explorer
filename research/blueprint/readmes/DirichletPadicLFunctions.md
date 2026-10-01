@@ -35742,3 +35742,268 @@ Exact arithmetic checks20,000 binary digit inequalities,728 actual coefficient v
 All73 captured inputs match5354; four deliverables equal the merged predecessor. Whole713 issue body unchanged. Same-session continuation after actual5354merge; review390 unclaimed.
 
 The separate partial signature file also compiled with zero errors and 3,638 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 77e4cab5ee76414f4bf9793a57eadad838c750f4c8b2b4aa41e84e8d34887b16.
+
+
+## Robert’s finite-field coefficient sum and Gross–Koblitz comparison
+
+Nine L3 nodes prove actual inverse-Teichmuller orthogonality, convergent coefficient reindexing and the source-negative Gauss/Gamma comparison with both Dwork inputs explicit. All1,123 predecessor nodes,870 baseline records,20 findings and six source versions remain whole; one exact trace-value interface request goes to the existing RD.6 owner.
+
+Rereads Robert2001 p.164 in full for the finite-field expansion and explicit endpoint exception, the already fully read pp.165–167 for the limiting/Gamma argument, and all of Appendix2 onp.169 for the chosen Dwork root and trace convention. Reuses the fully read Robert2000 primary Dwork proof and its analytic prerequisites. Reads the complete pinned exact-order, finite character-sum/cardinality, injective HasSum reindexing, finite-sum interchange and one-term shift proofs; rereads actual Tau Teichmuller torsion and native finite-order norm1. Fourteen complete native lemmas supply the entire consumer chain.
+
+### The inverse Teichmuller character has exact order
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-order` — `DirichletPadic.grossKoblitzInverseChar_order`
+
+The native group order of chi_1 is exactly q−1.
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. The routine complete inverseChar_pow helper uses the preceding addition law to prove chi_1^k=chi_k for every natural k, including0.
+2. The preceding period endpoint gives chi_(q−1)=1. Its nontriviality theorem gives chi_k≠1 for0<k<q−1.
+3. The residue field is finite and nontrivial, so native Finite.one_lt_card givesq>1. Apply the existing orderOf_eq_iff characterization of the least positive exponent. The complete inverseChar_order proof also coversq=2, when the order is1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-nontrivial`, `mathlib:Finite.one_lt_card`, `mathlib:orderOf_eq_iff`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.order_residue_2` (computation): The actual inverse Teichmuller generator has order1 when the residue field has2 elements.
+- `SuggestedRobertGaussTests.order_residue_3` (computation): The actual inverse Teichmuller generator has order2 when the residue field has3 elements.
+
+**Acceptance:** Residue cardinalities2 and3 give exact orders1 and2.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+### Equality of inverse Teichmuller exponents
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-equality` — `DirichletPadic.grossKoblitzInverseChar_eq_iff`
+
+chi_a=chi_n if and only if a mod(q−1)=n mod(q−1), for all natural a,n.
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. Express each actual character as a power ofchi_1 with the complete inverseChar_pow helper.
+2. Use the native group pow_inj_mod theorem and the exact orderq−1 proved above.
+3. Keep unrestricted natural indices: this identifies the later coefficient residue class and the endpointa=q−1 with0 without altering the coefficient progression itself.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-order`, `mathlib:pow_inj_mod`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.zero_endpoint_character` (degenerate): Exponents0 andq−1 give the same trivial multiplicative character, extended byzero.
+- `SuggestedRobertGaussTests.character_shift_period` (compatibility): Every exponent is periodic moduloq−1.
+- `SuggestedRobertGaussTests.character_one_nontrivial` (non-example): When the residue field has more than2 elements, exponent1 is not exponent0.
+
+**Acceptance:** chi_0=chi_(q−1), all exponents are periodic, and chi_1≠chi_0 whenq>2.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+### The Teichmuller coefficient selector
+
+`DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-orthogonality` — `DirichletPadic.grossKoblitzInverseChar_orthogonality`
+
+sum_(z∈F)(chi_a chi_n^−1)(z) is q−1 ifa≡n modq−1, and0 otherwise.
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. If the residues agree, the character equality theorem makes the product trivial.
+2. Native MulChar.sum_one_eq_card_units gives the number of units, and native Fintype.card_units identifies this withq−1. The missing zero-field element is essential.
+3. If the residues differ, mul_inv_eq_one would contradict the character equality theorem. Apply the existing native nontrivial-character sum theorem.
+4. The complete character_orthogonality proof works with the actual characters and the native finite residue field; no primitive-generator choice or separate roots-of-unity carrier is required.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-equality`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:MulChar.sum_one_eq_card_units`, `mathlib:Fintype.card_units`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.diagonal_orthogonality` (compatibility): Matching characters have sumq−1, notq; the value atzero is0.
+- `SuggestedRobertGaussTests.off_diagonal_orthogonality` (computation): The exponent0/1 weighted character sums tozero when q>2.
+- `SuggestedRobertGaussTests.dyadic_orthogonality` (computation): For the two-element residue field every exponent is the same character and the sum is1.
+
+**Acceptance:** Diagonal sums areq−1; the0/1 off-diagonal sum is0 forq>2; forq=2 every pair sums to1.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+### Summing the splitting values with character weights
+
+`DirichletPadicLFunctions:L3/robert-weighted-character-sum` — `DirichletPadic.robert_weighted_character_hasSum`
+
+Given HasSum_n A_n tau(u)^n=psi(u) for each unit u, the sequence which is(q−1)A_n whenn≡a modq−1 and0 otherwise has sum gaussSum(chi_a,psi).
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. The complete positive_character_unit helper derives(chi_n^−1)(u)=tau(u)^n from the predecessor’s inverse-character evaluation and native character inversion.
+2. For each nonzeroz∈F, multiply the given unit HasSum bychi_a(z). Associativity identifies its terms with A_n(chi_a chi_n^−1)(z).
+3. Atz=0 do not assume the unit expansion: the character product and the weighted Gauss summand are both0. The complete proof supplies the zero HasSum directly. This avoids the false equality between a zero-extended exponent-zero character and an additive character at0.
+4. Use native hasSum_sum to sum these convergent series over the finite field. Interchange only a finite sum with HasSum, factor A_n and apply the orthogonality selector. The complete weighted_character_hasSum proof gives the actual native gaussSum target.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-orthogonality`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `mathlib:MulChar.mul_apply`, `mathlib:hasProd_prod`, `mathlib:HasSum.mul_left`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.zero_extension_boundary` (non-example): The exponent-zero multiplicative character vanishes at0, while every additive character is1 there.
+- `SuggestedRobertGaussTests.constant_polynomial_weight` (computation): For the constant polynomial1 the diagonal weighted coefficient series has sumq−1.
+
+**Acceptance:** The two kinds of character have different values at0. For the constant polynomial1 the diagonal weighted series has sumq−1.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+### The residue-class coefficient formula for the negative Gauss sum
+
+`DirichletPadicLFunctions:L3/robert-negative-gauss-coefficient-sum` — `DirichletPadic.robert_negativeGauss_hasSum`
+
+For0≤a<q−1, HasSum_k (1−q)A_(a+k(q−1))=−gaussSum(chi_a,psi), under the displayed splitting HasSum hypothesis.
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. The complete routine residue_hasSum_iff proves the exact reindexing statement for an arbitrary sequence in a topological additive monoid. Use the injective map k↦a+kM, M=q−1>0, and native Function.Injective.hasSum_iff.
+2. Ifn modM=a witha<M, native quotient/remainder arithmetic givesn=a+(n/M)M. Thus the filtered series has support in the range of the injection, and its values on that range are exactlyA_(a+kM).
+3. Apply this equivalence to the weighted-character HasSum with sequenceM A_n, then negate the HasSum.
+4. The natural subtraction casts asM=q−1 becauseq>1, giving−M=1−q. The complete negative_gauss_hasSum proof retains both the source-negative convention and the exact rangea<M.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-weighted-character-sum`, `mathlib:Function.Injective.hasProd_iff`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.constant_negative_gauss` (computation): The negative Gauss sum of two trivial characters is−(q−1), matching the constant coefficient.
+
+**Acceptance:** For the constant polynomial and trivial additive character the negative value is−(q−1), with the zeroth coefficient included.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+### Convergence of the actual splitting series on the unit disc
+
+`DirichletPadicLFunctions:L3/robert-exponential-unit-disc-summable` — `DirichletPadic.robert_exponential_summable`
+
+The actual native coefficient series sum_n A_n z^n is summable whenever‖z‖≤1, conditional only on the coefficient estimate and the stated complete normalized normed-field hypotheses.
+
+**Hypotheses:** p is prime. K is a complete characteristic-zero normed field with an explicit norm-preserving embedding iota:Q_p→K, pi^(p−1)=−p, r=‖pi‖ and positive natural q. A_n is the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)). The already recorded RD.6 coefficient input ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)) remains explicit. It implies0<r<1 and geometric coefficient decay. The unit-disc convergence theorem needs no Teichmuller objects or larger-field valuation normalization. For the actual Gauss comparison K additionally has the existing nonarchimedean local-field structure, ultrametric norm and finite residue field F with cardF=q>1. The exact splitting input is ∀u∈Fˣ, tsum_n A_n tau(u)^n=psi(u), with tau the actual native Teichmuller lift in K. The consumer proves summability, so no convergence is inferred from a bare tsum equality. The Gauss range is0≤a<q−1 and the fixed point x∈Z_p satisfies(1−q)iota(x)=a. The endpoint a=q−1 is handled by the separate constant-term correction, not by substituting into this range. For the final Gamma formula q=p^f,f>0, iota is continuous, and psi is the actual grossKoblitzTraceChar for a chosen primitive p-th rootzeta and the native trace F→ZMod p. The Gamma function is the existing moritaGamma. Inputs y_i∈Z_p satisfy(q−1)y_i=a/p^i+p^(f−i)(a mod p^i), fori<f, the preceding right-cyclic digit convention. No fractional-part value0 is silently changed to1. The chosen pi must be compatible with the chosen additive root through the displayed splitting-value identity. The new RD.6 request makes that interface precise for normalized pi; its isocrystal Frobenius factor is the inverse of the Robert-sign series. Neither owner theorem is marked discharged.
+
+**Proof:**
+
+1. From the existing root/norm proof,0<r<1. The slope c=(p−1)^2/(p q) is strictly positive becausep is prime andq>0.
+2. The native geometric_rpow helper from the predecessor makes r^(cn) a summable real majorant.
+3. The norm ofz^n is at most1 on the closed unit disc. Multiply the coefficient bound by this estimate and apply the existing native Summable.of_norm_bounded theorem.
+4. The complete exponential_summable proof uses the actual native formal-product coefficients. It never factors the value into individually evaluated exponentials, which need not converge at unit arguments.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `PadicDifferentialEquationsAndRigidCohomology:RD.6`, `mathlib:Summable.of_norm_bounded`, `mathlib:Real.rpow_lt_one`, `mathlib:summable_geometric_of_lt_one`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.splitting_series_one` (compatibility): The actual splitting coefficient series converges at the unit1.
+- `SuggestedRobertGaussTests.splitting_series_minus_one` (compatibility): The actual splitting coefficient series converges at the unit-1.
+- `SuggestedRobertGaussTests.individual_exponential_boundary` (non-example): The individual dyadic exponential at−2 is not summable; formal cancellation in the product must not be replaced by pointwise exponential multiplication.
+
+**Acceptance:** The dyadic product series converges at±1. The individual exponential at−2 is not summable: atn=2^j its term norm is constantly1/2.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input. VII2.4 pp.393–397, complete Dwork proof; VII2.6 pp.401–403, stated Gross–Koblitz formula and its normalization; relevant analytic prerequisites recorded in the existing source record. The primary proof gives the coefficient bound and prime splitting root/congruence, with separate p=2 andp=3 checks. The previously recorded coefficient request and new actual trace-value interface remain with RD.6. The consumer derives unit-disc convergence directly from the bound and never evaluates the two original exponentials separately at the boundary.
+
+### The actual coefficient family equals the negative Gauss sum
+
+`DirichletPadicLFunctions:L3/robert-series-gauss-comparison` — `DirichletPadic.robertCoefficientSeries_eq_negativeGauss`
+
+With the coefficient estimate, actual splitting-value identities and(1−q)iota(x)=a for0≤a<q−1, robertCoefficientSeries(a,x)=−gaussSum(chi_a,psi).
+
+**Hypotheses:** p is prime. K is a complete characteristic-zero normed field with an explicit norm-preserving embedding iota:Q_p→K, pi^(p−1)=−p, r=‖pi‖ and positive natural q. A_n is the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)). The already recorded RD.6 coefficient input ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)) remains explicit. It implies0<r<1 and geometric coefficient decay. The unit-disc convergence theorem needs no Teichmuller objects or larger-field valuation normalization. For the actual Gauss comparison K additionally has the existing nonarchimedean local-field structure, ultrametric norm and finite residue field F with cardF=q>1. The exact splitting input is ∀u∈Fˣ, tsum_n A_n tau(u)^n=psi(u), with tau the actual native Teichmuller lift in K. The consumer proves summability, so no convergence is inferred from a bare tsum equality. The Gauss range is0≤a<q−1 and the fixed point x∈Z_p satisfies(1−q)iota(x)=a. The endpoint a=q−1 is handled by the separate constant-term correction, not by substituting into this range. For the final Gamma formula q=p^f,f>0, iota is continuous, and psi is the actual grossKoblitzTraceChar for a chosen primitive p-th rootzeta and the native trace F→ZMod p. The Gamma function is the existing moritaGamma. Inputs y_i∈Z_p satisfy(q−1)y_i=a/p^i+p^(f−i)(a mod p^i), fori<f, the preceding right-cyclic digit convention. No fractional-part value0 is silently changed to1. The chosen pi must be compatible with the chosen additive root through the displayed splitting-value identity. The new RD.6 request makes that interface precise for normalized pi; its isocrystal Frobenius factor is the inverse of the Robert-sign series. Neither owner theorem is marked discharged.
+
+**Proof:**
+
+1. The native Teichmuller lift is(q−1)-torsion. Map its existing torsion equation into K and use the native finite-order norm theorem to obtain‖tau(u)‖=1; teich_norm is the complete routine proof.
+2. The preceding unit-disc convergence theorem supplies Summable_n A_n tau(u)^n. Its HasSum, rewritten by the displayed splitting-value equality, supplies exactly the hypothesis of the residue-class coefficient theorem.
+3. That theorem gives convergence of the scaled coefficient partial sums to the negative Gauss sum. The preceding robertCoefficientSeries_telescope_limit gives convergence of the same partial sums to the actual coefficient-family value.
+4. Native uniqueness of limits in the normed field identifies the two values. Complete series_eq_negativeGauss and series_eq_negativeGauss_of_values proofs isolate the finite algebra from the precise remaining Dwork value identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-negative-gauss-coefficient-sum`, `DirichletPadicLFunctions:L3/robert-exponential-unit-disc-summable`, `DirichletPadicLFunctions:L3/robert-coefficient-telescope-limit`, `PadicDifferentialEquationsAndRigidCohomology:RD.6`, `mathlib:IsOfFinOrder.norm_eq_one`, `mathlib:HasProd.tendsto_prod_nat`, `mathlib:tendsto_nhds_unique`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.gauss_constant_comparison` (degenerate): The fixed pointa=x=0 agrees with the actual negative Gauss sum of the trivial multiplicative character.
+- `SuggestedRobertGaussTests.gauss_ternary_comparison` (compatibility): Atp=q=3,a=1, the fixed point is−1/2 inZ3.
+
+**Acceptance:** Atp=q=3,a=0 the fixed point is0; ata=1 it is−1/2. Both comparisons use the actual native characters.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input. VII2.4 pp.393–397, complete Dwork proof; VII2.6 pp.401–403, stated Gross–Koblitz formula and its normalization; relevant analytic prerequisites recorded in the existing source record. The primary proof gives the coefficient bound and prime splitting root/congruence, with separate p=2 andp=3 checks. The previously recorded coefficient request and new actual trace-value interface remain with RD.6. The consumer derives unit-disc convergence directly from the bound and never evaluates the two original exponentials separately at the boundary.
+
+### Robert’s Gross–Koblitz comparison
+
+`DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison` — `DirichletPadic.robert_grossKoblitz_formula`
+
+Forq=p^f,f>0 and0≤a<q−1, the source-negative Gauss sum for the actual inverse Teichmuller and chosen-root trace characters equals pi^(S_p(a)) times product_(i<f)iota(moritaGamma(p,y_i)), where(q−1)y_i=a/p^i+p^(f−i)(a modp^i). Both exact Dwork inputs remain explicit.
+
+**Hypotheses:** p is prime. K is a complete characteristic-zero normed field with an explicit norm-preserving embedding iota:Q_p→K, pi^(p−1)=−p, r=‖pi‖ and positive natural q. A_n is the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)). The already recorded RD.6 coefficient input ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)) remains explicit. It implies0<r<1 and geometric coefficient decay. The unit-disc convergence theorem needs no Teichmuller objects or larger-field valuation normalization. For the actual Gauss comparison K additionally has the existing nonarchimedean local-field structure, ultrametric norm and finite residue field F with cardF=q>1. The exact splitting input is ∀u∈Fˣ, tsum_n A_n tau(u)^n=psi(u), with tau the actual native Teichmuller lift in K. The consumer proves summability, so no convergence is inferred from a bare tsum equality. The Gauss range is0≤a<q−1 and the fixed point x∈Z_p satisfies(1−q)iota(x)=a. The endpoint a=q−1 is handled by the separate constant-term correction, not by substituting into this range. For the final Gamma formula q=p^f,f>0, iota is continuous, and psi is the actual grossKoblitzTraceChar for a chosen primitive p-th rootzeta and the native trace F→ZMod p. The Gamma function is the existing moritaGamma. Inputs y_i∈Z_p satisfy(q−1)y_i=a/p^i+p^(f−i)(a mod p^i), fori<f, the preceding right-cyclic digit convention. No fractional-part value0 is silently changed to1. The chosen pi must be compatible with the chosen additive root through the displayed splitting-value identity. The new RD.6 request makes that interface precise for normalized pi; its isocrystal Frobenius factor is the inverse of the Robert-sign series. Neither owner theorem is marked discharged.
+
+**Proof:**
+
+1. Map the fixed-point equation(1−q)x=a inZ_p through the actual composite Z_p→Q_p→K embedding. The complete proof checks compatibility with multiplication, subtraction and natural scalars.
+2. Apply the actual coefficient-family/Gauss comparison with psi equal to the existing chosen-root trace character. Its coefficient-bound and splitting-value hypotheses are displayed, not replaced by untyped proof markers.
+3. Sincea<q−1 impliesa<q, the preceding small-index comparison identifies the coefficient-family value withpi^a iota(robertFactorialQuotient).
+4. Apply the existing quotient_fixedPoint theorem. Native Legendre cancellation changespi^a into pi^(S_p(a)), and the explicit rational-point equations identify the Gamma factors with the preceding right-cyclic digit convention.
+5. The complete negativeGauss_eq_gamma proof assumes only the existing Gamma continuity/zero/recurrence laws and proves this composite identity. The suggested signature specializes the actual moritaGamma and grossKoblitzTraceChar. The RD.6 requests still prevent an unconditional closure claim.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-series-gauss-comparison`, `DirichletPadicLFunctions:L3/robert-coefficient-gamma-comparison`, `DirichletPadicLFunctions:L3/robert-factorial-fixed-product`, `DirichletPadicLFunctions:L3/gross-koblitz-trace-character`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.gamma_trivial_value` (degenerate): The zero-index Gamma product gives the negative Gauss value1.
+- `SuggestedRobertGaussTests.gamma_ternary_value` (compatibility): The nontrivial ternary Gauss sum is pi times Gamma_p(1/2), with the actual chosen trace character.
+- `SuggestedRobertGaussTests.gamma_ternary_square` (compatibility): The square of the ternary nontrivial Gauss sum is−3, fixing the sign convention against the native Gauss pair.
+
+**Acceptance:** The trivial exponent gives1. Forp=q=3,a=1 the formula is negativeGauss=pi Gamma_3(1/2), and its square is−3 with the source sign.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input. VII2.4 pp.393–397, complete Dwork proof; VII2.6 pp.401–403, stated Gross–Koblitz formula and its normalization; relevant analytic prerequisites recorded in the existing source record. The primary proof gives the coefficient bound and prime splitting root/congruence, with separate p=2 andp=3 checks. The previously recorded coefficient request and new actual trace-value interface remain with RD.6. The consumer derives unit-disc convergence directly from the bound and never evaluates the two original exponentials separately at the boundary.
+
+### The omitted constant at the Gauss endpoint
+
+`DirichletPadicLFunctions:L3/robert-gauss-endpoint-coefficient-correction` — `DirichletPadic.robert_negativeGauss_endpoint_hasSum`
+
+At a=M=q−1 the progression beginning atM has sum−gaussSum(chi_M,psi)−(1−q)A_0. The missing constant must be restored before comparing with the Gauss sum.
+
+**Hypotheses:** K is an existing nonarchimedean local field with its native ValuativeRel, integer ring and residue field F=k[K]. Write q=Nat.card F and M=q−1. No abstract Teichmuller lift or alternative character carrier is introduced. chi_a is exactly the preceding grossKoblitzInverseChar(K,a), obtained from the native TauCeti.teichmuller unit homomorphism, exponentiation, inversion and coefficient inclusion. It is extended byzero at0 even when a=0; every additive character instead has value1 at0. Finite sums use Fintype F. The infinite-sum statements use an IsTopologicalRing target and explicitly assume the displayed HasSum at each Teichmuller unit. Their sequence A can be arbitrary: they prove the finite Fourier and reindexing consumers, not Dwork convergence. The later actual-series comparison separately supplies convergence from the coefficient bound and records the missing splitting-value interface.
+
+**Proof:**
+
+1. Use the proved residue-class HasSum at a=0, where the progression includesA_0.
+2. Apply the existing native one-term shift theorem. Removing the first term subtracts(1−q)A_0 from the sum.
+3. Rewrite(k+1)M=M+kM and usechi_M=chi_0=1. The complete negative_gauss_endpoint_hasSum proof gives the corrected endpoint formula.
+4. For the actual splitting seriesA_0=1 and a primitive additive character, the negative trivial-character Gauss sum is1, so the progression beginning atM has valueq. This is compatible with the earlier E19 endpoint finding and does not extend the uncorrected a<M statement.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-negative-gauss-coefficient-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `mathlib:hasProd_nat_add_iff'`.
+
+**Tests:**
+
+- `SuggestedRobertGaussTests.constant_endpoint_correction` (degenerate): Starting the constant-polynomial progression atq−1 removes its sole coefficient, so the corrected sum is0.
+- `SuggestedRobertGaussTests.range_endpoint_missing_zero` (non-example): The progression starting atq−1 cannot contain0.
+
+**Acceptance:** The constant-polynomial endpoint has corrected sum0; the progression beginning atM never contains0. Forp=q=2 the actual primitive-character endpoint sum is2, not1.
+
+**Source:** Published p.164, Section4 complete finite-field coefficient expansion and the explicit a=q−1 exception; pp.165–167 full telescope/Gamma comparison; p.169 Appendix2 in full. The source-negative Gauss sum is a finite Teichmuller-weighted sum of the actual splitting values. Multiplicative orthogonality selects n≡a modq−1; onlya<q−1 makes this the progression starting ata. The native proof first proves the finite-character identity, handles the zero extension, uses convergent HasSum algebra and reindexes injectively. The resulting limit combines with the existing all-a telescope and Gamma quotient. Appendix2 identifies the chosen splitting root and the trace character, but asserts Dwork’s root-of-unity input.
+
+**Supplier request — PadicDifferentialEquationsAndRigidCohomology:RD.6:** Export the actual native splitting-value interface in addition to the preceding coefficient-bound request. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. The current RD.6/dwork-isocrystal node describes inverse Frobenius trace values but exports no equality between this native coefficient tsum and that additive character; its inverse sign must be converted explicitly. Source: Robert2000 VII2.4 pp.393–397 and Robert2001 Appendix2 p.169, both fully read. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison.
+
+**Consumers:** `DirichletPadicLFunctions:L3/robert-series-gauss-comparison`.
+
+**Remaining:** The Robert route now has complete native consumer proofs from the actual Dwork coefficient bound and splitting-value identity to the source-negative Gauss/Gamma product, for0≤a<q−1, plus the corrected a=q−1 coefficient sum. The two precise native RD.6 interfaces remain open requests: neither isocrystal narrative nor sampled coefficients discharge them. Next inspect the downstream Gross–Koblitz valuation, congruence and multiplication consequences using the actual formula and existing digit/Gamma results; preserve the exceptional trivial-character endpoints. The original Katz/Fermat and Gauss-side Stickelberger proof-source obligations remain explicit alternatives, not falsely marked completed by conditional assembly. E18’s distribution repair remains unproved/unused; E19–E20 await independent review. All18 gaps remain, now with16 requests and zero closed stages.
+
+### Robert’s finite-field coefficient sum and Gross–Koblitz comparison validation
+
+All 1123 predecessor nodes, 870 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 21 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1392 reachable nodes, 6572 edges and 1041 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Six finite-character/reindexing nodes terminate in the preceding actual character and pinned native facts. The three analytic/Gamma consumers reach exactly RD.6 through the preserved coefficient request and new actual trace-value request. Both owner obligations remain explicit and no new stage leaf is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5356 verbatim and adds14 complete lemmas. It uses actual native Teichmuller lifts, characters, formal coefficients, HasSum and Gamma laws. The targets are proved conditional on the two precise Dwork inputs; neither analytic owner theorem is fabricated. Nine suggested declarations and21 typed tests match the promoted nodes. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact finite controls check7,236 exponent equalities,7,236 weighted orthogonality sums,99 finite negative projections,90 progression reindexings,9 endpoint corrections,15 small-prime splitting-value precision samples and8 ternary Gamma-half residues. Boundary controls retain zero extension and the failure of individual-exponential convergence. Exact cyclotomic-polynomial reduction of literal finite root sums and weighted polynomial evaluations, exact rational Dwork coefficient arithmetic in Q[pi]/(pi^(p-1)+p), and finite Morita products modulo3^N. No floating-point roots or analytic convergence are inferred from sampling. The largest observed discrepancy is 0.
+
+All73 captured inputs are unchanged from5356, and all four predecessor outputs and the whole issue text are preserved. RD.6 owner, source versions and policy files remain at the reviewed blobs.
+
+The separate partial signature file also compiled with zero errors and 3,668 expected placeholder warnings across 3,604 pinned source modules. It includes all 9 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78e1e2dae54ecc37a2ea652abc4ede9ae505a14ff975d57e4208489f6c1f870d.
