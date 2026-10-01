@@ -37491,7 +37491,8 @@
     "REV-PAPER-BENOIST-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4172"
   },
   {
    "id": "REV-RT-PAPER-BENOIST-WITTENBERG-20",
@@ -39147,8 +39148,9 @@
     "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4240"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4240",
+   "finishedAt": "2026-10-01T15:46:09Z"
   },
   {
    "id": "REV-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
