@@ -7,7 +7,12 @@ Extraction by Claude Code, session `cc-d67081`, 22 September 2026 (issue #1414).
 - 148 items: 14 library, 5 planned, 129 missing;
 - 9 routes: three Part IIs and six source routes;
 - 26 prerequisite entries;
-- 11 source issues.
+- 16 source issues: the original E1–E11 and new E12–E16.
+
+Codex, session `codex-rtOQ9t`, applied the six confirmed findings for
+[issue #5529](https://github.com/CBirkbeck/tauceti-explorer/issues/5529).
+The fixes await independent review; see [the report](../redteam/RT-PAPER-CALEGARI-DIMITROV-TANG-25.fixes.md).
+All 148 item IDs, classifications and route memberships remain unchanged.
 
 **Source.** The publisher's offprint on the first author's page, pp.627–702, SHA-256 `867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e`, read in full on 2026-09-22, with formulas checked against the page images.
 
@@ -35,7 +40,7 @@ The proof has four parts.
 §7 gives three consequences:
 
 - integral solutions of ODEs on ℙ¹∖{0, 1/16, ∞} with finite local monodromy at 0 are algebraic and congruence-modular in λ/16 (Theorem 7.2.1);
-- a component of a vector-valued modular form with ℤ[[q]] expansion is a congruence modular form (Theorem 7.3.3). The proof uses Chudnovsky, Bombieri–André and Katz to make the local monodromy finite. This gives Mason's conjecture (Corollary 7.3.4);
+- a component of a vector-valued modular form with ℤ[[q]] expansion is a congruence modular form (Theorem 7.3.3). The proof uses Chudnovsky, Bombieri–André and Katz to make the local monodromy finite. the proof’s regular-singular/arithmetic bridge is an explicit missing input. The corrected Mason corollary gives congruence kernel on the invariant span of F’s values, and on the whole ambient representation when that span is the whole space;
 - the π₁ of the connected Néron model of X(N) over O_K is that of Spec O_K (Theorem 7.4.10).
 
 §7 also includes weakly holomorphic quasi-modular examples and an open question (7.4.5).
@@ -107,7 +112,7 @@ The proof has four parts.
 - ArithmeticAlgebraizationAndHolonomyBounds imports Lemma 2.3.1, the uniformization radius and the ODE layer from the ConformalMapping Part II.
 - Example 5.1.22, which links F₂ to λ, is placed with λ in NoncongruenceModularForms.
 
-## Source issues (`sourceIssues` E1–E11)
+## Source issues (`sourceIssues` E1–E16)
 
 - **E1** (misprint). Lemma 4.5.11 prints dim H¹(Γ(5), 𝔽₃)^{SL₂(𝔽₅)} = 0, but the proof of Theorem 4.5.2 uses ℓ = N = 5.
   - *As printed, it is false.* SL₂(𝔽₅) is perfect, so the character SL₂(ℤ) → ℤ/12 → 𝔽₃ restricts to a nonzero invariant class on Γ(5). Over 𝔽₃, the 5-dimensional constituent of H¹(Γ(5), ℚ) also acquires a trivial composition factor (5 ≡ 1 + 4 mod 3 for A₅).
@@ -135,7 +140,7 @@ The following were verified by computation here:
 - the ODEs (5.1.9) and (5.1.17);
 - all q-series identities of §§1 and 7.4.2 (λ/16, the inverse series, h, Jacobi, (2/π)E(λ) and Zudilin's formula), and the Catalan integralities.
 
-Only E10 failed. No correction notice exists: the arXiv versions, the publisher offprint, Crossref (no update relation) and the author's page were checked.
+Among those original computational checks only E10 failed. The original extraction’s correction search is historical. The current bounded search found no applicable correction; it does not establish that no correction exists.
 
 ## Prerequisites not yet covered
 
@@ -150,7 +155,7 @@ Only E10 failed. No correction notice exists: the arXiv versions, the publisher 
 
 Links and reasons are in the JSON.
 
-## Checks
+## Original extraction checks
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json`: ok.
 - `python3 research/blueprint/intake.py check-files` on the deliverables: 0 problems.
@@ -183,3 +188,110 @@ E7 is a real gap, because §4.3 uses `G_{2N} ⊂ ⟨E, Γ(2N)⟩` while the cons
 dividing `2N`; E10 was recomputed coefficientwise, and the printed identity is exactly the negative
 of the correct one; and E11's missing case `p = ℓ = 2` is repaired by `SL₂(Z₂)^{ab} ≅ Z/4`. The
 remaining five are constant- and index-level slips, each printed as quoted.
+
+## Contracts corrected by the confirmed findings
+
+**Eisenstein normalization (finding 1).** For an algebraic Puiseux branch
+with t=x^{1/N}, retain positive integers c,M with c·y∈Z̄[[t/M]]. The scalar
+clears the constant coefficient: y=1/2 cannot become integral by variable
+scaling. If y(0) is an algebraic integer, scaling the variable by cM absorbs
+the scalar in every positive-degree coefficient. The source’s normalized
+inverse branch has constant term zero, so the variable-only specialization
+used in inverse-series-denominators is unchanged. Route 2 now states both
+regimes. This corrects the extraction’s generalization, not the paper’s use.
+
+**Wohlfahrt’s sign (finding 2).** With geometric cusp widths defined using
+±, Γ(N)⊆G requires E={±I}⊆G. Without it the projective conclusion is
+Γ(N)⊆⟨G,−I⟩. The source’s p.659 application already contains E.
+The verifier corrected the red-team example: use
+H′={γ∈Γ(2):a≡1 mod4}. Products satisfy a(γγ′)≡aa′ mod4 since both
+off-diagonal entries are even; H′ contains Γ(4) but excludes −I, and
+±H′=Γ(2). Its projective level is therefore 2, but Γ(2) is not contained
+in H′. The original Γ(2)∩Γ₁(4) example is not used. Item, prerequisite and
+route 1 now carry the correct hypothesis and negative test.
+
+**Theta’s character (finding 3; E12).** Jacobi’s hypergeometric identity
+and transcendence conclusion remain. Its θ₃² is weight one on Γ(2) with
+χ(γ)=χ_{−4}(d), equal to 1 when d≡1 mod4 and −1 when d≡3 mod4.
+Its trivial-character restriction is to H′={γ∈Γ(2):d≡1 mod4}.
+Slash by −I gives −θ₃², so it is not a nonzero trivial-character weight-one
+form on Γ(2). The scalar definition retains its trivial-character contract;
+QM.1 supplies the multiplier convention and upstream ModularForms Layer 0
+supplies the existing character/eigenspace and parity API. No competing
+character carrier is introduced. E12 records the qualification omitted in
+the published text at both p.631 (1.1.5) and p.688 (7.2.4).
+
+**The actual component system (finding 4; E13).** Restricting ρ to
+Γ(2)/{±I} constructs a rank-n **complex analytic** local system and flat
+bundle on Y(2). The span W_j of continuations of a selected scalar component
+has rank at most n, possibly zero for a zero component. It has its own
+continuation representation; it must be distinguished from the ambient ρ.
+For F=1,ρ=1 the component system is rank one and df/dx=0, independent of
+the six coset representatives.
+
+The false rank-6n integral-free scalar-span construction and automatic
+irreducible reduction are removed. A flat bundle formed from ρ does not
+make an arbitrary holomorphic section F horizontal. Its replacement needs
+three explicit inputs in the existing NoncongruenceModularForms owner:
+
+- a regular-singular algebraic differential module realizing the actual component-continuation system and scalar germ, with the correct singular locus;
+- an arithmetic differential equation/descent after the justified weight and denominator normalization, matching its minimal operator to that component system;
+- the exact DT.5 G-function theorem applied to that arithmetic operator, or a proved subquotient reduction retaining the component, to obtain quasi-unipotent monodromy.
+
+Inherited semisimple cusp monodromy can then give finite local monodromy
+for the component system, the input to Theorem 7.2.1. These bridge inputs
+are explicitly **missing**, with required conclusions in the JSON and
+route-1 brief; the bounded fix reading establishes no exact supplier theorem
+for them. Complex ODE foundations are imported from the existing conformal
+Part II and general G-function theory from DT.5. The published componentwise
+Theorem 7.3.3 remains a target; this repair does not claim to prove it or to
+disprove it or the main scalar theorem.
+
+**Effective values (finding 5; E14).** Definition 7.3.1 remains broad.
+The full-representation conclusion of Corollary 7.3.4 requires
+V_F=span_C{F(τ):τ∈H}=C^n, equivalently linearly independent component
+functions. In general the congruence conclusion is for ρ restricted to V_F.
+Once the component conclusions apply, intersect their congruence groups;
+every element then fixes every value of F and hence exactly that invariant
+span. The bounded-denominator normalizations remain part of the component
+application contract.
+
+For the nonzero counterexample use σ(S)=diag(1,−1),
+σ(R)=(2,1;−7,−3), with S²=R³=I. Then σ(T)=(2,1;7,3) has distinct
+eigenvalues (5±√29)/2, so is semisimple of infinite order. The weight-zero
+pair ρ=1⊕σ,F=(1,0,0) has integral coefficients and meets the broad
+definition, but the unused summand has infinite image. Its effective span
+is the trivial one-dimensional summand. E14 records the source’s omitted
+spanning hypothesis at Corollary 7.3.4, p.691.
+
+**Quotient proof (finding 6; E15–E16).** The radius-r reconstruction and
+(2.3.2) on p.640 need the phase G(0)/|G(0)|, or equality only of absolute
+values. G=i detects the omitted phase. On p.641 the bound uses
+sup_D log|h|, not sup_D|h|; g=h=1 detects the omitted logarithm.
+These are local proof slips; Lemma 2.3.1’s statement and the normalized
+herglotz-log item with g(0)=1 are unchanged. Routes 2 and 3 import the
+corrected proof guidance.
+
+## Fix source reading and checks
+
+On 2026-10-01 downloaded the actual 76-page published JAMS author offprint,
+SHA-256 `867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e`,
+and reread pp.630–631,637–641,652–653,659,688–691,695, with images
+640,641,690,691. This is a bounded fix reading. The earlier full readings
+and v4 comparisons are historical provenance, not a new full reading.
+The author’s current page links this unchanged offprint; arXiv’s listing
+ends at v4 of 16 September 2024. Crossref has no correction relation, and
+bounded title/author correction searches found none applicable. These checks
+do not prove absence of a correction. No author was contacted.
+
+Read current QM.1, DT.5 and upstream ModularForms Layer 0 descriptions and
+matching reviewed AUDIT-15/AUDIT-07 records. Read Mathlib’s two theta
+transformation declarations at the pin. No status is promoted and no
+upstream roadmap is edited. The three candidate owners have no finished
+blueprint packet here; their precise missing contracts go into these briefs.
+
+Paper, intake, source-issue/version, route/classification and exact
+counterexample checks passed, together with git diff --check. All 129
+missing items remain routed once in the original nine routes. E1–E11 and
+the historical independent review records remain unchanged. No Lean artifact
+is required or compiled. Independent fix review remains pending.
