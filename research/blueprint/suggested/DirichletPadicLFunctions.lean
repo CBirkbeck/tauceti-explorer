@@ -24007,3 +24007,173 @@ example : kubertReducedGeneratorSpan 0 3=⊤ := by sorry
 example : kubertReducedGeneratorSpan 0 1=⊤ := by sorry
 end
 end DirichletPadic.SuggestedKubertPrimePowerTests
+
+/- Kubert internal quotient and admissible-source transport. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+variable (M N : ℕ) (hMN : M ∣ N)
+
+noncomputable def kubertInclusionFiberEquiv (m : ℕ) (hm : m ∣ M)
+    (b : (nsmulAddMonoidHom (α := X) M).ker) :
+    {c : (nsmulAddMonoidHom (α := X) M).ker // m • c = m • b} ≃
+      {c : (nsmulAddMonoidHom (α := X) N).ker // m • c =
+        m • AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) b} := by sorry
+
+lemma kubertAdmissibleTransport_inclusionFiberEquiv_coe (m : ℕ) (hm : m ∣ M)
+    (b : (nsmulAddMonoidHom (α := X) M).ker)
+    (c : {c : (nsmulAddMonoidHom (α := X) M).ker // m • c = m • b}) :
+    (kubertInclusionFiberEquiv M N hMN m hm b c).val =
+      AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) c.val := by sorry
+
+lemma kubertAdmissibleTransport_inclusionFiberEquiv_symm_coe (m : ℕ) (hm : m ∣ M)
+    (b : (nsmulAddMonoidHom (α := X) M).ker)
+    (c : {c : (nsmulAddMonoidHom (α := X) N).ker // m • c =
+      m • AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) b}) :
+    (((kubertInclusionFiberEquiv M N hMN m hm b).symm c).val : X) = (c.val : X) := by sorry
+
+lemma kubertAdmissibleTransport_inclusionFiberEquiv_card (m : ℕ) (hm : m ∣ M)
+    (b : (nsmulAddMonoidHom (α := X) M).ker) :
+    Nat.card {c : (nsmulAddMonoidHom (α := X) M).ker // m • c = m • b} =
+      Nat.card {c : (nsmulAddMonoidHom (α := X) N).ker // m • c =
+        m • AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) b} := by sorry
+
+lemma kubertAdmissibleTransport_relation_map_inclusion (w m : ℕ) (hm : m ∣ M)
+    (b : (nsmulAddMonoidHom (α := X) M).ker)
+    [Fintype {c : (nsmulAddMonoidHom (α := X) M).ker // m • c = m • b}]
+    [Fintype {c : (nsmulAddMonoidHom (α := X) N).ker // m • c =
+      m • AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) b}] :
+    FreeAbelianGroup.map (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN))
+      (kubertRelation w m (m • b)) =
+        kubertRelation w m
+          (m • AddSubgroup.inclusion (kubertGeneratorProduct_level_mono hMN) b) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+variable (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (w : ℕ)
+variable [Fintype (nsmulAddMonoidHom (α := X) (M : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+
+lemma kubertAdmissibleTransport_internal_le_inclusion_comap :
+    kubertInternalLevelRelations (X := X) M w ≤
+      (kubertInternalLevelRelations (X := X) N w).comap
+        (FreeAbelianGroup.map (AddSubgroup.inclusion
+          (kubertGeneratorProduct_level_mono hMN))) := by sorry
+
+noncomputable def kubertInternalLevelMap (hMN : (M : ℕ) ∣ (N : ℕ)) (w : ℕ) :
+    (FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (M : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := X) M w) →+
+    (FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := X) N w) := by sorry
+
+lemma kubertAdmissibleTransport_levelMap_of (x : (nsmulAddMonoidHom (α := X) (M : ℕ)).ker) :
+    kubertInternalLevelMap M N hMN w
+      (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) M w)
+        (FreeAbelianGroup.of x)) =
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N w)
+        (FreeAbelianGroup.of (AddSubgroup.inclusion
+          (kubertGeneratorProduct_level_mono hMN) x)) := by sorry
+
+lemma kubertAdmissibleTransport_levelMap_self (z : FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (M : ℕ)).ker) ⧸
+    kubertInternalLevelRelations (X := X) M w) :
+    kubertInternalLevelMap M M (dvd_refl _) w z = z := by sorry
+
+lemma kubertAdmissibleTransport_levelMap_comp (L : ℕ+) (hLM : (L : ℕ) ∣ (M : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := X) (L : ℕ)).ker]
+    (z : FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (L : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := X) L w) :
+    kubertInternalLevelMap M N hMN w (kubertInternalLevelMap L M hLM w z) =
+      kubertInternalLevelMap L N (dvd_trans hLM hMN) w z := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertAdmissibleTransport_admissible_trans {E M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0)
+    (hEM : E ∈ kubertAdmissibleDivisors M)
+    (hMN : M ∈ kubertAdmissibleDivisors N) :
+    E ∈ kubertAdmissibleDivisors N := by sorry
+
+lemma kubertAdmissibleTransport_generators_admissible_mono (k : ℕ) {M N : ℕ} (hM : M ≠ 0) (hN : N ≠ 0)
+    (hMN : M ∈ kubertAdmissibleDivisors N) :
+    kubertAdmissibleGenerators k M hM ⊆
+      kubertAdmissibleGenerators k N hN := by sorry
+
+variable (k : ℕ) (M N : ℕ+)
+variable [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+
+lemma kubertAdmissibleTransport_source_span_le_comap
+    (hMN : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ)) :
+    kubertReducedGeneratorSpan k M ≤
+      (kubertReducedGeneratorSpan k N).comap
+        (kubertInternalLevelMap M N ((kubertGenerators_admissible_mem_iff N.pos.ne').mp hMN).1 0) := by sorry
+
+lemma kubertAdmissibleTransport_label_mem_of_lower_span
+    (hMN : (M : ℕ) ∈ kubertAdmissibleDivisors (N : ℕ))
+    (hgen : kubertReducedGeneratorSpan k M = ⊤)
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0)
+      (FreeAbelianGroup.of (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono
+        ((kubertGenerators_admissible_mem_iff N.pos.ne').mp hMN).1) x)) ∈
+      kubertReducedGeneratorSpan k N := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertAdmissibleTransportTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker]
+-- four_to_twelve_keeps_actual_roots
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • b}) : ((kubertInclusionFiberEquiv 4 12 (by decide) 2 (by decide) b c).val : (Fin 1 → AddCircle (1 : ℚ)))=(c.val : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- fiber_inverse_recovers_root
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • b}) : (kubertInclusionFiberEquiv 4 12 (by decide) 2 (by decide) b).symm (kubertInclusionFiberEquiv 4 12 (by decide) 2 (by decide) b c)=c := by sorry
+-- unit_degree_fiber
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : Nat.card {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker // (1 : ℕ) • c = (1 : ℕ) • ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) b)}=1 := by sorry
+-- forward_fiber_is_native_inclusion
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • b}) : (kubertInclusionFiberEquiv 4 12 (by decide) 2 (by decide) b c).val=(AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) c.val := by sorry
+-- inverse_keeps_ambient_root
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) b)}) : (((kubertInclusionFiberEquiv 4 12 (by decide) 2 (by decide) b).symm c).val : (Fin 1 → AddCircle (1 : ℚ)))=(c.val : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- full_root_fiber_cardinality_unchanged
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : Nat.card {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • b}=Nat.card {c : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker // (2 : ℕ) • c = (2 : ℕ) • ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) b)} := by sorry
+-- weighted_relation_0_transport
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : FreeAbelianGroup.map (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) (kubertRelation 0 2 ((2 : ℕ) • b))=kubertRelation 0 2 ((2 : ℕ) • ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) b)) := by sorry
+-- weighted_relation_2_transport
+example (b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : FreeAbelianGroup.map (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) (kubertRelation 2 2 ((2 : ℕ) • b))=kubertRelation 2 2 ((2 : ℕ) • ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) b)) := by sorry
+-- all_relations_descend
+example : kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 4 2 ≤ (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 2).comap (FreeAbelianGroup.map (AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide)))) := by sorry
+-- quotient_map_on_actual_label
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 12 (by decide) 0) (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 4 0) (FreeAbelianGroup.of x))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) x))) := by sorry
+-- identity_quotient_map
+example (z : (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 4 0)) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 4 (by decide) 0) z=z := by sorry
+-- quotient_maps_compose
+example (z : (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 1 0)) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 12 (by decide) 0) ((kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 1 4 (by decide) 0) z)=(kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 1 12 (by decide) 0) z := by sorry
+-- positive_weight_label_map
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 12 (by decide) 2) (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 4 2) (FreeAbelianGroup.of x))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 2) (FreeAbelianGroup.of ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) x))) := by sorry
+-- unit_level_identity
+example (z : (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 1 0)) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 1 1 (by decide) 0) z=z := by sorry
+-- positive_weight_composition
+example (z : (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 1 2)) : (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 12 (by decide) 2) ((kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 1 4 (by decide) 2) z)=(kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 1 12 (by decide) 2) z := by sorry
+-- nested_full_primary_divisors
+example : 4∈kubertAdmissibleDivisors 12 ∧ 12∈kubertAdmissibleDivisors 60 ∧ 4∈kubertAdmissibleDivisors 60 := by sorry
+-- actual_source_union_inclusion
+example : kubertAdmissibleGenerators 0 4 (by decide) ⊆ kubertAdmissibleGenerators 0 12 (by decide) := by sorry
+-- nonadmissible_divisor_counterexample
+example : (fun _ : Fin 1 => (↑(2/3 : ℚ) : AddCircle (1 : ℚ)))∈kubertAdmissibleGenerators 0 3 (by decide) ∧ (fun _ : Fin 1 => (↑(2/3 : ℚ) : AddCircle (1 : ℚ)))∉kubertAdmissibleGenerators 0 9 (by decide) := by sorry
+-- generated_subgroup_transport
+example : kubertReducedGeneratorSpan 0 4 ≤ (kubertReducedGeneratorSpan 0 12).comap (kubertInternalLevelMap (X := (Fin 1 → AddCircle (1 : ℚ))) 4 12 (by decide) 0) := by sorry
+-- lower_generation_supplies_available_labels
+example (hgen : kubertReducedGeneratorSpan 0 4=⊤) (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((4 : ℕ+) : ℕ)).ker) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((4 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) x)))∈kubertReducedGeneratorSpan 0 12 := by sorry
+-- prime_power_generation_transports
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of ((AddSubgroup.inclusion (kubertGeneratorProduct_level_mono (X := (Fin 1 → AddCircle (1 : ℚ))) (show ((3 : ℕ+) : ℕ) ∣ ((12 : ℕ+) : ℕ) by decide))) x)))∈kubertReducedGeneratorSpan 0 12 := by sorry
+end
+end DirichletPadic.SuggestedKubertAdmissibleTransportTests
