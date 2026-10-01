@@ -34418,7 +34418,8 @@
     "REV-PAPER-NGODAC-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NGODAC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4079"
   },
   {
    "id": "REV-RT-PAPER-NGODAC-21",
@@ -37434,7 +37435,8 @@
     "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4170"
   },
   {
    "id": "REV-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -38113,8 +38115,9 @@
     "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4198"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4198",
+   "finishedAt": "2026-10-01T13:40:15Z"
   },
   {
    "id": "REV-RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
