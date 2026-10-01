@@ -24568,3 +24568,179 @@ example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : �
 example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((18 : ℕ+) : ℕ)).ker) (ht : (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 18) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((18 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 18 → (9 : ℕ) • y=(9 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 18 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 18) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 18 0) (FreeAbelianGroup.of t))∈kubertReducedGeneratorSpan 0 18 := by sorry
 end
 end DirichletPadic.SuggestedKubertExceptionalTests
+
+/- Kubert exceptional-coordinate descent and composite source generation. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertComposite_primary_coordinates_agree_off (N : ℕ) (hN : N ≠ 0)
+    (p r : N.primeFactors) (hr : r ≠ p)
+    (x y : (nsmulAddMonoidHom (α := X) N).ker)
+    (hxy : (p.val ^ N.factorization p.val) • x=(p.val ^ N.factorization p.val) • y) :
+    kubertPrimaryCoordinates N hN x r=
+      kubertPrimaryCoordinates N hN y r := by sorry
+
+lemma kubertComposite_primary_coordinates_differ_at_selected (N : ℕ) (hN : N ≠ 0)
+    (p : N.primeFactors)
+    (x y : (nsmulAddMonoidHom (α := X) N).ker)
+    (hxy : (p.val ^ N.factorization p.val) • x=(p.val ^ N.factorization p.val) • y)
+    (hne : x ≠ y) :
+    kubertPrimaryCoordinates N hN x p ≠
+      kubertPrimaryCoordinates N hN y p := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertExceptionalIndices (k N : ℕ) (hN : N ≠ 0)
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N) : Finset N.primeFactors := by sorry
+
+lemma kubertComposite_exceptionalIndices_mem_iff (k N : ℕ) (hN : N ≠ 0)
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N) (p : N.primeFactors) :
+    p ∈ kubertExceptionalIndices k N hN x ↔
+      (kubertPrimitiveCoordinates _ N hN x p :
+        Fin (k+1) → AddCircle (1 : ℚ)) =
+          kubertDistinguishedPoint k (p.val ^ N.factorization p.val) := by sorry
+
+lemma kubertComposite_exceptionalIndices_empty_iff (k N : ℕ) (hN : N ≠ 0)
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N) :
+    kubertExceptionalIndices k N hN x = ∅ ↔
+      (x : Fin (k+1) → AddCircle (1 : ℚ)) ∈
+        kubertReducedPrimitive k N hN := by sorry
+
+lemma kubertComposite_exceptionalIndices_unit (k : ℕ)
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) 1) :
+    kubertExceptionalIndices k 1 (by decide) x = ∅ := by sorry
+
+lemma kubertComposite_exceptionalIndices_fiber_erase (k N : ℕ) (hN : N ≠ 0)
+    (p : N.primeFactors)
+    (x y : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N)
+    (hp : p ∈ kubertExceptionalIndices k N hN x)
+    (hxy : (p.val ^ N.factorization p.val) • (x : Fin (k+1) → AddCircle (1 : ℚ)) =
+      (p.val ^ N.factorization p.val) • (y : Fin (k+1) → AddCircle (1 : ℚ)))
+    (hne : x ≠ y) :
+    kubertExceptionalIndices k N hN y = (kubertExceptionalIndices k N hN x).erase p := by sorry
+
+lemma kubertComposite_exceptionalIndices_fiber_card_lt (k N : ℕ) (hN : N ≠ 0)
+    (p : N.primeFactors)
+    (x y : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) N)
+    (hp : p ∈ kubertExceptionalIndices k N hN x)
+    (hxy : (p.val ^ N.factorization p.val) • (x : Fin (k+1) → AddCircle (1 : ℚ)) =
+      (p.val ^ N.factorization p.val) • (y : Fin (k+1) → AddCircle (1 : ℚ)))
+    (hne : x ≠ y) :
+    (kubertExceptionalIndices k N hN y).card < (kubertExceptionalIndices k N hN x).card := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertComposite_primary_power_admissible (N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    p.val ^ N.factorization p.val ∈ kubertAdmissibleDivisors N := by sorry
+
+lemma kubertComposite_primary_complement_coprime (N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    p.val.Coprime (N / p.val ^ N.factorization p.val) := by sorry
+
+lemma kubertComposite_primary_complement_lt (N : ℕ) (hN : N ≠ 0) (p : N.primeFactors) :
+    N / p.val ^ N.factorization p.val < N := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertComposite_primitive_label_mem_of_lower (k : ℕ) (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (hgen : ∀ (M : ℕ+)
+      [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker],
+      (M : ℕ) < (N : ℕ) → kubertReducedGeneratorSpan k M=⊤)
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (hx : (x : Fin (k+1) → AddCircle (1 : ℚ)) ∈
+      kubertPrimitivePoints _ (N : ℕ)) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of x) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertComposite_span_eq_top_of_lower (k : ℕ) (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (hgen : ∀ (M : ℕ+)
+      [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker],
+      (M : ℕ) < (N : ℕ) → kubertReducedGeneratorSpan k M=⊤) :
+    kubertReducedGeneratorSpan k N=⊤ := by sorry
+
+lemma kubertComposite_source_span_eq_top (k : ℕ) (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertReducedGeneratorSpan k N=⊤ := by sorry
+
+lemma kubertComposite_every_label_mem_source_span (k : ℕ) (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (x : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of x) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCompositeTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((30 : ℕ+) : ℕ)).ker]
+-- other_primary_coordinate_is_fixed
+example (x y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker) (h : (2 : ℕ) • x=(2 : ℕ) • y) : kubertPrimaryCoordinates 6 (by decide) x (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)=kubertPrimaryCoordinates 6 (by decide) y (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) := by sorry
+-- selected_primary_coordinate_distinguishes_roots
+example (x y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker) (h : (2 : ℕ) • x=(2 : ℕ) • y) (hne : x≠y) : kubertPrimaryCoordinates 6 (by decide) x (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)≠kubertPrimaryCoordinates 6 (by decide) y (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) := by sorry
+-- unit_has_no_exceptional_indices
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 1) : kubertExceptionalIndices 0 1 (by decide) x=∅ := by sorry
+-- membership_uses_actual_primary_coordinate
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)∈kubertExceptionalIndices 0 6 (by decide) x ↔ (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=kubertDistinguishedPoint 0 2 := by sorry
+-- empty_indices_are_reduced_primitive
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : kubertExceptionalIndices 0 6 (by decide) x=∅ ↔ (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertReducedPrimitive 0 6 (by decide) := by sorry
+-- nonempty_indices_detect_source_excision
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (kubertExceptionalIndices 0 6 (by decide) x).Nonempty ↔ (x : (Fin 1 → AddCircle (1 : ℚ)))∉kubertReducedPrimitive 0 6 (by decide) := by sorry
+-- exceptional_count_is_bounded_by_prime_count
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 30) : (kubertExceptionalIndices 0 30 (by decide) x).card≤3 := by sorry
+-- primary_membership_characterization
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)∈kubertExceptionalIndices 0 6 (by decide) x ↔ (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : (Fin 1 → AddCircle (1 : ℚ)))=kubertDistinguishedPoint 0 2 := by sorry
+-- empty_set_characterization
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 12) : kubertExceptionalIndices 0 12 (by decide) x=∅ ↔ (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertReducedPrimitive 0 12 (by decide) := by sorry
+-- level_one_boundary
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 1) : kubertExceptionalIndices 0 1 (by decide) x=∅ := by sorry
+-- other_root_erases_selected_prime
+example (x y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (hp : (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)∈kubertExceptionalIndices 0 6 (by decide) x) (h : (2 : ℕ) • (x : (Fin 1 → AddCircle (1 : ℚ)))=(2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))) (hne : x≠y) : kubertExceptionalIndices 0 6 (by decide) y=(kubertExceptionalIndices 0 6 (by decide) x).erase (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) := by sorry
+-- self_root_keeps_exceptional_set
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (hp : (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)∈kubertExceptionalIndices 0 6 (by decide) x) : kubertExceptionalIndices 0 6 (by decide) x≠(kubertExceptionalIndices 0 6 (by decide) x).erase (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) := by sorry
+-- exception_count_strictly_decreases
+example (x y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (hp : (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors)∈kubertExceptionalIndices 0 6 (by decide) x) (h : (2 : ℕ) • (x : (Fin 1 → AddCircle (1 : ℚ)))=(2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))) (hne : x≠y) : (kubertExceptionalIndices 0 6 (by decide) y).card<(kubertExceptionalIndices 0 6 (by decide) x).card := by sorry
+-- full_primary_factor_is_admissible
+example : 4∈kubertAdmissibleDivisors 12 := by sorry
+-- selected_prime_is_coprime_to_complement
+example : (2 : ℕ).Coprime (12/4) := by sorry
+-- complementary_level_strictly_decreases
+example : (12 : ℕ)/4<12 := by sorry
+-- primitive_generation_from_proper_levels
+example (hgen : ∀ (M : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((M : ℕ+) : ℕ)).ker], (M : ℕ)<12 → kubertReducedGeneratorSpan 0 M=⊤) (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) (hx : (x : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 12) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 12 := by sorry
+-- level_generation_induction_step
+example (hgen : ∀ (M : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((M : ℕ+) : ℕ)).ker], (M : ℕ)<12 → kubertReducedGeneratorSpan 0 M=⊤) : kubertReducedGeneratorSpan 0 12=⊤ := by sorry
+-- source_generates_unit_level
+example : kubertReducedGeneratorSpan 0 1=⊤ := by sorry
+-- source_generates_composite_level
+example : kubertReducedGeneratorSpan 0 12=⊤ := by sorry
+-- source_generates_three_prime_level
+example : kubertReducedGeneratorSpan 0 30=⊤ := by sorry
+-- arbitrary_point_label_is_available
+example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 12 := by sorry
+end
+end DirichletPadic.SuggestedKubertCompositeTests

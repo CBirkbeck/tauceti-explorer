@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Sixteen L3 nodes identify the actual higher-power image and complete lifting fibers, prove availability of every other image label, recover the omitted label through two complete internal relations, and derive the lower-label inputs from actual lower-level source generation. All 1,549 predecessor nodes and 1,059 baseline records remain whole.",
+  "summary": "Fifteen L3 nodes define the actual exceptional-coordinate finite set, prove exact deletion and both induction decreases, and complete source generation of the internal ordinary quotient at every positive level. All 1,565 predecessor nodes and 1,063 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7455,6 +7455,34 @@
         "module": "Mathlib/Algebra/Group/Monoid.lean",
         "provides": "The native monoid successor-power identity a^(n+1)=a^n*a, used for the exact source level and root-degree arithmetic.",
         "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe exercises subgroup cancellation, prime-support equality and exact successor-power arithmetic; generated additive APIs cite indexed source declarations."
+      },
+      {
+        "ref": "mathlib:dvd_pow_self",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Divisibility/Basic.lean",
+        "provides": "In a native monoid, an element divides every positive natural power of itself.",
+        "checked": "Full statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact paths and ranges are recorded in the retained reading note. The complete native probe exercises both strong inductions, the finite-set erase bound, strict complementary-level decrease and divisibility of the primary power."
+      },
+      {
+        "ref": "mathlib:Finset.card_erase_lt_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Card.lean",
+        "provides": "The native finite-set cardinality strictly decreases when a member is erased.",
+        "checked": "Full statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact paths and ranges are recorded in the retained reading note. The complete native probe exercises both strong inductions, the finite-set erase bound, strict complementary-level decrease and divisibility of the primary power."
+      },
+      {
+        "ref": "mathlib:Nat.div_lt_self'",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Init.lean",
+        "provides": "The native successor-form strict division bound (a+1)/(b+2)<a+1.",
+        "checked": "Full statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact paths and ranges are recorded in the retained reading note. The complete native probe exercises both strong inductions, the finite-set erase bound, strict complementary-level decrease and divisibility of the primary power."
+      },
+      {
+        "ref": "mathlib:Nat.strong_induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Init.lean",
+        "provides": "Native strong induction on natural numbers, supplying the conclusion at every strictly smaller index.",
+        "checked": "Full statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact paths and ranges are recorded in the retained reading note. The complete native probe exercises both strong inductions, the finite-set erase bound, strict complementary-level decrease and divisibility of the primary power."
       }
     ]
   },
@@ -101236,6 +101264,836 @@
       "acceptance": [
         "Use the actual full lifting fibers and exact point orders, not a chosen family of roots. Every internal relation has a positive divisor degree and a certified image input. Preserve all actual labels and use only integer subgroup sums and cancellation. Check exponent zero, where the higher-power map is the identity. Derive the two lower labels from B(M)=top; do not assume generation at N."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primary-coordinates-agree-off",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Other primary coordinates are fixed throughout the selected fiber",
+      "kind": "lemma",
+      "statement": "For nonzero N, distinct prime indices p,r, and actual level-N points x,y with p^v_p(N)x=p^v_p(N)y, their actual r-primary coordinates are equal.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Compose the actual primary-coordinate additive isomorphism with native evaluation at r.",
+        "The two full primary powers are coprime by the native pairwise-coprimality theorem.",
+        "Apply the established injectivity of coprime scalar multiplication on the actual r-primary level to the mapped fiber equation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-nsmul-injective-on-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primary_coordinates_agree_off"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.other_primary_coordinate_is_fixed",
+          "kind": "compatibility",
+          "statement": "At level six, two points with the same doubled value have the same actual ternary coordinate."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primary-coordinates-differ-at-selected",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Distinct points in a selected fiber differ at its selected coordinate",
+      "kind": "lemma",
+      "statement": "For nonzero N and prime index p, distinct actual level-N points with equal p^v_p(N) multiples have distinct p-primary coordinates.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "If the selected coordinates also agreed, primary_coordinates_agree_off would give equality at every other prime index.",
+        "Native function extensionality and injectivity of the actual primary-coordinate isomorphism would give equality of the two original points."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-coordinates-agree-off",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primary_coordinates_differ_at_selected"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.selected_primary_coordinate_distinguishes_roots",
+          "kind": "characterisation",
+          "statement": "Distinct roots with equal doubled values must have different actual binary coordinates."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual finite set of exceptional primary coordinates",
+      "kind": "definition",
+      "statement": "For a primitive N-point x of the rational torus and nonzero N, define V(x) as the native finite set of prime indices p of N for which the actual primitive p-primary coordinate of x equals the distinguished point e(p^v_p(N)).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Filter the native finite universe of prime indices by equality of the established primitive coordinate with the established distinguished point.",
+        "No auxiliary coordinate carrier or complement-multiplication proxy is introduced. The domain is the existing exact-order primitive subtype."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generators-distinguished-point",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertExceptionalIndices"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.unit_has_no_exceptional_indices",
+          "kind": "degenerate",
+          "statement": "A primitive point at level one has an empty exceptional index set."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.membership_uses_actual_primary_coordinate",
+          "kind": "characterisation",
+          "statement": "Membership of the binary prime uses equality of its actual primary coordinate with the distinguished point."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.empty_indices_are_reduced_primitive",
+          "kind": "characterisation",
+          "statement": "The exceptional set is empty exactly at the source reduced primitive set."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.nonempty_indices_detect_source_excision",
+          "kind": "characterisation",
+          "statement": "A nonempty exceptional set detects exactly a primitive point omitted from the reduced source stratum."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.exceptional_count_is_bounded_by_prime_count",
+          "kind": "compatibility",
+          "statement": "The count of exceptional coordinates is bounded by the number of distinct prime factors."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ],
+      "api": [
+        {
+          "name": "kubertComposite_exceptionalIndices_mem_iff",
+          "role": "characterisation",
+          "statement": "Membership p in V(x) is equivalent to equality of the actual primitive p-primary coordinate with e(p^v_p(N))."
+        },
+        {
+          "name": "kubertComposite_exceptionalIndices_empty_iff",
+          "role": "characterisation",
+          "statement": "For a primitive N-point x, V(x) is empty if and only if x belongs to the existing source reduced primitive set T*(N)."
+        },
+        {
+          "name": "kubertComposite_exceptionalIndices_unit",
+          "role": "compatibility",
+          "statement": "Every primitive point at level one has empty exceptional index set."
+        },
+        {
+          "name": "kubertComposite_exceptionalIndices_fiber_erase",
+          "role": "compatibility",
+          "statement": "Let p belong to V(x) for a primitive N-point x. If a distinct primitive N-point y has the same p^v_p(N) multiple, then V(y)=V(x) with p erased."
+        },
+        {
+          "name": "kubertComposite_exceptionalIndices_fiber_card_lt",
+          "role": "compatibility",
+          "statement": "Under the actual fiber, inequality and exceptional-membership hypotheses, the cardinality of V(y) is strictly smaller than that of V(x)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Source reduced primitive set",
+          "how": "Its empty locus is exactly the existing source T*(N)."
+        },
+        {
+          "where": "Kubert exceptional-fiber induction",
+          "how": "Its cardinality is the well-founded measure, and exact deletion supplies strict decrease for every other point."
+        },
+        {
+          "where": "Unit-level boundary",
+          "how": "The empty prime-index type yields no exceptional coordinate and requires no selected prime."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-mem-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exceptional membership is equality of the actual primary coordinate",
+      "kind": "lemma",
+      "statement": "Membership p in V(x) is equivalent to equality of the actual primitive p-primary coordinate with e(p^v_p(N)).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Unfold the native filter and remove membership in the finite universe.",
+        "The resulting predicate is precisely the source exceptional-coordinate equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_exceptionalIndices_mem_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.primary_membership_characterization",
+          "kind": "characterisation",
+          "statement": "The exceptional binary index means that the actual binary coordinate equals the distinguished order-two point."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-empty-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero-exception locus is the reduced primitive source",
+      "kind": "lemma",
+      "statement": "For a primitive N-point x, V(x) is empty if and only if x belongs to the existing source reduced primitive set T*(N).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use the existing characterization of T*(N) as primitive points whose every primary coordinate avoids its distinguished point.",
+        "If V(x) is empty, its membership characterization rules out each exceptional coordinate.",
+        "Conversely every coordinate inequality rules out membership in the finite set; native finite-set extensionality proves emptiness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_exceptionalIndices_empty_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.empty_set_characterization",
+          "kind": "characterisation",
+          "statement": "The zero-exception base case is exactly the actual reduced primitive source."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-unit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The unit level has no exceptional coordinate",
+      "kind": "lemma",
+      "statement": "Every primitive point at level one has empty exceptional index set.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "The established primitive level-one set and reduced level-one set both equal the singleton zero.",
+        "Apply exceptionalIndices_empty_iff. No prime index of one is selected."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-empty-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-one",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_exceptionalIndices_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.level_one_boundary",
+          "kind": "degenerate",
+          "statement": "Level one requires no chosen prime and has no exceptional coordinate."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-fiber-erase",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every other primitive root loses exactly the chosen exceptional prime",
+      "kind": "lemma",
+      "statement": "Let p belong to V(x) for a primitive N-point x. If a distinct primitive N-point y has the same p^v_p(N) multiple, then V(y)=V(x) with p erased.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Embed the actual primitive points in the actual level kernel using their exact-order certificates.",
+        "Every other primary coordinate agrees by primary_coordinates_agree_off.",
+        "The selected coordinates differ by primary_coordinates_differ_at_selected. Since x has its distinguished selected coordinate, y cannot have that coordinate.",
+        "Native finite-set extensionality, split into the selected index and all others, proves exact deletion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-coordinates-agree-off",
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-coordinates-differ-at-selected",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_exceptionalIndices_fiber_erase"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.other_root_erases_selected_prime",
+          "kind": "compatibility",
+          "statement": "A distinct primitive root in the selected fiber loses exactly its binary exceptional index."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.self_root_keeps_exceptional_set",
+          "kind": "degenerate",
+          "statement": "The distinguished root itself keeps its exceptional set; point inequality is essential."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-fiber-card-lt",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exceptional-coordinate induction strictly decreases",
+      "kind": "lemma",
+      "statement": "Under the actual fiber, inequality and exceptional-membership hypotheses, the cardinality of V(y) is strictly smaller than that of V(x).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Rewrite V(y) by the exact erase theorem.",
+        "Apply native strict decrease of finite-set cardinality when erasing a member."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-fiber-erase",
+        "mathlib:Finset.card_erase_lt_of_mem"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_exceptionalIndices_fiber_card_lt"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.exception_count_strictly_decreases",
+          "kind": "characterisation",
+          "statement": "Every other primitive root has strictly fewer exceptional coordinates."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primary-power-admissible",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Each full primary power is an admissible level",
+      "kind": "lemma",
+      "statement": "For nonzero N and prime index p of N, the full power p^v_p(N) is an admissible divisor of N.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Specialize the established admissible primary-subproduct theorem to the singleton containing p.",
+        "Native singleton-product evaluation gives the exact full power."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-subproduct-admissible"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primary_power_admissible"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.full_primary_factor_is_admissible",
+          "kind": "computation",
+          "statement": "The full binary power four is an admissible divisor of twelve."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primary-complement-coprime",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The selected prime is coprime to its complementary level",
+      "kind": "lemma",
+      "statement": "For nonzero N and prime index p, the prime p is coprime to N divided by p^v_p(N).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "The full primary power is admissible, so its complementary quotient is coprime to it.",
+        "The native factorization exponent is positive because p is a prime factor of nonzero N.",
+        "The prime divides its positive power by native divisibility of powers. Descend coprimality along that divisibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-power-admissible",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff",
+        "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "mathlib:dvd_pow_self",
+        "mathlib:Nat.Coprime.of_dvd_left"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primary_complement_coprime"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.selected_prime_is_coprime_to_complement",
+          "kind": "computation",
+          "statement": "Two is coprime to the complement twelve divided by four."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primary-complement-lt",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Removing a full primary power lowers the level",
+      "kind": "lemma",
+      "statement": "For nonzero N and prime index p, the natural quotient N divided by p^v_p(N) is strictly less than N.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "The established full primary-power bound gives p^v_p(N)>1.",
+        "Write positive N as (N-1)+1 and the primary power as (q-2)+2.",
+        "The native strict division bound for these successor forms supplies the desired decrease."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-power-gt-one",
+        "mathlib:Nat.div_lt_self'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primary_complement_lt"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.complementary_level_strictly_decreases",
+          "kind": "computation",
+          "statement": "Removing a full primary factor gives a strictly smaller positive level."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-primitive-label-mem-of-lower",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exceptional-coordinate descent makes every primitive label available",
+      "kind": "theorem",
+      "statement": "Assume for every positive M<N, with its actual finite level structure, the source subgroup B(M) is the entire internal quotient. Then every primitive N-point label belongs to B(N).",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use native strong induction on the cardinality of the actual exceptional finite set.",
+        "If the set is empty, the point lies in T*(N), hence in the N-stratum of T(N), so its label lies in B(N).",
+        "Otherwise choose an exceptional prime p. Its full power q has positive exponent, its complement M=N/q is positive and admissible, p is coprime to M, and M<N. The genuine outer hypothesis therefore gives B(M)=top.",
+        "Write q=p^(n+1). The established exceptional-fiber elimination theorem reduces availability to every other primitive point y with qy=qt.",
+        "Exact deletion of p makes each such y have fewer exceptional coordinates. Apply the inner induction and then the existing Lemma 1.12 theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-empty-iff",
+        "DirichletPadicLFunctions:L3/kubert-composite-exceptional-indices-fiber-card-lt",
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-power-admissible",
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-complement-coprime",
+        "DirichletPadicLFunctions:L3/kubert-composite-primary-complement-lt",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-complement",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-self",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem",
+        "DirichletPadicLFunctions:L3/kubert-exceptional-exceptional-label-mem",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite",
+        "mathlib:Nat.strong_induction_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_primitive_label_mem_of_lower"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.primitive_generation_from_proper_levels",
+          "kind": "characterisation",
+          "statement": "Generation of all strictly smaller positive levels implies availability of every primitive level-twelve point."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-span-eq-top-of-lower",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Proper-level generation gives the entire current quotient",
+      "kind": "theorem",
+      "statement": "If B(M) is the entire internal quotient at every positive M<N, then B(N) is the entire current internal ordinary quotient.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "The established admissible-order spanning theorem says it suffices to include labels whose exact orders are admissible divisors of N.",
+        "Such an order E is at most N. If E=N, apply primitive_label_mem_of_lower.",
+        "If E<N, regard the actual point at level E. Its exact order certifies that level membership, and its admissibility gives the established level inclusion.",
+        "Apply the genuine lower-level hypothesis and the existing label transport theorem. Native closure monotonicity yields B(N)=top."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-primitive-label-mem-of-lower",
+        "DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span-eq-top",
+        "DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span",
+        "DirichletPadicLFunctions:L3/kubert-admissible-transport-label-mem-of-lower-span",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-torus-level-finite",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_span_eq_top_of_lower"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.level_generation_induction_step",
+          "kind": "characterisation",
+          "statement": "The induction step upgrades proper-level generation to the actual entire internal quotient at twelve."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-source-span-eq-top",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Kubert source generators span every positive internal level",
+      "kind": "theorem",
+      "statement": "For every positive N and every positive-dimensional rational torus, the native subgroup generated by the actual source set T(N) equals the entire existing internal ordinary quotient F(N)/D(N). This is Kubert Proposition 1.9, including arbitrary composite and unit levels.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use native strong induction on the natural value of the positive level, quantifying over actual positive levels and their finite-type structures.",
+        "The induction hypothesis supplies exactly the strictly smaller positive levels required by span_eq_top_of_lower.",
+        "Apply that step to close the induction. The final statement has no induction or availability assumption.",
+        "No rank, linear independence, internal/global equality or division in the quotient is used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-span-eq-top-of-lower",
+        "mathlib:Nat.strong_induction_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_source_span_eq_top"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.source_generates_unit_level",
+          "kind": "degenerate",
+          "statement": "The actual source generator subgroup is the entire internal ordinary quotient at the indicated positive level."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.source_generates_composite_level",
+          "kind": "characterisation",
+          "statement": "The actual source generator subgroup is the entire internal ordinary quotient at the indicated positive level."
+        },
+        {
+          "name": "SuggestedKubertCompositeTests.source_generates_three_prime_level",
+          "kind": "compatibility",
+          "statement": "The actual source generator subgroup is the entire internal ordinary quotient at the indicated positive level."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-composite-every-label-mem-source-span",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every actual point label is available",
+      "kind": "lemma",
+      "statement": "At every positive level N, every actual level-N point label belongs to the source subgroup B(N), regardless of whether its exact order is admissible.",
+      "hypotheses": [
+        "The ambient group for the coordinate-fiber comparison is any additive commutative group, with positive natural level N and actual full primary powers p^v_p(N). The source-generation theorem specializes to the positive-dimensional rational torus (Q/Z)^(k+1).",
+        "The exceptional finite set is defined on actual primitive-order points using the established primary-coordinate isomorphism. Equality with e(p^v_p(N)) is tested in the actual rational torus. Multiplication by the complementary factor alone is not the primary coordinate.",
+        "The final quotient is the existing internal ordinary quotient with complete valid distribution relations. B(N) is the already defined native additive subgroup generated by the actual source set T(N). Finite-type structures are on the actual level kernels; induction hypotheses quantify over those structures at every smaller positive level.",
+        "The inner induction decreases the cardinality of the exceptional finite set. The outer induction decreases the positive natural level by removing a full primary factor. Both decreases are proved; no induction conclusion or assumed availability package is added.",
+        "The final source-generation result includes level one and arbitrary composite levels. It proves generation only. Freeness, the independent rank lower bound, and equality of internal and global relations remain separate obligations."
+      ],
+      "proofSteps": [
+        "Rewrite B(N) as top using source_span_eq_top.",
+        "Every element of the actual internal quotient belongs to its top subgroup."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-composite-source-span-eq-top"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCompositeGeneration",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertComposite_every_label_mem_source_span"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 184–185, proof of Proposition 1.9 after Lemma 1.10, the exceptional set V(t), and the complete induction following Lemma 1.12.",
+          "match": "The actual primary coordinates show that every other primitive point in the selected full-power fiber loses exactly the selected exceptional prime. Lemma 1.12 and well-founded induction give primitive-label availability. Admissible-order spanning and the established lower-level map then give the whole internal quotient. Natural-level induction is a valid refinement of the source induction on distinct prime factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCompositeTests.arbitrary_point_label_is_available",
+          "kind": "characterisation",
+          "statement": "Every level-twelve point label is available, including points whose exact order is not admissible."
+        }
+      ],
+      "acceptance": [
+        "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
+      ]
     }
   ],
   "requests": [
@@ -101382,7 +102240,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "Kubert Lemma 1.12 is now planned through actual higher-power maps, surjective image identification, complete lifting fibers, membership of other image labels, two integral root-sum eliminations and derivation of the lower labels from B(M)=top. Next prove the exceptional-primary-coordinate comparison: throughout the source fiber all other primary coordinates agree, and any y different from t loses the chosen exceptional coordinate. Induct on the number of exceptional coordinates and then on levels or prime factors, using admissible-order spanning and lower-level transport, to establish composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound remains required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "Kubert Proposition 1.9 now has a complete route through actual primary-coordinate comparison, exact exceptional-set deletion, strong induction on exceptional cardinality, proper admissible-level transport, and strong induction on positive levels. B(N)=top is established without a remaining generation assumption, including composite and unit levels. Next expose the actual source presentation map and its surjectivity if needed by the rank comparison, then read and decompose the independent Cartan or rational-model rank lower bound. Generation and the known source cardinality do not by themselves prove a basis. Freeness and internal/global relation equality remain open, as do finite parity ranks and Tate conventions. Preserve all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -101414,7 +102272,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Kubert Lemma 1.12 is now planned through actual higher-power maps, surjective image identification, complete lifting fibers, membership of other image labels, two integral root-sum eliminations and derivation of the lower labels from B(M)=top. Next prove the exceptional-primary-coordinate comparison: throughout the source fiber all other primary coordinates agree, and any y different from t loses the chosen exceptional coordinate. Induct on the number of exceptional coordinates and then on levels or prime factors, using admissible-order spanning and lower-level transport, to establish composite-level Proposition 1.9. The independent Cartan or rational-model rank lower bound remains required for freeness and internal/global relation equality. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Kubert Proposition 1.9 now has a complete route through actual primary-coordinate comparison, exact exceptional-set deletion, strong induction on exceptional cardinality, proper admissible-level transport, and strong induction on positive levels. B(N)=top is established without a remaining generation assumption, including composite and unit levels. Next expose the actual source presentation map and its surjectivity if needed by the rank comparison, then read and decompose the independent Cartan or rational-model rank lower bound. Generation and the known source cardinality do not by themselves prove a basis. Freeness and internal/global relation equality remain open, as do finite parity ranks and Tate conventions. Preserve all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -101964,36 +102822,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. Lemma 1.12 is derived from its actual full fibers and relations. The exceptional-coordinate condition is correctly reserved for the next induction that supplies the other-label hypothesis.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The final source-generation theorem is the internal Proposition 1.9. The separate source cardinality theorem and generation do not yet establish independence or a basis.",
     "validation": {
-      "nodes": 1565,
+      "nodes": 1580,
       "kinds": {
-        "definition": 21,
-        "lemma": 852,
+        "definition": 22,
+        "lemma": 863,
         "construction": 139,
-        "theorem": 346,
+        "theorem": 349,
         "comparison": 207
       },
-      "api": 1071,
-      "packetTests": 2907,
-      "definitionConstructionTests": 641,
-      "typedExamples": 2910,
+      "api": 1076,
+      "packetTests": 2929,
+      "definitionConstructionTests": 646,
+      "typedExamples": 2932,
       "planets": 24,
-      "baseline": 1063,
-      "preservedWholeNodes": 1549,
-      "preservedBaseline": 1059,
+      "baseline": 1067,
+      "preservedWholeNodes": 1565,
+      "preservedBaseline": 1063,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 16,
-      "newNamedDeclarations": 16,
-      "newTypedTests": 23,
+      "newNodes": 15,
+      "newNamedDeclarations": 15,
+      "newTypedTests": 22,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1825,
-      "dependencyEdges": 7957,
+      "reachableNodes": 1840,
+      "dependencyEdges": 8008,
       "acyclic": true,
-      "baselineLeaves": 1226,
+      "baselineLeaves": 1230,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -102008,7 +102866,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 802689,
+      "readerWords": 810113,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -102034,32 +102892,33 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 80,
-      "scratchCompleteLemmas": 960,
+      "scratchCompleteDefinitions": 81,
+      "scratchCompleteLemmas": 974,
       "scratchMathlibModules": 2982,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 30,
-        "primitivePoints": 3330,
-        "imageEqualities": 3330,
-        "fullHigherFibers": 15650,
-        "rootsCertifiedPrimitive": 524080,
-        "nonexceptionalFibersAvoidPoint": 12320,
-        "integerEliminationIdentities": 3330,
-        "exponentZeroCases": 342
+        "levels": 74,
+        "primaryCoordinateChecks": 9052,
+        "exceptionalDeletionChecks": 11778,
+        "primitiveGenerationSteps": 9358,
+        "lowerLevelImports": 1494,
+        "integerEliminationIdentities": 1155,
+        "nonprimitiveLiftingIdentities": 719,
+        "allGeneratedLabels": 11417,
+        "unitLevels": 3
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699",
+        "sourceSha256": "0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a",
         "modules": 3604,
-        "warnings": 4822,
+        "warnings": 4859,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 16 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -102069,7 +102928,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "e1b2d61624fac6117b3a19fd224bc2c542297879b75ae9580ef496748edf4d58",
+      "sha256": "6fd7ca9c9d8269e60f0ae09c4c8dcc8910e0e12e90dbb7f67c8e16a20a7d0dc1",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -102084,11 +102943,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 960,
+        "completeLemmas": 974,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "bb0ab4f2335ea51d8014bd09eeba480890ce11d353dde713bbd136f0254214ec"
+        "sha256": "b94c3936b7357f21a8265a9e5a0e6398055078fe24db355cc3e3d746d827eb6b"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -102226,17 +103085,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699",
+        "sourceSha256": "0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a",
         "modules": 3604,
-        "warnings": 4822,
+        "warnings": 4859,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 16 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "a7560b3c450813d05d519490101670c75b76e134",
+      "base": "8b1144aaa5482fc81f76f46979f691a01a5d1e5f",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -113150,6 +114009,56 @@
         "warnings": 4822,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 16 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1919dc3e3d995abd67278ef01b78f8ff960798e506de5dc7fe8a4df32375c699.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCompositeGeneration": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5444,
+      "previousHead": "d9a7546eee0dcac5a3782d3050ca0b84eea72bf1",
+      "previousMerge": "6613ed8d1e3731718da1f17704005a40a21e6f0d",
+      "preservedWholeNodes": 1565,
+      "preservedBaseline": 1063,
+      "preservedFindings": 26,
+      "newNodes": 15,
+      "reading": "The complete induction on published 184–185 was reread, including the proof after Lemma 1.12. The actual coordinate maps from the prior primary decomposition are reused. Both decreases are checked by native finite-set and natural arithmetic APIs. The outer strong induction on positive levels is valid because every removed full primary factor exceeds one. The empty exceptional locus is the existing reduced source set, and admissible-order spanning handles all nonprimitive labels.",
+      "boundary": "Kubert Proposition 1.9 now has a complete route through actual primary-coordinate comparison, exact exceptional-set deletion, strong induction on exceptional cardinality, proper admissible-level transport, and strong induction on positive levels. B(N)=top is established without a remaining generation assumption, including composite and unit levels. Next expose the actual source presentation map and its surjectivity if needed by the rank comparison, then read and decompose the independent Cartan or rational-model rank lower bound. Generation and the known source cardinality do not by themselves prove a basis. Freeness and internal/global relation equality remain open, as do finite parity ranks and Tate conventions. Preserve all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "6613ed8d1e3731718da1f17704005a40a21e6f0d",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The final source-generation theorem is the internal Proposition 1.9. The separate source cardinality theorem and generation do not yet establish independence or a basis.",
+      "publication": {
+        "base": "8b1144aaa5482fc81f76f46979f691a01a5d1e5f",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 74,
+        "primaryCoordinateChecks": 9052,
+        "exceptionalDeletionChecks": 11778,
+        "primitiveGenerationSteps": 9358,
+        "lowerLevelImports": 1494,
+        "integerEliminationIdentities": 1155,
+        "nonprimitiveLiftingIdentities": 719,
+        "allGeneratedLabels": 11417,
+        "unitLevels": 3
+      },
+      "numericalMethod": "Exact rational torus enumeration, dimensions one through three. Natural-level induction imports only strictly smaller admissible levels. Actual CRT projections give the exceptional finite set; other primitive roots lose exactly the chosen prime. Every exceptional step checks the complete integer relation identity before quotienting. Remaining labels are checked by same-support primitive lifting. All 74 finite levels finish with every actual level point available. This is an independent finite control, not a Lean certificate.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a",
+        "modules": 3604,
+        "warnings": 4859,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
