@@ -21949,3 +21949,124 @@ example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
 example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzQuotientFunctionsTests
+
+/- Actual native division fibers and fiber-sum Gamma distributions. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+
+lemma grossKoblitz_division_point (q : ℚ) (m : ℕ) (hm : 0<m) (h : ℕ) :
+    m • (((q+h)/m : ℚ) : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ)) := by sorry
+
+lemma grossKoblitz_division_surjective (q : ℚ) (m : ℕ) (hm : 0<m)
+    (w : AddCircle (1 : ℚ)) (hw : m • w=(q : AddCircle (1 : ℚ))) :
+    ∃h : Fin m,(((q+h.val)/m : ℚ) : AddCircle (1 : ℚ))=w := by sorry
+
+lemma grossKoblitz_division_injective (q : ℚ) (m : ℕ) (hm : 0<m) :
+    Function.Injective (fun h : Fin m => (((q+h.val)/m : ℚ) : AddCircle (1 : ℚ))) := by sorry
+
+lemma grossKoblitz_division_root_periodic (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (w : AddCircle (1 : ℚ)) (hw : m • w=(q : AddCircle (1 : ℚ))) :
+    w∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+noncomputable def grossKoblitzDivisionEquiv (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    Fin m ≃ {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) //
+      m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))} := by sorry
+
+lemma grossKoblitzDivisionEquiv_coe (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (h : Fin m) :
+    ((grossKoblitzDivisionEquiv p q hq m hmpos hm h).val : AddCircle (1 : ℚ))=
+      (((q+h.val)/m : ℚ) : AddCircle (1 : ℚ)) := by sorry
+
+lemma grossKoblitzDivisionEquiv_symm_coe (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p]))
+    (w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) //
+      m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))}) :
+    (((q+((grossKoblitzDivisionEquiv p q hq m hmpos hm).symm w).val)/m : ℚ) : AddCircle (1 : ℚ))=w.val := by sorry
+
+lemma grossKoblitzDivisionEquiv_card (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    Nat.card {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) //
+      m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))}=m := by sorry
+
+lemma grossKoblitz_division_finite (p : ℕ) [Fact p.Prime] (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) : Finite {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))} := by sorry
+
+lemma grossKoblitz_mean_fiber_sum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+ [Fintype {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))}] :
+    (∑w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))},grossKoblitzCircleMean p ι ℓ w.val)=
+      grossKoblitzCircleMean p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩ := by sorry
+
+lemma grossKoblitz_source_fiber_sum (p : ℕ) [Fact p.Prime] {K : Type*} [Field K]
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (q : ℚ) (hq : ‖(q : ℚ_[p])‖≤1)
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) (hpm : p.Coprime m)
+ [Fintype {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))}]
+    (f : ℕ) (hf : 0<f)
+    (hper : Function.IsPeriodicPt (fun z : AddCircle (1 : ℚ) => p • z) f (q : AddCircle (1 : ℚ)))
+    (hpre : ∀w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))},Function.IsPeriodicPt (fun z : AddCircle (1 : ℚ) => p • z) f w.val.val) :
+    (∑w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) // m • (w : AddCircle (1 : ℚ))=(q : AddCircle (1 : ℚ))},(f/(Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z) w.val.val)) •
+      grossKoblitzCirclePhi p ι ℓ w.val)=
+      (f/(Function.minimalPeriod (fun z : AddCircle (1 : ℚ) => p • z) (q : AddCircle (1 : ℚ)))) •
+      grossKoblitzCirclePhi p ι ℓ ⟨(q : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic p q hq⟩ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzDivisionFibersTests
+open Finset
+open scoped Classical
+noncomputable section
+-- second_halving_point
+example : 2 • ((9/16 : ℚ) : AddCircle (1 : ℚ))=((1/8 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- integer_class_thirds
+example : 3 • ((2/3 : ℚ) : AddCircle (1 : ℚ))=0 := by sorry
+-- all_halving_points
+example (w : AddCircle (1 : ℚ)) (hw : 2 • w=((1/8 : ℚ) : AddCircle (1 : ℚ))) : w=((1/16 : ℚ) : AddCircle (1 : ℚ)) ∨ w=((9/16 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- unit_fiber_point
+example (w : AddCircle (1 : ℚ)) (hw : 1 • w=((-2/13 : ℚ) : AddCircle (1 : ℚ))) : w=((-2/13 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- distinct_halving_points
+example : ((1/16 : ℚ) : AddCircle (1 : ℚ))≠((9/16 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- negative_input_two_points
+example : ((-1/13 : ℚ) : AddCircle (1 : ℚ))≠((11/26 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- all_unit_roots_integral
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) (w : AddCircle (1 : ℚ)) (hw : 2 • w=((1/8 : ℚ) : AddCircle (1 : ℚ))) : w∈Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- nonunit_root_exclusion
+example : 3 • ((1/3 : ℚ) : AddCircle (1 : ℚ))=0 ∧ ((1/3 : ℚ) : AddCircle (1 : ℚ))∉Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- halving_equivalence_zero
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : ((grossKoblitzDivisionEquiv 3 (1/8) hq 2 (by decide) hm (0 : Fin 2)).val : AddCircle (1 : ℚ))=((1/16 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- halving_equivalence_last
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : ((grossKoblitzDivisionEquiv 3 (1/8) hq 2 (by decide) hm (1 : Fin 2)).val : AddCircle (1 : ℚ))=((9/16 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- unit_equivalence
+example (hq : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (1 : ℤ_[3])) : ((grossKoblitzDivisionEquiv 3 (-2/13) hq 1 (by decide) hm (0 : Fin 1)).val : AddCircle (1 : ℚ))=((-2/13 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- zero_class_halves
+example (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : ((grossKoblitzDivisionEquiv 3 (0) hq 2 (by decide) hm (1 : Fin 2)).val : AddCircle (1 : ℚ))=((1/2 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- recover_last_index
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hy : ‖((9/16 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) (he : 2 • ((9/16 : ℚ) : AddCircle (1 : ℚ))=((1/8 : ℚ) : AddCircle (1 : ℚ))) : (grossKoblitzDivisionEquiv 3 (1/8) hq 2 (by decide) hm).symm ⟨⟨((9/16 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (9/16) hy⟩,he⟩=(1 : Fin 2) := by sorry
+-- cardinality_two
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : Nat.card {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((1/8 : ℚ) : AddCircle (1 : ℚ))}=2 := by sorry
+-- cardinality_one
+example (hq : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (1 : ℤ_[3])) : Nat.card {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 1 • (w : AddCircle (1 : ℚ))=((-2/13 : ℚ) : AddCircle (1 : ℚ))}=1 := by sorry
+-- finite_halving_fiber
+example (hq : ‖((1/8 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : Finite {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((1/8 : ℚ) : AddCircle (1 : ℚ))} := by sorry
+-- finite_zero_fiber
+example (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) : Finite {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((0 : ℚ) : AddCircle (1 : ℚ))} := by sorry
+-- negative_full_fiber_mean
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((-2/13 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) [Fintype {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((-2/13 : ℚ) : AddCircle (1 : ℚ))}] : (∑w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((-2/13 : ℚ) : AddCircle (1 : ℚ))},grossKoblitzCircleMean 3 ι ℓ w.val)=grossKoblitzCircleMean 3 ι ℓ ⟨((-2/13 : ℚ) : AddCircle (1 : ℚ)),grossKoblitz_circle_periodic 3 (-2/13) hq⟩ := by sorry
+-- zero_full_fiber_mean
+example (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b) (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0) (hq : ‖((0 : ℚ) : ℚ_[3])‖≤1) (hm : IsUnit (2 : ℤ_[3])) [Fintype {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((0 : ℚ) : AddCircle (1 : ℚ))}] : (∑w : {w : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) // 2 • (w : AddCircle (1 : ℚ))=((0 : ℚ) : AddCircle (1 : ℚ))},grossKoblitzCircleMean 3 ι ℓ w.val)=0 := by sorry
+-- weighted_full_fiber_certificate
+example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
+-- full_fiber_unweighted_failure
+example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzDivisionFibersTests
