@@ -34794,7 +34794,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MASSER-ZANNIER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5500"
   },
   {
    "id": "RT-PAPER-JIANG-ZHANG-20",
@@ -38115,7 +38116,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5512"
   },
   {
    "id": "RT-PAPER-FRESAN-SABBAH-YU-22",
@@ -40422,8 +40424,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5529"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5529",
+   "finishedAt": "2026-10-01T23:46:04Z"
   },
   {
    "id": "RT-PAPER-LI-ZHANG-22-B",
@@ -40991,8 +40994,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5532"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5532",
+   "finishedAt": "2026-10-01T23:46:07Z"
   },
   {
    "id": "RT-PAPER-DING-25",
