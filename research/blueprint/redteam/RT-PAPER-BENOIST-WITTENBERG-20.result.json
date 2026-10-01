@@ -1,0 +1,57 @@
+{
+  "redteam": "RT-PAPER-BENOIST-WITTENBERG-20",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-BENOIST-WITTENBERG-20",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-01",
+  "baseline": {
+    "atlas": "922d4b9cac90c9a35f63f11fba577fb274426035",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "summary": "Three findings: two high-severity false theorem contracts (Geyer's parity assigned to the wrong map, and algebraic perfect duality without finite stalks), and one medium-severity erroneous correction in E5. The seven library items and seven ownership routes survive the bounded checks below. No Lean formalization is claimed.",
+  "checked": [
+    "Independence: this session neither extracted nor reviewed the target. Read its JSON, reader report, accepted review JSON and review report; inspected input history and checkpoint provenance.",
+    "Read the entire author-hosted published article, pp.1–77, including proofs and references, on 2026-10-01: https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf . SHA256 daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9 matches the extraction. Published numbering is used throughout, not the shorter arXiv preprint's numbering. Visually inspected pp.14,19,50 to resolve the coefficient hypothesis, degree sign and precise Picard map.",
+    "Compared all 193 item statements and their proof-step descriptions with the paper, including the 7 library items, 9 planned imports, 177 missing items, conjecture boundaries and ten existing source issues. Did not treat already recorded E1–E4 or E6–E10 as new findings. Did not recursively require proofs or APIs of cited suppliers: PROTOCOL section16 permits these as extraction leaves.",
+    "Independently read SGA4 XVIII section3.2.6 on printed p.586, re-typeset PDF p.78, at https://www.normalesup.org/~forgogozo/SGA4/18/18.pdf on 2026-10-01. It assumes a locally constant constructible Z/n-module sheaf; its duality is not a justification for algebraic biduality of arbitrary infinite finite-exponent groups.",
+    "Read the actual pinned declarations: IsRealClosed; HasDerivedCategory, DerivedCategory and DerivedCategory.Q; CategoryTheory.Sheaf.H, H.equiv₀ and H.map; AlgebraicGeometry.AlgebraicCycle, map and map_id; Rep.FiniteCyclicGroup.groupCohomologyIso₀, groupCohomologyIsoEven and groupCohomologyIsoOdd; groupCohomology.coindIso in Homological/GroupCohomology/Shapiro.lean; TauCeti.Hodge.HodgeStructureOn and HodgeStructure. Also read Complex.normSq_eq_conj_mul_self and normSq_nonneg used by the E3 scalar argument. These supply precisely foundational carriers/maps, not the missing geometric theorems.",
+    "Read reviewed AUDIT-01 coverage for SF.2/SF.4/SF.5, AUDIT-18 for EDC.2/EDC.3 and AUDIT-30 for M.5. MC.0/MC.2/MC.7 and LD.6 have no exact reviewed coverage entry in this baseline. Ran bounded searches in both pinned trees for Borel–Haefliger, semialgebraic cohomology, Bloch–Ogus, Steenrod squares and Esnault–Levine; no matching implementation appeared. A negative keyword search is not claimed to prove universal absence.",
+    "Read full near-area upstream HodgeStructures and AlgebraicTopology roadmap documents and current stage contracts for SF.2/SF.4/SF.5, MC.0/MC.2/MC.7, M.5, EDC.2/EDC.3 and LD.6. Inspected all seven route descriptions/briefs against a fresh atlas assembly (2907 stages, 8322 stage edges). Checked proposed-roadmap and packet names and the Benoist19/Jannsen16 routes: both Part II IDs remain explicitly shared, not new parallel owners.",
+    "Checked item references and routing mechanically: 193 unique item IDs, no dangling item prerequisite, no item dependency cycle, every missing item routed, and no duplicate route assignment. The already documented need to split broad SF.2/MC.2 integration stages is not a new finding.",
+    "Bounded title/author erratum searches and author publication-page results found no matching correction for the new finite-stalk issue; this is not an assertion that no correction exists. The Geyer and E5 defects are extraction errors, not new errors in the published source.",
+    "No Lean compilation was attempted: the issue delivers only a red-team JSON and report. Supplier proofs beyond the explicitly named SGA passage were not independently re-audited. The report records reproducible mathematical counterexamples and the limits of this audit."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-BENOIST-WITTENBERG-20/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json: items[id=PAPER-BENOIST-WITTENBERG-20/geyer]; route to MotivesAndAlgebraicCycles:MC.7; consumer /phi-genus",
+      "claim": "The extracted Geyer theorem puts even-genus surjectivity on Pic(B_C)^G[2∞]→Br(R), the wrong arrow. That obstruction map is zero in even genus and surjective in odd genus. The source's even-genus surjection is Pic(B)[2∞]→Pic(B_C)^G[2∞].",
+      "evidence": "Published Lemma3.7, p.50, explicitly gives the Pic(B)-to-invariant-Picard map and says 'if and only if B has even genus'. Its proof uses the different Brauer arrow in (3.6). Counterexample to the extracted statement: B is the anisotropic conic x²+y²+z²=0 over R=ℝ. It is smooth, proper, geometrically integral, real-empty and genus zero, but Pic(B_C)=Z has zero 2-primary torsion, so the extracted map is 0→F2 and cannot be surjective. The source's map is 0→0 and is surjective, as required.",
+      "fix": "Replace /geyer's statement with Lemma3.7's surjectivity of Pic(B)[2∞]→Pic(B_C)^G[2∞] iff genus is even. If retaining the Brauer-obstruction reformulation, its surjectivity criterion is odd genus. Preserve /pic-descent-parity and the MC.7 route; recheck /phi-genus and its downstream even-genus criteria against the corrected arrow. Add the anisotropic-conic check to the handoff, without treating this extraction reversal as a paper erratum."
+    },
+    {
+      "id": "RT-PAPER-BENOIST-WITTENBERG-20/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json: items[id=PAPER-BENOIST-WITTENBERG-20/semialg-duality], sourceIssues and the EquivariantTopologyRealVarieties route; matching reader discussion",
+      "claim": "Finite exponent alone does not make the stated pairing algebraically perfect. The item inherits the source's overly broad coefficient wording and supplies no topology or one-sided-duality qualification. A locally constant sheaf with infinite stalks of exponent two already contradicts algebraic biduality on a point.",
+      "evidence": "Published section1.1.4, p.14, (1.16) uses 'of finite exponent'. Its cited supplier SGA4 XVIII section3.2.6, printed p.586 (re-typeset PDF p.78), additionally assumes constructibility. For V=point, v=i=0, take F=M=direct sum over N of F2. Then M^vee=product over N of F2. Evaluation M→Hom(M^vee,Q/Z) is not onto: the nonzero quotient (product F2)/(direct sum F2) admits a nonzero linear functional to F2. Pulled back to the product, it vanishes on every coordinate vector, whereas a finite-support evaluation vanishing on every coordinate vector is zero. All the item's stated hypotheses hold, but one adjoint of the pairing is not an isomorphism.",
+      "fix": "Use a locally constant sheaf of finite abelian groups (finite stalks) for the algebraic perfect-pairing contract. Record the inherited coefficient omission as a source issue, with the point counterexample and the supplier's constructibility hypothesis. Alternatively, if a broader statement is intended, separately specify and justify the relevant topology/continuous dual or the weaker one-sided duality; do not silently call algebraic biduality perfect. Keep /complement-duality's already finite G-module hypothesis and /integral-pontryagin's separately stated completion/topology. Update the reader and Part II handoff consistently."
+    },
+    {
+      "id": "RT-PAPER-BENOIST-WITTENBERG-20/3",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json: sourceIssues[id=PAPER-BENOIST-WITTENBERG-20/E5].correction; research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.md: E5 bullet",
+      "claim": "E5 correctly repairs the source variety in the pushforward, but incorrectly says the target remains H^(p−c). The published target and the extraction's own /real-push-coordinates item both correctly have H^(p+c), with c=dim X−dim Y.",
+      "evidence": "Visual inspection of published p.19, final paragraph of section1.2.6 below (1.35), shows H^{p+c}(X(R),Z/2Z). The original domain typo is independent of this sign. For a real point embedded in P¹_R, c=1: proper pushforward sends the generator of H⁰(point,F2) to the nonzero point class in H¹(RP¹,F2). The E5 correction would instead send it into H^(−1)=0. The accepted review explicitly left this exponent unresolved, rather than confirming p−c.",
+      "fix": "Change E5's target in the JSON correction and reader bullet to H^(p+c)(X(R),F2), preserving the valid domain correction to H^p(Y(R),F2). Keep /real-push-coordinates unchanged. Explain that the source's degree sign was already correct and that the mistaken sign was introduced by the erratum entry; do not manufacture a second source typo."
+    }
+  ],
+  "upstreamNotes": []
+}
