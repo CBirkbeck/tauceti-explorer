@@ -31709,3 +31709,302 @@ Exact controls pass504 polynomial derivative coefficients,224 higher-tail identi
 The capture at c3c4cdd93324a4efa0c3ffac7c2eae15c227080c has zero changes among72 tracked inputs and an unchanged issue body after merged PR5332. The source-register findings and owned analytic/logarithm interfaces are unchanged.
 
 The separate partial signature file also compiled with zero errors and 3,152 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cc2ba4d3fd679bbd22af06b772c78a7662dfcae70b022995692121ac2d14e958.
+
+
+## Inverse-power mean bounds and Morita’s open unit disc
+
+Eleven L3 nodes bound inverse-power means uniformly, control the actual logarithmic coefficients by C_q(m+2)(m+1), and prove radius at least1 with analytic and higher-HasSum consequences on the open unit disc. All986 predecessor nodes,753 baseline records,17 findings and14 requests remain whole.
+
+Rereads Morita p.261, including the precise open-unit-disc claim and adjacent general-point second derivative. Reads the pinned ultrametric inequality with its generated additive theorem, rational p-adic norm formula and natural valuation comparison, natural valuation power-divisibility proof, native convergence-radius limit criterion and extended-nonnegative-real order lemma, and HasFPowerSeriesOnBall fields. Rereads polynomial-geometric decay and native scalar-series summation. These auxiliary quantitative bounds are a worker-derived proof of the source radius statement, not separately printed source theorems.
+
+### Every point of the principal disc has norm one
+
+`DirichletPadicLFunctions:L3/morita-principal-norm-one` — `DirichletPadic.moritaPrincipal_norm_one`
+
+For x∈Z_p with‖x−1‖≤r, one has‖x‖=1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The existing radius lemma gives r<1. Apply the native equality of the norm of a sum with the larger summand norm to x=(x−1)+1.
+2. The complete principal_norm_one proof uses the strict norm inequality, including the closed principal-disc boundary.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-radius-contracting`, `mathlib:PadicInt.norm_add_eq_max_of_ne`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.principal_dyadic` (computation): The dyadic principal unit5 has norm1.
+- `SuggestedMoritaInverseBoundsTests.principal_ternary` (computation): The ternary principal unit4 has norm1.
+
+**Acceptance:** Use the closed radius r<1; arbitrary x∈Z_p need not have norm1.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### Every inverse-power kernel has norm one on the principal disc
+
+`DirichletPadicLFunctions:L3/morita-inverse-kernel-norm` — `DirichletPadic.moritaInverseKernel_norm`
+
+For every m≥0 and principal-disc x,‖ι(x)^(−m−1)‖=1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. Transport the preceding norm-one equality through the explicit norm-preserving coefficient homomorphism.
+2. The norm of an integer power is the corresponding power of the norm. Negative powers of1 remain1. The complete inverse_kernel_norm proof requires no ultrametric instance on K.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-principal-norm-one`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.inverse_kernel_negative` (boundary): At p=2, the principal unit−3 has seventh inverse-power norm1.
+- `SuggestedMoritaInverseBoundsTests.inverse_kernel_odd` (computation): At p=3, the fifth inverse power of4 has norm1.
+
+**Acceptance:** The exponent is the actual negative integer−(m+1), including the inverse kernel at m=0.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### Inverse-power kernels have a uniform Lipschitz bound
+
+`DirichletPadicLFunctions:L3/morita-inverse-kernel-lipschitz` — `DirichletPadic.moritaInverseKernel_lipschitz`
+
+For principal-disc x,y and every m≥0,‖ι(x)^(−m−1)−ι(y)^(−m−1)‖≤‖x−y‖.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The preceding principal-unit lemma and norm preservation give norm-one inputs in K.
+2. For any norm-one a,b, induction on k gives‖a^k−b^k‖≤‖a−b‖. At the successor step expand a^(k+1)−b^(k+1)=a(a^k−b^k)+(a−b)b^k and use the native ultrametric maximum inequality.
+3. Norm-one elements are nonzero. The identity a⁻¹−b⁻¹=(b−a)/(ab) gives‖a⁻¹−b⁻¹‖=‖a−b‖. Apply the induction to their inverses and rewrite negative integer powers.
+4. The complete unit_power_lipschitz and inverse_power_lipschitz auxiliary proofs check those routine inductions and field identities; inverse_kernel_lipschitz specializes to the actual kernel and transports the difference norm throughι.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-principal-norm-one`, `mathlib:IsUltrametricDist.norm_mul_le_max`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.lipschitz_dyadic_sharp` (computation): For x=1,y=5 in Q_2, the inverse difference has norm1/4, equal to‖x−y‖.
+- `SuggestedMoritaInverseBoundsTests.lipschitz_ternary_sharp` (computation): For x=1,y=4 in Q_3, the inverse difference has norm1/3.
+
+**Acceptance:** The additive inequality is the generated additive version of the indexed multiplicative theorem, whose full source and to_additive attribute were read. No factor growing with m is inserted.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### One constant bounds all inverse-power means
+
+`DirichletPadicLFunctions:L3/morita-inverse-power-mean-bound` — `DirichletPadic.moritaInversePowerMean_norm`
+
+For every m,n≥0, the actual angular mean with character θ·θ^(−m−2) and kernel x↦ι(x)^(−m−1) has norm at most C_q.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. Apply the existing uniform twist estimate at original character θ and positive level q with value bound B=1.
+2. The preceding kernel norm provides the required value bound. Its Lipschitz constant1 is at most1/r because0<r<1, so it satisfies the source-scaled Lipschitz input.
+3. The complete inverse_mean_bound proof reduces the common-level constant to C_q and multiplies by1. The estimate holds for every finite level and inverse exponent before taking any limit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-inverse-kernel-norm`, `DirichletPadicLFunctions:L3/morita-inverse-kernel-lipschitz`, `DirichletPadicLFunctions:L3/morita-character-twist-uniform`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `DirichletPadicLFunctions:L3/morita-radius-contracting`, `DirichletPadicLFunctions:L3/morita-mean-bound-constant`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.inverse_mean_dyadic` (computation): Every actual dyadic inverse-power mean is bounded by16.
+- `SuggestedMoritaInverseBoundsTests.inverse_mean_ternary` (computation): Every actual ternary inverse-power mean is bounded by9.
+
+**Acceptance:** Keep the actual twisted character and common averaging level. This is a uniform bound, not a new construction of the moments.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### A natural denominator costs at most its real size
+
+`DirichletPadicLFunctions:L3/morita-natural-inverse-norm-bound` — `DirichletPadic.moritaNatCast_inv_norm_le`
+
+For n>0,‖(n:K)⁻¹‖≤n as a real inequality under the normalized Q_p-algebra norm.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. Use the existing normalized algebra-map identity to reduce the norm of the natural scalar to its Q_p norm.
+2. Read the rational p-adic norm as p^(−v_p(n)); the native comparison of rational and natural valuations identifies the exponent. The inverse norm is p^v_p(n).
+3. The native divisibility p^v_p(n)∣n and positivity of n give p^v_p(n)≤n. The complete natural_inverse_norm_bound proof checks rational/natural/real casts and the normalized norm explicitly.
+
+**Prerequisites:** `mathlib:norm_algebraMap'`, `mathlib:Padic.eq_padicNorm`, `mathlib:padicNorm.eq_zpow_of_nonzero`, `mathlib:padicValRat_of_nat`, `mathlib:pow_padicValNat_dvd`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.inverse_nat_sharp` (computation): At p=2,n=8 the inverse norm is exactly8.
+- `SuggestedMoritaInverseBoundsTests.inverse_nat_nonstrict` (computation): At p=3,n=6 the inverse norm is3≤6.
+
+**Acceptance:** The bound uses the real size n, not a claim that a natural inverse has norm≤1. No ultrametric or completeness instance is required.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### The scalar logarithmic coefficients have quadratic norm growth
+
+`DirichletPadicLFunctions:L3/morita-log-scalar-norm-bound` — `DirichletPadic.moritaLogScalar_norm_le`
+
+For m≥0,‖c_m‖≤(m+2)(m+1), with both factors on the right real.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The sign(−1)^m has norm1. Rewrite the norm of the denominator inverse as the product of the inverse norms.
+2. Apply the preceding natural-inverse bound to m+2 and m+1, both positive. The complete scalar_coefficient_bound proof verifies the exact denominator and the real casts.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-inverse-norm-bound`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.scalar_dyadic` (computation): The first scalar1/2 has dyadic norm2.
+- `SuggestedMoritaInverseBoundsTests.scalar_ternary` (computation): The next scalar−1/6 has ternary norm3.
+
+**Acceptance:** These examples refute an incorrect uniform unit-norm bound for the scalar coefficients.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### The actual logarithmic coefficients have quadratic growth
+
+`DirichletPadicLFunctions:L3/morita-logarithmic-coefficient-bound` — `DirichletPadic.moritaLogCoefficient_norm_le`
+
+If the actual divided-coefficient means tend to v_m, then‖v_(m+2)‖≤C_q(m+2)(m+1) for every m≥0.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. Use the existing literal divided-mean identity to express each finite coefficient mean as c_m times the actual twisted inverse-power mean.
+2. Combine the preceding scalar and inverse-mean bounds, keeping C_q independent of m and n.
+3. Take norms in the given Tendsto witness for v_(m+2) and pass the uniform real inequality to the limit. The complete logarithmic_coefficient_bound proof needs neither arbitrary derivative bounds nor a new Taylor hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-angular-mean`, `DirichletPadicLFunctions:L3/morita-log-scalar-norm-bound`, `DirichletPadicLFunctions:L3/morita-inverse-power-mean-bound`, `mathlib:le_of_tendsto'`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.coefficient_bound_dyadic` (computation): The actual dyadic limit coefficients satisfy‖v_(m+2)‖≤16(m+2)(m+1).
+- `SuggestedMoritaInverseBoundsTests.coefficient_bound_ternary` (computation): The actual ternary limit coefficients satisfy‖v_(m+2)‖≤9(m+2)(m+1).
+
+**Acceptance:** The convergence witnesses concern the literal divided family and actual means. Their existence remains an earlier supplier obligation.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### Quadratic coefficient growth gives radius at least one
+
+`DirichletPadicLFunctions:L3/morita-quadratic-coefficient-radius` — `DirichletPadic.moritaQuadraticCoefficient_radius`
+
+For C≥0 and‖v_(m+2)‖≤C(m+2)(m+1), the native scalar formal multilinear series of v has convergence radius at least1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. For every n≥2, write n=m+2 and bound the given product by Cn². The unrestricted first two coefficients have no effect on this eventual bound.
+2. For each real0≤r<1, the native polynomial-times-geometric limit gives Cn²r^n→0. Squeeze‖v_n‖r^n between0 and this majorant.
+3. The native scalar multilinear coefficient has norm‖v_n‖. Apply the native radius criterion le_radius_of_tendsto to obtain r≤radius.
+4. The native ENNReal order lemma concludes1≤radius from all smaller NNReal radii. The complete quadratic_radius proof includes r=0 and arbitrary initial coefficients.
+
+**Prerequisites:** `mathlib:FormalMultilinearSeries.ofScalars_norm`, `mathlib:tendsto_pow_const_mul_const_pow_of_lt_one`, `mathlib:FormalMultilinearSeries.le_radius_of_tendsto`, `mathlib:ENNReal.le_of_forall_nnreal_lt`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.quadratic_radius_unit_tail` (computation): A scalar series with all coefficients1 has radius at least1.
+- `SuggestedMoritaInverseBoundsTests.quadratic_radius_initial_free` (boundary): Arbitrary constant and linear coefficients followed by coefficients1 still give radius at least1.
+- `SuggestedMoritaInverseBoundsTests.unit_boundary_not_summable` (non-example): At z=1 the all-ones series is not summable in Q_2, so the open-disc statement cannot be replaced by a closed-disc claim.
+
+**Acceptance:** This extends the native criterion to the specific polynomial majorant; it does not replace native analytic or formal-series objects.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### Morita’s logarithmic series has radius at least one
+
+`DirichletPadicLFunctions:L3/morita-logarithmic-unit-radius` — `DirichletPadic.moritaLogSeries_radius`
+
+The actual logarithmic coefficient series of the preceding mean limits has native convergence radius at least1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The mean constant is nonnegative by its explicit maximum-of-norms definition.
+2. Apply the preceding quadratic-radius theorem to the actual coefficient bound. The complete logarithmic_radius proof has no extraneous geometric radius R or divided-family bound B.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-logarithmic-coefficient-bound`, `DirichletPadicLFunctions:L3/morita-quadratic-coefficient-radius`, `DirichletPadicLFunctions:L3/morita-mean-bound-constant`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.actual_radius_dyadic` (computation): The actual dyadic coefficient series has radius at least1, not merely1/4.
+- `SuggestedMoritaInverseBoundsTests.actual_radius_ternary` (computation): The actual ternary coefficient series has radius at least1.
+
+**Acceptance:** This is the source item(iv) for the actual coefficients, conditional only on their earlier convergence construction and normalized arithmetic inputs.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### The logarithmic model is analytic throughout the open unit disc
+
+`DirichletPadicLFunctions:L3/morita-log-model-analytic-unit-disc` — `DirichletPadic.moritaLogModel_analyticAt_unitDisc`
+
+If K is complete, the existing E_v is analytic at every z∈K with‖z‖<1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The preceding radius theorem places z inside the actual native convergence ball and makes that radius positive.
+2. The native scalar sum has its formal power series on this ball and is analytic at each point in it. Subtracting v_0 preserves analyticity.
+3. The complete logarithmic_analytic proof checks the real/extended-radius comparison and the existing coefficient-field model.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-logarithmic-unit-radius`, `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesOnBall.analyticAt_of_mem`, `mathlib:AnalyticAt.sub`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.analytic_at_two` (boundary): The dyadic logarithmic model is analytic at2, which lies outside4Z_2 but inside the open unit disc.
+- `SuggestedMoritaInverseBoundsTests.analytic_at_three` (computation): The ternary logarithmic model is analytic at3.
+
+**Acceptance:** No Gamma agreement at new points outside the preceding arithmetic comparison disc is inferred.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+### The higher logarithmic series sums on the whole open unit disc
+
+`DirichletPadicLFunctions:L3/morita-log-higher-series-unit-disc` — `DirichletPadic.moritaLogModel_higher_hasSum_unitDisc`
+
+For complete K and‖z‖<1, the seriesΣ_(m≥0)z^(m+2)v_(m+2) has sum E_v(z)−zv_1.
+
+**Hypotheses:** p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, and C_q=max(‖q⁻¹:K‖,‖q⁻¹:K‖²) is the existing mean constant at character level q. The averaging level is N_n=q^(n+1). K is a nontrivially normed field. The inverse-power difference and finite-mean estimates require its ultrametric norm. Arithmetic norm comparisons use a normed Q_p-algebra structure, and finite character means retain characteristic zero. The explicit ring homomorphism ι:Z_p→K preserves norms wherever a principal-disc kernel is used. The higher coefficient is the literal divided derivative D_(m+2)(x)=c_m x^(−m−1), with c_m=(−1)^m/((m+2)(m+1)). For conclusions about v, assume the actual twisted angular means of the literal family D_m=moritaLogDivided(ℓ,m) converge to v_m. No arbitrary sequence of moments is substituted. The generic quadratic-radius lemma needs only a nontrivially normed field and the eventual polynomial coefficient bound; it requires neither completeness nor an ultrametric norm. The actual arithmetic radius theorem adds the preceding normalized arithmetic inputs. Completeness is needed for the scalar-series sum and its analytic/HasSum assertions. The result concerns the existing coefficient-field model E_v=ofScalarsSum(v)−v_0 on the open unit disc. It does not assume a uniform bound for the denominators c_m, does not assert convergence on‖z‖=1, and does not enlarge the proven Gamma comparison beyond the preceding q-disc. Prior Taylor and coefficient-limit supplier obligations remain open.
+
+**Proof:**
+
+1. The native power-series representation supplies HasSum of the full scalar series on its actual convergence ball, which contains the open unit disc.
+2. Apply the native additive two-term shift, generated by the indexed hasProd_nat_add_iff prime. The first two terms are v_0 and zv_1.
+3. Subtract these terms and use the existing definition E_v=sum−v_0. The complete logarithmic_higher_series proof verifies the index shift and actual sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-logarithmic-unit-radius`, `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesOnBall`, `mathlib:FormalMultilinearSeries.ofScalars_apply_eq`, `mathlib:hasProd_nat_add_iff'`.
+
+**Tests:**
+
+- `SuggestedMoritaInverseBoundsTests.higher_series_at_two` (boundary): At the new dyadic point2 the higher coefficients sum to E_v(2)−2v_1.
+- `SuggestedMoritaInverseBoundsTests.higher_series_at_three` (computation): At3 in Q_3 the higher coefficients sum to E_v(3)−3v_1.
+
+**Acceptance:** This HasSum is of the existing literal coefficient sequence. Combined with the earlier moment identification, it also describes its inverse-power coefficients.
+
+**Source:** Section3 p.261/PDF7, Remark following Theorem3, displayed logarithmic coefficients and item(iv); Section2 pp.258–260, bounded means and translated Taylor series. Extracts item(iv) as a radius-at-least-one assertion for the actual logarithmic coefficient series. The proof is a worker-derived quantitative argument: norm-one inverse kernels have a uniform finite-mean bound, integer denominators have at most polynomial growth, and the native convergence-radius criterion absorbs that growth. The source does not print these auxiliary bounds separately.
+
+**Remaining:** The actual logarithmic coefficients now have quadratic norm growth and native convergence radius at least1; their existing scalar model is analytic and its higher series has the stated sum throughout‖z‖<1. Next establish the arbitrary-center second derivative/translated inverse-power identity from Morita p.261(iii). The actual coefficient-limit, closed-disc analytic/Taylor and logarithm supplier obligations remain; Gross–Koblitz and Ferrero–Greenberg are still required targets. All14 requests and18 gaps remain open, every implementation status unchecked, zero closed stages.
+
+### Inverse-power mean bounds and Morita’s open unit disc validation
+
+All 986 predecessor nodes, 753 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 11 named suggested declarations and 23 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1257 reachable nodes, 6092 edges and 931 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Elementary kernel, denominator and generic quadratic-radius nodes have no unresolved stage leaves. Actual mean/coefficient/radius and unit-disc analytic/HasSum nodes inherit LAD L0 through the existing uniform-mean estimate. The earlier request stays open even though these statements retain explicit arithmetic bounds or coefficient-limit witnesses.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves PR5333’s23definitions277lemmas verbatim and adds13lemmas, including two routine norm-one power helpers. Eleven resulting declarations are planned in the suggested file. It proves the actual inverse-power finite-mean bound, polynomial growth of the actual limit coefficients, radius at least1, and the analytic/HasSum consequences. No new function carrier or Gamma definition is introduced. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The actual coefficient-limit witnesses remain explicit. The larger disc concerns the coefficient series and its existing scalar sum; Gamma agreement outside the previously certified q-disc is not claimed. Full suggested file remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. General roadmap declarations remain unchecked.
+
+Exact controls pass36 principal-unit norms,432 inverse-kernel norms,3888 Lipschitz inequalities,512 natural inverse bounds,512 scalar bounds,144 actual finite-mean bounds,144 actual finite coefficient bounds,432 term majorants,228 quadratic-geometric decay steps and5 discriminating examples. Exact rational p-adic norms on four primes, positive and negative principal units, inverse powers and differences; actual finite normalized inverse-power sums and their logarithmic coefficient multiples at three averaging depths; term majorants at integral and nonintegral points, including2 outside4Z_2; rational quadratic-geometric decay steps. Boundary nondecay and a coefficient norm greater than1 distinguish the required hypotheses. These finite checks do not certify infinite convergence; the complete native Lean proof establishes the conditional radius and HasSum. The largest observed discrepancy is 0.
+
+Capture at c5c89c512a176033500404e38e01f394ecd89028 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5333. Source-register findings and owned interfaces are unchanged.
+
+The separate partial signature file also compiled with zero errors and 3,186 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a65d549a522cf89ca50e605eb633eb95c672ab0fb6aba1756d8217b7a80bbd59.
