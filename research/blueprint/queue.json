@@ -33026,8 +33026,9 @@
     "REV-PAPER-NEWTON-THORNE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NEWTON-THORNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4029"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4029",
+   "finishedAt": "2026-10-01T01:27:02Z"
   },
   {
    "id": "REV-RT-PAPER-NEWTON-THORNE-26",
@@ -40912,8 +40913,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
