@@ -1,0 +1,79 @@
+{
+  "redteam": "RT-PAPER-CASTELLA-ETAL-22",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-CASTELLA-ETAL-22",
+  "summary": "Four findings: two false standalone statements need a unit restriction or a nonzero-module branch; the explicit §2.1 measure constructions lack extraction items; a confirmed Euler-sum correction was not propagated. No new roadmap or second proof owner is proposed. Source-error claims are scoped to arXiv v2 and the inspected author copy, not the inaccessible version of record.",
+  "checked": [
+    "Independence: extractor Claude Code cc-39fac3 (#1286, PR #2017) and reviewer Claude Code cc-442dc5 (#1287, PR #2510) are different workers from Codex codex-rtOQ9t. Claim #4168 confirmed by the bot before starting.",
+    "At atlas baseline 511d66e7e3d4032b41deb71cb5ce5f3a1ff4f7d3 read the accepted JSON and report, all 39 items, 41 sourceIssues and their review annotations, 10 prerequisites, 9 routes, the accepting paper review and its report.",
+    "Read the complete arXiv v2 TeX (2671 lines) and bibliography (309 lines): Introduction and §§1–5. Collated the two new quantified-statement findings with PDF page images 16 and 23 and corresponding author-copy pages. The author copy was not treated as the journal version.",
+    "Checked main-theorem hypotheses, split/inert and discriminant restrictions, residual-character exclusions, the BDP square convention, algebraic/analytic μ and λ comparisons, Kolyvagin error terms, the Heegner application and BSD/converse routes. Reviewed the existing E1–E41 corrections; did not independently rerun the earlier PARI computations for every example curve.",
+    "Read the named stages and reviewed layer coverage for ArithmeticStatistics ST.5; AutomorphicPadicLFunctions L3/L3h; EulerSystemsAndKolyvaginSystems ES.1/4/8; GrossZagierAndArithmeticHeights GZ.8/9; HeegnerPointEulerSystems HE.1/5/7/8/8b/8c; ModularIwasawaMainConjectures L6; PadicMeasuresIwasawaAlgebras L2/L4; RankZeroOneBSD BSD.2/3/4/7/7a; SelmerIwasawaCohomology L2/L3; upstream EllipticCurves Layer 7. Also checked PadicFamilies L0 and the precise IG.1 scope for the omission repair.",
+    "Checked route ownership and imported-versus-proved boundaries: generic ES descent, HE arithmetic construction, BSD.7a Eisenstein main conjecture, L6 reexport, and the coalesced CMAllPrimeMainConjectures and RankOneConverse briefs. Consulted RS-14 Igusa ownership and the partial AutomorphicPadicLFunctions and PadicMeasures packets; their pending work is not certified as accepted.",
+    "Read Mathlib’s pinned Weierstrass preparation/uniqueness and Polynomial.IsDistinguishedAt statements for the sole library item. Read the pinned Mahler theorem and Amice transform signatures for the proposed reuse. Searched the pinned Tau Ceti tree for Igusa, Serre–Tate, anticyclotomic, Kolyvagin, Mahler and Amice, and checked the reviewed distinction between explicit 2-descent Selmer groups and general Selmer structures. No existing declaration was identified for the source-specific constructions.",
+    "Independently computed the reduced primitive forms of discriminants -3 and -12 and checked the ring-class unit quotient and unramified cohomology counterexample. Substituted the zero-module witness into both exact sequences and all numeric hypotheses of Proposition 3.3.11.",
+    "Checked arXiv version history, the author publication list and author PDF, the publisher response, and Crossref correction/update relations on 2026-10-01. No correction to these two specific statements was located. The publisher PDF request returned an HTML article page, so no claim of journal collation is made.",
+    "Applied WORKERS.md, PROTOCOL §§16–18 and the source-faithfulness protocol. No Lean file is a deliverable; no Lean build, cache fetch or language server was started."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-CASTELLA-ETAL-22/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json — item /17, finite–singular comparison (3.1); proposed owners EulerSystemsAndKolyvaginSystems:ES.1 and HeegnerPointEulerSystems:HE.5",
+      "claim": "The standalone comparison with G_ℓ = Gal(K[ℓ]/K[1]) is false without a restriction on the image of the units of O_K. Item /17 permits K=Q(sqrt(-3)), p=3, ℓ=2, R=Z_3 and the trivial representation T=Z_3. Then I_2=(3), H¹_f(K_λ,F_3)=F_3, but G_2=0 and hence H¹_s(K_λ,F_3)⊗G_2=0. This concerns the reusable generic definition, not the main Eisenstein theorems in their more restrictive setting.",
+      "evidence": "arXiv:2008.02571v2, §3.1, p.16, (3.1), https://arxiv.org/pdf/2008.02571v2: “there is a finite-singular comparison isomorphism”. Read the full paragraph and its page image; the author copy https://web.math.ucsb.edu/~castella/Eisenstein.pdf has the same assertion. The preceding Artin-symbol identification omits the unit quotient. Explicit check: X²+X+1 is irreducible modulo 2; the image of ζ_3 generates (O_K/2)×=F_4×, so quotienting by global units kills the whole residue group. Equivalently, the only reduced primitive positive binary forms of discriminants -3 and -12 are (1,1,1) and (1,0,3), respectively: both ring class groups are trivial. Continuous unramified homomorphisms from the procyclic residue Galois group to F_3 give the nonzero left side. E1–E41 do not record this restriction.",
+      "fix": "Correct the finite–singular component of /17 to assume p does not divide [O_K×:O_ℓ×] for each auxiliary ℓ, or use the sufficient uniform condition p∤#O_K×. Keep the general Selmer-structure definition separate from this additional hypothesis. Record the missing hypothesis as a sourceIssue scoped to arXiv v2 and the inspected author copy, with sourceVersions; do not assert an uninspected journal error. Explain that the odd-p, p∤D_K setting of §3.2 discharges this restriction. Preserve ES.1 as the abstract owner and HE.5 as its arithmetic consumer; no new roadmap is needed."
+    },
+    {
+      "id": "RT-PAPER-CASTELLA-ETAL-22/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json — item /22, Proposition 3.3.11(i), routed to EulerSystemsAndKolyvaginSystems:ES.4",
+      "claim": "The asserted choice of a cyclic summand to omit requires M≠0. The item includes M=M′=X=0, k=1, a=a′=b=b′=0. Both required exact sequences are the identity on R/𝔪, and k>exp(M)+2a and a′≤a hold. But s=0, so there is no index 1≤i_0≤2s. The source and extraction need an explicit nonzero branch.",
+      "evidence": "arXiv:2008.02571v2, §3.3.2, pp.22–23, (3.11)–(3.13) and Proposition 3.3.11(i): “There exists 1≤i_0≤2s”. The same quantifier is visible on p.23 of the inspected author copy. The definition exp(M)=min{n≥0:π^nM=0} on p.22 gives exp(0)=0. Substitution of the displayed witness leaves 0→0→R/𝔪→R/𝔪→0 in each row, with α and β identity. The proof in §3.3.3 separately disposes of s=0 before its induction, so this is a defect in the exported general algebra lemma, not a counterexample to Theorem 3.2.1. E28 concerns a different part of Proposition 3.3.11.",
+      "fix": "Split the statement: for s>0, retain the existing omitted-summand assertion with i_0∈{1,…,2s}; for s=0, use the canonical injection 0→X without choosing an index. Keep the other conclusions with their appropriate index ranges. Add a sourceIssue and version record for the unqualified quantified statement, and state in the report why the application already lies in the nonzero branch."
+    },
+    {
+      "id": "RT-PAPER-CASTELLA-ETAL-22/3",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json — items /13 and /15; §2.1 construction coverage and statuses",
+      "claim": "Item /13 gives the interpolation theorem and a narrative mention of its construction, but the extraction gives no item with a defining statement/status for the actual local Serre–Tate measure μ_(f,a), the Atkin–Serre operator and p-depletion, or the p-depleted measure with support on Z_p×. These are constructions explicitly recalled and used by this paper to pass from congruent modular forms to congruent measures. They are not recursive proof closure of an external theorem.",
+      "evidence": "arXiv:2008.02571v2, proof of Theorem 2.1.1, pp.12–13, especially (2.2)–(2.3): the text defines μ_(f,a) by its binomial moments, defines θ and f^flat, and then forms the measure on units used in the class-group sum. Searches and reading of all 39 items found only the closing narrative in /13 and the congruence explanation in /15. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/NumberTheory/Padics/MahlerBasis.lean:339,357 proves PadicInt.hasSum_mahler and mahlerEquiv for complete ultrametric coefficient modules; Measure/AmiceTransform.lean:75,91,156 defines the coefficient-general transform, proves its injectivity, but provides amiceTransformEquiv only for Z_p-valued measures. Thus the coefficient-general source construction is not simply an already-built inverse equivalence. Reviewed AUDIT-26 for PadicMeasuresIwasawaAlgebras:L2 and AUDIT-25 for GrossZagierAndArithmeticHeights:GZ.9 record the corresponding distinction. The existing PadicMeasures packet already plans L2/bounded-inverse-amice and unit restriction.",
+      "fix": "Add separate extraction items for (a) V_p(N;R), its Serre–Tate expansion at the specified CM point and θ with its q-expansion action; (b) μ_(f,a) characterized by ∫binom(x,m)dμ=binom(θ,m)f(x_a), including the coefficient ring; and (c) p-depletion and the resulting unit-supported measure. Give the p-adic modular-form input its existing PadicFamilies:L0 / AutomorphicPadicLFunctions:L3 ownership and the BDP-specific constructions GrossZagierAndArithmeticHeights:GZ.9 ownership. Import the bounded-coefficient inverse Amice and restriction operations from PadicMeasuresIwasawaAlgebras:L2; cite the pinned Mathlib Mahler substrate rather than re-plan it. If any required source-specific comparison is marked missing, route it once into the appropriate existing proposed layer. Do not create another Igusa or measure roadmap: RS-14 retains source-specific mixed-characteristic comparisons after importing IG.1’s precise special-fiber scope. No APIs, unit tests or reconstruction of the cited papers’ proofs are required for this extraction fix."
+    },
+    {
+      "id": "RT-PAPER-CASTELLA-ETAL-22/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json — item /11 versus confirmed sourceIssue /E18",
+      "claim": "The accepted extraction records the archimedean-index mistake in E18 but still uses its uncorrected formula in item /11. It sums λ(P_w(θ)) over w∈Σ, w∤p, although Σ contains ∞ and that Euler polynomial has not been defined at infinity. The actual exported sum must run over the finite imprimitive set S.",
+      "evidence": "Internal evidence: /E18 has review.verdict=confirmed by REV-PAPER-CASTELLA-ETAL-22 and explicitly corrects this index set to S=Σ∖{v,v̄,∞}. Item /11 still contains the old index set. This agrees with arXiv v2, §1.2, (1.6), Proposition 1.2.5 and its proof, pp.8–9: the local exact sequence is indexed by S. The extraction’s item /16 already uses S correctly. PROTOCOL §18 requires items to contain the corrected statement.",
+      "fix": "Replace the sum in item /11 by Σ_(w∈S) λ(P_w(θ)), define S=Σ∖{v,v̄,∞} there or by a precise reference, and cite E18 in the note. Keep the existing confirmed sourceIssue rather than duplicating it. Update the human report’s correction list so this propagated repair is visible."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2008.02571v2",
+      "read": "2026-10-01",
+      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59",
+      "note": "34 pages; complete TeX and bibliography read; PDF pages 16 and 23 visually checked. TeX archive https://arxiv.org/e-print/2008.02571v2 SHA-256 6c3fa5faa4d5eb94ff75c38d7ae92ab8e72f4d21b6d20c2fbf7dbf59c8911622."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
+      "read": "2026-10-01",
+      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b",
+      "note": "34 pages. Compared the passages on pp.16 and 23 supporting findings /1–2; did not assert identity with the published PDF."
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01072-y.pdf",
+      "read": "2026-10-01",
+      "note": "Attempted access only: HTTP 200 returned HTML, not the journal PDF. Findings against the source are restricted to the two accessible versions above."
+    }
+  ]
+}
