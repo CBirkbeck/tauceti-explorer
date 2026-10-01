@@ -33159,7 +33159,8 @@
     "REV-PAPER-LESLIE-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LESLIE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4033"
   },
   {
    "id": "REV-RT-PAPER-LESLIE-25",
