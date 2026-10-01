@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-RS-11",
+  "findings": [
+    {
+      "finding": "RT-RS-11/1",
+      "verdict": "confirmed",
+      "reason": "The accepted RS-11 assigns the FW ordinary reverse bound to C.L1 and promises an import from C.L2, while the live graph has C.L1 -> C.L2. FW 2107.13726v3 section 4.8 (PDF p.68) uses Theorem 7.32, Beilinson-Flach reciprocity and Poitou-Tate, matching C.L2's contract. Keep SU at C.L1; assign this FW route to C.L2 or a successor, and retain final equality assembly at I.L1. Correct the owner and link reasons. The integral, single-factor endpoint needs the independent Kato inputs for its twist/factor and powers-of-p steps (compare section 4.6.3); add KatoEulerSystems:L4 to that proof owner, rather than making it optional merely because final assembly lies elsewhere. Name the Castella-Wan comparison and weight extension. Never add C.L2 -> C.L1 or assume an unrestricted canonical/Gross period identification. Coordinate with confirmed area finding /22. The complete assembled graph accepts Kato L4 -> C.L2."
+    },
+    {
+      "finding": "RT-RS-11/2",
+      "verdict": "confirmed",
+      "reason": "RS-11 retains HE.8b -> C.L5b and the aggregate C.L5 dependency of I.L3. Independent assembly confirms those edges and C.L4 -> C.L5 -> I.L3. BCS 2405.00270v2 p.10 derives the cyclotomic theorem from early product divisibility, auxiliary fields, control and four Kato bounds; its p.11 anticyclotomic proof is separate. Keep L5w -> L5a -> {L5b, HE.8b}; remove the completed HE.8b prerequisite of L5b, retaining its direct Kato input. Replace C.L5 -> I.L3 by C.L5b and explicit suppliers for every retained curve/form, analytic, lattice and L0 interface before deleting the aggregate edge. A comparison requiring both endpoints belongs later. Both cuts remove every C.L4 -> I.L3 path in the complete assembled graph. Preserve rational/integral and rank-one-image hypotheses. Coordinate with area finding /31."
+    },
+    {
+      "finding": "RT-RS-11/3",
+      "verdict": "confirmed",
+      "reason": "The corrected RS-11 locator leaves C.L5a owning the comparison without a supplier, while BSD.6a expressly owns BSTW's zeta element, both reciprocity laws and main-conjecture comparison. BCS 2405.00270v2 Theorem 4.1.3 cites BSTW section 9.3.2; Corollary 4.1.4 takes products. I independently read BSTW 2409.01350v2 Theorem 1.14 and Proposition 9.18 with sequences (9.11)-(9.13). Establish one early ordinary owner, coordinated with area /30's proposed KatoEulerSystems:L5, forwarding to both consumers. C.L5a keeps its quartic-CM/product/mu/control work; BSD.6a keeps its supersingular and other BSD branches. Retain p not dividing 2N, split-field and discriminant conditions, van_L for integrality and nv for cyclotomic comparison; distinguish completed unramified coefficients and p-inverted variants. Ordinary import does not discharge signed construction. The proposed ID is absent from live stages and reserved IDs. Its six-input/two-output prefix is jointly acyclic with the other repairs in the complete assembled graph; the actual analytic supplier contract and full arithmetic construction remain required at implementation."
+    }
+  ]
+}
