@@ -26140,3 +26140,77 @@ example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, Tru
 example (f : ∀ N : ℕ+, S →+* (∀ p : ((N : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanRingReduction 1 M N hMN).comp (f N)=f M) : ∃! g : S →+* (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))), ∀ N : ℕ+,(kubertCartanWittRingProjection 1 N).comp g=f N := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanInverseLimitTests
+
+/- Actual Cartan unit-group inverse-limit universal property. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+variable {G : Type*} [Group G]
+
+noncomputable def kubertCartanUnitConeRing (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) : MonoidAlgebra ℤ G →+* (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ))) := by sorry
+
+lemma kubertCartanGroupLimit_cartanUnitConeRing_single (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (N : ℕ+) (g : G) (z : ℤ) :
+    kubertCartanUnitConeRing k f N (MonoidAlgebra.single g z)=
+      (z : (∀ p : (N : ℕ).primeFactors, TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ))))*(fun p => (f N g p).val) := by sorry
+
+lemma kubertCartanGroupLimit_cartanUnitConeRing_compat (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M)
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanRingReduction k M N hMN).comp (kubertCartanUnitConeRing k f N)=kubertCartanUnitConeRing k f M := by sorry
+
+lemma kubertCartanGroupLimit_cartanWittProductProjection_jointly_injective (k : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ))
+    (h : ∀ N : ℕ+,kubertCartanWittProductProjection k N x=kubertCartanWittProductProjection k N y) : x=y := by sorry
+
+noncomputable def kubertCartanWittGroupLift (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M) : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanGroupLimit_cartanWittGroupLift_coe (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M) (g : G) (p : Nat.Primes) :
+    (kubertCartanWittGroupLift k f hf g p).val=
+      kubertCartanWittRingLift k (kubertCartanUnitConeRing k f) (kubertCartanGroupLimit_cartanUnitConeRing_compat k f hf)
+        (MonoidAlgebra.of ℤ G g) p := by sorry
+
+lemma kubertCartanGroupLimit_cartanWittGroupLift_projection (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M) (N : ℕ+) :
+    (kubertCartanWittProductProjection k N).comp (kubertCartanWittGroupLift k f hf)=f N := by sorry
+
+lemma kubertCartanGroupLimit_cartanWittGroupLift_unique (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M) (g : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ))
+    (hg : ∀ N : ℕ+,(kubertCartanWittProductProjection k N).comp g=f N) : kubertCartanWittGroupLift k f hf=g := by sorry
+
+lemma kubertCartanGroupLimit_cartanWittGroupLift_existsUnique (k : ℕ+) (f : ∀ N : ℕ+, G →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction k M N hMN).comp (f N)=f M) :
+    ∃! g : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ),∀ N : ℕ+,(kubertCartanWittProductProjection k N).comp g=f N := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanGroupLimitTests
+open scoped Classical
+noncomputable section
+variable {G : Type*} [Group G]
+-- integral_basis_retains_actual_unit_tuple
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (g : G) : kubertCartanUnitConeRing 1 f 30 (MonoidAlgebra.single g 1)=(fun p => (f 30 g p).val) := by sorry
+-- integral_coefficient_is_not_discarded
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (g : G) : kubertCartanUnitConeRing 1 f 30 (MonoidAlgebra.single g (-2))=(-2 : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ))))*(fun p => (f 30 g p).val) := by sorry
+-- integral_group_ring_unit_level
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : MonoidAlgebra ℤ G) : kubertCartanUnitConeRing 1 f 1 x=0 := by sorry
+-- group_ring_extension_preserves_product
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x y : MonoidAlgebra ℤ G) : kubertCartanUnitConeRing 1 f 30 (x*y)=(kubertCartanUnitConeRing 1 f 30 x)*(kubertCartanUnitConeRing 1 f 30 y) := by sorry
+-- original_basis_value_at_level_six
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (g : G) (z : ℤ) : kubertCartanUnitConeRing 1 f 6 (MonoidAlgebra.single g z)=(z : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ))))*(fun p => (f 6 g p).val) := by sorry
+-- compatible_ring_cone_changes_prime_support
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) : (kubertCartanRingReduction 1 6 30 (by decide)).comp (kubertCartanUnitConeRing 1 f 30)=kubertCartanUnitConeRing 1 f 6 := by sorry
+-- all_actual_unit_projections_determine_tuple
+example (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hxy : ∀ N : ℕ+, kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y) : x=y := by sorry
+-- actual_group_lift_identity
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) : kubertCartanWittGroupLift 1 f hf 1=1 := by sorry
+-- actual_group_lift_multiplication
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) (g q : G) : kubertCartanWittGroupLift 1 f hf (g*q)=(kubertCartanWittGroupLift 1 f hf g)*(kubertCartanWittGroupLift 1 f hf q) := by sorry
+-- actual_group_lift_inverse
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) (g : G) : kubertCartanWittGroupLift 1 f hf g⁻¹=(kubertCartanWittGroupLift 1 f hf g)⁻¹ := by sorry
+-- lift_of_actual_projection_cone
+example : kubertCartanWittGroupLift 1 (kubertCartanWittProductProjection 1) (fun M N hMN => kubertCartanLimit_cartanWittProductProjection_reduction 1 M N hMN)=MonoidHom.id (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+-- actual_group_lift_uses_original_ring_lift
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) (g : G) (p : Nat.Primes) : (kubertCartanWittGroupLift 1 f hf g p).val=kubertCartanWittRingLift 1 (kubertCartanUnitConeRing 1 f) (kubertCartanGroupLimit_cartanUnitConeRing_compat 1 f hf) (MonoidAlgebra.of ℤ G g) p := by sorry
+-- group_lift_recovers_all_original_finite_maps
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) (N : ℕ+) : (kubertCartanWittProductProjection 1 N).comp (kubertCartanWittGroupLift 1 f hf)=f N := by sorry
+-- actual_group_lift_uniqueness
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) (g : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hg : ∀ N : ℕ+,(kubertCartanWittProductProjection 1 N).comp g=f N) : kubertCartanWittGroupLift 1 f hf=g := by sorry
+-- actual_Cartan_group_limit_property
+example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) : ∃! g : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),∀ N : ℕ+,(kubertCartanWittProductProjection 1 N).comp g=f N := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanGroupLimitTests
