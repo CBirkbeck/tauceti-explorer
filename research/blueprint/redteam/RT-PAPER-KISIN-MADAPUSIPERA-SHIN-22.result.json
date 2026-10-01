@@ -1,0 +1,59 @@
+{
+  "redteam": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "summary": "Four findings: three high (L14 overclaims a rational isogeny scheme as library; positive admissibility conflicts with absent central characters; the accommodating symplectic product square is ill-typed) and one medium (T23 has not propagated the accepted E5 single-orbit correction). Existing source defects were not recounted as new findings.",
+  "checked": [
+    "Independence: read the issue/claim history for extraction #1314 and review #1315 and confirmed neither was written or reviewed by this session. Claimed #4181 as Codex — codex-rtOQ9t and reread the bot-confirmed issue before work.",
+    "Target snapshot: origin/main 244c699. Read the current extraction statements/classifications for all 244 items (16 library, 38 planned, 190 missing), its definition API and test specifications, proof outlines, all six route briefs, 30 prerequisites, and the independent review JSON/report. Historical handoff certificates are not fresh audit evidence.",
+    "Freshly downloaded and read all 41 pages of the Berkeley author PDF, including Appendix A and references; SHA-256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db, PDF creation metadata 2021-01-27. Inspected the page images at pp.26,28,30,31 for the reported defects. No claim of collation with the 56-page Duke version of record.",
+    "Compared the 49 sourceIssues entries and the extraction corrections with the author copy. E10 is rejected by the existing review and was not resurrected. E4, E5 and E32 were checked specifically to separate previously recorded corrections from findings 3 and 4.",
+    "Read the statements of all 25 distinct library declarations cited by the 16 library items at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. No declaration-existence search was treated as proof of a stronger API.",
+    "Checked route membership and item dependencies programmatically: all 190 missing items occur exactly once in routes, 203 distinct routed items include 13 planned items, no dangling item prerequisites, and the item prerequisite graph is acyclic. Checked the 27 distinct existing planned-stage identifiers and read their current owner descriptions/library-coverage context. Proposed Part II identifiers were treated as new design requests, not built stages.",
+    "Compared route ownership against the current atlas and relevant upstream boundaries, including rational isogeny schemes in A6, finite-field realization comparison in R28.4, crystalline/convergent extensions, and generic reductive/tori prerequisites. No additional duplicate-owner finding is asserted merely from overlapping broad subject descriptions.",
+    "Fresh correction/version search on 2026-10-01: Crossref DOI 10.1215/00127094-2021-0063 had no correction/update relation; read Shin errata.pdf (two pages, unrelated papers), checked author publication links, and performed bounded title/author/erratum searches. The Duke download endpoint returned HTML, not the article. No author-issued correction to the author-copy diagram was located. Noot publication metadata/abstract were checked, but no fresh full-text audit of Noot or the other supplier papers is claimed.",
+    "Checked the explicit 4-by-4 symplectic counterexamples with exact integer arithmetic and the dual-number inverse identity. The zero-character and real-component obstructions are proved in the report. No Lean source is a deliverable; no Lean compilation, library build, cache download or language server was run."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/1",
+      "kind": "library-claim",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json: items L14, T26; source route to AbelianSchemesAndArithmeticModuli:A6",
+      "claim": "L14 is marked library although its current statement defines a rational Hom scheme and coefficient-algebra isogenies, whereas its pinned declarations concern finite, surjective morphisms of abelian varieties over a field.",
+      "evidence": "At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean:54–68 defines IsIsogeny on f : A ⟶ B in AbelianVariety K and proves the finite-and-surjective criterion. Neither declaration constructs Hom_Q as a scheme over Q or its points over a coefficient Q-algebra R. The author PDF §2.3.1, pp.30–31, uses precisely those coefficient points. For example (1+epsilon) id_A over Q[epsilon]/(epsilon^2) is invertible with inverse (1-epsilon) id_A; it is not an ordinary morphism over the original characteristic-p field. L14 still has geometric finite-surjective, composition and field-base-change API/tests. T26 already assigns the rational isogeny scheme to the missing mathematics.",
+      "fix": "Restore L14 to the actual geometric isogeny predicate supplied by the pinned declarations, retaining its library status only for that predicate. Put the Hom_Q representability and coefficient-algebra isogeny definition in the existing T26 construction and its A6 source route (or a separately routed missing prerequisite of T26 if needed). Keep geometric base change separate from coefficient extension, and add a dual-number coefficient test. Reconcile counts and cross-references if splitting an item; do not create a second owner for T26."
+    },
+    {
+      "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json: items T18 and T19, especially T19 strict condition (ii); ShimuraVarietiesHondaTatePartII brief",
+      "claim": "The positive-multiplicity requirement in T18 conflicts with the universal central-character quantifier in T19. It rejects every type-D^R candidate having an absent central weight, including the Hodge-type cases the construction is supposed to handle.",
+      "evidence": "The freshly read author PDF §2.2.6, p.26, defines admissibility using “a multiple” of a listed representation; it does not insert positivity. T18 inserts positive multiplicity. T19 then asks that V_chi be admissible for every algebraic character chi of Z_G over Qbar. A finite-dimensional representation has finitely many central weights, whereas the Hodge weight supplies a scalar torus in Z_G and hence infinitely many characters. For any absent chi, V_chi=0, which is not a positive multiple of any nonzero standard or spin representation. In fact the trivial-character part is zero when the nontrivial scalar weight acts on all of V. Thus this is a defect introduced by combining the extraction statements, independently of any ambiguity in the paper.",
+      "fix": "Make the zero-weight-space convention explicit and consistent: either permit multiplicity zero in T18 when used for character parts, or quantify condition (ii) only over characters that occur in V, treating absent parts vacuously. Keep any nonzero/faithful requirement on the ambient representation separate. Add tests for an absent character and an occurring admissible D^R character part; propagate the corrected convention into the Part II brief."
+    },
+    {
+      "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json: item T19 accommodating-factor diagram and sourceIssues; ShimuraVarietiesHondaTatePartII brief",
+      "claim": "The accommodating-factor definition imports a square whose right vertical map would go from the full GSp(V) to the product of GSp(V_j). A symplectic direct-sum decomposition does not induce that map. Merely reversing the arrow would also fail unless the factor multipliers are synchronized.",
+      "evidence": "The diagram in the author PDF §2.2.6, p.26, follows the words “induces a commutative diagram” and has downward vertical arrows and upper-right term G_V, where §1.3.1 defines G_V=GSp(V). T19 retains that diagram. For V=Q^2 direct-sum Q^2 with form J direct-sum J, the symplectic block-swap matrix does not preserve the two ordered summands, so restriction from full GSp(V) to both factors is undefined. Conversely diag(2 I_2,I_2) belongs to GSp_2 times GSp_2 but pulls the form back to 4J direct-sum J, not a common scalar multiple. Existing E4 repairs only the circular terminology in the same definition; E5 and E32 repair different constructions on pp.28 and 27. None repairs this square.",
+      "fix": "State accommodating assembly via a datum map G to the product of G_j, with the given representation equal to the direct sum of the factor representations and with equal similitude multipliers on the image of G. If using a square, factor through the subgroup product_{G_m} GSp(V_j), whose block-diagonal map goes into GSp(V), and formulate the datum maps/orbits accordingly; retain the required derived-group isomorphism. Test both block swapping and unequal multipliers. Record the additional source discrepancy at §2.2.6 with the author-copy version/hash and a bounded correction search; do not assert that the inaccessible Duke version has this defect."
+    },
+    {
+      "id": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json: item T23.proofSteps[0–1] versus sourceIssues E5.correction",
+      "claim": "T23 changes the auxiliary group to the corrected fibre product but still takes the entire X times {h_T} as one Shimura datum. The accepted E5 correction already requires one real-group orbit, and has not been propagated to this active proof outline.",
+      "evidence": "E5.correction explicitly selects the G-prime(R)-orbit of (h_0,h_T) and warns that X times {h_T} may contain several such orbits. T23.proofSteps[0] still uses the entire product to claim a Shimura embedding. For G=GL_2=GSp_2 and an imaginary-quadratic CM torus T, G-prime=GL_2 times_{G_m} T with maps determinant and norm. The real norm on T(R)=C^times is positive, so the projection of G-prime(R) lies in GL_2^+(R). It preserves each of the upper and lower half-planes in X and cannot conjugate between them. Thus X times {h_T} has at least two orbits and is not the single conjugacy class required for the asserted datum.",
+      "fix": "Apply the existing E5 orbit correction to T23.proofSteps[0]. In the lifting step specify the chosen orbit/component and justify that the chosen point is covered, allowing the appropriate conjugated torus or a finite collection of data if necessary. Preserve the corrected fibre product and kernel argument. Add the GL_2/imaginary-quadratic example as a component test. This is propagation of an existing accepted correction, not a new erratum or a claim that Lemma 2.2.8 is false."
+    }
+  ],
+  "upstreamNotes": []
+}
