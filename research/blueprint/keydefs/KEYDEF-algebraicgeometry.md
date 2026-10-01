@@ -1,33 +1,41 @@
 # Schemes, curves and moduli: key definitions
 
-Complete survey for #5271, by Codex, session `codex-rtOQ9t`, 30 September 2026. The [machine-readable survey](KEYDEF-algebraicgeometry.json) contains 20 definitions and all catalogue item identifiers, source locators, missing-library contracts, dependencies and 131 sample API statements. This is a plan for formalisation, not a claim that the mathematics has been implemented.
+Complete survey for #5271, by Codex, session `codex-rtOQ9t`, 30 September 2026. The [machine-readable survey](KEYDEF-algebraicgeometry.json) contains 28 definitions (20 from the survey and 8 added by the independent review) and all catalogue item identifiers, source locators, missing-library contracts, dependencies and 183 sample API statements. This is a plan for formalisation, not a claim that the mathematics has been implemented.
 
-The input has 295 items from 54 papers and 14 owner roadmaps. 96 input items support entries, 28 are owned elsewhere, 69 are near misses, and 102 are routine or proof-specific. Every input is covered; the reserve is a concluded classification, not unfinished work. The whole-catalogue scan inspected definition/construction candidates across 28,537 records from 207 papers. Counts below are distinct papers with explicit cited instances, not theorem mentions or inferred bibliographic influence.
+The input has 295 items from 54 papers and 14 owner roadmaps. After the independent review, 113 input items support entries, 27 are owned elsewhere, 53 are near misses, and 102 are routine or proof-specific. Every input is covered; the reserve is a concluded classification, not unfinished work. The whole-catalogue scan inspected definition/construction candidates across 28,537 records from 207 papers. Counts below are distinct papers with explicit cited instances, not theorem mentions or inferred bibliographic influence.
 
 ## Definitions
 
 | Definition | Papers | Owner | Size |
 | --- | ---: | --- | --- |
-| Chow groups, refined intersections and Chern operations | 13 | `SchemeAndStackFoundations:SF.5` | XL |
-| Flat torsors, contracted products and twisting | 8 | `SchemeAndStackFoundations:SF.1` | XL |
-| Normal-crossings boundaries and good compactifications | 5 | `AlgebraicModuliForArithmeticGeometry:R09.7a`; `AlgebraicModuliForArithmeticGeometry:R09.7d` | L |
-| Algebraic quotient stacks and their atlases | 5 | `AlgebraicModuliForArithmeticGeometry:R09.4`; `SchemeAndStackFoundations:SF.1` | XL |
-| Coherent dualizing complexes and exceptional inverse image | 4 | **Gap** | XL |
-| Hilbert and Quot functors with universal families | 4 | `AlgebraicModuliForArithmeticGeometry:R09.2` | XL |
-| Moduli stacks of smooth and stable pointed curves | 4 | **Gap** | XL |
-| Numerical divisor and curve spaces, nef cones and numerical Picard | 4 | **Gap** | XL |
-| Algebraic spaces and representable morphisms | 3 | `AlgebraicModuliForArithmeticGeometry:R09.3`; `SchemeAndStackFoundations:SF.1` | XL |
-| Coarse moduli spaces of algebraic stacks | 3 | `AlgebraicModuliForArithmeticGeometry:R09.5` | XL |
+| Chow groups, refined intersections and Chern operations | 19 | `SchemeAndStackFoundations:SF.5`; `SchemeKTheoryOperations:S.7` | XL |
+| Flat torsors, contracted products and twisting | 19 | `SchemeAndStackFoundations:SF.1` | XL |
+| Normal-crossings boundaries and good compactifications | 12 | `AlgebraicModuliForArithmeticGeometry:R09.7a`; `AlgebraicModuliForArithmeticGeometry:R09.7d` | L |
+| Excellent rings and schemes (G-rings, J-2, universal catenarity) | 10 | **Gap** | L |
+| Coarse moduli spaces of algebraic stacks | 9 | `AlgebraicModuliForArithmeticGeometry:R09.5` | XL |
+| Azumaya algebras and Brauer groups on schemes | 9 | **Gap** | XL |
+| Algebraic quotient stacks and their atlases | 8 | `AlgebraicModuliForArithmeticGeometry:R09.4`; `SchemeAndStackFoundations:SF.1` | XL |
+| Coherent dualizing complexes and exceptional inverse image | 8 | **Gap** | XL |
+| Perfect schemes and spaces with finite-presentation models | 8 | `GeometricSatakeAndFusion:GS0:Witt-geometry` | XL |
+| Sheaf cohomology with closed supports and localization | 8 | `SchemeAndStackFoundations:SF.2`; `EtaleDualityAndPerverseSheaves:EDC.0` | L |
+| Numerical divisor and curve spaces, nef cones and numerical Picard | 7 | `MotivesAndAlgebraicCycles:MC.0` | XL |
+| Algebraic spaces and representable morphisms | 7 | `AlgebraicModuliForArithmeticGeometry:R09.3`; `SchemeAndStackFoundations:SF.1` | XL |
+| Hilbert and Quot functors with universal families | 6 | `AlgebraicModuliForArithmeticGeometry:R09.2` | XL |
+| Moduli stacks of smooth and stable pointed curves | 6 | **Gap** | XL |
+| Weil restriction beyond affine targets | 5 | `AlgebraicModuliForArithmeticGeometry:R09.3`; `AbelianSchemesAndArithmeticModuli:A6` | L |
+| Gerbes, abelian bandings and neutralizations | 4 | **Gap** | XL |
+| Henselization of pairs and of local rings | 4 | **Gap** | M |
+| Geometric quotients by group actions and finite equivalence relations | 4 | `SchemeAndStackFoundations:SF.1` | L |
 | Equivariant sheaves and derived invariant sections | 3 | **Gap** | L |
-| Gerbes, abelian bandings and neutralizations | 3 | `SchemeAndStackFoundations:SF.1` | XL |
-| Azumaya algebras and Brauer groups on schemes | 3 | **Gap** | XL |
-| Perfect schemes and spaces with finite-presentation models | 3 | **Gap** | XL |
-| Sheaf cohomology with closed supports and localization | 3 | `SchemeAndStackFoundations:SF.2` | L |
-| Weil restriction beyond affine targets | 3 | `AlgebraicModuliForArithmeticGeometry:R09.3` | L |
-| Galois gerbs with algebraic kernels and projective limits | 2 | **Gap** | XL |
+| Galois gerbs with algebraic kernels and projective limits | 3 | **Gap** | XL |
+| Inertia and relative automorphism groups | 3 | `AlgebraicModuliForArithmeticGeometry:R09.4`; `SchemeAndStackFoundations:SF.1` | L |
+| Relative spectrum and vector schemes | 3 | `SchemeAndStackFoundations:SF.0` | M |
 | Integrable Higgs bundles and parameter connections | 2 | **Gap** | XL |
-| Inertia and relative automorphism groups | 2 | `AlgebraicModuliForArithmeticGeometry:R09.4`; `SchemeAndStackFoundations:SF.1` | L |
-| Relative spectrum and vector schemes | 2 | `SchemeAndStackFoundations:SF.0` | L |
+| Witt-vector structure sheaves W_n O_X and Witt schemes W_n(X) | 2 | `CrystallineCohomology:CR.4` | M |
+| Root stacks of line bundles with sections and of Cartier divisors | 2 | **Gap** | M |
+| Étale K(π,1) schemes | 2 | **Gap** | L |
+| Pushouts of schemes along closed immersions (pinching, conductor squares) | 2 | **Gap** | M |
+| Hilbert–Samuel function and multiplicity of a local ring or module | 2 | **Gap** | M |
 
 The JSON is ordered by decreasing paper count. Size M means one file with its basic API, L a small project, and XL several files or suppliers. Each entry has worked values, at least one counterexample, and supporting theorem/compatibility statements. `sourceEvidence` distinguishes direct source passages from catalogue locators; it does not mean that every cited paper was reread in full.
 
@@ -69,36 +77,30 @@ Near misses are recorded with their failed criterion. The complete item lists an
 | cyclotomic inertia | 1 | Criterion 3: the prime-to-characteristic colimit of Hom(Bμ_n,X), with its Frobenius-twisted rational points, occurs explicitly only in PAPER-GROECHENIG-WYSS-ZIEGLER-20-B. Ordinary inertia has a separate shared entry; it is not the same construction over an arbitrary field. |
 | essential dimension | 4 | Criterion 3: the catalogue has these algebraic, prime-to-p and analytic essential-dimension definitions only for PAPER-FARB-KISIN-WOLFSON-24; different versions in one paper do not make two papers. |
 | connection moduli | 2 | Criterion 3 in the general higher-dimensional/fixed-determinant scope: these Betti/de Rham/Dolbeault/Hodge moduli are explicit constructions in ESNAULT-GROECHENIG-20 only. The curve Hitchin moduli owned by ET.2b do not establish the higher-dimensional construction or arbitrary arithmetic base change. |
-| admissible variation and canonical extension | 2 | Criterion 3 in this scope: the catalogue explicitly defines admissible graded-polarizable mixed variations and Deligne regular-singular canonical extensions here in LANDESMAN-LITT-24. Automorphic canonical extensions and linear mixed Hodge structures are different notions and do not provide a second instance. |
+| admissible variation and canonical extension | 1 | Criterion 3 in this scope: the catalogue explicitly defines admissible graded-polarizable mixed variations and Deligne regular-singular canonical extensions here in LANDESMAN-LITT-24. Automorphic canonical extensions and linear mixed Hodge structures are different notions and do not provide a second instance. |
 | weighted parabolic bundles | 1 | Criterion 3 for the weighted stability package: only LANDESMAN-LITT-24 has this explicit weighted parabolic-degree definition. SCHIFFMANN-16/53 defines unweighted quasi-parabolic flags and YUN-ZHANG-19/27 Iwahori lattice chains (owned by GS.0); choosing or forgetting weights is extra data, not a second instance of the weighted definition. |
-| excellence variants | 6 | Criterion 3: the scheme excellence, Cohen–Macaulay/Serre variants and equidimensionality definitions are explicit catalogue items in CESNAVICIUS-21 only. Other papers assume excellent bases; those mentions are not counted as additional definition/construction instances. |
-| tautological rings | 3 | Criterion 3: these tautological/semi-tautological rings and the Chow–Künneth generation predicate occur as explicit definitions in CANNING-LARSON-PAYNE-24 only. They are applications of shared moduli, cohomology and Chow objects, not extra evidence for those carriers. |
+| tautological rings | 2 | Criterion 3: these tautological/semi-tautological rings and the Chow–Künneth generation predicate occur as explicit definitions in CANNING-LARSON-PAYNE-24 only. They are applications of shared moduli, cohomology and Chow objects, not extra evidence for those carriers. |
 | ahk rank | 1 | Criterion 3: this birational rank corrected by the exceptional-prime count occurs explicitly in HACON-WITASZEK-23 only; it must not be conflated with the ordinary numerical Picard rank. |
 | virtual dimension | 1 | Criterion 3: this presentation-independent virtual dimension is an explicit definition only in CESNAVICIUS-SCHOLZE-24. Its independence is a theorem, not a second definition instance. |
 | elw index | 2 | Criterion 3: the Euler-characteristic index and its quotient-valued cycle map occur explicitly in BENOIST-WITTENBERG-20 only. The target is Z modulo the lower index, not an integer-valued Chow degree. |
 | equivariant bloch ogus | 3 | Criterion 3 in this specific equivariant Betti/support setting: the coniveau, Bloch–Ogus and strict-effaceability definitions occur in BENOIST-WITTENBERG-20 only. The K-theory coniveau tower and general support cohomology have different construction contracts. |
-| witt schemes | 1 | Criterion 3: the explicit sheaf-glued W_n(X) and formal inverse system W(X) are defined in BHATT-SCHOLZE-17 only. Witt affine Grassmannians and Greenberg transforms are different functors and are not counted as this construction. |
-| root stacks | 2 | Criterion 3: finite and infinite root-stack constructions are explicit definition/construction items only in PAPER-BRESCIANI-24. They are not counted as banded gerbes over the whole base: the stabilizer jumps along the divisor. |
 | general homogeneous quotients | 1 | Criterion 3 in this scope: CESNAVICIUS-19 explicitly constructs the diagonal quotient by a possibly nonflat group. This is not another instance of the finite-presentation flat torsor definition; its representability hypotheses must be proved separately. |
 | smoothness ideals | 4 | Criterion 2 for the explicit minor-colon ideal: polynomial Jacobian matrices, minors, ideal sums/products/colons already supply its formula. The annihilator-of-cotangent-Ext version instead requires the independently owned full cotangent complex; proving the comparison of these formulas is work, but does not justify a duplicate key ideal carrier. |
 | projective module presentation groupoid | 1 | Criterion 3: the specific stabilized-idempotent smooth presentation and isomorphism-space package is explicit only in CESNAVICIUS-19. The category of projective modules itself is existing data. |
 | formal lefschetz | 2 | Criterion 3: the formal Lefschetz/effectivity conditions are explicitly defined only in CESNAVICIUS-19. They are not interchangeable with the weak-Lefschetz cohomology theorem. |
-| henselization of pairs | 1 | Criterion 3 for this construction: the explicit initial henselian pair/ind-étale presentation appears in CLAUSEN-MATHEW-MORROW-21 only. Henselian assumptions and affinoid henselizations in other routes are not silently counted as the same general ring-pair construction. |
-| etale k pi one | 1 | Criterion 3: this coefficient-specific étale K(π,1) comparison predicate appears explicitly only in FARB-KISIN-WOLFSON-24. Topological asphericity and pro-étale covers are not substitutes. |
 | higher dimensional albanese | 1 | Criterion 3 in the residual scope: FARB-KISIN-WOLFSON-24 explicitly defines Albanese for higher-dimensional smooth proper varieties. Proper-curve Jacobians/Abel–Jacobi are owned upstream; BRESCIANI-24/56 instead requests the semiabelian Albanese torsor of an open curve. Neither silently supplies a second instance of the missing higher-dimensional construction. |
 | local model specializations | 3 | Criterion 3: the specified Grothendieck surface valuation, mixed-DVR lifting and compatible punctured-normalization deformation packages occur in their respective single papers only. The general valuation, model and normalization carriers are separate suppliers. |
 | unramified cohomology | 1 | Criterion 3: Jannsen’s all-degree valuation-residue definition is explicit in JANNSEN-16 only. Brauer residues give a specialized degree-two application; no unproved identification with arbitrary-coefficient unramified cohomology is assumed. |
 | crossed module and semidirect quotients | 3 | Criterion 3 for these exact carriers: the Peiffer crossed module, reductive Picard quotient and source semidirect quotient occur explicitly in KISIN-17 only. The shared Galois-gerb entry does not silently supply these separate monoidal constructions. |
-| hartogs ideal and formal local variants | 4 | Criterion 3: these exact Hartogs closure, Artinian formal-étaleness, unibranch and analytically-unramified-stack definitions occur in LE-LEHUNG-LEVIN-ETAL source catalogues only, with each notion attached to one paper. They are not interchangeable with ordinary étaleness or reducedness. |
+| hartogs ideal and formal local variants | 3 | Criterion 3: these exact Hartogs closure, Artinian formal-étaleness, unibranch and analytically-unramified-stack definitions occur in LE-LEHUNG-LEVIN-ETAL source catalogues only, with each notion attached to one paper. They are not interchangeable with ordinary étaleness or reducedness. |
 | perfect stacks | 2 | Criterion 3: perfect algebraic stacks and their weakly smooth maps are explicitly defined in VANHOFTEN-24 only. The shared scheme/space perfection entry is not a silent construction of this higher categorical extension. |
-| geometric quotients | 2 | Criterion 3: general geometric quotients of finite relations and proper actions are explicit definitions in PAPER-WITASZEK-22 only. Coarse moduli of stacks have a separate entry; a topological orbit quotient alone does not define either sheaf of functions. |
-| geometric pushout | 1 | Criterion 3: the exact geometric-pushout datum with structure-sheaf fibre-product condition is explicit only in WITASZEK-22. A topological pushout does not furnish that scheme or algebraic-space structure. |
 | picard p power localization | 3 | Criterion 3: these direct-limit multiplicative and Picard-groupoid localizations occur in PAPER-WITASZEK-22 only. In mixed characteristic the power map is multiplicative, not additive; geometric Frobenius perfection is a different construction. |
 | localized chern class rank threshold | 1 | Criterion 3 for the extra construction: the Bloch localized Chern class for a complex of rank n−1 off its support, in degrees i≥n, occurs explicitly only in YANG-ZHAO-25. Ordinary Chern/refined Gysin operations do not automatically construct it; acyclicity off the support must not be incorrectly imposed. |
 | begueri resolution | 1 | Criterion 3: the explicit smooth affine Bégueri resolution occurs only in CESNAVICIUS-SCHOLZE-24. Its exactness and representability are theorem obligations, not generic group-scheme axioms. |
 | pro fppf and animated flat cohomology | 4 | Criterion 3: these ind-syntomic/pro-fppf and animated flat-site constructions occur explicitly in CESNAVICIUS-SCHOLZE-24 only. Ordinary fpqc/fppf topology and generic animation do not establish these coefficient and negative-degree cohomology interfaces. |
 | cyclic quotient resolution | 1 | Criterion 3: the explicit Hirzebruch–Jung resolution of a complex cyclic quotient surface occurs here only in BAKKER-TSIMERMAN-16. Importing the general Rees blowup from StableReduction does not supply this construction; its arithmetic-model resolution theorem has a narrower base. |
 | abelian character sheaves | 2 | Criterion 3: these normalized character-sheaf and avoidance-character-space constructions are explicit only in LAWRENCE-SAWIN-25. The torus description needs its precise finitely generated character-lattice convention; arbitrary continuous characters of a profinite étale group are not automatically an algebraic torus. |
+| Hurwitz stacks of tetragonal curves and the Casnati–Ekedahl bundles | 1 | Criterion 3: a single-paper construction (CANNING-LARSON-PAYNE-24). InverseGaloisAndArithmeticFundamentalGroups:IG.5 plans Hurwitz moduli of Galois covers, not the stack of degree-4 covers with markings or the Casnati–Ekedahl structure theorem (review correction: moved from elsewhere). |
 
 Paper counts deliberately separate nearby notions. Weighted parabolic degree is not supplied by unweighted flags; a Chow variety is not a Chow group; an infinite root stack is not a banded gerbe over its whole base; mixed-characteristic multiplicative p-power localization is not geometric Frobenius perfection. Profinite fpqc torsors and gerbes are retained with their limit/topology contracts, without being called algebraic stacks of finite presentation.
 
@@ -162,3 +164,53 @@ Two source safeguards matter. Bhatt–Scholze define big by an ample/effective f
 `python3 scripts/check_keydefs.py research/blueprint/keydefs/KEYDEF-algebraicgeometry.json` reports **0 errors**, with eight gap warnings and three duplication warnings as explained above. All 295 input identifiers are covered; all 20 entries have at least two distinct cited papers and at least five API statements; the dependency graph is acyclic. One input, van Hoften F01, supplies both the algebraic-space carrier and its perfection, so it is cited by both distinct notions and counted once in input coverage. The 79 entry–paper incidences are deduplicated within each entry.
 
 `git diff --check` passes. Changes are limited to this report and its JSON survey. There is no Lean compilation claim. Independent review remains the next programme step.
+
+## Independent review (1 October 2026)
+
+REV-KEYDEF-algebraicgeometry (Claude Code, session `cc-c2c06b`) accepted the survey after corrections made in place. The
+tables above are regenerated from the corrected JSON. Where the earlier sections of this report differ from the points
+below, the points below supersede them.
+
+- **Paper counts.** They were recomputed over the whole catalogue, not only the input. Every entry gained papers, and the
+  order changed. Nine cited items that are not instances of their notion were moved to routine, with reasons.
+- **Library claims.** These were corrected where the pins already have part of a notion:
+  - Tau Ceti's divisor class group;
+  - Mathlib's Čech H¹ of a presheaf of groups, relatively representable morphisms, `localCohomology` and
+    `AffineZariskiSite.relativeGluingData`.
+
+  Relative spectrum is now size M.
+- **Owners.** No longer gaps:
+  - scheme perfection (GeometricSatakeAndFusion GS0:Witt-geometry);
+  - numerical equivalence, partly (MotivesAndAlgebraicCycles MC.0).
+
+  Gerbes are now a gap, since SF.1 does not mention them. New duplications:
+  - Chow and Chern operations, also planned at SchemeKTheoryOperations S.7;
+  - cohomology with supports, also planned at EtaleDualityAndPerverseSheaves EDC.0;
+  - Weil restriction, also planned at AbelianSchemesAndArithmeticModuli A6.
+
+  Coherent duality has a partial supplier in the draft AnalyticStacks AS.3.
+- **New entries.** Eight were added, from reserve groups whose "one paper" reason failed or from a routine item:
+  - excellent schemes;
+  - henselization;
+  - geometric quotients;
+  - Witt schemes;
+  - root stacks;
+  - étale K(π,1);
+  - Ferrand pushouts;
+  - Hilbert–Samuel multiplicity.
+- **Elsewhere records:**
+  - variations of Hodge structure now point to ShimuraData D3;
+  - lisse sheaves now point to SchemeAndStackFoundations SF.2, the atlas integration owner of the unmerged upstream
+    family;
+  - symmetric powers now point to the geometric-quotients entry;
+  - a normal model of a curve over a base now points to StableReduction layer 5;
+  - Hurwitz stacks of tetragonal curves moved to the reserve.
+- **API.** Twenty API statements were replaced or added. One was false, others were definitional or did not
+  discriminate.
+
+`check_keydefs.py`, run with the declaration index, reports 0 errors. Its 21 warnings are:
+- 13 owner gaps;
+- 6 two-roadmap duplications;
+- 2 items also cited by the algebraicnt survey.
+
+The full account is in [the review report](../reviews/REV-KEYDEF-algebraicgeometry.md).
