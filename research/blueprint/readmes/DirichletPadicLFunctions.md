@@ -31455,3 +31455,257 @@ Exact controls pass315 formal primitive coefficients,56 divided-derivative recur
 The capture at 36c1cc2d7d99f156185c6bc2e07c8bafebc4f3e3 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5330. The new dependency routes preserve the same owned log/analytic interfaces and source-register findings.
 
 The separate partial signature file also compiled with zero errors and 3,123 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 394513cfe24537eec2e0dc02f22b3614ee6ed89f88ac068b7b8fe3c3010557da.
+
+
+## The actual logarithmic Gamma series and its derivatives
+
+Nine L3 nodes recover the chosen logarithmic Gamma model’s derivatives and higher inverse-power HasSum from the actual divided-coefficient means. The moment limits are supplied by rescaling the existing coefficient limits. All977 predecessor nodes,747 baseline records,17 findings and14 requests remain whole.
+
+Retains complete Morita1975 and KL1964 readings and the p.261 coefficient Remark. The source’s negative Euler-number convention and factorial normalization are explicit. Reads the pinned scalar-series evaluation, power-series first-derivative theorem, factorial-to-iterated-Frechet-derivative theorem and proof, scalar iterated-derivative comparison and positive-order constant-addition theorem. Rereads the native HasSum two-term shift and the positive-radius representation of a scalar sum. Generic analytic/logarithm theory remains with its existing owners.
+
+### The coefficient-field difference has first derivative v₁
+
+`DirichletPadicLFunctions:L3/morita-difference-first-derivative` — `DirichletPadic.moritaDifferenceExtension_hasDerivAt_zero`
+
+The existing E_v has derivative v_1 at0 under the explicit positive-radius coefficient bound.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. The prior coefficient-radius lemma gives positive radius for the native scalar formal multilinear series.
+2. Its actual sum has that power series on its convergence ball. The native first-derivative theorem evaluates the first multilinear coefficient on1, giving v_1.
+3. Subtract the constant v_0. The complete extension_derivative proof checks the native derivative predicate and scalar-series evaluation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `DirichletPadicLFunctions:L3/morita-difference-coefficient-radius`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesOnBall.hasFPowerSeriesAt`, `mathlib:HasFPowerSeriesAt.hasDerivAt`, `mathlib:FormalMultilinearSeries.ofScalars_apply_eq`, `mathlib:hasDerivAt_sub_const_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.extension_linear_derivative` (computation): A dyadic series supported at degree1 with coefficient3 has derivative3 at0.
+- `SuggestedMoritaLogSeriesTests.extension_geometric_derivative` (computation): The ternary geometric difference has derivative1 at0.
+
+**Acceptance:** Use the actual analytic sum inside a positive convergence radius, not a formal derivative of an arbitrary divergent total sum.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### Positive-order derivatives recover factorial times the coefficients
+
+`DirichletPadicLFunctions:L3/morita-difference-iterated-derivatives` — `DirichletPadic.moritaDifferenceExtension_iteratedDeriv_zero`
+
+For m>0, the m-th native iterated derivative of E_v at0 is m!v_m.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Obtain the native positive-radius power-series representation as in the preceding theorem.
+2. Express subtraction of v_0 as addition of a constant and use the native positive-order invariance of iterated derivatives under adding constants.
+3. The native factorial_smul theorem identifies the diagonal iterated Frechet derivative with m! times the m-th coefficient. The native scalar iterated-derivative comparison evaluates it on the all-ones vector.
+4. The complete extension_iterated_derivative proof checks every natural scalar/factorial and multilinear evaluation. Order0 is excluded because E_v(0)=0 rather than v_0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `DirichletPadicLFunctions:L3/morita-difference-coefficient-radius`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:HasFPowerSeriesOnBall.factorial_smul`, `mathlib:iteratedDeriv_eq_iteratedFDeriv`, `mathlib:iteratedDeriv_const_add`, `mathlib:FormalMultilinearSeries.ofScalars_apply_eq`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.extension_quadratic_second` (computation): The model with coefficient1/2 in degree2 has second derivative1.
+- `SuggestedMoritaLogSeriesTests.extension_cubic_third` (computation): Coefficient−1/6 in degree3 gives third derivative−1.
+- `SuggestedMoritaLogSeriesTests.positive_order_required` (non-example): For the geometric sequence v_m=1, order0 gives E_v(0)=0 although0!v_0=1.
+
+**Acceptance:** Keep m>0 and the native factorial normalization.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### Removing the constant and linear terms leaves the higher HasSum
+
+`DirichletPadicLFunctions:L3/morita-difference-higher-series` — `DirichletPadic.moritaDifferenceExtension_higher_hasSum`
+
+For‖z‖<R, the seriesΣ_(m≥0) z^(m+2)v_(m+2) has sum E_v(z)−zv_1.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Use the coefficient-radius bound to put z inside the native scalar-series convergence ball, obtaining its actual HasSum.
+2. Apply the native two-term shift equivalence for HasSum, generated additively from hasProd_nat_add_iff prime.
+3. The first two terms are v_0 and zv_1. Subtract them and unfold E_v. The complete extension_higher_series proof proves HasSum, not merely equality of total sums.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `DirichletPadicLFunctions:L3/morita-difference-coefficient-radius`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:FormalMultilinearSeries.ofScalars_apply_eq`, `mathlib:hasProd_nat_add_iff'`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.higher_series_quadratic` (computation): At z=4 in Q_2 the degree2 coefficient1/2 gives higher sum8.
+- `SuggestedMoritaLogSeriesTests.higher_series_geometric` (computation): The dyadic geometric higher tail at4 sums to−16/3.
+- `SuggestedMoritaLogSeriesTests.higher_series_zero` (degenerate): At z=0 every higher term is0, for any coefficient sequence.
+
+**Acceptance:** Convergence is explicit; the two removed terms cannot be silently dropped from the value.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The linear coefficient is the normalized unit logarithm mean
+
+`DirichletPadicLFunctions:L3/morita-log-first-coefficient-mean` — `DirichletPadic.moritaLogDivided_first_mean`
+
+The actual first twisted angular mean ofℓ∘ι equals N_n^(−1)Σ_(0≤a<N_n,p∤a)ℓ(a), with N_n=q^(n+1).
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Use the existing angular-mean twist comparison and unfold the finite mean.
+2. For derivative order1 the inverse torsion power is exactly the first inverse. The preceding logarithmic boundary cancellation removes the source character and replaces angular logarithms by the logarithms of the unit indices.
+3. The complete first_log_mean proof checks the entire finite sum. Its coefficient limit is the same v_1 used above; the source Euler-number analogue is its negative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-mean-twist`, `DirichletPadicLFunctions:L3/morita-finite-mean`, `DirichletPadicLFunctions:L3/morita-log-torsion-boundary-cancellation`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.first_mean_dyadic` (computation): At N=4 the first mean isℓ(3)/4.
+- `SuggestedMoritaLogSeriesTests.first_mean_ternary` (computation): At N=3 the first mean isℓ(2)/3.
+
+**Acceptance:** Retain the normalization N_n^(−1), support p∤a and the supplied logarithm laws.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The explicit divided coefficients give the actual logarithmic Gamma model
+
+`DirichletPadicLFunctions:L3/morita-gamma-explicit-log-model` — `DirichletPadic.moritaGamma_logModel_agreement`
+
+With the actual D_m=moritaLogDivided(ℓ,m) and the full retained analytic/logarithm data, E_v(ιz)=ℓ(−ιΓ(z+1)) whenever‖z‖≤r.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Specialize the preceding logarithmic Gamma comparison to the literal divided-coefficient family, whose zeroth and first terms are definitionally the required primitive and logarithm.
+2. Restrict the existing coefficient-field extension to its p-adic integer difference function.
+3. The complete log_model_agreement proof applies the earlier closed-disc theorem with the actual D_m, retaining its Taylor, continuity, norm and mean-limit hypotheses. No new Gamma or logarithm function is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-derivatives`, `DirichletPadicLFunctions:L3/morita-log-primitive-gamma-disc`, `DirichletPadicLFunctions:L3/morita-difference-field-restriction`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.log_model_at_four` (computation): At p=2,z=4, E_v(4)=ℓ(3).
+- `SuggestedMoritaLogSeriesTests.log_model_nonintegral` (boundary): At z=4/3∈Z_2, the explicit model agrees withℓ(−Γ(7/3)) under the same actual source inputs.
+
+**Acceptance:** The sign follows the previously recorded E17 correction. Logarithmic equality does not supply an exponential inverse.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The actual logarithmic Gamma model has derivative v₁ at zero
+
+`DirichletPadicLFunctions:L3/morita-gamma-log-model-first-derivative` — `DirichletPadic.moritaGamma_logModel_hasDerivAt_zero`
+
+For the actual divided-coefficient means, the explicit model E_v has derivative v_1 at0.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. The earlier coefficient-limit norm theorem supplies‖v_m‖≤C_q B/R^m from the actual D_m value/Lipschitz bounds and coefficient Tendsto witnesses.
+2. Since R>r>0, the generic coefficient-field derivative theorem applies.
+3. The complete log_model_derivative proof retains precisely these inputs. Combining it with the preceding agreement identifies the logarithmic Gamma germ and, with the first-mean comparison, the source’s negative Euler-number analogue.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-derivatives`, `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `DirichletPadicLFunctions:L3/morita-difference-first-derivative`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.actual_first_derivative_dyadic` (compatibility): The actual dyadic coefficient model has derivative v_1 at0.
+- `SuggestedMoritaLogSeriesTests.actual_first_derivative_ternary` (compatibility): The same native derivative statement holds for the actual ternary coefficient data.
+
+**Acceptance:** The source-only logarithm laws are needed for Gamma agreement, not for this coefficient-model derivative calculation.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The actual logarithmic model has the source’s factorial coefficients
+
+`DirichletPadicLFunctions:L3/morita-gamma-log-model-higher-derivatives` — `DirichletPadic.moritaGamma_logModel_iteratedDeriv_zero`
+
+For the actual divided-coefficient means and m>0, the m-th iterated derivative of E_v at0 is m!v_m.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Use the same actual coefficient-limit norm bound and positive R as in the first-derivative theorem.
+2. Apply the generic iterated-derivative coefficient comparison. The complete log_model_iterated_derivative proof keeps positive order explicit.
+3. Together with the preceding inverse-power coefficient comparison, order2 is twice v_2, hence the first inverse-power moment; order3 is6v_3. This checkpoint does not yet differentiate the translated means at an arbitrary center.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-derivatives`, `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `DirichletPadicLFunctions:L3/morita-difference-iterated-derivatives`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.actual_second_derivative` (computation): The actual dyadic model has second derivative2v_2 at0.
+- `SuggestedMoritaLogSeriesTests.actual_third_derivative` (computation): Its third derivative at0 is6v_3.
+
+**Acceptance:** The result concerns the explicit K-valued model. Gamma agreement is supplied separately on the embedded q-disc.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The logarithmic Gamma tail is the inverse-power moment series
+
+`DirichletPadicLFunctions:L3/morita-gamma-log-higher-inverse-series` — `DirichletPadic.moritaGamma_log_higher_hasSum`
+
+Let w_m be limits of N_n^(−1)Σ_(a<N_n,p∤a)a^(−m−1). Under the actual source data, for‖z‖≤r the seriesΣ_m(ιz)^(m+2)c_m w_m has sumℓ(−ιΓ(z+1))−ιz·v_1, where c_m=(−1)^m/((m+2)(m+1)).
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. The previous actual divided-coefficient limit comparison gives v_(m+2)=c_m w_m for every m.
+2. The actual mean coefficient bounds and norm-preserving embedding putιz strictly inside radius R, including the closed q-disc boundary.
+3. Apply the generic higher HasSum, substitute the coefficient identities and the preceding logarithmic Gamma agreement. The complete log_gamma_higher_series proof performs this specialization.
+4. The w_m convergence is explicit here; the next theorem constructs all these witnesses from the already supplied actual coefficient limits.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-limit-identification`, `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `DirichletPadicLFunctions:L3/morita-difference-higher-series`, `DirichletPadicLFunctions:L3/morita-gamma-explicit-log-model`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.gamma_higher_series_four` (computation): At p=2,z=4 the higher series sums toℓ(3)−4v_1.
+- `SuggestedMoritaLogSeriesTests.gamma_higher_series_negative` (computation): At z=−4 it sums to−ℓ(3)+4v_1.
+
+**Acceptance:** This is a convergent HasSum on the certified q-disc. The claim for all‖z‖<1 is still open.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+### The actual coefficient limits supply the moments and Gamma series
+
+`DirichletPadicLFunctions:L3/morita-gamma-log-moment-series-existence` — `DirichletPadic.moritaGamma_log_inversePower_hasSum`
+
+For every z in the closed q-disc, the full actual source data give a sequence w_m which is the limit of each normalized inverse-power sum and whose higher series has sumℓ(−ιΓ(z+1))−ιz·v_1.
+
+**Hypotheses:** For coefficient-field statements, K is a complete nontrivially normed field, E_v is the existing native scalar-series sum minus v_0, and R>0 with‖v_m‖≤C/R^m for every m. Pointwise series assertions require‖z‖<R; iterated-derivative assertions require positive order. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, r=‖q‖, K is a complete ultrametric characteristic-zero normed Q_p-algebra, and ι:Z_p→K is a ring homomorphism. The actual coefficient family is the preceding literal D_m=moritaLogDivided(ℓ,m), composed withι. It is not an arbitrary family with only its first two terms identified. Retain B≥0, R>r, the explicit principal-disc bounds‖D_m(ιx)‖≤B/R^m and Lipschitz bound B/(R^m r), and the actual twisted mean Tendsto witnesses v_m. Arithmetic derivative calculations need only those coefficient data. Gamma comparisons additionally require norm preservation ofι, continuity ofℓ off0, its multiplicative and torsion laws, and the actual Taylor HasSum for x(ℓx−1). Gamma is the existing signed continuous unit-valued function. The chosen K-valued logarithmic model agrees withℓ(−ιΓ(z+1)) on qZ_p. Statements about its derivatives concern this explicit model; for K=Q_p it supplies the source’s logarithmic Gamma germ. No arbitrary extension to all K is asserted. The logarithmic series is established on the closed q-disc under R>r. Morita’s stronger claim of convergence for every‖z‖<1 remains a separate required task. No exponential inverse or exponential-domain hypothesis is needed for this logarithmic checkpoint; all prior requests and gaps remain.
+
+**Proof:**
+
+1. Choose w_m=v_(m+2)/c_m. The preceding inverse-power limit theorem obtains its actual Tendsto witness by nonzero scalar rescaling of the given coefficient limit.
+2. Apply the preceding higher Gamma series theorem with that sequence and those witnesses.
+3. The complete log_gamma_inversePower_series proof supplies both convergence of every moment sequence and the HasSum conclusion. It adds no new assumption that these moments already exist.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-inverse-power-limit`, `DirichletPadicLFunctions:L3/morita-gamma-log-higher-inverse-series`.
+
+**Tests:**
+
+- `SuggestedMoritaLogSeriesTests.moments_and_series_at_zero` (degenerate): The actual dyadic data supply all inverse-power moments even at z=0, where the higher series has sum0.
+- `SuggestedMoritaLogSeriesTests.moments_and_series_nonintegral` (boundary): The same actual inputs supply moment limits and the Gamma series at z=8/3∈Z_2.
+
+**Acceptance:** The supplied original coefficient-limit and Taylor inputs remain obligations of the earlier construction; rescaling them does not close those supplier requests.
+
+**Source:** Section3 p.261/PDF7, Remark after Theorem3: the displayed logarithmic Taylor expansion and items(i)–(iv); Section2 pp.259–260, translated coefficient means. Uses the actual divided-coefficient mean sequence in the existing logarithmic Gamma model, explicitly recovers its derivatives and the higher inverse-power series, and identifies the linear coefficient’s finite logarithm means. Only the previously certified q-disc is claimed here; item(iv)’s larger radius and the general-point second derivative remain open.
+
+**Remaining:** The literal divided-coefficient family now gives the existing logarithmic Gamma model, every positive-order derivative at0, the normalized first logarithm mean and a higher HasSum whose inverse-power moment witnesses are obtained from the actual coefficient limits. Next prove the source radius claim for all‖z‖<1 and the arbitrary-center second derivative/translated inverse-power identity. Gross–Koblitz and Ferrero–Greenberg remain required targets. All14 requests and18 gaps remain open, all implementation statuses unchecked, zero closed stages.
+
+### The actual logarithmic Gamma series and its derivatives validation
+
+All 977 predecessor nodes, 747 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1246 reachable nodes, 6053 edges and 925 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Native coefficient-field derivative/tail nodes have no unresolved stage leaves. The first logarithm mean inherits LAD L1; actual model derivative nodes inherit LAD L0 from coefficient bounds; Gamma agreement and series nodes inherit LAD L0/L1. All14 supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves PR5332’s23definitions268lemmas verbatim after adding the native IteratedDeriv.Lemmas import and adds9lemmas. It proves native HasDerivAt/iteratedDeriv/HasSum statements for the existing sum, supplies the literal divided family to the prior actual Gamma comparison, and constructs inverse-power moment witnesses directly from coefficient limits. No new function carrier or Gamma definition is introduced. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The actual Taylor, norm and coefficient-limit inputs remain explicit. The certified Gamma series disc is qZ_p; the source’s larger open unit disc and general-center second derivative are not claimed. Full suggested file remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. General roadmap declarations remain unchecked.
+
+Exact controls pass504 polynomial derivative coefficients,224 higher-tail identities,48 geometric tail remainders,10 finite Gamma-series approximations and2 exact or negative examples. The finite Gamma approximation error valuations are recorded separately and range from3 to9; they do not certify the infinite series. Exact rational polynomial differentiation and tail identities, geometric tail remainders, and finite Gamma-series regressions using40 logarithm terms and12 higher coefficients at two actual averaging levels. Recorded p-adic error valuations concern these finite approximations only; no infinite convergence or stronger radius is inferred. The native Lean probe proves the conditional HasSum and derivative statements. The largest observed discrepancy is 1/27 for the finite Gamma approximations; exact algebraic identities have discrepancy0.
+
+The capture at c3c4cdd93324a4efa0c3ffac7c2eae15c227080c has zero changes among72 tracked inputs and an unchanged issue body after merged PR5332. The source-register findings and owned analytic/logarithm interfaces are unchanged.
+
+The separate partial signature file also compiled with zero errors and 3,152 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cc2ba4d3fd679bbd22af06b772c78a7662dfcae70b022995692121ac2d14e958.
