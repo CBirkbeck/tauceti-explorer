@@ -18648,3 +18648,156 @@ example {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K] (χ : MulC
 -- gauss_gamma_comparison
 example {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K] (χ : MulChar F K) (ψ : AddChar F K) (hχ : χ≠1) (hψ : ψ.IsPrimitive) (hcard : Fintype.card F=9) (ι : ℤ_[3] →+* K) (hneg : χ (-1)=-1) (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (-gaussSum χ ψ)*(-gaussSum χ⁻¹ ψ)=ι ((-3 : ℤ_[3])^2*(∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))) := by sorry
 end DirichletPadic.SuggestedGrossKoblitzPairTests
+
+/- Actual characters for the elementary Gross–Koblitz pair. -/
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel
+open scoped Classical
+noncomputable section
+
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+
+def grossKoblitzInverseChar (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] (k : ℕ) : MulChar 𝓀[K] K := by sorry
+
+lemma grossKoblitzInverseChar_def (k : ℕ) : grossKoblitzInverseChar K k=
+    (((MulChar.ofUnitHom (TauCeti.teichmuller K))^k)⁻¹).ringHomComp 𝒪[K].subtype := by sorry
+
+lemma grossKoblitzInverseChar_zero (k : ℕ) : grossKoblitzInverseChar K k 0=0 := by sorry
+
+lemma grossKoblitzInverseChar_unit (k : ℕ) (u : 𝓀[K]ˣ) :
+    grossKoblitzInverseChar K k u=(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^(-(k : ℤ)) := by sorry
+
+lemma grossKoblitzInverseChar_one (k : ℕ) : grossKoblitzInverseChar K k 1=1 := by sorry
+
+lemma grossKoblitzInverseChar_exponent_zero : grossKoblitzInverseChar K 0=1 := by sorry
+
+lemma grossKoblitzInverseChar_period (k : ℕ) :
+    grossKoblitzInverseChar K (k+(Nat.card 𝓀[K]-1))=grossKoblitzInverseChar K k := by sorry
+
+lemma grossKoblitzInverseChar_exponent_card_sub_one : grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)=1 := by sorry
+
+lemma grossKoblitzInverseChar_add (k l : ℕ) :
+    grossKoblitzInverseChar K (k+l)=grossKoblitzInverseChar K k*grossKoblitzInverseChar K l := by sorry
+
+lemma grossKoblitzInverseChar_complement (k : ℕ) (hk : k≤Nat.card 𝓀[K]-1) :
+    grossKoblitzInverseChar K (Nat.card 𝓀[K]-1-k)=(grossKoblitzInverseChar K k)⁻¹ := by sorry
+
+lemma grossKoblitzInverseChar_ne_one (k : ℕ) (hk : 0<k) (hk' : k<Nat.card 𝓀[K]-1) :
+    grossKoblitzInverseChar K k≠1 := by sorry
+
+
+lemma grossKoblitzInverseChar_neg_one (hq : Odd (Nat.card 𝓀[K])) (k : ℕ) :
+    grossKoblitzInverseChar K k (-1)=(-1 : K)^k := by sorry
+
+section TraceCharacter
+variable (p : ℕ) [Fact p.Prime] (F C : Type*) [Field F] [Finite F]
+  [Algebra (ZMod p) F] [CommMonoid C]
+
+def grossKoblitzTraceChar (p : ℕ) [Fact p.Prime] (F C : Type*) [Field F]
+    [Algebra (ZMod p) F] [CommMonoid C] (ζ : C) (hζ : ζ^p=1) : AddChar F C := by sorry
+
+omit [Finite F] in
+lemma grossKoblitzTraceChar_def (ζ : C) (hζ : ζ^p=1) : grossKoblitzTraceChar p F C ζ hζ=
+    (AddChar.zmodChar p hζ).compAddMonoidHom (Algebra.trace (ZMod p) F).toAddMonoidHom := by sorry
+
+omit [Finite F] in
+lemma grossKoblitzTraceChar_apply (ζ : C) (hζ : ζ^p=1) (x : F) :
+    grossKoblitzTraceChar p F C ζ hζ x=ζ^(Algebra.trace (ZMod p) F x).val := by sorry
+
+omit [Finite F] in
+lemma grossKoblitzTraceChar_one (ζ : C) (hζ : ζ^p=1) :
+    grossKoblitzTraceChar p F C ζ hζ 1=ζ^(Module.finrank (ZMod p) F) := by sorry
+
+lemma grossKoblitzTraceChar_primitive (ζ : C) (hζ : IsPrimitiveRoot ζ p) :
+    (grossKoblitzTraceChar p F C ζ hζ.pow_eq_one).IsPrimitive := by sorry
+
+omit [Finite F] in
+lemma grossKoblitzTraceChar_zero (ζ : C) (hζ : ζ^p=1) : grossKoblitzTraceChar p F C ζ hζ 0=1 := by sorry
+
+omit [Finite F] in
+lemma grossKoblitzTraceChar_trivial_root : grossKoblitzTraceChar p F C 1 (one_pow p)=1 := by sorry
+
+end TraceCharacter
+lemma grossKoblitz_actualGauss_pair [Fintype 𝓀[K]] (p : ℕ) [Fact p.Prime] (hp : p≠2) (f : ℕ) (hf : 0<f)
+    [Algebra (ZMod p) 𝓀[K]] (hcard : Nat.card 𝓀[K]=p^f)
+    (ζ : K) (hζ : IsPrimitiveRoot ζ p) (ι : ℤ_[p] →+* K)
+
+
+    (k : ℕ) (hk : 0<k) (hk' : k<p^f-1) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (-gaussSum (grossKoblitzInverseChar K k) (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one))*
+      (-gaussSum (grossKoblitzInverseChar K (p^f-1-k)) (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one))=
+        ι ((-(p : ℤ_[p]))^f*(∏ j ∈ Finset.range f, (fun z => (moritaGamma p z : ℤ_[p])) (x j)*(fun z => (moritaGamma p z : ℤ_[p])) (1-x j))) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzCharacterTests
+open IsLocalRing ValuativeRel
+noncomputable section
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+-- inverse_at_zero
+example (k : ℕ) : grossKoblitzInverseChar K k 0=0 := by sorry
+-- inverse_at_one
+example (k : ℕ) : grossKoblitzInverseChar K k 1=1 := by sorry
+-- inverse_native_comparison
+example (k : ℕ) : grossKoblitzInverseChar K k=(((MulChar.ofUnitHom (TauCeti.teichmuller K))^k)⁻¹).ringHomComp 𝒪[K].subtype := by sorry
+-- unit_reciprocal
+example (u : 𝓀[K]ˣ) : grossKoblitzInverseChar K 1 u*(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)=1 := by sorry
+-- inverse_orientation
+example (u : 𝓀[K]ˣ) (hu : u^2≠1) : grossKoblitzInverseChar K 1 u≠(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K) := by sorry
+-- zero_exponent_trivial
+example : grossKoblitzInverseChar K 0=1 ∧ grossKoblitzInverseChar K 0 0=0 := by sorry
+-- period_eight
+example (h : Nat.card 𝓀[K]=9) : grossKoblitzInverseChar K 9=grossKoblitzInverseChar K 1 := by sorry
+-- period_arbitrary
+example (k : ℕ) : grossKoblitzInverseChar K (k+(Nat.card 𝓀[K]-1))=grossKoblitzInverseChar K k := by sorry
+-- card_exponent_trivial
+example (h : Nat.card 𝓀[K]=9) : grossKoblitzInverseChar K 8=1 := by sorry
+-- addition_one_two
+example : grossKoblitzInverseChar K 3=grossKoblitzInverseChar K 1*grossKoblitzInverseChar K 2 := by sorry
+-- complement_five_three
+example (h : Nat.card 𝓀[K]=9) : grossKoblitzInverseChar K 3=(grossKoblitzInverseChar K 5)⁻¹ := by sorry
+-- complement_endpoint
+example : grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)=(grossKoblitzInverseChar K 0)⁻¹ := by sorry
+-- nontrivial_five
+example (h : Nat.card 𝓀[K]=9) : grossKoblitzInverseChar K 5≠1 := by sorry
+-- nontrivial_one
+example (h : Nat.card 𝓀[K]=3) : grossKoblitzInverseChar K 1≠1 := by sorry
+-- negative_one_odd
+example (h : Odd (Nat.card 𝓀[K])) : grossKoblitzInverseChar K 5 (-1)=-1 := by sorry
+-- negative_one_even
+example (h : Odd (Nat.card 𝓀[K])) : grossKoblitzInverseChar K 2 (-1)=1 := by sorry
+section Trace
+variable (F C : Type*) [Field F] [Finite F] [Algebra (ZMod 3) F] [CommMonoid C]
+-- trace_at_zero
+example (ζ : C) (hζ : ζ^3=1) : grossKoblitzTraceChar 3 F C ζ hζ 0=1 := by sorry
+-- trace_trivial_root
+example : grossKoblitzTraceChar 3 F C 1 (one_pow 3)=1 := by sorry
+-- trace_value_one
+example (ζ : C) (hζ : ζ^3=1) (x : F) (hx : Algebra.trace (ZMod 3) F x=1) : grossKoblitzTraceChar 3 F C ζ hζ x=ζ := by sorry
+-- trace_value_two
+example (ζ : C) (hζ : ζ^3=1) (x : F) (hx : Algebra.trace (ZMod 3) F x=2) : grossKoblitzTraceChar 3 F C ζ hζ x=ζ^2 := by sorry
+-- trace_native_comparison
+example (ζ : C) (hζ : ζ^3=1) : grossKoblitzTraceChar 3 F C ζ hζ=(AddChar.zmodChar 3 hζ).compAddMonoidHom (Algebra.trace (ZMod 3) F).toAddMonoidHom := by sorry
+-- trace_one_degree_two
+example (ζ : C) (hζ : ζ^3=1) (hf : Module.finrank (ZMod 3) F=2) : grossKoblitzTraceChar 3 F C ζ hζ 1=ζ^2 := by sorry
+-- trace_one_degree_three
+example (ζ : C) (hζ : ζ^3=1) (hf : Module.finrank (ZMod 3) F=3) : grossKoblitzTraceChar 3 F C ζ hζ 1=1 := by sorry
+-- trace_primitive
+example (ζ : C) (hζ : IsPrimitiveRoot ζ 3) : (grossKoblitzTraceChar 3 F C ζ hζ.pow_eq_one).IsPrimitive := by sorry
+-- trace_at_one_not_test
+example (ζ : C) (hζ : IsPrimitiveRoot ζ 3) (hf : Module.finrank (ZMod 3) F=3) : grossKoblitzTraceChar 3 F C ζ hζ.pow_eq_one 1=1 ∧ grossKoblitzTraceChar 3 F C ζ hζ.pow_eq_one≠1 := by sorry
+end Trace
+-- actual_gauss_pair_minus_nine
+example [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]] (hcard : Nat.card 𝓀[K]=9) (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : (-gaussSum (grossKoblitzInverseChar K 5) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))*(-gaussSum (grossKoblitzInverseChar K 3) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=-9 := by sorry
+-- actual_gauss_pair_even
+example [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]] (hcard : Nat.card 𝓀[K]=9) (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : (-gaussSum (grossKoblitzInverseChar K 2) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))*(-gaussSum (grossKoblitzInverseChar K 6) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=9 := by sorry
+-- actual_gamma_pair
+example [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]] (hcard : Nat.card 𝓀[K]=9) (ζ : K) (hζ : IsPrimitiveRoot ζ 3) (ι : ℤ_[3] →+* K) (x : ℕ → ℤ_[3]) (hx : ∀ j,8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (-gaussSum (grossKoblitzInverseChar K 5) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))*(-gaussSum (grossKoblitzInverseChar K 3) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=ι ((-3 : ℤ_[3])^2*(∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))) := by sorry
+end
+end DirichletPadic.SuggestedGrossKoblitzCharacterTests
