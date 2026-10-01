@@ -56,10 +56,25 @@
       "id": "PAPER-GAO-GE-KUHNE-26/4",
       "kind": "definition",
       "name": "Subgroup of finite rank",
-      "statement": "A subgroup Γ ⊆ A(F) has finite rank if dim_ℚ(Γ ⊗_ℤ ℚ) < ∞; rk Γ := dim_ℚ(Γ ⊗ ℚ). Equivalently (used in §7.3) there is a finitely generated Γ₀ of rank rk Γ with Γ ⊆ {x : [N]x ∈ Γ₀ for some N ≥ 1}, and Γ₀ may be taken End(A)-stable.",
+      "statement": "A subgroup Γ ⊆ A(F) has finite rank if dim_ℚ(Γ ⊗_ℤ ℚ) < ∞; rk Γ := dim_ℚ(Γ ⊗ ℚ). Equivalently there is a finitely generated subgroup Γ₀ ⊆ Γ of rank rk Γ such that Γ is contained in its division hull {x : [N]x ∈ Γ₀ for some integer N ≥ 1}. No End(A)-stability is imposed (sourceIssue E14).",
       "locator": "§1, Theorem 1.1, p.190; §7.3, p.224",
       "status": "missing",
-      "note": "RP.5 plans finitely generated subgroup intersections, not division hulls of finite rank; routed to RP.5 as a source."
+      "note": "RP.5 plans finitely generated subgroup intersections, not division hulls of finite rank; routed to RP.5 as a source.",
+      "proofOutline": [
+        "Choose elements of Γ representing a basis of Γ ⊗ ℚ and let Γ₀ be their ℤ-span. For γ ∈ Γ, clear rational denominators so that nγ − γ₀ maps to zero in Γ ⊗ ℚ. This difference is torsion; multiply by its order to get Nγ ∈ Γ₀.",
+        "For n ≥ 1, Γₙ := [n]⁻¹Γ₀ fits into 0 → A[n](F) → Γₙ → Γ₀ → 0. Over algebraically closed characteristic-zero F, [n] is surjective on F-points and A[n](F) is finite. Thus Γₙ is finitely generated and rk Γₙ = rk Γ₀. Γₙ! form a nested cofinal sequence containing Γ in their union."
+      ],
+      "api": [
+        "rank := dim_ℚ(Γ ⊗ ℚ); divisionHull Γ₀ with membership witnessed by positive N",
+        "exists_finitelyGenerated_subgroup_same_rank_divisionHull",
+        "divisionPreimage_exact_sequence; divisionPreimage_finitelyGenerated; divisionPreimage_rank",
+        "factorialDivisionPreimages_nested; finite_subset_contained_in_factorialDivisionPreimage"
+      ],
+      "tests": [
+        "A torsion Γ has rank zero and lies in the division hull of {0}, even if Γ is not finitely generated.",
+        "For Γ = ℚ in the additive model take Γ₀ = ℤ; every finite subset lies in (1/n!)ℤ for some n.",
+        "For A = E × E and Γ = ℤ(P,0) with P non-torsion, any End(A)-stable subgroup whose division hull contains Γ must have rank at least two: a multiple of (P,0) and its swap are independent. The rank-one theorem cannot require that closure."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/5",
@@ -480,19 +495,28 @@
       "id": "PAPER-GAO-GE-KUHNE-26/47",
       "kind": "construction",
       "name": "Betti map and Betti form of an abelian scheme",
-      "statement": "For an abelian scheme A → S over a complex variety, the Betti map identifies A restricted to a simply connected open of S^an with (ℝ/ℤ)^{2g} × S real-analytically (fibrewise group isomorphisms given by period coordinates); the Betti form ω on A(ℂ) is the pullback of the standard translation-invariant (1,1)-form, a closed semipositive form.",
+      "statement": "For an abelian scheme A → S over a complex variety, period coordinates give a local real-analytic trivialization A|_U ≅ (ℝ/ℤ)^{2g} × U on simply connected U ⊆ S^an, fibrewise a group isomorphism. The Betti map b_U is its projection to (ℝ/ℤ)^{2g}. The Betti form ω is the pullback along b_U of the polarization form on this real torus, a closed semipositive (1,1)-form on A(ℂ).",
       "locator": "§3.3, p.202 and §5.1 Step 1, p.212, via [15, §2] and [21]",
       "status": "missing",
-      "note": "Routed to the Betti-map Part II."
+      "note": "Routed to the Betti-map Part II. The Betti map is projection to (ℝ/ℤ)^{2g}, not the full local trivialization including the base; all subsequent ranks are real ranks on the total complex subvariety."
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/48",
       "kind": "definition",
       "name": "Non-degenerate subvariety of an abelian scheme",
-      "statement": "An irreducible subvariety X ⊆ A of an abelian scheme A → S over ℂ (or over ℚ̄ after base change to ℂ) is non-degenerate if the Betti form satisfies (ω|_X)^{∧ dim X} ≢ 0 on X^{sm}(ℂ) — equivalently the Betti map restricted to X has generic rank 2 dim X — as in Dimitrov–Gao–Habegger [15, Def. 1.5 and B.4].",
+      "statement": "An irreducible subvariety X ⊆ A of an abelian scheme A → S over ℂ (or over ℚ̄ after base change to ℂ) is non-degenerate if the Betti form satisfies (ω|_X)^{∧ dim_ℂ X} ≢ 0 on X^{sm}(ℂ) — equivalently the Betti map restricted to X has generic real rank 2 dim_ℂ X, counting total dimension including the base — as in Dimitrov–Gao–Habegger [15, Def. 1.5 and B.4].",
       "locator": "§3.3, p.202, citing [15, Def. 1.5 and B.4]",
       "status": "missing",
-      "note": "Routed to the Betti-map Part II."
+      "note": "Routed to the Betti-map Part II.",
+      "api": [
+        "nonDegenerate_iff_topBettiForm_nonzero; nonDegenerate_iff_genericRealBettiRank_eq_twice_totalComplexDimension",
+        "nonDegenerate_singleFiber_subvariety; degenerate_relativeDiagonal_ellipticFamily; degenerate_torsionSection_positiveDimBase"
+      ],
+      "tests": [
+        "Over a point the Betti map is a local real analytic isomorphism; every irreducible subvariety of a single polarized abelian variety is non-degenerate.",
+        "For an elliptic scheme E → S over a smooth curve, Δ(E) ⊆ E ×_S E has complex dimension two, but Betti map (b,b) has real rank at most two, not four; this is degenerate even when E is non-isotrivial.",
+        "A torsion section over a positive-dimensional base has locally constant Betti coordinates, rank zero, and positive total dimension, hence is degenerate."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/49",
@@ -649,7 +673,7 @@
       "statement": "Let A → S be an abelian scheme over ℚ̄, L symmetric relatively ample and X ⊆ A a non-degenerate subvariety. There is an equilibrium measure μ on X(ℂ), proportional to (ω|_X)^{∧ dim X} for the Betti form ω, such that for every f ∈ C⁰_c(X(ℂ)) and ε > 0 there are δ > 0 and a proper Zariski closed Z ⊊ X with |∫ f μ − (1/#O(x)) Σ_{y ∈ O(x)} f(y)| < ε for all x ∈ (X ∖ Z)(ℚ̄) with ĥ_L(x) < δ.",
       "locator": "§5.1 Steps 2 and 4, pp.213–215, citing Kühne [33, Thm. 1, Lem. 23, Lem. 11, Lem. 25 and §3]",
       "status": "missing",
-      "note": "Also available from Yuan–Zhang [51, Thm. 6.7] and Gauthier [23]. Routed to the uniformity Part II, importing ArithmeticDynamics DY.4 for the classical equidistribution machinery."
+      "note": "Also available from Yuan–Zhang [51, Thm. 6.7] and Gauthier [23]. Routed to the uniformity Part II, importing ArithmeticDynamics DY.4 for the classical equidistribution machinery. SourceIssue E16 records the reversed ≥ signs after (5.8) and (5.9); the displayed height alternative in the following Claim retains ≥. The measure is the fixed equilibrium normalization of the top Betti form, as in Kühne v4 Lemma 25 and the end of §3, not an arbitrarily rescalable form. Use the uniform small-height consequence of equidistribution: otherwise points of successively smaller height violating a fixed test tolerance, avoiding each proper closed subset, give a generic sequence contradicting the equidistribution limit."
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/65",
@@ -685,7 +709,24 @@
       "statement": "For a subvariety S ⊆ H° there are c″₂, c″₃ > 0 depending on r, d, S such that for each s ∈ S_gen the set Σ_s = {x ∈ X_s°(ℚ̄) : ĥ_𝓛(x) ≤ c″₃} is contained in a proper Zariski closed X′ ⊊ X_s with deg_{𝓛_s}(X′) < c″₂.",
       "locator": "Proposition 5.2 (constant label misprinted, sourceIssues E5) and proof Steps 1–5, pp.211–217",
       "status": "missing",
-      "note": "Family Ullmo–Zhang argument: non-degenerate X^{[m]} and D-images (Step 1), non-proportional equilibrium measures (Step 2, via a non-trivial kernel of dD at (z,Δ_z)), stabilizer-invariant test functions f₁ = f₂ ∘ D (Step 3), the height alternative via equidistribution (Step 4), and noetherian induction with Lemma 4.3 (Step 5; index and exponent misprints sourceIssues E6, E7)."
+      "note": "Family Ullmo–Zhang argument: non-degenerate X^{[m]} and D-images (Step 1), degree-normalized comparison of equilibrium measures (Steps 2–3, sourceIssue E17), the small-height alternative (Step 4, sourceIssue E16), and noetherian induction with Lemma 4.3 (Step 5; existing index/exponent misprints E6, E7). Do not assume the finite stabilizer is trivial.",
+      "proofOutline": [
+        "On each irreducible base component S′, let d_D ≥ 1 be the generic degree of the difference map D on the source family. Restrict to a dense smooth locus where D is finite étale of constant degree d_D and its fibres are orbits of the finite stabilizer G. Keep the original equilibrium measures μ₁ and μ₂ supplied by equidistribution; define ν := (1/d_D)D*μ₂ using the ordinary pullback of their smooth top-degree forms on the source smooth locus.",
+        "Step 2 exhibits a smooth diagonal point where μ₁ is nonzero but D*μ₂ vanishes because dD has a nontrivial kernel. It proves non-proportionality, hence also μ₁ ≠ ν. The inequality persists on an open set meeting the dense finite étale locus, so choose a compactly supported continuous test function there separating μ₁ and ν by more than 2ε.",
+        "Average the test function over G (locally after trivializing the finite group scheme). Both μ₁ and ν are invariant under the finite translations, so averaging preserves the separation. Its support stays compact in the finite étale locus. The invariant f₁ descends to f₂ with f₁ = f₂ ∘ D. Finite-cover change of variables gives ∫f₁ν = ∫f₂μ₂, including when d_D > 1.",
+        "Apply the small-height form of equidistribution to the original measures μ₁, μ₂, never to a rescaled μ₂: for heights < δ outside the two proper exceptional sets the respective orbit averages differ from their integrals by < ε. Since D is defined over the field of the orbit, each target orbit point has the same number of preimages in O(x), so the two orbit averages are equal. If both heights were < δ, the triangle inequality would contradict the > 2ε separation. Therefore at least one height is ≥ δ, exactly the original Claim.",
+        "Continue Step 5 with E6 and E7 already recorded, the difference-height estimate, and noetherian induction. All degrees and constants are chosen per irreducible component of the fixed family; the finite stabilizer degree is kept in this intermediate argument, with no change to the stated parameter dependence of Proposition 5.2."
+      ],
+      "api": [
+        "genericDegree_differenceMap; normalizedPullback := (1/d_D) • pullbackTopForm",
+        "normalizedPullback_integral_descended_test; finiteGroup_average_preserves_separation",
+        "equilibriumMeasures_nonproportional_at_diagonal; smallHeight_equilibrium_orbit_tolerance; differenceMap_height_alternative"
+      ],
+      "tests": [
+        "For a degree-two finite cover and a nonzero descended test integral I, ordinary pullback integrates to 2I; normalized pullback integrates to I. The degree-one case agrees with ordinary pullback.",
+        "A nontrivial finite stabilizer is allowed; no acceptance test may force d_D = 1.",
+        "The hypotheses of both orbit-tolerance estimates are height < δ, while their contradiction concludes height₁ ≥ δ or height₂ ≥ δ."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/69",
@@ -701,9 +742,18 @@
       "kind": "theorem",
       "name": "Proposition 6.1 (gap principle with fixed l, r)",
       "statement": "For positive integers g, l, r, d there are c₁, c₂ > 0 depending on g, l, r, d such that for every polarized (A,L) over ℚ̄ of dimension g with deg_L A = l and every irreducible X ⊆ A generating A with dim X = r, deg_L X = d, the set {P ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(P) ≤ c₁ max{1, h_Fal(A)}} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c₂.",
-      "locator": "Proposition 6.1 and proof, pp.219–220 (degree constant misstated, sourceIssues E8)",
+      "locator": "Proposition 6.1 and proof, pp.219–220; historical E8 retracted after RT finding /4",
       "status": "missing",
-      "note": "c₁ := min{c″₃/max{1, 2c′₃/c′₁}, c′₁/2}; the two cases compare max{1,h_Fal(A)} with max{1, 2c′₃/c′₁}. The exceptional set is the union of those of Propositions 4.1 and 5.1, so c₂ := c′₂ + c″₂."
+      "note": "The published c₂ := max{c′₂,c″₂} is correct. For fixed A, H := max{1,h_Fal(A)} is fixed for every point, so one chooses a single exceptional locus by comparing H to B := max{1,2c′₃/c′₁}. No union and no sum of degrees is required. Historical sourceIssue E8 is retained as a retracted observation, not an active erratum.",
+      "proofOutline": [
+        "Set B := max{1,2c′₃/c′₁}, c₁ := min{c″₃/B,c′₁/2}, and c₂ := max{c′₂,c″₂}. All are positive and depend only on g,l,r,d.",
+        "If H ≤ B, every point with height ≤ c₁H has height ≤ c″₃, so use the one exceptional closed subset from (6.3), with degree < c″₂ ≤ c₂.",
+        "If H > B, then c′₃ < c′₁H/2 and c₁H ≤ c′₁H/2 ≤ c′₁H − c′₃. Use the one exceptional closed subset from (6.2), with degree < c′₂ ≤ c₂. The equality H = B belongs to the first case."
+      ],
+      "tests": [
+        "Fix A before choosing the case; it cannot change from point to point.",
+        "Include H = B and B = 1; both closed-locus degrees stay strictly below max{c′₂,c″₂}."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/71",
@@ -838,7 +888,15 @@
       "statement": "Theorem 1.1′ holds for every algebraically closed field F of characteristic 0 and every finite-rank Γ ⊆ A(F).",
       "locator": "§7.3, pp.224–225",
       "status": "missing",
-      "note": "Γ ⊆ ⋃_n (1/n)Γ₀ with each (1/n)Γ₀ finitely generated of rank ρ and End(A)-stable; the bound (7.11) is uniform in n."
+      "note": "Use the rank-preserving division hull and factorial preimages of item /4, without End(A)-stability (E14). Lemma 7.3 (/84) specializes arbitrary finitely generated Γ and does not assume that stability.",
+      "proofOutline": [
+        "Choose Γ₀ of rank ρ and Γₙ! finitely generated of rank ρ as in /4. Apply Lemma 7.3 to each Γₙ!, obtaining #X° ∩ Γₙ! ≤ c(g,deg_L X)^{1+ρ} with the same c for every n.",
+        "For any finite subset of X° ∩ Γ choose one n with all its points in Γₙ!. Its size has the same bound, proving finiteness and the bound for X° ∩ Γ. Rank ρ is never replaced by the rank of End(A)·Γ."
+      ],
+      "tests": [
+        "The rank-one subgroup ℤ(P,0) in E × E passes without an endomorphism-stable enlargement.",
+        "Finite torsion subgroups in successive division preimages may grow, but their ranks are zero and the theorem bound remains uniform in n."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/86",
@@ -865,7 +923,7 @@
       "statement": "For each B ∈ Σ(X; A), X_B := ⋂_{b ∈ B(F)} (X − b) ∩ B^⊥ is a finite intersection of at most dim X members with deg_L X_B ≤ c₅(dim A, deg_L X); the Ueno locus of X is ⋃_{B ∈ Σ(X;A)} (X_B + B), and every coset x + B ⊆ X, B ∈ Σ(X; A), can be written with x ∈ X_B°(F), X_B° := ⋃_k X_{B,k}° over the components.",
       "locator": "Proof of Lemma 7.4, p.225, citing Rémond [45, Lem. 4.6]",
       "status": "missing",
-      "note": "Routed to RP.5 as a source."
+      "note": "Routed to RP.5 as a source. This is a geometric choice of representative in the complement. It does not assert that the representative belongs to Γ when its coset meets Γ; /89 uses the projected lift group instead (E15)."
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/89",
@@ -874,7 +932,22 @@
       "statement": "If Theorem 1.1′ holds for all (A,L), X, Γ, then Theorem 1.1 holds.",
       "locator": "Lemma 7.4 and proof, pp.225–226",
       "status": "missing",
-      "note": "N ≤ c₄·c₆^{1+rk Γ} + #X°(F) ∩ Γ, bounding n_B by Theorem 1.1′ applied to the components of X_B."
+      "note": "N ≤ c₄·c₆^{1+ρ} + #X°(F) ∩ Γ, with ρ = rk Γ, using Γ_B := pr₂(f⁻¹Γ) for the addition isogeny f : B × B^⊥ → A. Do not intersect X_B with Γ or replace Γ_B by Γ ∩ B^⊥ (sourceIssue E15).",
+      "proofOutline": [
+        "For each maximal B, use the bounded-degree complement B^⊥ and item /88. The addition map f has finite kernel and is surjective on F-points. The exact sequence 0 → ker f(F) → f⁻¹Γ → Γ → 0 gives rk(f⁻¹Γ) = ρ by tensoring with ℚ; projection onto B^⊥ gives rk Γ_B ≤ ρ.",
+        "If a coset a+B ⊆ X meets Γ, choose a ∈ Γ on it and lift a=f(b,y). Then y ∈ Γ_B ∩ X_B. By the maximal-coset geometry of /88 its representatives lie off the Ueno loci of the relevant components: a positive-dimensional coset through y would produce a larger positive-dimensional coset in X. Distinct B-cosets give disjoint sets of representatives, so n_B ≤ #⋃_k(X_{B,k}° ∩ Γ_B). This step does not require y ∈ Γ.",
+        "Apply Theorem 1.1′ to X_{B,k} ⊆ B^⊥, the restricted ample L, and Γ_B. Degrees and numbers of components are bounded by c₅(g,d); rk Γ_B ≤ ρ. Increase constants to ≥ 1, absorb the bounded component count and all possible dimensions ≤ g into c₆(g,d), and get n_B ≤ c₆(g,d)^{1+ρ}.",
+        "Sum over at most c₄(g,d) maximal B and bound X° ∩ Γ separately by Theorem 1.1′. Absorb c₄ and the final addition into one constant c(g,d) ≥ 1 to recover the original exponent 1+ρ."
+      ],
+      "api": [
+        "liftedGroup := f⁻¹Γ; projectedLiftGroup := pr₂(liftedGroup)",
+        "liftedGroup_rank_eq_of_finite_kernel; projectedLiftGroup_rank_le",
+        "coset_meets_group_has_projected_representative; maximalCoset_count_le_projectedIntersection; uniform_coset_count"
+      ],
+      "tests": [
+        "For A=E×J, X=E×C′ with C′ a translate of a genus-two Abel–Jacobi curve avoiding zero, B=E×{0}, and Γ=ℤ(P,c) with P non-torsion and c∈C′, Γ∩B^⊥={0}, so X_B∩Γ is empty. Nevertheless E×{c} meets Γ at (P,c), and Γ_B contains (0,c), which is the required representative.",
+        "For the product addition isomorphism the projected group is the second-coordinate image of Γ; the rank is at most ρ. A nontrivial finite isogeny kernel contributes torsion, not extra rank."
+      ]
     },
     {
       "id": "PAPER-GAO-GE-KUHNE-26/90",
@@ -1084,7 +1157,7 @@
         "PAPER-GAO-GE-KUHNE-26/66",
         "PAPER-GAO-GE-KUHNE-26/67"
       ],
-      "brief": "Build on the complex uniformization of polarized abelian schemes in AbelianSchemesAndArithmeticModuli A5, the analytic comparison of ComplexComparisonPartII (C0 coherent analytic modules, C4 Chow algebraization), Tau Ceti HodgeStructures (tauceti:TauCetiRoadmap/HodgeStructures) for weight-one variations, and the o-minimality and Ax–Schanuel suppliers of LogicAndDefinabilityInNumberTheory LD.6 and its proposed Part II LogicAndDefinabilityInNumberTheoryPartII (from PAPER-MOK-PILA-TSIMERMAN-19). Construct the Betti map of an abelian scheme A → S over a complex variety: on a simply connected open of S^an, the real-analytic trivialization A ≅ (ℝ/ℤ)^{2g} × S given by period coordinates, independent of choices up to GL_{2g}(ℤ), and the Betti form ω, the pullback of the standard translation-invariant form, closed and semipositive. Define non-degenerate subvarieties as in Dimitrov–Gao–Habegger (Ann. Math. 194 (2021), Def. 1.5 and B.4): X ⊆ A irreducible with (ω|_X)^{∧ dim X} not identically zero, equivalently generic Betti rank 2 dim X, extended to ℚ̄-subvarieties by base change. Prove DGH Prop. 2.2(iii): a non-degenerate X has a smooth point, over a smooth point of S, where the top power is non-zero. Define Gao's t-th degeneracy locus (Compos. Math. 156 (2020), Def. 1.6) and prove its Zariski closedness and field of definition (Thm. 1.8). Prove Gao's criterion (Thm. 10.1(i), in the formulation of Gao's survey arXiv:2104.03431, Thm. 6.5(i)): if X ⊆ A → S is irreducible, dominant, of relative dimension ≥ 1, every fibre generates, the generic fibre has finite stabilizer, m ≥ dim S and the moduli map on X^{[m]} is generically finite, then X^{[m]} is non-degenerate. Prove that non-degeneracy is preserved by the difference construction X^{[m]} ×_S D₀((X^{[m]})^{[M+1]}) (Kühne arXiv:2101.10272, Lem. 24; Gao survey Lem. 6.2). Acceptance: a constant family (S a point) is non-degenerate exactly when dim X ≤ dim A, so every subvariety of a single abelian variety is non-degenerate; the diagonal of a non-isotrivial elliptic surface over a curve is non-degenerate, while a torsion section is degenerate. Mixed Ax–Schanuel for the universal abelian variety (Gao, 2020) is the transcendence input and must be decomposed from its primary source, not assumed.",
+      "brief": "Build on the complex uniformization of polarized abelian schemes in AbelianSchemesAndArithmeticModuli A5, the analytic comparison of ComplexComparisonPartII (C0 coherent analytic modules, C4 Chow algebraization), Tau Ceti HodgeStructures (tauceti:TauCetiRoadmap/HodgeStructures) for weight-one variations, and the o-minimality and Ax–Schanuel suppliers of LogicAndDefinabilityInNumberTheory LD.6 and its proposed Part II LogicAndDefinabilityInNumberTheoryPartII (from PAPER-MOK-PILA-TSIMERMAN-19). Construct period-coordinate trivializations A|_U ≅ (ℝ/ℤ)^{2g} × U on simply connected U ⊆ S^an, fibrewise group isomorphisms. Define the Betti map as their projection to the real torus, independent of choices up to GL_{2g}(ℤ), and the Betti form as the pullback of the polarization form, a closed semipositive (1,1)-form. Define non-degenerate subvarieties as in Dimitrov–Gao–Habegger (Ann. Math. 194 (2021), Def. 1.5 and B.4): X ⊆ A irreducible with (ω|_X)^{∧ dim X} not identically zero, equivalently generic Betti rank 2 dim X, extended to ℚ̄-subvarieties by base change. Prove DGH Prop. 2.2(iii): a non-degenerate X has a smooth point, over a smooth point of S, where the top power is non-zero. Define Gao's t-th degeneracy locus (Compos. Math. 156 (2020), Def. 1.6) and prove its Zariski closedness and field of definition (Thm. 1.8). Prove Gao's criterion (Thm. 10.1(i), in the formulation of Gao's survey arXiv:2104.03431, Thm. 6.5(i)): if X ⊆ A → S is irreducible, dominant, of relative dimension ≥ 1, every fibre generates, the generic fibre has finite stabilizer, m ≥ dim S and the moduli map on X^{[m]} is generically finite, then X^{[m]} is non-degenerate. Prove that non-degeneracy is preserved by the difference construction X^{[m]} ×_S D₀((X^{[m]})^{[M+1]}) (Kühne arXiv:2101.10272, Lem. 24; Gao survey Lem. 6.2). Acceptance counts total dim_ℂ X: every subvariety of a single polarized abelian variety over a point is non-degenerate; the relative diagonal Δ(E) in E×_S E over a curve is degenerate, since its total complex dimension is two and its real Betti rank is at most two rather than four, even for a non-isotrivial elliptic scheme. A torsion section over a positive-dimensional base is degenerate. Mixed Ax–Schanuel for the universal abelian variety (Gao, 2020) is the transcendence input and must be decomposed from its primary source, not assumed.",
       "reason": "Nothing in the atlas constructs the Betti map, Betti form or non-degeneracy. A5 stops at complex uniformization of a single polarized family and LD.6 at o-minimal counting. This theory is general (it also drives the extractions of Dimitrov–Gao–Habegger 2021 and Gao–Habegger 2019 still in the queue, which should reuse this id), so it extends AbelianSchemesAndArithmeticModuli rather than living inside the uniformity Part II."
     },
     {
@@ -1138,7 +1211,7 @@
         "PAPER-GAO-GE-KUHNE-26/92",
         "PAPER-GAO-GE-KUHNE-26/93"
       ],
-      "brief": "Import the height machine and Néron–Tate heights from HeightsRationalPointsAndObstructions RP.0, the Mordell–Lang, Manin–Mumford and Bogomolov theorems and the structure of the Ueno locus from RP.5, the Faltings height, its isogeny variation and the moduli-height comparison from ArakelovGeometryAndAbelianHeights R35.3–R35.5, Siegel moduli with level-4 structure and the universal abelian scheme from PELModuli M5–M6, the minimal compactification from ShimuraCompactifications C5, Hilbert schemes from AlgebraicModuliForArithmeticGeometry R09.1–R09.2, polarization theory from AbelianSchemesAndArithmeticModuli A2–A3, the equidistribution machinery for semipositive adelic metrics from ArithmeticDynamics DY.4 and TropicalAndBerkovichArithmetic TB.6, and Betti maps and non-degeneracy from AbelianSchemesBettiMapsPartII. This Part II also carries the pending PAPER-YUAN-26 route of the same id (uniform Bogomolov for curves via adelic bigness), whose brief stays binding for its own statements. State and prove, over an algebraically closed field F of characteristic 0: Theorem 1.1 (Gao–Ge–Kühne, Publ. Math. IHÉS 143 (2026)): there is c(g,d) such that for every abelian variety A of dimension g with ample L, every irreducible closed X ⊆ A with deg_L X = d and every finite-rank Γ ⊆ A(F), X(F) ∩ Γ is covered by at most c(g,d)^{1+rk Γ} cosets contained in X; Theorem 1.1′: #X°(F) ∩ Γ ≤ c(g,d)^{1+rk Γ}; Theorem 1.2 (new gap principle) over ℚ̄ for X generating A with deg_L X ≤ d: the points of X° with ĥ_{L⊗[−1]*L} ≤ c₁(g,d) max{1, h_Fal(A)} lie in a proper closed X′ of degree < c₂(g,d); Theorem 1.3 (uniform Bogomolov) in the form valid for all X (translation repair of the printed §8 proof). Cover: the restricted Hilbert scheme H°_{r,d}(𝔄_g/𝔸_g), Lemmas 3.1–3.3 and 3.5, Proposition 3.4; the Dimitrov–Gao–Habegger height inequality for non-degenerate subvarieties (Ann. Math. 194 (2021), Thm. 1.6 and B.1); Kühne's equidistribution in families (arXiv:2101.10272, Thm. 1, Lem. 23, equilibrium measure proportional to the top power of the Betti form); Lemma 4.3; Propositions 4.1, 4.2, 4.4, 5.1, 5.2, 6.1 with every constant dependence explicit; Rémond's generalized Vojta and Mumford inequalities (Pisa 2000, Thm. 1.1; Invent. 2000, Prop. 3.3–3.4, Lem. 3.1, 4.6, 6.1), Bost–Gillet–Soulé heights of subvarieties, the David–Philippon formulation (IMRP 2007, Thm. 6.8), Theorem 7.1 and its Appendix A proof, Proposition 7.2; Masser's specialization theorems (Trans. AMS 1989; Bull. SMF 1996) and good models (Hindry 1988 App. 1), Lemma 7.3, the finite-rank reduction, the Masser–Wüstholz complement bound and Lemma 7.4. Record the corrected constants of sourceIssues E2–E13. Acceptance: the generation hypothesis in Theorem 1.2 cannot be dropped and its exceptional set is not finite in general (Gao survey §10.2 examples); for a curve of genus ≥ 2 in its Jacobian, Theorem 1.1′ recovers the Dimitrov–Gao–Habegger–Kühne bound #C(F) ∩ Γ ≤ c(g)^{1+rk Γ}.",
+      "brief": "Import the height machine and Néron–Tate heights from HeightsRationalPointsAndObstructions RP.0, the Mordell–Lang, Manin–Mumford and Bogomolov theorems and the structure of the Ueno locus from RP.5, the Faltings height, its isogeny variation and the moduli-height comparison from ArakelovGeometryAndAbelianHeights R35.3–R35.5, Siegel moduli with level-4 structure and the universal abelian scheme from PELModuli M5–M6, the minimal compactification from ShimuraCompactifications C5, Hilbert schemes from AlgebraicModuliForArithmeticGeometry R09.1–R09.2, polarization theory from AbelianSchemesAndArithmeticModuli A2–A3, the equidistribution machinery for semipositive adelic metrics from ArithmeticDynamics DY.4 and TropicalAndBerkovichArithmetic TB.6, and Betti maps and non-degeneracy from AbelianSchemesBettiMapsPartII. This Part II also carries the pending PAPER-YUAN-26 route of the same id (uniform Bogomolov for curves via adelic bigness), whose brief stays binding for its own statements. State and prove, over an algebraically closed field F of characteristic 0: Theorem 1.1 (Gao–Ge–Kühne, Publ. Math. IHÉS 143 (2026)): there is c(g,d) such that for every abelian variety A of dimension g with ample L, every irreducible closed X ⊆ A with deg_L X = d and every finite-rank Γ ⊆ A(F), X(F) ∩ Γ is covered by at most c(g,d)^{1+rk Γ} cosets contained in X; Theorem 1.1′: #X°(F) ∩ Γ ≤ c(g,d)^{1+rk Γ}; Theorem 1.2 (new gap principle) over ℚ̄ for X generating A with deg_L X ≤ d: the points of X° with ĥ_{L⊗[−1]*L} ≤ c₁(g,d) max{1, h_Fal(A)} lie in a proper closed X′ of degree < c₂(g,d); Theorem 1.3 (uniform Bogomolov) in the form valid for all X (translation repair of the printed §8 proof). Cover: the restricted Hilbert scheme H°_{r,d}(𝔄_g/𝔸_g), Lemmas 3.1–3.3 and 3.5, Proposition 3.4; the Dimitrov–Gao–Habegger height inequality for non-degenerate subvarieties (Ann. Math. 194 (2021), Thm. 1.6 and B.1); Kühne's equidistribution in families (arXiv:2101.10272, Thm. 1, Lem. 23, equilibrium measure proportional to the top power of the Betti form); Lemma 4.3; Propositions 4.1, 4.2, 4.4, 5.1, 5.2, 6.1 with every constant dependence explicit; Rémond's generalized Vojta and Mumford inequalities (Pisa 2000, Thm. 1.1; Invent. 2000, Prop. 3.3–3.4, Lem. 3.1, 4.6, 6.1), Bost–Gillet–Soulé heights of subvarieties, the David–Philippon formulation (IMRP 2007, Thm. 6.8), Theorem 7.1 and its Appendix A proof, Proposition 7.2; Masser's specialization theorems (Trans. AMS 1989; Bull. SMF 1996) and good models (Hindry 1988 App. 1), Lemma 7.3, the finite-rank reduction, the Masser–Wüstholz complement bound and Lemma 7.4. Record active sourceIssues E2–E7 and E9–E17; historical E8 is retracted. Proposition 6.1 uses one exceptional locus chosen for fixed A by H≤B or H>B, with the published c₂=max{c′₂,c″₂}. The finite-rank reduction must use rank-ρ division hulls and finitely generated factorial preimages without End(A)-stability. Lemma 7.4 uses projected lift groups Γ_B=pr₂(f⁻¹Γ), of rank at most ρ, instead of asking complement representatives to lie in Γ. Proposition 5.2 uses small-height hypotheses in (5.8)–(5.9), while keeping the following ≥ height alternative, and compares μ₁ with ν=(1/d_D)D*μ₂ before descending the test function. Keep the original equilibrium measures in both equidistribution applications; no trivial-stabilizer assumption is allowed. Implement the helpers, tests and proof adapters in /4, /48, /68, /70, /85 and /89 using the existing owners, with no new parallel roadmap. Acceptance: the generation hypothesis in Theorem 1.2 cannot be dropped and its exceptional set is not finite in general (Gao survey §10.2 examples); for a curve of genus ≥ 2 in its Jacobian, Theorem 1.1′ recovers the Dimitrov–Gao–Habegger–Kühne bound #C(F) ∩ Γ ≤ c(g)^{1+rk Γ}.",
       "reason": "RP.5 plans only the qualitative Mordell–Lang and Bogomolov theorems. Uniformity in the ambient abelian variety is a new direction for that roadmap: the non-degenerate families over the restricted Hilbert scheme, the height inequality, equidistribution in families, the gap principle and Rémond's quantitative Vojta method. The pending YUAN-26 Part II of the same parent already proposes uniform Bogomolov for curves; this paper's Theorem 1.3 contains the number-field curve case, so the two coalesce under one id rather than duplicating the uniformity programme."
     }
   ],
@@ -1284,26 +1357,6 @@
       }
     },
     {
-      "id": "PAPER-GAO-GE-KUHNE-26/E8",
-      "kind": "error",
-      "locator": "Proof of Proposition 6.1, p.219",
-      "printed": "\"Now set c1 := min{…} and c2 := max{c′2, c″2}. We will prove that these are the desired constants.\"",
-      "correction": "c₂ := c′₂ + c″₂.",
-      "reason": "The claim places each small point in the set (6.2) or the set (6.3). So the whole set lies in X′₁ ∪ X′₂, where deg X′₁ < c′₂ and deg X′₂ < c″₂, and the union can have degree up to c′₂ + c″₂. The union is still a proper closed subset of the irreducible X, so Proposition 6.1 holds with the corrected constant.",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
-        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
-        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed. Page 219 prints c_2 := max{c'_2, c''_2}, while the claim on the same page places each small point in the set (6.2) or in the set (6.3), whose exceptional loci have degrees < c'_2 and < c''_2 respectively. The union of two proper closed subsets has degree up to the sum, so c'_2 + c''_2 is the constant the argument gives; it still depends only on g, l, r and d, so nothing downstream changes.",
-        "by": "REV-PAPER-GAO-GE-KUHNE-26"
-      }
-    },
-    {
       "id": "PAPER-GAO-GE-KUHNE-26/E9",
       "kind": "misprint",
       "locator": "Proof of Theorem 7.1, (7.4)–(7.6), pp.221–222, and Appendix A.5 Step 4, (A.12), p.232",
@@ -1402,6 +1455,126 @@
         "reason": "Confirmed. Proposition A.3(ii) on p.228 prints 'deg X' < (deg_L X)^{2 dim X}', while Step 1 on p.230 states the claim in the non-strict form ('a proper Zariski closed subset X' ⊊ X with deg_L X' <= (deg_L X)^{2 dim X}') and bounds X' by at most (deg_L X)^{2r} components each of degree at most (deg_L X)^{2r}, which yields only <=.",
         "by": "REV-PAPER-GAO-GE-KUHNE-26"
       }
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E14",
+      "kind": "error",
+      "locator": "§7.3, published p.224; author copy p.43",
+      "printed": "Γ₀ = End(A)·Γ₀",
+      "correction": "Drop End(A)-stability; choose a rank-ρ finitely generated subgroup of Γ and use its division preimages, as in /4 and /85.",
+      "reason": "For E×E and Γ=ℤ(P,0), stability under the coordinate swap forces two independent non-torsion directions once the division hull contains Γ. Lemma 7.3 only needs finite generation, so the false assertion is unnecessary.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: Centre Mersenne publisher article page for DOI 10.5802/pmihes.26 has no linked correction notice.",
+        "2026-10-01: Crossref DOI metadata has empty relation and no update-to or updated-by correction link.",
+        "2026-10-01: arXiv 2105.15085 shows v4 as latest (26 March 2026); not collated line by line.",
+        "2026-10-01: Ziyang Gao publication page and its author PDF UML.pdf checked at the selected loci; these proof assertions persist. No correction for this paper found there. The separately linked erratum concerns his 2020 Betti-map paper, not this article.",
+        "2026-10-01: title/author searches for an erratum or correction did not locate one; no exhaustive search or complete version collation is claimed."
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E15",
+      "kind": "error",
+      "locator": "Lemma 7.4 proof, published p.225; author copy p.44",
+      "printed": "x_{B,j} ∈ X_B°(F) ∩ Γ",
+      "correction": "Use Γ_B=pr₂(f⁻¹Γ)⊆B^⊥(F), with f the addition isogeny, and apply Theorem 1.1′ with rank Γ_B≤ρ, as in /89.",
+      "reason": "A coset meeting Γ need not have its complement representative in Γ. The E×J product example in /89 has empty X_B∩Γ but a nonempty coset intersection. Finite-kernel lifting and projection preserve the required rank bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: Centre Mersenne publisher article page for DOI 10.5802/pmihes.26 has no linked correction notice.",
+        "2026-10-01: Crossref DOI metadata has empty relation and no update-to or updated-by correction link.",
+        "2026-10-01: arXiv 2105.15085 shows v4 as latest (26 March 2026); not collated line by line.",
+        "2026-10-01: Ziyang Gao publication page and its author PDF UML.pdf checked at the selected loci; these proof assertions persist. No correction for this paper found there. The separately linked erratum concerns his 2020 Betti-map paper, not this article.",
+        "2026-10-01: title/author searches for an erratum or correction did not locate one; no exhaustive search or complete version collation is claimed."
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E16",
+      "kind": "misprint",
+      "locator": "Proposition 5.2, Step 4, published p.215 after (5.8) and (5.9); author copy p.32",
+      "printed": "ĥ(x) ≥ δ_{ε,1}; ĥ(x′) ≥ δ_{ε,2}",
+      "correction": "Both orbit-tolerance estimates require small heights < δ (or ≤ after shrinking δ). Retain ≥ in the following height-alternative Claim.",
+      "reason": "The proof of the Claim applies both estimates when both heights are below δ. Kühne v4 Theorem 1 is equidistribution along generic sequences tending to zero height, and /64 already states the correct small-height consequence.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: Centre Mersenne publisher article page for DOI 10.5802/pmihes.26 has no linked correction notice.",
+        "2026-10-01: Crossref DOI metadata has empty relation and no update-to or updated-by correction link.",
+        "2026-10-01: arXiv 2105.15085 shows v4 as latest (26 March 2026); not collated line by line.",
+        "2026-10-01: Ziyang Gao publication page and its author PDF UML.pdf checked at the selected loci; these proof assertions persist. No correction for this paper found there. The separately linked erratum concerns his 2020 Betti-map paper, not this article.",
+        "2026-10-01: title/author searches for an erratum or correction did not locate one; no exhaustive search or complete version collation is claimed."
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E17",
+      "kind": "gap",
+      "locator": "Proposition 5.2, Steps 2–4, published pp.213–215; author copy pp.31–32 for Steps 3–4",
+      "printed": "μ₁ ≠ D*μ₂",
+      "correction": "Set ν=(1/d_D)D*μ₂ on the constant-degree finite étale locus, use Step 2 non-proportionality, separate μ₁ from ν, and descend a stabilizer-invariant test function. Keep μ₂ in its original equilibrium normalization; /68 gives the argument.",
+      "reason": "For finite étale degree d_D and f₁=f₂∘D, ordinary pullback gives ∫f₁D*μ₂=d_D∫f₂μ₂. The fibres are finite-stabilizer orbits and d_D need not be one. The normalization is essential to make the Step 3 separation contradict the Step 4 comparison.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: Centre Mersenne publisher article page for DOI 10.5802/pmihes.26 has no linked correction notice.",
+        "2026-10-01: Crossref DOI metadata has empty relation and no update-to or updated-by correction link.",
+        "2026-10-01: arXiv 2105.15085 shows v4 as latest (26 March 2026); not collated line by line.",
+        "2026-10-01: Ziyang Gao publication page and its author PDF UML.pdf checked at the selected loci; these proof assertions persist. No correction for this paper found there. The separately linked erratum concerns his 2020 Betti-map paper, not this article.",
+        "2026-10-01: title/author searches for an erratum or correction did not locate one; no exhaustive search or complete version collation is claimed."
+      ]
+    }
+  ],
+  "resolvedSourceObservations": [
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E8",
+      "status": "retracted",
+      "finding": "RT-PAPER-GAO-GE-KUHNE-26/4",
+      "reason": "The published c₂ := max{c′₂,c″₂} is correct. For fixed A, H := max{1,h_Fal(A)} is fixed for every point, so one chooses a single exceptional locus by comparing H to B := max{1,2c′₃/c′₁}. No union and no sum of degrees is required. Historical sourceIssue E8 is retained as a retracted observation, not an active erratum.",
+      "original": {
+        "id": "PAPER-GAO-GE-KUHNE-26/E8",
+        "kind": "error",
+        "locator": "Proof of Proposition 6.1, p.219",
+        "printed": "\"Now set c1 := min{…} and c2 := max{c′2, c″2}. We will prove that these are the desired constants.\"",
+        "correction": "c₂ := c′₂ + c″₂.",
+        "reason": "The claim places each small point in the set (6.2) or the set (6.3). So the whole set lies in X′₁ ∪ X′₂, where deg X′₁ < c′₂ and deg X′₂ < c″₂, and the union can have degree up to c′₂ + c″₂. The union is still a proper closed subset of the irreducible X, so Proposition 6.1 holds with the corrected constant.",
+        "affects": "nothing",
+        "known": "new",
+        "searched": [
+          "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+          "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+          "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+        ],
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed. Page 219 prints c_2 := max{c'_2, c''_2}, while the claim on the same page places each small point in the set (6.2) or in the set (6.3), whose exceptional loci have degrees < c'_2 and < c''_2 respectively. The union of two proper closed subsets has degree up to the sum, so c'_2 + c''_2 is the constant the argument gives; it still depends only on g, l, r and d, so nothing downstream changes.",
+          "by": "REV-PAPER-GAO-GE-KUHNE-26"
+        }
+      },
+      "provenance": "The original extraction and independent review are retained as history. The later independent verifier REV-RT-PAPER-GAO-GE-KUHNE-26 confirms retraction; this fix does not supply its own independent review."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf",
+      "read": "2026-10-01",
+      "sha256": "4ee5a38b327807289885a1d7292bddc3341b7fc3e0aa8a3682d995d13237834f",
+      "scope": "Fix worker read printed pp.202,211–217,219–220,223–226; visually checked pp.214,215,219,220,224,225. Earlier extraction whole-paper reading is a separate historical record."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ziyangjeremygao.github.io/articles/UML.pdf",
+      "read": "2026-10-01",
+      "sha256": "4927ac4beac9d250c0f5c09ad2a0ded5abe42567f9f222ed46d66e20978d9c4a",
+      "scope": "Selected pp.31–32 and 43–44 only; no whole-copy collation."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2101.10272v4",
+      "read": "2026-10-01",
+      "sha256": "06781b5207e714338c29fce0af0117cdb989fe302a30f01d746a18871ecd7257",
+      "scope": "Kühne comparison source: pp.2–4, the statement and selected proof of Lemma 23, Lemma 25 and concluding equilibrium normalization in §3; not the Gao–Ge–Kühne preprint."
     }
   ]
 }
