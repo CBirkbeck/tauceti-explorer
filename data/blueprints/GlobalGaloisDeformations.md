@@ -1,10 +1,17 @@
 # Global Galois deformation rings — blueprint
 
+**Fix revision, 30 September 2026 — Codex codex-5ebb6f, Refs #5142.** Independent REV-FIX is pending; the earlier accepted review is preserved verbatim in reviewHistory. All 65 node IDs, 19 requests, three source issues and unchecked statuses remain. One newly explicit gap records a pre-existing stage-coarsening obstruction; no mathematical proof cycle is alleged. This revision sharpens the R01.4 finite-image request, the version-specific presentation locators and G8’s arithmetic export to PA.3. No atlas edge or upstream Tau Ceti roadmap has been edited.
+
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
 **R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
 **R04.5 (Taylor–Wiles auxiliary primes)**, **R04.6 (exports for patching)**, **G7 (polarized problems)** and **G8
-(variable-determinant problems)**, all source-decomposed.
+(variable-determinant problems)**. R04.1 is partial because of the explicit stage-coarsening gap; the other seven coverage records remain source-decomposed with open supplier requests. The whole packet is partial.
+
+The second-round Langlands-area fix adds one shared selection lemma, giving 66 nodes.
+Its changes await `REV-FIX-RT-AREA-langlands-1~2`; the packet's earlier independent
+review describes the 65-node predecessor. Source decomposition still depends on the
+open supplier requests and does not assert proof closure or formalization.
 
 The sources are all free:
 - Gee, *Modularity lifting theorems* (Essential Number Theory 2022; arXiv:2202.05818v2), §3.
@@ -377,8 +384,34 @@ KW II §5 (final version) and Gee §5.6–5.10. The case p > 2 and the case p = 
 - Im ρ̄ ⊇ SL_2(𝔽_p) with p ≥ 5 (Gee);
 - non-solvable image (KW II, p = 2).
 
-Adequacy and enormous image belong to G7/G8. Dihedral ρ̄ induced from F(√p*) is absolutely irreducible but fails the
-first hypothesis.
+The residual-image predicates themselves belong to ArithmeticGaloisRepresentations G7.
+GlobalGaloisDeformations G7 verifies the enormous-image application below. Dihedral
+ρ̄ induced from F(√p*) is absolutely irreducible but fails the first hypothesis.
+
+**Lemma: shared Chebotarev selection** (node `chebotarev-selmer-selection`).
+Given a finite-dimensional space H of cohomology classes with linear localization maps,
+assume each nonzero class has a detecting Frobenius conjugacy class in a finite Galois
+extension, outside a finite exceptional set. The class must impose all required
+congruence and eigenvalue conditions. Also require a nonempty admissible class for
+padding, even when H is zero. Then for any finite forbidden set B and q ≥ dim H,
+choose exactly q distinct admissible places outside B at which joint localization is
+injective. The places may all have degree one over Q.
+
+This factors the selection argument of ACC+ Lemma 6.2.32 (published pp. 1045–1046)
+through the existing Chebotarev Layer 10. Positive density survives finite avoidance.
+Primes of residue degree at least two have bounded prime sum, bounded by [F:Q]
+times the rational-prime sum with exponent 2s, hence density zero; removing them
+preserves infinitely many detecting primes. Choose a nonzero vector in the current
+kernel and a detecting prime to reduce its dimension strictly; after at most dim H
+steps, pad to q. R02.6/D8 supply the cohomological kernel interpretation. The odd-p
+and enormous-image nodes separately verify their detecting-element hypotheses and
+reuse this one selection argument; the dyadic source-specific construction remains
+separate.
+
+*Acceptance.* Two independent coordinate detections kill a two-dimensional H;
+one repeated detection leaves a kernel. H = 0 permits Q = ∅ when q = 0, but does
+not itself supply padding primes. Finite avoidance must include primes over the
+discriminant of an auxiliary quadratic field before degree one implies splitting.
 
 **Lemma: local cohomology at Taylor–Wiles places** (node `taylor-wiles-local-cohomology`; KW II Lemma 5.4, Gee p. 39).
 - h¹(G_v, ad⁰) = 2.
@@ -387,7 +420,8 @@ first hypothesis.
 
 **Theorem: Taylor–Wiles primes, p odd** (node `odd-taylor-wiles-primes`; planet; KW II Lemma 5.3, Gee Proposition 5.10).
 - For every N there is Q_N of fixed size r whose dual Selmer group vanishes.
-- The proof uses the inflation–restriction vanishing, the spanning argument and Chebotarev.
+- The proof verifies the inflation–restriction and spanning inputs, then applies the
+  shared R04.5 selection lemma for finite avoidance and exact cardinality.
 
 **Theorem: generator counts** (node `taylor-wiles-generator-count`; KW II Proposition 5.5, Gee Proposition 5.10). There
 are |Q_N| + |S| − 1 generators in KW II's conventions, or #T − 1 − [F : ℚ] + r in Gee's. The conventions are kept
@@ -503,12 +537,47 @@ about R^{□_T}_𝒮 itself. They are kept separate from its p-torsion-free quot
 - The trace-zero part is handled by the enormous conditions, the scalar part by Kummer theory.
 - Enormousness is requested from ArithmeticGaloisRepresentations G7. For n = 2 it holds for images containing SL₂(𝔽_p)
   when p ≥ 7.
+- The displayed locator is arXiv v2; the published lemma is 6.2.32. Require p ∤ 2n,
+  absolute irreducibility, k containing all residual eigenvalues, N ≥ 1 and
+  q ≥ h¹ of the specified dual Selmer group. G7 proves the detecting-element
+  hypotheses using the trace-zero and scalar summands and imports the shared
+  R04.5 selection lemma. D8 supplies the localization-kernel identity for 𝒮_Q.
 
 **Theorem: ACC+'s presentation** (node `enormous-taylor-wiles-presentation`; planet; ACC+ Proposition 6.2.32 in arXiv v2,
 6.2.33 in the stage text).
 - F = F⁺F₀, and the primes split in F₀.
 - g = qn − n²[F⁺ : ℚ].
 - Δ_{Q_N} is a product of qn cyclic p-groups, each of order at least p^N.
+- The published Proposition 6.2.33 was checked at p. 1047 (physical PDF p. 151).
+  Take T = S. Exclude primes over the discriminant of F₀ when choosing degree-one
+  primes, so their underlying rational primes are unramified and split in F₀.
+  The integer g is nonnegative because it is a relative tangent dimension;
+  truncated natural-number subtraction cannot replace that argument.
+
+**Export to PA.4 (finding /21).** Import this entire ACC+ package: Q_N, ordered
+eigenvalues, congruences, splitting, the variable-determinant presentation,
+Λ[Δ_Q]-action and Rᵀ_{𝒮_Q}/𝔞_Q ≅ Rᵀ_𝒮. PA.4 retains the arithmetic levels
+K₁(Q) ⊆ K₀(Q) ⊆ K, complexes, Hecke and global-ring actions, uniform bounds and
+specializations needed by ultrapatching. Its neatness places v₀,v₀′ are separate
+choices; the scalar-Frobenius and q_v ≠ 1 mod p conditions there do not describe
+Taylor–Wiles places. The producer contract is in this packet; the consumer edit
+and G7 → PA.4 handoff belong to `BP-PotentialAutomorphyInfrastructure`.
+
+CG Proposition 8.5 (published PDF pp. 114–115) is a separate fixed-determinant
+variant: big image, one selected one-dimensional generalized Frobenius eigenspace,
+and q + |T| − 1 − [F:Q]n(n−1)/2 − l₀ variables. It cannot replace ACC+'s enormous
+hypothesis, qn diamond factors or g. A consumer using CG must request that exact
+variant from R04.5/G7, with its §8 local conditions and CHT proof inputs; this
+comparison does not certify a full new extraction of that branch.
+
+**Export to PA.3 (finding /22).** G8 exports Definition 6.2.2, Theorem 6.2.3,
+Lemma 6.2.4 and the presentation (published Proposition 6.2.25; arXiv-v2 6.2.24).
+G7 exports the augmentation comparison and, for the separately specified polarized
+branch, its pairing/multiplier-dependent problem and presentation. PA.3 imports
+the matching L7/L8 and R08.2 local conditions and verifies the two arithmetic
+systems against P9's abstract support theorem. The geometric R-to-Hecke maps and
+their nilpotent errors stay with PA.3. No blanket L7 → P9 edge or polarization
+hypothesis is imposed on the general algebraic theorem or the ACC+ branch.
 
 ## Acceptance for R04.1–R04.2
 
@@ -553,3 +622,20 @@ cotangent map is surjective, and Nakayama applies.
   *Potential automorphy over CM fields*, Ann. of Math. 197 (2023); arXiv:1812.09999v2, §6.2.
 - L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts of automorphic mod l Galois representations*,
   Publ. Math. IHÉS 108 (2008), §2 (Numdam).
+
+## Residual images, presentation numbering and the PA.3 export
+
+R04.5/image-hypotheses keeps cyclotomic absolute irreducibility, big image and dyadic non-solvable image distinct. The R01.4 import already exists; its request now lists exactly KW II Lemma 4.3(2)(ii)/(5), with F₀ ⊂ 𝔽 and |F₀| = 2^r, r > 1, the invariant spaces, the submodule list 0,Z,Ad⁰,Ad and Dickinson’s H¹ vanishing. The p > 2 invariant and cyclotomic irreducibility facts are also specified. The global dual-Selmer vanishing of Lemma 5.2(1) remains R02.6’s. None of these finite-group statements is reproved at R04.5, and the supplier request stays open.
+
+The author-final KW II version (98 pages; printed page equals PDF page) has Lemma 4.4, pp. 41–42, for generators; Lemma 4.6, pp. 43–45, for relations; and Proposition 4.5, pp. 42–45, for the dimension ≥ 1 conclusion. The ESI preprint calls the relation bound Lemma 4.5. Both existing citations remain correctly versioned. Corollary 4.7 requires finiteness and yields the characteristic-zero point: commutative algebra is R03.4 and its arithmetic application is R24.2. No second characteristic-zero existence theorem is added here.
+
+G8/variable-determinant-problem, representability and presentation now name PA.3 as their arithmetic consumer. PA.3 imports these actual rings and Galois cohomology inputs, together with L7/L8 component data; abstract P9 keeps its arithmetic data as hypotheses. The G8 → PA.3 and L7/L8 → PA.3 stage edges are maintainer handoffs, not edits to the atlas by this packet. The original fixed-versus-variable determinant hypotheses and arbitrary-rank conventions remain unchanged.
+
+### Stage-coarsening obstruction retained for review
+
+The declaration graph is acyclic, but R04.1/determinant-comparison imports R04.2/carayol-trace-theorem. On the current coarse atlas that becomes R04.2 → R04.1, against R04.1 → R04.2. This already occurs in the original accepted packet. The gap records the exact need for an early/late declaration assignment before whole-stage promotion; it neither deletes a valid concrete prerequisite nor silently claims acyclic stage closure.
+
+- The round-2 repair selectively read the [published ACC+ PDF](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf),
+  physical pp. 135–137, 143–145 and 148–151, and [Calegari–Geraghty](https://www.math.uchicago.edu/~fcale/papers/CG.pdf),
+  physical pp. 113–115, on 30 September 2026. Packet hashes and version-qualified
+  locators preserve the distinction from the historical arXiv-v2 reading.

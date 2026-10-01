@@ -1,5 +1,15 @@
 {
  "promoted": {
+  "research/blueprint/keydefs/KEYDEF-algebraicgeometry.json": {
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "8a2e00ab1d51cae3",
+   "reviewDate": "2026-10-01",
+   "reviewer": "independent-review-REV-KEYDEF-algebraicgeometry",
+   "sha256": "2b953d38aebb0c87739a8e62f6b28407738afa4eaa638e90a887008bce25c489",
+   "to": [
+    "data/keydefs/KEYDEF-algebraicgeometry.json"
+   ]
+  },
   "research/blueprint/links/tauceti_Completed_EffectiveBounds.json": {
    "promotedAt": "2026-09-23T20:18:27Z",
    "review": "6550bfaa7e4abd81",
@@ -262,22 +272,22 @@
    ]
   },
   "research/blueprint/packets/AdicSpacesPartII.json": {
-   "promotedAt": "2026-09-28T16:41:36Z",
-   "review": "0440a3b6b619199a",
-   "reviewDate": "2026-09-28",
-   "reviewer": "independent-review-REV-AdicSpacesPartII",
-   "sha256": "6550a585be72538702895ca7732888481c7823fb209bd826e392f6595d428894",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "caf2189fdc3f2bb0",
+   "reviewDate": "2026-10-01",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
+   "sha256": "dabfcb849ac00f9a3b2e4eec49078b701650f2c7c8aa24b9e454284793987001",
    "to": [
     "data/blueprints/AdicSpacesPartII.json",
     "data/blueprints/AdicSpacesPartII.md"
    ]
   },
   "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "66a047520a5fe117",
-   "reviewDate": "2026-09-25",
-   "reviewer": "independent-review-REV-ArithmeticKTheory--N.1",
-   "sha256": "4b51ea9eb30d407f6e44b8e204e622d633398373790bbb5d84541d100d50cb7e",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "3cc5d8650f02afb9",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "sha256": "7a7063a34016e59e2e0b88f4dfcff26acba90e8159feb9613cf33f3c06e71683",
    "to": [
     "data/blueprints/ArithmeticKTheory--N.1.json",
     "data/blueprints/ArithmeticKTheory--N.1.md"
@@ -306,11 +316,11 @@
    ]
   },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
-   "promotedAt": "2026-09-30T22:16:26Z",
-   "review": "726f435a60bc2f5d",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "cee58cf39ff3ce8a",
    "reviewDate": "2026-09-30",
-   "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
-   "sha256": "206b25f75094e6003dd6b374c99d84212a96fc438f8807efc817e128562d4d1d",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
+   "sha256": "2589a720bbb305491a1f319eaec20874d0f35ca786febe8625bdf7c8f960682e",
    "to": [
     "data/blueprints/ClassicalArithmeticCompletion.json",
     "data/blueprints/ClassicalArithmeticCompletion.md"
@@ -372,11 +382,11 @@
    ]
   },
   "research/blueprint/packets/EllipticRegulators.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "8aebf53299458e95",
-   "reviewDate": "2026-09-25",
-   "reviewer": "independent-review-REV-EllipticRegulators",
-   "sha256": "8c8adb88398485e13e93ecebc5eadfe8600d684cd94b0a273d1327588f9fa766",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "e1d26973bb20d433",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
+   "sha256": "ea78b6592ec7aedf3d14e30e3a6437070ba764ba9ae7d49b352826efea48864f",
    "to": [
     "data/blueprints/EllipticRegulators.json",
     "data/blueprints/EllipticRegulators.md"
@@ -405,14 +415,25 @@
    ]
   },
   "research/blueprint/packets/GlobalGaloisDeformations.json": {
-   "promotedAt": "2026-09-28T21:31:40Z",
-   "review": "7d35398fcfb20c15",
-   "reviewDate": "2026-09-28",
-   "reviewer": "independent-review-REV-GlobalGaloisDeformations",
-   "sha256": "49ef08d060e0c6ec84d19f71a99feb6ba004397dd6b6de128ab83be2970cfcb5",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "270f3b7b93818f32",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-1~2",
+   "sha256": "31cbc73148a71345a8573de74fde1a1e01cc909b37ad94469327c9b23546846a",
    "to": [
     "data/blueprints/GlobalGaloisDeformations.json",
     "data/blueprints/GlobalGaloisDeformations.md"
+   ]
+  },
+  "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json": {
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "08cac2183dca70b0",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2",
+   "sha256": "b0c8f42d8d1bfce1a87085fc717eb06658de3f72500d771a68f637513b690eb7",
+   "to": [
+    "data/blueprints/HabiroCohomologyFoundations--HQ.1.json",
+    "data/blueprints/HabiroCohomologyFoundations--HQ.1.md"
    ]
   },
   "research/blueprint/packets/HabiroCyclotomicCompletions.json": {
@@ -427,11 +448,11 @@
    ]
   },
   "research/blueprint/packets/HabiroNahmSeries.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "678216b92664ea78",
-   "reviewDate": "2026-09-25",
-   "reviewer": "independent-review-REV-HabiroNahmSeries",
-   "sha256": "7ab3404dceb0a9510ba5007558e3712b106216c15209c96464397636aeec59a2",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "c2ce81115b187ac6",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
+   "sha256": "f0837e5a92c150ac35cd9df7d1d0101efb74b34ecee1ad4368beb41697a85b49",
    "to": [
     "data/blueprints/HabiroNahmSeries.json",
     "data/blueprints/HabiroNahmSeries.md"
@@ -449,11 +470,11 @@
    ]
   },
   "research/blueprint/packets/HabiroRings.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "1fcd7476876fe2b4",
-   "reviewDate": "2026-09-25",
-   "reviewer": "independent-review-REV-HabiroRings",
-   "sha256": "69de020866ae518ae403287753e316f08f6f7411b50f09671e17ccf9f0b019f8",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "cc0182e9ff9e810f",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2",
+   "sha256": "ee7b77adfe9994ce370a081a546cbd46515a83bf427247442db556bd651ab84f",
    "to": [
     "data/blueprints/HabiroRings.json",
     "data/blueprints/HabiroRings.md"
@@ -471,11 +492,11 @@
    ]
   },
   "research/blueprint/packets/K3BlochGroups.json": {
-   "promotedAt": "2026-09-25T14:41:24Z",
-   "review": "6468c3f59077d870",
-   "reviewDate": "2026-09-24",
-   "reviewer": "independent-review-REV-K3BlochGroups",
-   "sha256": "38feb891718d9d0463885d2028cfd67f163ca70c7a939646d9edf7abc83cfe06",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "2e423d798136b2c9",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "sha256": "ac9ba93202af2d2e5d7dcf6a6db0c8c84550756cad0cede5425905a178aac599",
    "to": [
     "data/blueprints/K3BlochGroups.json",
     "data/blueprints/K3BlochGroups.md"
@@ -490,6 +511,17 @@
    "to": [
     "data/blueprints/Polylogarithms.json",
     "data/blueprints/Polylogarithms.md"
+   ]
+  },
+  "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json": {
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "e009cbb50f6abb6c",
+   "reviewDate": "2026-10-01",
+   "reviewer": "independent-review-REV-SmallRamificationAndAbelianVarietyBaseCases",
+   "sha256": "fb0daca4a0b888dfad1d7bb862a800af846fc2f9553abe9f9cd2e61567e6d3a7",
+   "to": [
+    "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json",
+    "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md"
    ]
   },
   "research/blueprint/restructure/RS-01.result.json": {
@@ -515,14 +547,25 @@
    ]
   },
   "research/blueprint/restructure/RS-03.result.json": {
-   "promotedAt": "2026-09-30T22:16:26Z",
-   "review": "9ff04612d7551446",
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "155770dc99aee59e",
    "reviewDate": "2026-09-30",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics",
-   "sha256": "dcb0a773e02933a8ec6794f20d350f66191b82f9b5e283fcbe085b06a29bba83",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
+   "sha256": "0800a02bbb65e68be3241b089ab7fbbf03919473ccdae19c298a9a318165d608",
    "to": [
     "data/restructure/RS-03.result.json",
     "data/restructure/RS-03.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-04.result.json": {
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "d9499f26900b5437",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-RS-04",
+   "sha256": "437dea5769271ffca4f89bd86b141211c4cfb2cd1eed9b766c2a0c70022c4022",
+   "to": [
+    "data/restructure/RS-04.result.json",
+    "data/restructure/RS-04.md"
    ]
   },
   "research/blueprint/restructure/RS-05.result.json": {
@@ -567,6 +610,17 @@
    "to": [
     "data/restructure/RS-08.result.json",
     "data/restructure/RS-08.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-09.result.json": {
+   "promotedAt": "2026-10-01T20:54:46Z",
+   "review": "b2301f7927d6e9ea",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-RS-09~2",
+   "sha256": "235bae7182f594ea6c4ccbd5fbf319ca9659a4d00fad93a8328237c1667c36da",
+   "to": [
+    "data/restructure/RS-09.result.json",
+    "data/restructure/RS-09.md"
    ]
   },
   "research/blueprint/restructure/RS-10.result.json": {
