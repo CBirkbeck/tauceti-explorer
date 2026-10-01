@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eleven L3 nodes identify the displayed Gamma division points with the complete native integral rational-circle fiber and transfer both corrected distributions to actual fiber sums. All1,289 predecessor nodes,939baseline records,20findings and six source versions remain whole.",
+  "summary": "Twenty-four L3 nodes construct the ordinary and weighted distribution relation subgroup on native free abelian groups and prove the universal quotient mapping property, with actual rational-torus fiber finiteness. All1,300 predecessor nodes and944 baseline records remain whole. The full Kubert source was read and six versioned source findings are recorded.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6622,6 +6622,118 @@
         "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
         "provides": "For positive n, every native circle point killed by n has the form[(h/n)*period] for some natural h<n, and conversely.",
         "checked": "Full declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Reads the native circle torsion proof through quotient induction, integer natMod and the supporting finite additive-order identity, plus interval-equivalence injectivity. Reads native ofBijective/ofEquiv constructions. Existing cardinality and sum-transfer proofs and the to_additive generation sites were also reread. Complete native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The native free abelian group on any type, with its additive commutative group structure.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.of",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The canonical free generator labelled by an element of the original type.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The native equivalence between functions into an abelian group and additive homomorphisms from the free abelian group.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.lift_apply_of",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "The native free-group lift evaluates a generator to its prescribed value.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.lift_ext",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
+        "provides": "Additive homomorphisms from a free abelian group agree if they agree on every generator.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Subgroup.closure",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "The native generated subgroup; its additive version AddSubgroup.closure is generated at the read to_additive site.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Subgroup.subset_closure",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "Every chosen generator belongs to the subgroup it generates, including the generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Subgroup.closure_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "A generated subgroup is contained in a subgroup exactly when every generator lies there, including the generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk'",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The native quotient homomorphism, with its generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk'_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The native quotient homomorphism is surjective, including its generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "An element maps to the quotient identity exactly when it lies in the subgroup; the generated additive form uses zero.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The native induced homomorphism from a quotient when the subgroup is contained in the original map’s kernel, including the generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift_mk",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The induced quotient homomorphism evaluates the canonical image of an element to the original homomorphism’s value, including the generated additive version.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Finite.of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/EquivFin.lean",
+        "provides": "A type injecting into a finite type is finite.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Finite.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/EquivFin.lean",
+        "provides": "A type receiving a surjection from a finite type is finite.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
+      },
+      {
+        "ref": "mathlib:Fintype.ofFinite",
+        "kind": "def",
+        "module": "Mathlib/Data/Fintype/EquivFin.lean",
+        "provides": "Constructs a native finite enumeration from an actual finite-type proof.",
+        "checked": "Complete declaration and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The indexed multiplicative subgroup and quotient declarations generate exactly the additive APIs used here via their read to_additive sites. Existing FreeAbelianGroup construction/lift/generator extensionality, native quotient lift and surjectivity, and Finite transport/ofFinite were read. No native API is replaced or restated as a private carrier."
       }
     ]
   },
@@ -6829,6 +6941,19 @@
         "Complete relevant VI1.2–1.5 pp.283–297: radii, formal composition, growth modulus/Gauss norm and analytic composition; full VI2.3 infinite-product lemma p.313; full VI4.6 bounded-coefficient lemma pp.350–351.",
         "The subsequent entire-function and Christol–Robba proofs were only partially read and are not used. Other chapters are not claimed read. Three bounded errata searches found no relevant correction; this is not an exhaustive absence claim."
       ]
+    },
+    {
+      "id": "Kubert-1979",
+      "title": "The universal ordinary distribution",
+      "authors": "Daniel S. Kubert",
+      "edition": "Bulletin de la Société Mathématique de France107(1979),179–202; published Numdam scan",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1891.pdf",
+      "sha256": "50ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca",
+      "readSections": [
+        "All published179–202, including Sections1–4, Appendix and bibliography; text and every page image read1October2026.",
+        "This checkpoint extracts the ordinary universal quotient on179–180 and weighted relation(A1) on200. It proves actual finite fibers for the native rational torus. Finite-level generation/freeness, Cartan constructions, Bernoulli/Fourier models, rational realization, even/odd quotients and cohomology are read but not yet decomposed or certified.",
+        "External references[K-L],[K1],[K2],[Si],[B],[Y],[Ma],[Mi] are not thereby read. The unidentified[L]reference is recorded as a source gap. Thek=1complex construction is explicitly left to the reader on192."
+      ]
     }
   ],
   "sourceVersions": [
@@ -6867,6 +6992,12 @@
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/robert.pdf",
       "read": "2026-10-01",
       "sha256": "2c2f0b5d4fd88fe9b6337fcabaceacec72acdc9d627bf3d5935e793bea43e61a"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.24033/bsmf.1891.pdf",
+      "read": "2026-10-01",
+      "sha256": "50ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca"
     }
   ],
   "nodes": [
@@ -85310,6 +85441,1353 @@
       "acceptance": [
         "The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-circle-fiber-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite division fibers on the rational circle",
+      "kind": "lemma",
+      "statement": "For every n>0 and every actual class a in native AddCircle(1:Q), the subtype of all b with n*b=a is finite.",
+      "hypotheses": [
+        "n is a positive natural number, a is an actual native rational-circle class. No prime or p-adic input is used."
+      ],
+      "proofSteps": [
+        "Choose the actual representative supplied by the native equivIocMod equivalence. Its inverse law identifies its quotient class with a.",
+        "The previously proved ambient division-point equation defines a map from Fin n into this actual fiber, and the ambient division-surjectivity theorem proves the map onto.",
+        "Apply existing Finite.of_surjective. No integrality, prime or Gamma hypothesis is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-division-point",
+        "DirichletPadicLFunctions:L3/gross-koblitz-division-surjective",
+        "mathlib:QuotientAddGroup.equivIocMod",
+        "mathlib:QuotientAddGroup.equivIocMod_coe",
+        "mathlib:Finite.of_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_circle_fiber_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.circle_halves_finite",
+          "kind": "compatibility",
+          "statement": "The ambient half-fiber at1/8 is finite."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-torus-fiber-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite division fibers on every finite-rank rational torus",
+      "kind": "lemma",
+      "statement": "For every natural k and n>0, and a in the native function group Fin k→Q/Z, the actual n-division fiber is finite.",
+      "hypotheses": [
+        "k is any natural number and n>0. The carrier is the existing native function group Fin k→AddCircle(1:Q), including the one-point k=0 case."
+      ],
+      "proofSteps": [
+        "Each coordinate fiber is finite by circle_fiber_finite. The native finite dependent-product instance makes the product of these coordinate fibers finite.",
+        "Map an actual torus fiber point to its coordinate fiber points. Equality of the images implies coordinatewise equality, then native function and subtype extensionality imply equality of the original points.",
+        "Apply native Finite.of_injective. Fintype.ofFinite provides the finite enumerations required by all subsequent definitions, so the torus specialization does not assume an unproved enumeration."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-circle-fiber-finite",
+        "mathlib:Finite.of_injective",
+        "mathlib:Fintype.ofFinite"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_torus_fiber_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.rank_two_thirds_finite",
+          "kind": "compatibility",
+          "statement": "All simultaneous third roots in the actual rank-two rational torus form a finite type."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.rank_zero_fiber",
+          "kind": "degenerate",
+          "statement": "The empty-coordinate torus has a finite division fiber."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The weighted division relator",
+      "kind": "definition",
+      "statement": "Construct R(w,m,a)=m^w times the sum of[b] over every actual b with m*b=a, minus[a], as an element of the existing FreeAbelianGroup X.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Use the native free generator for every point in the actual fiber, and its finite sum in the native additive commutative group.",
+        "Apply natural scalar multiplication bym^w and subtract the actual free generator labelled a. This is a concrete expression, not a condition field."
+      ],
+      "prerequisites": [
+        "mathlib:FreeAbelianGroup",
+        "mathlib:FreeAbelianGroup.of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRelation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.two_torsion_zero_relation",
+          "kind": "computation",
+          "statement": "On Z/2 at weight0, the full doubling fiber over0 gives exactly the generator of1."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.empty_fiber_relation",
+          "kind": "non-example",
+          "statement": "On Z/2 the doubling fiber over1 is empty, so its relation is the negative generator of1; omitting empty fibers changes the quotient."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.weight_factor_detected",
+          "kind": "non-example",
+          "statement": "At weight1 the full doubling relation is[0]+2[1], rather than the weight0 relation."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ],
+      "uses": [
+        {
+          "where": "Kubert179–180 ordinary universal quotient",
+          "how": "The weight0 relators generate the subgroup imposed on the free abelian group."
+        },
+        {
+          "where": "Kubert200 Appendix(A1)",
+          "how": "The same relator withm^w specifies weighted distributions, so a separate ordinary-only quotient would duplicate this construction."
+        },
+        {
+          "where": "Kubert182 finite-level relations",
+          "how": "These relators are restricted to inputs in the image of multiplication inside a level; the level comparison remains separate."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_relation_eval",
+          "role": "relation",
+          "statement": "For any f:X→A, the native free-group lift sends R(w,m,a) to m^w sum_{mb=a}f(b)−f(a)."
+        },
+        {
+          "name": "kubert_relation_one",
+          "role": "relation",
+          "statement": "R(w,1,a)=0 for every weight and every a."
+        },
+        {
+          "name": "kubert_relation_weight_zero",
+          "role": "relation",
+          "statement": "R(0,m,a)=sum_{mb=a}[b]−[a]."
+        },
+        {
+          "name": "kubert_relation_fintype_independent",
+          "role": "relation",
+          "statement": "Any two native Fintype structures on the same actual multiplication fiber give exactly the same free-group relator."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation-eval",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Evaluation of a weighted division relator",
+      "kind": "lemma",
+      "statement": "For any f:X→A, the native free-group lift sends R(w,m,a) to m^w sum_{mb=a}f(b)−f(a).",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Expand the concrete relator and use native additive-homomorphism preservation of subtraction, natural scalar multiplication and finite sums.",
+        "Native FreeAbelianGroup.lift_apply_of computes every summand and the final generator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation",
+        "mathlib:FreeAbelianGroup.lift",
+        "mathlib:FreeAbelianGroup.lift_apply_of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relation_eval"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.constant_evaluation",
+          "kind": "computation",
+          "statement": "Evaluating the weight1 doubling relator by the constant-one map gives3."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The multiplier-one relator vanishes",
+      "kind": "lemma",
+      "statement": "R(w,1,a)=0 for every weight and every a.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The actual subtype satisfying1*b=a has a unique element, namely a; its uniqueness follows directly from the equation.",
+        "Evaluate the finite sum on that unique element and use1^w=1. The two free generators cancel."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relation_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.unit_multiplier_all_weights",
+          "kind": "degenerate",
+          "statement": "Multiplication by1 yields zero relation at every weight."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation-weight-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Weight zero gives the ordinary relator",
+      "kind": "lemma",
+      "statement": "R(0,m,a)=sum_{mb=a}[b]−[a].",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The zeroth power is1; reduce the scalar action by1. This fixes the ordinary normalization without dividing by the size of the fiber."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relation_weight_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.zero_weight_no_scalar",
+          "kind": "compatibility",
+          "statement": "Weight0 removes the degree power."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation-fintype-independent",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A relator is independent of finite enumeration",
+      "kind": "lemma",
+      "statement": "Any two native Fintype structures on the same actual multiplication fiber give exactly the same free-group relator.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Native Fintype structures on a fixed type form a subsingleton.",
+        "Substitute their equality in the actual definition. The underlying fiber is unchanged, so this is equality of actual relators, not equality after an unspecified identification."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relation_fintype_independent"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.enumeration_independence",
+          "kind": "compatibility",
+          "statement": "Changing only the native finite enumeration cannot change a relator."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relations",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The subgroup of weighted distribution relations",
+      "kind": "construction",
+      "statement": "Construct D(S,w) as the native AddSubgroup.closure of all R(w,n,a), with n in S and a in X. Its native quotient U(S,w) is the universal relation group.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Form the subset of actual free-group elements equal to one of the permitted relators.",
+        "Use the existing native additive subgroup closure. The quotient and its additive group are the existing QuotientAddGroup construction; their generic API is imported rather than replanned."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation",
+        "mathlib:Subgroup.closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRelations"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.empty_degrees_free_group",
+          "kind": "degenerate",
+          "statement": "No permitted multiplier imposes any relation."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.one_degree_no_relations",
+          "kind": "degenerate",
+          "statement": "The permitted set{1} imposes no relations at weight3."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.doubling_kills_nonzero_generator",
+          "kind": "computation",
+          "statement": "The weight0 quotient of Z/2 with degree2 kills the generator of1."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ],
+      "uses": [
+        {
+          "where": "Kubert180 universal construction",
+          "how": "The canonical quotient imposes exactly the prescribed distribution relations."
+        },
+        {
+          "where": "Kubert200 weighted distributions",
+          "how": "Keeping w and the permitted set explicit supports the Appendix and prime-to-p consumers without changing the integer coefficient group."
+        },
+        {
+          "where": "Kubert182 D_N and internal finite-level relations",
+          "how": "The actual global subgroup is needed before comparing its intersection with the free group at a finite level."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_relation_mem",
+          "role": "relation",
+          "statement": "R(w,n,a) belongs to D(S,w) for every n in S and a in X."
+        },
+        {
+          "name": "kubert_relations_le_ker_iff",
+          "role": "characterisation",
+          "statement": "D(S,w) is contained in the kernel of the native lift of f exactly when f satisfies every weighted complete-fiber distribution equation."
+        },
+        {
+          "name": "kubert_quotient_relation",
+          "role": "relation",
+          "statement": "For n in S, n^w sum_{nb=a}delta(b)=delta(a) in the actual native quotient U(S,w)."
+        },
+        {
+          "name": "kubert_hom_ext",
+          "role": "characterisation",
+          "statement": "Two additive homomorphisms from U(S,w) to A are equal if they agree on every delta(a)."
+        },
+        {
+          "name": "kubert_relations_empty_eq_bot",
+          "role": "relation",
+          "statement": "D(empty,w) is the bottom additive subgroup for every weight, so the native quotient is the free group modulo zero."
+        },
+        {
+          "name": "kubert_relations_one_eq_bot",
+          "role": "relation",
+          "statement": "D({1},w) is the bottom additive subgroup for every weight."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relation-mem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every permitted relator lies in the relation subgroup",
+      "kind": "lemma",
+      "statement": "R(w,n,a) belongs to D(S,w) for every n in S and a in X.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Supply n,a and reflexivity as the actual generator witness.",
+        "Apply native AddSubgroup.subset_closure, generated by to_additive from the indexed subgroup theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "mathlib:Subgroup.subset_closure"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relation_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.weighted_doubling_generator",
+          "kind": "computation",
+          "statement": "The weight1 subgroup contains[0]+2[1]."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relations-le-ker-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The kernel criterion for a distribution",
+      "kind": "lemma",
+      "statement": "D(S,w) is contained in the kernel of the native lift of f exactly when f satisfies every weighted complete-fiber distribution equation.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Native closure_le reduces inclusion of the generated subgroup to inclusion of each relator.",
+        "Evaluate each relator using relation_eval, and use subtraction equal to zero exactly when its two terms agree.",
+        "Both directions quantify every permitted degree and every actual input, including inputs with an empty fiber."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "DirichletPadicLFunctions:L3/kubert-relation-eval",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relations_le_ker_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.constant_one_fails_doubling",
+          "kind": "non-example",
+          "statement": "Constant1 does not descend through the degree2 ordinary quotient of Z/2."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-quotient-relation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The canonical generators satisfy distribution",
+      "kind": "lemma",
+      "statement": "For n in S, n^w sum_{nb=a}delta(b)=delta(a) in the actual native quotient U(S,w).",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The corresponding relator lies in D by relation_mem, so its native quotient image is zero by the native quotient zero-membership criterion.",
+        "Expand the relator under the native additive quotient map, distribute the sum and scalar, and cancel the subtraction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation-mem",
+        "mathlib:QuotientGroup.mk'",
+        "mathlib:QuotientGroup.eq_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_quotient_relation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.quotient_weighted_relation",
+          "kind": "compatibility",
+          "statement": "The weighted relator vanishes in the actual native quotient."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The homomorphism induced by a distribution",
+      "kind": "construction",
+      "statement": "For f:X→A satisfying every weighted distribution equation, construct the actual additive homomorphism U(S,w)→A extending f on canonical generators.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The native FreeAbelianGroup.lift extends f to the free group.",
+        "The proved kernel criterion supplies the exact inclusion D≤ker needed by the existing QuotientAddGroup.lift constructor.",
+        "Apply that constructor to obtain the map on the actual quotient. No generic quotient, choice-based carrier or field of unspecified conditions is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations-le-ker-iff",
+        "mathlib:FreeAbelianGroup.lift",
+        "mathlib:QuotientGroup.lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.lift_at_zero",
+          "kind": "computation",
+          "statement": "The descended homomorphism evaluates the zero-labelled generator to f(0); this generator is not the additive identity."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.lift_at_two",
+          "kind": "computation",
+          "statement": "The descended map evaluates the generator labelled2 to f(2)."
+        },
+        {
+          "name": "SuggestedKubertDistributionTests.lift_additive_combination",
+          "kind": "compatibility",
+          "statement": "The descended map is additive on actual quotient elements."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ],
+      "uses": [
+        {
+          "where": "Kubert180 commuting triangle",
+          "how": "Every ordinary distribution factors through the canonical generators by a group homomorphism."
+        },
+        {
+          "where": "Kubert201 universal weighted distribution",
+          "how": "The identical construction factors maps satisfying(A1)."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3 Gamma mean comparison",
+          "how": "Supplies the factorization target after the prime-to-p domain is made into its actual native additive subgroup; it does not establish injectivity of that factorization."
+        }
+      ],
+      "api": [
+        {
+          "name": "kubert_lift_of",
+          "role": "relation",
+          "statement": "The induced homomorphism sends delta(a) to f(a) for every a in X."
+        },
+        {
+          "name": "kubert_lift_unique",
+          "role": "universal-property",
+          "statement": "Every additive homomorphism U(S,w)→A with generator values f equals the constructed lift."
+        },
+        {
+          "name": "kubert_existsUnique_lift",
+          "role": "universal-property",
+          "statement": "For every f satisfying the weighted distribution equations, exactly one additive homomorphism U(S,w)→A sends delta(a) to f(a) for every a."
+        },
+        {
+          "name": "kubert_quotient_function_distribution",
+          "role": "relation",
+          "statement": "For any additive g:U(S,w)→A, the actual function a↦g(delta(a)) satisfies every weighted distribution equation."
+        },
+        {
+          "name": "kubert_lift_postcompose",
+          "role": "functoriality",
+          "statement": "The lift of g composed with f equals g composed with the lift of f; the equations for g composed with f are constructed by postcompose_distribution."
+        },
+        {
+          "name": "kubert_lift_zero",
+          "role": "relation",
+          "statement": "The actual zero function satisfies the distribution equations, and its induced quotient homomorphism is zero."
+        },
+        {
+          "name": "kubert_lift_add",
+          "role": "functoriality",
+          "statement": "The lift of f+g equals the sum of their lifts; add_distribution constructs the required equation witness."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The induced map evaluates on generators",
+      "kind": "lemma",
+      "statement": "The induced homomorphism sends delta(a) to f(a) for every a in X.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The native quotient lift evaluates on the quotient image of a free-group element by lift_mk.",
+        "The native free-group lift evaluates on its generator by lift_apply_of."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-lift",
+        "mathlib:QuotientGroup.lift_mk",
+        "mathlib:FreeAbelianGroup.lift_apply_of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_lift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.lift_negative_combination",
+          "kind": "compatibility",
+          "statement": "The descended map preserves negative integer combinations."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-hom-ext",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Quotient homomorphisms are determined by generators",
+      "kind": "lemma",
+      "statement": "Two additive homomorphisms from U(S,w) to A are equal if they agree on every delta(a).",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Compose both maps with the native quotient map. Their values on every free generator agree.",
+        "Use native FreeAbelianGroup.lift_ext to identify those free-group homomorphisms.",
+        "The native quotient map is surjective, so equality after composition gives equality at every actual quotient element."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "mathlib:FreeAbelianGroup.lift_ext",
+        "mathlib:QuotientGroup.mk'_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_hom_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.generators_determine_map",
+          "kind": "characterisation",
+          "statement": "Agreement on every quotient generator determines an additive homomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Uniqueness of the induced distribution homomorphism",
+      "kind": "lemma",
+      "statement": "Every additive homomorphism U(S,w)→A with generator values f equals the constructed lift.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Use the generator extensionality theorem.",
+        "The candidate has its prescribed values by hypothesis, and the constructed lift has them by lift_of."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-hom-ext",
+        "DirichletPadicLFunctions:L3/kubert-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_lift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.any_descent_equals_lift",
+          "kind": "characterisation",
+          "statement": "Any map with the prescribed generator values equals the constructed lift."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-existsUnique-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The universal mapping property of distribution relations",
+      "kind": "theorem",
+      "statement": "For every f satisfying the weighted distribution equations, exactly one additive homomorphism U(S,w)→A sends delta(a) to f(a) for every a.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "The actual lift is an existence witness.",
+        "Its generator computation supplies the required equations, and lift_unique gives uniqueness. This is the universal relation quotient property, independent of any freeness or arithmetic realization theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-lift",
+        "DirichletPadicLFunctions:L3/kubert-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_existsUnique_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.unique_native_quotient_map",
+          "kind": "characterisation",
+          "statement": "There is exactly one native quotient homomorphism with the specified values."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-quotient-function-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every quotient homomorphism gives a distribution",
+      "kind": "lemma",
+      "statement": "For any additive g:U(S,w)→A, the actual function a↦g(delta(a)) satisfies every weighted distribution equation.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Apply g to the canonical quotient relation.",
+        "Native additive homomorphisms commute with finite sums and natural scalar multiplication. Thus the required equations are proved rather than assumed for the induced function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-quotient-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_quotient_function_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.quotient_map_satisfies_relation",
+          "kind": "compatibility",
+          "statement": "Every quotient homomorphism induces the full doubling distribution."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-postcompose-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Additive coefficient maps preserve distributions",
+      "kind": "lemma",
+      "statement": "If f:X→A is a distribution and g:A→B is additive, then g composed with f is a distribution of the same weight and permitted degrees.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Apply g to each of the actual equations for f.",
+        "Commute g past finite sums and natural scalar multiplication. No additional target characteristic or divisibility assumption is used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation-eval"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_postcompose_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.postcompose_preserves_distribution",
+          "kind": "compatibility",
+          "statement": "An additive coefficient map preserves the relation."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift-postcompose",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The induced homomorphism is natural in coefficients",
+      "kind": "lemma",
+      "statement": "The lift of g composed with f equals g composed with the lift of f; the equations for g composed with f are constructed by postcompose_distribution.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Compare both actual quotient homomorphisms on their generators.",
+        "Use lift_of and the native composition evaluation law, then hom_ext."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-postcompose-distribution",
+        "DirichletPadicLFunctions:L3/kubert-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_lift_postcompose"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.lift_natural_in_coefficients",
+          "kind": "compatibility",
+          "statement": "Lifting commutes with additive coefficient maps."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The zero distribution induces the zero map",
+      "kind": "lemma",
+      "statement": "The actual zero function satisfies the distribution equations, and its induced quotient homomorphism is zero.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Finite sums and natural multiples of zero are zero, so the needed distribution witness is constructed internally.",
+        "Use generator extensionality and lift_of to identify the induced map with the native zero homomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_lift_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.zero_distribution_lift",
+          "kind": "degenerate",
+          "statement": "The zero function descends to the zero homomorphism."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-add-distribution",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Distributions are closed under addition",
+      "kind": "lemma",
+      "statement": "If f and g satisfy the same weighted distribution equations, their pointwise sum does too.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Distribute the finite sum over addition and the natural scalar over the two sums.",
+        "Apply the supplied equations for f and g separately. The resulting equality is exactly the equation for their pointwise sum."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relation-eval"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_add_distribution"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.doubled_values_distribute",
+          "kind": "compatibility",
+          "statement": "Adding a distribution to itself preserves the relation."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-lift-add",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The induced homomorphism preserves addition",
+      "kind": "lemma",
+      "statement": "The lift of f+g equals the sum of their lifts; add_distribution constructs the required equation witness.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Compare the homomorphisms on every canonical generator.",
+        "Evaluate all three lifts by lift_of and use native pointwise addition of functions and additive homomorphisms; finish with hom_ext."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-add-distribution",
+        "DirichletPadicLFunctions:L3/kubert-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-hom-ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_lift_add"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.lift_preserves_addition",
+          "kind": "compatibility",
+          "statement": "The lift of a sum is the sum of the lifts."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relations-empty-eq-bot",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "No permitted degrees give no relations",
+      "kind": "lemma",
+      "statement": "D(empty,w) is the bottom additive subgroup for every weight, so the native quotient is the free group modulo zero.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "An element of the generating set would supply a positive integer in the empty permitted set, which is impossible.",
+        "Use native closure_le to show the generated subgroup is bottom; the reverse inclusion is the native bottom bound."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relations_empty_eq_bot"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.empty_degrees_weighted",
+          "kind": "degenerate",
+          "statement": "The empty set imposes no relations even at positive weight."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-relations-one-eq-bot",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The degree-one system gives no relations",
+      "kind": "lemma",
+      "statement": "D({1},w) is the bottom additive subgroup for every weight.",
+      "hypotheses": [
+        "X is any native additive commutative group. S is a set of positive natural multipliers; it need not be closed under multiplication. The full rational-torus case uses X=(Q/Z)^k and all positive multipliers; prime-to-p variants use the corresponding permitted set once their actual domain group has been provided.",
+        "For every permitted n and every a in X, the actual subtype of b in X satisfying n*b=a has a native finite enumeration. No replacement finite carrier or assumed distribution object is introduced. The rational-torus finiteness theorem and native Fintype.ofFinite supply these instances for every k, including k=0; structural rank theorems in Kubert assume k>0 and are not claimed here.",
+        "The standalone relator also permits any natural m for which the actual fiber is finite; only positive multipliers are imposed in D(S,w). The weight w is a nonnegative integer. The relation is R(w,n,a)=n^w times the sum of the free generators[b] over the complete actual division fiber, minus[a]. Weight0 is ordinary. Empty fibers are included, so on a nonsurjective multiplication map their relation is−[a]. Coefficients are integers, not rational numbers; no division by n or by2 occurs.",
+        "D(S,w) is the native additive subgroup generated by those relators in FreeAbelianGroup X. U(S,w) means the existing native quotient FreeAbelianGroup X / D(S,w), with canonical generator delta(a) the quotient image of the native free generator. There is no private quotient carrier. In particular delta(0) need not be the additive identity.",
+        "A-valued distributions are expressed by their actual equations n^w sum_{nb=a}f(b)=f(a), for every n in S and a in X, where A is any native additive commutative group. No vacuous Prop field or definition of a predicate with an unspecified body is used.",
+        "This is the universal relation quotient and its map property, not a claim that a particular Gamma-valued map is injective or universal. The prime-to-p Gamma domain, odd quotient, Frobenius coinvariants, finite-level basis/rank and arithmetic realizations remain explicit remaining work."
+      ],
+      "proofSteps": [
+        "Every generating witness has multiplier1 because it belongs to the singleton permitted set.",
+        "Use relation_one to show each actual generator is zero, preserving the dependent finite enumeration through the singleton equality.",
+        "Apply native closure_le and the bottom bound."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-relations",
+        "DirichletPadicLFunctions:L3/kubert-relation-one",
+        "mathlib:Subgroup.closure_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertDistribution",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubert_relations_one_eq_bot"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published179–180, definition and construction of the universal ordinary distribution; Appendix200 equation(A1), weighted distributions. Full body179–202 and all page images read1October2026.",
+          "match": "The native free abelian group is quotiented by the subgroup generated by the complete-fiber relations. Weight0 recovers the definition on179; positive weight uses the factorN^w in(A1). The construction is stated uniformly for a native group with finite permitted multiplication fibers, which includes every finite-rank rational torus. This extracts the universal mapping property without claiming the subsequent freeness or arithmetic realization results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertDistributionTests.one_degree_weighted",
+          "kind": "degenerate",
+          "statement": "The singleton degree1 gives the free group also at positive weight."
+        }
+      ],
+      "acceptance": [
+        "The native consumer proofs are complete and use actual free generators, additive subgroups, quotient maps and finite fibers. Typed tests and exact finite controls distinguish weights, zero-labelled generators, empty fibers and coefficient operations. No finite computation is a certificate for the remaining analytic or free-basis theorems."
+      ]
     }
   ],
   "requests": [
@@ -85456,7 +86934,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The displayed preimages now form an explicit native equivalence with the complete integral m-division fiber, whose cardinality and finiteness are proved. Both corrected logarithm identities are expressed as actual fiber sums, with all source period weights retained. Next read Kubert1979 and audit existing atlas ownership before assessing the universal odd-distribution paragraph; no generic distribution object is yet constructed here. The corrected mean still cannot inherit the source’s p*Z_p codomain because the retained p3,2/13 mean is a unit. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat, external Stickelberger and remaining Ferrero–Greenberg/L3 routes. Both RD.6 Dwork interfaces and the Coleman/LAD logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.",
+        "The actual ordinary/weighted relation quotient and its universal mapping property are now planned, with finite fibers proved for every native rational torus. Next construct the native additive subgroup of p-integral rational classes, supply its prime-to-p fiber instances, and factor the corrected Gamma mean through the weight0 quotient. Then specify odd and Frobenius quotients without claiming Gamma injectivity or freeness from factorization alone. Extract the finite-level relation subgroup with its required input-image condition, the intersection comparison, admissible generators and their generation proof, followed by the Cartan/rational rank lower bound; external[K-L] and the unidentified[L] remain unread boundaries. Preserve the p3,2/13 nonintegral-mean codomain witness. The original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces, Coleman/LAD logarithm boundary and all18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -85488,7 +86966,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The displayed preimages now form an explicit native equivalence with the complete integral m-division fiber, whose cardinality and finiteness are proved. Both corrected logarithm identities are expressed as actual fiber sums, with all source period weights retained. Next read Kubert1979 and audit existing atlas ownership before assessing the universal odd-distribution paragraph; no generic distribution object is yet constructed here. The corrected mean still cannot inherit the source’s p*Z_p codomain because the retained p3,2/13 mean is a unit. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat, external Stickelberger and remaining Ferrero–Greenberg/L3 routes. Both RD.6 Dwork interfaces and the Coleman/LAD logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual ordinary/weighted relation quotient and its universal mapping property are now planned, with finite fibers proved for every native rational torus. Next construct the native additive subgroup of p-integral rational classes, supply its prime-to-p fiber instances, and factor the corrected Gamma mean through the weight0 quotient. Then specify odd and Frobenius quotients without claiming Gamma injectivity or freeness from factorization alone. Extract the finite-level relation subgroup with its required input-image condition, the intersection comparison, admissible generators and their generation proof, followed by the Cartan/rational rank lower bound; external[K-L] and the unidentified[L] remain unread boundaries. Preserve the p3,2/13 nonintegral-mean codomain witness. The original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces, Coleman/LAD logarithm boundary and all18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -85938,41 +87416,138 @@
         "Bounded title/author searches with errata, erratum, correction, corrigendum, Corollary1,167 andMahler located no directly relevant correction. Unrelated search results were excluded. No author or third party was contacted; this is not a historical novelty claim.",
         "All current, older and unchecked rows in the captured data/source-issues.json were screened for Robert2001, the exact title and the Numdam identifier; no matching row was found."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E21",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published191, equation(3.7).",
+      "printed": "log(1−e^(2πit)) = Σ_(n≥1)e^(2πint)/n",
+      "correction": "With the principal logarithm and0<t<1, place a minus sign before the series. Equivalently the positive series equals−log(1−e^(2πit)). Keep the definition ofG1 in(3.6) unchanged.",
+      "reason": "At t=1/2 the left side islog2>0. The right side isΣ(-1)^n/n: each paired partial sum equals−Σ_{j≤M}1/((2j−1)2j)≤−1/2. Thus any limit cannot be positive; the standard alternating harmonic sum is−log2. The exact control checks500 paired bounds. This is a sign error in(3.7), not a claim that thek>1 theorem fails.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E22",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published191, equation(3.8), with the domain ofG1 just above(3.7) and the extension discussion on192.",
+      "printed": "Σ_(r=0)^(N−1) G1(r/N)=logN",
+      "correction": "Sum fromr=1 toN−1. Alternatively explicitly extendG1(0)=0 before writing the printed index range; this extension is not the principal-log expression at0. The empty sum atN=1 is0.",
+      "reason": "G1 was defined only for0<t<1. Ther=0 term would belog(1−1), outside the principal logarithm domain. Removing it gives the standard product over nontrivialNth roots equal toN; conjugate pairs cancel the principal arguments, so its log sum islogN. AtN=2 the corrected sum isG1(1/2)=log2; includingr=0 inserts the zero factor. Page192 instead assigns an arbitrary value to the modified functionφ(0), which does not defineG1(0).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E23",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published189–190, induction and final sentences in the proof of Proposition3.3.",
+      "printed": "The source states φ′(t)=α B_k(t), says an additive constant is the only ambiguity in φ′, and describes φ″ as linear.",
+      "correction": "After differentiation, the induction givesφ′(t)=α B_(k−1)(t). It isφ, obtained by integratingφ′, that is determined up to an additive constant. In the base caseφ″=0 impliesφ is linear.",
+      "reason": "Differentiating(3.2) lowers its exponent parameter fromk tok−1. For the explicitk=2 solutionB2(t)=t²−t+1/6, the derivative2t−1=2B1(t) cannot be a scalar multiple ofB2: at1/2 the derivative is0 butB2=−1/12, whereas at0 the derivative is−1. The following integration step requiresφ rather thanφ′; the base-case conclusion uses two integrations. This records the index and variable slips only; it does not certify the endpoint smoothness/boundedness argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E24",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published180 and193 bibliography labels;190 paragraph after Proposition3.3;200 proof of Corollary4.15;201 introduction to the Appendix theorem.",
+      "correction": "Read Proposition3.3 for the smoothness conclusion, and Theorem4.14 in the three references to4.17. The named Gross–Koblitz, Mazur and Sinnott citations match bibliography labels[G-K],[Ma],[Si], respectively.",
+      "reason": "There is an equation(3.2), but the smoothness result immediately above is Proposition3.3. The structural theorem giving freeness and the rational representation is4.14(i),(ii) on199; this paper has no Theorem4.17. Those are exactly the properties used in the corollary proof and generalized by the Appendix. The authors named beside[G],[M],[S] identify the matching bibliography entries without guessing a source; the separate unidentified[L]is recorded independently.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E25",
+      "source": "Kubert-1979",
+      "kind": "misprint",
+      "locator": "Published200, Corollary4.15(iii), second displayed isomorphism.",
+      "printed": "H_-^k(torsion) ≈ H^0(±id,U^k)",
+      "correction": "The left side isU_-^k(torsion), the torsion subgroup of the universal odd quotient defined on199. Keep the source’s Tate-cohomology convention forH^0, to be specified before formalizing this result.",
+      "reason": "The two quotient groups introduced immediately before the corollary areU_+^k andU_-^k. No groupH_-^k is defined. The paragraph after the first torsion argument says the argument forU_-^k is similar. This is a symbol correction, not a construction or verification of the cohomology theorem.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E26",
+      "source": "Kubert-1979",
+      "kind": "gap",
+      "locator": "Published181,189, at the references[L]p.251 and[L]p.230, compared with the complete bibliography on202.",
+      "printed": "[L], p.251; [L], p.230",
+      "correction": "Identify the intended bibliographic source for[L] before treating those two references as verified support. The present checkpoint uses native algebra and the explicit definitions on179–180 and200; it does not use the unidentified reference.",
+      "reason": "The complete bibliography contains[B],[G-K],[K1],[K2],[K-L],[Ma],[Mi],[Si],[Y], with no[L]entry. The content and page numbers alone do not identify the edition unambiguously. No guessed book or page is substituted. This is a missing-source boundary for the Siegel formula and Bernoulli background, not a claim that either mathematical formula is false.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published Numdam scan BSMF107(1979)179–202, DOI10.24033/bsmf.1891, read1October2026. All24 body pages were read in text and as page images; the formulas at189–192 and199–201 were visually checked. SHA25650ddeaefff42c5753b5ac8e9c9f5cbedee663821f3788776a8dbf02b1b701bca.",
+        "The complete Numdam article record and volume107 contents were fetched and read; neither lists a correction. Browser text opens failed, but direct public HTTP fetches succeeded and their hashes are retained. Bounded title/author searches with erratum, correction, corrigendum,3.7 and Proposition3.3 located no relevant correction. No separate author correction page or preprint was located; no exhaustive historical novelty claim is made.",
+        "The captured atlas source-issue registry was screened through its nested rows for Kubert; no matching finding was present. Open Mathlib/GitHub and Lean Zulip searches for ordinary distribution found no matching design. No author or third party was contacted."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. E18’s weighted and averaged corrections now sum over the complete actual native division fiber. Neither complete enumeration nor quotient-descent uniqueness implies Kubert universality; the mean codomain boundary remains unchanged.",
+    "sourceIssues": "All20 predecessor findings and six source versions remain whole. Six findings against the read published Kubert scan record the log-series sign, undefined zero endpoint, derivative index/variable slips, erroneous cross-references, odd-quotient symbol, and missing[L]bibliographic source. Exact small controls and full page images support the bounded findings; no independent review verdict or historical novelty claim is made. The source version is added explicitly.",
     "validation": {
-      "nodes": 1300,
+      "nodes": 1324,
       "kinds": {
-        "definition": 10,
-        "lemma": 631,
-        "construction": 113,
-        "theorem": 339,
+        "definition": 11,
+        "lemma": 651,
+        "construction": 115,
+        "theorem": 340,
         "comparison": 207
       },
-      "api": 903,
-      "packetTests": 2528,
-      "definitionConstructionTests": 524,
-      "typedExamples": 2531,
+      "api": 920,
+      "packetTests": 2559,
+      "definitionConstructionTests": 533,
+      "typedExamples": 2562,
       "planets": 24,
-      "baseline": 944,
-      "preservedWholeNodes": 1289,
-      "preservedBaseline": 939,
+      "baseline": 960,
+      "preservedWholeNodes": 1300,
+      "preservedBaseline": 944,
       "preservedSourceIssues": 20,
-      "newSourceIssues": 0,
-      "newNodes": 11,
-      "newNamedDeclarations": 11,
-      "newTypedTests": 21,
+      "newSourceIssues": 6,
+      "newNodes": 24,
+      "newNamedDeclarations": 24,
+      "newTypedTests": 31,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1560,
-      "dependencyEdges": 7170,
+      "sourceIssues": 26,
+      "sourceVersions": 7,
+      "reachableNodes": 1584,
+      "dependencyEdges": 7226,
       "acyclic": true,
-      "baselineLeaves": 1107,
+      "baselineLeaves": 1123,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -85987,7 +87562,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 669618,
+      "readerWords": 683712,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -86013,35 +87588,35 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 43,
-      "scratchCompleteLemmas": 732,
+      "scratchCompleteDefinitions": 46,
+      "scratchCompleteLemmas": 753,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "equivalence_injective_cardinality": 5540,
-        "equivalence_surjective": 5540,
-        "all_ambient_roots_in_domain": 5540,
-        "inverse_both_directions": 5540,
-        "unit_multiplier": 904,
-        "zero_class_fiber": 1152,
-        "actual_fiber_weighted_source_sum": 4788,
-        "actual_fiber_mean_sum_scaled": 4788,
-        "nonunit_period_cases": 664
+        "torusWeightedRelations": 2592,
+        "torusFiberPoints": 60372,
+        "ordinaryRelations": 1296,
+        "rankZeroRelations": 648,
+        "zeroClassRelations": 828,
+        "unitRelations": 432,
+        "coefficientAndAdditionControls": 5184,
+        "freeRelatorEvaluationControls": 2808,
+        "emptyFibers": 684,
+        "alternatingSignBounds": 500,
+        "sourceMisprintExactWitnesses": 3
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [
-        "LocallyAnalyticDistributions:L1"
-      ],
+      "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15",
+        "sourceSha256": "3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e",
         "modules": 3604,
-        "warnings": 4178,
+        "warnings": 4233,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,178 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -86051,7 +87626,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "d57d148dff9021bd065e6554a120290dc447eadeea5aeb747a5721bfec80086f",
+      "sha256": "45d7bedd0976e26b7a72c517947c14c46e19b2dd9d2ba8d060ed34359b184b1b",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -86066,11 +87641,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 732,
+        "completeLemmas": 753,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "33d19fbc71608386ee9a254c9434b6e8a13ad431b6399b69ed493571eada0b05"
+        "sha256": "bdee184c637dc39690df6990feb77936174709b2dcd602b33ed80448bed291fe"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -86208,18 +87783,18 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15",
+        "sourceSha256": "3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e",
         "modules": 3604,
-        "warnings": 4178,
+        "warnings": 4233,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,178 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "8db3fd997cf84d01b0f8fdbb6a1ebb2460603c76",
-      "unchangedInputs": 73,
+      "base": "0a5be795ca84710d8e8408a7fa60192601d17fe1",
+      "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
@@ -96547,6 +98122,58 @@
         "warnings": 4178,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,178 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertDistribution": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5398,
+      "previousHead": "2f0fb24a6dc8c36569bf232d7fdb1a50a623f8e3",
+      "previousMerge": "6ffcdad3735a3ad7dd18c10566ea76b0ee5e518d",
+      "preservedWholeNodes": 1300,
+      "preservedBaseline": 944,
+      "preservedFindings": 20,
+      "newNodes": 24,
+      "reading": "All published179–202, including Sections1–4, Appendix and bibliography; text and every page image read1October2026. The new mathematical extraction is restricted to179–180 and200(A1). Full owner nodes and the reviewed library audit were read. Native group, quotient, subgroup and finite-type construction proofs were read at the pins. Source notes distinguish read-but-unextracted results and unread external references.",
+      "boundary": "The actual ordinary/weighted relation quotient and its universal mapping property are now planned, with finite fibers proved for every native rational torus. Next construct the native additive subgroup of p-integral rational classes, supply its prime-to-p fiber instances, and factor the corrected Gamma mean through the weight0 quotient. Then specify odd and Frobenius quotients without claiming Gamma injectivity or freeness from factorization alone. Extract the finite-level relation subgroup with its required input-image condition, the intersection comparison, admissible generators and their generation proof, followed by the Cartan/rational rank lower bound; external[K-L] and the unidentified[L] remain unread boundaries. Preserve the p3,2/13 nonintegral-mean codomain witness. The original Katz/Fermat, external Stickelberger, Ferrero–Greenberg and RD.6 interfaces, Coleman/LAD logarithm boundary and all18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "e7910f71e8805d3a9b10f2dcdcf6947996ff84b5",
+      "sourceBoundary": "All20 predecessor findings and six source versions remain whole. Six findings against the read published Kubert scan record the log-series sign, undefined zero endpoint, derivative index/variable slips, erroneous cross-references, odd-quotient symbol, and missing[L]bibliographic source. Exact small controls and full page images support the bounded findings; no independent review verdict or historical novelty claim is made. The source version is added explicitly.",
+      "publication": {
+        "base": "0a5be795ca84710d8e8408a7fa60192601d17fe1",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "torusWeightedRelations": 2592,
+        "torusFiberPoints": 60372,
+        "ordinaryRelations": 1296,
+        "rankZeroRelations": 648,
+        "zeroClassRelations": 828,
+        "unitRelations": 432,
+        "coefficientAndAdditionControls": 5184,
+        "freeRelatorEvaluationControls": 2808,
+        "emptyFibers": 684,
+        "alternatingSignBounds": 500,
+        "sourceMisprintExactWitnesses": 3
+      },
+      "numericalMethod": "Exact rational arithmetic and finite enumeration, without floating point: complete rank0–3 rational-torus fibers, products of Bernoulli polynomials with their matching weights, free abelian relator coefficient vectors on finite cyclic groups, additive coefficient maps and sums. These are finite controls, not analytic certificates or proofs of basis/rank statements. The source-sign witness checks paired harmonic partial sums exactly; the endpoint and derivative-index witnesses use exact small cases.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e",
+        "modules": 3604,
+        "warnings": 4233,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,233 expected placeholder warnings across 3,604 pinned source modules. It includes all 24 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3da9596d6028076edea7bd09670103287f250238ffc0616e39826c6b8084850e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }

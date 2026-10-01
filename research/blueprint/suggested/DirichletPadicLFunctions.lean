@@ -1,3 +1,4 @@
+import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.FieldTheory.AlgebraicClosure
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
 import Mathlib.RingTheory.PowerSeries.Exp
@@ -22070,3 +22071,206 @@ example : (28+28+28+4*35+28 : ZMod 49)=4*14 := by sorry
 example : (28+28+28+35+28 : ZMod 49)≠14 := by sorry
 end
 end DirichletPadic.SuggestedGrossKoblitzDivisionFibersTests
+
+/- Kubert ordinary and weighted relation quotients on native groups. -/
+namespace DirichletPadic
+open scoped BigOperators
+universe u v v'
+
+lemma kubert_circle_fiber_finite (n : ℕ) (hn : 0 < n) (a : AddCircle (1 : ℚ)) :
+    Finite {b : AddCircle (1 : ℚ) // n • b = a} := by sorry
+
+lemma kubert_torus_fiber_finite (k n : ℕ) (hn : 0 < n)
+    (a : Fin k → AddCircle (1 : ℚ)) :
+    Finite {b : Fin k → AddCircle (1 : ℚ) // n • b = a} := by sorry
+
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertRelation (w m : ℕ) (a : X)
+    [Fintype {b : X // m • b = a}] : FreeAbelianGroup X := by sorry
+
+lemma kubert_relation_eval {A : Type v} [AddCommGroup A] (f : X → A)
+    (w m : ℕ) (a : X) [Fintype {b : X // m • b = a}] :
+    FreeAbelianGroup.lift f (kubertRelation w m a) =
+      m ^ w • (∑ b : {b : X // m • b = a}, f b.val) - f a := by sorry
+
+lemma kubert_relation_one (w : ℕ) (a : X) [Fintype {b : X // 1 • b = a}] :
+    kubertRelation w 1 a = 0 := by sorry
+
+lemma kubert_relation_weight_zero (m : ℕ) (a : X) [Fintype {b : X // m • b = a}] :
+    kubertRelation 0 m a = (∑ b : {b : X // m • b = a}, FreeAbelianGroup.of b.val) -
+      FreeAbelianGroup.of a := by sorry
+
+lemma kubert_relation_fintype_independent (w m : ℕ) (a : X)
+    (F G : Fintype {b : X // m • b = a}) :
+    @kubertRelation X _ w m a F = @kubertRelation X _ w m a G := by sorry
+
+variable (S : Set ℕ+) (w : ℕ)
+variable [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}]
+
+noncomputable def kubertRelations {X : Type u} [AddCommGroup X] (S : Set ℕ+) (w : ℕ)
+    [∀ (n : S) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}] :
+    AddSubgroup (FreeAbelianGroup X) := by sorry
+
+lemma kubert_relation_mem (n : S) (a : X) :
+    kubertRelation w (n.val : ℕ) a ∈ kubertRelations (X := X) S w := by sorry
+
+lemma kubert_relations_le_ker_iff {A : Type v} [AddCommGroup A] (f : X → A) :
+    kubertRelations (X := X) S w ≤ (FreeAbelianGroup.lift f).ker ↔
+      ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+        (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a := by sorry
+
+lemma kubert_quotient_relation (n : S) (a : X) :
+    (n.val : ℕ) ^ w • (∑ b : {b : X // (n.val : ℕ) • b = a},
+      QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of b.val)) =
+      QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of a) := by sorry
+
+noncomputable def kubertLift {A : Type v} [AddCommGroup A] (f : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a) :
+    (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A := by sorry
+
+lemma kubert_lift_of {A : Type v} [AddCommGroup A] (f : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a) (a : X) :
+    kubertLift S w f hf (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) = f a := by sorry
+
+lemma kubert_hom_ext {A : Type v} [AddCommGroup A]
+    (f g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (h : ∀ a : X, f (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) = g (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+        (FreeAbelianGroup.of a))) : f = g := by sorry
+
+lemma kubert_lift_unique {A : Type v} [AddCommGroup A] (f : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a)
+    (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (hg : ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+      (FreeAbelianGroup.of a)) = f a) : g = kubertLift S w f hf := by sorry
+
+lemma kubert_existsUnique_lift {A : Type v} [AddCommGroup A] (f : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a) :
+    ∃! g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A,
+      ∀ a : X, g (QuotientAddGroup.mk' (kubertRelations (X := X) S w)
+        (FreeAbelianGroup.of a)) = f a := by sorry
+
+lemma kubert_quotient_function_distribution {A : Type v} [AddCommGroup A]
+    (g : (FreeAbelianGroup X ⧸ kubertRelations (X := X) S w) →+ A)
+    (n : S) (a : X) :
+    (n.val : ℕ) ^ w • (∑ b : {b : X // (n.val : ℕ) • b = a},
+      g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of b.val))) =
+      g (QuotientAddGroup.mk' (kubertRelations (X := X) S w) (FreeAbelianGroup.of a)) := by sorry
+
+lemma kubert_postcompose_distribution {A : Type v} [AddCommGroup A]
+    {B : Type v'} [AddCommGroup B] (f : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a) (g : A →+ B)
+    (n : S) (a : X) : (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, g (f b.val)) = g (f a) := by sorry
+
+lemma kubert_lift_postcompose {A : Type v} [AddCommGroup A] {B : Type v'} [AddCommGroup B]
+    (f : X → A) (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a)
+    (g : A →+ B) :
+    kubertLift S w (fun a => g (f a)) (kubert_postcompose_distribution S w f hf g) = g.comp (kubertLift S w f hf) := by sorry
+
+lemma kubert_lift_zero {A : Type v} [AddCommGroup A] :
+    kubertLift S w (fun _ : X => (0 : A)) (by intros; simp) = 0 := by sorry
+
+lemma kubert_add_distribution {A : Type v} [AddCommGroup A] (f g : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a)
+    (hg : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, g b.val) = g a)
+    (n : S) (a : X) : (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, (f + g) b.val) = (f + g) a := by sorry
+
+lemma kubert_lift_add {A : Type v} [AddCommGroup A] (f g : X → A)
+    (hf : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, f b.val) = f a)
+    (hg : ∀ (n : S) (a : X), (n.val : ℕ) ^ w •
+      (∑ b : {b : X // (n.val : ℕ) • b = a}, g b.val) = g a) :
+    kubertLift S w (f + g) (kubert_add_distribution S w f g hf hg) = kubertLift S w f hf + kubertLift S w g hg := by sorry
+
+lemma kubert_relations_empty_eq_bot (w : ℕ)
+    [∀ (n : (∅ : Set ℕ+)) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}] :
+    kubertRelations (X := X) ∅ w = ⊥ := by sorry
+
+lemma kubert_relations_one_eq_bot (w : ℕ)
+    [∀ (n : ({1} : Set ℕ+)) (a : X), Fintype {b : X // (n.val : ℕ) • b = a}] :
+    kubertRelations (X := X) {1} w = ⊥ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertDistributionTests
+open scoped BigOperators Classical
+noncomputable section
+-- circle_halves_finite
+example : Finite {b : AddCircle (1 : ℚ) // 2 • b=((1/8 : ℚ) : AddCircle (1 : ℚ))} := by sorry
+-- rank_two_thirds_finite
+example (a : Fin 2 → AddCircle (1 : ℚ)) : Finite {b : Fin 2 → AddCircle (1 : ℚ) // 3 • b=a} := by sorry
+-- rank_zero_fiber
+example (a : Fin 0 → AddCircle (1 : ℚ)) : Finite {b : Fin 0 → AddCircle (1 : ℚ) // 5 • b=a} := by sorry
+-- two_torsion_zero_relation
+example : kubertRelation 0 2 (0 : ZMod 2)=FreeAbelianGroup.of (1 : ZMod 2) := by sorry
+-- empty_fiber_relation
+example : kubertRelation 0 2 (1 : ZMod 2)= -FreeAbelianGroup.of (1 : ZMod 2) := by sorry
+-- weight_factor_detected
+example : kubertRelation 1 2 (0 : ZMod 2)=FreeAbelianGroup.of (0 : ZMod 2)+2 • FreeAbelianGroup.of (1 : ZMod 2) := by sorry
+-- constant_evaluation
+example : FreeAbelianGroup.lift (fun _ : ZMod 2 => (1 : ℤ)) (kubertRelation 1 2 (0 : ZMod 2))=3 := by sorry
+-- unit_multiplier_all_weights
+example (w : ℕ) (a : ZMod 5) : kubertRelation w 1 a=0 := by sorry
+-- zero_weight_no_scalar
+example (a : ZMod 5) : kubertRelation 0 3 a=(∑ b : {b : ZMod 5 // 3 • b=a}, FreeAbelianGroup.of b.val)-FreeAbelianGroup.of a := by sorry
+-- enumeration_independence
+example (F G : Fintype {b : ZMod 5 // 3 • b=(2 : ZMod 5)}) : @kubertRelation (ZMod 5) _ 2 3 2 F = @kubertRelation (ZMod 5) _ 2 3 2 G := by sorry
+-- empty_degrees_free_group
+example : kubertRelations (X := ZMod 2) ∅ 0=⊥ := by sorry
+-- one_degree_no_relations
+example : kubertRelations (X := ZMod 2) {1} 3=⊥ := by sorry
+-- doubling_kills_nonzero_generator
+example : FreeAbelianGroup.of (1 : ZMod 2) ∈ kubertRelations (X := ZMod 2) {2} 0 := by sorry
+-- weighted_doubling_generator
+example : FreeAbelianGroup.of (0 : ZMod 2)+2 • FreeAbelianGroup.of (1 : ZMod 2) ∈ kubertRelations (X := ZMod 2) {2} 1 := by sorry
+-- constant_one_fails_doubling
+example : ¬kubertRelations (X := ZMod 2) {2} 0 ≤ (FreeAbelianGroup.lift (fun _ : ZMod 2 => (1 : ℤ))).ker := by sorry
+-- quotient_weighted_relation
+example : QuotientAddGroup.mk' (kubertRelations (X := ZMod 2) {2} 1) (FreeAbelianGroup.of 0+2 • FreeAbelianGroup.of 1)=0 := by sorry
+
+variable (f : ZMod 5 → ℤ)
+variable (hf : ∀ (n : ({2} : Set ℕ+)) (a : ZMod 5), (n.val : ℕ)^0 • (∑ b : {b : ZMod 5 // (n.val : ℕ) • b=a}, f b.val)=f a)
+-- lift_at_zero
+example : kubertLift {2} 0 f hf (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (0 : ZMod 5)))=f 0 := by sorry
+-- lift_at_two
+example : kubertLift {2} 0 f hf (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (2 : ZMod 5)))=f 2 := by sorry
+-- lift_additive_combination
+example : kubertLift {2} 0 f hf ((QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (1 : ZMod 5)))+(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (2 : ZMod 5))))=f 1+f 2 := by sorry
+-- lift_negative_combination
+example : kubertLift {2} 0 f hf (3 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (1 : ZMod 5)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (2 : ZMod 5))))=3*f 1-f 2 := by sorry
+-- generators_determine_map
+example (g h : (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) {2} 0) →+ ℤ) (he : ∀ a : ZMod 5,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (a : ZMod 5)))=h (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (a : ZMod 5)))) : g=h := by sorry
+-- any_descent_equals_lift
+example (g : (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) {2} 0) →+ ℤ) (he : ∀ a : ZMod 5,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (a : ZMod 5)))=f a) : g=kubertLift {2} 0 f hf := by sorry
+-- unique_native_quotient_map
+example : ∃! g : (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) {2} 0) →+ ℤ, ∀ a : ZMod 5,g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (a : ZMod 5)))=f a := by sorry
+-- quotient_map_satisfies_relation
+example (g : (FreeAbelianGroup (ZMod 5) ⧸ kubertRelations (X := ZMod 5) {2} 0) →+ ℤ) (a : ZMod 5) : (∑ b : {b : ZMod 5 // 2 • b=a},g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (b.val : ZMod 5))))=g (QuotientAddGroup.mk' (kubertRelations (X := ZMod 5) {2} 0) (FreeAbelianGroup.of (a : ZMod 5))) := by sorry
+-- postcompose_preserves_distribution
+example (g : ℤ →+ ℚ) (a : ZMod 5) : (∑ b : {b : ZMod 5 // 2 • b=a},g (f b.val))=g (f a) := by sorry
+-- lift_natural_in_coefficients
+example (g : ℤ →+ ℚ) : kubertLift {2} 0 (fun a => g (f a)) (kubert_postcompose_distribution {2} 0 f hf g)=g.comp (kubertLift {2} 0 f hf) := by sorry
+-- zero_distribution_lift
+example : kubertLift (X := ZMod 5) {2} 0 (fun _ => (0 : ℤ)) (by intros; simp)=0 := by sorry
+-- doubled_values_distribute
+example (a : ZMod 5) : (∑ b : {b : ZMod 5 // 2 • b=a},(f+f) b.val)=(f+f) a := by sorry
+-- lift_preserves_addition
+example : kubertLift {2} 0 (f+f) (kubert_add_distribution {2} 0 f f hf hf)=kubertLift {2} 0 f hf+kubertLift {2} 0 f hf := by sorry
+-- empty_degrees_weighted
+example : kubertRelations (X := ZMod 5) ∅ 4=⊥ := by sorry
+-- one_degree_weighted
+example : kubertRelations (X := ZMod 5) {1} 4=⊥ := by sorry
+end
+end DirichletPadic.SuggestedKubertDistributionTests
