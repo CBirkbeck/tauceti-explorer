@@ -1,0 +1,45 @@
+{
+ "redteam": "RT-PAPER-BHATT-MATHEW-21",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 4.3 (arXiv v4, pp. 25–26) is stated for any map V → W of absolutely integrally closed valuation rings, and its proof begins 'By replacing V by its image'. Item /80 copies it. With V a non-field aic valuation ring, W = V/m its residue field (algebraically closed, hence an aic valuation ring) and p = 0, we get pW = 0 ≠ W, but pW pulls back to m ≠ p, and W ⊗_V V_p = W ⊗_V Frac(V) = 0. The hypothesis ker(V → W) ⊆ p is needed. The fix, including the case split for Lemma 4.4 (item /81), is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Remark 3.31 (p. 23) says that for k[x,y] there is no arc-cover all of whose connected components are rank ≤ 1 valuation rings, and its argument depends on the rank bound. Item /77 drops 'rank ≤ 1', and the result contradicts its own first half, because the v-cover with valuation-ring components is an arc-cover by Proposition 2.1 (item /28). The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed, though I would grade it medium rather than high, since both errors are in explanatory notes rather than statements. The note to /46 says inverse-limit stability is 'false for v-covers'. Corollary 2.20 (p. 14) and Remark 2.18 (p. 13, a universal spectral submersion that is not a quotient map) say nothing of the kind, and the red team cites a published use of the opposite. The note to /96 contrasts the arc-topology with 'the fpqc and v-topologies' as if the v-topology on all qcqs schemes were subcanonical. It is not. Spec k → Spec k[ε]/ε² is a v-cover (valuation rings are reduced), it is a monomorphism, and h_{A¹} sends it to k[ε]/ε² → k, which is not injective. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Theorem 1.19 (p. 7) claims vanishing above d for every ℓ-power torsion sheaf when A is smooth. Theorem 7.3 (p. 56) proves d + 1 in general and d only for ℓ prime to the residue characteristic, and Remark 7.4 treats the smooth case only for constant coefficients. The accepted E3 records this. Item /27 still states the stronger Theorem 1.19, while /141 is already restricted. The fix, pointing /27 at /141 and E3, is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed, though I would grade it medium: the arbitrary-ring statement is unsupported rather than shown false. Section 6.1 (p. 47) introduces the square (15) with 'if A is a noetherian ring and t ∈ A', and Example 6.1 applies K-theory to that square. Item /120 says 'for a ring A'. The paper's explanation that 'the fibers of the horizontal maps are given by the K-theory of perfect t-power torsion A-modules' refers to the vertical localization maps K(A) → K(A[1/t]) and K(Â_t) → K(Â_t[1/t]) of the printed square. The fix (restore 'noetherian', correct to 'vertical', and add a misprint sourceIssue) is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The paper fixes 'Let Λ be a finite ring' (p. 41) before Notation 5.8 and keeps it through Theorem 5.13. Item /109 says 'a coefficient ring Λ', with /110–/113 inheriting it. For infinite Λ the claim that n = 0 gives the abelian category of constructible sheaves fails, by the red team's square-zero example. Route 1's brief itself imports 'constructible coefficient categories from Étale duality and perverse sheaves (EtaleDualityAndPerverseSheaves), stage EDC.0', yet routes /109 as a missing construction in ArcTopologyAndDescent. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium); I checked parts (a) and (e) directly. (a) In the proof of Theorem 5.6 (p. 40) the paper identifies quasi-compact separated étale V-schemes with functors (1 → ⋯ → n)^op → FinSet_inj, 'the category of finite sets and injections'. Natural transformations would then have injective components, which excludes non-injective morphisms such as the fold map Spec V ⊔ Spec V → Spec V. (e) Proposition 3.10 (pp. 18–19) is stated for functors carrying finite disjoint unions to products, while its proof says 'carrying finite disjoint unions to coproducts'. The remaining parts are proof-level slips of the same kind. The fix (separate sourceIssues) is right."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-MATHEW-21/8",
+   "verdict": "confirmed",
+   "reason": "Confirmed, though I would grade it medium: these are missing cited inputs, not the sole inputs of a main theorem. The proof of Theorem 5.17 (p. 45) uses 'Tannaka duality in the form of [Bha16, Theorem 1.5]', and the proof of Proposition 6.22 (p. 54) uses Deligne's Künneth formula [Del77, Cor. 1.11] with a limit argument, and Huber's [Hub96, Cor. 4.2.7]. No item records these, and Bha16 is not among the prerequisites. The fix, items with routes to SF.2 and a recorded request for derived Tannaka reconstruction of algebraic spaces, is right."
+  }
+ ]
+}
