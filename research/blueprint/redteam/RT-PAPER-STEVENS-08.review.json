@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-STEVENS-08",
+ "findings": [
+  {
+   "finding": "RT-PAPER-STEVENS-08/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item 112 states that η extends to a linear representation of K iff the class [α] ∈ H²(K/N′, ℂ^×) is trivial, with N′ = ker η, and item 113 bounds the order of that class by dim η. The proof of Theorem 4.1 (arXiv math/0607622v2, p. 20) argues with 'a 2-cocycle α of J_M' and its restriction to a Sylow pro-p subgroup, i.e. the relative Clifford obstruction, which lives on K/N for a lift ρ with ρ(nk) = η(n)ρ(k). The red team's example shows the item's criterion fails. In the Heisenberg group K = U₃(F₃), N = Z(K) = [K, K] ≅ C₃ and η(0,0,c) = ζ^c faithful (so K/N′ = K), the lift ρ(a,b,c) = ζ^c has factor set α(g,h) = ζ^{−ab′} = δρ, a coboundary on K. Yet η does not extend, since every character of K kills [K, K] = N. On K/N ≅ F₃² the same factor set is a non-symmetric bilinear form, so its class is nontrivial, as the relative theory predicts. The fix is right: state the criterion with the normalized relative factor set on K/N (InductionRestriction layer 7), separate the absolute determinant bound, and supply the p-primary relative bound (via det(ρ)^m with m = ord(det η)) that item 111's Sylow argument needs."
+  },
+  {
+   "finding": "RT-PAPER-STEVENS-08/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item 78 asks for 'an exact sequence of o_F-lattices in A₋'. In the unitary case A₋ = {a ∈ A : ā = −a} is not stable under F-scalars: for a ∈ A₋ and i ∈ o_F with ī = −i, (ia)‾ = ī·ā = (−i)(−a) = ia, so ia is hermitian, not skew. A₋ is an F₀-vector space (p. 8 identifies A₋ = A^Σ with Lie G, an F₀-Lie algebra), and its lattices are o_{F₀}-lattices. The red team's unitary line over Q₃(i) exhibits this concretely. The fix is right: o_{F₀}-lattices for the minus parts, keeping o_F-lattices for the ambient objects, with a new sourceIssue for the paper's wording."
+  },
+  {
+   "finding": "RT-PAPER-STEVENS-08/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Items 246 and 306 both define cuspidality for the possibly disconnected finite reductive quotient P(Λ_{o_E})/P₁(Λ_{o_E}) by the same convention (the restriction to the identity component contains a cuspidal representation), with the same locator (§6.4, the paragraph before Definition 6.17, p. 43), and both are missing items on the same Part II route. Item 246 is the maximal-order case of item 306. The fix (one general definition, with the specialization and both consumers recorded, reusing PAPER-FINTZEN-21/33's connected predicate) is right."
+  }
+ ]
+}
