@@ -48591,3 +48591,403 @@ Independent exact rational matrix controls cover 29 levels in dimensions one thr
 After actual merge of #5446, 74 of 76 captured inputs remain byte-identical. The two generated errata registers changed only for independent review of SmallRamificationAndAbelianVarietyBaseCases: four existing findings were confirmed and seven findings were added. Both complete diffs were read; every Dirichlet finding and all relevant mathematical interfaces remain unchanged. The refreshed 76-input guard now checks these exact registry revisions. The issue body, original winning claim, blocked unclaimed review #390, policies, reviewed library audit, owner interfaces and exact four predecessor outputs remain guarded. The proved source generation and cardinality, actual quotient comparison and existing native module APIs are reused. No replacement quotient, rank hypothesis package or supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 4,896 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077.
+
+
+## Kubert primitive lifts and linear transfers for arbitrary divisibility
+
+Fourteen L3 nodes construct actual primitive-point reduction and linear transfer for every positive divisibility, prove primitive-root existence across new primes, and establish transfer injectivity, identity, composition and complete-fiber formulas. All 1,595 predecessor nodes and 1,076 baseline records remain whole.
+
+Kubert 186–189 was reread, distinguishing the primitive-point injection (2.6), Cartan norm map (2.7) and the later distribution formulas. Existing support completion, same-support primitive lifts, coprime lower roots and distinguished points were inspected. Native coprime-order, finite-index coefficient, linear pi/projection and finite-sum/support APIs were read and used directly. The native injective-domain comap APIs are unsuitable for the surjective primitive reduction; the construction uses native finite function-module equivalences and projections instead.
+
+### Reduction between actual primitive-point levels
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction` — `DirichletPadic.kubertPrimitiveReduction`
+
+For every M|N, construct the actual map from primitive N-points to primitive M-points by multiplying by N/M.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. The quotient degree divides N and is positive.
+2. Apply the established exact-order formula for multiplying a primitive point by a divisor of its order.
+3. Use the native double-division identity N/(N/M)=M to certify the exact lower order. The point value is unchanged except for the specified scalar.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-primitive-points`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-nsmul`.
+
+**Uses:**
+
+- Exact-order transition: Preserves the exact lower order under the actual quotient-degree scalar.
+- Primitive fibers: Identifies typed fibers with actual ambient root equations and proves them nonempty.
+- Directed levels: Supplies the composition law used in primitive transfers.
+
+**API:**
+
+- `kubertTransfer_primitiveReduction_coe` (compatibility): For every primitive upper point y, the ambient point of its reduction is exactly (N/M)y.
+- `kubertTransfer_primitiveReduction_eq_iff` (characterisation): For actual primitive points y at N and x at M, reduction(y)=x if and only if (N/M)y=x in the ambient additive group.
+- `kubertTransfer_primitiveReduction_self` (compatibility): For every positive N, the reduction from primitive N-points to themselves is the identity.
+- `kubertTransfer_primitiveReduction_comp` (compatibility): For L|M|N, reducing an actual primitive N-point to M and then L equals the direct reduction to L.
+- `kubertTransfer_primitiveReduction_surjective` (characterisation): For every positive M|N, the actual reduction from primitive N-points to primitive M-points of the positive-dimensional rational torus is surjective.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.actual_degree_multiple_is_retained` (compatibility): Reduction from twelve to three sends the actual primitive point to four times that point.
+- `SuggestedKubertTransferTests.reduced_point_has_exact_lower_order` (characterisation): Reduction across a new prime from six to two has exact order two, not merely an annihilation bound.
+- `SuggestedKubertTransferTests.unit_target_is_the_zero_point` (degenerate): Reduction to the unit level sends every primitive source point to zero.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive reduction has the actual quotient-degree value
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe` — `DirichletPadic.kubertTransfer_primitiveReduction_coe`
+
+For every primitive upper point y, the ambient point of its reduction is exactly (N/M)y.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Unfold the actual reduction construction.
+2. The ambient value is definitionally the quotient-degree multiple; its additional component is only the exact-order proof.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.point_value_formula` (compatibility): The actual reduction scalar is precisely the quotient of the two positive levels.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### A reduction fiber is exactly the actual root fiber
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-eq-iff` — `DirichletPadic.kubertTransfer_primitiveReduction_eq_iff`
+
+For actual primitive points y at N and x at M, reduction(y)=x if and only if (N/M)y=x in the ambient additive group.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Apply the ambient-value map to a typed equality in the lower primitive subtype.
+2. Conversely use native subtype extensionality on the actual root equation.
+3. No extra representatives or identifications are introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.typed_fiber_is_the_actual_root_fiber` (characterisation): Equality in the lower primitive subtype is exactly the actual ambient root equation.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive reduction at one level is the identity
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-self` — `DirichletPadic.kubertTransfer_primitiveReduction_self`
+
+For every positive N, the reduction from primitive N-points to themselves is the identity.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Use subtype extensionality and the actual ambient reduction formula.
+2. The quotient N/N is one because N is positive; its action fixes every point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.same_level_reduction_is_identity` (degenerate): Reduction from a positive level to itself is the identity on primitive points.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive reductions compose along divisibility
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-comp` — `DirichletPadic.kubertTransfer_primitiveReduction_comp`
+
+For L|M|N, reducing an actual primitive N-point to M and then L equals the direct reduction to L.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Compare the ambient values by native subtype extensionality.
+2. Combine the two natural scalar actions.
+3. Use the existing native divisibility quotient identity (N/M)(M/L)=N/L.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-coe`, `mathlib:Nat.div_mul_div`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.actual_reductions_compose` (compatibility): The quotient-degree reductions along two divides six divides twelve compose to the direct reduction.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Every primitive torus point has a primitive lift at every multiple
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-lift-all-divisors` — `DirichletPadic.kubertTransfer_primitive_lift_all_divisors`
+
+For any positive M|N and any actual primitive M-point x of (Q/Z)^(k+1), there exists an actual primitive N-point y with (N/M)y=x, including divisibility that introduces new primes.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Let A be the established support completion of M in N and B=N/A. The existing completion theorems give M|A|N, equal prime supports for M and A, and coprimality of A and B.
+2. Since B is coprime to M, use the established unique B-root on the actual M-kernel to obtain u with Bu=x. Its exact order is M.
+3. Use rational-torus divisibility and the proved same-support primitive-lift theorem to obtain a of exact order A with (A/M)a=u.
+4. Take the established distinguished point b of exact order B. The native theorem for sums of commuting elements of coprime order gives exact order AB=N for a+b.
+5. The native quotient identity N/M=B(A/M) gives (N/M)a=x and (N/M)b=0. Thus y=a+b is the required actual primitive root.
+6. At M=1, the completion is one and the complementary distinguished point supplies the primitive N-root of zero; no exceptional case is discarded.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-admissible`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-pos`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-dvd-support-completion`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-dvd`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-support-completion-prime-factors`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-complement`, `DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-unique`, `DirichletPadicLFunctions:L3/kubert-prime-fiber-coprime-level-root-primitive`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-primitive-lift-exists`, `DirichletPadicLFunctions:L3/kubert-generators-distinguished-point-order`, `mathlib:Nat.div_mul_div`, `mathlib:Commute.orderOf_mul_eq_mul_orderOf_of_coprime`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.primitive_lifts_exist_across_new_primes` (characterisation): Every primitive order-two point has a primitive order-six triple root.
+- `SuggestedKubertTransferTests.unit_primitive_point_has_new_prime_lift` (degenerate): The primitive unit-level point has a primitive order-three root; the positive-dimensional complementary point supplies it.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive reduction is surjective on the rational torus
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-surjective` — `DirichletPadic.kubertTransfer_primitiveReduction_surjective`
+
+For every positive M|N, the actual reduction from primitive N-points to primitive M-points of the positive-dimensional rational torus is surjective.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Apply the general primitive-lift existence theorem to an arbitrary primitive lower point.
+2. The ambient root equation is the typed reduction equality by primitiveReduction_eq_iff.
+3. This establishes nonemptiness of every actual primitive fiber, including fibers across new primes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-lift-all-divisors`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-eq-iff`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.all_lower_primitive_points_occur` (characterisation): Reduction from twelve to two is surjective even though the level introduces a new prime.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### The actual linear primitive-root transfer
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer` — `DirichletPadic.kubertPrimitiveTransfer`
+
+Construct the native R-linear map from finitely supported coefficients on primitive M-points to finitely supported coefficients on primitive N-points by pulling coefficients back along actual reduction.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Use the established finiteness of both actual primitive-point types.
+2. Identify the existing finitely supported modules with function modules using the native finite-index linear equivalence.
+3. Use native LinearMap.pi and LinearMap.proj to precompose each coefficient with actual primitive reduction.
+4. Compose with the inverse finite-index equivalence at N. This is a native R-linear map over any semiring R.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-finite`, `mathlib:Finsupp.linearEquivFunOnFinite`, `mathlib:LinearMap.pi`, `mathlib:LinearMap.proj`.
+
+**Uses:**
+
+- Kubert equation (2.6): Realizes the actual full-primitive-root map with integer coefficients.
+- Coefficient recovery: Proves injectivity even in positive characteristic and at unit level.
+- Later equivariance and Cartan comparison: Exposes actual coefficients and complete fibers for comparison with the still-unconstructed Cartan norm maps.
+
+**API:**
+
+- `kubertTransfer_primitiveTransfer_apply` (compatibility): For any coefficient vector f and actual primitive upper point y, the coefficient of its transfer at y is f evaluated at reduction(y).
+- `kubertTransfer_primitiveTransfer_injective` (characterisation): For arbitrary semiring coefficients, the primitive-root transfer for M|N is injective.
+- `kubertTransfer_primitiveTransfer_self` (compatibility): The native primitive transfer from a positive level to itself equals the native identity linear map.
+- `kubertTransfer_primitiveTransfer_comp` (compatibility): For L|M|N, transfer from L to M followed by transfer from M to N equals direct transfer from L to N as native linear maps.
+- `kubertTransfer_primitiveTransfer_single` (compatibility): Transfer of the basis vector at x with coefficient a equals the sum of all basis vectors with coefficient a indexed by actual primitive N-points y satisfying (N/M)y=x.
+- `kubertTransfer_primitiveTransfer_support` (characterisation): The support of the transferred coefficient vector is exactly the finite set of actual primitive upper points whose reductions lie in the original support.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.transfer_coefficients_are_actual_pullbacks` (compatibility): The transfer coefficient at a primitive upper point equals the lower coefficient at its actual reduction.
+- `SuggestedKubertTransferTests.integer_linear_combinations_are_preserved` (compatibility): The native linear transfer preserves arbitrary integer combinations.
+- `SuggestedKubertTransferTests.unit_source_vector_uses_all_primitive_roots` (degenerate): The unique lower source basis vector at level one has coefficient one at every primitive order-three root.
+- `SuggestedKubertTransferTests.transfer_support_is_exact_root_preimage` (characterisation): The transfer support consists exactly of roots above the lower support.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Transfer evaluates by actual coefficient pullback
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply` — `DirichletPadic.kubertTransfer_primitiveTransfer_apply`
+
+For any coefficient vector f and actual primitive upper point y, the coefficient of its transfer at y is f evaluated at reduction(y).
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Evaluate the native pi/projection construction between the finite-index equivalences.
+2. All component point functions are the actual evaluation functions, so the formula is definitional.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.coefficient_evaluation` (characterisation): Evaluation is the actual coefficient pullback at every primitive upper point.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### The actual primitive transfer is injective over every semiring
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-injective` — `DirichletPadic.kubertTransfer_primitiveTransfer_injective`
+
+For arbitrary semiring coefficients, the primitive-root transfer for M|N is injective.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Suppose two transferred vectors are equal.
+2. For each actual lower primitive point, choose a primitive upper root using proved reduction surjectivity.
+3. Evaluate the equality at that root; the coefficient formula recovers the two original coefficients.
+4. Use native finitely supported function extensionality. No averaging, invertible cardinality or characteristic-zero hypothesis is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.integer_transfer_is_injective` (characterisation): Nonempty disjoint primitive fibers make the actual integer-linear transfer injective.
+- `SuggestedKubertTransferTests.transfer_is_injective_in_characteristic_two` (compatibility): Transfer remains injective over the field of two elements even when some fiber sizes are divisible by two; no averaging is used.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive transfer at an unchanged level is the identity
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-self` — `DirichletPadic.kubertTransfer_primitiveTransfer_self`
+
+The native primitive transfer from a positive level to itself equals the native identity linear map.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Apply native linear-map and finitely-supported-function extensionality.
+2. The coefficient formula reduces the equality to primitiveReduction_self.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-self`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.same_level_transfer_is_identity` (degenerate): The transfer at an unchanged positive level is the native identity linear map.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### Primitive transfers compose along divisibility
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-comp` — `DirichletPadic.kubertTransfer_primitiveTransfer_comp`
+
+For L|M|N, transfer from L to M followed by transfer from M to N equals direct transfer from L to N as native linear maps.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Compare the maps on each coefficient vector and each actual primitive N-point.
+2. Apply the exact coefficient formula twice.
+3. Use the proved composition law for actual primitive reductions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-comp`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.linear_transfers_compose` (compatibility): The transfers along two divides six divides twelve compose to the direct transfer.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### A transferred basis vector is the complete primitive-root sum
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-single` — `DirichletPadic.kubertTransfer_primitiveTransfer_single`
+
+Transfer of the basis vector at x with coefficient a equals the sum of all basis vectors with coefficient a indexed by actual primitive N-points y satisfying (N/M)y=x.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Compare coefficients at an arbitrary actual primitive upper point.
+2. Use native Finsupp.finsetSum_apply to evaluate the complete finite sum.
+3. The single-vector evaluation formula leaves a precisely when the point lies in the actual root fiber, and zero otherwise.
+4. Use primitiveReduction_eq_iff to identify this exact root condition with the coefficient-pullback condition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `DirichletPadicLFunctions:L3/kubert-transfer-primitive-reduction-eq-iff`, `mathlib:Finsupp.finsetSum_apply`, `mathlib:Finsupp.single_apply`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.basis_vector_is_the_complete_primitive_root_sum` (characterisation): A primitive lower basis vector transfers to the sum over every actual primitive upper root.
+- `SuggestedKubertTransferTests.unit_to_three_has_two_target_atoms` (degenerate): The level-one basis vector transfers to two primitive target atoms at level three.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+### The support of transfer is the exact primitive-root preimage
+
+`DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-support` — `DirichletPadic.kubertTransfer_primitiveTransfer_support`
+
+The support of the transferred coefficient vector is exactly the finite set of actual primitive upper points whose reductions lie in the original support.
+
+**Hypotheses:** Levels M and N are positive integers with an explicit divisibility M|N. Primitive points are the established actual points of exact additive order equal to the level; reduction acts by the actual quotient degree N/M. Reduction and its identity and composition laws hold in any additive commutative group. Surjectivity and transfer use the actual positive-dimensional rational torus (Q/Z)^(k+1). Primitive-root existence across new primes is proved using support completion and actual complementary primitive points. Transfer uses the existing finitely supported coefficient modules over an arbitrary semiring R. The finite primitive-point index sets are established, and the map is an actual native R-linear map; finite sums use native Fintype structures on these same point types. Transfer copies each lower coefficient to every primitive upper root. It neither chooses one root for the map nor divides by a fiber cardinality. The unit level and coefficient semirings of positive characteristic are included. This checkpoint does not construct Cartan rings or actions, prove equivariance or identify the transfer with a group-ring norm. The independent distribution rank lower bound, freeness and equality of internal and global relations remain separate.
+
+**Proof:**
+
+1. Use native finite-set extensionality.
+2. The native Finsupp.mem_support_iff turns both support conditions into nonvanishing of a coefficient.
+3. The actual coefficient formula makes those conditions identical.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-transfer-primitive-transfer-apply`, `mathlib:Finsupp.mem_support_iff`.
+
+**Tests:**
+
+- `SuggestedKubertTransferTests.support_preimage_formula` (characterisation): The actual support equality records exactly which primitive upper roots have nonzero coefficients.
+
+**Acceptance:** Keep the actual primitive-point carriers and quotient-degree root equation. Prove nonempty primitive fibers for arbitrary divisibility, including new primes and level one. Define transfer by native coefficient pullback and prove its complete-fiber basis formula; recover coefficients to prove injectivity over every semiring. Do not replace the map by a root choice, normalized average or assumed rank/action certificate.
+
+**Source:** Published 187, equation (2.6), the injection of free modules on primitive points for every divisibility M|N. The Cartan group-ring transition (2.7) and the distribution construction on 187–189 remain distinct. Constructs the actual primitive-root transfer on the existing finitely supported module, proves existence of a primitive root over every lower primitive point, and derives injectivity, identity and composition from exact coefficient formulas. The proof handles levels with new prime factors and retains complete fibers.
+
+**Remaining:** The actual primitive-point transfer now exists for every positive divisibility M|N, including new prime factors. It is injective over every semiring, sends each basis vector to the complete actual primitive-root sum, preserves identity and composition, and has the exact support preimage. Next establish its equivariance under actual additive automorphisms and the integral general linear action. Construct and compare the actual Cartan finite rings, units, primitive torsors and norm maps required on Kubert 186–189, using existing native or owner interfaces wherever available. Complete the independent rank lower bound using the Cartan or rational model of 186–199, then combine it with the proved actual source surjections and rank upper bounds to establish independence, freeness and equality of internal/global relations through native module APIs. Do not assume an action, torsor or full-rank package containing the desired conclusion. Finite controls do not establish that general lower bound. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert primitive lifts and linear transfers for arbitrary divisibility validation
+
+All 1595 predecessor nodes, 1076 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 14 nodes, 14 named suggested declarations and 22 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1869 reachable nodes, 8103 edges and 1244 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in the established actual primitive-point, support-completion and root-lifting results or native order, finite-index, linear-map and coefficient APIs. No supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains #5449 verbatim and adds two actual constructions and twelve complete lemmas. Totals are 86 definitions and 998 lemmas with zero placeholders. All 14 suggested declarations and 22 typed tests use actual primitive points and native finitely supported coefficient modules. No new native import or library build is needed. The separate probe compiles against 2984 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent exact rational controls cover 220 divisibility pairs and 540 chains in dimensions one through three, checking 11,461 primitive roots and 3,977 nonempty disjoint fibers. They include 124 pairs introducing new primes, 62 unit-source pairs and coefficient recovery modulo two and three. Exact rational primitive-point enumeration in dimensions one through three, for N at most 36,20,6 respectively. Every divisibility pair checks all actual quotient-degree roots, nonempty disjoint primitive fibers, coefficient pullback, full fiber sums, support preimages and coefficient recovery over integers and modulo 2 and 3. Every divisibility chain checks actual reduction composition. At M=1,N=3 the one source basis vector transfers to two distinct primitive target vectors. These controls do not construct a Cartan action or prove the independent distribution rank lower bound. The largest observed discrepancy is 0.
+
+After actual merge of #5449, all 76 captured inputs and all four predecessor outputs are unchanged. The issue body, original winning claim, blocked unclaimed review #390, policies, reviewed library audit, source registers and owner interfaces remain guarded. Reuses actual primitive points and their established finiteness, support completion, coprime lower roots and same-support lifts. No supplier request, replacement carrier or assumed primitive-root existence is introduced.
+
+The separate partial signature file also compiled with zero errors and 4,932 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 82b4529578d9cea3a588852d4b6122f9e233eb2a274f6d848bc67e7eb1abd6a2.
