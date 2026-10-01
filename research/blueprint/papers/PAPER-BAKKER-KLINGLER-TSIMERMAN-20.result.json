@@ -221,7 +221,7 @@
       "uses": [
         {
           "where": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
-          "how": "Retain the existing fixed-polarization carrier under the manifold realization."
+          "how": "Reuse the full fixed-polarization carrier as ambient data; the general Mumford–Tate domain is an orbit subtype with an inclusion, and is equal to a full component only under its specialization hypotheses."
         }
       ],
       "unitTests": [
@@ -2630,26 +2630,28 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/general-period-domain",
       "kind": "construction",
       "name": "Complex period domain and compact dual",
-      "statement": "Let G be the semisimple Q-group acting on V_Q through which the variation's monodromy and Hodge structures factor (the derived Mumford–Tate group; see E27). D = G(R)^+·F_0 ≅ G/M is an open semialgebraic G(R)^+-orbit in its compact dual Ď = G(C)·F_0, a closed G(C)-orbit in a flag variety of V_C. Here M is compact but in general not maximal compact, so D need not be Hermitian symmetric. The G(C)-action on Ď is algebraic, and D has its complex structure and horizontal subbundle. For G = Aut(V_Q,Q) this is the full period domain with the given Hodge numbers.",
-      "locator": "§1.3; §4.2",
+      "statement": "Fix the lattice, rational polarization and Hodge numbers of /period-point, and a pure polarized Hodge datum with represented Q-group G and reference filtration F_0 (use a derived/central-cover representation when required by E27). The connected Mumford–Tate domain D=G(R)^+·F_0 is realized as the orbit subtype of the existing PeriodDomain.Point ambient carrier; it imposes the datum’s additional Hodge-tensor conditions and the chosen real-orbit component. Its compact dual is the appropriate algebraic orbit Ď=G(C)·F_0 in the ambient flag variety. D is open in Ď, not generally open in or equal to the full polarized period domain. Construct its homogeneous complex structure, algebraic compact-dual action and horizontal subbundle on this orbit. Isotropy M is compact but need not be maximal compact. For the full polarization-isometry datum whose real orbit is the chosen full period-domain component, the inclusion specializes to an equivalence with that component; recovering the whole ambient carrier requires the union of its period-domain components.",
+      "locator": "BKT §1.3, p. 920 and §4.2, p. 928; [K17] §3.1 Proposition 3.1 and Definitions 3.3–3.4, preprint p. 10",
       "status": "missing",
       "prerequisites": [
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/period-point",
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-homogeneous-model"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-homogeneous-model",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group"
       ],
       "proofSteps": [
-        "Build the flag variety with the polarization isotropy relations and the open positivity locus.",
-        "Identify its points with the pinned PeriodDomain.Point carrier.",
-        "Construct the homogeneous complex structure and horizontal bundle; import the Hermitian specialization from ShimuraData.D2–D3 without claiming it covers every period domain."
+        "Realize the full polarized period domain with its fixed lattice/form/type using the pinned PeriodDomain.Point carrier and positivity/isotropy conditions.",
+        "For the specified Hodge datum, form the G(R)^+ orbit of F_0 inside that carrier, retaining defining rational tensor conditions and the chosen connected component. Construct the injective inclusion; do not equate this subtype with all period points.",
+        "Construct the compact dual G(C)·F_0 and its complex manifold/open-domain structure on the orbit. Construct the horizontal bundle there; import Hermitian specialization from ShimuraData D2–D3 where its hypotheses hold.",
+        "Prove the full-polarization-isometry specialization only when the group orbit is the entire selected full period-domain component; account for other components separately."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "H",
-      "note": "",
+      "note": "The pinned carrier is correct and reused as ambient data. The unconditional pointEquivalence API has been replaced by an inclusion and a hypothesis-dependent component equivalence. A CM weight-one datum can have singleton domain while the ambient polarized period domain has many points.",
       "api": [
         {
-          "name": "BKT.GeneralPeriodDomain.pointEquivalence",
-          "role": "functoriality",
-          "statement": "The analytic domain has the existing PeriodDomain.Point carrier with the fixed lattice/form/type."
+          "name": "BKT.GeneralPeriodDomain.pointInclusion",
+          "role": "constructor",
+          "statement": "For a fixed represented Hodge datum and real-orbit component, the analytic Mumford–Tate domain embeds into the pinned PeriodDomain.Point carrier; its image is exactly that orbit subtype."
         },
         {
           "name": "BKT.GeneralPeriodDomain.compactDualAction",
@@ -2660,6 +2662,11 @@
           "name": "BKT.GeneralPeriodDomain.horizontalTangent",
           "statement": "The horizontal subbundle is the degree −1 filtration-lowering part of the tangent space.",
           "role": "characterisation"
+        },
+        {
+          "name": "BKT.GeneralPeriodDomain.fullComponentEquivalence",
+          "role": "characterisation",
+          "statement": "If the Hodge datum’s real orbit equals the selected component of the full polarization-isometry period domain, pointInclusion induces an equivalence with that component. No equivalence with all ambient points is asserted for a proper Mumford–Tate datum."
         }
       ],
       "uses": [
@@ -2671,7 +2678,7 @@
       "unitTests": [
         {
           "name": "BKT.GeneralPeriodDomain.test1",
-          "statement": "Effective weight one produces the usual Siegel domain.",
+          "statement": "For the full symplectic weight-one datum, the chosen period-domain component is the usual Siegel domain; weight one alone does not force every Mumford–Tate domain to be Siegel.",
           "status": "proposed"
         },
         {
@@ -2683,6 +2690,11 @@
           "name": "BKT.GeneralPeriodDomain.test3",
           "statement": "A non-Hermitian period domain is not identified with G/K when M is smaller than K.",
           "status": "proposed"
+        },
+        {
+          "name": "BKT.GeneralPeriodDomain.cmSingleton",
+          "statement": "For Q² with Q(e₁,e₂)=1, F¹_i=C(e₁+i e₂) and F¹_{2i}=C(e₁+2i e₂) are distinct polarized ambient points. The CM datum of F_i has trivial derived group and singleton orbit; J=[[0,-1],[1,0]] preserves F_i but not F_{2i}, so pointInclusion is not surjective onto the ambient carrier.",
+          "status": "proposed"
         }
       ],
       "apiStatus": "Proposed integration/API contracts; existing carrier references do not certify these new names or tests as formalized.",
@@ -2690,7 +2702,7 @@
         {
           "name": "BKT.GeneralPeriodDomain.test1",
           "kind": "characterisation",
-          "statement": "Effective weight one produces the usual Siegel domain."
+          "statement": "For the full symplectic weight-one datum, the chosen period-domain component is the usual Siegel domain; weight one alone does not force every Mumford–Tate domain to be Siegel."
         },
         {
           "name": "BKT.GeneralPeriodDomain.test2",
@@ -2701,6 +2713,11 @@
           "name": "BKT.GeneralPeriodDomain.test3",
           "kind": "non-example",
           "statement": "A non-Hermitian period domain is not identified with G/K when M is smaller than K."
+        },
+        {
+          "name": "BKT.GeneralPeriodDomain.cmSingleton",
+          "statement": "For Q² with Q(e₁,e₂)=1, F¹_i=C(e₁+i e₂) and F¹_{2i}=C(e₁+2i e₂) are distinct polarized ambient points. The CM datum of F_i has trivial derived group and singleton orbit; J=[[0,-1],[1,0]] preserves F_i but not F_{2i}, so pointInclusion is not surjective onto the ambient carrier.",
+          "kind": "non-example"
         }
       ]
     },
@@ -4630,16 +4647,17 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-hodge-countability",
       "kind": "theorem",
       "name": "Countable supply of exceptional Hodge subdata",
-      "statement": "For a fixed rational polarized Hodge datum there are countably many rational tensor conditions and rational Hodge subdata that can cut out exceptional Mumford–Tate groups, including their rational translates and arithmetic connected components. Their special images cover the exceptional Hodge locus.",
+      "statement": "For a fixed rational polarized Hodge datum there are countably many rational tensor families and rational Hodge subdata that cut out proper drops of the generic Mumford–Tate group, including rational translates and arithmetic connected components. Only rational tensors of type (0,0) at the point and outside the generic type-(0,0) invariant subspace are exceptional. Their proper special images cover the exceptional Hodge locus; the generic identity subdatum is excluded.",
       "locator": "§1.4, p. 921 ('easily seen to be a countable union'); §5, p. 934 ('(countable) union of special subvarieties'; 'HL(S,V) coïncides with the preimage Φ_S^{-1}(HL(S_{Γ,G,M}))'); asserted without proof",
       "status": "missing",
       "prerequisites": [
-        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-hodge-subvariety"
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/special-hodge-subvariety",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus"
       ],
       "proofSteps": [
         "Tensor constructions on a finite-dimensional rational vector space have countably many rational tensors.",
         "Use stabilizers of finite tensor families to enumerate rational subgroups and then the Hodge-subdatum condition.",
-        "Separate the tensors already of Hodge type at the generic point from exceptional tensors."
+        "Separate the generic type-(0,0) invariant subspaces from new type-(0,0) tensors, using [K17] Lemma 2.5; exclude identity/generic subdata before enumerating proper special images."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "H",
@@ -4862,19 +4880,34 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group",
       "kind": "definition",
       "name": "Generic Mumford–Tate group and Mumford–Tate domain of a variation",
-      "statement": "For s ∈ S, the Mumford–Tate group MT(V_s) of the polarized Z-Hodge structure V_s is the smallest Q-algebraic subgroup of GL(V_{s,Q}) whose real points contain the image of the Deligne torus h_s. Equivalently, it is the subgroup fixing all Hodge tensors of V_s. It is connected and reductive. There is a countable union Σ ⊊ S of proper closed analytic subvarieties such that, after parallel transport over the universal cover of S, MT(V_s) is a constant group for s ∉ Σ and contains MT(V_s) for every s. This constant group is the generic Mumford–Tate group MT(V). Let G be its adjoint group and G = G(R)^+. G acts holomorphically and transitively on the Mumford–Tate domain D = G/M (the G-orbit of a Hodge structure), with compact isotropy M.",
-      "locator": "§1.3, p. 920",
+      "statement": "For a pure polarized rational Hodge structure V_s, MT(V_s) is the smallest Q-algebraic subgroup of GL(V_{s,Q}) whose real points contain the Deligne-torus image h_s. Equivalently, it is the subgroup fixing all rational tensors of type (0,0) in the untwisted spaces V_{s,Q}^{⊗a}⊗(V_{s,Q}^∨)^{⊗b}, for a,b≥0. It is connected and reductive. For a variation on a connected smooth base S, after flat trivialization on the universal cover, there is a countable union Σ of proper closed analytic subvarieties such that MT(V_s) is the same generic group MT(V) off Σ and MT(V_s)⊆MT(V) for every s. The adjoint group of MT(V) acts transitively on the chosen connected Mumford–Tate domain with compact isotropy; to realize that domain inside filtrations on V_Q use the represented group/central-cover adapter of E27 rather than an unprovided action of the adjoint group on V_Q.",
+      "locator": "BKT §1.3, p. 920; [K17] §2.4 Lemma 2.5 and §2.6, preprint pp. 8–9",
       "status": "missing",
-      "note": "Named but not defined in the paper, which refers to [K17]. Conventions (h_s on S or on U(1)) give the same adjoint group. B's hodge-datum and hodge-manifold and C's general-period-domain use G and D but do not define MT(V). Missing: routed to route 8."
+      "note": "The tensor-invariant convention is type (0,0) in the untwisted tensor algebra. A (p,p) class can be tested this way only after the explicit Tate twist (p), with the Tate-character action retained. Corrects extraction finding /1; no new source error is alleged. Missing, route 8."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus",
       "kind": "definition",
       "name": "Exceptional Hodge tensors and the Hodge locus HL(S, V)",
-      "statement": "A Hodge tensor of V_s is a rational class in some tensor space V_{s,Q}^{⊗a} ⊗ (V_{s,Q}^∨)^{⊗b} that is of Hodge type (p, p). It is exceptional if it is not fixed by the generic Mumford–Tate group MT(V), i.e. if it is not a Hodge tensor at a general point. The Hodge locus HL(S, V) ⊂ S is the set of s ∈ S at which V_s has an exceptional Hodge tensor, equivalently at which MT(V_s) ⊊ MT(V).",
-      "locator": "§1.4, p. 921",
+      "statement": "Fix a pure polarized rational variation V on a connected smooth base S and a flat trivialization on its universal cover. A Hodge tensor at s is a rational tensor of type (0,0) in V_{s,Q}^{⊗a}⊗(V_{s,Q}^∨)^{⊗b}. In each such space the generic type-(0,0) subspace is T(V_Q)^{MT(V)}. A tensor at s is exceptional if it is of type (0,0) at s but lies outside that generic invariant subspace. The exceptional Hodge locus HL(S,V) is the set of s admitting an exceptional tensor, equivalently those with MT(V_s) strictly contained in MT(V) under flat transport. This condition descends from the universal cover; tensors of type (p,p) without a Tate twist are not tested for MT-invariance.",
+      "locator": "BKT §1.4, p. 921; [K17] §2.4 Lemma 2.5 and §2.6, preprint pp. 8–9",
       "status": "missing",
-      "note": "The object of Theorem 1.6 (D's hodge-locus-algebraicity). In §5 (p. 934) the paper identifies it with Φ_S^{-1}(HL(S_{Γ,G,M})). No existing item defines it. Missing: routed to route 8."
+      "note": "The object of Theorem 1.6 and the preimage theorem in §5, p. 934. Constant Z(-1) has no exceptional tensor: its generic and fibre type-(0,0) subspaces coincide. Missing, route 8.",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/generic-mumford-tate-group"
+      ],
+      "tests": [
+        {
+          "name": "BKT.HodgeLocus.constantTate",
+          "kind": "non-example",
+          "statement": "The constant variation Z(-1) over A¹_C has empty exceptional Hodge locus. Its nonzero type-(1,1) vector is not an untwisted Hodge tensor; after twist (1) it is type (0,0) and generic, hence still not exceptional."
+        },
+        {
+          "name": "BKT.HodgeLocus.genericInvariant",
+          "kind": "characterisation",
+          "statement": "A tensor fixed by the generic Mumford–Tate group is never exceptional, even when it remains of type (0,0) throughout S."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus-analytic",
@@ -4883,7 +4916,10 @@
       "statement": "HL(S, V) is a countable union of irreducible closed complex analytic subvarieties of S. These are called the special subvarieties of S associated to V.",
       "locator": "§1.4, p. 921 ('easily seen')",
       "status": "missing",
-      "note": "Asserted without proof. The standard argument: the locus where a given flat multivalued integral tensor is Hodge is closed analytic on each simply connected open set, and there are countably many integral tensors modulo monodromy. The paper's notion of 'special subvariety of S' is only this implicit one. Its §5 proof really treats the preimages Φ_S^{-1}(Y) of special subvarieties Y of S_{Γ,G,M}. Overlaps with D's rational-hodge-countability and could be merged there. Missing: routed to route 8."
+      "note": "For each flat rational tensor outside the generic type-(0,0) subspace, its type-(0,0) locus is a proper closed analytic locus on a simply connected open set; use countably many rational tensors and monodromy descent. Generic tensors are excluded. BKT §1.4, [K17] §2.6; proof development remains routed to route 8.",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus"
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/compact-linear-groups-algebraic",
@@ -4925,10 +4961,27 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-chart-refinement",
       "kind": "theorem",
       "name": "Finite semi-algebraic atlas from Siegel pieces",
-      "statement": "Let Γ be torsion-free and let 𝔖₁,…,𝔖_k be semi-algebraic Siegel sets for the fixed K whose images cover S_{Γ,G,M}. There are finitely many open semi-algebraic sets O₁,…,O_m ⊂ G/M, each a Γ-translate of a subset of some slightly enlarged open Siegel set, such that π|_{O_j} is injective and open and the π(O_j) cover S_{Γ,G,M}. Composed with semi-algebraic charts of G/M (horospherical coordinates on the Siegel ends), the inverses (π|_{O_j})⁻¹ form a finite ℝ_alg-definable atlas whose structure is the one of §3.1.",
+      "statement": "Let G be a connected semisimple Q-group, G_R^+=G(R)^+, Γ⊂G(Q)∩G_R^+ a torsion-free arithmetic subgroup, M⊂G_R^+ a connected compact subgroup, and K⊃M the fixed maximal compact. Suppose finitely many semialgebraic Siegel sets 𝔖_i for K cover S=Γ\\G_R^+/M after projection. The required finite local-slice supplier asserts that there are finitely many open semialgebraic local slices O_j⊂G_R^+/M, refining buffered enlargements of the fixed-K Siegel cover, on which the quotient map π is injective and open, with π(O_j) covering S. After finite semialgebraic coordinate refinements in G_R^+/M their inverse sections give the finite R_alg-definable atlas compatible with the quotient topology and the fixed-K structure of §3.1, including semialgebraic chart-transition graphs. This statement includes all partial parabolic boundary faces; its proof remains a blueprint obligation.",
       "locator": "§3.1, p. 926 (claim that the V_i 'form an explicit finite open atlas', see E23)",
       "status": "missing",
-      "note": "Repair of E23, not in the paper. For t ≫ 0 only Γ_P = Γ ∩ P identifies points of 𝔖 (Proposition 2.7(4)). Γ_P has trivial A_P-component and acts freely and properly discontinuously on the (n,m)-coordinates, so small U′ × A_{P,t} × W′ pieces are injective. The remaining part of each 𝔖_i has bounded A-coordinate, is relatively compact and needs finitely many small balls. Missing: routed to route 7."
+      "note": "Required finite semialgebraic local-slice supplier for E23; its proof is not supplied by this extraction or fix. The earlier proposed repair incorrectly treated the complement of the all-roots-large region as relatively compact. In rank at least two partial boundary faces remain unbounded. A valid proof must cover every incident parabolic face, treating root directions bounded above as parameters and unbounded directions by boundary/local-slice charts. Only the region in which every simple-root height is bounded above (with the Siegel lower bounds and bounded U,W) is assigned to a compact interior argument. Missing, routed once to route 7; no failure of quotient definability is alleged.",
+      "proofSteps": [
+        "Blueprint obligation: supply a finite semialgebraic local-slice theorem for the free proper arithmetic action on the fixed-K Siegel cover, with buffered open pieces and injectivity of each quotient chart. Finite overlap alone is insufficient.",
+        "Treat every partial face by compatible parabolic-incidence charts, or an equivalent precise local-slice theorem; retain all bounded root directions as parameters. Verify all face intersections and the chart transition graphs.",
+        "Use a compact interior argument only where every simple-root height is bounded above as well as below; do not declare the complement of the all-roots-large cone compact."
+      ],
+      "tests": [
+        {
+          "name": "BKT.SiegelChart.partialFaceSL3",
+          "kind": "non-example",
+          "statement": "For t≥2, diag(2t,t,1/(2t²)) has determinant 1, simple-root heights 2 and 2t³, and is in A_{P,1} outside A_{P,3} while escaping all compact sets. The partial face must be covered by boundary charts."
+        },
+        {
+          "name": "BKT.SiegelChart.boundedInterior",
+          "kind": "characterisation",
+          "statement": "With fixed positive Siegel lower bounds and upper bounds on every simple-root height, the A-coordinate is bounded; with relatively compact U,W its closure is compact."
+        }
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-strip-uniformization",
@@ -5009,7 +5062,11 @@
       "statement": "Let V be a pure polarized Z-VHS on smooth quasi-projective S with period map Φ_S : S → Hod^0(S,V) = S_{Γ,G,M} (after the finite étale cover of §1.3). Then HL(S,V) = Φ_S^{-1}(HL(S_{Γ,G,M})) = ⋃_{Y strict special} Φ_S^{-1}(Y). Hence Theorem 1.6 reduces to the algebraicity of each Φ_S^{-1}(Y).",
       "locator": "§5, p. 934 ('The Hodge locus HL(S, V) coïncides with the preimage Φ_S^{-1}(HL(S_{Γ,G,M})). Hence to prove Theorem 1.6 we are reduced to ...')",
       "status": "missing",
-      "note": "Asserted without proof (standard, [K17]). Overlaps the extraction's rational-hodge-countability ('their special images cover the exceptional Hodge locus'), which could absorb it instead. Missing: routed to route 8."
+      "note": "Use the type-(0,0) exceptional-tensor convention and proper Mumford–Tate-drop subdata of the fixed generic datum. Exclude the generic identity image as in E28. The tensor/subdatum correspondence is the supplier contract from [K17] §2.4–2.6; no invariance test on untwisted type-(p,p) classes is used. Missing, route 8.",
+      "prerequisites": [
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-locus",
+        "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-variety-hodge-locus"
+      ]
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/hodge-form-map",
@@ -5221,7 +5278,7 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/siegel-chart-refinement"
       ],
       "reason": "ALS.2 owns the symmetric M=K Borel–Serre compactification. General compact stabilizers M⊂K, fixed-K definable structures and their corrected functoriality require an extension of those objects, not a second reduction-theory roadmap.",
-      "brief": "Import Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces ALS.0 and ALS.2), Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups AA.3), Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory LD.0/LD.6), and the upstream Lie groups roadmap (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups Layer 9). For connected semisimple rational G, torsion-free arithmetic Γ, connected compact M and a chosen maximal compact K containing M, construct the R_alg-definable structure on Γ\\G/M characterized by fixed-K Siegel charts. For neat Γ construct the general Borel–Serre analytic manifold with corners and prove that its compactification induces the same R_an structure on the interior. Specializing M=K must recover ALS.2. Prove semialgebraic definability of the corrected morphisms (φ,g), with rational φ, the level/stabilizer/compact inclusions and target Cartan involution preserving the image Lie algebra. Use corrected Orr–Schnell containment and BGST Proposition28.1 with its forward-containment hypothesis. Prove Hecke definability and the canonical symmetric-space formulation. Decompose the semialgebraic homogeneous quotient, finite proper equivalence relation, local slice refinement, boundary gluing and nonsurjective/surjective morphism adapters. Never assert K-independence for a fixed general Γ\\G/M or functoriality of Borel–Serre compactifications. Tests must include SL₂ with two compact choices, the Cartan-unstable torus, rank-zero boundary and the M=K specialization. Suggested later file: TauCeti/NumberTheory/ArithmeticQuotient/Definability.lean. This is a partial design brief with the explicit source gaps below. Corrections the design must carry: the first proof of Lemma 2.1 fails unless M is normal, so the semialgebraic model of G/M must come from the proper-quotient proof or an orbit G(ℝ)·v (E8); Definition 2.5, Proposition 2.7 and Theorem 1.1 hold only with Siegel sets for one fixed maximal compact K, and only morphisms compatible with the chosen compacts are definable, as the 2023 erratum corrects (E5, E6); §3.2's reduction to g = e and its surjective case need the compact-data transport and a compact-stabilizer quotient adapter (E18, E19); §3.1's Siegel pieces are not injective charts until refined (E23); and Remark 3.1 is false: in the paper's own corner coordinates the Borel–Serre compactification is ℝ_alg-definable (E42)."
+      "brief": "Import Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces ALS.0 and ALS.2), Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups AA.3), Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory LD.0/LD.6), and the upstream Lie groups roadmap (tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups Layer 9). For connected semisimple rational G, torsion-free arithmetic Γ, connected compact M and a chosen maximal compact K containing M, construct the R_alg-definable structure on Γ\\G/M characterized by fixed-K Siegel charts. For neat Γ construct the general Borel–Serre analytic manifold with corners and prove that its compactification induces the same R_an structure on the interior. Specializing M=K must recover ALS.2. Prove semialgebraic definability of the corrected morphisms (φ,g), with rational φ, the level/stabilizer/compact inclusions and target Cartan involution preserving the image Lie algebra. Use corrected Orr–Schnell containment and BGST Proposition28.1 with its forward-containment hypothesis. Prove Hecke definability and the canonical symmetric-space formulation. Decompose the semialgebraic homogeneous quotient, finite proper equivalence relation, local slice refinement, boundary gluing and nonsurjective/surjective morphism adapters. Never assert K-independence for a fixed general Γ\\G/M or functoriality of Borel–Serre compactifications. Tests must include SL₂ with two compact choices, the Cartan-unstable torus, rank-zero boundary and the M=K specialization. Suggested later file: TauCeti/NumberTheory/ArithmeticQuotient/Definability.lean. This is a partial design brief with the explicit source gaps below. Corrections the design must carry: the first proof of Lemma 2.1 fails unless M is normal, so the semialgebraic model of G/M must come from the proper-quotient proof or an orbit G(ℝ)·v (E8); Definition 2.5, Proposition 2.7 and Theorem 1.1 hold only with Siegel sets for one fixed maximal compact K, and only morphisms compatible with the chosen compacts are definable, as the 2023 erratum corrects (E5, E6); §3.2's reduction to g = e and its surjective case need the compact-data transport and a compact-stabilizer quotient adapter (E18, E19); §3.1's Siegel pieces are not injective charts until refined (E23); and Remark 3.1 is false: in the paper's own corner coordinates the Borel–Serre compactification is ℝ_alg-definable (E42). The finite-chart supplier /siegel-chart-refinement remains to be proved: cover every incident parabolic partial face with bounded root directions retained as parameters. Only the region where all root heights are bounded above belongs to the compact interior argument. The SL3 sequence with heights (2,2t³) tests this distinction; the withdrawn compact-remainder argument does not establish E23’s repair."
     },
     {
       "route": "part-ii",
@@ -5292,7 +5349,7 @@
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/centralizer-preserves-weight-filtration"
       ],
       "reason": "Upstream HodgeStructures L0–L3 supplies pure/mixed structures, polarizations, Deligne splitting and period-domain points, all largely built. It explicitly reserves the period-domain manifold structure for a successor. The multivariable degeneration, non-Hermitian domain geometry and period-map/locus theorems therefore extend this direction.",
-      "brief": "Import Hodge structures (pure, mixed, and polarized) (tauceti:TauCetiRoadmap/HodgeStructures L0–L3) through the pinned carriers, positive Hodge form, Weil operator and Deligne decomposition; import the general polarized-variation definition from ShimuraData D3, normal-crossing compactifications from AlgebraicModuliForArithmeticGeometry R09.7d, rational reduction from AdelicAlgebraicGroups AA.3, analytic spaces from ComplexComparisonPartII C0, and definable geometry/Chow from LogicAndDefinabilityInNumberTheory LD.6. Use ArithmeticQuotientDefinability for corrected fixed-K quotient structures. Construct the complex manifold and compact dual on the existing period-point carrier, the canonical Hodge Cartan involution and compatible Hodge morphisms. Prove Theorem1.5: for a local unipotent pure polarized integral variation and any bounded real width R and positive height η, the lifted period map on H_(R,η)^n lies in finitely many fixed-canonical-K Siegel sets. Establish nilpotent extension, centered monodromy weights, simultaneous rational and complex splittings, both Kashiwara norm estimates, the horizontal correction, indefinite Gram determinant formulas, rough entries and finite-permutation reducedness. Establish the faithful adjoint/central-cover representation adapter before using SL(V) reduction. Then prove Theorem1.3: every such variation on smooth complex quasi-projective S has an R_an,exp-definable period map. Local use must shrink and buffer disks and cover angular seams. Finally prove Theorem1.6: the exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, through closed analytic proper special images and definable Chow applied individually to their pullbacks. Exclude the generic identity subdatum; do not call the countable union definable. Supply Borel algebraicity only as an imported/alternative proof at ShimuraVarieties V3. Tests include zero monodromy, the zero-vector exclusion, weight shifts, conjugation conventions, a non-Hermitian domain, reversed reduced bases and the outer-boundary period-map example. Suggested later file: TauCeti/Geometry/Hodge/Variation/DefinablePeriodMap.lean. The repaired widened-sector curve lemma and quantitative finite-permutation basis transfer are supplied. Original analytic inputs, their bounded-real-width uniformity, and finite boundary-chart adapters remain open in this partial brief. Corrections the design must carry: Theorem 4.1 is false on the whole unit polydisk and holds after shrinking, the proof failing at the reduction on p. 929 (E1); roughly polynomial functions form a ring only when denominators are roughly monomial polynomials (E46); Theorem 4.8 must be stated in Kashiwara's splitting-independent, multigraded form, since Lemmas 4.7 and 4.10 apply it to vectors of the complex splitting (E49, E54); Lemma 4.10's lower bound is proved only for large y_n, so it and its consequences hold on a shrunken polydisk (E53); §4.5 proves Theorem 1.5 only on 𝔖^n_𝔥 after shrinking (E56); the Claim on p. 933 is false for every basis and must be replaced by conditions (1) and (3) for one basis, giving finitely many orderings (E3, E60); the rational Siegel pullback is BGST Proposition 3.4, not [B-HC62, 7.5] (E7); and in §4.6 the proof of Theorem 4.12 must show that f is a period map (E58) and that the Theorem 1.1 structure and the Baily–Borel structure on S_{Γ,G,K} agree after expansion to ℝ_an,exp (E59), and restrict to smooth S or add a descent (E29)."
+      "brief": "Import Hodge structures (pure, mixed, and polarized) (tauceti:TauCetiRoadmap/HodgeStructures L0–L3) through the pinned carriers, positive Hodge form, Weil operator and Deligne decomposition; import the general polarized-variation definition from ShimuraData D3, normal-crossing compactifications from AlgebraicModuliForArithmeticGeometry R09.7d, rational reduction from AdelicAlgebraicGroups AA.3, analytic spaces from ComplexComparisonPartII C0, and definable geometry/Chow from LogicAndDefinabilityInNumberTheory LD.6. Use ArithmeticQuotientDefinability for corrected fixed-K quotient structures. Reuse the existing PeriodDomain.Point as the full polarized ambient carrier; construct the Mumford–Tate domain as the specified represented-group orbit subtype with its tensor conditions and connected-component choice, and build the complex manifold and compact dual on that subspace. Provide an inclusion into ambient points and a full-component equivalence only under the full-polarization-isometry specialization. Construct the canonical Hodge Cartan involution and compatible Hodge morphisms. Prove Theorem1.5: for a local unipotent pure polarized integral variation and any bounded real width R and positive height η, the lifted period map on H_(R,η)^n lies in finitely many fixed-canonical-K Siegel sets. Establish nilpotent extension, centered monodromy weights, simultaneous rational and complex splittings, both Kashiwara norm estimates, the horizontal correction, indefinite Gram determinant formulas, rough entries and finite-permutation reducedness. Establish the faithful adjoint/central-cover representation adapter before using SL(V) reduction. Then prove Theorem1.3: every such variation on smooth complex quasi-projective S has an R_an,exp-definable period map. Local use must shrink and buffer disks and cover angular seams. Finally prove Theorem1.6: the exceptional Hodge locus is a countable union of closed irreducible algebraic subvarieties, through closed analytic proper special images and definable Chow applied individually to their pullbacks. Exclude the generic identity subdatum; do not call the countable union definable. Supply Borel algebraicity only as an imported/alternative proof at ShimuraVarieties V3. Tests include zero monodromy, the zero-vector exclusion, weight shifts, conjugation conventions, a non-Hermitian domain, reversed reduced bases and the outer-boundary period-map example. Suggested later file: TauCeti/Geometry/Hodge/Variation/DefinablePeriodMap.lean. The repaired widened-sector curve lemma and quantitative finite-permutation basis transfer are supplied. Original analytic inputs, their bounded-real-width uniformity, and finite boundary-chart adapters remain open in this partial brief. Corrections the design must carry: Theorem 4.1 is false on the whole unit polydisk and holds after shrinking, the proof failing at the reduction on p. 929 (E1); roughly polynomial functions form a ring only when denominators are roughly monomial polynomials (E46); Theorem 4.8 must be stated in Kashiwara's splitting-independent, multigraded form, since Lemmas 4.7 and 4.10 apply it to vectors of the complex splitting (E49, E54); Lemma 4.10's lower bound is proved only for large y_n, so it and its consequences hold on a shrunken polydisk (E53); §4.5 proves Theorem 1.5 only on 𝔖^n_𝔥 after shrinking (E56); the Claim on p. 933 is false for every basis and must be replaced by conditions (1) and (3) for one basis, giving finitely many orderings (E3, E60); the rational Siegel pullback is BGST Proposition 3.4, not [B-HC62, 7.5] (E7); and in §4.6 the proof of Theorem 4.12 must show that f is a period map (E58) and that the Theorem 1.1 structure and the Baily–Borel structure on S_{Γ,G,K} agree after expansion to ℝ_an,exp (E59), and restrict to smooth S or add a descent (E29). Use type-(0,0) rational tensors in the untwisted tensor algebra, with exceptional tensors outside the generic type-(0,0) invariant subspace ([K17] Lemma 2.5 and §2.6). A type-(p,p) class requires the explicit twist (p) and Tate-character action before any invariance test. Synchronize the countability and strict-special-preimage interfaces. Tests must include the constant Z(-1) variation with empty exceptional locus and the CM weight-one singleton inclusion into a larger polarized ambient domain."
     }
   ],
   "provenance": [
@@ -5456,7 +5513,7 @@
     {
       "id": "G2",
       "scope": "Arithmetic reduction and quotient foundations",
-      "remaining": "Read/decompose original Borel–Harish-Chandra, Borel–Serre/Borel–Ji and original Orr proofs. The new finite-siegel-relation-proper item supplies a finite closed-graph properness proof; the second compact homogeneous quotient proof still imports an unextracted quotient theorem. Establish finite local chart refinement (E23), the real-translation adapter (E18), and surjective arithmetic/compact-stabilizer adapters (E19). The invariant-polynomial alternative proof fails (E8). Mostow and Raghunathan original-source leaves remain.",
+      "remaining": "Read/decompose original Borel–Harish-Chandra, Borel–Serre/Borel–Ji and original Orr proofs. The new finite-siegel-relation-proper item supplies a finite closed-graph properness proof; the second compact homogeneous quotient proof still imports an unextracted quotient theorem. Establish finite local chart refinement (E23), the real-translation adapter (E18), and surjective arithmetic/compact-stabilizer adapters (E19). The invariant-polynomial alternative proof fails (E8). Mostow and Raghunathan original-source leaves remain. The earlier compact-remainder argument for /siegel-chart-refinement is withdrawn: all partial faces require the stated finite local-slice supplier; no proof of that supplier is claimed.",
       "status": "recorded",
       "resolution": "E8, E18, E19 and E23 record the paper's own reduction gaps. Borel–Harish-Chandra, Borel–Serre/Borel–Ji and Orr are cited suppliers."
     },
@@ -5484,7 +5541,7 @@
     {
       "id": "G6",
       "scope": "Definable algebraization and Hodge locus inputs",
-      "remaining": "Acquire Peterzil–Starchenko definable Chow and original o-minimality proofs. Prove the R_an,exp comparison between the arithmetic and algebraic structures in the Hermitian target, auditing KUY16 for independence from the Borel theorem being reproved. Decompose algebraic graph regularity, proper Hodge-image/Remmert inputs and the countable exceptional-tensor/subdatum correspondence. No whole-locus definability follows. The exceptional-family correction E28 and singular-source Borel proof gap E29 require explicit adapters. Buffered analytic corners are now proved via compact matching graphs (E17), independently of these deeper algebraization inputs.",
+      "remaining": "Acquire Peterzil–Starchenko definable Chow and original o-minimality proofs. Prove the R_an,exp comparison between the arithmetic and algebraic structures in the Hermitian target, auditing KUY16 for independence from the Borel theorem being reproved. Decompose algebraic graph regularity, proper Hodge-image/Remmert inputs and the countable exceptional-tensor/subdatum correspondence. No whole-locus definability follows. The exceptional-family correction E28 and singular-source Borel proof gap E29 require explicit adapters. Buffered analytic corners are now proved via compact matching graphs (E17), independently of these deeper algebraization inputs. All exceptional-tensor interfaces now use type (0,0) relative to the generic type-(0,0) invariant subspace; the constant Tate variation must have empty locus.",
       "status": "recorded",
       "resolution": "E29 records the singular-source gap in Theorem 4.12; E28 now affects nothing. Peterzil–Starchenko and the o-minimality inputs are cited suppliers."
     }
@@ -5609,6 +5666,11 @@
       "citation": "B. Klingler, E. Ullmo and A. Yafaev, The hyperbolic Ax–Lindemann–Weierstrass conjecture, Publ. Math. IHÉS 123 (2016), 333–360 [KUY16]",
       "link": "https://doi.org/10.1007/s10240-015-0078-9",
       "why": "Definability of the uniformisation of arithmetic varieties (Theorem 1.9), the comparison with the Baily–Borel structure (§1.2 and §4.6)."
+    },
+    {
+      "citation": "B. Klingler, Hodge loci and atypical intersections: conjectures [K17], arXiv:1711.09387.",
+      "link": "https://arxiv.org/pdf/1711.09387",
+      "why": "Read preprint pp. 8–10 on 2026-10-01: §2.4 Lemma 2.5 identifies Hodge tensors and Mumford–Tate stabilizers; §2.6 gives generic groups and proper drops; §3.1 Proposition 3.1 and Definitions 3.3–3.4 construct domains from specified group-conjugacy orbits/components. Used here in the pure polarized case, not a claim of mixed-domain proof closure or published-version collation."
     }
   ],
   "prerequisiteScope": "No separate matching entries for these exact foundational papers were found in the pinned papers batch. References in existing owners or prior paper routes are recorded as coverage leads, not proof-complete extraction. Other unresolved sources (original o-minimality, invariant theory, Mostow, Raghunathan, Cattani–Kaplan, Hodge tensor stabilizers and analytic image proofs) are explicitly retained in G2/G3/G6 and are not asserted covered.",
@@ -7117,5 +7179,20 @@
     "status": "complete",
     "reading": "Published text re-fetched from NSF PAR; E1, E20 and E28 re-read; every labelled statement checked against the items.",
     "changes": "Theorem 4.13 mapped; E20 and E28 reclassified to affect nothing; verification-gap statuses recorded; status complete."
-  }
+  },
+  "fixes": [
+    {
+      "job": "FIX-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "date": "2026-10-01",
+      "findings": [
+        "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/1",
+        "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/2",
+        "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/3"
+      ],
+      "read": "BKT published pp. 920–921, 924, 926 and 934; erratum §1.4–1.5 (p. 3); Klingler preprint pp. 8–10, including p. 8 image; pinned PeriodDomain.lean lines 57–135.",
+      "changes": "Correct type-(0,0) and generic-subspace conventions; replace the false period-point equivalence by orbit-subtype inclusion and conditional full-component equivalence; withdraw the compact-remainder proof and retain the finite-chart theorem as an explicit supplier with partial-face obligations. No sourceIssues added or changed."
+    }
+  ]
 }
