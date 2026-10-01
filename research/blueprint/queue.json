@@ -37435,8 +37435,9 @@
     "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4170"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4170",
+   "finishedAt": "2026-10-01T13:57:32Z"
   },
   {
    "id": "REV-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -39820,7 +39821,8 @@
     "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4266"
   },
   {
    "id": "REV-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
