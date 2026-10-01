@@ -35504,8 +35504,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5502"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5502",
+   "finishedAt": "2026-10-01T23:22:31Z"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -39328,7 +39329,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5522"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
