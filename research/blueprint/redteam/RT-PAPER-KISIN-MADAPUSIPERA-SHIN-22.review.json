@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+ "findings": [
+  {
+   "finding": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed; filed as high, I would grade it medium. L14 is marked library with tauceti:…AbelianVariety.IsIsogeny and isIsogeny_iff. At Tau Ceti f790474 (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean) these declarations define an isogeny of abelian varieties over a field K as a morphism whose underlying scheme map is finite and surjective. L14's statement, however, is the §2.3.1 construction (author PDF pp. 30–31). It defines Hom_Q(A_{s₀}, A_{s₀′}) as a Q-scheme with R-points R ⊗ Hom, and R-isogenies as its invertible points for a coefficient Q-algebra R. Neither declaration supplies this. Its API (finite-surjective criterion, field base change) and its tests concern the geometric notion. So the library status is wrong for the statement as written. I would grade it medium rather than high: T26 already states and plans the rational Hom-scheme construction as missing, so nothing is lost from the plan, and the error is a status, not a false statement. The fix is right: restrict L14 to the geometric predicate the declarations supply, and leave the coefficient-algebra definition to T26 on its A6 route."
+  },
+  {
+   "finding": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The author PDF (§2.2.6, p. 26; SHA-256 fd22990b…52db, equal to the extraction's) calls W admissible 'if it is a multiple of' a listed representation, with no positivity. T18 says 'a positive multiple'. T19(ii) requires that for every character χ: Z_G → G_m over Q̄ the χ-part of V is admissible. Z_G contains the scalar weight torus, so it has infinitely many characters, while V has finitely many central weights. For any absent χ the χ-part is 0, which is not a positive multiple of a nonzero representation. Read together, T18 and T19 therefore make condition (ii) fail for every type-D^R datum, and the definition of strictly accommodating excludes the whole D^R case. The fix is right: allow multiplicity zero for character parts, or quantify (ii) over the characters that occur in V."
+  },
+  {
+   "finding": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The page image of p. 26 shows the square with downward vertical arrows and the right-hand arrow (G_V, H_V) → (∏ G_{V_j}, ∏ H_{V_j}), where G_V = GSp(V), and T19 copies it. A symplectic decomposition V ≅ ⊕ V_j gives no map GSp(V) → ∏ GSp(V_j). The red team's block swap on Q² ⊕ Q² with J ⊕ J lies in GSp(V) but does not preserve the summands. Reversing the arrow fails too: diag(2I₂, I₂) ∈ GSp₂ × GSp₂ has multipliers 4 and 1, so it pulls J ⊕ J back to 4J ⊕ J, which is not a scalar multiple, and it is not in GSp(V). The well-typed form uses the equal-multiplier subgroup ∏_{G_m} GSp(V_j) ⊂ GSp(V), with G → ∏ G_j and V = ⊕ V_j as G-representations. That matches the paper's remark that the notion agrees with Noot's. E4 corrects only the word 'accommodating' in the same definition; E5 and E32 concern pp. 28 and 27. The fix is right, including a new source issue scoped to the author copy."
+  },
+  {
+   "finding": "RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). E5's accepted correction takes X′ to be 'the G′(R)-orbit of (h_0, h_T); X × {h_T} can be a finite union of such orbits'. T23.proofSteps[0] still takes X′ = X × {h_T} and asserts an embedding of Shimura data (G′, X′). The red team's example is right. For G = GL₂ = GSp₂ and T an imaginary-quadratic torus, G′ = GL₂ ×_{G_m} T over det and the norm. On real points the norm is |t|² > 0, so G′(R) maps into GL₂⁺(R), which preserves each half-plane of X = ℍ^±. So X × {h_T} has at least two G′(R)-orbits. The fix, propagating E5's orbit choice into the proof steps and specifying the component used in the lifting step, is right. This is not a new erratum."
+  }
+ ]
+}
