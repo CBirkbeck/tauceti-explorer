@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Nine L3 nodes derive Gamma factorial residues and their actual cyclic product from the existing Morita recurrence and sharp congruence. All1035 predecessor nodes,780 baseline records and18 findings remain whole; no baseline record or source finding is added.",
+  "summary": "Six L3 nodes derive cyclic-digit parity, the exact Gamma reflection product and its normalized elementary Jacobi value, then compare it with native negative Gauss sums under explicit character hypotheses. All predecessor material remains whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5474,6 +5474,62 @@
         "module": "Mathlib/Algebra/Order/ToIntervalMod.lean",
         "provides": "The reduced value equals c exactly when c lies in(a,a+p] and the original input differs from c by an integer multiple of p.",
         "checked": "Complete declaration, ambient hypotheses and proof or recursive definition read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete cyclic-digit probe checks these interfaces, including native Ioc reduction and little-endian ofDigits; no duplicate carrier is introduced."
+      },
+      {
+        "ref": "mathlib:Nat.ofDigits_mod",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Digits/Lemmas.lean",
+        "provides": "Reduces both the base and the value of a native digit expansion modulo a natural modulus.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:Nat.ofDigits_one",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Digits/Defs.lean",
+        "provides": "The native base1 digit value equals the sum of its list.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:Nat.odd_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/Parity.lean",
+        "provides": "A natural number is odd exactly when its remainder modulo2 is1.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:neg_one_pow_eq_pow_mod_two",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/Commute.lean",
+        "provides": "In any ring, a power of−1 depends only on its exponent modulo2.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:Finset.prod_pow_eq_pow_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "A finite product of powers of one element equals its power at the sum of exponents.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:mul_gaussSum_inv_eq_gaussSum",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "Multiplying the Gauss sum with inverse additive character byχ(−1) returns the original additive character, over a finite field and commutative coefficient ring.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For a nontrivial multiplicative character and primitive additive character on a finite field, Gauss sums with both characters inverted multiply to the field cardinality in a commutative domain.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
+      },
+      {
+        "ref": "mathlib:MulChar.inv_apply'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "On a commutative group with zero, the inverse multiplicative character at a equals the original character at a inverse.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete native Jacobi-pair probe verifies the composed interfaces. Existing finite-field Gauss theory is reused without a duplicate construction."
       }
     ]
   },
@@ -69814,6 +69870,405 @@
       "acceptance": [
         "The zero rational orbit remains valid algebraically with Γ_p(0), but cannot be silently identified with the paper’s positive fractional representative1."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-carry-parity",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Parity of the Gross–Koblitz digit sum",
+      "kind": "lemma",
+      "statement": "For odd prime p, f>0 and k<M, (Σ_(j<f)d_j) mod2=k mod2.",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "The preceding fixed-length digit reconstruction gives Nat.ofDigits p of the reversed carry list equal to k. This retains leading zeros and works when the chosen f exceeds the least orbit period.",
+        "Native Nat.ofDigits_mod reduces the base p modulo2. Native prime oddness and Nat.odd_iff give p mod2=1, and native Nat.ofDigits_one turns the base1 value into the list sum.",
+        "Reversing a list preserves its sum. Induction using the native list range successor formula identifies the sum of the mapped range with the finite range sum. The complete carry_sum_parity proof checks all these conversions.",
+        "The source states the stronger digit congruence modulo p−1; this worker-derived parity consequence is exactly what Lemma2.5 consumes. It does not hold in the dyadic case: the carries of3/7 are0,1,1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-digit-expansion",
+        "mathlib:Nat.ofDigits_mod",
+        "mathlib:Nat.ofDigits_one",
+        "mathlib:Nat.Prime.odd_of_ne_two",
+        "mathlib:Nat.odd_iff",
+        "mathlib:Finset.prod_range_succ"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzCarry_sum_parity"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.parity_ternary",
+          "kind": "computation",
+          "statement": "The carries for5/8 are1,2, with odd sum."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.parity_quinary",
+          "kind": "computation",
+          "statement": "The carries for7/24 have odd sum."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.parity_zero",
+          "kind": "degenerate",
+          "statement": "The zero class has even digit sum."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.dyadic_parity_failure",
+          "kind": "non-example",
+          "statement": "For p=2,f=3,k=3 the carries sum to2, whose parity differs from k."
+        }
+      ],
+      "acceptance": [
+        "At p=3,f=2,k=5 the carry sum is3, with the same parity as5. At p=2,f=3,k=3 it is2, with different parity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-carry-sign",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The sign of the Gross–Koblitz digit sum",
+      "kind": "lemma",
+      "statement": "In ℤ_p, (−1)^(Σ_(j<f)d_j)=(−1)^k.",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "Use the native neg_one_pow_eq_pow_mod_two on the carry sum.",
+        "Replace the exponent modulo2 by k modulo2 through the preceding parity theorem.",
+        "Use the same native sign-power identity in reverse at k. The complete carry_sum_sign proof needs no choice of a parity witness or cancellation in ℤ_p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-carry-parity",
+        "mathlib:neg_one_pow_eq_pow_mod_two"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzCarry_sum_sign"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.sign_ternary",
+          "kind": "computation",
+          "statement": "The sign of the ternary digit sum for5/8 is−1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.sign_shorter_orbit",
+          "kind": "degenerate",
+          "statement": "The fixed orbit4/8 repeated twice has even digit sum and sign1."
+        }
+      ],
+      "acceptance": [
+        "At k=0 the sign is1. The fixed orbit4/8 with f=2 repeats carry1 twice and also has sign1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-gamma-next-pair",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reflection at the next rational orbit point",
+      "kind": "lemma",
+      "statement": "If Mx=n_(j+1), then Γ_p(x)Γ_p(1−x)=−(−1)^d_j in ℤ_p.",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "The established odd-prime reflection formula gives Γ_p(x)Γ_p(1−x)=(−1)^hat_p(x).",
+        "The prior next-point residue theorem identifies hat_p(x)=p−d_j for the actual carry, with d_j<p.",
+        "The routine complete complementary_digit_sign helper proves (−1)^(p−d)=−(−1)^d: multiply by (−1)^d, combine exponents to p, apply oddness, then multiply again using ((−1)^d)^2=1.",
+        "The complete gamma_next_pair proof composes exactly those earlier results. The carry belongs to the preceding step, including the wrap around the orbit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-reflection",
+        "DirichletPadicLFunctions:L3/gross-koblitz-next-positive-residue",
+        "DirichletPadicLFunctions:L3/gross-koblitz-carry-bound",
+        "mathlib:Odd.neg_one_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzGamma_next_pair"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.next_pair_ternary",
+          "kind": "computation",
+          "statement": "At the next point7/8, carry1 gives reflection product1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.wrapped_pair_ternary",
+          "kind": "computation",
+          "statement": "At5/8 the preceding carry2 gives reflection product−1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.next_pair_quinary",
+          "kind": "computation",
+          "statement": "At11/24 the preceding carry1 gives reflection product1."
+        }
+      ],
+      "acceptance": [
+        "At7/8 inℤ_3 the preceding carry is1 and the product is1; at5/8 the preceding carry is2 and the product is−1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-gamma-pair-product",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The reflection product over a Frobenius orbit",
+      "kind": "theorem",
+      "statement": "For the actual rational orbit, ∏_(j<f)Γ_p(x_j)Γ_p(1−x_j)=(−1)^(f+k) in ℤ_p.",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "The prior rational period gives x_f=x_0. Apply the finite cyclic-product helper from the preceding Gamma-product proof to the function j↦Γ_p(x_j)Γ_p(1−x_j). It only reindexes a finite product, with no injective-orbit assumption and no cancellation of factors.",
+        "Each shifted factor equals−(−1)^d_j by the preceding next-pair theorem.",
+        "Distribute the product. The product of f copies of−1 is(−1)^f, and native Finset.prod_pow_eq_pow_sum gives (−1)^(Σd_j) for the other factors.",
+        "Substitute the carry-sign theorem and combine exponents. The complete gamma_pair_product proof establishes the exact ℤ_p equality, not merely a residue congruence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-next-pair",
+        "DirichletPadicLFunctions:L3/gross-koblitz-carry-sign",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-period",
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-product-shift",
+        "mathlib:Finset.prod_pow_eq_pow_sum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzGamma_pair_product"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.pair_product_ternary",
+          "kind": "computation",
+          "statement": "The 2-term pair product at p=3,k=5 is-1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.pair_product_quinary",
+          "kind": "computation",
+          "statement": "The 2-term pair product at p=5,k=7 is-1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.pair_product_half",
+          "kind": "computation",
+          "statement": "The 1-term pair product at p=3,k=1 is1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.pair_product_zero",
+          "kind": "degenerate",
+          "statement": "The 1-term pair product at p=3,k=0 is-1."
+        }
+      ],
+      "acceptance": [
+        "At p=3,f=2,k=5 the product is−1. At k=0 it is(−1)^f because each factor isΓ_p(0)Γ_p(1)=−1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-gamma-jacobi-pair",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma expression for the elementary Jacobi pair",
+      "kind": "theorem",
+      "statement": "In ℤ_p, (−p)^f∏_(j<f)Γ_p(x_j)Γ_p(1−x_j)=p^f(−1)^k.",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "Insert the exact pair-product value (−1)^(f+k).",
+        "Expand (−p)^f=(−1)^f p^f and split (−1)^(f+k). The two copies of(−1)^f multiply to1.",
+        "The complete gamma_jacobi_pair proof performs this algebra without dividing by p. Thus the equality holds in ℤ_p itself.",
+        "For0<k<M, the prior positive fractional-orbit theorem identifies x_j with the source argument ⟨p^j k/M⟩, and 1−x_j is its complementary representative. This is the right-hand side of source Lemma2.5 with q=p^f. The k=0 algebraic endpoint is kept distinct from the source nonzero generator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-pair-product",
+        "DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzGamma_jacobi_pair"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.jacobi_pair_ternary",
+          "kind": "computation",
+          "statement": "The normalized Gamma pair at p=3,f=2,k=5 equals-9."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.jacobi_pair_quinary",
+          "kind": "computation",
+          "statement": "The normalized Gamma pair at p=5,f=2,k=7 equals-25."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.jacobi_pair_half",
+          "kind": "computation",
+          "statement": "The normalized Gamma pair at p=3,f=1,k=1 equals-3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.jacobi_pair_zero",
+          "kind": "degenerate",
+          "statement": "The normalized Gamma pair at p=3,f=1,k=0 equals3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.normalization_sign_failure",
+          "kind": "non-example",
+          "statement": "At p=3,f=1,k=1 the missing minus sign gives3 instead of the correct−3."
+        }
+      ],
+      "acceptance": [
+        "The case p=3,f=1,k=1 gives−3. Replacing the factor(−p)^f by p^f gives the wrong sign when f is odd."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-gauss-pair-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native Gauss product and the elementary Gamma pair",
+      "kind": "comparison",
+      "statement": "Under the explicit finite-field and character hypotheses, (−gaussSum χ ψ)(−gaussSum χ⁻¹ ψ)=ι((−p)^f∏_(j<f)Γ_p(x_j)Γ_p(1−x_j)).",
+      "hypotheses": [
+        "Let p be an odd prime, f>0, M=p^f−1, and 0≤k<M. The existing actual numerator is n_j=(p^j k) mod M and its carry is d_j=p n_j/M. The chosen f is a period, not necessarily the least period.",
+        "In ℤ_p, x_j is the actual rational representative determined by Mx_j=n_j. The predecessor proves M is a unit and these solutions exist uniquely. The source positive fractional orbit is identified only for 0<k<M; the algebraic Gamma pair identities also allow k=0.",
+        "Gamma means the existing signed Morita function with Γ_p(0)=1, Γ_p(1)=−1 and the established continuity, recurrence and odd-prime reflection identity. The native proof receives exactly those prior laws; every suggested statement specializes the actual moritaGamma.",
+        "The final comparison additionally uses a finite field F of cardinality p^f, a commutative domain K, a ring homomorphism ι:ℤ_p→K, a nontrivial native multiplicative character χ:F→K, and a native primitive additive character ψ:F→K. Its normalization is χ(−1)=(−1)^k. This is a value at a single field element, not an assumed Gauss identity.",
+        "The source convention is the negative native gaussSum, with the SAME additive character in both factors and inverse multiplicative characters. Constructing the general residue-field Teichmuller character with the source inverse exponent, proving its nontriviality for0<k<M, and constructing the trace additive character remain explicit source-application obligations. The comparison itself is proved from native Gauss identities.",
+        "No full Gross–Koblitz theorem, crystalline Frobenius limit or Stickelberger leading congruence is assumed. The published E18 distribution repair remains unproved and unused."
+      ],
+      "proofSteps": [
+        "Reuse native mul_gaussSum_inv_eq_gaussSum at χ⁻¹: it converts the same-ψ second factor into χ⁻¹(−1) times the factor with ψ⁻¹.",
+        "Reuse native gaussSum_mul_gaussSum_eq_card for χ≠1 and primitive ψ. Its output is the cardinality of F. Native MulChar.inv_apply′ and(−1)⁻¹=−1 identify χ⁻¹(−1)=χ(−1). No Gauss product is replanned or assumed.",
+        "The two source minus signs cancel. Insert #F=p^f and χ(−1)=(−1)^k, obtaining p^f(−1)^k in K.",
+        "Map the preceding exact Gamma expression through the native ring homomorphism ι. It preserves the natural casts, powers, products and−1, giving the same element of K.",
+        "The complete gauss_pair_comparison proof checks this comparison for arbitrary commutative domain K. Applying it to the paper still requires the actual inverse-Teichmuller character and the primitive trace additive character; neither their construction nor the full Gross–Koblitz formula is discharged by this conditional comparison."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-jacobi-pair",
+        "mathlib:gaussSum",
+        "mathlib:mul_gaussSum_inv_eq_gaussSum",
+        "mathlib:gaussSum_mul_gaussSum_eq_card",
+        "mathlib:MulChar.inv_apply'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzJacobiPair",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzGauss_pair_comparison"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section2, Lemmas2.3–2.5, pp.572–573; complete Lemma2.5 proof reread from the published scan. Section1 fixes the negative Gauss and positive fractional-part conventions.",
+          "excerpt": "LEMMA 2.5.",
+          "match": "The source evaluates the elementary Jacobi pair δ_(r/N)+δ_(1−r/N) by reflection and cyclic-digit parity. These nodes derive its Gamma value and compare it with the existing native finite-field Gauss product under the explicit character normalization; they do not replace the remaining general character construction or Lemma2.6."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzPairTests.gauss_same_additive",
+          "kind": "compatibility",
+          "statement": "With cardinality9 and χ(−1)=−1, the product of the two negative Gauss sums with the same additive character is−9."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.gauss_inverse_additive",
+          "kind": "non-example",
+          "statement": "Inverting both characters gives9, so it is not the source’s same-additive-character pair when χ(−1)=−1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzPairTests.gauss_gamma_comparison",
+          "kind": "compatibility",
+          "statement": "For p=3,f=2,k=5 the exact negative Gauss pair equals the mapped normalized actual Gamma product."
+        }
+      ],
+      "acceptance": [
+        "For #F=9 and χ(−1)=−1 the same-additive-character pair is−9. Inverting both characters instead yields9, so the additive convention is essential. Exact finite Gauss computations check both values over F9."
+      ]
     }
   ],
   "requests": [
@@ -69946,7 +70401,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The Gamma side of Gross–Koblitz Lemma2.11(3) is now planned with a complete native proof: the reduced orbit product is the inverse product of the actual digit factorials. This does not prove the Gauss-side leading congruence or identify its π-normalized unit. Next combine the earlier reflection and digit parity for the elementary Jacobi case Lemma2.5. The native finite-field Gauss inverse-character product is available and should be reused once the exact negative Gauss convention, Teichmuller exponent, primitive additive character and compatible π are constructed. The Katz Frobenius limit2.7 and Stickelberger Gauss congruence retain their proof-source and ownership obligations. E18’s distribution repair remains unproved and unused, as do the Ferrero–Greenberg proof and analytic supplier obligations. All18 gaps and14 requests remain; no stage closes.",
+        "The elementary Jacobi Gamma pair and its comparison with native Gauss sums are now planned with complete proofs under explicit finite-field character hypotheses. The next task is to construct the source inverse-Teichmuller character and primitive trace additive character, prove their normalization/nontriviality, and fix the compatible π before the general formula. The ternary F9 finite example checks the signs but does not replace this general construction. Source Lemma2.6 still needs the cited Katz crystalline Frobenius limit2.7; the Gauss-side Stickelberger leading congruence in Lemma2.11 remains separate from the established Gamma factorial congruence. Read the primary proof sources and route their exact missing interfaces by ownership. E18’s distribution repair remains unproved and unused, and the Ferrero–Greenberg proof and analytic supplier obligations remain. All18 gaps and14 requests remain; no stage closes.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -69978,7 +70433,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The Gamma side of Gross–Koblitz Lemma2.11(3) is now planned with a complete native proof: the reduced orbit product is the inverse product of the actual digit factorials. This does not prove the Gauss-side leading congruence or identify its π-normalized unit. Next combine the earlier reflection and digit parity for the elementary Jacobi case Lemma2.5. The native finite-field Gauss inverse-character product is available and should be reused once the exact negative Gauss convention, Teichmuller exponent, primitive additive character and compatible π are constructed. The Katz Frobenius limit2.7 and Stickelberger Gauss congruence retain their proof-source and ownership obligations. E18’s distribution repair remains unproved and unused, as do the Ferrero–Greenberg proof and analytic supplier obligations. All18 gaps and14 requests remain; no stage closes. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The elementary Jacobi Gamma pair and its comparison with native Gauss sums are now planned with complete proofs under explicit finite-field character hypotheses. The next task is to construct the source inverse-Teichmuller character and primitive trace additive character, prove their normalization/nontriviality, and fix the compatible π before the general formula. The ternary F9 finite example checks the signs but does not replace this general construction. Source Lemma2.6 still needs the cited Katz crystalline Frobenius limit2.7; the Gauss-side Stickelberger leading congruence in Lemma2.11 remains separate from the established Gamma factorial congruence. Read the primary proof sources and route their exact missing interfaces by ownership. E18’s distribution repair remains unproved and unused, and the Ferrero–Greenberg proof and analytic supplier obligations remain. All18 gaps and14 requests remain; no stage closes. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -70401,34 +70856,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All18 findings and all four sourceVersions remain whole, including E18 awaiting independent review. No new finding or review verdict is added.",
     "validation": {
-      "nodes": 1044,
+      "nodes": 1050,
       "kinds": {
         "definition": 2,
-        "lemma": 446,
+        "lemma": 449,
         "construction": 104,
-        "theorem": 295,
-        "comparison": 197
+        "theorem": 297,
+        "comparison": 198
       },
       "api": 778,
-      "packetTests": 1998,
+      "packetTests": 2019,
       "definitionConstructionTests": 450,
-      "typedExamples": 2001,
+      "typedExamples": 2022,
       "planets": 24,
-      "baseline": 780,
-      "preservedWholeNodes": 1035,
+      "baseline": 788,
+      "preservedWholeNodes": 1044,
       "preservedBaseline": 780,
       "preservedSourceIssues": 18,
       "newSourceIssues": 0,
-      "newNodes": 9,
-      "newNamedDeclarations": 9,
-      "newTypedTests": 22,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 21,
       "requests": 14,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1304,
-      "dependencyEdges": 6245,
+      "reachableNodes": 1310,
+      "dependencyEdges": 6269,
       "acyclic": true,
-      "baselineLeaves": 950,
+      "baselineLeaves": 958,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -70442,7 +70897,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 523483,
+      "readerWords": 527153,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -70469,34 +70924,36 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 26,
-      "scratchCompleteLemmas": 342,
+      "scratchCompleteLemmas": 349,
       "scratchMathlibModules": 2910,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "negativeFactorial": 17,
-        "strictBoundCounterexample": 4,
-        "modpGammaCongruence": 1220,
-        "factorialResidue": 244,
-        "nativeRationalPeriod": 1308,
-        "rationalFactorialResidue": 1308,
-        "nextCarryFactorialResidue": 1308,
-        "cyclicGammaProduct": 495,
-        "factorialProductUnit": 495,
-        "inverseFactorialProduct": 495,
-        "positiveEndpointCounterexample": 1
+        "carryParity": 108,
+        "carrySign": 108,
+        "nextGammaPair": 909,
+        "pairCyclicShift": 324,
+        "pairProduct": 324,
+        "normalizedPair": 324,
+        "dyadicParityCounterexample": 1,
+        "normalizationSignCounterexample": 1,
+        "finiteFieldTraceAdditive": 164,
+        "additiveCharacterNontrivial": 20,
+        "exactNegativeGaussSameAdditive": 100,
+        "exactNegativeGaussInverseAdditive": 100,
+        "additiveInversionSignCounterexample": 60
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819",
+        "sourceSha256": "a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34",
         "modules": 3600,
-        "warnings": 3350,
+        "warnings": 3377,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,350 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,377 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -70506,7 +70963,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b5b325894c21380697409b5d94bb6d7353747c1524bc8c9e585cf9c6b1356cce",
+      "sha256": "5303f212773317db73fa6d39a355650dc02c1f3afe6a6b1677c97f97684fed55",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -70521,11 +70978,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 342,
+        "completeLemmas": 349,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "1cdf06384f4a79e82860741711327fe25c804eba5422202cc78cb38cab6d1361"
+        "sha256": "e9288f821c1ca39f25c595ab47a7cb18c7383d01f9e9731bc2bb133031bc5e03"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -70663,17 +71120,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819",
+        "sourceSha256": "a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34",
         "modules": 3600,
-        "warnings": 3350,
+        "warnings": 3377,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,350 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,377 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "cd3af66a901e764266e07f3d5260036a9536dd59",
+      "base": "316e867a7c9104d5d679216731e99b99c98f53c5",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -79901,6 +80358,60 @@
         "warnings": 3350,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 3,350 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "grossKoblitzJacobiPair": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5342,
+      "previousHead": "3a9f6d4aa47943fbadb1ad74063b5add33b9b017",
+      "previousMerge": "8289de67dac4c115acf885da96342253fd37c92b",
+      "preservedWholeNodes": 1044,
+      "preservedBaseline": 780,
+      "preservedFindings": 18,
+      "newNodes": 6,
+      "reading": "Rereads the complete Gross–Koblitz Lemma2.5 proof on p.573 and its reflection/digit inputs on p.572. Reads the full pinned native digit reduction and base1 sum proofs, natural oddness, sign-power reduction, finite power-product, inverse-character evaluation, both Gauss product identities and their ambient hypotheses. Eight newly used baseline records are added; all1,044 predecessor nodes,780 baseline records,18 source findings and four versions remain whole.",
+      "boundary": "The elementary Jacobi Gamma pair and its comparison with native Gauss sums are now planned with complete proofs under explicit finite-field character hypotheses. The next task is to construct the source inverse-Teichmuller character and primitive trace additive character, prove their normalization/nontriviality, and fix the compatible π before the general formula. The ternary F9 finite example checks the signs but does not replace this general construction. Source Lemma2.6 still needs the cited Katz crystalline Frobenius limit2.7; the Gauss-side Stickelberger leading congruence in Lemma2.11 remains separate from the established Gamma factorial congruence. Read the primary proof sources and route their exact missing interfaces by ownership. E18’s distribution repair remains unproved and unused, and the Ferrero–Greenberg proof and analytic supplier obligations remain. All18 gaps and14 requests remain; no stage closes.",
+      "inputBase": "316e867a7c9104d5d679216731e99b99c98f53c5",
+      "sourceBoundary": "All18 findings and all four sourceVersions remain whole, including E18 awaiting independent review. No new finding or review verdict is added.",
+      "publication": {
+        "base": "316e867a7c9104d5d679216731e99b99c98f53c5",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "carryParity": 108,
+        "carrySign": 108,
+        "nextGammaPair": 909,
+        "pairCyclicShift": 324,
+        "pairProduct": 324,
+        "normalizedPair": 324,
+        "dyadicParityCounterexample": 1,
+        "normalizationSignCounterexample": 1,
+        "finiteFieldTraceAdditive": 164,
+        "additiveCharacterNontrivial": 20,
+        "exactNegativeGaussSameAdditive": 100,
+        "exactNegativeGaussInverseAdditive": 100,
+        "additiveInversionSignCounterexample": 60
+      },
+      "numericalMethod": "Exact integer Gamma products at rational representatives modulo p,p²,p³, independent Euclidean digits, and exact cyclotomic-polynomial reductions of literal negative Gauss sums over F3,F5,F7 and F9=F3[u]/(u²+1). Every nontrivial inverse-power multiplicative character and every nontrivial trace-scaled additive character are tested in those fields. No floating-point roots or unproved asymptotic equality is used. These finite controls do not construct the general Teichmuller character or prove the full Gross–Koblitz formula.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34",
+        "modules": 3600,
+        "warnings": 3377,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 3,377 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a7962004383ed22e6bcdf436dfb4424190e2f158e65a9b6ffe409e4240fe3d34.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
