@@ -15719,3 +15719,10 @@ the blueprint packet. Listed here so that the file matches the packet.
 * `AdicSpacesPartII:F1/dagger-proper-projection-trace` (lemma): Trace maps for the projection X × Y → Y with X smooth and proper (Grosse-Klönne, Finiteness, Proposition 1.11). Let X be a smooth proper K-dagger (resp. rigid) space of pure dimension n, Y a smooth pure-dimensional K-dagger (resp. rigid) space and p : Z = X × Y → Y the projection. For rigid spaces assume char K = 0; for dagger spaces assume moreover K = Frac(R) for a complete discrete valuation ring R of mixe…
 * `AdicSpacesPartII:F1/dagger-hdr-embedding-independence` (lemma): Independence of the embedding for de Rham cohomology with supports, and the invariants h^dR_q (Grosse-Klönne, Finiteness, 1.12–1.13). Let K = Frac(R) for a complete discrete valuation ring R of mixed characteristic (0, p) (the trace of F1/dagger-proper-projection-trace is used for dagger spaces). For closed immersions g_i : Z → Y_i (i = 1, 2) into smooth affinoid K-dagger spaces of pure dimensions n_i, RΓ(Y_1, DR(RΓ*_Z O_{Y_1}))[2…
 -/
+
+/- REV-FIX-RT-AREA-padic-2~2: F1 supplies complexes, including logarithmic
+boundary ideals. RD.4 supplies HLTT 6.8 on each smooth quasi-projective dagger
+tube. The AG2.4 adapter is the boundary-stratum spectral sequence of HLTT 6.21:
+rigid cohomology occurs on E₁, and cuspidal boundary-support cohomology is the
+abutment. Lemma 6.8 alone does not identify that abutment with an ordinary
+rigid cohomology group. RD.5/RD.6 supply the finiteness/weights on its strata. -/
