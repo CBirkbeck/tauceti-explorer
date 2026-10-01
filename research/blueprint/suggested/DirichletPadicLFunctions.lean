@@ -24355,3 +24355,216 @@ example (z w : kubertPrimitivePoints (AddCircle (1 : ℚ)) 3) (hw : (2 : ℕ) �
 example [Fintype (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] (z w : kubertPrimitivePoints ((nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker) 3) (hw : (2 : ℕ) • w.val=z.val) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of w.val))+(∑ y : {y : kubertPrimitivePoints ((nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker) 6 // (2 : ℕ) • y.val=z.val},(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of y.val.val)))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of z.val)) := by sorry
 end
 end DirichletPadic.SuggestedKubertPrimeFiberTests
+
+/- Kubert higher-power fibers and exceptional-label elimination. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertExceptional_prime_layer_dvd {p M n : ℕ} : p*M ∣ p^(n+1)*M := by sorry
+
+lemma kubertExceptional_prime_power_quotient_layer {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0) :
+    (p^(n+1)*M)/(p*M)=p^n := by sorry
+
+lemma kubertExceptional_prime_power_quotient_scalar {p M n : ℕ} (hp : p ≠ 0) :
+    (p^(n+1)*M)/p^n=p*M := by sorry
+
+lemma kubertExceptional_prime_power_same_support {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0) :
+    (p^(n+1)*M).primeFactors=(p*M).primeFactors := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertPrimePowerFiberMap {p M n : ℕ} (hp : p ≠ 0) (z : X) :
+    {y : kubertPrimitivePoints X (p^(n+1)*M) // p^(n+1) • (y : X)=z} →
+      {s : kubertPrimitivePoints X (p*M) // p • (s : X)=z} := by sorry
+
+lemma kubertExceptional_primePowerFiberMap_coe {p M n : ℕ} (hp : p ≠ 0) (z : X)
+    (y : {y : kubertPrimitivePoints X (p^(n+1)*M) //
+      p^(n+1) • (y : X)=z}) :
+    (kubertPrimePowerFiberMap hp z y).val.val=p^n • y.val.val := by sorry
+
+lemma kubertExceptional_primePowerFiberMap_surjective [DivisibleBy X ℤ] {p M n : ℕ}
+    (hp : p ≠ 0) (hM : M ≠ 0) (z : X) :
+    Function.Surjective (kubertPrimePowerFiberMap (M := M) (n := n) hp z) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertExceptional_higher_root_primitive {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0)
+    (s : kubertPrimitivePoints X (p*M))
+    {y : X} (hy : p^n • y=(s : X)) :
+    y ∈ kubertPrimitivePoints X (p^(n+1)*M) := by sorry
+
+noncomputable def kubertHigherPowerFiberEquiv {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0)
+    (z : X)
+    (s : {s : kubertPrimitivePoints X (p*M) // p • (s : X)=z}) :
+    {y : {y : kubertPrimitivePoints X (p^(n+1)*M) //
+      p^(n+1) • (y : X)=z} // kubertPrimePowerFiberMap hp z y=s} ≃
+      {y : X // p^n • y=(s.val : X)} := by sorry
+
+lemma kubertExceptional_higherPowerFiberEquiv_coe {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0)
+    (z : X)
+    (s : {s : kubertPrimitivePoints X (p*M) // p • (s : X)=z})
+    (y : {y : {y : kubertPrimitivePoints X (p^(n+1)*M) //
+      p^(n+1) • (y : X)=z} // kubertPrimePowerFiberMap hp z y=s}) :
+    (kubertHigherPowerFiberEquiv hp hM z s y).val=y.val.val.val := by sorry
+
+lemma kubertExceptional_higherPowerFiberEquiv_symm_coe {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0)
+    (z : X)
+    (s : {s : kubertPrimitivePoints X (p*M) // p • (s : X)=z})
+    (y : {y : X // p^n • y=(s.val : X)}) :
+    ((kubertHigherPowerFiberEquiv hp hM z s).symm y).val.val.val=y.val := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertExceptional_higher_image_label_mem [DivisibleBy X ℤ]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+    {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0) (hN : (N : ℕ)=p^(n+1)*M)
+    (B : AddSubgroup (FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := X) N 0))
+    (t s : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker)
+    (hs : (s : X) ∈ kubertPrimitivePoints X (p*M))
+    (hsz : p • s=p^(n+1) • t) (hne : s ≠ p^n • t)
+    (hY : ∀ y : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker,
+      (y : X) ∈ kubertPrimitivePoints X (N : ℕ) →
+      p^(n+1) • y=p^(n+1) • t → y ≠ t →
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of y) ∈ B) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+      (FreeAbelianGroup.of s) ∈ B := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertExceptional_complementary_level_admissible {p M n : ℕ} (hp : p ≠ 0) (hM : M ≠ 0)
+    (hc : p.Coprime M) :
+    M ∈ kubertAdmissibleDivisors (p^(n+1)*M) := by sorry
+
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertExceptional_lower_image_primitive {p M n : ℕ} (hp : p ≠ 0)
+    (t : kubertPrimitivePoints X (p^(n+1)*M)) :
+    p^(n+1) • (t : X) ∈ kubertPrimitivePoints X M := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertExceptional_fiber_elimination [DivisibleBy X ℤ]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+    {p M n : ℕ} (hp : p.Prime) (hc : p.Coprime M) (hM : M ≠ 0)
+    (hN : (N : ℕ)=p^(n+1)*M)
+    (B : AddSubgroup (FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker) ⧸
+      kubertInternalLevelRelations (X := X) N 0))
+    (t : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker)
+    (ht : (t : X) ∈ kubertPrimitivePoints X (N : ℕ))
+    (z w : kubertPrimitivePoints
+      ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker) M)
+    (hz : z.val=p^(n+1) • t) (hw : p • w.val=z.val)
+    (hzB : QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+      (FreeAbelianGroup.of z.val) ∈ B)
+    (hwB : QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+      (FreeAbelianGroup.of w.val) ∈ B)
+    (hY : ∀ y : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker,
+      (y : X) ∈ kubertPrimitivePoints X (N : ℕ) →
+      p^(n+1) • y=p^(n+1) • t → y ≠ t →
+      QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+        (FreeAbelianGroup.of y) ∈ B) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N 0)
+      (FreeAbelianGroup.of t) ∈ B := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertExceptional_exceptional_label_mem (k : ℕ) (M N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)).ker]
+    [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    {p n : ℕ} (hp : p.Prime) (hc : p.Coprime (M : ℕ))
+    (hN : (N : ℕ)=p^(n+1)*(M : ℕ))
+    (hgen : kubertReducedGeneratorSpan k M=⊤)
+    (t : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (ht : (t : Fin (k+1) → AddCircle (1 : ℚ)) ∈
+      kubertPrimitivePoints _ (N : ℕ))
+    (hY : ∀ y : (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker,
+      (y : Fin (k+1) → AddCircle (1 : ℚ)) ∈
+        kubertPrimitivePoints _ (N : ℕ) →
+      p^(n+1) • y=p^(n+1) • t → y ≠ t →
+      QuotientAddGroup.mk' (kubertInternalLevelRelations
+        (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of y) ∈
+        kubertReducedGeneratorSpan k N) :
+    QuotientAddGroup.mk' (kubertInternalLevelRelations
+      (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0) (FreeAbelianGroup.of t) ∈
+        kubertReducedGeneratorSpan k N := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertExceptionalTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((3 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((18 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker]
+-- prime_layer_divides_higher_level
+example : (6 : ℕ)∣24 := by sorry
+-- lift_degree_is_four
+example : (24 : ℕ)/6=4 := by sorry
+-- image_level_is_six
+example : (24 : ℕ)/4=6 := by sorry
+-- higher_and_prime_layers_have_same_support
+example : (24 : ℕ).primeFactors=(6 : ℕ).primeFactors := by sorry
+-- source_image_point_is_actual_multiple
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) : (kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y).val.val=(4 : ℕ) • y.val.val := by sorry
+-- reduction_satisfies_prime_root_equation
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) : (2 : ℕ) • (kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y).val.val=z := by sorry
+-- exponent_zero_reduction_keeps_point
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) : (kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 0) (by decide) z y).val.val=y.val.val := by sorry
+-- point_value_formula
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) : (kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y).val.val=(4 : ℕ) • y.val.val := by sorry
+-- every_primitive_prime_root_is_an_image
+example (z : (Fin 1 → AddCircle (1 : ℚ))) : Function.Surjective (kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z) := by sorry
+-- every_full_lift_has_exact_higher_order
+example (s : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (y : (Fin 1 → AddCircle (1 : ℚ))) (hy : (4 : ℕ) • y=(s : (Fin 1 → AddCircle (1 : ℚ)))) : y∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 := by sorry
+-- complete_fiber_keeps_point
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) (y : {y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z} // kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y=s}) : (kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s y).val=y.val.val.val := by sorry
+-- complete_fiber_inverse_recovers_source
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) (y : {y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z} // kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y=s}) : (kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s).symm (kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s y)=y := by sorry
+-- all_ambient_roots_are_retained
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) (y : {y : (Fin 1 → AddCircle (1 : ℚ)) // (4 : ℕ) • y=s.val.val}) : kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s ((kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s).symm y)=y := by sorry
+-- exponent_zero_fiber_is_singleton
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) : Nat.card {y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z} // kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 0) (by decide) z y=s}=1 := by sorry
+-- forward_complete_fiber_value
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) (y : {y : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 // (8 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z} // kubertPrimePowerFiberMap (p := 2) (M := 3) (n := 2) (by decide) z y=s}) : (kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s y).val=y.val.val.val := by sorry
+-- inverse_complete_fiber_value
+example (z : (Fin 1 → AddCircle (1 : ℚ))) (s : {y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 // (2 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=z}) (y : {y : (Fin 1 → AddCircle (1 : ℚ)) // (4 : ℕ) • y=s.val.val}) : ((kubertHigherPowerFiberEquiv (p := 2) (M := 3) (n := 2) (by decide) (by decide) z s).symm y).val.val.val=y.val := by sorry
+-- all_other_image_labels_are_available
+example (t s : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker) (hs : (s : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (hsz : (2 : ℕ) • s=(8 : ℕ) • t) (hne : s≠(4 : ℕ) • t) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 → (8 : ℕ) • y=(8 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 24) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of s))∈kubertReducedGeneratorSpan 0 24 := by sorry
+-- lower_complement_is_admissible
+example : 3∈kubertAdmissibleDivisors 24 := by sorry
+-- lower_image_has_exact_order_three
+example (t : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24) : (8 : ℕ) • (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 3 := by sorry
+-- two_relations_recover_omitted_label
+example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker) (ht : (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24) (z w : kubertPrimitivePoints ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker) 3) (hz : z.val=(8 : ℕ) • t) (hw : (2 : ℕ) • w.val=z.val) (hzB : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of z.val))∈kubertReducedGeneratorSpan 0 24) (hwB : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of w.val))∈kubertReducedGeneratorSpan 0 24) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 → (8 : ℕ) • y=(8 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 24) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of t))∈kubertReducedGeneratorSpan 0 24 := by sorry
+-- kubert_elimination_at_twenty_four
+example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker) (ht : (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((24 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 24 → (8 : ℕ) • y=(8 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 24) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 24 0) (FreeAbelianGroup.of t))∈kubertReducedGeneratorSpan 0 24 := by sorry
+-- exponent_zero_elimination
+example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker) (ht : (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6 → (2 : ℕ) • y=(2 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 6 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 6) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 6 0) (FreeAbelianGroup.of t))∈kubertReducedGeneratorSpan 0 6 := by sorry
+-- ternary_elimination
+example (t : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((18 : ℕ+) : ℕ)).ker) (ht : (t : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 18) (hY : ∀ y : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((18 : ℕ+) : ℕ)).ker,(y : (Fin 1 → AddCircle (1 : ℚ)))∈kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 18 → (9 : ℕ) • y=(9 : ℕ) • t → y≠t → (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 18 0) (FreeAbelianGroup.of y))∈kubertReducedGeneratorSpan 0 18) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 18 0) (FreeAbelianGroup.of t))∈kubertReducedGeneratorSpan 0 18 := by sorry
+end
+end DirichletPadic.SuggestedKubertExceptionalTests
