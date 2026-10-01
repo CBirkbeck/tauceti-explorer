@@ -37086,7 +37086,8 @@
     "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4158"
   },
   {
    "id": "REV-RT-PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -38520,8 +38521,9 @@
     "REV-PAPER-FENG-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4212"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4212",
+   "finishedAt": "2026-10-01T19:39:49Z"
   },
   {
    "id": "REV-RT-PAPER-FENG-24",
