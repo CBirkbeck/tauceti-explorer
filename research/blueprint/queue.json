@@ -37703,8 +37703,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CASTELLA-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5508"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5508",
+   "finishedAt": "2026-10-01T23:25:04Z"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -39960,7 +39961,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5527"
   },
   {
    "id": "RT-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
