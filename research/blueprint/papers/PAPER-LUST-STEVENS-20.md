@@ -129,3 +129,28 @@ Claude Code, session `cc-fb70e5`, 29 September 2026. The full report is `researc
     - **E37:** a stray word in print's introduction.
     - **E38:** the root criterion for self-dual polynomials ignores multiplicities.
 - **Prerequisites.** Moy–Prasad and Blondel now name the papers the text cites (1994 and 2012). Howlett–Lehrer, Lusztig (1984) and Silberger (1980) are added.
+
+## Fixes from the red team (FIX-RT-PAPER-LUST-STEVENS-20)
+
+Claude Code, session `cc-c2c06b`, 1 October 2026. The fixes apply the five confirmed findings of RT-PAPER-LUST-STEVENS-20. The full account is `research/blueprint/redteam/RT-PAPER-LUST-STEVENS-20.fixes.md`. The extraction still has 158 items and two routes. It now has 40 sourceIssues.
+
+- **The Weyl representative of §7.3** (s7-7.6-weyl-representative-action):
+  - **The fix.** On the exchanged pairs it is now w(e_i^−) = e_i^+, w(e_i^+) = ε e_i^−. The printed w(e_i^±) = ε e_i^∓ is not symplectic for ε = −1.
+  - **What it gives.** The corrected map preserves the form and has determinant (−ε)^n, so it lies in Sp, or in SO when n is even.
+  - **Unchanged.** The induced action (7.6), which is (7.7) in print, and the later parameter table.
+  - **New sourceIssue E39** records the sign slip, which is in both versions.
+- **The Levi of the §7.3 reduction** (s7-7.3-eigenspace-levi) now follows the version of record (p. 1100).
+  - **The construction.** ℒ* is the minimal F-stable Levi containing the centralizer of s. Its dual is a product of general linear groups with twisted Frobenius and one classical group on ker(s² − 1).
+  - **What it replaces.** arXiv v1's stabilizer of the rational primary decomposition, which need not be a Levi. In SO_5 at q = 3 it contains SO_4.
+  - **New sourceIssue E40** records this, with `known` naming the published correction.
+- **J/J¹** (s2-reductive-quotient-J) is branched by ramification. The determinant condition applies only when F = F_o or F/F_o is unramified. In the ramified case J/J¹ is the full U(V̄_(1)) × U(V̄_(2)) (E5).
+- **Maximality of J°** (s2-parahoric-Jo-properties) now uses the criterion of s2-maximal-parahoric-exceptions. Only a split SO(1,1,k_F) factor obstructs maximality, and not when G is itself two-dimensional special orthogonal (E6). The two items now agree.
+- **Split SO(1,1) ≅ GL₁** (E7). The following assume G is not split SO(1,1):
+  - the normalizer, maximal-compact and standard-label statements;
+  - Morris's compact-induction classification and the uniqueness of the local data;
+  - the §8 local-data set-up;
+  - main results (ii) and (iii).
+
+  The lattice-orbit statement is kept for every G. For split SO(1,1) the depth-zero cuspidals are characters of F^×, not compactly induced from 𝔬_F^×, and that case is deferred.
+
+Both route briefs now carry these corrections.
