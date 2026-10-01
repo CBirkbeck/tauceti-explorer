@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Sixteen L3 nodes construct actual surjective full-Witt unit-product projections, compatible finite regular actions and injective native norm intertwiners with identity/composition laws. All 1,697 predecessor nodes and 1,117 baseline records remain whole.",
+  "summary": "Nineteen L3 nodes give the actual finite Cartan ring system, exact agreement with the prior unit maps, and the unique algebraic full-Witt lift of every compatible finite-ring cone. All 1,713 predecessor nodes and 1,121 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7861,6 +7861,62 @@
         "module": "Mathlib/RepresentationTheory/Intertwining.lean",
         "provides": "Native composition of two actual intertwining maps for compatible representations, using the actual composite linear map.",
         "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Actual native prime subtype and intertwining identity/composition are reused directly."
+      },
+      {
+        "ref": "mathlib:RingHom.pi",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Pi.lean",
+        "provides": "The existing native ring homomorphism assembled from a dependent family of ring homomorphisms.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:Pi.evalRingHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Pi.lean",
+        "provides": "Native evaluation of an actual dependent product ring at a specified index.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_pow_self",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "For an actual prime p, the p-exponent of p^n equals n.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "The existing native full-Witt ring lift of a compatible family of ring homomorphisms into all natural truncated-Witt lengths, from any semiring.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.truncate_lift",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Native truncation of the existing Witt-vector lift recovers the prescribed finite ring map at each natural length.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "An actual prime dividing a nonzero natural number is a member of its native finite prime-factor set.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.truncate_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Every native truncated-Witt reduction between ordered natural lengths over a commutative ring is surjective.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.coeff_truncate",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Truncation of an actual full Witt vector preserves each coefficient below the target length.",
+        "checked": "Full declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note; native product maps, prime-power factorization, truncation and the existing Witt universal property are reused directly."
       }
     ]
   },
@@ -110437,6 +110493,1123 @@
       "acceptance": [
         "Use the actual full-Witt unit values and actual finite product carriers. Prove local and global projection surjectivity rather than assume it. Check inverse coefficient action, forward basis labels, unit level, changed prime supports and compatible native intertwiner composition. Preserve arbitrary semiring coefficients. Keep source local-field, inverse-limit, topology and primitive-torsor identifications explicitly open."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduction between actual finite Cartan product rings",
+      "kind": "construction",
+      "statement": "For positive k and M|N, construct r_MN:A(k,N)→A(k,M). Its p-coordinate is native truncation of the same original p-coordinate from exponent v_p(N) to v_p(M).",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Divisibility embeds every actual prime factor of M among those of N and gives the exponent inequality.",
+        "Evaluate at the actual upper prime coordinate with native Pi.evalRingHom.",
+        "Compose with native truncated-Witt reduction and assemble the coordinates with native RingHom.pi."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
+        "mathlib:Nat.primeFactors_mono",
+        "mathlib:Nat.factorization_le_iff_dvd",
+        "mathlib:Pi.evalRingHom",
+        "mathlib:RingHom.pi",
+        "mathlib:TruncatedWittVector.truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanRingReduction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.ring_reduction_preserves_identity",
+          "kind": "degenerate",
+          "statement": "Reduction from30 to6 preserves the actual ring identity."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.ring_reduction_retains_addition",
+          "kind": "compatibility",
+          "statement": "Reduction preserves addition of actual product-ring tuples, including nonunits."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.empty_product_zero_ring",
+          "kind": "degenerate",
+          "statement": "Reduction to level1 is the unique element of the empty product ring; the image equals zero."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.ring_reduction_is_not_always_injective",
+          "kind": "non-example",
+          "statement": "Reduction12 to6 loses precision at2 and is not injective."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanInverseLimit_cartanRingReduction_apply",
+          "role": "compatibility",
+          "statement": "For x in A(k,N) and p dividing M, r_MN(x)_p is the native truncation to v_p(M) of x_p at the same prime p of N."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanRingReduction_self",
+          "role": "compatibility",
+          "statement": "For every positive k,N, r_NN equals the identity ring homomorphism of A(k,N)."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanRingReduction_comp",
+          "role": "compatibility",
+          "statement": "For positive L|M|N, r_LM composed with r_MN equals r_LN on the original finite product rings."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanRingReduction_surjective",
+          "role": "compatibility",
+          "statement": "For every positive M|N, r_MN:A(k,N)→A(k,M) is surjective, including at changing prime support and level 1."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanRingReduction_units",
+          "role": "compatibility",
+          "statement": "Under native MulEquiv.piUnits, applying Units.map to r_MN is exactly the established actual finite Cartan product reduction on unit tuples."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert, p. 186 finite Cartan system",
+          "how": "Provides the actual underlying ring transitions, including nonunits and new primes."
+        },
+        {
+          "where": "Finite Cartan group compatibility",
+          "how": "Its induced native unit map is exactly the existing group transition."
+        },
+        {
+          "where": "Inverse-limit universal property",
+          "how": "Defines the concrete finite coherence equations used by every cone."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual finite ring reduction at an original prime coordinate",
+      "kind": "lemma",
+      "statement": "For x in A(k,N) and p dividing M, r_MN(x)_p is the native truncation to v_p(M) of x_p at the same prime p of N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Evaluate the native product ring homomorphism and the actual coordinate evaluation map.",
+        "The resulting value is exactly the original coordinate truncation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanRingReduction_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.same_original_prime_coordinate",
+          "kind": "compatibility",
+          "statement": "The2-coordinate of reduction12 to6 uses the actual upper2-coordinate and truncates its exponent."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-self",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Same-level finite Cartan ring reduction is the identity",
+      "kind": "lemma",
+      "statement": "For every positive k,N, r_NN equals the identity ring homomorphism of A(k,N).",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare ring maps on a tuple and then each actual prime coordinate.",
+        "Compare the native truncated-Witt coefficients; equal-length truncation retains every coefficient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+        "mathlib:TruncatedWittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanRingReduction_self"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_ring_identity_transition",
+          "kind": "degenerate",
+          "statement": "The actual6-to6 ring transition is the identity homomorphism."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-comp",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual finite Cartan ring reductions compose",
+      "kind": "lemma",
+      "statement": "For positive L|M|N, r_LM composed with r_MN equals r_LN on the original finite product rings.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare actual prime coordinates of the two composite maps.",
+        "Both paths select the same original upper prime coordinate.",
+        "Apply native composition of truncated-Witt reductions at the three factorization exponents."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+        "mathlib:TruncatedWittVector.truncate_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanRingReduction_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.ring_transitions_change_prime_support",
+          "kind": "compatibility",
+          "statement": "Actual ring transitions6 to12 to60 compose even when the upper level adds prime5."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every finite Cartan ring tuple lifts along reduction",
+      "kind": "lemma",
+      "statement": "For every positive M|N, r_MN:A(k,N)→A(k,M) is surjective, including at changing prime support and level 1.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "For each upper prime already dividing M, apply native truncated-Witt surjectivity to the prescribed actual lower coordinate.",
+        "At every newly appearing prime choose the actual zero ring element.",
+        "Assemble the upper tuple and use each chosen-lift equation to recover the original lower tuple."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+        "mathlib:TruncatedWittVector.truncate_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanRingReduction_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_ring_tuple_lifts",
+          "kind": "characterisation",
+          "statement": "Every actual level6 ring tuple lifts to level30, including tuples with nonunit coordinates."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-units",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The ring reduction induces the established Cartan group reduction",
+      "kind": "lemma",
+      "statement": "Under native MulEquiv.piUnits, applying Units.map to r_MN is exactly the established actual finite Cartan product reduction on unit tuples.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Evaluate the native map on units and native units-of-product equivalence.",
+        "Both constructions use the same original prime coordinate and the same native truncation ring homomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction",
+        "mathlib:MulEquiv.piUnits",
+        "mathlib:Units.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanRingReduction_units"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.ring_units_match_finite_Cartan_reduction",
+          "kind": "compatibility",
+          "statement": "Native units of the actual product-ring reduction give precisely the established finite Cartan group reduction."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Projection from the actual all-prime Witt product ring",
+      "kind": "construction",
+      "statement": "For every positive k,N, construct π_N:C(k)→A(k,N) by retaining each prime dividing N and truncating that original full-Witt coordinate to v_p(N).",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Use the primality certificate of the actual finite prime factor to obtain its native all-prime index.",
+        "Evaluate the original full-Witt tuple at this index.",
+        "Compose with native full-Witt truncation and assemble all finite coordinates by RingHom.pi."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
+        "mathlib:Nat.Primes",
+        "mathlib:Nat.prime_of_mem_primeFactors",
+        "mathlib:WittVector.truncate",
+        "mathlib:Pi.evalRingHom",
+        "mathlib:RingHom.pi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanWittRingProjection"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.Witt_ring_projection_preserves_product",
+          "kind": "compatibility",
+          "statement": "Projection of the actual all-prime Witt ring preserves multiplication."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.Witt_ring_projection_zero",
+          "kind": "degenerate",
+          "statement": "The actual all-prime zero tuple projects to zero."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.one_finite_ring_projection_not_injective",
+          "kind": "non-example",
+          "statement": "A single finite projection cannot recover an entire all-prime Witt tuple."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingProjection_apply",
+          "role": "compatibility",
+          "statement": "For x in C(k) and p dividing N, π_N(x)_p is the native length-v_p(N) truncation of the original full-Witt coordinate x_p."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingProjection_reduction",
+          "role": "compatibility",
+          "statement": "For every positive M|N, r_MN composed with π_N equals π_M as ring maps from C(k)."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingProjection_units",
+          "role": "compatibility",
+          "statement": "Under native MulEquiv.piUnits on both product rings, Units.map of π_N equals the established actual all-prime full-Witt unit-product projection to finite level N."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingProjection_jointly_injective",
+          "role": "compatibility",
+          "statement": "If x,y in C(k) satisfy π_N(x)=π_N(y) for every positive N, then x=y."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert, p. 186 projective-limit model",
+          "how": "Supplies the actual finite ring projections of the concrete all-prime Witt product."
+        },
+        {
+          "where": "Common Cartan action",
+          "how": "Its native unit map recovers exactly the existing full-Witt unit projection."
+        },
+        {
+          "where": "Uniqueness of lifts",
+          "how": "All finite projections recover every original full-Witt coefficient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Full-Witt ring projection retains the original prime value",
+      "kind": "lemma",
+      "statement": "For x in C(k) and p dividing N, π_N(x)_p is the native length-v_p(N) truncation of the original full-Witt coordinate x_p.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Evaluate the actual native product ring map.",
+        "The prime index keeps the same underlying prime and the value is precisely its native full-Witt truncation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingProjection_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.Witt_ring_actual_prime_value",
+          "kind": "characterisation",
+          "statement": "The2-coordinate at12 is the native length-two truncation of the original full-Witt2-coordinate."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-reduction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All finite ring projections commute with reduction",
+      "kind": "lemma",
+      "statement": "For every positive M|N, r_MN composed with π_N equals π_M as ring maps from C(k).",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare the original prime coordinates after both paths.",
+        "Use the exponent inequality from M|N.",
+        "Apply native compatibility between full-Witt truncation and subsequent truncated-Witt reduction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-apply",
+        "mathlib:TruncatedWittVector.truncate_wittVector_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingProjection_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.Witt_ring_projection_compatibility",
+          "kind": "compatibility",
+          "statement": "Projection to30 followed by actual ring reduction to6 equals direct projection to6."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-units",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The ring projection induces the established common Cartan unit projection",
+      "kind": "lemma",
+      "statement": "Under native MulEquiv.piUnits on both product rings, Units.map of π_N equals the established actual all-prime full-Witt unit-product projection to finite level N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Evaluate native maps on units and units-of-product equivalences.",
+        "Both sides truncate the same underlying original full-Witt unit value at the same prime and exponent."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection",
+        "mathlib:MulEquiv.piUnits",
+        "mathlib:Units.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingProjection_units"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.Witt_ring_units_match_common_projection",
+          "kind": "compatibility",
+          "statement": "The map on units of the actual all-prime ring projection is the established common Cartan unit-product projection."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-jointly-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All finite Cartan ring projections determine the full-Witt tuple",
+      "kind": "lemma",
+      "statement": "If x,y in C(k) satisfy π_N(x)=π_N(y) for every positive N, then x=y.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Fix an actual prime p and natural coefficient index i.",
+        "Take the actual positive finite level p^(i+1); the prime-factor membership and native exponent theorem give a coordinate of length i+1.",
+        "Evaluate the assumed projection equality at its original p-coordinate and ith coefficient.",
+        "Native full-Witt truncation retains that coefficient. Full-Witt and product extensionality recover equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-apply",
+        "mathlib:Nat.Prime.mem_primeFactors",
+        "mathlib:Nat.factorization_pow_self",
+        "mathlib:WittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingProjection_jointly_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.all_finite_ring_projections_determine_tuple",
+          "kind": "characterisation",
+          "statement": "Equality of every actual finite projection forces equality of the actual full-Witt tuples."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-cone-coeff-compatible",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Compatible finite Cartan cones preserve every shared prime coefficient",
+      "kind": "lemma",
+      "statement": "For a compatible family f_N:S→A(k,N), positive M,N, a prime p dividing both levels, s in S and i<min(v_p(M),v_p(N)), the ith coefficients of the original p-coordinates of f_M(s) and f_N(s) are equal.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Use the actual common upper level M*N, divisible by both M and N.",
+        "Evaluate each cone compatibility equation at s, the original p-coordinate and coefficient i.",
+        "Native truncated-Witt coefficient formulas identify both with the same coefficient of f_(M*N)(s).",
+        "Compose the resulting equalities. No ordering or equality of prime support is required."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-ring-reduction-apply",
+        "mathlib:TruncatedWittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanCone_coeff_compatible"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.cone_original_coefficients_agree",
+          "kind": "compatibility",
+          "statement": "A compatible finite-ring cone has the same original2-adic zeroth coefficient at levels6 and12."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Extracting native prime-power ring maps from a finite Cartan family",
+      "kind": "construction",
+      "statement": "For actual maps f_N:S→A(k,N), prime p and natural n, define g_p,n:S→TruncatedWittVector p n (GaloisField p k) by evaluating f_(p^(n+1)) at its original p-coordinate and applying native truncation from exponent n+1 to n.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "The level p^(n+1) is positive and contains the actual prime p, even when n=0.",
+        "Native prime-power factorization identifies its p-exponent with n+1.",
+        "Compose the original finite map, native prime-coordinate evaluation and native truncation to n.",
+        "This extraction itself needs no compatibility hypothesis; that hypothesis is used in the subsequent compatibility lemma."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.mem_primeFactors",
+        "mathlib:Nat.factorization_pow_self",
+        "mathlib:Pi.evalRingHom",
+        "mathlib:TruncatedWittVector.truncate",
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPrimePowerCone"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.prime_power_cone_length_zero",
+          "kind": "degenerate",
+          "statement": "At length zero, the extracted prime-power map has the unique zero-length Witt value."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.prime_power_cone_uses_shifted_actual_level",
+          "kind": "compatibility",
+          "statement": "The length-two2-adic map evaluates the actual level8 cone coordinate then truncates to length two."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.prime_power_extraction_preserves_product",
+          "kind": "compatibility",
+          "statement": "The extracted actual prime-power map preserves source multiplication."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanInverseLimit_cartanPrimePowerCone_coeff",
+          "role": "compatibility",
+          "statement": "For i<n, the ith coefficient of g_p,n(s) equals the ith coefficient of the original p-coordinate of f_(p^(n+1))(s)."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanPrimePowerCone_compat",
+          "role": "compatibility",
+          "statement": "If f is compatible, then for natural m≤n, native truncation from n to m composed with g_p,n equals g_p,m."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Native WittVector.lift input",
+          "how": "Extracts actual compatible maps at every natural truncation length."
+        },
+        {
+          "where": "Zero-length boundary",
+          "how": "The shift n+1 retains a real prime coordinate while still supplying the zero-length target."
+        },
+        {
+          "where": "Arbitrary finite-level recovery",
+          "how": "Exposes the original coefficients compared through genuine cone coherence."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Prime-power extraction preserves original lower coefficients",
+      "kind": "lemma",
+      "statement": "For i<n, the ith coefficient of g_p,n(s) equals the ith coefficient of the original p-coordinate of f_(p^(n+1))(s).",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Evaluate the extracted native composite.",
+        "Apply the native truncated-Witt coefficient formula and retain the original coefficient index."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone",
+        "mathlib:TruncatedWittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanPrimePowerCone_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.prime_power_coefficient_uses_original_value",
+          "kind": "characterisation",
+          "statement": "Extraction retains the original zeroth2-coordinate of the actual level8 value."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone-compat",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The extracted prime-power maps form a native Witt cone",
+      "kind": "lemma",
+      "statement": "If f is compatible, then for natural m≤n, native truncation from n to m composed with g_p,n equals g_p,m.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare the two ring maps at any source element and each coefficient below m.",
+        "Native truncation and the extraction coefficient formula reduce both sides to their original finite Cartan coefficients.",
+        "Apply the shared-coefficient compatibility lemma at the actual levels p^(n+1) and p^(m+1)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-cone-coeff-compatible",
+        "mathlib:TruncatedWittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanPrimePowerCone_compat"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.prime_power_cone_native_truncation",
+          "kind": "compatibility",
+          "statement": "The extracted prime-power maps form the compatible ring-hom family required by native WittVector.lift."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual full-Witt lift of a compatible finite Cartan cone",
+      "kind": "construction",
+      "statement": "Given actual compatible ring maps f_N:S→A(k,N), construct a ring homomorphism lift(f):S→C(k). Its p-coordinate is native WittVector.lift applied to the extracted compatible family g_p,n.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Use the proved actual prime-power compatibility to meet exactly the hypotheses of the existing native Witt-vector universal property.",
+        "Apply native WittVector.lift for each actual prime, retaining the same finite field and source semiring.",
+        "Assemble these actual full-Witt ring maps using RingHom.pi.",
+        "No new generic inverse-limit construction, generic Witt lift, or presumed recovery law is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone-compat",
+        "mathlib:WittVector.lift",
+        "mathlib:RingHom.pi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanWittRingLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_Witt_lift_preserves_product",
+          "kind": "compatibility",
+          "statement": "The constructed all-prime lift preserves multiplication of source elements."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_Witt_lift_preserves_identity",
+          "kind": "degenerate",
+          "statement": "The actual universal lift preserves the source identity."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_Witt_lift_recovers_level_thirty",
+          "kind": "characterisation",
+          "statement": "Projecting the constructed lift to30 recovers the original cone map including all three prime coordinates."
+        },
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_Witt_lift_of_projection_cone",
+          "kind": "characterisation",
+          "statement": "The lift of the actual projection cone of the all-prime Witt ring is its identity homomorphism."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingLift_projection",
+          "role": "universal-property",
+          "statement": "For every positive N, π_N composed with lift(f) equals the prescribed original map f_N."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingLift_unique",
+          "role": "universal-property",
+          "statement": "If g:S→C(k) is an actual ring homomorphism with π_N composed with g equal to f_N for every positive N, then lift(f)=g."
+        },
+        {
+          "name": "kubertCartanInverseLimit_cartanWittRingLift_existsUnique",
+          "role": "universal-property",
+          "statement": "For every semiring S and compatible family of actual ring homomorphisms f_N:S→A(k,N), there exists exactly one ring homomorphism g:S→C(k) satisfying π_N composed with g equal to f_N at every positive N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert, p. 186 inverse-limit bridge",
+          "how": "Realizes the exact algebraic universal property in the actual Witt model."
+        },
+        {
+          "where": "Finite ring recovery",
+          "how": "Recovers every original finite map, including levels with several primes."
+        },
+        {
+          "where": "Source unramified model comparison",
+          "how": "Provides the concrete algebraic target for the still-open owner/local-field identification."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-projection",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The constructed Witt lift recovers every actual finite Cartan map",
+      "kind": "lemma",
+      "statement": "For every positive N, π_N composed with lift(f) equals the prescribed original map f_N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare ring maps at any s, then each actual prime p dividing N and coefficient i<v_p(N).",
+        "Native truncate_lift identifies the truncated full-Witt lift with g_p,v_p(N).",
+        "The extraction coefficient formula exposes the original finite coordinate at level p^(v_p(N)+1).",
+        "The shared-coefficient lemma compares it with the original coordinate of f_N(s), using the genuine cone compatibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-prime-power-cone-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-cone-coeff-compatible",
+        "mathlib:WittVector.truncate_lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingLift_projection"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.universal_lift_empty_level",
+          "kind": "degenerate",
+          "statement": "The lift recovers the original cone map even at the empty product level1."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual full-Witt lift is uniquely determined",
+      "kind": "lemma",
+      "statement": "If g:S→C(k) is an actual ring homomorphism with π_N composed with g equal to f_N for every positive N, then lift(f)=g.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Compare the two maps at any source element.",
+        "The proved projection recovery and the assumed prescribed projections of g give equality at every actual finite level.",
+        "Apply joint injectivity of all actual finite ring projections."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-jointly-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_lift_uniqueness",
+          "kind": "characterisation",
+          "statement": "Any actual ring map with all the prescribed finite projections equals the constructed lift."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-exists-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The concrete Cartan ring inverse-limit universal property",
+      "kind": "lemma",
+      "statement": "For every semiring S and compatible family of actual ring homomorphisms f_N:S→A(k,N), there exists exactly one ring homomorphism g:S→C(k) satisfying π_N composed with g equal to f_N at every positive N.",
+      "hypotheses": [
+        "The degree k and finite levels N,M,L are positive integers. A(k,N) denotes the actual product over primes p dividing N of TruncatedWittVector p v_p(N) (GaloisField p k); C(k) denotes the actual product over all native primes p of WittVector p (GaloisField p k). Products carry their native ring structures; the level 1 empty product is the zero ring.",
+        "Finite transitions use the stated divisibility M|N. The original prime coordinate and its native factorization exponent are retained. The local finite ring model and its generic presentation, unit and locality theory are owned by FiniteFieldsAndCharacterSums:FF.4.",
+        "For cone and lifting statements, S is any semiring and f_N:S→A(k,N) are actual ring homomorphisms. Where compatibility is required, reduction from N to M composed with f_N equals f_M for every positive M|N. This is the concrete input to a universal property, not an assumed inverse-limit object.",
+        "Prime-power extraction uses an actual prime p and natural truncation length n, including zero. No topology, continuity, identification of source local-field integers with Witt vectors, primitive torsor or rank lower bound is assumed or asserted."
+      ],
+      "proofSteps": [
+        "Take the constructed actual full-Witt lift.",
+        "Use the proved finite projection recovery for existence.",
+        "Use the proved actual ring-map uniqueness for every competing map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-projection",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanInverseLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanInverseLimit_cartanWittRingLift_existsUnique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation(2.5), the common Cartan unit group as the projective limit of finite Cartan groups;187, equation(2.7), compatible finite group-ring injections.",
+          "match": "Supplies the algebraic inverse-limit universal property of the actual underlying Witt-model Cartan rings and exact compatibility on units. The generic Witt-vector universal property already exists in Mathlib and is reused prime by prime. The source unramified local-field and topological identifications remain explicit open bridges."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanInverseLimitTests.actual_ring_inverse_limit_property",
+          "kind": "characterisation",
+          "statement": "Every compatible cone of actual finite Cartan ring maps from any semiring has exactly one actual ring-hom lift to the full-Witt product."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual ring carriers, original prime coordinates and native truncation exponents. Check empty level 1, changing prime support and nonunit ring values. The universal lift must recover every prescribed finite map and be unique as an actual ring homomorphism. Keep the source local-field and topological bridges open."
+      ]
     }
   ],
   "requests": [
@@ -110583,7 +111756,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The genuine product of full-Witt unit groups now projects surjectively and compatibly to every actual finite Cartan product. It acts through native regular representations, and the actual finite norms are injective native intertwiners for this same common group, with native identity and composition laws. Next identify the algebraic inverse limit using the existing native truncated-Witt limit APIs or construct the actual primitive-torus coordinates from the owner unramified finite model. The identification of full Witt vectors with the source unramified local-field integer rings, inverse-limit topology and continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The actual finite Cartan rings now form a surjective reduction system; their full-Witt product projections agree exactly on units with the established Cartan group maps. The actual full-Witt ring product satisfies the algebraic inverse-limit universal property: every compatible cone of ring maps from any semiring has a unique constructed lift with every finite projection prescribed. Next connect this concrete algebraic limit to the source unramified local-field model and its topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. The source integer-ring identification, continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert, p. 186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -110615,7 +111788,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The genuine product of full-Witt unit groups now projects surjectively and compatibly to every actual finite Cartan product. It acts through native regular representations, and the actual finite norms are injective native intertwiners for this same common group, with native identity and composition laws. Next identify the algebraic inverse limit using the existing native truncated-Witt limit APIs or construct the actual primitive-torus coordinates from the owner unramified finite model. The identification of full Witt vectors with the source unramified local-field integer rings, inverse-limit topology and continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual finite Cartan rings now form a surjective reduction system; their full-Witt product projections agree exactly on units with the established Cartan group maps. The actual full-Witt ring product satisfies the algebraic inverse-limit universal property: every compatible cone of ring maps from any semiring has a unique constructed lift with every finite projection prescribed. Next connect this concrete algebraic limit to the source unramified local-field model and its topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. The source integer-ring identification, continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert, p. 186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -111165,36 +112338,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. Actual algebraic full-Witt projections and common actions are explicit. FF.4 ownership, source local-field and topological inverse-limit identifications, actual primitive torsor, independent lower rank bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic full-Witt inverse-limit universal property is supplied. FF.4 ownership, source local-field and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1713,
+      "nodes": 1732,
       "kinds": {
         "definition": 22,
-        "lemma": 960,
-        "construction": 165,
+        "lemma": 975,
+        "construction": 169,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1183,
-      "packetTests": 3139,
-      "definitionConstructionTests": 745,
-      "typedExamples": 3142,
+      "api": 1197,
+      "packetTests": 3168,
+      "definitionConstructionTests": 759,
+      "typedExamples": 3171,
       "planets": 24,
-      "baseline": 1121,
-      "preservedWholeNodes": 1697,
-      "preservedBaseline": 1117,
+      "baseline": 1129,
+      "preservedWholeNodes": 1713,
+      "preservedBaseline": 1121,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 16,
-      "newNamedDeclarations": 16,
-      "newTypedTests": 27,
+      "newNodes": 19,
+      "newNamedDeclarations": 19,
+      "newTypedTests": 29,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1975,
-      "dependencyEdges": 8407,
+      "reachableNodes": 1994,
+      "dependencyEdges": 8467,
       "acyclic": true,
-      "baselineLeaves": 1294,
+      "baselineLeaves": 1302,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -111209,7 +112382,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 874632,
+      "readerWords": 883431,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -111235,31 +112408,35 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 107,
-      "scratchCompleteLemmas": 1081,
+      "scratchCompleteDefinitions": 111,
+      "scratchCompleteLemmas": 1096,
       "scratchMathlibModules": 3008,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 67,
-        "finiteUnitTuples": 3016,
-        "compatibleFamilies": 32,
-        "projectionProducts": 17152,
-        "projectionCompatibility": 4224,
-        "finiteUnitLifts": 3016,
-        "intertwiningChecks": 218272
+        "levels": 72,
+        "ringTuples": 2628,
+        "divisibilityPairs": 326,
+        "changedPrimePairs": 204,
+        "ringLifts": 4332,
+        "ringAdditions": 44276,
+        "ringProducts": 44276,
+        "compositions": 41350,
+        "unitComparisons": 6545,
+        "shiftedExtractions": 1600,
+        "coefficientRecoveries": 2400
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7",
+        "sourceSha256": "15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773",
         "modules": 3628,
-        "warnings": 5202,
+        "warnings": 5250,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,202 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -111269,7 +112446,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b198d639cd7d0b08ec62ba9f5f7425eba422bca8a6dddfc2288d7552a60fd215",
+      "sha256": "d5aa0d5617b13e3a01ab4eea59e0931e9a74dbd3d3f8caccc0fe212c9d59b4c7",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -111284,11 +112461,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1081,
+        "completeLemmas": 1096,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "7e910e250e5bb24959fc185eea3f55e01da905d3d2d01fef109eef3c0dcca71e"
+        "sha256": "a6dc6b7467074db2434e72b7d9e01be9ba35c646e6f76817533a532f8d923eed"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -111426,17 +112603,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7",
+        "sourceSha256": "15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773",
         "modules": 3628,
-        "warnings": 5202,
+        "warnings": 5250,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,202 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "1ff23cb2aa7715790df7edc92cb9ef1ad95cb0c0",
+      "base": "30c3dd792e7de851cc2b1f2a1a4646f3661a19dd",
       "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -122795,6 +123972,58 @@
         "warnings": 5202,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,202 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2d326051c3ee41ea710d4be07fc8ce9738967e894d720199c65b5c3d805567a7.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanInverseLimit": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5474,
+      "previousHead": "b8ae81acafc2ab72f7e8d45c5c6e3aabc5b5805e",
+      "previousMerge": "244c6990d792eb5f69705f3a42487f3fb4e5e113",
+      "preservedWholeNodes": 1713,
+      "preservedBaseline": 1121,
+      "preservedFindings": 26,
+      "newNodes": 19,
+      "reading": "Kubert, p. 186(2.5) motivates the exact underlying Cartan inverse-limit bridge. Native ring product/evaluation maps, prime-power factorization, full/truncated Witt reduction coefficients and surjectivity, and the complete existing WittVector lift/universal-property API were read with their hypotheses and bodies. The actual extraction uses p^(n+1) followed by truncation to n, so zero length is included without inventing a prime coordinate at level 1. Shared coefficients are compared at the actual common upper level M*N. No generic Witt lifting or limit carrier is replanned.",
+      "boundary": "The actual finite Cartan rings now form a surjective reduction system; their full-Witt product projections agree exactly on units with the established Cartan group maps. The actual full-Witt ring product satisfies the algebraic inverse-limit universal property: every compatible cone of ring maps from any semiring has a unique constructed lift with every finite projection prescribed. Next connect this concrete algebraic limit to the source unramified local-field model and its topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. The source integer-ring identification, continuity, actual simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert, p. 186–199, then combine it with actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "244c6990d792eb5f69705f3a42487f3fb4e5e113",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic full-Witt inverse-limit universal property is supplied. FF.4 ownership, source local-field and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "30c3dd792e7de851cc2b1f2a1a4646f3661a19dd",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 72,
+        "ringTuples": 2628,
+        "divisibilityPairs": 326,
+        "changedPrimePairs": 204,
+        "ringLifts": 4332,
+        "ringAdditions": 44276,
+        "ringProducts": 44276,
+        "compositions": 41350,
+        "unitComparisons": 6545,
+        "shiftedExtractions": 1600,
+        "coefficientRecoveries": 2400
+      },
+      "numericalMethod": "Exact integer arithmetic in finite degree-one residue-product analogues, with exhaustive ring-surjectivity and composition checks and bounded pairwise ring-operation checks. Shifted prime-power extraction is checked at exponents0–3 for four primes. These independent controls are not a certified equivalence with native Witt rings, an infinite-limit computation, or a proof of the FF.4 presentation/local-field/topological bridges.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773",
+        "modules": 3628,
+        "warnings": 5250,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,250 expected placeholder warnings across 3,628 pinned source modules. It includes all 19 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 15af9a547ffcf7487f5c5ed35218e3b44f2c6966f65363c0e65ed08d91a31773.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
