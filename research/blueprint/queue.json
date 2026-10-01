@@ -39332,8 +39332,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5522"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5522",
+   "finishedAt": "2026-10-01T23:33:34Z"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
@@ -40988,7 +40989,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5532"
   },
   {
    "id": "RT-PAPER-DING-25",
@@ -46757,7 +46759,8 @@
     "FIX-RT-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-20~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5550"
   },
   {
    "id": "RT-RS-21",
