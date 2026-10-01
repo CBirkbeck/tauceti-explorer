@@ -34142,7 +34142,8 @@
     "REV-PAPER-DADDEZIO-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DADDEZIO-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5055"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
