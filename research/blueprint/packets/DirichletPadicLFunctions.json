@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Ten L3 nodes prove the rational preimage permutation and its exact comparison with the literal Gamma source product, including zero formal weight and unique integral representatives. All1,164 predecessor nodes,893 baseline records,20 findings and six source versions remain whole.",
+  "summary": "Thirteen L3 nodes derive the root-of-unity step from Gamma congruences and Euler powers, identify its Teichmuller value and prove the literal Gross–Koblitz multiplication formula. All1,174 predecessor nodes,900baseline records,20findings and six source versions remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -6314,6 +6314,20 @@
         "module": "Mathlib/Data/Nat/ModEq.lean",
         "provides": "Cancel a factor coprime to the modulus from a natural modular equality.",
         "checked": "Full statement, hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Includes modular cancellation via gcd, finite image-cardinality surjectivity, the native product equivalence, interval quotient choice and its unique representative, and the explicit type-tag conversion. Existing Gamma/cyclic-point, coercion and finite-product endpoint proofs were reread; all native consumer proofs compile."
+      },
+      {
+        "ref": "mathlib:Units.coe_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "Project a finite native unit product through the coefficient monoid homomorphism.",
+        "checked": "Full statement and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Product coercion is map_prod ofUnits.coeHom; nonzero divisibility cancellation compares witnesses using left cancellation. Existing Euler/totient, quotient transition/extensionality and natural-cast divisibility proofs also read in full; native consumer evidence compiles."
+      },
+      {
+        "ref": "mathlib:mul_dvd_mul_iff_left",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Divisibility.lean",
+        "provides": "Cancel a common nonzero left factor from divisibility in a cancellative monoid withzero.",
+        "checked": "Full statement and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Product coercion is map_prod ofUnits.coeHom; nonzero divisibility cancellation compares witnesses using left cancellation. Existing Euler/totient, quotient transition/extensionality and natural-cast divisibility proofs also read in full; native consumer evidence compiles."
       }
     ]
   },
@@ -77796,6 +77810,772 @@
       "acceptance": [
         "Forp=3,f=2,k=1,m=2, the literal Gamma product at the four sixteenths has residue2. All normalization factors are units; atm=1 the quotient is1."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-natural-unit-count-balance",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Balance of unit factors and positive residue",
+      "kind": "lemma",
+      "statement": "For every naturaln, p*U(n)+p=(p−1)*n+R(n).",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Atn=0, the truncated count iszero and the positive residue isp. At a successorn=t+1, the complete positiveResidue_succ helper givesR(n)=t modp+1, including the wrap fromp−1 to the representativep.",
+        "Euclidean divisiont=p*floor(t/p)+t modp gives the displayed balance, with the subtraction justified byfloor(t/p)≤t. Complete unit_count_balance proves it in native naturals.",
+        "The complete unit_count_step helper provesU(n+1)=U(n)+1 whenp does not dividen andU(n+1)=U(n) otherwise. It uses the pinned Lean core successor-division lemmas; these are core arithmetic, not new indexed Mathlib declarations."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-natural",
+        "DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_unit_count_balance"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.count_at_zero",
+          "kind": "degenerate",
+          "statement": "The empty natural unit count iszero and the positive residue ofzero isp."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.count_at_four",
+          "kind": "computation",
+          "statement": "Forp=3,n=4 the two unit factors give3*2+3=2*4+1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.count_excludes_multiples",
+          "kind": "non-example",
+          "statement": "Atn=3 the count is2, not3."
+        }
+      ],
+      "acceptance": [
+        "Atp=3,n=4,U(n)=2 andR(n)=1. Atzero the residue term isp, notzero."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-multiplication-natural",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The cleared natural Gamma multiplication product",
+      "kind": "lemma",
+      "statement": "For every naturaln, F_m(n)*m^U(n)=Gamma(n)*C inZ_p.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Start atn=0 usingGamma(0)=1. At a successor compare the established recurrence forF_m with the recurrence forGamma.",
+        "Ifp dividesn, both recurrences contribute−1 and the count stays fixed. Otherwise the Gamma factor contributes−n whileF_m contributes−b*n and the count increases byone.",
+        "Useb*m=1 to cancel the extra inverse factor in the unit branch. Complete product_natural proves the cleared identity by induction without division by a possibly nonunitn."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-natural-unit-count-balance",
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-step",
+        "DirichletPadicLFunctions:L3/morita-gamma-functional-equation",
+        "DirichletPadicLFunctions:L3/morita-gamma"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaMultiplicationProduct_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.natural_four",
+          "kind": "computation",
+          "statement": "The exact denominator2 product at4 has multiplier4."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.natural_zero",
+          "kind": "degenerate",
+          "statement": "Atn=0 the cleared product has unit multiplier."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.natural_three",
+          "kind": "computation",
+          "statement": "Atn=3 the multiplier is4 even though the endpoint3 is a nonunit."
+        }
+      ],
+      "acceptance": [
+        "Atp=3,m=2,n=3 or4 the exponent is2 and the multiplier is4."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-step",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The integral carry equation on the Gamma orbit",
+      "kind": "lemma",
+      "statement": "For eachj, p*x_j=c_j+x_(j+1) inZ_p.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Multiply the desired equality byM. Substitute the exact integral point equationsM*x_j=n_j andM*x_(j+1)=n_(j+1).",
+        "The existing natural carry equationp*n_j=M*c_j+n_(j+1) gives equality after casting intoZ_p.",
+        "CancelM using its native unit certificate. Complete rational_step uses IsUnit.mul_left_inj; it assumes no unsupported Q→Z_p map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-carry-step",
+        "DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit",
+        "DirichletPadicLFunctions:L3/gross-koblitz-rational-point",
+        "mathlib:IsUnit.mul_left_inj"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_rational_orbit_step"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.first_ternary_step",
+          "kind": "computation",
+          "statement": "The first point1/8 moves to3/8 with carryzero."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.closing_ternary_step",
+          "kind": "computation",
+          "statement": "The closing step has carryone:3*(3/8)=1+1/8."
+        }
+      ],
+      "acceptance": [
+        "Forp=3,k=1,f=2,3*(1/8)=3/8 and3*(3/8)=1+1/8."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The integral orbit and carry sums",
+      "kind": "lemma",
+      "statement": "The integral points satisfy(p−1)*sum_(j<f)x_j=sum_(j<f)c_j inZ_p.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The existing rational_period proof cancelsM in the periodic numerator equation to obtainx_f=x_0.",
+        "Sum the preceding integral carry equation. The complete sum_shift helper applies the native finite-sum endpoint formula to replace sumx_(j+1) bysumx_j.",
+        "Move that common sum to the left. Complete rational_sum retains the natural cast ofp−1, justified byp>1. The additive endpoint formula is the generated counterpart of the already indexed Finset.prod_range_succ'; no index is modified."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-step",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-period",
+        "mathlib:Finset.prod_range_succ'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_rational_orbit_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.ternary_sum",
+          "kind": "computation",
+          "statement": "The sum of the two orbit points is1/2."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.zero_orbit_sum",
+          "kind": "degenerate",
+          "statement": "The zero orbit has zero sum and zero total carry."
+        }
+      ],
+      "acceptance": [
+        "The ternary orbit1/8,3/8 hassum1/2 and total carry1. The zero orbit has total carryzero."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-orbit-residue-balance",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Balance of positive residues around the orbit",
+      "kind": "lemma",
+      "statement": "The natural positive residues satisfy sum_(j<f)R(x_j)+sum_(j<f)c_j=p*f.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The existing next-point residue theorem givesR(x_(j+1))=p−c_j. The boundc_j<p justifies natural cancellation inR(x_(j+1))+c_j=p.",
+        "Sum overj<f and usex_f=x_0 to reindex the positive-residue sum. Complete residue_sum proves the identity in naturals, before reducing it modulo a prime power.",
+        "The zero orbit is included: every carry iszero and each positive residue isp. It is not confused with a source fractional representative ofzero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-next-positive-residue",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-period",
+        "DirichletPadicLFunctions:L3/gross-koblitz-carry-bound",
+        "mathlib:Finset.prod_range_succ'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_orbit_residue_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.ternary_residue_balance",
+          "kind": "computation",
+          "statement": "The positive residues2 and3 plus total carry1 equal6."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.zero_residue_balance",
+          "kind": "degenerate",
+          "statement": "Each point in the zero orbit contributes positive residuep."
+        }
+      ],
+      "acceptance": [
+        "Forp=3,k=1,f=2 the residues2,3 plus carry1 equal6."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-precision-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Positive residue of the natural precision representative",
+      "kind": "lemma",
+      "statement": "Forell>0 andx∈Z_p, R((toZModPow ell x).val)=R(x).",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The complete natural_lift helper proves that the natural cast of the finite quotient’s value has exactly the same precisionell image, using ZMod.natCast_zmod_val.",
+        "Apply the native quotient transition PadicInt.cast_toZModPow to precision1. The existing reduction_one_iff identifies equality there with equality modulo p.",
+        "Both the value and the zero/nonzero branch in the definition ofR now agree. Complete positiveResidue_lift proves the claimed equality without a continuity assumption."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-positive-residue",
+        "mathlib:ZMod.natCast_zmod_val",
+        "mathlib:PadicInt.cast_toZModPow",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitzPositiveResidue_precision_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.precision_lift_zero",
+          "kind": "degenerate",
+          "statement": "A zero representative retains positive residue3."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.precision_lift_eighth",
+          "kind": "computation",
+          "statement": "The residue27 representative of1/8 is17, with positive residue2."
+        }
+      ],
+      "acceptance": [
+        "Atp=3,ell=3 the representative of1/8 is17 and both positive residues are2. Zero retains residue3."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-orbit-count-divisibility",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Prime-power divisibility of the orbit unit count",
+      "kind": "lemma",
+      "statement": "For everyell>0, p^(ell−1) divides sum_(j<f)U(r_j), where r_j=(toZModPow ell x_j).val.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Sum the natural balancep*U(r_j)+p=(p−1)*r_j+R(r_j). The preceding precision-lift result replacesR(r_j) withR(x_j).",
+        "Reduce the summed identity inZMod(p^ell). The native natural representatives have the same quotient images asx_j. Substitute the integral orbit-sum equation and the natural residue-balance equation; all terms exceptp*sumU(r_j) cancel.",
+        "Complete count_sum_zero proves the vanishing. ZMod.natCast_eq_zero_iff translates it into divisibilityp^ell dividesp*sumU(r_j).",
+        "Writep^ell=p*p^(ell−1), justified byell>0, and cancel the nonzerop using native mul_dvd_mul_iff_left. Complete count_sum_dvd checks this step while retaining the dependent quotient modulus."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-natural-unit-count-balance",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-sum",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-residue-balance",
+        "DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-precision-lift",
+        "mathlib:ZMod.natCast_eq_zero_iff",
+        "mathlib:mul_dvd_mul_iff_left"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_orbit_unit_count_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.complete_orbit_count",
+          "kind": "computation",
+          "statement": "The precision3 representatives17,24 have counts11,16, whose sum27 is divisible by9."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.incomplete_orbit_count",
+          "kind": "non-example",
+          "statement": "The single count11 does not satisfy the complete-orbit divisibility."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.zero_orbit_count",
+          "kind": "degenerate",
+          "statement": "Every prime power divides the empty-factor count of the zero orbit."
+        }
+      ],
+      "acceptance": [
+        "Forp=3,ell=3,k=1,f=2 the representatives17,24 have counts11,16:9 divides27. The incomplete single-point count11 is not divisible by9."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-multiplication-precision-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma multiplication product at finite precision",
+      "kind": "lemma",
+      "statement": "At an admissible precisionell, F_m(x) modulo p^ell timesm^U(r) equalsGamma(x)*C modulo p^ell, where r=(toZModPow ell x).val.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The complete product_mod_congr helper transports the established sharp Gamma congruence through every affine argumentb(x+h), then through the native finite product.",
+        "Map the cleared natural formula atn=r intoZMod(p^ell). The native quotient lift identifiesr withx at that precision.",
+        "Apply sharp congruence toGamma(r) and the finite-product congruence toF_m(r). Complete product_lift obtains the exact finite-ring equation. Atp=2,ell=2 remains excluded."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-natural",
+        "DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction",
+        "mathlib:ZMod.natCast_zmod_val",
+        "mathlib:map_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaMultiplicationProduct_precision_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.single_precision_product",
+          "kind": "computation",
+          "statement": "At precision3 the point1/8 has unit count11."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.dyadic_exception",
+          "kind": "non-example",
+          "statement": "Gamma2(4) andGamma2(0) are not congruent modulo4."
+        }
+      ],
+      "acceptance": [
+        "Atp=3,ell=3,x=1/8 the multiplier is2^11 form=2. Gamma2(4)=3 andGamma2(0)=1 modulo4 rule out the excluded binary precision."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite-precision Gamma orbit product",
+      "kind": "lemma",
+      "statement": "At an admissible precisionell, the reduction ofA timesm^N equals the reduction ofB, whereA=product_(j<f)F_m(x_j), B=(product_(j<f)Gamma(x_j))*C^f, andN=sum_(j<f)U(r_j). This finite-product identity allows any familyx_j and anyf, includingzero.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Multiply the preceding precision identity overj<f. Finset.prod_mul_distrib separates theF_m factors and the powers ofm.",
+        "The native product-of-powers identity changes the latter product tom^N. The constant factorC occursf times and the native quotient homomorphism collects the Gamma product.",
+        "Complete orbit_lift proves this finite-ring identity for arbitrary point families; the cyclic hypothesis enters only when applying the preceding divisibility theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-precision-lift",
+        "mathlib:map_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaMultiplicationProduct_orbit_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.orbit_precision_multiplier",
+          "kind": "computation",
+          "statement": "The full precision3 orbit has multiplier2^27."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.empty_product_precision",
+          "kind": "degenerate",
+          "statement": "The precision identity atf=0 consists of empty products."
+        }
+      ],
+      "acceptance": [
+        "For the ternary eighths orbit atell=3, the exponent is27. The empty family has empty productsone."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact power identity for the Gamma orbit",
+      "kind": "theorem",
+      "statement": "For the actual cyclic points, A^(p−1)=B^(p−1) inZ_p, withA andB as in the finite-precision identity.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "At an admissible precisionell>0, the orbit-count divisibility writesN=p^(ell−1)*t. The native image ofm is a unit ofZMod(p^ell).",
+        "Apply ZMod.pow_totient and Nat.totient_prime_pow: its exponentp^(ell−1)*(p−1) kills this unit. Complete euler_count therefore givesm^(N*(p−1))=1.",
+        "Raise the finite orbit identity to the powerp−1. The complete orbit_power_mod proof removes the extra Euler factor and obtains equality of the quotient images ofA^(p−1) andB^(p−1).",
+        "For every target precisionn useell=n+3. These precisions satisfy the exact sharp-Gamma hypotheses for everyprime, includingp=2. Cast the equality down ton using PadicInt.cast_toZModPow.",
+        "Apply PadicInt.ext_of_toZModPow to all target precisions. Complete orbit_power proves the exact equality inZ_p, with no numerical-limit claim."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-lift",
+        "DirichletPadicLFunctions:L3/gross-koblitz-orbit-count-divisibility",
+        "mathlib:ZMod.pow_totient",
+        "mathlib:Nat.totient_prime_pow",
+        "mathlib:PadicInt.cast_toZModPow",
+        "mathlib:PadicInt.ext_of_toZModPow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaMultiplicationProduct_orbit_power"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.ternary_square",
+          "kind": "computation",
+          "statement": "The squared orbit product equals the squared normalization exactly."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.dyadic_power_one",
+          "kind": "computation",
+          "statement": "Forp=2 the exponentp−1 isone, so the orbit product equals its normalization."
+        }
+      ],
+      "acceptance": [
+        "Atp=3 the equality is an equality of squares. Atp=2 the exponent isone andA=B exactly."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-root-unity",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Gamma multiplication quotient is a root of unity",
+      "kind": "theorem",
+      "statement": "The actual unit quotientQ=(product_(j<f,h<m)Gamma(b(x_j+h)))/((product_(j<f)Gamma(x_j))*(product_(h<m)Gamma(b*h))^f) satisfiesQ^(p−1)=1.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "Both numerator and denominator are products and powers in the native unit groupZ_p^×. Their scalar projections are exactlyA andB; native Units.coe_prod and the preceding product definition verify this.",
+        "The preceding scalar power identity lifts to equality of the two unit-group powers by Units.ext.",
+        "Distribute the power over the unit quotient and cancel the equal numerator and denominator powers. Complete orbit_units_power provesQ^(p−1)=1 without division by a nonunit or a chosen algebraic closure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power",
+        "DirichletPadicLFunctions:L3/morita-gamma",
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-product",
+        "mathlib:Units.coe_prod",
+        "mathlib:Units.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_multiplication_root"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.source_ternary_root",
+          "kind": "computation",
+          "statement": "The literal sixteenth source quotient has squareone."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.unit_denominator_root",
+          "kind": "degenerate",
+          "statement": "The denominator1 quotient isone."
+        }
+      ],
+      "acceptance": [
+        "The ternary sixteenth source quotient has squareone. Forp=2 the quotient isone, and form=1 it isone for everyprime."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Teichmuller value of the Gamma multiplication quotient",
+      "kind": "theorem",
+      "statement": "Ifk<M, the actual normalized unit quotientQ equalsteichmullerOmega(m)^k.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The previously proved mod-p orbit congruence identifies the scalar reduction of the numerator asm^k times that of the denominator. Complete orbit_units_residue transfers this to the actual native unit quotient, using the unit-valued reduction homomorphism.",
+        "Obtain the needed mod-p Gamma congruence from sharp precision1, which is admissible for everyprime.",
+        "Combine this residue withQ^(p−1)=1 and the established native padicTeichmuller_unique theorem. Complete orbit_units_teichmuller givesQ=padicTeichmuller(red(m)^k).",
+        "The Teichmuller lift is a homomorphism, so this value isteichmullerOmega(m)^k. Atp=2 this is the native prime-to2 character, which isone, not the separate conductor4 Morita coordinate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-root-unity",
+        "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-orbit-congruence",
+        "DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction",
+        "DirichletPadicLFunctions:L3/padic-teichmuller-unique",
+        "DirichletPadicLFunctions:L3/teichmuller-omega",
+        "mathlib:Units.coe_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_multiplication_teichmuller"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.ternary_teichmuller",
+          "kind": "computation",
+          "statement": "The Teichmuller value of2 inZ3 is−1."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.dyadic_teichmuller",
+          "kind": "compatibility",
+          "statement": "The native prime-to2 Teichmuller value isone."
+        }
+      ],
+      "acceptance": [
+        "The Teichmuller value of2 inZ3 is−1. Every binary native Teichmuller value isone."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Gross–Koblitz Gamma multiplication formula",
+      "kind": "theorem",
+      "statement": "For0<k<M and the actual integral source preimagesY_(j,h)=<p^j*(k/M+h)/m> andZ_(j,h)=<p^j*(h+1)/m>, the product overj<f of (product_(h<m)Gamma(Y_(j,h)))/(Gamma(x_j)*product_(h<m−1)Gamma(Z_(j,h))) equalsteichmullerOmega(m)^k.",
+      "hypotheses": [
+        "The primep may be2. Gamma is the existing actual unit-valued Morita Gamma function onZ_p, withGamma(0)=1 and the established unit/nonunit recurrence. WriteF_m(x) for the preceding scalar product ofGamma(b(x+h)),0≤h<m, where the cast ofm is a unit andb is its inverse; writeC=F_m(0). No replacement Gamma carrier or additional mathematical definition is introduced.",
+        "The natural unit count in[0,n) is the explicit expressionU(n)=n−1−floor((n−1)/p), using natural truncated subtraction, soU(0)=0. The preceding positive residueR(x) lies in1..p, withR(0)=p.",
+        "For an orbit takef>0,M=p^f−1,n_j=p^j*k modM,c_j=floor(p*n_j/M), and actual native pointsx_j satisfyingM*x_j=n_j. These points exist uniquely becauseM is a unit. The count and root-power results allow every naturalk, includingzero. The Teichmuller identification usesk<M.",
+        "At precisionell>0 putr_j=(toZModPow ell x_j).val. The finite Gamma congruences require additionallyp=2 impliesell≠2. The final identities use the cofinal precisionsell=n+3 and therefore allow everyprime without asserting the false binary modulo4 congruence.",
+        "The literal source formula assumes0<k<M,m>0,gcd(p,m)=1 and the displayed integral preimage familiesY,Z. These families are uniquely constructible by the preceding integral-preimage theorem. Positive fractional parts lie in(0,1], so an integer represents1. This theorem uses one common orbit lengthf, not a varying least period.",
+        "Gross–Koblitz1979 states Theorem3.1 for oddp. The direct Gamma/Euler derivation below also proves the displayed binary specialization; that extension is derived here, not attributed to the printed statement. The original finite-order Hecke-character proof route and the corrected least-period logarithmic distributionE18 remain separate source obligations."
+      ],
+      "proofSteps": [
+        "The preceding exact source-product comparison reindexes the positive fractional preimages and the nonzero normalizer to the actual affine Gamma factors. Its integral-preimage theorem constructs the displayed native families uniquely.",
+        "The finite-product value atzero identifiesC withproduct_(h<m−1)Gamma(b(h+1)), usingGamma(0)=1. The complete source_multiplication proof verifies the unit-valued version by Units.ext and native product coercion.",
+        "Substitute that equality into the literal source comparison and apply the preceding Teichmuller identification. This is exactly the source exponent(q−1)x=k with one common periodf.",
+        "For oddp this proves the printed Theorem3.1(2) by the direct Gamma/Euler route. The same complete proof gives the binary formula with right sideone. It does not use the erroneous printed logarithmic productE18 or assume the unread original Hecke-character theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller",
+        "DirichletPadicLFunctions:L3/gross-koblitz-gamma-source-product",
+        "DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence",
+        "DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-zero",
+        "mathlib:Units.coe_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GrossKoblitzMultiplication",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.grossKoblitz_multiplication_source"
+      },
+      "sources": [
+        {
+          "sourceId": "GrossKoblitz-1979",
+          "locator": "Section3, Theorem3.1(2), published575–576/PDF7–8, including the full multiplication proof, root-of-unity step and congruence(3.2). Complete pages reread in the retained published scan.",
+          "match": "The printed multiplication theorem identifies the normalized orbit Gamma product with the Teichmuller value ofm^((q−1)x). This checkpoint supplies an independent complete Gamma-recurrence, sharp-congruence and finite Euler-power derivation of the root step and then combines the already proved residue and literal-source comparisons. It does not claim to have read or discharged the paper’s separate finite-order Hecke-character argument. The binary extension is proved by the displayed native derivation, not stated in this source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGrossKoblitzRootTests.literal_source_minus_one",
+          "kind": "computation",
+          "statement": "Forp=3,f=2,k=1,m=2 the literal source Gamma quotient equals−1 exactly."
+        },
+        {
+          "name": "SuggestedGrossKoblitzRootTests.source_factors_are_units",
+          "kind": "compatibility",
+          "statement": "All source normalization factors lie in the native unit group."
+        }
+      ],
+      "acceptance": [
+        "Forp=3,f=2,k=1,m=2 the literal quotient at1/16,9/16,3/16,11/16 with eighths/half normalization equals−1 exactly."
+      ]
     }
   ],
   "requests": [
@@ -77942,7 +78722,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The source rational preimages, nonzero normalizer, formal weightzero and actual integral Gamma product are now identified explicitly. Together with5371 this establishes the exact literal source product’s mod-p congruence. The next task is the root-of-unity step of Gross–Koblitz Theorem3.1(2), with its hypotheses and proof-source ownership resolved. The source uses a finite-order Hecke-character argument; bare algebraicity is insufficient. A possible direct route via sharp Gamma congruences and finite-field Euler powers is only a candidate and remains unproved. The full multiplication theorem and E18’s least/common-period distribution repair remain unproved and unused. The original Katz/Fermat and external Stickelberger alternatives and both exact RD.6 Dwork interfaces remain open. All18 gaps and16 requests remain; zero stages close.",
+        "The literal Gamma multiplication formula and its root-of-unity step now have a complete direct Gamma/Euler native proof, including the binary specialization through admissible cofinal precisions. Next establish the exact common-period logarithmic distribution and its relation to the varying least periods, correctingE18 without using its printed product. Then continue the original Katz/Fermat and external Stickelberger source alternatives, and the remaining Ferrero–Greenberg/L3 source coverage. Both exact RD.6 Dwork interfaces remain open; the direct multiplication proof does not discharge them or claim the original finite-order Hecke-character proof has been read. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -77974,7 +78754,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The source rational preimages, nonzero normalizer, formal weightzero and actual integral Gamma product are now identified explicitly. Together with5371 this establishes the exact literal source product’s mod-p congruence. The next task is the root-of-unity step of Gross–Koblitz Theorem3.1(2), with its hypotheses and proof-source ownership resolved. The source uses a finite-order Hecke-character argument; bare algebraicity is insufficient. A possible direct route via sharp Gamma congruences and finite-field Euler powers is only a candidate and remains unproved. The full multiplication theorem and E18’s least/common-period distribution repair remain unproved and unused. The original Katz/Fermat and external Stickelberger alternatives and both exact RD.6 Dwork interfaces remain open. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The literal Gamma multiplication formula and its root-of-unity step now have a complete direct Gamma/Euler native proof, including the binary specialization through admissible cofinal precisions. Next establish the exact common-period logarithmic distribution and its relation to the varying least periods, correctingE18 without using its printed product. Then continue the original Katz/Fermat and external Stickelberger source alternatives, and the remaining Ferrero–Greenberg/L3 source coverage. Both exact RD.6 Dwork interfaces remain open; the direct multiplication proof does not discharge them or claim the original finite-order Hecke-character proof has been read. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -78429,36 +79209,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. The positive representative1 at the zero class is preserved; the root-of-unity and E18 period boundaries remain explicit.",
+    "sourceIssues": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. The source theorem is odd-prime; the binary specialization is explicitly a consequence of the complete direct proof. E18 remains open and unused.",
     "validation": {
-      "nodes": 1174,
+      "nodes": 1187,
       "kinds": {
         "definition": 3,
-        "lemma": 529,
+        "lemma": 538,
         "construction": 112,
-        "theorem": 323,
+        "theorem": 327,
         "comparison": 207
       },
       "api": 839,
-      "packetTests": 2312,
+      "packetTests": 2341,
       "definitionConstructionTests": 492,
-      "typedExamples": 2315,
+      "typedExamples": 2344,
       "planets": 24,
-      "baseline": 900,
-      "preservedWholeNodes": 1164,
-      "preservedBaseline": 893,
+      "baseline": 902,
+      "preservedWholeNodes": 1174,
+      "preservedBaseline": 900,
       "preservedSourceIssues": 20,
       "newSourceIssues": 0,
-      "newNodes": 10,
-      "newNamedDeclarations": 10,
-      "newTypedTests": 24,
+      "newNodes": 13,
+      "newNamedDeclarations": 13,
+      "newTypedTests": 29,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1434,
-      "dependencyEdges": 6719,
+      "reachableNodes": 1447,
+      "dependencyEdges": 6776,
       "acyclic": true,
-      "baselineLeaves": 1065,
+      "baselineLeaves": 1067,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -78473,7 +79253,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 600404,
+      "readerWords": 606910,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -78500,34 +79280,36 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 35,
-      "scratchCompleteLemmas": 575,
+      "scratchCompleteLemmas": 597,
       "scratchMathlibModules": 2981,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "affine_permutation": 7098,
-        "fractional_preimages": 7098,
-        "normalizer_permutation": 91,
-        "preimage_sum": 7098,
-        "formal_weight_zero": 7098,
-        "integer_boundary": 12,
-        "excluded_noncoprime": 53,
-        "integral_gamma_preimages": 974,
-        "gamma_source_product": 518,
-        "gamma_source_residue": 518,
-        "integral_denominators": 15159
+        "unit_count_step": 804,
+        "unit_count_balance": 804,
+        "rational_step": 1634,
+        "rational_balance": 652,
+        "residue_balance": 652,
+        "count_divisibility": 652,
+        "natural_product": 114720,
+        "orbit_lift": 4780,
+        "euler_power": 4780,
+        "root_of_unity": 4780,
+        "teichmuller_identification": 4780,
+        "incomplete_orbit_nonexample": 1,
+        "excluded_dyadic_precision": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0",
+        "sourceSha256": "4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e",
         "modules": 3604,
-        "warnings": 3822,
+        "warnings": 3864,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 10 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,864 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -78537,7 +79319,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "27f6153f777890396b282033f6af2c56bfbf105a211a8ccf4cbcff16572f0655",
+      "sha256": "7f654aad7910c2b79e9b171b3bda2f2d2611d5ce0d0ea21d6ed98fc3fec5b1a1",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -78552,11 +79334,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 575,
+        "completeLemmas": 597,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "a707b2e1afb7638e56a3dbb7bc5607b49aed80a8c4936bf57097ab4f116297e0"
+        "sha256": "1a832fedd8dfd500895293b333fd0147eaf9cda35af0702b4acb7833cfb3c67f"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -78694,17 +79476,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0",
+        "sourceSha256": "4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e",
         "modules": 3604,
-        "warnings": 3822,
+        "warnings": 3864,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 10 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,864 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "3655b944e937d0c3eaf2b708e7ad961e35018bd9",
+      "base": "d3817ffdba2ddf27dcfce8db450a751b61af77e4",
       "unchangedInputs": 73,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -88664,6 +89446,60 @@
         "warnings": 3822,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 3,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 10 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "grossKoblitzRootUnity": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5374,
+      "previousHead": "ccb28a44be4909ebb31a16254d9f6446fae9158c",
+      "previousMerge": "277bbb1c4618d25f73d6d8596e00630b1039fe00",
+      "preservedWholeNodes": 1174,
+      "preservedBaseline": 900,
+      "preservedFindings": 20,
+      "newNodes": 13,
+      "reading": "Rereads Gross–Koblitz1979 published575–576 in full, including the root-of-unity inference, period comparison, congruence(3.2), and the separate logarithmic distributionE18. Reads pinned native Euler/totient powers, unit-product coercion, divisibility cancellation, quotient transitions/extensionality and core successor-division proofs in full. The direct proof below follows Gamma recurrence through finite precision and derives the source theorem independently of the still unread original Hecke-character proof route.",
+      "boundary": "The literal Gamma multiplication formula and its root-of-unity step now have a complete direct Gamma/Euler native proof, including the binary specialization through admissible cofinal precisions. Next establish the exact common-period logarithmic distribution and its relation to the varying least periods, correctingE18 without using its printed product. Then continue the original Katz/Fermat and external Stickelberger source alternatives, and the remaining Ferrero–Greenberg/L3 source coverage. Both exact RD.6 Dwork interfaces remain open; the direct multiplication proof does not discharge them or claim the original finite-order Hecke-character proof has been read. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "6123442acfef3ed1d886034451bc70f5eab5ef5c",
+      "sourceBoundary": "All20 source findings and six sourceVersions remain whole. No new finding or independent review verdict is added. The source theorem is odd-prime; the binary specialization is explicitly a consequence of the complete direct proof. E18 remains open and unused.",
+      "publication": {
+        "base": "d3817ffdba2ddf27dcfce8db450a751b61af77e4",
+        "unchangedInputs": 73,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "unit_count_step": 804,
+        "unit_count_balance": 804,
+        "rational_step": 1634,
+        "rational_balance": 652,
+        "residue_balance": 652,
+        "count_divisibility": 652,
+        "natural_product": 114720,
+        "orbit_lift": 4780,
+        "euler_power": 4780,
+        "root_of_unity": 4780,
+        "teichmuller_identification": 4780,
+        "incomplete_orbit_nonexample": 1,
+        "excluded_dyadic_precision": 1
+      },
+      "numericalMethod": "Exact natural counts and rational orbit arithmetic check the count/divisibility argument. Buffered integer Gamma approximants modulo prime powers check natural and orbit product identities, Euler powers, root-of-unity powers and Teichmuller residues, including binary admissible precisions and the zero orbit. These finite controls complement the complete native proof; they do not certify a p-adic limit.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e",
+        "modules": 3604,
+        "warnings": 3864,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 3,864 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 4f777a7417776bf451f6422ca5668376c617dbcc490c6065a73592a4b9d7034e.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
