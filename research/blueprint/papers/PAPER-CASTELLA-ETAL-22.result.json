@@ -10,11 +10,12 @@
     "arxiv": "2008.02571",
     "url": "https://doi.org/10.1007/s00222-021-01072-y",
     "readSections": [
-      "arXiv 2008.02571v2, the authors' final version ('Final version, to appear in Invent. Math', 14 September 2021; TeX source SHA-256 6c3fa5faa4d5eb94ff75c38d7ae92ab8e72f4d21b6d20c2fbf7dbf59c8911622, PDF SHA-256 7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59, fetched from arxiv.org 22 September 2026), read in full: Introduction, §1 Algebraic side, §2 Analytic side, §3 A Kolyvagin system argument, §4 Proof of Theorem C and Corollary D, §5 Proof of Theorems E and F. The journal version (Crossref license: Springer TDM, not open access) was not available; the arXiv version is the accepted final one.",
-      "Numbers and pages are those of the arXiv PDF (34 pages; theorems numbered section.subsection.n, introduction results A–F)."
+      "Historical cc-39fac3 extraction reading: arXiv 2008.02571v2, the authors' final version ('Final version, to appear in Invent. Math', 14 September 2021; TeX source SHA-256 6c3fa5faa4d5eb94ff75c38d7ae92ab8e72f4d21b6d20c2fbf7dbf59c8911622, PDF SHA-256 7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59, fetched from arxiv.org 22 September 2026), read in full: Introduction, §1 Algebraic side, §2 Analytic side, §3 A Kolyvagin system argument, §4 Proof of Theorem C and Corollary D, §5 Proof of Theorems E and F. The journal version (Crossref license: Springer TDM, not open access) was not available; the arXiv version is the accepted final one.",
+      "Historical cc-39fac3 extraction reading: Numbers and pages are those of the arXiv PDF (34 pages; theorems numbered section.subsection.n, introduction results A–F).",
+      "Codex codex-5ebb6f, 1 October 2026, FIX-RT #5508: targeted fresh readings and exact version hashes in sourceVersions. Contrary to the earlier access limitation, the author-hosted 64-page printed article was obtained; only the specified pages were read."
     ]
   },
-  "summary": "Castella, Grossi, Lee and Skinner prove the anticyclotomic Iwasawa main conjecture for a rational elliptic curve E at an Eisenstein prime p, that is a good prime at which E has a rational p-isogeny with E[p]^ss = F_p(φ) ⊕ F_p(ψ). Theorem C gives the BDP form: char_Λ(𝔛_E)Λ^ur = (L_E) for K with (Heeg), (spl), (disc), (Sel) and φ|_{G_p} ≠ 1, ω. Corollary D gives Perrin-Riou's Heegner-point form. The method follows Greenberg–Vatsal. Residual comparisons show that 𝔛_E and L_E both have μ = 0 and the same λ as the corresponding objects for φ and ψ: §1 via Rubin's main conjecture for K and Hida's μ = 0, §2 via Kriz's congruence L_E ≡ (𝓔^ι)²L_φ². So one divisibility suffices, and §§3–4 prove it with a Howard-style Kolyvagin system argument for twists by anticyclotomic characters, which bounds lengths without residual irreducibility. Applications: a p-converse to Gross–Zagier–Kolyvagin at Eisenstein primes in ranks 0 and 1 (Theorem E), rank-0 and rank-1 quadratic twists of curves with a rational 3-isogeny (Corollary 5.2.3), and the p-part of BSD in analytic rank one (Theorem F). The atlas plans much of this:\n- RankZeroOneBSD BSD.7/BSD.7a own the Eisenstein-prime main conjectures and BSD formulas;\n- HeegnerPointEulerSystems HE.8/HE.8b own Heegner classes and the anticyclotomic main conjectures;\n- GrossZagierAndArithmeticHeights GZ.8/GZ.9 own the complex and p-adic Gross–Zagier formulas;\n- EulerSystemsAndKolyvaginSystems ES.4/ES.8 own Kolyvagin-system bounds.\nSo most routes are sources. Rubin's imaginary-quadratic main conjecture joins the pending CM main-conjecture Part II, and the p-converse joins Skinner's RankOneConverse Part II. Issues found:\n- the p = 7 example curve (conductor 574) has bad reduction at 7;\n- the Goldfeld-type corollary is not proved for curves with v_3(j) < 0;\n- L_ψ, whose conductor is divisible by p, is used but never defined.\nThe independent review confirmed the thirteen recorded issues, refining E1, E2, E7 and E9, and added twenty-eight: notably the unsupported 41.6%/25% proportions of Remark 5.2.4 (E33), the missing p ∤ D_K in Corollary D (E34), the definition of λ, μ on Λ^ur (E14), a sign error in (5.7) (E35), the uncited control at γ − 1 in Corollary 3.4.2 (E32), and misprints and citation slips in §§1–5.",
+  "summary": "Castella, Grossi, Lee and Skinner prove the anticyclotomic Iwasawa main conjecture for a rational elliptic curve E at an Eisenstein prime p, that is a good prime at which E has a rational p-isogeny with E[p]^ss = F_p(φ) ⊕ F_p(ψ). Theorem C gives the BDP form: char_Λ(𝔛_E)Λ^ur = (L_E) for K with (Heeg), (spl), (disc), (Sel) and φ|_{G_p} ≠ 1, ω. Corollary D gives Perrin-Riou's Heegner-point form. The method follows Greenberg–Vatsal. Residual comparisons show that 𝔛_E and L_E both have μ = 0 and the same λ as the corresponding objects for φ and ψ: §1 via Rubin's main conjecture for K and Hida's μ = 0, §2 via Kriz's congruence L_E ≡ (𝓔^ι)²L_φ². So one divisibility suffices, and §§3–4 prove it with a Howard-style Kolyvagin system argument for twists by anticyclotomic characters, which bounds lengths without residual irreducibility. Applications: a p-converse to Gross–Zagier–Kolyvagin at Eisenstein primes in ranks 0 and 1 (Theorem E), rank-0 and rank-1 quadratic twists of curves with a rational 3-isogeny (Corollary 5.2.3), and the p-part of BSD in analytic rank one (Theorem F). The atlas plans much of this:\n- RankZeroOneBSD BSD.7/BSD.7a own the Eisenstein-prime main conjectures and BSD formulas;\n- HeegnerPointEulerSystems HE.8/HE.8b own Heegner classes and the anticyclotomic main conjectures;\n- GrossZagierAndArithmeticHeights GZ.8/GZ.9 own the complex and p-adic Gross–Zagier formulas;\n- EulerSystemsAndKolyvaginSystems ES.4/ES.8 own Kolyvagin-system bounds.\nSo most routes are sources. Rubin's imaginary-quadratic main conjecture joins the pending CM main-conjecture Part II, and the p-converse joins Skinner's RankOneConverse Part II. Issues found:\n- the p = 7 example curve (conductor 574) has bad reduction at 7;\n- the Goldfeld-type corollary is not proved for curves with v_3(j) < 0;\n- L_ψ, whose conductor is divisible by p, is used but never defined.\nThe independent review confirmed the thirteen recorded issues, refining E1, E2, E7 and E9, and added twenty-eight: notably the unsupported 41.6%/25% proportions of Remark 5.2.4 (E33), the missing p ∤ D_K in Corollary D (E34), the definition of λ, μ on Λ^ur (E14), a sign error in (5.7) (E35), the uncited control at γ − 1 in Corollary 3.4.2 (E32), and misprints and citation slips in §§1–5.\nFIX-RT #5508: add the prime-to-p unit-image hypothesis only to the ring-class finite–singular comparison; split off the zero-module case in the finite-module lemma; extract CM expansion/operator, local binomial-moment measure and p-depleted unit-supported measure, importing the existing coefficient-general inverse/restriction and Mahler substrate. Propagate E18 into the finite Euler-factor sum. Two new version-scoped issues, E42–E43, are registered; their statements also persist on the newly inspected author-hosted journal pages.",
   "items": [
     {
       "id": "PAPER-CASTELLA-ETAL-22/1",
@@ -125,10 +126,10 @@
       "id": "PAPER-CASTELLA-ETAL-22/11",
       "kind": "theorem",
       "name": "Residual characters: Selmer modules are torsion with μ = 0 and computable λ",
-      "statement": "Assume θ|_{G_v̄} ≠ 1, ω. (Theorem 1.2.2, Rubin–Hida) 𝔛_θ is Λ-torsion with μ = 0. (Lemma 1.2.4, needs only θ|_{G_v̄} ≠ 1) H¹_{F_Gr^S}(K, M_θ[p]) ≅ H¹_{F_Gr^S}(K, M_θ)[p]. (Proposition 1.2.5) 𝔛_θ^S is Λ-torsion with μ = 0, λ(𝔛_θ^S) = λ(𝔛_θ) + Σ_{w∈Σ, w∤p} λ(𝒫_w(θ)), and H¹_{F_Gr^S}(K, M_θ[p]) is finite of dimension λ(𝔛_θ^S). (Corollary 1.2.6) H²(K^Σ/K, M_θ[p]) = 0 and 0 → H¹_{F_Gr^S}(K, M_θ[p]) → H¹(K^Σ/K, M_θ[p]) → H¹(K_v̄, M_θ[p]) → 0 is exact.",
+      "statement": "Assume θ|_{G_v̄} ≠ 1, ω. (Theorem 1.2.2, Rubin–Hida) 𝔛_θ is Λ-torsion with μ = 0. (Lemma 1.2.4, needs only θ|_{G_v̄} ≠ 1) H¹_{F_Gr^S}(K, M_θ[p]) ≅ H¹_{F_Gr^S}(K, M_θ)[p]. (Proposition 1.2.5) 𝔛_θ^S is Λ-torsion with μ = 0, λ(𝔛_θ^S) = λ(𝔛_θ) + Σ_{w∈S} λ(𝒫_w(θ)), and H¹_{F_Gr^S}(K, M_θ[p]) is finite of dimension λ(𝔛_θ^S). (Corollary 1.2.6) H²(K^Σ/K, M_θ[p]) = 0 and 0 → H¹_{F_Gr^S}(K, M_θ[p]) → H¹(K^Σ/K, M_θ[p]) → H¹(K_v̄, M_θ[p]) → 0 is exact. Here S=Σ∖{v,v̄,∞} is the finite imprimitive set, with v,v̄ the primes above p.",
       "locator": "§1.2, Theorem 1.2.2, Lemma 1.2.4, Proposition 1.2.5, Corollary 1.2.6, pp. 8–10",
       "status": "missing",
-      "note": "Uses Pollack–Weston Prop. A.2 (surjectivity of the global-to-local map), H² = 0 via the Euler characteristic, no pseudo-null submodules (Greenberg, Prop. 5) and Greenberg–Vatsal Lemma 2.6. The proof of Proposition 1.2.5 cites a nonexistent Proposition 1.1.3(iii) (sourceIssues)."
+      "note": "Uses Pollack–Weston Prop. A.2 (surjectivity of the global-to-local map), H² = 0 via the Euler characteristic, no pseudo-null submodules (Greenberg, Prop. 5) and Greenberg–Vatsal Lemma 2.6. The proof of Proposition 1.2.5 cites a nonexistent Proposition 1.1.3(iii) (sourceIssues). E18 is propagated into the exported Euler sum: only w∈S contributes; no archimedean Euler polynomial is defined or used."
     },
     {
       "id": "PAPER-CASTELLA-ETAL-22/12",
@@ -149,7 +150,7 @@
       "planned": [
         "GrossZagierAndArithmeticHeights:GZ.9"
       ],
-      "note": "GZ.9 constructs the BDP/Brooks p-adic L-function at a good prime split in K, with its interpolation range, CM periods, removed Euler factors and the square/square-root distinction. Here √D_K follows the convention D_K > 0 of Castella–Hsieh, while the rest of the paper has D_K < 0 (E40)."
+      "note": "GZ.9 constructs the BDP/Brooks p-adic L-function at a good prime split in K, with its interpolation range, CM periods, removed Euler factors and the square/square-root distinction. Here √D_K follows the convention D_K > 0 of Castella–Hsieh, while the rest of the paper has D_K < 0 (E40). The defining local constructions are separately extracted in items /40–/45: modular-form input, CM expansion/operator, binomial-moment measure, p-depleted unit-supported measure, general-coefficient bounded inverse/restriction import and the pinned Mahler substrate. This interpolation item does not subsume their statuses."
     },
     {
       "id": "PAPER-CASTELLA-ETAL-22/14",
@@ -170,7 +171,7 @@
       "statement": "Standing hypotheses of §2: p ∤ 2N, (Heeg), (spl), (disc). Assume E[p]^ss ≅ F_p(φ) ⊕ F_p(ψ), labelled so that p ∤ cond(φ), and φ ≠ 1. Then N/N_0 = N_+N_- (N_0 the square-full part) with a_ℓ ≡ φ(ℓ) (ℓ | N_+), a_ℓ ≡ ψ(ℓ) (ℓ | N_-), a_ℓ ≡ 0 (ℓ | N_0) mod p, and L_E ≡ (𝓔^ι_{φ,ψ})²·(L_φ)² mod pΛ^ur, where 𝓔_{φ,ψ} = ∏_{ℓ|N_0N_-} 𝒫_w(φ)·∏_{ℓ|N_0N_+} 𝒫_w(ψ), w | ℓ the prime dividing 𝔑, ι : γ ↦ γ^{−1}, and 𝒫_w(θ) = 1 − θ(ℓ)ℓ^{−1}γ_w for θ (Teichmüller-valued) unramified at w and 1 otherwise (item 5).",
       "locator": "§2.2, Theorem 2.2.1 and its proof, (2.5)–(2.9), pp. 14–15",
       "status": "missing",
-      "note": "f ≡ G mod p for a weight-two Eisenstein series G (Kriz, Thm. 34, Rem. 32); Kriz's Prop. 37 gives the interpolation formula (2.7), from which the paper deduces L_G = 𝓔^ι_{φ,ψ}·L_φ (2.8), and the congruence of Serre–Tate expansions gives L_E ≡ L_G² mod p. The identity 𝓔_{φ,ψ}(ξ^{−1}) = Ξ used for (2.8) holds only mod p, since the Teichmüller lift ω(ℓ) ≠ ℓ (E37); the theorem is a congruence mod p, so nothing changes. The proof cites 'Theorem 2.2.1' for the interpolation property of L_φ, meaning Theorem 2.1.2 (E5)."
+      "note": "f ≡ G mod p for a weight-two Eisenstein series G (Kriz, Thm. 34, Rem. 32); Kriz's Prop. 37 gives the interpolation formula (2.7), from which the paper deduces L_G = 𝓔^ι_{φ,ψ}·L_φ (2.8), and the congruence of Serre–Tate expansions gives L_E ≡ L_G² mod p. The identity 𝓔_{φ,ψ}(ξ^{−1}) = Ξ used for (2.8) holds only mod p, since the Teichmüller lift ω(ℓ) ≠ ℓ (E37); the theorem is a congruence mod p, so nothing changes. The proof cites 'Theorem 2.2.1' for the interpolation property of L_φ, meaning Theorem 2.1.2 (E5). The passage from congruent Serre–Tate expansions to congruent bounded measures imports /41–/45. The source-specific comparisons stay in L3/GZ.9; a Z_p-valued inverse alone does not supply the Z_p^ur-valued construction."
     },
     {
       "id": "PAPER-CASTELLA-ETAL-22/16",
@@ -185,7 +186,7 @@
       "id": "PAPER-CASTELLA-ETAL-22/17",
       "kind": "definition",
       "name": "Selmer structures, transverse conditions and Kolyvagin systems",
-      "statement": "For a complete Noetherian local (R, 𝔪) with finite residue field of characteristic p and an R[G_K]-module M unramified outside a finite set: a Selmer structure F is a finite set Σ(F) of places (containing ∞, the primes above p and the ramified ones) with local conditions H¹_F(K_w, M) ⊂ H¹(K_w, M), and H¹_F(K, M) is the kernel of H¹(K^Σ/K, M) → ∏_{w∈Σ} H¹(K_w, M)/H¹_F(K_w, M); H¹_f = H¹_ur at w ∤ p where M is unramified, H¹_s the singular quotient. 𝓛_0 is the set of primes ℓ ≠ p inert in K with M unramified at ℓ; H¹_tr(K_λ, T) = ker(H¹(K_λ, T) → H¹(K[ℓ]_{λ′}, T)); F^a_b(c) is relaxed at a, strict at b, transverse at c. I_ℓ is the smallest ideal containing ℓ + 1 with Frob_λ trivial on T/I_ℓT, and φ^fs_λ : H¹_f(K_λ, T/I_ℓT) ≃ T/I_ℓT ≃ H¹_s(K_λ, T/I_ℓT) ⊗ G_ℓ (3.1), G_ℓ = Gal(K[ℓ]/K[1]). A Kolyvagin system for (T, F, 𝓛) is {κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n}_{n∈𝒩} with (φ^fs_λ ⊗ 1)(loc_λ κ_n) = loc_λ κ_{nℓ}. For n a squarefree product of primes in 𝓛, I_n = Σ_{ℓ|n} I_ℓ, G_n = ⊗_{ℓ|n} G_ℓ, 𝒩 = 𝒩(𝓛) is the set of such n, and F(n) = F^1_1(n) is F with the transverse condition at the primes dividing n; F^ℓ and F_ℓ (relaxed, resp. strict at ℓ) are used but never defined in the paper.",
+      "statement": "For a complete Noetherian local (R, 𝔪) with finite residue field of characteristic p and an R[G_K]-module M unramified outside a finite set: a Selmer structure F is a finite set Σ(F) of places (containing ∞, the primes above p and the ramified ones) with local conditions H¹_F(K_w, M) ⊂ H¹(K_w, M), and H¹_F(K, M) is the kernel of H¹(K^Σ/K, M) → ∏_{w∈Σ} H¹(K_w, M)/H¹_F(K_w, M); H¹_f = H¹_ur at w ∤ p where M is unramified, H¹_s the singular quotient. 𝓛_0 is the set of primes ℓ ≠ p inert in K with M unramified at ℓ; H¹_tr(K_λ, T) = ker(H¹(K_λ, T) → H¹(K[ℓ]_{λ′}, T)); F^a_b(c) is relaxed at a, strict at b, transverse at c. I_ℓ is the smallest ideal containing ℓ + 1 with Frob_λ trivial on T/I_ℓT. For each auxiliary ℓ, additionally assume p∤[O_K×:O_ℓ×], where O_ℓ=Z+ℓO_K (sufficient uniformly: p∤#O_K×). Under this extra ring-class hypothesis, φ^fs_λ : H¹_f(K_λ, T/I_ℓT) ≃ T/I_ℓT ≃ H¹_s(K_λ, T/I_ℓT) ⊗ G_ℓ (3.1), G_ℓ = Gal(K[ℓ]/K[1]). A Kolyvagin system for (T, F, 𝓛) is {κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n}_{n∈𝒩} with (φ^fs_λ ⊗ 1)(loc_λ κ_n) = loc_λ κ_{nℓ}. For n a squarefree product of primes in 𝓛, I_n = Σ_{ℓ|n} I_ℓ, G_n = ⊗_{ℓ|n} G_ℓ, 𝒩 = 𝒩(𝓛) is the set of such n, and F(n) = F^1_1(n) is F with the transverse condition at the primes dividing n; F^ℓ and F_ℓ (relaxed, resp. strict at ℓ) are used but never defined in the paper.",
       "locator": "§3.1, (3.1) and Definition 3.1.1, p. 16",
       "status": "planned",
       "planned": [
@@ -193,7 +194,7 @@
         "EulerSystemsAndKolyvaginSystems:ES.1",
         "HeegnerPointEulerSystems:HE.5"
       ],
-      "note": "SelmerIwasawaCohomology L2 plans Selmer structures; EulerSystemsAndKolyvaginSystems ES.1 the transverse condition and the finite–singular comparison; HeegnerPointEulerSystems HE.5 Howard's Heegner version with inert auxiliary primes. The definitions have misprints (E13, E30)."
+      "note": "SelmerIwasawaCohomology L2 plans Selmer structures; EulerSystemsAndKolyvaginSystems ES.1 the transverse condition and the finite–singular comparison; HeegnerPointEulerSystems HE.5 Howard's Heegner version with inert auxiliary primes. The definitions have misprints (E13, E30). The general Selmer structure and local conditions do not require the unit hypothesis; it is imposed only for the ring-class finite–singular comparison and its use in this arithmetic Kolyvagin system. E42 records the omitted quotient. For §3.2, p is odd and p∤D_K: the only imaginary quadratic fields with units beyond ±1 are Q(i) (four units) and Q(√−3) (six); the latter is excluded at p=3. Thus p∤#O_K× in the application. ES.1 remains the abstract owner and HE.5 its arithmetic consumer."
     },
     {
       "id": "PAPER-CASTELLA-ETAL-22/18",
@@ -235,10 +236,10 @@
       "id": "PAPER-CASTELLA-ETAL-22/22",
       "kind": "theorem",
       "name": "Algebra of finite R-modules for the induction",
-      "statement": "(Lemma 3.3.9) If N ⊂ M are finitely generated torsion R-modules with invariants d_1(N) ≥ ⋯ ≥ d_r(N) and d_1(M) ≥ ⋯ ≥ d_s(M), then r ≤ s and d_i(N) ≤ d_i(M). (Lemma 3.3.10, Proposition 3.3.11) Given 0 → X → R/𝔪^k ⊕ M → R/𝔪^{k−a} ⊕ R/𝔪^b → 0 and 0 → X → R/𝔪^k ⊕ M′ → R/𝔪^{a′} ⊕ R/𝔪^{k−b′} → 0 with M, M′ each a direct sum of two isomorphic modules (2s = dim M[π], 2s′ = dim M′[π]), k > exp(M) + 2a and a′ ≤ a (3.13): s − 1 ≤ s′ ≤ s + 1, b ≤ exp(M), exp(X) ≤ exp(M) + a; there is i_0 with ⊕_{i≠i_0} M_i ↪ X; X ↪ M′ ⊕ R/𝔪^{exp(X)}; and d_i(M′) ≥ d_{i+2}(M) for i = 1, …, 2s − 2.",
+      "statement": "Let R be the DVR of §3.2. (Lemma 3.3.9) If N ⊂ M are finitely generated torsion R-modules with invariants d_1(N) ≥ ⋯ ≥ d_r(N) and d_1(M) ≥ ⋯ ≥ d_s(M), then r ≤ s and d_i(N) ≤ d_i(M). (Lemma 3.3.10, Proposition 3.3.11) Given 0 → X → R/𝔪^k ⊕ M → R/𝔪^{k−a} ⊕ R/𝔪^b → 0 and 0 → X → R/𝔪^k ⊕ M′ → R/𝔪^{a′} ⊕ R/𝔪^{k−b′} → 0 with M, M′ each a direct sum of two isomorphic modules (2s = dim M[π], 2s′ = dim M′[π]), k > exp(M) + 2a and a′ ≤ a (3.13): s − 1 ≤ s′ ≤ s + 1, b ≤ exp(M), exp(X) ≤ exp(M) + a; if s>0, there exists 1≤i_0≤2s with ⊕_{1≤i≤2s, i≠i_0} M_i ↪ X; if s=0 (M=0), instead use the canonical injection 0↪X without choosing any index; X ↪ M′ ⊕ R/𝔪^{exp(X)}; and d_i(M′) ≥ d_{i+2}(M) for 1≤i≤2s−2 (an empty index range when s=0 or s=1).",
       "locator": "§3.3.2, Lemmas 3.3.9–3.3.10, Proposition 3.3.11, (3.11)–(3.13), pp. 22–23",
       "status": "missing",
-      "note": "Pure module theory over a DVR, using self-duality of finite R-modules."
+      "note": "Pure module theory over a DVR, using self-duality of finite R-modules. E43 records the missing nonzero branch in Proposition 3.3.11(i). The other conclusions retain their displayed hypotheses and valid index ranges; no d_1(0) is used as an invariant. The application in §3.3.3 first treats s=0 and then uses s(n_i)≥s−i>0 at every induction step, so the summand choice there is in the nonzero branch."
     },
     {
       "id": "PAPER-CASTELLA-ETAL-22/23",
@@ -408,6 +409,73 @@
       "locator": "§5.3, Theorem 5.3.1 and its proof, (5.4)–(5.7), pp. 32–33; Introduction, Theorem F, p. 4",
       "status": "missing",
       "note": "Choose K with D_K < −4 odd, (Heeg), (spl), L(E^K, 1) ≠ 0; Theorem 4.2.2 at the trivial character, the control theorem 5.1.1 and Theorem 5.1.3 give ord_p#Ш(E/K) = 2ord_p(c_E^{−1}[E(K):ZP_K]) − Σ_w ord_p c_w(E/K); Gross–Zagier gives L′(E, 1)L(E^K, 1)/(Reg Ω_EΩ_{E^K}) = 2^tc_E^{−2}[E(K):ZP_K]²; Theorem 5.1.4 applies to E^K (whose kernel character φε_K is ramified and even, or unramified and odd, and E^K(Q)[p] = 0). The hypothesis is symmetric in φ ↔ ψ = ωφ^{−1}; checked. The printed (5.7) has a sign error: the right-hand side should be negated. Both sides are 0 in the proof (E35). In the proof, ĥ(P_K) = ([E(K):ZP_K]/#E(K)_tors)²·Reg(E/K) (E36). Neither affects Theorem F."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/40",
+      "kind": "definition",
+      "name": "p-adic modular forms on the ordinary tower",
+      "statement": "For tame level N prime to p and a p-adic coefficient ring R, V_p(N;R) is the space of p-adic modular forms of tame level N obtained from functions on the ordinary Igusa tower with its integral level structure and coefficient extension to R; it has the q-expansion map used to view the weight-two newform f attached to E as a p-adic modular form. In §2.1 the CM expansion coefficients lie in R=Z_p^ur, the completed ring of integers of the maximal unramified extension of Q_p.",
+      "locator": "§2.1 proof of Theorem 2.1.1, arXiv v2 p.13; author-hosted published copy p.540; source import CH18 §2.2",
+      "status": "planned",
+      "planned": [
+        "PadicFamilies:L0"
+      ],
+      "note": "Import the ordinary geometric modular-form space and q-expansion carrier from L0, with AutomorphicPadicLFunctions L3 supplying the source-specific integral CM evaluation/deformation comparison. An ordinary CM point (p split in K) does not impose the ordinary projector on every input form. IG.1 supplies its special-fiber geometry only; no mixed-characteristic lift is inferred from that alone."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/41",
+      "kind": "construction",
+      "name": "CM Serre–Tate expansion and Atkin–Serre operator",
+      "statement": "Under the standing §2 hypotheses p∤2N, (Heeg), (spl), (disc), fix c prime to Np and an O_c-ideal a prime to Nvp. With the selected CM embedding, ϑ=(D_K+√−D_K)/2 and ξ_c as in CH18, let x_c=[(ϑ,ξ_c)] and x_a=x_c^(rec_K(a^−1)), using geometric reciprocity. The ordinary CM deformation space S_a over R=Z_p^ur has O_(S_a)≃R[[t_a−1]], so f restricts to its integral Serre–Tate expansion f(t_a). The Atkin–Serre operator θ acts as q d/dq on q-expansions; its scalar extension and CM-evaluation comparison give the integral values binom(θ,m)f(x_a) used in (2.3).",
+      "locator": "§2.1, (2.2)–(2.3), arXiv v2 pp.12–13; published pp.539–540",
+      "status": "missing",
+      "note": "Source-specific CM coordinate, differential normalization and mixed-characteristic comparison in AutomorphicPadicLFunctions L3, importing /40 and canonical geometry. Do not identify Mathlib’s complex Serre derivative with this p-adic operator. The CM point/lift and binomial-operator integrality are part of this comparison; ordinary special-fiber geometry alone does not prove them. Keep the discriminant convention explicit (E40)."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/42",
+      "kind": "construction",
+      "name": "Local Serre–Tate measure by binomial moments",
+      "statement": "For the CM point x_a and integral expansion f(t_a) of /41, define the bounded R=Z_p^ur-valued measure μ_(f,a) on Z_p by ∫_(Z_p) binom(x,m) dμ_(f,a)=binom(θ,m)f(x_a) for every m≥0. Its Amice transform is f(1+T), with T=t_a−1 and the differential/coordinate normalization of /41. The bounded coefficient sequence gives existence through the coefficient-general inverse Amice construction; Mahler determination gives uniqueness.",
+      "locator": "§2.1, (2.3), arXiv v2 p.13; published p.540",
+      "status": "missing",
+      "note": "BDP-specific instantiation owned by GZ.9. Import /41, coefficient-general bounded inverse from /44 and existing Mahler uniqueness from /45. Reuse AbstractMeasure and PowerSeries, not a new measure carrier. This is a defining construction used by the congruence argument, not a claim to reconstruct CH18’s proof."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/43",
+      "kind": "construction",
+      "name": "p-depletion and its unit-supported CM measure",
+      "statement": "For f(q)=Σ_(n≥0) a_n q^n, its p-depletion is f^♭(q)=Σ_(p∤n) a_n q^n. At x_a, /42 applied to f^♭ yields a bounded Z_p^ur-valued measure μ_(f^♭,a) on Z_p with Amice transform f^♭(1+T), supported on Z_p×, meaning that it annihilates test functions supported on pZ_p. Restrict it to Z_p× using the existing clopen-restriction operation. With u_a=N(a)^−1(√−D_K)^−1∈Z_p× under the chosen CM embedding, the measure used in (2.4) is its pushforward by x↦u_a x, characterized by transform f^♭(t_a^(u_a)).",
+      "locator": "§2.1, after (2.3) and before (2.4), arXiv v2 p.13; published p.540; CH18 Proposition 3.3 as cited",
+      "status": "missing",
+      "note": "GZ.9 owns the BDP-specific p-depletion/support and normalization comparison, importing the L3 modular operator/CM expansion and L2 inverse, unit restriction and dilation. Unit support is a source-specific theorem to prove, rather than a property of every formal expansion with general coefficients. No global ordinary projection of f is substituted for p-depletion."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/44",
+      "kind": "construction",
+      "name": "Coefficient-general bounded inverse Amice and restriction imports",
+      "statement": "For a complete ultrametric normed commutative Z_p-algebra R with bounded scalar action and a bounded sequence (c_m), construct the existing AbstractMeasure on Z_p whose m-th binomial moment is c_m and whose Amice transform is Σ_m c_m T^m. Import restriction to the clopen unit locus, its intrinsic measure on Z_p×, and pushforward by multiplication by a p-adic unit. These contracts apply to the bounded integral coefficients in R=Z_p^ur.",
+      "locator": "Input to §2.1 (2.3) and the unit-supported measure after it; PadicMeasuresIwasawaAlgebras L2",
+      "status": "planned",
+      "planned": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "note": "The partial owning packet has L2/bounded-inverse, bounded-inverse-amice, bounded-inverse-unique, unit-restriction and intrinsic-unit-restriction. Their proposed declarations are pending, not pinned implementations. Mathlib has the forward transform, coefficient extraction and injectivity for general coefficients, but amiceTransformEquiv is restricted to Z_p-valued measures. Do not coerce that equivalence to Z_p^ur."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/45",
+      "kind": "theorem",
+      "name": "Existing coefficient-general Mahler basis and Amice injectivity",
+      "statement": "For E a complete ultrametric normed Z_p-module with bounded scalar action, every continuous f:Z_p→E is the sum of its Mahler series with coefficients Δ^m f(0), and these coefficients give an isometric equivalence C(Z_p,E)≃c_0(N,E). For a complete ultrametric normed commutative Z_p-algebra R with bounded scalar action, the existing AbstractMeasure Amice transform is injective and its m-th coefficient is the m-th binomial moment.",
+      "locator": "Mathlib at 082e2d3, NumberTheory/Padics/MahlerBasis.lean:339,357 and Measure/AmiceTransform.lean:75–94",
+      "status": "library",
+      "library": [
+        "mathlib:PadicInt.hasSum_mahler",
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "note": "Actual signatures and coefficient hypotheses read at the pin. This substrate is reused, not planned again. Existence of the inverse for R=Z_p^ur remains the /44 planned import, since amiceTransformEquiv: D(Z_p,Z_p)≃Z_p[[T]] at line 156 is coefficient-specialized."
     }
   ],
   "prerequisites": [
@@ -483,7 +551,7 @@
         "PAPER-CASTELLA-ETAL-22/33",
         "PAPER-CASTELLA-ETAL-22/39"
       ],
-      "reason": "BSD.7a owns the Eisenstein-prime main-conjecture proofs: the residual-character comparison with character Iwasawa modules and p-adic L-functions, μ = 0 and the local Euler-factor corrections, the congruence argument and both divisibilities. BSD.7 owns the Eisenstein-prime BSD formulas. This paper is the anticyclotomic prototype of that method, a source for both: §1 (Theorem 1.5.1), §2 (Kriz's congruence, Theorems 2.2.2–2.2.3), Theorem C and Corollary D (BSD.7a); and the control theorem with E(K)[p] = 0, Greenberg–Vatsal's rank-zero p-part and Theorem F (BSD.7). BSD.7 already names the later Castella–Grossi–Skinner Theorem D branch, which builds on this paper."
+      "reason": "BSD.7a owns the Eisenstein-prime main-conjecture proofs: the residual-character comparison with character Iwasawa modules and p-adic L-functions, μ = 0 and the local Euler-factor corrections, the congruence argument and both divisibilities. BSD.7 owns the Eisenstein-prime BSD formulas. This paper is the anticyclotomic prototype of that method, a source for both: §1 (Theorem 1.5.1), §2 (Kriz's congruence, Theorems 2.2.2–2.2.3), Theorem C and Corollary D (BSD.7a); and the control theorem with E(K)[p] = 0, Greenberg–Vatsal's rank-zero p-part and Theorem F (BSD.7). BSD.7 already names the later Castella–Grossi–Skinner Theorem D branch, which builds on this paper. Item /11 uses only the finite set S=Σ∖{v,v̄,∞} in its Euler-factor sum, propagating E18."
     },
     {
       "route": "source",
@@ -515,7 +583,7 @@
         "PAPER-CASTELLA-ETAL-22/23",
         "PAPER-CASTELLA-ETAL-22/24"
       ],
-      "reason": "ES.4 owns Kolyvagin-system bounds with bounded error terms and ES.8 their Iwasawa variation. §3 is a Kolyvagin system argument with explicit error constants for twists of T_pE by anticyclotomic characters, following Howard and Nekovář and bounding the length of Selmer groups rather than an exponent, without residual irreducibility. It then assembles the Λ-adic divisibility (Theorem 3.4.1, Corollary 3.4.2). These are error-tolerant bounds of the kind ES.4 and ES.8 plan."
+      "reason": "ES.4 owns Kolyvagin-system bounds with bounded error terms and ES.8 their Iwasawa variation. §3 is a Kolyvagin system argument with explicit error constants for twists of T_pE by anticyclotomic characters, following Howard and Nekovář and bounding the length of Selmer groups rather than an exponent, without residual irreducibility. It then assembles the Λ-adic divisibility (Theorem 3.4.1, Corollary 3.4.2). These are error-tolerant bounds of the kind ES.4 and ES.8 plan. Item /22 now separates M=0 from the nonzero summand-omission branch (E43); the arithmetic induction applies the latter only with s(n_i)>0."
     },
     {
       "route": "source",
@@ -586,6 +654,29 @@
       ],
       "brief": "This route coalesces with the RankOneConverse Part II of RankZeroOneBSD that the maintainer routed for Skinner's converse to Gross–Zagier–Kolyvagin (DESIGN-SKINNER, issue #951, area iwasawa) and keeps that job's final theorems. Add the Eisenstein-prime branch of Castella–Grossi–Lee–Skinner, Invent. Math. 227 (2022), 517–580. (1) Theorem 5.2.1 (Theorem E): for E/Q, p > 2 a prime of good reduction with E[p]^ss = F_p(φ) ⊕ F_p(ψ), φ|_{G_p} ≠ 1, ω, and r ∈ {0, 1}, corank_{Z_p}Sel_{p^∞}(E/Q) = r implies ord_{s=1}L(E, s) = r, hence rank E(Q) = r and #Ш(E/Q) < ∞. (2) Corollary 5.2.2: the same from dim_{F_p}Sel_p(E/Q) = r. (3) Corollary 5.2.3, in the corrected scope of source issue E2: for E/Q with a rational 3-isogeny and a quadratic twist with good reduction at 3, positive proportions of twists have algebraic and analytic rank 1 and 0, using BKLOS's positive proportions for the subfamily of twists with good reduction at 3 and φχ|_{G_3} ∉ {1, ω} (from BKLOS Thm. 2.1, not Thm. 2.6). Do not state Remark 5.2.4's 41.6%/25% for 19a3 (E33). For r = 1 in Corollary 5.2.2 include the Cassels–Tate parity step (E39). Cover: p-parity of Selmer coranks (Monsky, Math. Z. 221 (1996), Theorem 1.5) fixing the root number; the choice of an auxiliary K with D_K < −4 odd, (Heeg), (spl) and L(E^K, 1) ≠ 0 or ord_{s=1}L(E^K, s) = 1; (Sel) from Kolyvagin or Kato; non-vanishing of κ_0 from Corollary D; the Gross–Zagier step. Import: Theorem C and Corollary D from RankZeroOneBSD BSD.7a (their Eisenstein main-conjecture proof); quadratic twists with prescribed local conditions and non-vanishing from BSD.2; Gross–Zagier–Kolyvagin from BSD.3–BSD.4, GrossZagierAndArithmeticHeights GZ.8 and HeegnerPointEulerSystems HE.7; BKLOS's 3-isogeny Selmer distribution from ArithmeticStatistics ST.5. The p-converse property should have a single owner shared with the CMRankZeroConverse candidate. Tests: 19a3 (y² + y = x³ + x² + x) at p = 3, a twist of 123a (p = 5), and y² + xy + 3y = x³ (conductor 30), where no twist is good at 3.",
       "reason": "BSD.7 plans Eisenstein leading-term formulas and explicitly leaves Selmer-to-analytic converses aside; the parent proves only the analytic-to-arithmetic direction. The maintainer routed Skinner's p-converse to the Part II RankOneConverse (DESIGN-SKINNER, #951), and the review of PAPER-BURUNGALE-TIAN-26 asked for one owner of the p-converse property. Theorem E and its corollaries are the Eisenstein-prime branch of the same statement, so they join that Part II."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicPadicLFunctions",
+      "stages": [
+        "AutomorphicPadicLFunctions:L3"
+      ],
+      "items": [
+        "PAPER-CASTELLA-ETAL-22/41"
+      ],
+      "reason": "L3 owns source-specific ordinary CM deformation/lift and p-adic differential operators on canonical geometric carriers. Add the CM point, integral Serre–Tate expansion and Atkin–Serre/binomial-evaluation comparison recalled in this paper. Import PadicFamilies L0’s modular-form space and IG.1’s exact special-fiber contract; RS-14 leaves additional mixed-characteristic comparisons with their consumers. No second Igusa owner is created."
+    },
+    {
+      "route": "source",
+      "roadmap": "GrossZagierAndArithmeticHeights",
+      "stages": [
+        "GrossZagierAndArithmeticHeights:GZ.9"
+      ],
+      "items": [
+        "PAPER-CASTELLA-ETAL-22/42",
+        "PAPER-CASTELLA-ETAL-22/43"
+      ],
+      "reason": "GZ.9 owns the weight-two BDP construction and its normalization. These are the local CM measure and p-depleted unit-supported measure explicitly used in (2.3)–(2.4) and the congruence argument. Import L3’s CM expansion/operator and L2’s general-coefficient bounded inverse, intrinsic unit restriction and dilation. These source-specific constructions reuse the existing measure and power-series carriers; no general measure theory is duplicated."
     }
   ],
   "sourceIssues": [
@@ -1395,6 +1486,86 @@
         "reason": "Found by a helper agent of this review and checked by the reviewer in the text and at the page images of pp. 27 and 29.",
         "by": "REV-PAPER-CASTELLA-ETAL-22"
       }
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/E42",
+      "kind": "error",
+      "locator": "arXiv:2008.02571v2 §3.1 p.16 (3.1); author Eisenstein.pdf p.16; author-hosted published Eisenstein-print.pdf p.546 (3.1)",
+      "printed": "H¹_f(K_λ,T/I_ℓT)≃T/I_ℓT≃H¹_s(K_λ,T/I_ℓT)⊗G_ℓ, with G_ℓ=Gal(K[ℓ]/K[1]), without a unit-image hypothesis",
+      "correction": "For the ring-class version add p∤[O_K×:O_ℓ×] at each auxiliary prime ℓ (sufficient uniformly: p∤#O_K×). The general Selmer-structure definition does not need this restriction. Retain the unit quotient in the Artin identification.",
+      "reason": "K=Q(√−3), p=3, ℓ=2 inert, R=Z_3 and trivial T=Z_3 satisfy the generic assumptions, with I_2=(3). Reduction sends ζ_3 onto F_4×, so the global-unit image kills the residue-unit quotient and G_2 is trivial. Yet H¹_f(K_λ,F_3)=Hom_cont(Zhat,F_3)≃F_3, whereas the singular quotient tensored with G_2 is zero. §3.2’s odd p and p∤D_K imply p∤#O_K×, so this does not contradict the main Eisenstein application.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-01: arXiv 2008.02571 history still ends at v2 (14 September 2021); no later preprint correction found.",
+        "2026-10-01: Castella’s public publication list and targeted 2008.02571/title searches for erratum or corrigendum; no correction of these exact defects found in this limited search. No priority or exhaustive absence claim.",
+        "2026-10-01: Crossref DOI 10.1007/s00222-021-01072-y returned no update-to and an empty relation object.",
+        "2026-10-01: downloaded the author’s Eisenstein.pdf and the newly located author-hosted Eisenstein-print.pdf. Collated (3.1) at published p.546 and Proposition 3.3.11(i) at p.558, including page images; both unqualified statements remain in those inspected pages."
+      ],
+      "attribution": "FIX-RT #5508, Codex — codex-5ebb6f; follows independently confirmed finding /1. Published comparison is newly supplied here; no independent-review verdict claimed."
+    },
+    {
+      "id": "PAPER-CASTELLA-ETAL-22/E43",
+      "kind": "error",
+      "locator": "arXiv:2008.02571v2 §3.3.2 pp.22–23 Proposition 3.3.11(i); author Eisenstein.pdf p.23; author-hosted published Eisenstein-print.pdf pp.557–558",
+      "printed": "There exists 1≤i_0≤2s such that ⊕_(i≠i_0) M_i↪X",
+      "correction": "Under s>0 retain the stated summand-omission inclusion with 1≤i_0≤2s; for s=0 use 0↪X without selecting an index. Keep the other conclusions with their appropriate, possibly empty, index ranges.",
+      "reason": "Set M=M′=X=0, k=1, a=a′=b=b′=0. Both exact sequences are the identity on R/𝔪, exp(0)=0 and k>exp(M)+2a, a′≤a hold. But s=0 gives an empty index set. In the application §3.3.3 (v2 p.24; published p.561), s=0 is handled first and s(n_i)≥s−i>0 in the induction, so the main Selmer bound is not contradicted.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-01: arXiv 2008.02571 history still ends at v2 (14 September 2021); no later preprint correction found.",
+        "2026-10-01: Castella’s public publication list and targeted 2008.02571/title searches for erratum or corrigendum; no correction of these exact defects found in this limited search. No priority or exhaustive absence claim.",
+        "2026-10-01: Crossref DOI 10.1007/s00222-021-01072-y returned no update-to and an empty relation object.",
+        "2026-10-01: downloaded the author’s Eisenstein.pdf and the newly located author-hosted Eisenstein-print.pdf. Collated (3.1) at published p.546 and Proposition 3.3.11(i) at p.558, including page images; both unqualified statements remain in those inspected pages."
+      ],
+      "attribution": "FIX-RT #5508, Codex — codex-5ebb6f; follows independently confirmed finding /2. Published comparison is newly supplied here; no independent-review verdict claimed."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2008.02571v2",
+      "read": "2026-10-01",
+      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59",
+      "extent": "Fresh targeted pp.12–13,16–17,22–24; images pp.13,16,23. Earlier complete reading is attributed in source.readSections."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
+      "read": "2026-10-01",
+      "sha256": "2bd32832411151a628136b245eada847f2f1b2e04872391bbe630e8e1a54819b",
+      "extent": "Targeted comparison of pp.16 and 23 only; not treated as the published version."
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "read": "2026-10-01",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "extent": "Author-hosted journal PDF, 64 pages. Metadata p.517; targeted pp.540,545–547,556–558,561–562. Images pp.546,558. No full journal read or collation of all earlier source issues claimed."
+    }
+  ],
+  "verification": {
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "date": "2026-10-01",
+    "issue": 5508,
+    "baseCommit": "58ae33620c0f9b08089d7dd79ea9effbc051cfac",
+    "status": "complete",
+    "changes": [
+      "All four confirmed findings addressed; three corrected statements, two consumer notes, six new defining/import items and two existing-owner source routes.",
+      "All 39 original item IDs/statuses, nine original route memberships, ten prerequisites and 41 prior sourceIssue objects retained.",
+      "E42–E43 and exact source versions added; selected printed pages freshly compared. No independent-review verdict assigned to the new entries."
+    ],
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "checks": [
+      "Paper checker, §18 errata projection, three-file intake and staged whitespace checks.",
+      "Finite ring-class forms, residue-unit arithmetic and empty-module witness; defining-construction, coefficient and route-preservation checks."
+    ],
+    "limits": "Targeted source and new library-signature reading only. Earlier complete extraction, independent-review computations and all 41 prior source issues are inherited, not freshly recertified. L2 partial-packet imports remain proposed rather than implemented.",
+    "lean": "No Lean deliverable, elaboration, Lake build/cache or language-server run."
+  }
 }

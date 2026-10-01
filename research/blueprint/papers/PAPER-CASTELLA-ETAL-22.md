@@ -5,15 +5,39 @@ Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner, *On the an
 Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1286). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-CASTELLA-ETAL-22.result.json](PAPER-CASTELLA-ETAL-22.result.json). It has:
-- 39 items: 1 library, 9 planned, 29 missing;
-- 9 routes: 7 source routes and 2 coalesced Part IIs;
+- 45 items: 2 library, 11 planned, 32 missing;
+- 11 routes: 9 source routes and 2 coalesced Part IIs;
 - 10 prerequisite entries;
-- 41 recorded source issues: E1–E13 from the extraction, E14–E41 added by the independent review (see the last section).
+- 43 recorded source issues: E1–E13 from the extraction, E14–E41 from the independent review, and E42–E43 from the confirmed red-team fixes below.
+
+## Confirmed red-team fixes, 1 October 2026
+
+Codex, session `codex-5ebb6f`, addressed all four confirmed findings for [#5508](https://github.com/CBirkbeck/tauceti-explorer/issues/5508). The [fix report](../redteam/RT-PAPER-CASTELLA-ETAL-22.fixes.md) gives the source comparison and exact finite checks.
+
+- **Item /17 and E42.** The ring-class finite–singular comparison assumes p∤[O_K×:O_ℓ×] for every auxiliary ℓ; p∤#O_K× suffices uniformly. The general Selmer-structure definition remains separate. For K=Q(√−3), p=3, ℓ=2 the unit image kills the relative ring-class group, so the unrestricted comparison fails. In §3.2, odd p and p∤D_K discharge the unit restriction. ES.1 remains the abstract owner and HE.5 the arithmetic consumer.
+- **Item /22 and E43.** Choose an omitted cyclic summand only when s>0. For M=0 use 0↪X with no index; the invariant inequalities have empty ranges when appropriate. The application treats s=0 before induction and uses s(n_i)>0 at each step. The correction remains with ES.4.
+- **Item /11 and E18.** The Euler-factor sum now runs over w∈S, S=Σ∖{v,v̄,∞}. This propagates the already confirmed correction and adds no duplicate source issue.
+- **Items /40–/45.** The local constructions and their suppliers are now explicit, as listed below. Generic measures and Igusa geometry remain with their existing owners.
+
+| Item | Defining content | Status / owner |
+| --- | --- | --- |
+| /40 | V_p(N;R), the p-adic modular-form space, q-expansion input and R=Z_p^ur | planned: PadicFamilies L0; L3 supplies the CM comparison |
+| /41 | CM point x_a, mixed-characteristic Serre–Tate expansion f(t_a), and θ acting as q d/dq | missing: source of AutomorphicPadicLFunctions L3 |
+| /42 | μ_(f,a), uniquely characterized by ∫binom(x,m)dμ=binom(θ,m)f(x_a) | missing: source of GrossZagierAndArithmeticHeights GZ.9 |
+| /43 | p-depletion f^♭=Σ_(p∤n)a_nq^n, its unit-supported measure and CM unit dilation | missing: source of GZ.9 |
+| /44 | Coefficient-general bounded inverse Amice, unit restriction and dilation | planned: PadicMeasuresIwasawaAlgebras L2 |
+| /45 | Coefficient-general Mahler basis, forward Amice transform and injectivity | library: pinned Mathlib signatures read |
+
+Two source routes are added: L3 takes /41 and GZ.9 takes /42–/43. The nine previous routes and both Part II briefs retain their item memberships. Items /13 and /15 now refer to these defining constructions. The L2 inverse and unit operations are already planned, including in its partial packet, and are imported as pending work. Mathlib’s `amiceTransformEquiv` covers Z_p-valued measures only; it is not used as an inverse over Z_p^ur. RS-14’s IG.1 contract supplies its precise special-fiber geometry; source-specific mixed-characteristic CM lifts/comparisons stay with L3/GZ.9. No new carrier or roadmap is introduced.
+
+Fresh readings: arXiv v2 pp.12–13,16–17,22–24; author copy pp.16,23; author-hosted **published copy**, pp.517,540,545–547,556–558,561–562. Page images checked: v2 pp.13,16,23 and published pp.546,558. All three hashes and exact extents are in `sourceVersions`. The two new unqualified statements remain on the inspected published pages; other earlier issues have not been collated with the journal. E42–E43 await independent fix review; E1–E41 and their existing reviews are unchanged.
+
+The paper checker, §18 errata projection, three-file intake, exact finite regressions, preservation checks and staged whitespace check pass. No Lean file was written or elaborated, and no library build was run. Earlier source readings, PARI checks and independent-review evidence remain attributed to their original sessions.
 
 ## Sources read
 
 - **arXiv v2**, the authors' final version ("Final version, to appear in Invent. Math.", 14 September 2021), was read in full through its TeX source and PDF.
-  - The journal PDF is not open access.
+  - The original extraction did not obtain the journal PDF. The fix session obtained the author-hosted printed copy and read only the pages listed below.
   - Numbers and pages are those of the arXiv PDF.
 - **A background agent** read §3 (the Kolyvagin-system argument) line by line, with computer checks of its algebra.
   - I verified every §3 finding recorded here against the TeX: the E_α constant, the (ψ⁺, ψ⁻) counterexample, the arithmetic of (3.15) and the index range of (b).
@@ -45,10 +69,12 @@ The machine-readable extraction is [PAPER-CASTELLA-ETAL-22.result.json](PAPER-CA
 
 ## What the atlas already has
 
-**Library (1 item).** Weierstrass factorization in Mathlib (PowerSeries.exists_isWeierstrassFactorization, Polynomial.IsDistinguishedAt).
+**Library (2 items).** Weierstrass factorization, plus the coefficient-general Mahler basis and forward Amice transform/injectivity in Mathlib. The newly cited Mahler/Amice signatures were read at the pin; the earlier Weierstrass evidence remains inherited.
 
-**Planned (9 items).**
+**Planned (11 items).**
 - Characteristic ideals and λ, μ: PadicMeasuresIwasawaAlgebras L4.
+- Coefficient-general bounded inverse Amice and unit restriction/dilation: PadicMeasuresIwasawaAlgebras L2.
+- The p-adic modular-form space and q-expansion input: PadicFamilies L0, with the CM-specific comparison in AutomorphicPadicLFunctions L3.
 - Selmer groups and Sha: the Tau Ceti roadmap Elliptic curves, Layer 7.
 - The two anticyclotomic main conjectures as statements: HeegnerPointEulerSystems HE.8b; ModularIwasawaMainConjectures L6.
 - The BDP p-adic L-function and the p-adic Gross–Zagier formula: GrossZagierAndArithmeticHeights GZ.9.
@@ -83,7 +109,10 @@ The machine-readable extraction is [PAPER-CASTELLA-ETAL-22.result.json](PAPER-CA
    - **Contents:** Monsky's p-parity, Theorem E with its mod-p form, and Corollary 5.2.3.
    - **Why here:** the maintainer routed Skinner's p-converse to this Part II (DESIGN-SKINNER, #951). BSD.7 explicitly leaves converses aside. The review of PAPER-BURUNGALE-TIAN-26 asked for one owner of the p-converse property.
 
-## Source issues (`sourceIssues` E1–E13)
+10. **Source → AutomorphicPadicLFunctions: L3** (1 item, /41). The integral CM point/deformation, Serre–Tate expansion and Atkin–Serre comparison, importing the existing modular-form and geometric carriers.
+11. **Source → GrossZagierAndArithmeticHeights: GZ.9** (2 items, /42–/43). The BDP-specific binomial-moment measure and p-depleted unit-supported measure, importing the general L2 operations.
+
+## Original extraction source issues (`sourceIssues` E1–E13)
 
 **Stated results.**
 - **E2 (gap, Corollary 5.2.3).** The corollary is stated for every E/Q with a rational 3-isogeny.
@@ -130,7 +159,7 @@ The machine-readable extraction is [PAPER-CASTELLA-ETAL-22.result.json](PAPER-CA
 
 DOIs were checked against Crossref.
 
-## Checks
+## Original extraction checks (historical attribution)
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json` passes.
 - The generator asserts that every missing item is routed exactly once.
