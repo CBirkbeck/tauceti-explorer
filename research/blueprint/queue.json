@@ -28659,8 +28659,8 @@
    ],
    "avoidAccountOf": "BP-SmallRamificationAndAbelianVarietyBaseCases",
    "prompt": "research/blueprint/prompts/REV-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #493"
+   "state": "pending",
+   "note": "released on GitHub issue #493"
   },
   {
    "id": "BP-SmoothRepresentationsOfLocalGroups--SR.0",
@@ -33298,8 +33298,8 @@
     "REV-PAPER-LAWRENCE-SAWIN-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4039"
+   "state": "pending",
+   "note": "released on GitHub issue #4039"
   },
   {
    "id": "REV-RT-PAPER-LAWRENCE-SAWIN-25",
@@ -39192,7 +39192,8 @@
     "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4241"
   },
   {
    "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
