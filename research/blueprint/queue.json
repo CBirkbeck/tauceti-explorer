@@ -41406,8 +41406,9 @@
     "REV-PAPER-BHATT-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5067"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5067",
+   "finishedAt": "2026-10-01T08:38:04Z"
   },
   {
    "id": "REV-RT-PAPER-BHATT-18",
@@ -46569,7 +46570,8 @@
     "REV-ClassicalSerreModularity--R27.3"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ClassicalSerreModularity--R27.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4431"
   },
   {
    "id": "REV-RT-BP-ClassicalSerreModularity--R27.3",
