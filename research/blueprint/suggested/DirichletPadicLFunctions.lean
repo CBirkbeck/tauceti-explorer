@@ -20511,3 +20511,133 @@ example : (moritaGamma 3 (-(3)) : ℤ_[3])*(moritaGamma 3 ((3)+1) : ℤ_[3])=-1 
 example : (moritaGamma 2 (-(0)) : ℤ_[2])*(moritaGamma 2 ((0)+1) : ℤ_[2])≠(moritaGamma 2 (-(2)) : ℤ_[2])*(moritaGamma 2 ((2)+1) : ℤ_[2]) := by sorry
 end
 end DirichletPadic.SuggestedRobertDyadicTests
+
+/- Finite Gamma multiplication products and their mod-p congruences. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+noncomputable def moritaGammaMultiplicationProduct  (m : ℕ)
+    (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) : ℤ_[p] := by sorry
+
+lemma moritaGammaMultiplicationProduct_apply  (m : ℕ)
+    (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) :
+    moritaGammaMultiplicationProduct p m hm x=∏ h ∈ range m, (fun z => (moritaGamma p z : ℤ_[p])) ((↑hm.unit⁻¹ : ℤ_[p])*(x+h)) := by sorry
+
+lemma moritaGammaMultiplicationProduct_isUnit
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) :
+    IsUnit (moritaGammaMultiplicationProduct p m hm x) := by sorry
+
+lemma moritaGammaMultiplicationProduct_one  (hm : IsUnit (1 : ℤ_[p])) (x : ℤ_[p]) :
+    moritaGammaMultiplicationProduct p 1 hm x=(fun z => (moritaGamma p z : ℤ_[p])) x := by sorry
+
+lemma moritaGammaMultiplicationProduct_continuous
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) : Continuous (moritaGammaMultiplicationProduct p m hm) := by sorry
+
+lemma moritaGammaMultiplicationProduct_zero
+    (m : ℕ) (hmpos : 0<m) (hm : IsUnit (m : ℤ_[p])) :
+    moritaGammaMultiplicationProduct p m hm 0=
+      ∏ h ∈ range (m-1), (fun z => (moritaGamma p z : ℤ_[p])) ((↑hm.unit⁻¹ : ℤ_[p])*(h+1)) := by sorry
+
+lemma moritaGammaMultiplicationProduct_step
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) :
+    moritaGammaMultiplicationProduct p m hm (x+1)=
+      -(if IsUnit x then (↑hm.unit⁻¹ : ℤ_[p])*x else 1)*moritaGammaMultiplicationProduct p m hm x := by sorry
+
+lemma moritaGammaMultiplicationProduct_negative
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (d : ℕ) (hd : d<p) :
+    moritaGammaMultiplicationProduct p m hm (-(d : ℤ_[p]))=
+      (m : ℤ_[p])^d*(fun z => (moritaGamma p z : ℤ_[p])) (-(d : ℤ_[p]))*moritaGammaMultiplicationProduct p m hm 0 := by sorry
+
+lemma moritaGammaMultiplicationProduct_toZMod_congr
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x y : ℤ_[p])
+    (hxy : PadicInt.toZMod x=PadicInt.toZMod y) :
+    PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm x)=
+      PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm y) := by sorry
+
+lemma moritaGammaMultiplicationProduct_toZMod
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) (d : ℕ)
+    (hd : d<p) (hx : PadicInt.toZMod x=-(d : ZMod p)) :
+    PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm x)=
+      (m : ZMod p)^d*PadicInt.toZMod ((fun z => (moritaGamma p z : ℤ_[p])) x)*PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm 0) := by sorry
+
+lemma moritaGammaMultiplicationProduct_rational_toZMod (f : ℕ) (hf : 0<f)
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (k : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(k : ℤ_[p])) :
+    PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm x)=
+      (m : ZMod p)^(k%p)*PadicInt.toZMod ((fun z => (moritaGamma p z : ℤ_[p])) x)*PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm 0) := by sorry
+
+lemma grossKoblitzCarry_pow_toZMod (a : ZMod p) (f : ℕ) (hf : 0<f) (k : ℕ) (hk : k<p^f-1) :
+    a^(∑j ∈ range f, grossKoblitzCarry p f k j)=a^k := by sorry
+
+lemma moritaGammaMultiplicationProduct_orbit_toZMod (f : ℕ) (hf : 0<f)
+    (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (k : ℕ) (hk : k<p^f-1)
+    (x : ℕ → ℤ_[p])
+    (hx : ∀j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    PadicInt.toZMod (∏j ∈ range f, moritaGammaMultiplicationProduct p m hm (x j))=
+      (m : ZMod p)^k*PadicInt.toZMod (∏j ∈ range f, (fun z => (moritaGamma p z : ℤ_[p])) (x j))*
+        PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm 0)^f := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGammaMultiplicationTests
+open Finset
+open scoped Classical
+noncomputable section
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- one_factor
+example (p : ℕ) [Fact p.Prime] (hm : IsUnit (1 : ℤ_[p])) (x : ℤ_[p]) : moritaGammaMultiplicationProduct p 1 hm (x)=(moritaGamma p (x) : ℤ_[p]) := by sorry
+-- two_factors
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) : moritaGammaMultiplicationProduct 3 2 hm (x)=(moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*x) : ℤ_[3])*(moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])*(x+1)) : ℤ_[3]) := by sorry
+-- proof_independence
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (h₁ h₂ : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) : moritaGammaMultiplicationProduct p m h₁ (x)=moritaGammaMultiplicationProduct p m h₂ (x) := by sorry
+-- excluded_ternary_denominator
+example : ¬IsUnit (3 : ℤ_[3]) := by sorry
+-- continuous_ternary_product
+example (hm : IsUnit (2 : ℤ_[3])) : Continuous (moritaGammaMultiplicationProduct 3 2 hm) := by sorry
+-- product_nonzero
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) : moritaGammaMultiplicationProduct p m hm (x)≠0 := by sorry
+-- dyadic_three_factors_unit
+example (hm : IsUnit (3 : ℤ_[2])) (x : ℤ_[2]) : IsUnit (moritaGammaMultiplicationProduct 2 3 hm (x)) := by sorry
+-- half_normalizer
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (0)=(moritaGamma 3 ((↑hm.unit⁻¹ : ℤ_[3])) : ℤ_[3]) := by sorry
+-- one_normalizer
+example (p : ℕ) [Fact p.Prime] (hm : IsUnit (1 : ℤ_[p])) : moritaGammaMultiplicationProduct p 1 hm (0)=1 := by sorry
+-- step_at_nonunit
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (1)=-(moritaGammaMultiplicationProduct 3 2 hm (0)) := by sorry
+-- step_at_unit
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (2)=-(↑hm.unit⁻¹ : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (1) := by sorry
+-- negative_one
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (-1)=2*(moritaGamma 3 (-1) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0) := by sorry
+-- negative_two
+example (hm : IsUnit (2 : ℤ_[5])) : moritaGammaMultiplicationProduct 5 2 hm (-2)=4*(moritaGamma 5 (-2) : ℤ_[5])*moritaGammaMultiplicationProduct 5 2 hm (0) := by sorry
+-- excluded_first_p_multiple
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (-3)≠8*(moritaGamma 3 (-3) : ℤ_[3])*moritaGammaMultiplicationProduct 3 2 hm (0) := by sorry
+-- modp_period
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) : PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm (x+p) : ℤ_[p])=PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm (x) : ℤ_[p]) := by sorry
+-- no_exact_period
+example (hm : IsUnit (2 : ℤ_[3])) : moritaGammaMultiplicationProduct 3 2 hm (3)≠moritaGammaMultiplicationProduct 3 2 hm (0) := by sorry
+-- residue_at_two
+example (hm : IsUnit (2 : ℤ_[5])) : PadicInt.toZMod (moritaGammaMultiplicationProduct 5 2 hm (2) : ℤ_[5])=3*PadicInt.toZMod ((moritaGamma 5 (2) : ℤ_[5]) : ℤ_[5])*PadicInt.toZMod (moritaGammaMultiplicationProduct 5 2 hm (0) : ℤ_[5]) := by sorry
+-- zero_residue
+example (p : ℕ) [Fact p.Prime] (m : ℕ) (hm : IsUnit (m : ℤ_[p])) (x : ℤ_[p]) (hx : PadicInt.toZMod x=0) : PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm (x) : ℤ_[p])=PadicInt.toZMod ((moritaGamma p (x) : ℤ_[p]) : ℤ_[p])*PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm (0) : ℤ_[p]) := by sorry
+-- eighth_1
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) (hx : 8*x=1) : PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (x) : ℤ_[3])=2*PadicInt.toZMod ((moritaGamma 3 (x) : ℤ_[3]) : ℤ_[3])*PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (0) : ℤ_[3]) := by sorry
+-- eighth_2
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) (hx : 8*x=2) : PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (x) : ℤ_[3])=1*PadicInt.toZMod ((moritaGamma 3 (x) : ℤ_[3]) : ℤ_[3])*PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (0) : ℤ_[3]) := by sorry
+-- eighth_3
+example (hm : IsUnit (2 : ℤ_[3])) (x : ℤ_[3]) (hx : 8*x=3) : PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (x) : ℤ_[3])=1*PadicInt.toZMod ((moritaGamma 3 (x) : ℤ_[3]) : ℤ_[3])*PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (0) : ℤ_[3]) := by sorry
+-- ternary_carry_power
+example : (2 : ZMod 3)^(∑j ∈ range 2, grossKoblitzCarry 3 2 5 j)=2^5 := by sorry
+-- dyadic_zero_base
+example : (0 : ZMod 2)^(∑j ∈ range 2, grossKoblitzCarry 2 2 0 j)=1 := by sorry
+-- ternary_eighth_orbit
+example (hm : IsUnit (2 : ℤ_[3])) (x y : ℤ_[3]) (hx : 8*x=1) (hy : 8*y=3) : PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (x)*moritaGammaMultiplicationProduct 3 2 hm (y) : ℤ_[3])=2*PadicInt.toZMod ((moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (y) : ℤ_[3]) : ℤ_[3])*PadicInt.toZMod (moritaGammaMultiplicationProduct 3 2 hm (0) : ℤ_[3])^2 := by sorry
+-- zero_orbit
+example (p : ℕ) [Fact p.Prime] (m f : ℕ) (hm : IsUnit (m : ℤ_[p])) : PadicInt.toZMod (∏j ∈ range f, moritaGammaMultiplicationProduct p m hm (0) : ℤ_[p])=PadicInt.toZMod (moritaGammaMultiplicationProduct p m hm (0) : ℤ_[p])^f := by sorry
+-- dyadic_thirds_orbit
+example (hm : IsUnit (3 : ℤ_[2])) (x y : ℤ_[2]) (hx : 3*x=1) (hy : 3*y=2) : PadicInt.toZMod (moritaGammaMultiplicationProduct 2 3 hm (x)*moritaGammaMultiplicationProduct 2 3 hm (y) : ℤ_[2])=PadicInt.toZMod ((moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (y) : ℤ_[2]) : ℤ_[2])*PadicInt.toZMod (moritaGammaMultiplicationProduct 2 3 hm (0) : ℤ_[2])^2 := by sorry
+end
+end DirichletPadic.SuggestedGammaMultiplicationTests

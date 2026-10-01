@@ -36664,3 +36664,305 @@ Exact finite controls check10,000 sign recurrences,1,224 dyadic reflection value
 All73 captured inputs are unchanged from5362; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
 
 The separate partial signature file also compiled with zero errors and 3,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 6 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1e841e6d0c099ed8cfc92555e8b4df589f3bbf345a9aa8d924b1327dd398392d.
+
+
+## The elementary Gross–Koblitz multiplication congruence
+
+Ten L3 nodes define the actual finite Gamma multiplication product and prove its recurrence, exact small negative values, residue and cleared cyclic congruences. All1,154 predecessor nodes,890 baseline records,20 findings and six source versions remain whole.
+
+Rereads Gross–Koblitz1979 published569–572,575–576 and581 completely from the retained version-of-record images. The omitted single-factor congruence is derived from the actual Gamma recurrence, small negative integers and the already proved residue congruence. The native cyclic digit reconstruction gives the cleared orbit congruence. Reads the full pinned finite-product continuity, endpoint and unit-cancellation proofs, the prime-field Fermat proof and the exact existing Gamma/digit native proofs.
+
+### Finite Morita Gamma multiplication product
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product` — `DirichletPadic.moritaGammaMultiplicationProduct`
+
+Define F_m(x)=product_(0≤h<m) Gamma_p(m^(-1)(x+h)) in native Z_p, using the inverse of the certified unit m.
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Use the native finite range and multiplication; the only inverse is the native inverse of the unit represented bym. No new field, residue carrier or arbitrary division onZ_p is introduced. The complete gammaProduct definition has exactly this body, and product_apply exposes it.
+2. Atm=1 the single factor isGamma(x); complete product_one checks the inverse-unit certificate and the singleton range.
+3. Each affine argumentx↦b(x+h) is continuous, so Gamma continuity and native continuous_finsetProd prove continuity of F_m. Complete product_continuous checks the exact native topology.
+4. The source uses this product in the formal divisor of Theorem3.1(2), its constant normalizer in the denominator, and its translated values in the omitted congruence. The promoted API below makes each of those uses explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:continuous_finsetProd`.
+
+**Uses:**
+
+- Gross–Koblitz1979 Theorem3.1(2), published575–576: Supplies the finite Gamma product at the m preimages ofx and its constant normalizer.
+- Gross–Koblitz1979 omitted congruence after(3.2), published576: The shift recurrence and the negative-integer values reduce the congruence to an existing Gamma residue identity.
+- The cleared cyclic orbit congruence in this checkpoint: Continuity/unit/evaluation and reduction laws permit exact finite products without adding a formal-divisor carrier.
+
+**API:**
+
+- `DirichletPadic.moritaGammaMultiplicationProduct_apply` (projection): The value is the displayed product over the native range m.
+- `DirichletPadic.moritaGammaMultiplicationProduct_one` (simp): F_1(x)=Gamma(x).
+- `DirichletPadic.moritaGammaMultiplicationProduct_continuous` (structure): For fixedm and its unit certificate, F_m is continuous.
+- `DirichletPadic.moritaGammaMultiplicationProduct_isUnit` (structure): Every F_m(x) is a unit.
+- `DirichletPadic.moritaGammaMultiplicationProduct_zero` (simp): For m>0, F_m(0)=product_(1≤h<m) Gamma(h/m).
+- `DirichletPadic.moritaGammaMultiplicationProduct_step` (relation): F_m(x+1)=−(if x is a unit then x/m else1)F_m(x).
+- `DirichletPadic.moritaGammaMultiplicationProduct_negative` (example): For0≤d<p, F_m(−d)=m^d Gamma(−d)F_m(0).
+- `DirichletPadic.moritaGammaMultiplicationProduct_toZMod_congr` (compatibility): Equal input residues modulo p give equal residues of the finite product.
+- `DirichletPadic.moritaGammaMultiplicationProduct_toZMod` (relation): If x reduces to−d with d<p, then F_m(x) reduces to m^d Gamma(x)F_m(0).
+- `DirichletPadic.moritaGammaMultiplicationProduct_rational_toZMod` (compatibility): If(p^f−1)x=k, the exponent is k modp.
+- `DirichletPadic.moritaGammaMultiplicationProduct_orbit_toZMod` (relation): The cleared f-fold cyclic product has multiplierm^k modulo p.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.one_factor` (degenerate): For m=1 the product is exactly Gamma(x).
+- `SuggestedGammaMultiplicationTests.two_factors` (computation): For p=3,m=2 the factors are Gamma(x/2) and Gamma((x+1)/2), retaining the translation before division.
+- `SuggestedGammaMultiplicationTests.proof_independence` (compatibility): Different unit certificates yield the same finite product.
+- `SuggestedGammaMultiplicationTests.excluded_ternary_denominator` (non-example): The forbidden denominator3 is not a unit inZ3.
+- `SuggestedGammaMultiplicationTests.continuous_ternary_product` (compatibility): The product with two ternary factors is continuous.
+
+**Acceptance:** Atp=3,m=2 the two factors areGamma(x/2) andGamma((x+1)/2), notGamma(x/2) andGamma(x/2+1). The denominator m=p is excluded.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### Unit values of the finite multiplication product
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-unit` — `DirichletPadic.moritaGammaMultiplicationProduct_isUnit`
+
+F_m(x) is a unit in Z_p for everyx.
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Each existing Gamma value is a native unit. The native IsUnit.prod_iff theorem transfers this property to the actual finite product.
+2. Complete product_unit introduces no nonvanishing axiom. This unit is used to make normalization meaningful; individual Gamma units also justify cancellation in the shifted-product proof.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:IsUnit.prod_iff`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.product_nonzero` (non-example): The finite Gamma product cannot vanish.
+- `SuggestedGammaMultiplicationTests.dyadic_three_factors_unit` (computation): For p=2,m=3 the product remains a unit.
+
+**Acceptance:** The product is neverzero, including the dyadic product withm=3.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### The multiplication normalizer
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-zero` — `DirichletPadic.moritaGammaMultiplicationProduct_zero`
+
+For m>0, F_m(0)=product_(0≤h<m−1) Gamma((h+1)/m).
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Write m=(m−1)+1 using positivity. Native prod_range_succ' splits the first factor from the remaining shifted range.
+2. The first factor isGamma(0)=1. Native cast identities identify the remaining arguments with(h+1)/m. Complete product_zero handles the dependent unit certificate without changing the denominator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:Finset.prod_range_succ'`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.half_normalizer` (computation): For p=3,m=2 the normalizer is Gamma(1/2).
+- `SuggestedGammaMultiplicationTests.one_normalizer` (degenerate): For m=1 the normalizer is1.
+
+**Acceptance:** For m=2 the normalizer isGamma(1/2), while for m=1 it is1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### Shift recurrence for the multiplication product
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-step` — `DirichletPadic.moritaGammaMultiplicationProduct_step`
+
+F_m(x+1)=−(if IsUnit x then x/m else1)F_m(x).
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Apply the two native range-product endpoint decompositions to h↦Gamma(b(x+h)). The overlapping m−1 factors give F_m(x+1)Gamma(bx)=F_m(x)Gamma(bx+1), because bm=1.
+2. Use the existing Gamma recurrence atbx. Sinceb is a unit, bx is a unit exactly whenx is a unit; the native IsUnit.mul_iff theorem proves this equivalence.
+3. Cancel the unit Gamma(bx) using the native IsUnit.mul_left_inj equivalence. Complete product_step proves the exact relation inZ_p, not merely modulo p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:Finset.prod_range_succ'`, `mathlib:IsUnit.mul_iff`, `mathlib:IsUnit.mul_left_inj`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.step_at_nonunit` (degenerate): At x=0 the multiplier is−1.
+- `SuggestedGammaMultiplicationTests.step_at_unit` (computation): At x=1 the multiplier is−1/2, not−1.
+
+**Acceptance:** The step atzero is−1. Atp=3,m=2,x=1 it is−1/2, detecting the missing division bym.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### Exact multiplication product at small negative integers
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-negative` — `DirichletPadic.moritaGammaMultiplicationProduct_negative`
+
+For every natural d<p, F_m(−d)=m^d Gamma(−d)C_m.
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Atd=0 useGamma(0)=1. For the successor d+1<p, primality implies thatd+1 and its negative are units inZ_p.
+2. Apply the product recurrence at−(d+1) and the Gamma recurrence at that same point. Both move the argument to−d; the product recurrence contributes(d+1)/m, while Gamma contributesd+1.
+3. Use the induction hypothesis, multiply bym and cancel the unitd+1. The resulting extra factor ism, proving the successor. Complete product_negative checks this directly inZ_p.
+4. The restrictiond<p is essential for this exact formula. Atp=3,m=2,d=3 the factor is2², not2³, because the recurrence at−3 uses the nonunit branch.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-step`, `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:IsUnit.mul_right_inj`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.negative_one` (computation): For p=3,m=2,d=1 the exact factor is2.
+- `SuggestedGammaMultiplicationTests.negative_two` (computation): For p=5,m=2,d=2 the exact factor is4.
+- `SuggestedGammaMultiplicationTests.excluded_first_p_multiple` (non-example): At p=3,d=3 the naive exact factor2^3 is wrong; the missing unit step changes it to2^2.
+
+**Acceptance:** Checkd=1 atp=3,m=2 andd=2 atp=5,m=2. The first multiple ofp is an explicit non-example.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### Reduction compatibility of the multiplication product
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-congruence` — `DirichletPadic.moritaGammaMultiplicationProduct_toZMod_congr`
+
+If x andy have the same image in ZMod p, then so do F_m(x) and F_m(y).
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. For eachh, the native reduction ring homomorphism maps b(x+h) andb(y+h) to the same residue.
+2. Apply the already proved Gamma congruence to each factor. Native map_prod and finite-product congruence then identify the reductions of the full products. Complete product_modp_congr retains the exact factor order and arguments.
+3. This is a congruence only. Atp=3,m=2 the exact values F_m(3) and F_m(0) differ, even though their reductions agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product`, `DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.modp_period` (compatibility): The reductions atx andx+p agree.
+- `SuggestedGammaMultiplicationTests.no_exact_period` (non-example): Modulo-p periodicity does not imply exact equality inZ3: F(3)≠F(0) at m=2.
+
+**Acceptance:** The product residues atx andx+p agree. The corresponding exact periodicity statement fails.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### The elementary multiplication congruence
+
+`DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-residue` — `DirichletPadic.moritaGammaMultiplicationProduct_toZMod`
+
+If0≤d<p and toZMod(x)=−d, then toZMod(F_m(x))=m^d toZMod(Gamma(x))toZMod(C_m).
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. The hypothesis says exactly thatx and the native point−d have equal reductions. Apply the preceding product congruence and the existing Gamma congruence.
+2. At−d the preceding exact negative-integer formula holds. Apply the reduction ring homomorphism and use its multiplication, power and natural-cast laws.
+3. Complete product_residue proves the cleared equality. All denominator factors are units by the preceding unit theorem, so it is precisely the normalized product congruence when that quotient is formed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-negative`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-congruence`, `DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-unit`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.residue_at_two` (computation): At p=5,m=2,x=2, the complementary residue is3 and2^3=3 modulo5.
+- `SuggestedGammaMultiplicationTests.zero_residue` (degenerate): For x divisible byp, the power is m^0=1.
+
+**Acceptance:** Atp=5,m=2,x=2 the factor is2³=3 modulo5. Ifx reduces tozero then the exponent iszero.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### The source units digit in the multiplication congruence
+
+`DirichletPadicLFunctions:L3/gross-koblitz-multiplication-single-congruence` — `DirichletPadic.moritaGammaMultiplicationProduct_rational_toZMod`
+
+For f>0 and(p^f−1)x=k inZ_p, toZMod(F_m(x))=m^(k modp)toZMod(Gamma(x))toZMod(C_m).
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. The previously proved rational positive-residue identity gives R(x)=p−(k modp). Cast it into ZMod p to obtain toZMod(x)=−(k modp).
+2. The ordinary remainder is less thanp. Apply the preceding elementary congruence with d=k modp. Complete product_rational_residue retains the actual denominator equation and does not replace the source units digit by the leading digit.
+3. For the source0<x<1 this is exactly its final single-factor congruence after identifying C_m with the displayed normalizer. The algebraic statement also permits k=0 and other natural numerators; no fractional-part identity at the zero class is inferred.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-residue`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-zero`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-positive-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.eighth_1` (computation): For p=3,f=2,m=2,k=1, the units-digit factor is2.
+- `SuggestedGammaMultiplicationTests.eighth_2` (computation): For p=3,f=2,m=2,k=2, the units-digit factor is1.
+- `SuggestedGammaMultiplicationTests.eighth_3` (computation): For p=3,f=2,m=2,k=3, the units-digit factor is1.
+
+**Acceptance:** Atp=3,f=2,m=2, numerators1,2,3 give factors2,1,1 respectively.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### Powers of the cyclic digit sum modulo p
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry-power-reduction` — `DirichletPadic.grossKoblitzCarry_pow_toZMod`
+
+For f>0, k<p^f−1 and any a inZMod p, a^(sum_(j<f) carry_j)=a^k.
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. The complete routine power_ofDigits helper proves a^ofDigits(p,L)=a^sum(L) by list induction. Native ZMod.pow_card givesa^p=a, so each positional power ofp can be removed from the exponent.
+2. Apply this to the reversed list of cyclic carries. The preceding native digit-expansion theorem identifies its base-p value withk. Reversal preserves the digit sum, which is the native finite sum overj<f.
+3. Complete power_carry_sum needs no nonzero hypothesis ona and works atp=2. The zero-base, zero-exponent case remains1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-digit-expansion`, `mathlib:ZMod.pow_card`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.ternary_carry_power` (computation): For p=3,f=2,k=5 the carry digit power of2 agrees with2^5 modulo3.
+- `SuggestedGammaMultiplicationTests.dyadic_zero_base` (degenerate): At p=2,f=2,k=0 the carry sum iszero, so the zero base yields1.
+
+**Acceptance:** The ternary carry power atf=2,k=5 agrees witha^5. Atp=2,k=0,a=0 both sides are1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+### The cleared cyclic multiplication congruence
+
+`DirichletPadicLFunctions:L3/gross-koblitz-multiplication-orbit-congruence` — `DirichletPadic.moritaGammaMultiplicationProduct_orbit_toZMod`
+
+For the actual cyclic points Mx_j=(p^j k modM), toZMod(product_(j<f) F_m(x_j))=m^k toZMod(product_(j<f) Gamma(x_j))toZMod(C_m)^f.
+
+**Hypotheses:** p is any prime, including2. Gamma is the existing signed unit-valued Morita Gamma on native Z_p, with Gamma(0)=1, continuity, exact two-branch recurrence and the already proved sharp congruence modulo p. No Dwork or Gauss comparison is assumed. m is a natural number whose cast inZ_p is a unit, equivalently p does not divide m. Let b be the value of the inverse of the unit supplied by this certificate, so bm=mb=1. Define F_m(x)=product over0≤h<m of Gamma(b(x+h)). The translate is taken before multiplication byb. The certificate does not affect the value. Write C_m=F_m(0). For m>0, C_m is the product of Gamma(h/m) for1≤h<m, since the omitted h=0 factor isGamma(0)=1. All factors and the normalizer are units. The final congruences are stated after clearing these denominators. For rational statements f>0, M=p^f−1 and the input point is specified by the actual equation Mx=k inZ_p. In the cyclic formula0≤k<M and Mx_j=(p^j k modM). The chosenf is a common period, not necessarily the least period. The zero-class algebraic checks use point0; the source positive fractional-part convention instead represents that class by1. This checkpoint supplies the elementary finite-product congruence underlying Gross–Koblitz Theorem3.1(2). The fraction-multiset reindexing needed to identify the exact formal divisor at every orbit point and the source root-of-unity conclusion remain to be proved. No full multiplication theorem or repair of E18 is asserted.
+
+**Proof:**
+
+1. Apply the rational single-factor congruence atx_(j+1). The previously proved carry-residue identity identifies its units digit withcarry_j.
+2. Multiply all these equalities overj<f. Native finite-product distribution and prod_pow_eq_pow_sum collect the powers ofm; the preceding power-of-carry-sum theorem replaces their exponent byk.
+3. The native cyclic point period and the preceding gamma_product_shift lemma apply to any scalar function. Use them for bothGamma andF_m to move the indices fromj+1 back toj.
+4. The constant normalizer appearsf times. Complete product_orbit_residue proves the displayed equality directly inZMod p. Identifying these finite products with the source formal-divisor orbit requires its separate rational preimage-permutation argument; that step and the root-of-unity input remain open.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-single-congruence`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-power-reduction`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-gamma-product-shift`, `mathlib:Finset.prod_pow_eq_pow_sum`.
+
+**Tests:**
+
+- `SuggestedGammaMultiplicationTests.ternary_eighth_orbit` (computation): The orbit1/8,3/8 atp=3 gives total multiplier2.
+- `SuggestedGammaMultiplicationTests.zero_orbit` (degenerate): The zero numerator gives the constant normalizer to thef-th power, without a nontrivial-class assumption.
+- `SuggestedGammaMultiplicationTests.dyadic_thirds_orbit` (computation): The orbit1/3,2/3 atp=2,m=3 has trivial nonzero residue multiplier.
+
+**Acceptance:** The ternary orbit1/8,3/8 withm=2 has multiplier2. The dyadic orbit1/3,2/3 withm=3 and the zero orbit are also checked.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2), congruence(3.2) and its final single-factor congruence; Section1 published571–572/PDF3–4 for the separate finite-order/root-of-unity input. All passages reread completely. The source reduces its multiplication theorem to a Gamma product congruence with exponent z_f, the units digit of(p^f−1)x, and omits the last proof. The present finite-product construction, cyclic-shift recurrence, negative-integer evaluation and native reduction proof explicitly derive that congruence. Combining actual cyclic points and the previously proved digit reconstruction gives its cleared orbit form. This is a worker proof of the elementary input; the separate source Hecke-character root-of-unity argument and rational-fraction multiset identification are not silently assumed.
+
+**Remaining:** The elementary finite-product and cleared cyclic congruences underlying Gross–Koblitz Theorem3.1(2) now have complete native proofs. Next prove the rational preimage-multiset permutation under multiplication byp, so that the source formal-divisor orbit is exactly the actual finite product used here, with its positive fractional representatives and common period. The separate root-of-unity step in the source depends on the finite-order Hecke-character argument and has not been supplied by bare Gamma algebraicity. The full multiplication formula and E18’s period-weighted distribution repair remain unproved and unused. The original Katz/Fermat and external Stickelberger proof-source alternatives and both exact RD.6 Dwork interfaces also remain open. All18 gaps and16 requests remain; zero stages close.
+
+### The elementary Gross–Koblitz multiplication congruence validation
+
+All 1154 predecessor nodes, 890 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 13 named suggested declarations and 26 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1424 reachable nodes, 6680 edges and 1058 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All ten new routes terminate in preceding local Gamma/digit nodes and pinned native facts. No new route reaches a stage request, and no supplier request is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5366 verbatim and adds one definition and13 complete lemmas, totaling35definitions and554lemmas. Thirteen suggested declarations and26 typed tests match the ten promoted nodes and their API. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact modular controls check2,346 product recurrences and reductions,284 small negative identities,5,638 rational and cyclic orbit cases, and explicit failures of the unrestricted negative formula and exact p-periodicity. Fourteen nonunit denominators are excluded. Exact buffered integer approximants to Gamma modulo prime powers. Checks actual finite products, both recurrence branches, small negative integers, complementary residues, rational units digits and complete cyclic orbits, including binary and zero-class boundaries. The controls do not replace the native proofs or prove the omitted root-of-unity/fraction-reindexing inputs. The largest observed discrepancy is 0 (exact modular arithmetic).
+
+All73 captured inputs are unchanged from5366; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
+
+The separate partial signature file also compiled with zero errors and 3,788 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 005bed32f13163ab250884ad585e705e0e882ad4e2041327300ace3fab9c3882.
