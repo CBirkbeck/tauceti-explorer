@@ -35652,8 +35652,9 @@
     "REV-PAPER-ZHU-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4110"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4110",
+   "finishedAt": "2026-10-01T21:02:56Z"
   },
   {
    "id": "REV-RT-PAPER-ZHU-17",
@@ -40861,8 +40862,9 @@
     "REV-PAPER-BHARGAVA-GROSS-WANG-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4282"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4282",
+   "finishedAt": "2026-10-01T21:03:01Z"
   },
   {
    "id": "REV-RT-PAPER-BHARGAVA-GROSS-WANG-17",
@@ -45586,7 +45588,8 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-05.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4393"
   },
   {
    "id": "REV-RT-RS-05",
