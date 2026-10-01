@@ -1,0 +1,108 @@
+{
+  "redteam": "RT-PAPER-NEWTON-THORNE-21-B",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-NEWTON-THORNE-21-B",
+  "summary": "Seven findings: four high, two medium and one low. The dyadic support argument uses the wrong ring; twisting is dropped from the weight normalization; the potential-diagonalizability criterion loses potential crystallinity; the completed L-function loses its conductor factor; algebraic symmetric powers and their finite-field irreducibility input need a separate status/owner; the reader has a false boundary reducibility claim and stale route/version information. The cited Galois fibre-product result is correctly marked library.",
+  "checked": [
+    "Independent Codex session codex-rtOQ9t; target extraction by Claude Code cc-39fac3 and accepted review by Claude Code cc-38267a. Claimed issue #4298, bot confirmation received and full issue reread before work. Audited repository base 0d239d95dbe322a93493ed922810497336df9bcd.",
+    "Read all 36 pages of the published Newton–Thorne II PDF, including notation, all of §§2–3, Appendix A and references; SHA-256 matches the extraction. Compared all 61 item statements/locators, all six routes, reader, accepted review and four existing sourceIssues. Retained the existing E1–E4 corrections; none of the findings below is presented as a new error in the published Newton–Thorne theorem.",
+    "Checked the odd-prime and dyadic dimension/support arguments separately: W_∞ dimensions, g and γ, distinction R′_∞/R_∞/R_∞^inv, quadratic actions, regularity at the automorphic point and soluble descent. Compared Lemmas 2.7/2.9, Proposition 2.5 level modules and the P_Q inertial conditions with the extraction.",
+    "Checked the §3 conductor and seasoned conditions, large-image choice, distinct Taylor–Wiles eigenvalues, Lemmas 3.4/3.5, Propositions 3.7–3.11 and the reductions at 2, 3 and higher weight. Read Appendix A’s dihedral and binary-polyhedral arguments and the low-degree transfer input against /3 and /46.",
+    "Read published BLGGT14 pp. 524–525, 529–533 and 560 for the connection relations, potential-diagonalizability definition and criteria, and Theorem 4.2.1. The corrected /36 hypotheses agree with that theorem; /59 still drops a standing hypothesis. Read DMW09 pp. 1311–1313 for the completed L-function. Visually checked NT p. 137, BLGGT p. 533 and DMW p. 1312.",
+    "Read the three declarations cited by library item /28 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Their joint restriction, injectivity and fibre-product range theorem prove the stated finite-Galois Lemma 3.8. No library-claim finding against /28.",
+    "Searched both pinned source trees for polynomial laws, pseudodeformations, Cohen–Macaulay theory, potentially diagonalizable representations, Chebotarev density, Hecke characters, symmetric-power irreducibility and automorphy inputs. Read the reusable symmetric-power declarations, the complex SU(2) irreducibility theorem, and Mathlib’s PolynomialLaw carrier. Basic polynomial laws alone do not prove Chenevier’s determinant/reconstruction package; the latter retains planned status.",
+    "Assembled the current atlas without distances. All 47 distinct stage IDs used by planned items/source routes resolve; all 30 missing items are routed exactly once. Read the relevant stage descriptions and all 23 matching reviewed library-coverage entries, including partial coverage and overlap notes. Retain the upstream Chebotarev theorem as supplier; no upstream roadmap edit is proposed.",
+    "Compared the current NT I and NT26 route boundaries with the SmoothRepresentationsPartII and PolarizedAutomorphyLifting coalescences. NT I /73 and NT26 nt23-adjoint-selmer-vanishing now also route to PolarizedAutomorphyLifting; the historical three-owner concern is not a present duplication finding. NT26 imports this paper’s lifting theorem into its own tensor-functoriality method. Checked draft roadmap definitions for the candidate IDs before assuming a missing implementation.",
+    "Applied PROTOCOL §16 extraction scope: did not demand full API outlines, unit tests or recursive proofs of cited supplier theorems. This job edits only its two red-team deliverables. No Lean file, build, cache fetch or language server was needed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json, item /16; SymmetricPowerAutomorphyLifting route, layer (4); reader support-argument paragraph",
+      "claim": "Item /16 applies its domain/isomorphism argument to Proposition 2.6 OR 2.8. The assertion R_loc[[X]] ≅ R_∞ and the irreducibility of Spec R_∞ belong to the p > 2 branch. For p = 2 the domain is R′_∞; R_∞ is a torsor over the invariant ring and may have several irreducible components. The extracted argument incorrectly bypasses the translation of the automorphic point needed to reach the component containing the target point.",
+      "evidence": "Newton–Thorne II, published pp. 131 and 136–137 (https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00126-4.pdf). Page 137 proves R_loc[[X]] ≅ R′_∞ and that “Spec R′_∞ is irreducible”, then uses transitivity of Ĝ_m^γ[2](𝒪) on components of Spec R_∞ and a translate r″_∞ of r′_∞ on the component containing r_∞. Page image checked. The distinction is substantive: already the squaring fibre in the formal multiplicative group is ℤ₂[[x]]/((1+x)²−1)=ℤ₂[[x]]/(x(x+2)), with two components, whereas ℤ₂[[x]] is a domain. Items /20 and /60 themselves retain this correct distinction.",
+      "fix": "Split /16 into its two cases. For p > 2 retain R_∞ ≅ R_loc[[X]]. For p = 2 use R′_∞ ≅ R_loc[[X]], R_∞ over R_∞^inv as a Ĝ_m^γ[2]-torsor, transitivity on components, equivariance of P_∞ and H_G,∞, and translation to p″_∞ before the regular-point support argument. Update the Part II brief and reader consistently; import /20 and /60 rather than silently assuming a domain in the dyadic case."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json, item /41",
+      "claim": "The assertion that a regular algebraic π which corresponds to a twist of a weight-k eigenform “then has weight k” drops the algebraic twisting character. The paper’s special weight-k convention is a normalization, not an invariant of arbitrary algebraic twists.",
+      "evidence": "Newton–Thorne II, published p. 117 says π corresponds to a twist of an eigenform; p. 121 defines weight k by the specific algebraic representation W=(Sym^(k−2) ℂ²)^∨ and gives Hodge–Tate weights {0,k−1} (https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00126-4.pdf). Twisting a normalized weight-two π₀ by the algebraic norm character whose Galois avatar is ε^(−1) produces a regular algebraic cuspidal representation with Hodge–Tate weights {1,2}, since the paper gives ε weight −1. It therefore has no weight k in that special convention. The existing owner GL2AutomorphicRepresentationsAndTransfer:R16.6 explicitly retains normalization and Hilbert cohomological weights.",
+      "fix": "State that there is an algebraic Hecke-character twist bringing π to the paper’s normalized weight-k representation. Keep the character (or determinant twist in W) in the general statement and shift both Hodge–Tate weights accordingly. Apply the {0,k−1} formula only after that normalization; keep R16.6 as owner."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json, item /59 and PolarizedAutomorphyLifting brief clause (iii)",
+      "claim": "The criterion says that representations with an invariant filtration with one-dimensional graded pieces, including ordinary ones, are potentially diagonalisable without assuming they are potentially crystalline. This is stronger than BLGGT14 Lemma 1.4.3 and false. A split multiplicative Tate-curve representation has such a filtration but nonzero semistable monodromy, so it cannot become crystalline or diagonalisable over a finite extension.",
+      "evidence": "BLGGT, Potential automorphy and change of weight, Annals 179 (2014), p. 533, Lemma 1.4.3 begins: “Suppose that ρ … is a potentially crystalline representation.” (https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf; published page image checked.) Its part (1) then imposes the filtration. Page 531 defines potential diagonalisability by becoming crystalline and connecting to crystalline characters. Item /59 introduces only a continuous representation and omits the lemma’s standing hypothesis; its Fontaine–Laffaille branch separately retains crystallinity.",
+      "fix": "Restore “potentially crystalline” before the filtration criterion, including the ordinary example, in /59 and in the candidate brief. Preserve the already correctly scoped crystalline Fontaine–Laffaille and potentially Barsotti–Tate branches. Do not promote arbitrary ordinary or triangulated representations to potentially diagonalisable ones."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json, item /45; source route to ModularityAndLanglandsExtensions:ML.3",
+      "claim": "The stated definition of the completed L-function omits the conductor factor N_n^(s/2), although it explicitly identifies itself with Dummigan–Martin–Watkins’s definition. This changes the completed function and its functional-equation normalization. It does not change the entireness conclusion of Corollary B.",
+      "evidence": "Dummigan–Martin–Watkins, Euler factors and local root numbers for symmetric powers of elliptic curves, Pure Appl. Math. Q. 5 (2009), p. 1312: “Λ(s)=N_n^(s/2) γ(s)L(Sym^n E,s)” (https://www.intlpress.com/site/pub/files/_fulltext/journals/pamq/2009/0005/0004/PAMQ-2009-0005-0004-a005.pdf; published page image checked). The next display uses the reflection n+1−s with a constant sign. Newton–Thorne II p. 118 explicitly refers to this definition. Item /45 has only gamma factors times finite Euler factors.",
+      "fix": "Insert the conductor factor and identify N_n as the conductor of the symmetric-power representation. Retain the existing geometric-Frobenius/Euler-factor convention, explain that removing the nonvanishing exponential factor preserves entireness, and use the same completion in the ML.3 route. If another completion is desired, name it separately and give the conversion instead of attributing it to DMW09."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/5",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json, items /9, /29, /36, /38 and the Part II import list",
+      "claim": "The extraction records the automorphic lift Sym^n π (/38), but never separately classifies the underlying algebraic symmetric-power representation functor. It also leaves the finite-field irreducibility input for Sym^m of SL₂(𝔽_t), 0≤m<t, only inside proof notes. The functor already exists in Tau Ceti; the finite-field irreducibility theorem is a different arithmetic input. Treating these as the same object loses both a concrete library reuse and the status/owner of the residual-image theorem.",
+      "evidence": "Newton–Thorne II p. 124, Lemma 2.2 explicitly takes Sym_A^(n−1) A² with its standard ordered basis, and pp. 146–147 use irreducibility of Sym^m of the standard SL₂(𝔽_t)-representation for t>m. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, TauCeti/RepresentationTheory/SymmetricPower.lean defines Representation.symmetricPower for any commutative semiring, monoid and module; Representation.IntertwiningMap.symmetricPower and Representation.Equiv.symmetricPower provide functoriality. TauCeti/LinearAlgebra/SymmetricPower/Basic.lean supplies SymmetricPower.map and its laws over Mathlib’s existing symmetric tensor quotient. These declarations were read, not inferred from their names. Searches of both pinned trees found no defining-characteristic SL₂ symmetric-power irreducibility theorem; Tau Ceti’s isIrreducible_symPower in RepresentationTheory/SU2/Irreducible.lean is explicitly over ℂ and does not supply it. ArithmeticGaloisRepresentations:G7 plans continuous symmetric powers and residual-image criteria; R01.4 owns the GL₂ residual-image specialization.",
+      "fix": "Add a library item for the algebraic symmetric-power representation and its functoriality, citing those pinned declarations. Separately extract the theorem that Sym^m(𝔽̄_t²) is irreducible upon restriction to SL₂(𝔽_t) for 0≤m<t, as directly used on pp. 146–147. Route its residual-image application once to ArithmeticGaloisRepresentations:G7/R01.4 with a source addition if the existing planned scope is insufficient; import it into /29 and /36. Keep continuity and Galois-specific comparisons with G7, and the new Barsotti–Tate/pseudodeformation conclusion of /9 with SymmetricPowerAutomorphyLifting. Do not rebuild the algebraic functor or claim the ℂ/SU(2) theorem proves the finite-field result."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/6",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.md, “Why a new lifting theorem is needed”",
+      "claim": "The reader claims that for p≤n, Sym^(n−1) of the residual representation is reducible. At the boundary p=n this is false: Sym^(p−1) of the natural SL₂(𝔽_p)-representation is irreducible. The reader changed the exponent from the introduction without changing its bound.",
+      "evidence": "Newton–Thorne II, published p. 119 uses exponent n in its motivation; the reader uses n−1. More decisively pp. 146–147 use the sufficient criterion m<t for irreducibility of Sym^m of the standard SL₂(𝔽_t)-representation (https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00126-4.pdf). Take m=p−1 and t=p. This is also consistent with item /36’s t>n−1 criterion. Thus the reader’s own claimed obstruction includes a case where the stated irreducibility criterion applies.",
+      "fix": "Rewrite the motivation using the positive statement: sufficiently large residual characteristic and large residual image provide the required irreducibility, while the induction also meets small-characteristic cases where it cannot be assumed. Keep the exponents consistent. Do not replace the sentence by an unqualified assertion that every symmetric power of degree at least p is reducible; that stronger universal claim is unnecessary for the proof. Preserve Theorem 2.1’s exact large-image sandwich from item /4."
+    },
+    {
+      "id": "RT-PAPER-NEWTON-THORNE-21-B/7",
+      "kind": "other",
+      "severity": "low",
+      "where": "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.md, opening inventory, Sources read, What the atlas already has, Routes and source-issues sections",
+      "claim": "The main reader still describes the pre-review extraction (37 items, four routes, two source slips), says arXiv v2 is identical to the published text, and assigns the NT20 ring and Selmer vanishing to the symmetric-power Part II. Its appended review and accepted JSON instead give 61 items, six routes, four source issues, a non-identical source version and PolarizedAutomorphyLifting ownership. A reader following the main route list is directed to the wrong builder.",
+      "evidence": "At the audited base 0d239d95dbe322a93493ed922810497336df9bcd, the JSON has 61 items (1 library, 30 planned, 30 missing), six routes, 25 prerequisite entries and E1–E4. Its second route has 22 items and imports /8 and /17 from the fourth route. The reader’s appended Review section already states the version and ownership corrections. These are internal contradictions in the two accepted deliverables, rather than a disagreement about the mathematical route.",
+      "fix": "Rewrite the main reader to describe the accepted current extraction, including all six routes and the current ownership/import boundary. Remove obsolete requests for a future reviewer to choose a treatment already chosen, and correct the source-version assertion. Recompute inventory counts after applying the mathematical findings; keep review history secondary."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00126-4.pdf",
+      "citation": "Newton–Thorne, Publ. Math. IHÉS 134 (2021), 117–152",
+      "read": "2026-10-01",
+      "sha256": "ab39986290418f835708ca5f1114b231c628ef1efe5aa7f479f2666db6ae7a1b"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+      "citation": "Barnet-Lamb–Gee–Geraghty–Taylor, Annals of Mathematics 179 (2014), 501–609; selected sections",
+      "read": "2026-10-01",
+      "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/pamq/2009/0005/0004/PAMQ-2009-0005-0004-a005.pdf",
+      "citation": "Dummigan–Martin–Watkins, Pure Appl. Math. Q. 5 (2009), 1311–1341; introduction",
+      "read": "2026-10-01",
+      "sha256": "2117e594cb278522034646bcde9eb533139eac3ba08e23d2fc40c6f40f059d13"
+    }
+  ],
+  "upstreamNotes": []
+}
