@@ -20424,3 +20424,90 @@ example : ¬∃x : ℤ_[3], 3*x=1 := by sorry
 example : (-5 : ℤ)%3=1 ∧ (-5 : ℤ)/3=-2 := by sorry
 end
 end DirichletPadic.SuggestedRobertAlgebraicTests
+
+/- Robert Appendix1 dyadic and all-prime reflection. -/
+
+namespace DirichletPadic
+open scoped Classical
+
+lemma moritaGamma_dyadic_sign_continuous : Continuous
+    (fun x : ℤ_[2] => (-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 x).val/2)) := by
+  sorry
+
+lemma moritaGamma_dyadic_reflection_nat
+     (n : ℕ) :
+    (fun z => (moritaGamma 2 z : ℤ_[2])) (n : ℤ_[2])*(fun z => (moritaGamma 2 z : ℤ_[2])) (1-(n : ℤ_[2]))=(-1 : ℤ_[2])^(1+n%4/2) := by
+  sorry
+
+lemma moritaGamma_dyadic_reflection
+     (x : ℤ_[2]) :
+    (fun z => (moritaGamma 2 z : ℤ_[2])) x*(fun z => (moritaGamma 2 z : ℤ_[2])) (1-x)=(-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 x).val/2) := by
+  sorry
+
+lemma moritaGamma_dyadic_negative_reflection
+     (x : ℤ_[2]) :
+    (fun z => (moritaGamma 2 z : ℤ_[2])) (-x)*(fun z => (moritaGamma 2 z : ℤ_[2])) (x+1)=(-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 x).val%2+
+      (PadicInt.toZModPow 2 x).val/2) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma moritaGamma_low_digit (x : ℤ_[p]) :
+    (PadicInt.toZModPow 2 x).val%p=(PadicInt.toZMod x).val := by
+  sorry
+
+lemma moritaGamma_negative_reflection
+     (x : ℤ_[p]) :
+    (fun z => (moritaGamma p z : ℤ_[p])) (-x)*(fun z => (moritaGamma p z : ℤ_[p])) (x+1)=(-1 : ℤ_[p])^(1+(PadicInt.toZMod x).val+
+      (p+1)*((PadicInt.toZModPow 2 x).val/p)) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertDyadicTests
+open scoped Classical Topology
+noncomputable section
+-- same_mod_four_sign
+example (x y : ℤ_[2]) (h : PadicInt.toZModPow 2 x=PadicInt.toZModPow 2 y) : (-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 (x : ℤ_[2])).val/2)=(-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 (y : ℤ_[2])).val/2) := by sorry
+-- zero_and_two_signs
+example : (-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 (0 : ℤ_[2])).val/2)=-1 ∧ (-1 : ℤ_[2])^(1+(PadicInt.toZModPow 2 (2 : ℤ_[2])).val/2)=1 := by sorry
+-- natural_reflection_0
+example : (moritaGamma 2 (0) : ℤ_[2])*(moritaGamma 2 (1-(0)) : ℤ_[2])=-1 := by sorry
+-- natural_reflection_1
+example : (moritaGamma 2 (1) : ℤ_[2])*(moritaGamma 2 (1-(1)) : ℤ_[2])=-1 := by sorry
+-- natural_reflection_2
+example : (moritaGamma 2 (2) : ℤ_[2])*(moritaGamma 2 (1-(2)) : ℤ_[2])=1 := by sorry
+-- natural_reflection_3
+example : (moritaGamma 2 (3) : ℤ_[2])*(moritaGamma 2 (1-(3)) : ℤ_[2])=1 := by sorry
+-- third_reflection
+example (x : ℤ_[2]) (hx : 3*x=1) : (moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (1-(x)) : ℤ_[2])=1 := by sorry
+-- negative_third_reflection
+example (x : ℤ_[2]) (hx : 3*x=-1) : (moritaGamma 2 (x) : ℤ_[2])*(moritaGamma 2 (1-(x)) : ℤ_[2])=-1 := by sorry
+-- no_dyadic_half
+example : ¬∃x : ℤ_[2], 2*x=1 := by sorry
+-- negative_reflection_0
+example : (moritaGamma 2 (-(0)) : ℤ_[2])*(moritaGamma 2 ((0)+1) : ℤ_[2])=-1 := by sorry
+-- negative_reflection_1
+example : (moritaGamma 2 (-(1)) : ℤ_[2])*(moritaGamma 2 ((1)+1) : ℤ_[2])=1 := by sorry
+-- negative_reflection_2
+example : (moritaGamma 2 (-(2)) : ℤ_[2])*(moritaGamma 2 ((2)+1) : ℤ_[2])=1 := by sorry
+-- negative_reflection_3
+example : (moritaGamma 2 (-(3)) : ℤ_[2])*(moritaGamma 2 ((3)+1) : ℤ_[2])=-1 := by sorry
+-- ternary_low_digit
+example : (PadicInt.toZModPow 2 (5 : ℤ_[3])).val%3=2 := by sorry
+-- binary_low_digit
+example : (PadicInt.toZModPow 2 (7 : ℤ_[2])).val%2=1 := by sorry
+-- digit_of_natural
+example (p : ℕ) [Fact p.Prime] (n : ℕ) : (PadicInt.toZModPow 2 (n : ℤ_[p])).val%p=n%p := by sorry
+-- ternary_negative_pair
+example : (moritaGamma 3 (-(1)) : ℤ_[3])*(moritaGamma 3 ((1)+1) : ℤ_[3])=1 := by sorry
+-- odd_second_digit_irrelevant
+example : (moritaGamma 3 (-(3)) : ℤ_[3])*(moritaGamma 3 ((3)+1) : ℤ_[3])=-1 ∧ (moritaGamma 3 (-(6)) : ℤ_[3])*(moritaGamma 3 ((6)+1) : ℤ_[3])=-1 := by sorry
+-- binary_second_digit_essential
+example : (moritaGamma 2 (-(0)) : ℤ_[2])*(moritaGamma 2 ((0)+1) : ℤ_[2])≠(moritaGamma 2 (-(2)) : ℤ_[2])*(moritaGamma 2 ((2)+1) : ℤ_[2]) := by sorry
+end
+end DirichletPadic.SuggestedRobertDyadicTests
