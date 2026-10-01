@@ -37106,7 +37106,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5504"
   },
   {
    "id": "RT-PAPER-GAN-SAVIN-23",
@@ -45634,8 +45635,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4392"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4392",
+   "finishedAt": "2026-10-01T22:25:39Z"
   },
   {
    "id": "RT-RS-06",
