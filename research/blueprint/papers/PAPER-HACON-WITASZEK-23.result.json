@@ -14,13 +14,14 @@
       "Published pages5,6,12,13 checked as images",
       "ArXiv v2: only the difficulty and Lemma2.16 passage collated",
       "Continuation 2026-09-22 (Claude Code cc-fb70e5): pp.5, 11–13 and 16 reread; Lemma 2.2, Lemma 2.16 and the difficulty definition image-checked and collated with arXiv v2 and AHK07",
-      "Third checkpoint Codex codex-c83e7a: all35 published pages read, every proof and reference; pp.13,17,20,29,30,33 visually inspected. Published bytes copied from the prior public-source acquisition and hash checked; the new direct Cambridge request returned non-PDF bytes and was rejected."
+      "Third checkpoint Codex codex-c83e7a: all35 published pages read, every proof and reference; pp.13,17,20,29,30,33 visually inspected. Published bytes copied from the prior public-source acquisition and hash checked; the new direct Cambridge request returned non-PDF bytes and was rejected.",
+      "Fix FIX-RT-PAPER-HACON-WITASZEK-23, Codex codex-J6LwjP,2026-10-01: selected published pp.12,19,25–26,29–30, with images12,19,26,30; selected arXivv2 pp.13,21,28–29,33 and AHKv2 pp.3–4. Added E12 proof gap and E13/E14 proof corrections. Verifier rejected RT/2(c), so Claim6.8 gets an explicit valid comparison, not an erratum."
     ],
     "sha256": "d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b",
     "acquired": "2026-09-22",
     "sha256Note": "Cambridge stamps each download of this article with a footer carrying the date and the requesting IP — the reviewer's own copy carries 'Downloaded from https://www.cambridge.org/core. IP address: 178.33.239.142, on 23 Sep 2026 at 20:39:46' on every page — so the byte stream and its hash differ between downloads and this sha256 is not reproducible: a fresh download on 2026-09-23 gave 32da0efb9d00570b929e2b5db0f9272145381cc15b84af2c4503ce7b94d06088, 35 pages, printed page = PDF page. The reproducible pin for this paper is the arXiv v2 e-print, whose LaTeX source (extending-sections-char-p-1-16-2020.tex, 2145 lines) carries every passage the findings quote outside §§4 and 6. Added by the reviewer (issue #1370)."
   },
-  "summary": "Hacon–Witaszek run two special fourfold MMPs in positive and mixed characteristic p > 5 (over a Q-factorial target with exceptional locus in the boundary, Theorem 1.1, and semistable over a DVR, Theorem 1.2), via section extension and pl-flips, and derive W O-rationality and dlt modifications for fourfolds and conditional lifting of threefold minimal models to characteristic zero. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and eleven findings are recorded. Lemma 2.2's index clause (E1), the unrestricted Lemma 2.16 (E2) and the global form of Lemma 6.6 (E6) are false as printed, and the proof of Theorem 6.1(2b) has a gap (E7); the main MMP theorems are unaffected. Not formalised.",
+  "summary": "Hacon–Witaszek run two special fourfold MMPs in positive and mixed characteristic p > 5 (over a Q-factorial target with exceptional locus in the boundary, Theorem 1.1, and semistable over a DVR, Theorem 1.2), via section extension and pl-flips, and derive W O-rationality and dlt modifications for fourfolds and conditional lifting of threefold minimal models to characteristic zero. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and fourteen findings are recorded after the confirmed red-team fix (E1–E11 unchanged; new proof gap E12 and proof corrections E13/E14). Proposition5.8’s fixed-X embedded-resolution transfer remains an explicit gap; its provisional stronger regular-ambient variant is not the printed theorem. The verifier rejected RT/2(c), so Claim6.8 receives an explicit effective-discrepancy comparison, not an erratum. Lemma 2.2's index clause (E1), the unrestricted Lemma 2.16 (E2) and the global form of Lemma 6.6 (E6) are false as printed, and the proof of Theorem 6.1(2b) has a gap (E7); the main MMP theorems are unaffected. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4146,8 +4147,8 @@
       "id": "PAPER-HACON-WITASZEK-23/echoes",
       "kind": "definition",
       "name": "Echo valuations",
-      "statement": "For a subterminal log pair, an echo centre is a smooth codimension-two locus contained in exactly one boundary component; successive source-prescribed blowups yield echo valuations with ordinary discrepancies k(1−b).",
-      "locator": "Proof2.15; AHK Ex1.4",
+      "statement": "For a subterminal log pair near a smooth codimension-two echo centre C contained in exactly one boundary component B_i of coefficient b_i, set C0=C. Blow up C_{r−1}, let E_r be the new exceptional divisor dominating that centre, and let B_i^(r) be the strict transform of B_i. Define the next centre C_r=E_r∩B_i^(r) over the generic point of C. The valuation of E_r is the r-th echo and has ordinary discrepancy r(1−b_i). Never iterate strict transforms of C itself after it has been blown up (E13).",
+      "locator": "Published proof of Proposition2.15, p.12; AHK07 v2 Example1.4, p.3",
       "status": "missing",
       "ownerRoute": "birational",
       "prerequisites": [
@@ -4155,7 +4156,7 @@
         "PAPER-HACON-WITASZEK-23/resolution"
       ],
       "proofSteps": [
-        "Specify the successive intersection centre rather than an undefined strict transform of a blown-up centre."
+        "Use the recursive intersection centres of AHK07 Example1.4, p.3, as spelled out in the statement (E13). In transverse regular parameters, the first exceptional discrepancy is 1−b_i. Blowing up the intersection of E_r with the strict boundary adds another 1−b_i, so induction gives a(E_r)=r(1−b_i). This is ordinary discrepancy, not log discrepancy. Retain the unique-boundary-component and smooth-generic-centre hypotheses."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -4164,7 +4165,7 @@
           "main"
         ],
         "locator": "Proof2.15; AHK Ex1.4",
-        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog."
+        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog. Fix Codex codex-J6LwjP,2026-10-01: selected published locator re-read and page image checked; verified red-team verdict governs the correction."
       },
       "api": [
         {
@@ -4210,6 +4211,9 @@
           "item": "PAPER-HACON-WITASZEK-23/difficulty-weights",
           "how": "Supplies Echo valuations to Upper and lower discrepancy weights with the explicit hypotheses and open gaps retained."
         }
+      ],
+      "sourceIssues": [
+        "PAPER-HACON-WITASZEK-23/E13"
       ]
     },
     {
@@ -5884,7 +5888,9 @@
         "PAPER-HACON-WITASZEK-23/one-quasi-resolution"
       ],
       "proofSteps": [
-        "Run the standard-boundary relative MMP from the supplied resolution; compare Witt direct images at divisorial contractions and flips; the terminal small map to the Q-factorial target is an isomorphism."
+        "Run the standard-boundary relative MMP from the supplied resolution. For a divisorial contraction f:Y→Z over X, write u:S↪Y, ν:Sν→S and π_Z:Z→X. Use f_S=f∘u:S→Z and f_{Sν}=f∘u∘ν:Sν→Z throughout the relative log-Fano vanishing argument (E14).",
+        "On Z use the rational Witt ideal sequence 0→W I_{S,Q}→W O_{Y,Q}→u_*W O_{S,Q}→0 and the cited ideal/log-Fano vanishing, together with normality up to universal homeomorphism. The typed identity R^i f_*(u_*W O_{S,Q})=R^i(f_S)_*W O_{S,Q} has both sides on Z. Obtain R^i f_*W O_{Y,Q}=0 for i>0 and f_*W O_{Y,Q}=W O_{Z,Q}.",
+        "Only then apply π_Z:Z→X and Leray to compare the higher direct images on X. In the flip branch compare both contractions Y→Z←Y+ on their common target Z, then use Leray over X. The final small map to the Q-factorial target is an isomorphism. Cited Witt-rationality supplier closure remains gap-witt."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -5893,14 +5899,27 @@
           "main"
         ],
         "locator": "Cor4.7",
-        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog."
+        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog. Fix Codex codex-J6LwjP,2026-10-01: selected published locator re-read and page image checked; verified red-team verdict governs the correction."
       },
-      "gaps": [],
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-witt"
+      ],
       "uses": [
         {
           "where": "Cor1.3",
           "item": "PAPER-HACON-WITASZEK-23/point-count",
           "how": "Supplies Witt-rational Q-factorial klt fourfolds to Chevalley–Warning-type fourfold congruence with the explicit hypotheses and open gaps retained."
+        }
+      ],
+      "sourceIssues": [
+        "PAPER-HACON-WITASZEK-23/E14"
+      ],
+      "tests": [
+        {
+          "name": "witt-fourfold.direct-image-target",
+          "kind": "compatibility",
+          "statement": "With S→Y→Z→X, f_*(u_*F) and (f∘u)_*F are both sheaves on Z. A restriction map with codomain X cannot be substituted before applying π_Z.",
+          "execution": "Typed planning regression; not executed in Lean."
         }
       ]
     },
@@ -6799,7 +6818,7 @@
       "id": "PAPER-HACON-WITASZEK-23/embedded-to-birational",
       "kind": "theorem",
       "name": "Embedded resolution implies birational log resolution",
-      "statement": "Under the embedded-resolution assumption for a regular projective ambient variety and its closed subschemes as in Prop5.8, varieties birational to it admit the indicated log resolutions.",
+      "statement": "Published Proposition5.8 asserts that if Conjecture5.7 holds for a fixed regular projective variety X and all its closed subschemes, then every quasi-projective Y birational to X has, for its closed boundary W, a proper birational log resolution μ:Y′→Y with regular source and exceptional/inverse-boundary divisors of snc union. This fixed-X implication is an unclosed target (E12, gap-embedded-transfer). A provisional strengthened variant assumes embedded principalization for every relevant regular quasi-projective ambient variety produced in the construction, including X′; that is strictly stronger than the printed fixed-X hypothesis, and is not asserted unconditionally.",
       "locator": "Prop5.8",
       "status": "missing",
       "ownerRoute": "sf4",
@@ -6807,23 +6826,51 @@
         "PAPER-HACON-WITASZEK-23/embedded-resolution"
       ],
       "proofSteps": [
-        "Resolve/principalize the base ideal of a rational map, then resolve the union of exceptional locus and pulled-back boundary; separately retain the stronger non-snc construction issue."
+        "For the strengthened variant, embed Y as an open in its projective closure Ȳ. Principalize the base ideal of X ⇢ Ȳ to obtain regular projective X1 and a morphism f̄1:X1→Ȳ. The dense image lies in the closed Ȳ, so the morphism from the base-point-free linear series factors through Ȳ. Do not claim f̄1 lands in Y on all of X1.",
+        "Use the additional regular-ambient hypothesis on X1 to principalize the product of the ideals of Ex(f̄1), the closure of f̄1^{-1}(W), and the preimage of the compactification boundary, with regular source X2 and snc union with Ex(g), where g:X2→X1. Each inverse-image factor is invertible: in a local integral ring, if a product of nonzero ideals is invertible, each factor has a fractional-ideal inverse and is invertible. Their divisor supports are subsets of the resulting snc union. This use on X1 is an extra hypothesis: transfer from fixed X, or a justified one-stage simultaneous construction on X, remains the gap.",
+        "Set Y′=X2×_{Ȳ}Y, and μ:Y′→Y the restriction of the proper composite X2→Ȳ. This square is a base change, hence μ is proper. Y′ is an open in regular X2 and remains regular; its dense birational isomorphism locus gives birationality and surjectivity. On that open, exceptional locus and inverse W are the restrictions of the corresponding resolved closed loci; Cartier divisor and snc conditions restrict to opens. The extra compactification-boundary components lie outside Y′ and introduce no exceptional or boundary component there.",
+        "For the printed fixed-X statement, retain E12/gap-embedded-transfer until the transfer to X1 or simultaneous principalization on X is proved. The compactification/open-restriction adapter resolves the target problem but does not by itself resolve that transfer. The stronger non-snc-blowup construction required elsewhere remains separate."
       ],
       "implementationStatus": "unchecked",
-      "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
+      "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit. Fix RT/1: E12 records a proof gap, not a counterexample to Proposition5.8 or the main MMP theorems. The proper-open-restriction adapter is already supported by pinned Mathlib AlgebraicGeometry.IsProper.isStableUnderBaseChange and the instance IsProper (f ∣_ V), Proper.lean:72–85; reuse these, rather than replan properness. All-ambient resolution is expressly stronger than the printed hypothesis.",
       "sourceEvidence": {
         "sourceIds": [
           "main"
         ],
         "locator": "Prop5.8",
-        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog."
+        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog. Fix Codex codex-J6LwjP,2026-10-01: selected published locator re-read and page image checked; verified red-team verdict governs the correction."
       },
-      "gaps": [],
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-embedded-transfer"
+      ],
       "uses": [
         {
           "where": "Prop5.8",
           "item": "paper target / independent API export",
           "how": "Export the stated result or guard to the design job; no implementation is claimed."
+        }
+      ],
+      "sourceIssues": [
+        "PAPER-HACON-WITASZEK-23/E12"
+      ],
+      "tests": [
+        {
+          "name": "embedded-to-birational.projective-affine-guard",
+          "kind": "boundary/non-example",
+          "statement": "For X=P¹ and Y=A¹ over an algebraically closed field, H⁰(P¹,O)=k. Every morphism from the whole regular projective birational curve modification to A¹ is constant; the birational map exists only after restricting the source over A¹. The identity A¹→A¹ still satisfies the resolution conclusion.",
+          "execution": "Mathematical regression argument; not executed in Lean."
+        },
+        {
+          "name": "embedded-to-birational.open-base-change",
+          "kind": "compatibility",
+          "statement": "For f̄:X2→Ȳ proper and Y open in Ȳ, X2×_{Ȳ}Y→Y is proper, though X2×_{Ȳ}Y need not be proper over the ground field. Regularity, Cartier divisors and snc restrict to that open.",
+          "execution": "Pinned properness base-change/restriction instances read; no Lean compilation."
+        },
+        {
+          "name": "embedded-to-birational.ambient-guard",
+          "kind": "boundary/non-example",
+          "statement": "A parameter asserting embedded resolution for closed subschemes of X cannot be applied to X1 without a supplied transfer or a stronger regular-ambient parameter.",
+          "execution": "Planning interface guard; not executed in Lean."
         }
       ]
     },
@@ -7616,16 +7663,18 @@
         "PAPER-HACON-WITASZEK-23/total-qgorenstein"
       ],
       "proofSteps": [
-        "Run the boundary MMP from a strong resolution; negativity leaves only the strict central fibre and makes Δ effective; generic terminality plus the plt Cartier fibre controls vertical discrepancies. Correct the source's total/special symbol switches in the proof."
+        "Run the boundary MMP from a strong resolution. Negativity and the plt coefficient bounds leave only the strict central fibre Y, integral and reduced. The dlt output with its single integral boundary component is plt, and K_𝒴+Δ_𝒴=φ*K_𝒳 with Δ_𝒴≥0. The generic fibre is terminal by the characteristic-zero MMP.",
+        "For E exceptional over 𝒴 and vertical over the DVR closed point, make the printed comparison explicit: A_(𝒴,0)(E) ≥ A_(𝒴,Δ_𝒴)(E) = A_(𝒳,0)(E) = A_(𝒳,X)(E)+ord_E(X)>1. The inequality uses Δ_𝒴≥0, the crepant equality uses Claim6.8(4), the plt pair gives positive log discrepancy for these exceptional centres, and the Cartier central fibre gives the positive integer ord_E(X)≥1. Together with generic terminality this proves terminality of 𝒴.",
+        "Equivalently one can use A_(𝒴,0)(E)=A_(𝒴,Y)(E)+ord_E(Y)>1 with (𝒴,Y) plt and Y the integral Cartier central fibre. This is an alternative proof, not a source correction. RT/2(c) was explicitly rejected by its verifier and creates no sourceIssues record."
       ],
       "implementationStatus": "unchecked",
-      "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
+      "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit. Fix RT/2(c): follow the verified subfinding verdict. The old-ambient calculation is valid using the effective discrepancy divisor; remove the extraction’s unsupported instruction to correct a source symbol switch. No new erratum for Claim6.8.",
       "sourceEvidence": {
         "sourceIds": [
           "main"
         ],
         "locator": "Claim6.8",
-        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog."
+        "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog. Fix Codex codex-J6LwjP,2026-10-01: selected published locator re-read and page image checked; verified red-team verdict governs the correction."
       },
       "gaps": [],
       "uses": [
@@ -7633,6 +7682,14 @@
           "where": "Cor6.7(2), terminal clause",
           "item": "PAPER-HACON-WITASZEK-23/total-terminal",
           "how": "Supplies Partial terminalization over a DVR to Terminal total space of the lifting with the explicit hypotheses and open gaps retained."
+        }
+      ],
+      "tests": [
+        {
+          "name": "partial-terminalization.effective-comparison",
+          "kind": "compatibility",
+          "statement": "For exceptional vertical E, Δ_𝒴≥0 implies A_(𝒴,0)(E)≥A_(𝒴,Δ_𝒴)(E). Plt positivity plus integer ord_E(X)≥1 yields strict >1; generic terminality covers nonvertical E.",
+          "execution": "Mathematical discrepancy regression; not executed in Lean."
         }
       ]
     },
@@ -8975,6 +9032,15 @@
       "items": [],
       "status": "deferred",
       "resolution": "Independent review and route confirmation are the review pipeline's job."
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/gap-embedded-transfer",
+      "detail": "E12: after resolving X ⇢ Ȳ, the second principalization lives on a new regular ambient X1. The printed fixed-X hypothesis supplies no transfer to X1. Prove that transfer or a justified simultaneous principalization on X. The projective-compactification/open-restriction target adapter is supplied, but does not close this remaining gap.",
+      "items": [
+        "PAPER-HACON-WITASZEK-23/embedded-to-birational"
+      ],
+      "status": "recorded",
+      "resolution": "Recorded as source proof gap E12. The provisional all-relevant-regular-ambient variant explicitly assumes the missing input and is stronger than Proposition5.8; fixed-X closure remains open."
     }
   ],
   "checks": [
@@ -9003,6 +9069,28 @@
       "check": "Continuation source verification (Claude Code cc-fb70e5)",
       "result": "passed",
       "scope": "E1–E5 checked at their locators on published page images (pp.5, 12, 13) and in arXiv v2, the latest version; E4 and E5 against AHK07 Definitions 2.2–2.3. The corrected Lemma 2.16 is proved in fixed-boundary-surface. check_paper passes. These are mathematical arguments, not Lean proofs."
+    },
+    {
+      "check": "FIX-RT-PAPER-HACON-WITASZEK-23",
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "date": "2026-10-01",
+      "result": "passed",
+      "scope": "Confirmed RT/1 and RT/2(a,b); rejected RT/2(c) respected. No Lean deliverable or compilation; fixed-X transfer remains open.",
+      "validation": {
+        "preserved": "163 item identities/statuses, nine routes, E1–E11 unchanged",
+        "graph": "163 vertices, 373 resolved acyclic edges; all gap references resolve",
+        "sourceIssues": 14,
+        "gaps": 15,
+        "diagnostics": {
+          "echo_recurrence": 4950,
+          "effective_discrepancy_comparison": 120,
+          "P1_chart_compatibility": 6561,
+          "typed_direct_image_targets": 3
+        },
+        "total": 11634,
+        "scope": "Exact finite/rational regressions, not proofs of resolution, Witt vanishing or arbitrary coefficient recurrences."
+      }
     }
   ],
   "implementationStatus": "No Lean implementation or source-closure certification.",
@@ -9471,6 +9559,55 @@
         "reason": "Confirmed verbatim: `given that Y is rationally chain connected, and so all the slopes of Frobenius are $\\geq1$ by [Esn03, Theorem 1.1]'. For a geometrically connected smooth proper $Y$, $H^0_{\\mathrm{crys}}$ has Frobenius eigenvalue 1 and slope 0, so the assertion cannot be for all degrees — and that degree-zero term is precisely the contribution that makes $|Y(\\F_q)|\\equiv1\\pmod q$, which is the conclusion being drawn. The claim is the positive-degree one, as the recorded correction says.",
         "by": "Claude Code, session cc-7b31c4, issue #1370"
       }
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E12",
+      "kind": "gap",
+      "locator": "Published Proposition5.8, proof p.26; arXiv2009.02631v2 Proposition5.7, p.29",
+      "printed": "Consider the corresponding morphism f′: X′ → Y.",
+      "correction": "Resolve the rational map to a projective compactification Ȳ, then restrict to the inverse image of the open Y. Properness follows by base change and regularity/snc by open restriction. Supply a transfer of the fixed-X embedded-resolution hypothesis to the later regular ambient X′, or a justified simultaneous principalization on X. A provisional all-relevant-regular-ambient hypothesis is stronger than the printed one; the fixed-X implication remains unclosed.",
+      "reason": "For X=P¹ and Y=A¹ the entire projective birational regular modification of X is P¹, whose global functions are constants, so it cannot map birationally to A¹. A base-point-free linear series resolves the map to Ȳ, not to Y on all of X′. The next application of Conjecture5.7 is on X′, although the printed hypothesis only quantifies over subschemes of X. Neither defect disproves the proposition’s conclusion: A¹ itself is already regular.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: published Cambridge PDF, selected pp.12,19,25–26,29–30, including page images at12,19,26,30; these passages are present in the version of record. Download SHA-256 171a75813724cfb72fe0868dcf7ee73ca55a0586d1d28050d1a8297bb7a55afe; time-dependent download footer explains differences from earlier hashes.",
+        "2026-10-01: arXiv submission history https://arxiv.org/abs/2009.02631 lists v2 (16 August 2021) as latest. Selected v2 pp.13,21,28–29 retain the echo-centre, Witt-target and rational-map passages (published Proposition5.8 is preprint Proposition5.7). No whole-preprint collation claimed.",
+        "2026-10-01: Witaszek publications page https://sites.math.northwestern.edu/lro1793/publications.html lists the Cambridge article without a correction link. The article-record request could not be rendered by the web tool (content-length limit); the public version-of-record PDF was obtained.",
+        "2026-10-01: Crossref API record for DOI10.1017/fmp.2023.6 has empty relation and no update-to/updated-by fields. Bounded title/author searches with erratum and Proposition5.8 found no matching correction. This does not establish that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E13",
+      "kind": "error",
+      "locator": "Published proof of Proposition2.15, p.12, echo paragraph; arXiv2009.02631v2 p.13; compare AHK07 arXivmath/0605137v2 Example1.4, p.3",
+      "printed": "a sequence of k blowups at strict transforms of C",
+      "correction": "Set C0=C. Blow up C0 and let E1 be the exceptional component dominating C0. With B_i^(1) the strict transform of the unique boundary component, put C1=E1∩B_i^(1) over the generic point of C. Recursively blow up C_{r−1}, let E_r be the new exceptional component dominating it, and put C_r=E_r∩B_i^(r). The r-th echo is the valuation of E_r and has ordinary discrepancy r(1−b_i).",
+      "reason": "The strict transform of the blown-up centre itself is empty, so the printed iteration has no second centre. AHK07 Example1.4 explicitly uses the intersection with the boundary’s strict transform. In the transverse smooth surface calculation, a(E1)=1−b_i and a(E_{r+1})=a(E_r)+(1−b_i), giving the claimed discrepancies.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: published Cambridge PDF, selected pp.12,19,25–26,29–30, including page images at12,19,26,30; these passages are present in the version of record. Download SHA-256 171a75813724cfb72fe0868dcf7ee73ca55a0586d1d28050d1a8297bb7a55afe; time-dependent download footer explains differences from earlier hashes.",
+        "2026-10-01: arXiv submission history https://arxiv.org/abs/2009.02631 lists v2 (16 August 2021) as latest. Selected v2 pp.13,21,28–29 retain the echo-centre, Witt-target and rational-map passages (published Proposition5.8 is preprint Proposition5.7). No whole-preprint collation claimed.",
+        "2026-10-01: Witaszek publications page https://sites.math.northwestern.edu/lro1793/publications.html lists the Cambridge article without a correction link. The article-record request could not be rendered by the web tool (content-length limit); the public version-of-record PDF was obtained.",
+        "2026-10-01: Crossref API record for DOI10.1017/fmp.2023.6 has empty relation and no update-to/updated-by fields. Bounded title/author searches with erratum and Proposition5.8 found no matching correction. This does not establish that none exists.",
+        "AHK07 v2 Example1.4 p.3 was read on2026-10-01 and provides the intended construction; this does not constitute a published correction to HW23."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E14",
+      "kind": "misprint",
+      "locator": "Published Corollary4.7, proof p.19, divisorial-contraction branch; arXiv2009.02631v2 Corollary4.6, p.21",
+      "printed": "f_S: S → X",
+      "correction": "With f:Y→Z and u:S↪Y, define f_S=f∘u:S→Z and f_{Sν}=f∘u∘ν:Sν→Z. Relative ampleness, log-Fano vanishing and R^i f_*(u_* W O_{S,Q})=R^i(f_S)_* W O_{S,Q} are on Z. Only afterward push forward by π_Z:Z→X and apply Leray.",
+      "reason": "The left side of the displayed direct-image identity is a sheaf on Z, whereas the printed f_S with codomain X places its right side on X. The f-antiample/log-Fano input is relative to Z; it need not be ample over X. The corrected restriction maps restore the typed identity and the later Leray comparison over X.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-01: published Cambridge PDF, selected pp.12,19,25–26,29–30, including page images at12,19,26,30; these passages are present in the version of record. Download SHA-256 171a75813724cfb72fe0868dcf7ee73ca55a0586d1d28050d1a8297bb7a55afe; time-dependent download footer explains differences from earlier hashes.",
+        "2026-10-01: arXiv submission history https://arxiv.org/abs/2009.02631 lists v2 (16 August 2021) as latest. Selected v2 pp.13,21,28–29 retain the echo-centre, Witt-target and rational-map passages (published Proposition5.8 is preprint Proposition5.7). No whole-preprint collation claimed.",
+        "2026-10-01: Witaszek publications page https://sites.math.northwestern.edu/lro1793/publications.html lists the Cambridge article without a correction link. The article-record request could not be rendered by the web tool (content-length limit); the public version-of-record PDF was obtained.",
+        "2026-10-01: Crossref API record for DOI10.1017/fmp.2023.6 has empty relation and no update-to/updated-by fields. Bounded title/author searches with erratum and Proposition5.8 found no matching correction. This does not establish that none exists."
+      ]
     }
   ],
   "continuationChecks": {
@@ -9502,5 +9639,30 @@
     "status": "complete",
     "reading": "arXiv v2 re-read at §§1, 5 and 6 (the published copy could not be re-fetched); E6 rechecked; the statement numbering in the locators checked for gaps.",
     "changes": "Theorems 1.1 and 1.2 mapped to their body items; gap statuses recorded; status complete."
-  }
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C2E369C389C6A7DFAD5F8FDEBE6AC4D1/S2050508623000069a.pdf/on-the-relative-minimal-model-program-for-fourfolds-in-positive-and-mixed-characteristic.pdf",
+      "citation": "Forum of Mathematics, Pi11(2023),e10,1–35; DOI10.1017/fmp.2023.6",
+      "read": "2026-10-01",
+      "sha256": "171a75813724cfb72fe0868dcf7ee73ca55a0586d1d28050d1a8297bb7a55afe",
+      "coverage": "Fix only: pp.12,19,25–26,29–30 text read; pp.12,19,26,30 images inspected. Earlier whole-paper reading remains attributed to its original workers. Dynamic Cambridge footer changes download hash."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.02631v2",
+      "read": "2026-10-01",
+      "sha256": "161c63089dadc8f9aecd3da1753563fe8f7f9fc2b2722952307cd19bacda7c66",
+      "coverage": "Selected pp.13,21,28–29,33 only; not a complete collation. Prop5.8 published corresponds to Prop5.7 here; no substituted version-of-record claims."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0605137v2",
+      "citation": "Alexeev–Hacon–Kawamata, Termination of (many) 4-dimensional log flips, v2",
+      "read": "2026-10-01",
+      "sha256": "1d1e5642fdb7b2a2c04ccf9800de13c7b3649eed344034538142116f09c7cf28",
+      "coverage": "Selected pp.3–4, especially Example1.4. No general positive-characteristic transfer claim."
+    }
+  ]
 }
