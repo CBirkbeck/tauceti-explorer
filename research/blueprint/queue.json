@@ -38730,8 +38730,9 @@
     "REV-PAPER-HACON-WITASZEK-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4224"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4224",
+   "finishedAt": "2026-10-01T12:51:18Z"
   },
   {
    "id": "REV-RT-PAPER-HACON-WITASZEK-23",
@@ -39164,7 +39165,8 @@
     "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4242"
   },
   {
    "id": "REV-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
