@@ -19545,3 +19545,190 @@ example (hs : ∀ (a : ℕ) (x : ℤ_[2]), Summable (fun k => PowerSeries.coeff 
 end Summability
 end
 end DirichletPadic.SuggestedRobertTelescopeTests
+
+/- Robert coefficient convergence and varying-index decay, conditional on the actual Dwork coefficient bound. -/
+namespace DirichletPadic
+noncomputable section
+open Finset Filter
+open scoped Topology fwdDiff Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+
+
+section Comparison
+variable [TopologicalSpace K] [IsTopologicalRing K]
+
+lemma robertCoefficientSeries_hasSum_small (ι : ℚ_[p] →+* K) (hι : Continuous ι) (π : K)
+    (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (x : ℤ_[p]) :
+    HasSum (fun k => PowerSeries.coeff (a+p^f*k)
+      (PowerSeries.rescale π (PowerSeries.exp K)*
+        PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+          (PowerSeries.rescale (-π) (PowerSeries.exp K)))/π^k*
+        (descPochhammer K k).eval (ι (x : ℚ_[p])))
+      (π^a*ι (robertFactorialQuotient p f a x)) := by sorry
+
+variable [T2Space K]
+
+lemma robertCoefficientSeries_eq_factorial (ι : ℚ_[p] →+* K) (hι : Continuous ι) (π : K)
+    (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (x : ℤ_[p]) :
+    robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π (p^f)
+      (pow_ne_zero f (Fact.out : p.Prime).ne_zero) a x=
+      π^a*ι (robertFactorialQuotient p f a x) := by sorry
+
+lemma robertCoefficientSeries_continuous_small (ι : ℚ_[p] →+* K) (hι : Continuous ι) (π : K)
+    (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) :
+    Continuous (robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π (p^f)
+      (pow_ne_zero f (Fact.out : p.Prime).ne_zero) a) := by sorry
+
+end Comparison
+
+
+
+
+section Quantitative
+variable {L : Type*} [NormedField L] [CharZero L]
+
+
+omit [Field K] [CharZero K] in
+lemma robert_factorial_ratio_norm (ι : ℚ_[p] →+* L) (hι : ∀ z, ‖ι z‖=‖z‖)
+    (π : L) (hπ : π^(p-1)=-(p : L)) (k : ℕ) :
+    ‖(k.factorial : L)‖/‖π‖^k=‖π‖^(-((p.digits k).sum : ℝ)) := by sorry
+
+
+end Quantitative
+
+
+
+
+
+
+
+
+section ActualDecay
+variable {L : Type*} [NormedField L] [CharZero L] [CompleteSpace L]
+variable (ι : ℚ_[p] →+* L) (hι : ∀ z, ‖ι z‖=‖z‖)
+variable (π : L) (hπ : π^(p-1)=-(p : L)) (q : ℕ) (hq : 0<q)
+variable (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp L)*
+  PowerSeries.expand q (Nat.ne_of_gt hq) (PowerSeries.rescale (-π) (PowerSeries.exp L)))‖≤
+    ‖π‖^((n : ℝ)*(p-1 : ℝ)^2/(p*q)))
+include hι hπ hA
+omit [Field K] [CharZero K] [CompleteSpace L] in
+lemma robertCoefficientSeries_term_bound (a k : ℕ) (x : ℤ_[p]) :
+    ‖PowerSeries.coeff (a+q*k) (PowerSeries.rescale π (PowerSeries.exp L)*
+      PowerSeries.expand q (Nat.ne_of_gt hq) (PowerSeries.rescale (-π) (PowerSeries.exp L)))/π^k*
+        (descPochhammer L k).eval (ι (x : ℚ_[p]))‖≤
+      ‖π‖^((a : ℝ)/(2*q)+k/4-5/4) := by sorry
+
+omit [Field K] [CharZero K] in
+lemma robertCoefficientSeries_summable (a : ℕ) (x : ℤ_[p]) :
+    Summable (fun k => PowerSeries.coeff (a+q*k) (PowerSeries.rescale π (PowerSeries.exp L)*
+      PowerSeries.expand q (Nat.ne_of_gt hq) (PowerSeries.rescale (-π) (PowerSeries.exp L)))/π^k*
+        (descPochhammer L k).eval (ι (x : ℚ_[p]))) := by sorry
+
+omit [Field K] [CharZero K] in
+lemma robertCoefficientSeries_continuous (hcι : Continuous ι) (a : ℕ) :
+    Continuous (robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (Nat.ne_of_gt hq) a) := by sorry
+
+variable [IsUltrametricDist L]
+omit [Field K] [CharZero K] [CompleteSpace L] in
+lemma robertCoefficientSeries_norm_bound (a : ℕ) (x : ℤ_[p]) :
+    ‖robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (Nat.ne_of_gt hq) a x‖≤‖π‖^(((a : ℝ)-q)/(2*q)) := by sorry
+
+omit [Field K] [CharZero K] [CompleteSpace L] in
+lemma robertCoefficientSeries_norm_bound_odd (hp : 3≤p) (a : ℕ) (x : ℤ_[p]) :
+    ‖robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (Nat.ne_of_gt hq) a x‖≤
+      ‖π‖^((a : ℝ)/q) := by sorry
+
+omit [Field K] [CharZero K] [CompleteSpace L] in
+lemma robertCoefficientSeries_tail (hq1 : 1<q) (a : ℕ) (x : ℕ → ℤ_[p]) :
+    Tendsto (fun N => robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (Nat.ne_of_gt hq) (a+N*(q-1)) (x N)) atTop (𝓝 0) := by sorry
+
+omit [Field K] [CharZero K] in
+lemma robertCoefficientSeries_telescope_limit (hq1 : 1<q) (a : ℕ) (x : ℤ_[p])
+    (hx : ((1 : L)-q)*ι (x : ℚ_[p])=a) :
+    Tendsto (fun N => ((1 : L)-q)*∑ j ∈ range N, PowerSeries.coeff (a+j*(q-1))
+      (PowerSeries.rescale π (PowerSeries.exp L)*PowerSeries.expand q (Nat.ne_of_gt hq)
+        (PowerSeries.rescale (-π) (PowerSeries.exp L)))) atTop
+      (𝓝 (robertCoefficientSeries p (ι.comp (algebraMap ℤ_[p] ℚ_[p])) π q (Nat.ne_of_gt hq) a x)) := by sorry
+
+end ActualDecay
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertDecayTests
+noncomputable section
+open Finset Filter
+open scoped Topology
+-- small_sum_0
+example : HasSum (fun k => (PowerSeries.coeff (0+2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))/(-2 : ℚ_[2])^k*(descPochhammer ℚ_[2] k).eval ((0 : ℤ_[2]) : ℚ_[2])) (1) := by sorry
+-- small_sum_1
+example : HasSum (fun k => (PowerSeries.coeff (0+2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))/(-2 : ℚ_[2])^k*(descPochhammer ℚ_[2] k).eval ((1 : ℤ_[2]) : ℚ_[2])) (-1) := by sorry
+-- gamma_comparison_0
+example (x : ℤ_[2]) : (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (0) (x))=(-2 : ℚ_[2])^0*robertFactorialQuotient 2 1 0 x := by sorry
+-- gamma_comparison_1
+example (x : ℤ_[2]) : (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (1) (x))=(-2 : ℚ_[2])^1*robertFactorialQuotient 2 1 1 x := by sorry
+-- gamma_range_failure
+example : (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (2) (0))≠(-2 : ℚ_[2])^2*robertFactorialQuotient 2 1 2 0 := by sorry
+-- small_continuous_0
+example : Continuous (fun x : ℤ_[2] => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (0) (x))) := by sorry
+-- small_continuous_1
+example : Continuous (fun x : ℤ_[2] => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (1) (x))) := by sorry
+-- factorial_zero
+example : ‖((0 : ℕ).factorial : ℚ_[2])‖/‖(-2 : ℚ_[2])‖^0=1 := by sorry
+-- factorial_binary_three
+example : ‖((3 : ℕ).factorial : ℚ_[2])‖/‖(-2 : ℚ_[2])‖^3=4 := by sorry
+-- binary_half_boundary
+example : ¬ 2*(Nat.digits 2 1).sum≤1 := by sorry
+-- binary_quarter_boundary
+example : 4*(Nat.digits 2 3).sum=3+5 := by sorry
+-- ternary_strict_rate
+example : ((3 : ℝ)-1)^2/3-1=1/3 := by sorry
+section DworkBound
+variable (hA : ∀ n, ‖(PowerSeries.coeff (n) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))‖≤‖(-2 : ℚ_[2])‖^((n : ℝ)/4))
+include hA
+-- term_large_index
+example (k : ℕ) (x : ℤ_[2]) : ‖((fun k => (PowerSeries.coeff (2+2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))/(-2 : ℚ_[2])^k*(descPochhammer ℚ_[2] k).eval ((x : ℤ_[2]) : ℚ_[2])) k)‖≤‖(-2 : ℚ_[2])‖^((2 : ℝ)/4+k/4-5/4) := by sorry
+-- summable_above_range_2
+example : Summable (fun k => (PowerSeries.coeff (2+2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))/(-2 : ℚ_[2])^k*(descPochhammer ℚ_[2] k).eval (((-1) : ℤ_[2]) : ℚ_[2])) := by sorry
+-- continuous_above_range_2
+example : Continuous (fun x : ℤ_[2] => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (2) (x))) := by sorry
+-- summable_above_range_5
+example : Summable (fun k => (PowerSeries.coeff (5+2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))/(-2 : ℚ_[2])^k*(descPochhammer ℚ_[2] k).eval (((-1) : ℤ_[2]) : ℚ_[2])) := by sorry
+-- continuous_above_range_5
+example : Continuous (fun x : ℤ_[2] => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (5) (x))) := by sorry
+-- uniform_bound_0
+example (x : ℤ_[2]) : ‖(robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (0) (x))‖≤‖(-2 : ℚ_[2])‖^((0 : ℝ)/4-1/2) := by sorry
+-- uniform_bound_2
+example (x : ℤ_[2]) : ‖(robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (2) (x))‖≤‖(-2 : ℚ_[2])‖^((2 : ℝ)/4-1/2) := by sorry
+-- tail_constant
+example : Tendsto (fun N : ℕ => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (N) (0))) atTop (𝓝 0) := by sorry
+-- tail_moving
+example : Tendsto (fun N : ℕ => (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (N) (-(N : ℤ_[2])))) atTop (𝓝 0) := by sorry
+-- telescope_limit_0
+example : Tendsto (fun N => (-1 : ℚ_[2])*∑ j ∈ range N, (PowerSeries.coeff (0+j) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))) atTop (𝓝 (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (0) (0))) := by sorry
+-- telescope_limit_1
+example : Tendsto (fun N => (-1 : ℚ_[2])*∑ j ∈ range N, (PowerSeries.coeff (1+j) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))) atTop (𝓝 (robertCoefficientSeries 2 (algebraMap ℤ_[2] ℚ_[2]) (-2 : ℚ_[2]) 2 (by norm_num) (1) (-1))) := by sorry
+end DworkBound
+section OddBound
+variable {K : Type*} [NormedField K] [CharZero K] [IsUltrametricDist K]
+variable (ι : ℚ_[3] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (π : K) (hπ : π^2=-3)
+variable (hA : ∀ n, ‖PowerSeries.coeff n (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K)))‖≤‖π‖^((n : ℝ)*4/9))
+include hι hπ hA
+-- odd_norm_0
+example (x : ℤ_[3]) : ‖robertCoefficientSeries 3 (ι.comp (algebraMap ℤ_[3] ℚ_[3])) π 3 (by norm_num) 0 x‖≤‖π‖^((0 : ℝ)/3) := by sorry
+-- odd_norm_3
+example (x : ℤ_[3]) : ‖robertCoefficientSeries 3 (ι.comp (algebraMap ℤ_[3] ℚ_[3])) π 3 (by norm_num) 3 x‖≤‖π‖^((3 : ℝ)/3) := by sorry
+end OddBound
+end
+end DirichletPadic.SuggestedRobertDecayTests
