@@ -22274,3 +22274,159 @@ example : kubertRelations (X := ZMod 5) ∅ 4=⊥ := by sorry
 example : kubertRelations (X := ZMod 5) {1} 4=⊥ := by sorry
 end
 end DirichletPadic.SuggestedKubertDistributionTests
+
+/- The actual integral rational-circle subgroup and Gamma distribution factorization. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma grossKoblitzIntegralCircle_circle_zero_mem : (0 : AddCircle (1 : ℚ)) ∈
+    Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+lemma grossKoblitzIntegralCircle_circle_add_mem (x y : Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z)) :
+    (x : AddCircle (1 : ℚ)) + (y : AddCircle (1 : ℚ)) ∈
+      Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+noncomputable def grossKoblitzIntegralCircle (p : ℕ) [Fact p.Prime] : AddSubgroup (AddCircle (1 : ℚ)) := by sorry
+
+lemma grossKoblitzIntegralCircle_mem_iff (q : ℚ) :
+    (q : AddCircle (1 : ℚ)) ∈ grossKoblitzIntegralCircle p ↔ ‖(q : ℚ_[p])‖ ≤ 1 := by sorry
+
+lemma grossKoblitzIntegralCircle_carrier : (grossKoblitzIntegralCircle p : Set (AddCircle (1 : ℚ))) =
+    Function.periodicPts (fun z : AddCircle (1 : ℚ) => p • z) := by sorry
+
+lemma grossKoblitzIntegralCircle_fiber_finite (n : ℕ) (hn : 0<n) (a : grossKoblitzIntegralCircle p) :
+    Finite {b : grossKoblitzIntegralCircle p // n • b = a} := by sorry
+
+lemma grossKoblitzIntegralCircle_division_surjective (n : ℕ) (hn : 0<n) (hcp : p.Coprime n)
+    (a : grossKoblitzIntegralCircle p) : ∃ b : grossKoblitzIntegralCircle p, n • b = a := by sorry
+
+lemma grossKoblitzIntegralCircle_fiber_card (n : ℕ) (hn : 0<n) (hcp : p.Coprime n)
+    (a : grossKoblitzIntegralCircle p) : Nat.card {b : grossKoblitzIntegralCircle p // n • b = a} = n := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+lemma grossKoblitzIntegralCircle_mean_distribution
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+    (n : ℕ) (hn : 0<n) (hcp : p.Coprime n) (a : grossKoblitzIntegralCircle p)
+    [Fintype {b : grossKoblitzIntegralCircle p // n • b = a}] :
+    (∑ b : {b : grossKoblitzIntegralCircle p // n • b = a}, grossKoblitzCircleMean p ι ℓ ⟨b.val, by rw [← grossKoblitzIntegralCircle_carrier p]; exact b.val.property⟩) =
+      grossKoblitzCircleMean p ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier p]; exact a.property⟩ := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+variable [∀ (n : {n : ℕ+ | p.Coprime (n : ℕ)}) (a : grossKoblitzIntegralCircle p),
+  Fintype {b : grossKoblitzIntegralCircle p // (n.val : ℕ) • b = a}]
+
+noncomputable def grossKoblitzMeanLift
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+: (FreeAbelianGroup (grossKoblitzIntegralCircle p) ⧸ kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) →+ K := by sorry
+
+lemma grossKoblitzIntegralCircle_meanLift_of
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(a : grossKoblitzIntegralCircle p) :
+  grossKoblitzMeanLift p ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (a))) = grossKoblitzCircleMean p ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier p]; exact a.property⟩ := by sorry
+
+lemma grossKoblitzIntegralCircle_meanLift_unique
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(g : (FreeAbelianGroup (grossKoblitzIntegralCircle p) ⧸ kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) →+ K)
+    (hg : ∀ a : grossKoblitzIntegralCircle p, g (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (a)))=grossKoblitzCircleMean p ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier p]; exact a.property⟩) :
+    g = grossKoblitzMeanLift p ι ℓ hmul hroot := by sorry
+
+lemma grossKoblitzIntegralCircle_meanLift_zero_generator
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+:
+    grossKoblitzMeanLift p ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (0 : grossKoblitzIntegralCircle p))) = 0 := by sorry
+
+lemma grossKoblitzIntegralCircle_meanLift_odd_relation
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(a : grossKoblitzIntegralCircle p) :
+    grossKoblitzMeanLift p ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (a))) + (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (-a)))) = 0 := by sorry
+
+lemma grossKoblitzIntegralCircle_meanLift_frobenius_relation
+    (ι : ℤ_[p] →+* K) (ℓ : K → K)
+    (hmul : ∀a b, a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+    (hroot : ∀a, ∀n : ℕ, 0<n → a^n=1 → ℓ a=0)
+(a : grossKoblitzIntegralCircle p) :
+    grossKoblitzMeanLift p ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (p • a))) - (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle p) {n : ℕ+ | p.Coprime (n : ℕ)} 0) (FreeAbelianGroup.of (a)))) = 0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGammaDistributionFactorizationTests
+open scoped BigOperators Classical
+noncomputable section
+-- zero_is_periodic
+example : (0 : AddCircle (1 : ℚ)) ∈ Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- periodic_sum
+example (a b : Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z)) : (a : AddCircle (1 : ℚ))+(b : AddCircle (1 : ℚ)) ∈ Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- subgroup_zero
+example : (0 : AddCircle (1 : ℚ)) ∈ grossKoblitzIntegralCircle 3 := by sorry
+-- prime_to_three_denominator
+example : ((1/8 : ℚ) : AddCircle (1 : ℚ)) ∈ grossKoblitzIntegralCircle 3 := by sorry
+-- exclude_three_denominator
+example : ((1/3 : ℚ) : AddCircle (1 : ℚ)) ∉ grossKoblitzIntegralCircle 3 := by sorry
+-- exclude_dyadic_half
+example : ((1/2 : ℚ) : AddCircle (1 : ℚ)) ∉ grossKoblitzIntegralCircle 2 := by sorry
+-- integrality_criterion
+example (q : ℚ) : (q : AddCircle (1 : ℚ))∈grossKoblitzIntegralCircle 3 ↔ ‖(q : ℚ_[3])‖≤1 := by sorry
+-- native_periodic_carrier
+example : (grossKoblitzIntegralCircle 3 : Set (AddCircle (1 : ℚ)))=Function.periodicPts (fun z : AddCircle (1 : ℚ) => 3 • z) := by sorry
+-- nonunit_fiber_finite
+example (a : grossKoblitzIntegralCircle 3) : Finite {b : grossKoblitzIntegralCircle 3 // 3 • b=a} := by sorry
+-- halving_is_surjective
+example (a : grossKoblitzIntegralCircle 3) : ∃ b : grossKoblitzIntegralCircle 3,2 • b=a := by sorry
+-- halving_cardinality
+example (a : grossKoblitzIntegralCircle 3) : Nat.card {b : grossKoblitzIntegralCircle 3 // 2 • b=a}=2 := by sorry
+-- unit_cardinality
+example (a : grossKoblitzIntegralCircle 3) : Nat.card {b : grossKoblitzIntegralCircle 3 // 1 • b=a}=1 := by sorry
+-- nonunit_cardinality_fails
+example : Nat.card {b : grossKoblitzIntegralCircle 3 // 3 • b=0}≠3 := by sorry
+
+variable (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3])
+variable (hmul : ∀a b,a≠0 → b≠0 → ℓ (a*b)=ℓ a+ℓ b)
+variable (hroot : ∀a,∀n : ℕ,0<n → a^n=1 → ℓ a=0)
+-- full_halving_mean
+example (a : grossKoblitzIntegralCircle 3) [Fintype {b : grossKoblitzIntegralCircle 3 // 2 • b=a}] : (∑ b : {b : grossKoblitzIntegralCircle 3 // 2 • b=a},grossKoblitzCircleMean 3 ι ℓ ⟨b.val, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact b.val.property⟩)=grossKoblitzCircleMean 3 ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact a.property⟩ := by sorry
+-- zero_halving_mean
+example [Fintype {b : grossKoblitzIntegralCircle 3 // 2 • b=0}] : (∑ b : {b : grossKoblitzIntegralCircle 3 // 2 • b=0},grossKoblitzCircleMean 3 ι ℓ ⟨b.val, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact b.val.property⟩)=0 := by sorry
+
+variable [∀ (n : {n : ℕ+ | Nat.Coprime 3 (n : ℕ)}) (a : grossKoblitzIntegralCircle 3), Fintype {b : grossKoblitzIntegralCircle 3 // (n.val : ℕ) • b=a}]
+-- generator_evaluation
+example (a : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3)))=grossKoblitzCircleMean 3 ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact a.property⟩ := by sorry
+-- additive_combination
+example (a b : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3)))+(QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (b : grossKoblitzIntegralCircle 3))))=grossKoblitzCircleMean 3 ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact a.property⟩+grossKoblitzCircleMean 3 ι ℓ ⟨b, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact b.property⟩ := by sorry
+-- zero_quotient_element
+example : grossKoblitzMeanLift 3 ι ℓ hmul hroot 0=0 := by sorry
+-- zero_logarithm_map
+example : grossKoblitzMeanLift 3 ι (fun _ => 0) (by intros; simp) (by intros; rfl)=0 := by sorry
+-- negative_integer_combination
+example (a b : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot (3 • (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3)))-(QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (b : grossKoblitzIntegralCircle 3))))=3*grossKoblitzCircleMean 3 ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact a.property⟩-grossKoblitzCircleMean 3 ι ℓ ⟨b, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact b.property⟩ := by sorry
+-- unique_extension
+example (g : (FreeAbelianGroup (grossKoblitzIntegralCircle 3) ⧸ kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) →+ ℚ_[3]) (hg : ∀ a : grossKoblitzIntegralCircle 3,g (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3)))=grossKoblitzCircleMean 3 ι ℓ ⟨a, by rw [← grossKoblitzIntegralCircle_carrier 3]; exact a.property⟩) : g=grossKoblitzMeanLift 3 ι ℓ hmul hroot := by sorry
+-- zero_label_is_killed
+example : grossKoblitzMeanLift 3 ι ℓ hmul hroot (QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (0 : grossKoblitzIntegralCircle 3)))=0 := by sorry
+-- odd_relator_is_killed
+example (a : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3)))+(QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (-a : grossKoblitzIntegralCircle 3))))=0 := by sorry
+-- frobenius_relator_is_killed
+example (a : grossKoblitzIntegralCircle 3) : grossKoblitzMeanLift 3 ι ℓ hmul hroot ((QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (3 • a : grossKoblitzIntegralCircle 3)))-(QuotientAddGroup.mk' (kubertRelations (X := grossKoblitzIntegralCircle 3) {n : ℕ+ | Nat.Coprime 3 (n : ℕ)} 0) (FreeAbelianGroup.of (a : grossKoblitzIntegralCircle 3))))=0 := by sorry
+end
+end DirichletPadic.SuggestedGammaDistributionFactorizationTests
