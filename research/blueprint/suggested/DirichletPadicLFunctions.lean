@@ -1,3 +1,4 @@
+import Mathlib.Algebra.GCDMonoid.FinsetLemmas
 import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.FieldTheory.AlgebraicClosure
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
@@ -23104,3 +23105,168 @@ example : ((kubertLocalChoiceEquiv 0 2 (by decide) ⟨kubertDistinguishedPoint 0
 example (x : kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6) (hx : (x : Fin 2 → AddCircle (1 : ℚ))≠kubertDistinguishedPoint 1 6) : ((kubertLocalChoiceEquiv 1 6 (by decide) x : kubertLocalChoices 1 6) : Fin 2 → AddCircle (1 : ℚ))=x := by sorry
 end
 end DirichletPadic.SuggestedKubertGeneratorsTests
+
+/- Actual primary coordinates and primitive-point product decomposition. -/
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertPrimary_primary_internal (N : ℕ) (hN : N ≠ 0) :
+    DirectSum.IsInternal (fun p : N.primeFactors =>
+      Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := X) N).ker)
+        ((p.val ^ N.factorization p.val : ℕ) : ℤ)) := by sorry
+
+noncomputable def kubertPrimaryComponentEquiv (N q : ℕ) (hq : q ∣ N) :
+    Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := X) N).ker) (q : ℤ) ≃+
+      (nsmulAddMonoidHom (α := X) q).ker := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertPrimaryCoordinates (N : ℕ) (hN : N ≠ 0) :
+    (nsmulAddMonoidHom (α := X) N).ker ≃+
+      ((p : N.primeFactors) → (nsmulAddMonoidHom (α := X)
+        (p.val ^ N.factorization p.val)).ker) := by sorry
+
+lemma kubertPrimary_primaryComponentEquiv_coe (N q : ℕ) (hq : q ∣ N)
+    (x : Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := X) N).ker) (q : ℤ)) :
+    (kubertPrimaryComponentEquiv N q hq x : X) = (x.val : X) := by sorry
+
+lemma kubertPrimary_primaryComponentEquiv_symm_coe (N q : ℕ) (hq : q ∣ N)
+    (y : (nsmulAddMonoidHom (α := X) q).ker) :
+    (((kubertPrimaryComponentEquiv N q hq).symm y).val : X) = (y : X) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertPrimary_primaryCoordinates_symm_coe (N : ℕ) (hN : N ≠ 0)
+    (v : (p : N.primeFactors) → (nsmulAddMonoidHom (α := X)
+      (p.val ^ N.factorization p.val)).ker) :
+    ((kubertPrimaryCoordinates N hN).symm v : X) = ∑ p, (v p : X) := by sorry
+
+lemma kubertPrimary_sum_primaryCoordinates (N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := X) N).ker) :
+    (∑ p, (kubertPrimaryCoordinates N hN x p : X)) = (x : X) := by sorry
+
+lemma kubertPrimary_primaryCoordinates_same (N : ℕ) (hN : N ≠ 0) (p : N.primeFactors)
+    (x : (nsmulAddMonoidHom (α := X) N).ker)
+    (hp : (p.val ^ N.factorization p.val) • (x : X) = 0) :
+    (kubertPrimaryCoordinates N hN x p : X) = (x : X) := by sorry
+
+lemma kubertPrimary_primaryCoordinates_other (N : ℕ) (hN : N ≠ 0) (p q : N.primeFactors)
+    (hpq : p ≠ q) (x : (nsmulAddMonoidHom (α := X) N).ker)
+    (hp : (p.val ^ N.factorization p.val) • (x : X) = 0) :
+    (kubertPrimaryCoordinates N hN x q : X) = 0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertPrimary_primaryCoordinates_order (N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := X) N).ker) :
+    addOrderOf (x : X) = ∏ p, addOrderOf (kubertPrimaryCoordinates N hN x p : X) := by sorry
+
+lemma kubertPrimary_primaryCoordinates_primitive_iff (N : ℕ) (hN : N ≠ 0)
+    (x : (nsmulAddMonoidHom (α := X) N).ker) :
+    (x : X) ∈ kubertPrimitivePoints X N ↔
+      ∀ p : N.primeFactors, (kubertPrimaryCoordinates N hN x p : X) ∈
+        kubertPrimitivePoints X (p.val ^ N.factorization p.val) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertPrimitiveCoordinates (X : Type u) [AddCommGroup X] (N : ℕ) (hN : N ≠ 0) :
+    kubertPrimitivePoints X N ≃
+      ((p : N.primeFactors) → kubertPrimitivePoints X
+        (p.val ^ N.factorization p.val)) := by sorry
+
+lemma kubertPrimary_primitiveCoordinates_coe (N : ℕ) (hN : N ≠ 0)
+    (x : kubertPrimitivePoints X N) (p : N.primeFactors) :
+    (kubertPrimitiveCoordinates X N hN x p : X) =
+      (kubertPrimaryCoordinates N hN
+        ⟨x.val,kubertGenerators_primitive_mem_level (dvd_refl N) x.property⟩ p : X) := by sorry
+
+lemma kubertPrimary_primitiveCoordinates_symm_coe (N : ℕ) (hN : N ≠ 0)
+    (v : (p : N.primeFactors) → kubertPrimitivePoints X
+      (p.val ^ N.factorization p.val)) :
+    ((kubertPrimitiveCoordinates X N hN).symm v : X) = ∑ p, (v p : X) := by sorry
+
+lemma kubertPrimary_primitive_torus_card_product (k N : ℕ) (hN : N ≠ 0) :
+    Nat.card (kubertPrimitivePoints (Fin k → AddCircle (1 : ℚ)) N) =
+      ∏ p : N.primeFactors,
+        Nat.card (kubertPrimitivePoints (Fin k → AddCircle (1 : ℚ))
+          (p.val ^ N.factorization p.val)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertPrimaryTests
+open scoped BigOperators Classical
+noncomputable section
+-- native_primary_internal
+example : DirectSum.IsInternal (fun p : (6 : ℕ).primeFactors => Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := ZMod 6) 6).ker) (((p.val ^ Nat.factorization 6 p.val) : ℕ) : ℤ)) := by sorry
+-- unit_level_empty_internal_sum
+example : DirectSum.IsInternal (fun p : (1 : ℕ).primeFactors => Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := ZMod 6) 1).ker) (((p.val ^ Nat.factorization 1 p.val) : ℕ) : ℤ)) := by sorry
+-- component_forward_value
+example (x : Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := ZMod 6) 6).ker) (3 : ℤ)) : (kubertPrimaryComponentEquiv 6 3 (by decide) x : ZMod 6)=(x.val : ZMod 6) := by sorry
+-- component_inverse_value
+example (y : (nsmulAddMonoidHom (α := ZMod 6) 3).ker) : (((kubertPrimaryComponentEquiv 6 3 (by decide)).symm y).val : ZMod 6)=y := by sorry
+-- component_zero
+example : kubertPrimaryComponentEquiv (X := ZMod 6) 6 3 (by decide) 0=0 := by sorry
+-- component_four
+example (x : Submodule.torsionBy ℤ ((nsmulAddMonoidHom (α := ZMod 6) 6).ker) (3 : ℤ)) (hx : (x.val : ZMod 6)=4) : (kubertPrimaryComponentEquiv 6 3 (by decide) x : ZMod 6)=4 := by sorry
+-- inverse_component_four
+example : (((kubertPrimaryComponentEquiv 6 3 (by decide)).symm (⟨(4 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 3).ker)).val : ZMod 6)=4 := by sorry
+-- true_primary_component
+example : (kubertPrimaryCoordinates 6 (by decide) (⟨(1 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : ZMod 6)=4 := by sorry
+-- reject_unadjusted_multiplier
+example : (kubertPrimaryCoordinates 6 (by decide) (⟨(1 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : ZMod 6)≠2 • (1 : ZMod 6) := by sorry
+-- zero_primary_components
+example (p : (6 : ℕ).primeFactors) : (kubertPrimaryCoordinates 6 (by decide) (0 : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) p : ZMod 6)=0 := by sorry
+-- two_primary_component
+example : (kubertPrimaryCoordinates 6 (by decide) (⟨(1 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) (⟨2,Nat.mem_primeFactors.mpr ⟨Nat.prime_two,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : ZMod 6)=3 := by sorry
+-- inverse_is_actual_sum
+example (v : (p : (6 : ℕ).primeFactors) → (nsmulAddMonoidHom (α := ZMod 6) (p.val ^ Nat.factorization 6 p.val)).ker) : ((kubertPrimaryCoordinates 6 (by decide)).symm v : ZMod 6)=∑ p,(v p : ZMod 6) := by sorry
+-- reconstruct_level_point
+example (x : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) : (∑ p,(kubertPrimaryCoordinates 6 (by decide) x p : ZMod 6))=(x : ZMod 6) := by sorry
+-- unit_empty_sum
+example (x : (nsmulAddMonoidHom (α := ZMod 6) 1).ker) : (∑ p,(kubertPrimaryCoordinates 1 (by decide) x p : ZMod 6))=0 := by sorry
+-- own_component_fixed
+example : (kubertPrimaryCoordinates 6 (by decide) (⟨(4 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : ZMod 6)=4 := by sorry
+-- other_component_vanishes
+example : (kubertPrimaryCoordinates 6 (by decide) (⟨(3 : ZMod 6),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : ZMod 6)=0 := by sorry
+-- order_is_component_product
+example (x : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) : addOrderOf (x : ZMod 6)=∏ p,addOrderOf (kubertPrimaryCoordinates 6 (by decide) x p : ZMod 6) := by sorry
+-- exact_local_order_criterion
+example (x : (nsmulAddMonoidHom (α := ZMod 6) 6).ker) : (x : ZMod 6)∈kubertPrimitivePoints (ZMod 6) 6 ↔ ∀ p : (6 : ℕ).primeFactors,(kubertPrimaryCoordinates 6 (by decide) x p : ZMod 6)∈kubertPrimitivePoints (ZMod 6) (p.val ^ Nat.factorization 6 p.val) := by sorry
+-- nonprimitive_missing_factor
+example : (4 : ZMod 6)∉kubertPrimitivePoints (ZMod 6) 6 := by sorry
+-- primitive_actual_component
+example : ((kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) ⟨kubertDistinguishedPoint 0 6,kubertGenerators_distinguishedPoint_primitive 0 6 (by decide)⟩ (⟨3,Nat.mem_primeFactors.mpr ⟨Nat.prime_three,by decide,by decide⟩⟩ : (6 : ℕ).primeFactors) : Fin 1 → AddCircle (1 : ℚ)) 0)=((2/3 : ℚ) : AddCircle (1 : ℚ)) := by sorry
+-- primitive_inverse_law
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) : (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide)).symm (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x)=x := by sorry
+-- primitive_product_inverse_law
+example (v : (p : (6 : ℕ).primeFactors) → kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (p.val ^ Nat.factorization 6 p.val)) : kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) ((kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide)).symm v)=v := by sorry
+-- primitive_value_uses_same_projection
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 6) (p : (6 : ℕ).primeFactors) : (kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide) x p : Fin 1 → AddCircle (1 : ℚ))=(kubertPrimaryCoordinates 6 (by decide) (⟨x.val,kubertGenerators_primitive_mem_level (dvd_refl 6) x.property⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) 6).ker) p : Fin 1 → AddCircle (1 : ℚ)) := by sorry
+-- primitive_inverse_is_sum
+example (v : (p : (6 : ℕ).primeFactors) → kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) (p.val ^ Nat.factorization 6 p.val)) : ((kubertPrimitiveCoordinates (Fin 1 → AddCircle (1 : ℚ)) 6 (by decide)).symm v : Fin 1 → AddCircle (1 : ℚ))=∑ p,(v p : Fin 1 → AddCircle (1 : ℚ)) := by sorry
+-- rank_two_cardinal_product
+example : Nat.card (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) 6)=∏ p : (6 : ℕ).primeFactors,Nat.card (kubertPrimitivePoints (Fin 2 → AddCircle (1 : ℚ)) (p.val ^ Nat.factorization 6 p.val) ) := by sorry
+-- rank_zero_unit_cardinality
+example : Nat.card (kubertPrimitivePoints (Fin 0 → AddCircle (1 : ℚ)) 1)=1 := by sorry
+-- rank_zero_nonunit_empty
+example : Nat.card (kubertPrimitivePoints (Fin 0 → AddCircle (1 : ℚ)) 6)=0 := by sorry
+end
+end DirichletPadic.SuggestedKubertPrimaryTests
