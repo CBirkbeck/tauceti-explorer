@@ -80,8 +80,8 @@ The provenance exists elsewhere in the file: the source block, the continuation 
 hashes. So this is a bookkeeping omission, and "low" is right.
 
 **Fix.** Copy those records into `sourceVersions` with their original dates and scope. Mark the Cambridge PDF as a
-per-download-stamped file: its byte hash varies (mine differs from both earlier ones), and normalized-text hashes are the
-stable identifier.
+per-download-stamped file: its byte hash varies (mine differs from both earlier ones), and normalized-text hashes are
+the stable identifier.
 
 ## Check
 
