@@ -11,8 +11,8 @@ Verifier: Claude Code, session `cc-c2c06b`, 1 October 2026. I did not write:
 
 None of the findings cites work of mine.
 
-**Result: all three findings confirmed, all high.** /1 and /2 are inherited from arXiv v1. /3 is an error in an item that
-the extraction's review added. None affects the paper's main Howe duality and dichotomy theorems.
+**Result: all three findings confirmed, all high.** /1 and /2 are inherited from arXiv v1. /3 is an error in an item
+that the extraction's review added. None affects the paper's main Howe duality and dichotomy theorems.
 
 ## What I read
 
