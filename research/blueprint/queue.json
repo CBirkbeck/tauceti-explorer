@@ -34116,7 +34116,8 @@
     "REV-PAPER-DADDEZIO-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DADDEZIO-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5056"
   },
   {
    "id": "REV-RT-PAPER-DADDEZIO-23",
@@ -45015,8 +45016,9 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-12~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5110"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5110",
+   "finishedAt": "2026-10-01T07:22:49Z"
   },
   {
    "id": "REV-RT-RS-12~3",
