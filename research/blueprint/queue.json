@@ -38634,8 +38634,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CLOZEL-THORNE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5516"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5516",
+   "finishedAt": "2026-10-01T23:27:57Z"
   },
   {
    "id": "RT-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -40417,7 +40418,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5529"
   },
   {
    "id": "RT-PAPER-LI-ZHANG-22-B",
