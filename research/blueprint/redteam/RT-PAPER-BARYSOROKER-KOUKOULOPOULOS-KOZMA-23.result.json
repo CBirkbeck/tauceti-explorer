@@ -1,0 +1,49 @@
+{
+  "redteam": "RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "summary": "One medium finding: the divisor estimate extracted for Lemma 3.1 is weaker than its required maximal-order supplier. The 26 existing source issues are not resubmitted. Both embedded numerical checks reproduce; all 22 credited declarations were read at the pins.",
+  "checked": [
+    "Independence: original extraction by codex-a71f92 and cc-442dc5, review by cc-d67081; this session did neither. Read the complete issue after the successful bot claim, the accepted result and reader, both review files, and PROTOCOL §§16–17.",
+    "Read all 65 pages of arXiv:2007.14567v3, including proofs, remarks, footnotes and references; inspected rendered pages 18, 37 and 63. Reacquired the author PDF; after whitespace removal pages 2–65 have identical extracted text. Publisher PDF endpoint returned HTML; published pagination and full published text were not read. Findings concern the accepted extraction against v3.",
+    "Compared all 133 item statements, their proof steps and dependency contracts with the source; inspected all 40 definition API/test contracts. Checked all seven routes, ten prerequisite entries, fifteen completion gates and the 26 previously reviewed sourceIssues. No supplier-proof closure requirement was imposed.",
+    "Checked conditioning and independence conventions, nonconstant divisor events, Fourier signs and cosets, the variable reversal U=1/T, strict torus balls, exclusion of T from smooth factors, polynomial factor multiplicities and full cycle types including fixed points.",
+    "Rechecked the repairs for complex-root concentration, the support extension exp(Cn^(1/3)), the CRT factorization multiplicity, and the strengthened E5/five-cycle argument. The conservative gate retained in /103 is explicit; the proposed repairs are not represented as publisher corrections.",
+    "Reran both embedded Python certificates. The exact certificate passes 76,860 rational inequalities, with its recorded worst rational bound at N=35,Q=210,ell=0. The decimal program reproduces all 33 optimal exponent values and the 15 rounded-up rows; its ±1 output is gamma(735)=0.50001970073270247147… and −log(1−gamma/735)=0.00068053042086923739….",
+    "Read all 22 unique credited declarations in the 12 files enumerated by baseline.statementEvidence at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Credits retain the nonzero/monic/separable context of their applications; generic PMF and character APIs are distinguished from the missing polynomial adapters.",
+    "Searched both pinned source trees for concentration, Dobrowolski, random-partition and merging, prime-polynomial enumeration, PNT, large sieve, Mertens and divisor-growth suppliers. No exact maximal-order divisor bound was located. Existing elementary divisor bounds do not supply finding /1.",
+    "Assembled the atlas at repository base 69a0f14: 2,907 stages and 8,322 stage edges. Read the routed parent layers and reviewed library coverage; inspected the existing PolynomialGaloisGroups scope, layers 2 and 5, relevant packets/decompositions, draft roadmap files, links and reserved IDs. The ramified merging extension is outside the upstream good-prime theorem. Source routes retain their existing owners; the later finite-field packet is a consumer of this extraction, not a competing random-polynomial roadmap.",
+    "Independent structural check: 133 distinct item IDs, 115 missing / 15 library / 3 planned; every missing item routed exactly once; all item prerequisites resolve and the item graph is acyclic. Every named source-route stage resolves. No Lean deliverable, build or language server was needed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/1",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json: items /48 and /129, prerequisites, completionGates S4, route 6; research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md: supplier coverage and route 6",
+      "claim": "The supplier recorded for Lemma 3.1 is too weak. Item /48 depends on /129, but /129 only asserts that for each fixed η>0, τ(k)≤C_η k^η. Lemma 3.1 uses the maximal-order upper bound with leading constant log 2 to obtain a uniform N^0.695 bound throughout |a|≤N^(loglog(100N)). No item records that stronger supplier. E25 correctly uses it in its reason, but does not give it a status or route. The prerequisites also omit the actual cited source, Hardy–Wright Theorem 317.",
+      "evidence": "BKK arXiv:2007.14567v3, PDF/printed p. 18, proof of Lemma 3.1 (text and rendered page read): “τ(a) ⩽ exp((log 2 + o(1)) log a/ log log a)” and the citation [18, §18.1, Theorem 317]; reference [18] on p. 64 is Hardy–Wright, An introduction to the theory of numbers, sixth edition. The accepted /48 lists only /4 and /129 as prerequisites and asks for a maximal-order bound in its proof steps. Applying the stated /129 on the required support gives C_η N^(η loglog(100N)); no fixed η yields N^0.695 uniformly as N grows, and substituting an N-dependent η gives no control of C_η. In contrast, the source bound gives max τ(|a|)≤N^(log 2+o(1)), and 0.005+0.695−1=−0.3 recovers /48. E25 addresses 3N versus 100N, not this missing supplier item. Neither pinned tree yielded this maximal-order estimate. AnalyticNumberTheory:AN.5 owns divisor estimates; the reviewed AdditiveCombinatorics packet separately records an unresolved maximal-order supplier request, not an available theorem with the required constant.",
+      "fix": "Add a supplier theorem item asserting that for every ε>0 there is K_ε such that τ(k)≤exp((log 2+ε)log k/loglog k) for all integers k≥K_ε (with k>e). Route it once as a source to AnalyticNumberTheory:AN.5 through route 6 and make /48 depend on it. Alternatively strengthen /129 to include this precise bound and retain its subpower corollary for /110. Add Hardy–Wright, sixth edition, §18.1 Theorem 317 to prerequisites using the citing paper as an honest locator if the book has not been read. Update S4 and the reader to distinguish supplier extraction from deferred proof development. No supplier proof, API expansion, change to the stated Lemma 3.1, or new source erratum is requested."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2007.14567v3",
+      "citation": "Final submitted version, dated June 5, 2023; 65 pages.",
+      "read": "2026-10-01",
+      "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://dms.umontreal.ca/~koukoulo/documents/publications/irreducible.pdf",
+      "citation": "Author version dated May 24, 2023; text comparison, not the published pagination.",
+      "read": "2026-10-01",
+      "sha256": "fea6a6d8c18ad4b787be100a643e72ca1d9106905c459d6c3c36450b76c509b2"
+    }
+  ],
+  "upstreamNotes": []
+}
