@@ -22678,3 +22678,195 @@ example (g : ((FreeAbelianGroup (grossKoblitzIntegralCircle 3) ⧸ kubertRelatio
 end Gamma
 end
 end DirichletPadic.SuggestedParityFrobeniusQuotientsTests
+
+/- Finite-level distribution relations with their exact input-image condition. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertLevel_torus_level_finite (k N : ℕ) (hN : 0<N) :
+    Finite (nsmulAddMonoidHom (α := Fin k → AddCircle (1 : ℚ)) N).ker := by sorry
+
+lemma kubertLevel_preimage_mem_level (N m : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker)
+    (y : X) (hy : m • y=m • (b : X)) : y ∈ (nsmulAddMonoidHom (α := X) N).ker := by sorry
+
+noncomputable def kubertLevelFiberEquiv (N m : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker) :
+    {c : (nsmulAddMonoidHom (α := X) N).ker // m • c=m • b} ≃ {c : X // m • c=m • (b : X)} := by sorry
+
+lemma kubertLevel_levelFiberEquiv_coe (N m : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker) (c : {c : (nsmulAddMonoidHom (α := X) N).ker // m • c=m • b}) :
+    (kubertLevelFiberEquiv N m hm b c).val = (c.val : X) := by sorry
+
+lemma kubertLevel_levelFiberEquiv_symm_coe (N m : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker) (c : {c : X // m • c=m • (b : X)}) :
+    ((kubertLevelFiberEquiv N m hm b).symm c).val.val = c.val := by sorry
+
+lemma kubertLevel_levelFiberEquiv_card (N m : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker) :
+    Nat.card {c : (nsmulAddMonoidHom (α := X) N).ker // m • c=m • b}=Nat.card {c : X // m • c=m • (b : X)} := by sorry
+
+lemma kubertLevel_levelRelation_map (N m w : ℕ) (hm : m ∣ N) (b : (nsmulAddMonoidHom (α := X) N).ker)
+    [Fintype {c : (nsmulAddMonoidHom (α := X) N).ker // m • c=m • b}] [Fintype {c : X // m • c=m • (b : X)}] :
+    FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) N).ker => (x : X))
+      (kubertRelation w m (m • b)) =
+        kubertRelation w m (m • (b : X)) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+lemma kubertLevel_level_map_injective (N : ℕ) : Function.Injective
+    (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) N).ker => (x : X))) := by sorry
+
+lemma kubertLevel_level_input_iff [DivisibleBy X ℤ] (N m : ℕ) (hm : 0<m) (hdiv : m ∣ N)
+    (a : (nsmulAddMonoidHom (α := X) N).ker) :
+    (∃ b : (nsmulAddMonoidHom (α := X) N).ker, m • b=a) ↔
+      (N/m) • (a : X)=0 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u v
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertInternalLevelRelations (N : ℕ+) (w : ℕ) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker] : AddSubgroup (FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker)) := by sorry
+
+variable (N : ℕ+) (w : ℕ) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+
+lemma kubertLevel_internal_relation_mem (m : ℕ+) (hm : (m : ℕ) ∣ (N : ℕ)) (b : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker) :
+    kubertRelation w (m : ℕ) ((m : ℕ) • b) ∈ kubertInternalLevelRelations (X := X) N w := by sorry
+
+lemma kubertLevel_internal_le_ker_iff {A : Type v} [AddCommGroup A] (f : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker → A) :
+    kubertInternalLevelRelations (X := X) N w ≤ (FreeAbelianGroup.lift f).ker ↔
+      ∀ (m : ℕ+) (_hm : (m : ℕ) ∣ (N : ℕ)) (b : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker),
+        (m : ℕ)^w • (∑ c : {c : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker // (m : ℕ) • c=(m : ℕ) • b}, f c.val)=f ((m : ℕ) • b) := by sorry
+
+variable [∀ (m : ℕ+) (a : X), Fintype {c : X // (m : ℕ) • c=a}]
+
+lemma kubertLevel_internal_le_global_comap : kubertInternalLevelRelations (X := X) N w ≤ (kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X))) := by sorry
+
+noncomputable def kubertLevelComparison : ((FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker)) ⧸ kubertInternalLevelRelations (X := X) N w) →+ ((FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker)) ⧸ (kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X)))) := by sorry
+
+lemma kubertLevel_comparison_of (a : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker) :
+    kubertLevelComparison N w (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N w) (FreeAbelianGroup.of a)) =
+      QuotientAddGroup.mk' ((kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X)))) (FreeAbelianGroup.of a) := by sorry
+
+lemma kubertLevel_comparison_surjective : Function.Surjective (kubertLevelComparison (X := X) N w) := by sorry
+
+noncomputable def kubertLevelToGlobal : ((FreeAbelianGroup ((nsmulAddMonoidHom (α := X) (N : ℕ)).ker)) ⧸ kubertInternalLevelRelations (X := X) N w) →+ (FreeAbelianGroup X ⧸ kubertRelations (X := X) (Set.univ : Set ℕ+) w) := by sorry
+
+lemma kubertLevel_levelToGlobal_of (a : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker) :
+    kubertLevelToGlobal N w (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N w) (FreeAbelianGroup.of a)) =
+      QuotientAddGroup.mk' (kubertRelations (X := X) (Set.univ : Set ℕ+) w) (FreeAbelianGroup.of (a : X)) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+variable (N : ℕ+) (w : ℕ) [Fintype (nsmulAddMonoidHom (α := X) (N : ℕ)).ker]
+
+lemma kubertLevel_internal_quotient_relation (m : ℕ+) (hm : (m : ℕ) ∣ (N : ℕ)) (b : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker) :
+    (m : ℕ)^w • (∑ c : {c : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker // (m : ℕ) • c=(m : ℕ) • b}, (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N w) (FreeAbelianGroup.of (c.val))))=(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := X) N w) (FreeAbelianGroup.of ((m : ℕ) • b))) := by sorry
+
+variable [∀ (m : ℕ+) (a : X), Fintype {c : X // (m : ℕ) • c=a}]
+
+lemma kubertLevel_comparison_injective_iff : Function.Injective (kubertLevelComparison (X := X) N w) ↔ kubertInternalLevelRelations (X := X) N w=(kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X))) := by sorry
+
+lemma kubertLevel_levelToGlobal_injective_iff : Function.Injective (kubertLevelToGlobal (X := X) N w) ↔ kubertInternalLevelRelations (X := X) N w=(kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X))) := by sorry
+
+lemma kubertLevel_levelToGlobal_factors :
+    (QuotientAddGroup.map ((kubertRelations (X := X) (Set.univ : Set ℕ+) w).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X)))) (kubertRelations (X := X) (Set.univ : Set ℕ+) w) (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X))) le_rfl).comp
+      (kubertLevelComparison (X := X) N w) = kubertLevelToGlobal (X := X) N w := by sorry
+
+lemma kubertLevel_levelToGlobal_range :
+    (kubertLevelToGlobal (X := X) N w).range =
+      ((QuotientAddGroup.mk' (kubertRelations (X := X) (Set.univ : Set ℕ+) w)).comp (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := X) (N : ℕ)).ker => (x : X)))).range := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable {X : Type*} [AddCommGroup X]
+lemma kubertLevel_internal_level_one (w : ℕ) [Fintype (nsmulAddMonoidHom (α := X) ((1 : ℕ+) : ℕ)).ker] :
+    kubertInternalLevelRelations (X := X) 1 w=⊥ := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertFiniteLevelTests
+open scoped BigOperators Classical
+noncomputable section
+-- rank_two_level_six
+example : Finite (nsmulAddMonoidHom (α := Fin 2 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker := by sorry
+-- rank_zero_level_one
+example : Finite (nsmulAddMonoidHom (α := Fin 0 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker := by sorry
+-- permitted_ambient_root_stays_in_level
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) (y : ZMod 12) (hy : 3 • y=3 • (b : ZMod 12)) : y∈(nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker := by sorry
+-- nondivisor_can_leave_level
+example : 2 • (3 : ZMod 6)=0 ∧ (3 : ZMod 6)∉(nsmulAddMonoidHom (α := ZMod 6) ((3 : ℕ+) : ℕ)).ker := by sorry
+-- equivalence_preserves_underlying_root
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker // 3 • c=3 • b}) : (kubertLevelFiberEquiv 6 3 (by decide) b c).val=(c.val : ZMod 12) := by sorry
+-- equivalence_zero_root
+example : (kubertLevelFiberEquiv 6 3 (by decide) (0 : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) ⟨0,by rfl⟩).val=(0 : ZMod 12) := by sorry
+-- equivalence_inverse_returns_root
+example : ((kubertLevelFiberEquiv 6 3 (by decide) (0 : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker)).symm ⟨(4 : ZMod 12),by decide⟩).val.val=(4 : ZMod 12) := by sorry
+-- unit_equivalence_value
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) (c : {c : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker // 1 • c=1 • b}) : (kubertLevelFiberEquiv 6 1 (by decide) b c).val=(c.val : ZMod 12) := by sorry
+-- inverse_preserves_ambient_value
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) (c : {c : ZMod 12 // 3 • c=3 • (b : ZMod 12)}) : ((kubertLevelFiberEquiv 6 3 (by decide) b).symm c).val.val=c.val := by sorry
+-- third_fiber_has_three_points
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) : Nat.card {c : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker // 3 • c=3 • b}=3 := by sorry
+-- half_fiber_has_two_points
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) : Nat.card {c : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker // 2 • c=2 • b}=2 := by sorry
+-- weighted_relator_commutes_with_inclusion
+example (b : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker) : FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker => (x : ZMod 12)) (kubertRelation 1 3 (3 • b))=kubertRelation 1 3 (3 • (b : ZMod 12)) := by sorry
+-- free_level_map_injective
+example (u v : FreeAbelianGroup ((nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker)) (h : FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker => (x : ZMod 12)) u=FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 12) ((6 : ℕ+) : ℕ)).ker => (x : ZMod 12)) v) : u=v := by sorry
+-- image_equals_lower_annihilator
+example (a : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker) : (∃ b : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker,2 • b=a) ↔ 3 • (a : AddCircle (1 : ℚ))=0 := by sorry
+-- level_three_legitimate_relation
+example : (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))+(FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))∈kubertInternalLevelRelations (X := ZMod 3) 3 0 := by sorry
+-- exclude_empty_fiber_relator
+example : -(FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))∉kubertInternalLevelRelations (X := ZMod 3) 3 0 := by sorry
+-- level_one_no_relations
+example : kubertInternalLevelRelations (X := ZMod 3) 1 2=⊥ := by sorry
+-- actual_image_relator
+example (b : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker) : kubertRelation 0 3 (3 • b) ∈ kubertInternalLevelRelations (X := ZMod 3) 3 0 := by sorry
+-- zero_map_kills_internal_relations
+example : kubertInternalLevelRelations (X := ZMod 3) 3 0 ≤ (FreeAbelianGroup.lift (fun _ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (0 : ℤ))).ker := by sorry
+-- internal_relators_are_global
+example : kubertInternalLevelRelations (X := ZMod 3) 3 0 ≤ (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3))) := by sorry
+-- comparison_at_zero
+example : kubertLevelComparison (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(0 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (FreeAbelianGroup.of (⟨(0 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))) := by sorry
+-- comparison_at_one
+example : kubertLevelComparison (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))) := by sorry
+-- comparison_at_two
+example : kubertLevelComparison (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))) := by sorry
+-- comparison_additive_combination
+example : kubertLevelComparison (X := ZMod 3) 3 0 ((QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))-(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))))=(QuotientAddGroup.mk' ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))-(QuotientAddGroup.mk' ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))) := by sorry
+-- comparison_covers_intersection_quotient
+example (z : FreeAbelianGroup ((nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker) ⧸ (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) : ∃ a,kubertLevelComparison (X := ZMod 3) 3 0 a=z := by sorry
+-- global_image_zero_label
+example : kubertLevelToGlobal (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(0 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (0 : ZMod 3))) := by sorry
+-- global_image_one_label
+example : kubertLevelToGlobal (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3))) := by sorry
+-- global_image_integer_combination
+example : kubertLevelToGlobal (X := ZMod 3) 3 0 (2 • (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))-(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker))))=2 • (QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (1 : ZMod 3)))-(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- global_image_two_label
+example : kubertLevelToGlobal (X := ZMod 3) 3 0 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=(QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (2 : ZMod 3))) := by sorry
+-- valid_degree_three_relation
+example : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(1 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))+(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := ZMod 3) 3 0) (FreeAbelianGroup.of (⟨(2 : ZMod 3),by decide⟩ : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker)))=0 := by sorry
+-- comparison_injectivity_boundary
+example : Function.Injective (kubertLevelComparison (X := ZMod 3) 3 0) ↔ kubertInternalLevelRelations (X := ZMod 3) 3 0=(kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3))) := by sorry
+-- finite_ambient_counterexample
+example : ¬Function.Injective (kubertLevelComparison (X := ZMod 3) 3 0) := by sorry
+-- global_injectivity_boundary
+example : Function.Injective (kubertLevelToGlobal (X := ZMod 3) 3 0) ↔ kubertInternalLevelRelations (X := ZMod 3) 3 0=(kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3))) := by sorry
+-- actual_comparison_square
+example : (QuotientAddGroup.map ((kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))) (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3))) le_rfl).comp (kubertLevelComparison (X := ZMod 3) 3 0)=kubertLevelToGlobal (X := ZMod 3) 3 0 := by sorry
+-- exact_finite_level_image
+example : (kubertLevelToGlobal (X := ZMod 3) 3 0).range=((QuotientAddGroup.mk' (kubertRelations (X := ZMod 3) (Set.univ : Set ℕ+) 0)).comp (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := ZMod 3) ((3 : ℕ+) : ℕ)).ker => (x : ZMod 3)))).range := by sorry
+-- ordinary_level_one_bottom
+example : kubertInternalLevelRelations (X := ZMod 3) 1 0=⊥ := by sorry
+end
+end DirichletPadic.SuggestedKubertFiniteLevelTests
