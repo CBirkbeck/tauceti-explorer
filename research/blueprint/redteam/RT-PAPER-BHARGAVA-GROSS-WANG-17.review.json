@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-BHARGAVA-GROSS-WANG-17",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BHARGAVA-GROSS-WANG-17/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Published p. 452 (author-hosted JAMS text, SHA-256 1e553de8…d0db4) and arXiv v2 p. 2 define a two-cover of an arbitrary J-torsor I, but attach the fibre Y[2] and its class in H¹(Q, J[2]) only to a two-cover π : Y → J ('the fiber over the origin'). Item 3 gives every two-cover of I 'the class of Y[2]', which has no meaning without an origin. The red team's supporting facts are right. By the long exact sequence of 0 → J[2] → J → J → 0, a two-cover of I exists if and only if δ[I] = 0 in H²(Q, J[2]). The isomorphism classes, when nonempty, form an H¹(Q, J[2])-torsor by twisting. Even when I has a point i, moving the base point to i + b shifts the fibre class by the Kummer class of b. The fix is right: restrict the canonical class to covers of J; state existence and classification for general I separately; keep Sel₂(J¹) as empty or a Sel₂(J)-torsor with no distinguished zero."
+  },
+  {
+   "finding": "RT-PAPER-BHARGAVA-GROSS-WANG-17/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high); the error is in the source. Published p. 453 and arXiv v2 p. 3 say 'Sel₂(J¹) is the set of all elements in the 4-Selmer group Sel₄(J) which map to the class of W[2] in Sel₂(J)', and item 5 copies this as an equality. Composing a two-cover Y → J¹ with J¹ → J² ≅ J gives a map Sel₂(J¹) → Sel₄(J) into that fibre. Its fibres are the orbits of the translations of J¹ by J(Q)[2], the automorphisms of the cover J¹ → J. They act on the Sel₂(J)-torsor through δ₂(J(Q)[2]) ≅ J(Q)[2]/2J(Q)[4], the kernel of ι : H¹(Q, J[2]) → H¹(Q, J[4]). The fibre over 0 is ker(Sel₄ → Sel₂) = ι(Sel₂): if ι(x) is locally δ₄(P_v), then P_v = 2Q_v and x_v − δ₂(Q_v) lies in ker ι_v ⊂ im δ₂, so x is in Sel₂. Hence the fibre has |Sel₂(J)|/|J(Q)[2]/2J(Q)[4]| elements, not |Sel₂(J)|. I checked the example. For E : y² = x³ − x, x(2P) = (x² + 1)²/(4(x³ − x)); setting it equal to 0, 1 and −1 gives (x² + 1)² = 0, (x² − 2x − 1)² = 0 and (x² + 2x − 1)² = 0, with no rational roots, so E(Q)[2] ≅ (Z/2)² and E has no rational point of order 4. The substitution x = 2u/(1 − u), y = v/(1 − u)² gives v² = −2u(u − 1)(u + 1)(3u − 1), with four distinct roots, so it is in the paper's even-degree family. Here J¹ ≅ E has a point and W[2] = 0 (a rational Weierstrass point), so the fibre is a quarter of Sel₂(J¹). The fix is right: keep the definition and the torsor property; replace the equality by the map onto the fibre with this kernel, or assume J(Q)[2] = 0; add a source issue with both locators. I did not re-read §8 for the claim that the counting proofs use only the nonemptiness equivalence."
+  },
+  {
+   "finding": "RT-PAPER-BHARGAVA-GROSS-WANG-17/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high); the error is in the source. Proposition 26 (published p. 467, arXiv v2 p. 16, both checked on the page image) says 'For any a ∈ K' and that the image of the class is f₀g(a) ∈ K×/K×². The proof (p. 468) uses α = f₀g(a), the points P_a and P′_a over K(√α), and the cocycle σ ↦ σ√α/√α. At a root a of g, α = 0 is not in K× and the cocycle is undefined. Example: f₀ = 1, g = t(t − 1)(t − 2)(t − 3), a = 0. The repair g(a) ≠ 0 (a − β ∈ L×) is right. Theorem 25's proof needs only one such a: an infinite K has one, since g has at most n roots. The red team's treatment of a finite K is also right: H²(K, J_m[2]) = 0 for a finite field (cohomological dimension 1, J_m[2] finite), so both classes in Theorem 25 vanish. Item 29 inherits the omission and must be corrected, with a source issue."
+  },
+  {
+   "finding": "RT-PAPER-BHARGAVA-GROSS-WANG-17/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The proof of Proposition 34 defines I_D = ⟨f₀^{2m}R(f₀θ), P(f₀θ)I_f((n − 3 − m)/2)⟩, with the whole of n − 3 − m over 2. I checked this on the page images of published p. 479 and arXiv v2 p. 27. The squared-ideal display on the same page has I_f(n − 3 − m), which confirms the index. Item 39 writes I_f(n − 3 − m/2). For n even and m odd the source's index is an integer and the extracted one is not. In the red team's case n = 4, m = 1, the source's index is 0, and by the definition on p. 477 (I_f(k) has basis 1, θ, …, θ^k, ζ_{k+1}, …, ζ_{n−1}) I_f(0) = R_f. This is an extraction transcription error, not a misprint, so it needs no source issue; the fix as stated is right."
+  }
+ ]
+}
