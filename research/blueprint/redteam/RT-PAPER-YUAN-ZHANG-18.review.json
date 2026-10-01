@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-YUAN-ZHANG-18",
+ "findings": [
+  {
+   "finding": "RT-PAPER-YUAN-ZHANG-18/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item integral-ks now takes M_℘ to be the O_℘-relative crystal, but it still defines 'W^t_℘ = Lie(ℋ^t_℘)^∨' and says it has 'rank 2'. For the absolute Cartier dual that is false once [F_℘:Q_p] > 1. The item's own review note says so ('the absolute Lie(ℋ^t_℘)^∨ has rank 4[F_℘:Q_p] − 2'), as does E30, whose correction takes W and W^t to be the τ-parts or the relative Dieudonné objects. So the statement contradicts the extraction's accepted correction, and the displayed rank-4 Hodge sequence has the wrong left term. The fix, defining W^t_℘ as the rank-two relative Hodge submodule and stating the unramified identification and the ramified comparison, is right."
+  },
+  {
+   "finding": "RT-PAPER-YUAN-ZHANG-18/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item test-function still says that a maximal U ⊇ Ô_E^× generates a maximal order with O_{E_v} ⊂ O_{B_v}. The accepted E28 rejects exactly this inference at dyadic places with residue field 𝔽₂ split in E. The counterexample is right. Take E = ℚ(√−7), split at 2 since −7 ≡ 1 mod 8, with E_v = ℚ₂ × ℚ₂ diagonal in M₂(ℚ₂), and L = {(x, y) ∈ ℤ₂² : x ≡ y mod 2}. Every diag(a, d) with a, d ∈ ℤ₂^× preserves L, so U_v = Aut(L) ⊇ O_{E_v}^×. But diag(1, 0) sends (1, 1) to (1, 0) ∉ L, so O_{E_v} ⊄ End(L). The fix, making test-function consume E28's U = Ô_B^× for a chosen maximal order Ô_B ⊇ Ô_E, is right."
+  },
+  {
+   "finding": "RT-PAPER-YUAN-ZHANG-18/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The paper (published p. 607) says 'Note that every point of CM_U is defined over a finite extension H of F that is unramified above Σ(B_f). The composite of two such extensions still satisfies the same property.' This is pointwise, with finite composita. Item rev-hodge-class-terms-vanish-and instead assumes one finite H over which every point of CM_U is defined. CM_U is the full CM set, with ring-class fields of unbounded degree; for instance h(ℤ + 2^n O_E) = 2^{n−1} for E = ℚ(√−7), as the red team computes. So no such H exists and the item's hypothesis is never satisfied. The fix is right: choose H after the finitely many CM points in a given intersection are fixed, enlarging by composita."
+  },
+  {
+   "finding": "RT-PAPER-YUAN-ZHANG-18/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proofOutline fields contradict their own corrected statements. local-n's outline ends 'S2 gives zero', while its statement gives n_{φ_v} = −(1+N_v+N_v²)^{−1}·… at S2. nonzero-theta's outline asks for 'r_E(g)φ(0,1) > 0 and r_E(g)φ(0,u) ≥ 0', while its statement keeps the common sign ε = ∏λ(E_v/F_v, ψ_v) ∈ {±1}. determinant-cancellation's outline still identifies the O_E-linear Hom with the O_B-linear Hom, which the corrected statement and E32 abandon. local-cancel-split's '2n log q cancels log|q(y)|' fails at S2, as E43/E51 show. The fix, rewriting the outlines to match the corrected statements, is right."
+  }
+ ]
+}
