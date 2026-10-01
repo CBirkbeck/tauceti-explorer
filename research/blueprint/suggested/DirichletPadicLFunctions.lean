@@ -1,3 +1,5 @@
+import Mathlib.Data.Nat.Digits.Defs
+import Mathlib.Algebra.Order.ToIntervalMod
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
 import Mathlib.Analysis.Calculus.Deriv.ZPow
 import Mathlib.Analysis.Analytic.Composition
@@ -18260,3 +18262,172 @@ example (x : ℤ_[7]) (hx : 3*x=1) : (moritaGamma 7 x : ℤ_[7])*(moritaGamma 7 
 -- reflection_dyadic_failure
 example : (moritaGamma 2 0 : ℤ_[2])*(moritaGamma 2 1 : ℤ_[2])≠(-1 : ℤ_[2])^(grossKoblitzPositiveResidue 2 0) := by sorry
 end DirichletPadic.SuggestedGrossKoblitzReflectionTests
+
+/- Gross–Koblitz cyclic numerators, carries and positive fractional parts. -/
+
+namespace DirichletPadic
+noncomputable section
+open Finset
+variable (p f : ℕ) [Fact p.Prime]
+
+def grossKoblitzOrbitNumerator (p f k j : ℕ) : ℕ := by sorry
+def grossKoblitzCarry (p f k j : ℕ) : ℕ := by sorry
+
+
+
+omit [Fact p.Prime] in
+lemma grossKoblitzOrbitNumerator_def (k j : ℕ) :
+    grossKoblitzOrbitNumerator p f k j=(p^j*k)%(p^f-1) := by sorry
+omit [Fact p.Prime] in
+lemma grossKoblitzCarry_def (k j : ℕ) :
+    grossKoblitzCarry p f k j=p*grossKoblitzOrbitNumerator p f k j/(p^f-1) := by sorry
+
+omit [Fact p.Prime] in
+lemma grossKoblitzOrbitNumerator_zero (k : ℕ) (hk : k<p^f-1) : grossKoblitzOrbitNumerator p f k 0=k := by sorry
+
+lemma grossKoblitzOrbitNumerator_lt (hf : 0<f) (k j : ℕ) : grossKoblitzOrbitNumerator p f k j<p^f-1 := by sorry
+
+lemma grossKoblitzOrbitNumerator_pos (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1) (j : ℕ) :
+    0<grossKoblitzOrbitNumerator p f k j := by sorry
+
+omit [Fact p.Prime] in
+lemma grossKoblitzOrbitNumerator_step (k j : ℕ) :
+    grossKoblitzOrbitNumerator p f k (j+1)=(p*grossKoblitzOrbitNumerator p f k j)%(p^f-1) := by sorry
+
+lemma grossKoblitzOrbitNumerator_period (hf : 0<f) (k j : ℕ) :
+    grossKoblitzOrbitNumerator p f k (j+f)=grossKoblitzOrbitNumerator p f k j := by sorry
+
+lemma grossKoblitzCarry_lt (hf : 0<f) (k j : ℕ) : grossKoblitzCarry p f k j<p := by sorry
+
+omit [Fact p.Prime] in
+lemma grossKoblitzCarry_step (k j : ℕ) :
+    p*grossKoblitzOrbitNumerator p f k j=(p^f-1)*grossKoblitzCarry p f k j+grossKoblitzOrbitNumerator p f k (j+1) := by sorry
+
+lemma grossKoblitzOrbitNumerator_fraction (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1) (j : ℕ) :
+    toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*k/(p^f-1 : ℕ)) =
+      (grossKoblitzOrbitNumerator p f k j : ℚ)/(p^f-1 : ℕ) := by sorry
+
+lemma grossKoblitzOrbitNumerator_sum_shift (hf : 0<f) (k : ℕ) :
+    (∑ j ∈ range f, (grossKoblitzOrbitNumerator p f k (j+1) : ℚ)) =
+      ∑ j ∈ range f, (grossKoblitzOrbitNumerator p f k j : ℚ) := by sorry
+
+lemma grossKoblitzCarry_sum (hf : 0<f) (k : ℕ) :
+    ((p : ℚ)-1)*(∑ j ∈ range f, (grossKoblitzOrbitNumerator p f k j : ℚ)) =
+      (p^f-1 : ℕ)*(∑ j ∈ range f, (grossKoblitzCarry p f k j : ℚ)) := by sorry
+
+lemma grossKoblitz_fractional_sum (hf : 0<f) (k : ℕ) (hk : 0<k) (hk' : k<p^f-1) :
+    ((p : ℚ)-1)*(∑ j ∈ range f,
+      toIocMod (zero_lt_one' ℚ) 0 ((p : ℚ)^j*k/(p^f-1 : ℕ))) =
+        ∑ j ∈ range f, (grossKoblitzCarry p f k j : ℚ) := by sorry
+
+lemma grossKoblitzCarry_ofDigits (hf : 0<f) (k : ℕ) (hk : k<p^f-1) :
+    Nat.ofDigits p ((List.range f).reverse.map (grossKoblitzCarry p f k))=k := by sorry
+
+lemma grossKoblitzPositiveResidue_unique (z : ℤ_[p]) (r : ℕ) (hr : 0<r) (hr' : r≤p)
+    (hc : (r : ZMod p)=PadicInt.toZMod z) :
+    grossKoblitzPositiveResidue p z=r := by sorry
+
+lemma grossKoblitz_denominator_isUnit (hf : 0<f) : IsUnit ((p^f-1 : ℕ) : ℤ_[p]) := by sorry
+
+lemma grossKoblitz_rational_point (hf : 0<f) (n : ℕ) :
+    ∃! x : ℤ_[p], ((p^f-1 : ℕ) : ℤ_[p])*x=(n : ℤ_[p]) := by sorry
+
+lemma grossKoblitzPositiveResidue_fraction (hf : 0<f) (n : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(n : ℤ_[p])) :
+    grossKoblitzPositiveResidue p x=p-n%p := by sorry
+
+lemma grossKoblitzCarry_residue (hf : 0<f) (k j : ℕ) :
+    grossKoblitzOrbitNumerator p f k (j+1)%p=grossKoblitzCarry p f k j := by sorry
+
+lemma grossKoblitzPositiveResidue_next (hf : 0<f) (k j : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(grossKoblitzOrbitNumerator p f k (j+1) : ℤ_[p])) :
+    grossKoblitzPositiveResidue p x=p-grossKoblitzCarry p f k j := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzDigitsTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- orbit_first
+example : grossKoblitzOrbitNumerator 3 2 5 0=5 := by sorry
+-- orbit_second
+example : grossKoblitzOrbitNumerator 3 2 5 1=7 := by sorry
+-- orbit_dyadic
+example : grossKoblitzOrbitNumerator 2 3 3 2=5 := by sorry
+-- orbit_zero_class
+example (p f j : ℕ) : grossKoblitzOrbitNumerator p f 0 j=0 := by sorry
+-- initial_residue
+example : grossKoblitzOrbitNumerator 5 2 7 0=7 := by sorry
+-- outside_initial_range
+example : grossKoblitzOrbitNumerator 3 2 8 0=0 ∧ grossKoblitzOrbitNumerator 3 2 8 0≠8 := by sorry
+-- orbit_bound
+example (k j : ℕ) : grossKoblitzOrbitNumerator 3 2 k j<8 := by sorry
+-- orbit_positive
+example (j : ℕ) : 0<grossKoblitzOrbitNumerator 3 2 5 j := by sorry
+-- zero_not_positive
+example : ¬0<grossKoblitzOrbitNumerator 3 2 0 1 := by sorry
+-- orbit_step_wrap
+example : grossKoblitzOrbitNumerator 3 2 5 2=(3*grossKoblitzOrbitNumerator 3 2 5 1)%8 := by sorry
+-- orbit_step_degenerate
+example : grossKoblitzOrbitNumerator 2 1 4 3=0 := by sorry
+-- orbit_full_period
+example (k j : ℕ) : grossKoblitzOrbitNumerator 3 2 k (j+2)=grossKoblitzOrbitNumerator 3 2 k j := by sorry
+-- orbit_smaller_period
+example : grossKoblitzOrbitNumerator 3 2 4 1=grossKoblitzOrbitNumerator 3 2 4 0 := by sorry
+-- carry_first
+example : grossKoblitzCarry 3 2 5 0=1 := by sorry
+-- carry_second
+example : grossKoblitzCarry 3 2 5 1=2 := by sorry
+-- carry_leading_zero
+example : grossKoblitzCarry 3 3 5 0=0 := by sorry
+-- carry_zero
+example (p f j : ℕ) : grossKoblitzCarry p f 0 j=0 := by sorry
+-- carry_digit_bound
+example (k j : ℕ) : grossKoblitzCarry 2 3 k j<2 := by sorry
+-- carry_decomposition
+example : 3*grossKoblitzOrbitNumerator 3 2 5 1=8*grossKoblitzCarry 3 2 5 1+grossKoblitzOrbitNumerator 3 2 5 2 := by sorry
+-- fractional_orbit_value
+example : toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)^1*5/8)=7/8 := by sorry
+-- fractional_negative
+example : toIocMod (zero_lt_one' ℚ) 0 ((-1/8 : ℚ))=7/8 := by sorry
+-- fractional_zero_boundary
+example : toIocMod (zero_lt_one' ℚ) 0 ((0 : ℚ))=1 ∧ toIocMod (zero_lt_one' ℚ) 0 ((0 : ℚ))≠0 := by sorry
+-- shift_sum
+example : (∑ j ∈ Finset.range 2, (grossKoblitzOrbitNumerator 3 2 5 (j+1) : ℚ))=12 := by sorry
+-- carry_sum_identity
+example : (2 : ℚ)*(∑ j ∈ Finset.range 2, (grossKoblitzOrbitNumerator 3 2 5 j : ℚ))=8*(∑ j ∈ Finset.range 2, (grossKoblitzCarry 3 2 5 j : ℚ)) := by sorry
+-- exponent_ternary
+example : (2 : ℚ)*(∑ j ∈ Finset.range 2, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)^j*5/8))=3 := by sorry
+-- exponent_dyadic
+example : (∑ j ∈ Finset.range 3, toIocMod (zero_lt_one' ℚ) 0 ((2 : ℚ)^j*3/7))=2 := by sorry
+-- exponent_zero_failure
+example : (2 : ℚ)*(∑ j ∈ Finset.range 2, toIocMod (zero_lt_one' ℚ) 0 ((3 : ℚ)^j*0/8))≠(∑ j ∈ Finset.range 2, (grossKoblitzCarry 3 2 0 j : ℚ)) := by sorry
+-- digit_expansion
+example : Nat.ofDigits 3 ((List.range 2).reverse.map (grossKoblitzCarry 3 2 5))=5 := by sorry
+-- digits_zero_padding
+example : Nat.ofDigits 3 ((List.range 3).reverse.map (grossKoblitzCarry 3 3 5))=5 := by sorry
+-- digits_reversed_failure
+example : Nat.ofDigits 3 ((List.range 2).map (grossKoblitzCarry 3 2 5))=7 ∧ Nat.ofDigits 3 ((List.range 2).map (grossKoblitzCarry 3 2 5))≠5 := by sorry
+-- residue_unique_zero
+example (r : ℕ) (hr : 0<r) (hb : r≤3) (hc : (r : ZMod 3)=0) : r=grossKoblitzPositiveResidue 3 0 := by sorry
+-- denominator_unit_dyadic
+example : IsUnit (7 : ℤ_[2]) := by sorry
+-- denominator_unit_ternary
+example : IsUnit (8 : ℤ_[3]) := by sorry
+-- rational_point_ternary
+example : ∃! x : ℤ_[3], 8*x=5 := by sorry
+-- rational_point_zero
+example : ∃! x : ℤ_[2], 7*x=0 := by sorry
+-- rational_positive_residue
+example (x : ℤ_[3]) (hx : 8*x=5) : grossKoblitzPositiveResidue 3 x=1 := by sorry
+-- rational_zero_residue
+example (x : ℤ_[3]) (hx : 8*x=3) : grossKoblitzPositiveResidue 3 x=3 := by sorry
+-- carry_units_digit
+example : grossKoblitzOrbitNumerator 3 2 5 1%3=grossKoblitzCarry 3 2 5 0 := by sorry
+-- carry_last_units
+example : grossKoblitzOrbitNumerator 3 2 5 2%3=grossKoblitzCarry 3 2 5 1 := by sorry
+-- next_positive_residue
+example (x : ℤ_[3]) (hx : 8*x=7) : grossKoblitzPositiveResidue 3 x=3-grossKoblitzCarry 3 2 5 0 := by sorry
+-- wrap_positive_residue
+example (x : ℤ_[3]) (hx : 8*x=5) : grossKoblitzPositiveResidue 3 x=3-grossKoblitzCarry 3 2 5 1 := by sorry
+end DirichletPadic.SuggestedGrossKoblitzDigitsTests
