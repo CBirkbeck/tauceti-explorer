@@ -35294,8 +35294,9 @@
     "REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4102"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4102",
+   "finishedAt": "2026-10-01T19:01:51Z"
   },
   {
    "id": "REV-RT-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
