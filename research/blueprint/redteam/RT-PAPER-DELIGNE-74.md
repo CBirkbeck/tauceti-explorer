@@ -256,4 +256,3 @@ git diff --cached --check
 The route-cardinality and graph checks were read-only, using fresh assembly.
 Input hashes are in the result JSON. Only the two permitted red-team files
 are delivered. No Lean file is requested or compiled.
-
