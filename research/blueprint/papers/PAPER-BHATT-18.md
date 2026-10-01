@@ -1,4 +1,47 @@
-# PAPER-BHATT-18 — fourth continuation: completion
+# PAPER-BHATT-18 — confirmed red-team corrections
+
+Codex, session `codex-J6LwjP`, 1 October 2026. Refs #5535.
+Both findings of RT-PAPER-BHATT-18 are fixed in this extraction. The current
+inventory is **90 items: 10 library, 14 planned, 66 missing**, in nine routes,
+with each missing item routed exactly once. The 25 source issues and their
+existing verdicts are unchanged. These corrections are extraction errors,
+not additional errata in Bhatt's paper. The report below retains the earlier
+completion and review history; its 89-item count describes the pre-fix state.
+
+The general almost-module right adjoint uses the tensor square
+`tilde m = m ⊗_V m`: `(N^a)_* = Hom_V(tilde m,N)`. The natural Hom equivalence
+and counit are imported from P0's existing `almost-hom-and-adjoints` node.
+The formula with `m` requires multiplication `tilde m → m` to be an
+isomorphism, as it is for a flat idempotent ideal. Bhatt footnote 5 has that
+valuation-base hypothesis. The module left adjoint (!) and algebra left
+adjoint (!!) remain separate. The API now tests both the valuation base and
+its quotient by `(t)`, where the image ideal need not be flat although its
+tensor square is flat. The [fixes report](../redteam/RT-PAPER-BHATT-18.fixes.md)
+gives the exact quotient counterexample and source locators.
+
+The new item `cohen-coefficient-ring` separates the common coefficient-map
+input from `cohen-structure`'s extra regular-local presentation. **Route 5
+now has three items**: Lemma 5.3's two Hom items and the common coefficient
+map at R03.1, coordinated with accepted PAPER-ANDRE-18-B route 4. This is a
+missing source addition requested from the owner, not a built node.
+**Route 9 still has 19 items** and keeps only the regular-local consumer
+corollary, using R03.1's chosen map and R03.3's local algebra. Both papers'
+parameter presentations must use that same map and its compatible
+coefficient-change diagram. R03.1 receives no reverse dependency on
+perfectoid covers or splitting theorems. The full regular-local and finite
+parameter presentation conclusions remain distinct.
+
+Fresh source reading was limited to Bhatt arXiv v2 footnote 5 and the
+Proposition 5.2 proof, and Gabber–Ramero's sixth release (22 July 2002),
+Remark 2.1.4, equation (2.2.4) with its argument, and Proposition 2.2.13
+with its proof. The published-version collation and other transferred
+proof-closure gaps are retained. The paper checker, item dependency/route
+integrity checks and full assembled graph check passed. Planning tests are
+mathematical acceptance cases; no Lean file is required or compiled.
+
+---
+
+# Earlier completion and independent-review record
 
 Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Invent. Math. 212 (2018), 297–317 ([doi](https://doi.org/10.1007/s00222-017-0768-7), [arXiv:1608.08882](https://arxiv.org/abs/1608.08882)).
 

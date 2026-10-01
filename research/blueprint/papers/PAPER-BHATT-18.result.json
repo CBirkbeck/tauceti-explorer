@@ -29,6 +29,17 @@
           "Stacks tags 0815, 081R, 081S, 081T, 081M, 080Y; 080J Definition 31.35.1 and Lemmas 31.35.2–31.35.4; 080D, 080E, 0804; 08HY; 08TB Definition 13.34.1, Lemma 13.34.2 and coherence warnings; 07KV Lemmas 15.88.1, 4–6, 9–13, 16"
         ],
         "versionLimits": "The Springer content/pdf endpoint returned a 16-page PDF of the subscription landing page, not the 21-page article. No journal collation or change to E1–E3 publication status is claimed."
+      },
+      {
+        "agent": "Codex — codex-J6LwjP",
+        "date": "2026-10-01",
+        "job": "FIX-RT-PAPER-BHATT-18",
+        "freshRead": [
+          "Bhatt arXiv v2, footnote 5 p.3 and Proposition 5.2 proof pp.8–9",
+          "Gabber–Ramero sixth release 22 July 2002, Remark 2.1.4 p.8, equation (2.2.4) p.12 and Proposition 2.2.13 proof p.14",
+          "Current P0 almost-Hom/adjoint node, R03.1/R03.3 contracts and reviewed coverage, accepted André route 4 and its coefficient items"
+        ],
+        "scope": "Implements both independently confirmed extraction findings. No independent rereview of the whole extraction, no new library implementation claim, no journal collation or new source erratum."
       }
     ],
     "supportingSources": [
@@ -46,10 +57,25 @@
         "title": "The Stacks Project",
         "url": "https://stacks.math.columbia.edu/",
         "version": "Live tagged statements read 23 September 2026; numbered locators paired with stable tags above."
+      },
+      {
+        "id": "GR-sixth-release-2002",
+        "title": "Almost ring theory",
+        "authors": "Ofer Gabber and Lorenzo Ramero",
+        "url": "https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf",
+        "version": "Sixth release, 22 July 2002; 234 PDF pages",
+        "sha256": "c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8",
+        "readSections": [
+          "Remark 2.1.4 (p.8)",
+          "(2.2.4) and its argument (p.12)",
+          "Proposition 2.2.13 and proof (p.14)"
+        ],
+        "read": "2026-10-01",
+        "note": "Read for corrected general module adjunction; not a full rereading of the book."
       }
     ]
   },
-  "summary": "Bhatt proves the direct summand conjecture, that a finite extension of a Noetherian regular ring splits as a module map (Theorem 1.1), and its derived variant: for proper surjective X0→Spec(A0) with A0 regular, A0→RΓ(X0,O) splits in D(A0) (Theorem 1.2). The proof reproves André's flatness lemma geometrically (Theorem 2.3), proves a quantitative Riemann extension theorem for perfectoid rings (Theorem 4.2) using almost mathematics of pro-systems (§3), and builds faithfully flat perfectoid covers of regular local rings (Proposition 5.2). After review the extraction has 89 items (65 missing, 14 planned, 10 library) in nine routes. The covers, obstruction calculus and both splitting theorems coalesce with the new roadmap DirectSummandsAndBigCohenMacaulay, and the Riemann extension theorem with the Part II of Perfectoid rings and spaces. The rest are sources for existing layers: PerfectoidSpaces P0–P3, PerfectoidQuotients Q3, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2/E5, DeformationAndDerivedPatchingAlgebra R03.1, SchemeAndStackFoundations SF.4 and AdicSpacesPartII R2. The atlas lacks non-Noetherian flattening, the Cohen structure theorem, pro-systems of modules and almost mathematics of pro-systems. Twenty-five source findings: E1 (Proposition 6.2 needs surjectivity) affects a stated result; E9, E14 and E15 are gaps in the reductions of Theorems 5.4 and 6.1; E4–E8 are misprints in André's adjacent paper; the rest are misprints. G1 (collation with the published text) stays open.",
+  "summary": "Bhatt proves the direct summand conjecture, that a finite extension of a Noetherian regular ring splits as a module map (Theorem 1.1), and its derived variant: for proper surjective X0→Spec(A0) with A0 regular, A0→RΓ(X0,O) splits in D(A0) (Theorem 1.2). The proof reproves André's flatness lemma geometrically (Theorem 2.3), proves a quantitative Riemann extension theorem for perfectoid rings (Theorem 4.2) using almost mathematics of pro-systems (§3), and builds faithfully flat perfectoid covers of regular local rings (Proposition 5.2). After review and the confirmed red-team fixes the extraction has 90 items (66 missing, 14 planned, 10 library) in nine routes. The covers, obstruction calculus and both splitting theorems coalesce with the new roadmap DirectSummandsAndBigCohenMacaulay, and the Riemann extension theorem with the Part II of Perfectoid rings and spaces. The rest are sources for existing layers: PerfectoidSpaces P0–P3, PerfectoidQuotients Q3, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2/E5, DeformationAndDerivedPatchingAlgebra R03.1, SchemeAndStackFoundations SF.4 and AdicSpacesPartII R2. The atlas lacks non-Noetherian flattening, the Cohen structure theorem, pro-systems of modules and almost mathematics of pro-systems. Twenty-five source findings: E1 (Proposition 6.2 needs surjectivity) affects a stated result; E9, E14 and E15 are gaps in the reductions of Theorems 5.4 and 6.1; E4–E8 are misprints in André's adjacent paper; the rest are misprints. G1 (collation with the published text) stays open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -389,16 +415,17 @@
       "id": "PAPER-BHATT-18/almost-category",
       "kind": "construction",
       "name": "Almost modules and adjoints",
-      "statement": "For an almost base (V,m) with m²=m and the required flatness of m⊗_V m, form the Serre quotient by m-annihilated modules, almostification, its right adjoint (*) and left adjoint (!); for algebras use the distinct (!!) adjoint.",
-      "locator": "Footnote 1 (p. 2, Serre quotient by (t^(1/p^∞))-torsion modules), §1.4 footnote 5 (p. 3, A_*), proof of Proposition 5.2 ((−)_!!); GR and Scholze §4",
+      "statement": "For an almost base (V,m) with m²=m and tilde m=m⊗_V m flat, form the Serre quotient by m-annihilated modules and almostification M↦M^a. For an almost module A, its right adjoint is A_*=Hom_{V^a}(V^a,A), with (N^a)_*≅Hom_V(tilde m,N) naturally. Its module left adjoint is A_!=tilde m⊗_V A_*. The algebra left adjoint (!!) is distinct. The simpler Hom_V(m,N) formula requires that multiplication tilde m→m be an isomorphism, in particular when m is flat.",
+      "locator": "Footnote 1 (p. 2, Serre quotient by (t^(1/p^∞))-torsion modules), §1.4 footnote 5 (p. 3, A_*), proof of Proposition 5.2 ((−)_!!); GR and Scholze §4; Gabber–Ramero, Almost ring theory, sixth release (22 July 2002), Remark 2.1.4 (p.8), (2.2.4) (p.12) and Proposition 2.2.13(ii)–(iii) (p.14)",
       "status": "planned",
-      "note": "Field-base supplier: PerfectoidSpaces:P0/almost-modules-over-perfectoid-base. General reusable-base scope is in the current P0 stage. The properties of the algebra adjoint (−)_!! that Proposition 5.2 uses are the separate item algebra-adjoint, routed to P0 (review: the earlier note cited a P0 request that does not exist).",
+      "note": "Import PerfectoidSpaces:P0/almost-modules-over-perfectoid-base and P0/almost-hom-and-adjoints: the latter already states the tensor-square formula over a general basic setup. Do not restrict the general base by assuming m flat. Bhatt footnote 5 uses the flat perfectoid valuation ideal and is valid in that scope; the earlier general Hom_V(m,N) API was an extraction error, not a source erratum. The algebra adjoint (!!) used in Proposition 5.2 remains the separate algebra-adjoint item, routed to P0.",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/root-system"
       ],
       "proofSteps": [
-        "The module adjoint and algebra adjoint must not be interchanged in the proof of faithful detection."
+        "Use the general Hom formula and module adjunctions from P0, not a valuation-only formula. Base extension preserves flatness of the tensor square even when it does not preserve flatness of the image ideal.",
+        "Keep the module (!) and algebra (!!) adjoints distinct in faithful detection."
       ],
       "planned": [
         "PerfectoidSpaces:P0"
@@ -412,7 +439,22 @@
         {
           "name": "AlmostElements.hom",
           "role": "universal-property",
-          "statement": "Give the right-adjoint Hom equivalence; for a module N, (N^a)_*=Hom_V(m,N)."
+          "statement": "Naturally Hom_{V^a}(M^a,A)≅Hom_V(M,A_*) for every V-module M and almost module A, and (N^a)_*≅Hom_V(tilde m,N), where tilde m=m⊗_V m. The equivalence is compatible with maps in both arguments."
+        },
+        {
+          "name": "AlmostElements.counit",
+          "role": "compatibility",
+          "statement": "The counit (A_*)^a→A is a natural isomorphism; the right adjoint is fully faithful. Keep its unit N→(N^a)_* as an almost isomorphism, rather than an ordinary isomorphism."
+        },
+        {
+          "name": "AlmostElements.flatIdeal_comparison",
+          "role": "compatibility",
+          "statement": "If multiplication tilde m→m is an isomorphism, identify (N^a)_* with Hom_V(m,N) by precomposition; derive this hypothesis when m is flat and m²=m."
+        },
+        {
+          "name": "AlmostModule.leftAdjoint",
+          "role": "universal-property",
+          "statement": "For an almost module A, A_!=tilde m⊗_V A_* is left adjoint to almostification. This module adjoint does not supply the algebra adjoint (!!)."
         },
         {
           "name": "AlmostAlgebra.leftAdjoint_reduction",
@@ -430,12 +472,22 @@
           "name": "almost-category.test_2",
           "statement": "An almost isomorphism need not be an ordinary isomorphism.",
           "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "almost-category.valuation_base",
+          "statement": "For V=K° of a perfectoid field with maximal ideal m, m is flat and idempotent, multiplication m⊗_V m→m is an isomorphism, and the general formula recovers Bhatt footnote 5 for its root ideal (t^(1/p^∞))=m.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "almost-category.quotient_base",
+          "statement": "Let V be the valuation ring of K=completed F_p((t^(1/p^∞))), m its maximal ideal, W=V/(t) and n=m/tV. Then n²=n and tilde n=n⊗_W n≅m/tm is W-flat. Multiplication tilde n→n has kernel tV/tm≅V/m≠0: the class of t is nonzero in m/tm and maps to zero in n. With N=tilde n, its identity cannot factor through tilde n→n, so Hom_W(n,N)→Hom_W(tilde n,N) is not surjective. The general right-adjoint formula and counit must still work on this base.",
+          "status": "planning counterexample; not Lean-checked"
         }
       ],
       "uses": [
         {
           "where": "Footnote 1 (p. 2, Serre quotient by (t^(1/p^∞))-torsion modules), §1.4 footnote 5 (p. 3, A_*), proof of Proposition 5.2 ((−)_!!); GR and Scholze §4",
-          "how": "The module adjoint and algebra adjoint must not be interchanged in the proof of faithful detection."
+          "how": "The general Hom formula is required after changing almost bases; specialize to Bhatt footnote 5 only using the flat valuation ideal."
         }
       ]
     },
@@ -2841,20 +2893,78 @@
       ]
     },
     {
-      "id": "PAPER-BHATT-18/cohen-structure",
-      "kind": "theorem",
-      "name": "Cohen structure theorem for complete regular local rings of mixed characteristic",
-      "statement": "Let (A0,m,k) be a complete Noetherian regular local ring of mixed characteristic (0,p) and dimension d, with k perfect. There is a local map W(k)→A0 inducing the identity on k. If p ∉ m², then A0 ≅ W(k)⟦x_2,…,x_d⟧. If p ∈ m², any generators x_1,…,x_d of m give a surjection W(k)⟦x_1,…,x_d⟧→A0 whose kernel is generated by an element p−f with f a power series in (p,x_1,…,x_d)²; moreover p ∤ f and f has no constant term.",
-      "locator": "Proof of Proposition 5.2, pp. 8–9 ('A0 is isomorphic to W⟦x_2, ..., x_d⟧'; 'a surjection ψ : P0 := W⟦x_1, ..., x_d⟧ → A0 … generated by an element of the form p − f')",
+      "id": "PAPER-BHATT-18/cohen-coefficient-ring",
+      "kind": "construction",
+      "name": "Cohen coefficient map for a perfect residue field",
+      "statement": "Let (B,m,k) be a complete Noetherian local ring of mixed characteristic (0,p) with perfect residue field k. Choose a continuous local coefficient map iota:W(k)→B inducing the identity on k. Its choice is part of the input to later presentations, and is retained in coefficient-change diagrams.",
+      "locator": "Bhatt, proof of Proposition 5.2, p.8 (the common W=W(k) coefficient input); André, La conjecture du facteur direct, published §4.2 p.86 and §4.4(1) pp.87–88",
       "status": "missing",
-      "note": "Added in review. Mathlib 082e2d37 has no Cohen structure theorem or coefficient rings (RegularLocalRing has only its definitions and the polynomial case), Tau Ceti f790474 has none, and no layer plans the mixed-characteristic statement; the Cohen rings of PadicDifferentialEquationsAndRigidCohomology RD.2 concern imperfect residue fields. The paper applies it after enlarging the residue field to an algebraically closed one.",
       "implementationStatus": "unchecked",
+      "note": "Common input shared with accepted PAPER-ANDRE-18-B/cohen-parameter-presentation and coefficient-ring-compatibility, route 4. Route once to DeformationAndDerivedPatchingAlgebra:R03.1, which owns coefficient categories and coefficient changes. The exact Cohen construction is a requested source addition, not a built declaration or a promised node treated as live. No new library search is asserted by this fix. The separable coefficient-change theorem remains the companion extraction’s cited input; its Matsumura proof was not reread here.",
       "prerequisites": [
-        "PAPER-BHATT-18/regular",
         "PAPER-BHATT-18/completion"
       ],
       "proofSteps": [
-        "Construct the coefficient ring W(k)→A0 from the perfectness of k and the completeness of A0, and map W(k)⟦x_1,…,x_d⟧ onto A0 by sending the x_i to generators of m.",
+        "Request the common Cohen coefficient map and its residue-field compatibility from R03.1, coordinating the accepted André route; later consumers use that chosen map instead of reconstructing it."
+      ],
+      "proposedOwner": "DeformationAndDerivedPatchingAlgebra",
+      "api": [
+        {
+          "name": "CohenCoefficientMap.residue",
+          "role": "compatibility",
+          "statement": "The composite W(k)→B→k is the canonical residue map, so the induced map on residue fields is the identity."
+        },
+        {
+          "name": "CohenCoefficientMap.parameterEvaluation",
+          "role": "constructor",
+          "statement": "Use the chosen coefficient map iota in the continuous homomorphism W(k)[[X_1,…,X_r]]→B taking each variable to a selected element of m."
+        },
+        {
+          "name": "CohenCoefficientMap.separableChange",
+          "role": "compatibility",
+          "statement": "For a local map beta:B→B′ between complete Noetherian mixed-characteristic rings with perfect residue fields and separable k→k′, import the compatible coefficient-ring choices of PAPER-ANDRE-18-B/coefficient-ring-compatibility. Keep the commuting square beta∘iota=iota′∘W(k→k′) explicit; do not silently choose unrelated coefficient maps."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "cohen-coefficient-ring.unramified",
+          "statement": "For B=W(k)[[y]], choose the constant coefficient inclusion. Both papers use this same map: Bhatt’s unramified presentation is the identity after renaming y, and André’s parameters (p²,y) give the same unramified power-series coefficient subring.",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "cohen-coefficient-ring.ramified",
+          "statement": "For B=Z_p[x]/(x²−p), take W(F_p)=Z_p with the constant inclusion. This common coefficient input does not assert that B is unramified; the downstream presentation has kernel (p−x²).",
+          "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "cohen-coefficient-ring.residueChange",
+          "statement": "For F_p⊂F_(p²), use the Witt-vector coefficient inclusion in W(F_p)[[y]]→W(F_(p²))[[y]]. The parameter maps commute with that same coefficient map before making a perfectoid cover.",
+          "status": "planning test; not Lean-checked"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Bhatt Proposition 5.2; accepted André route 4",
+          "how": "Supplies one chosen coefficient map to the unramified and ramified regular-local presentations and to André’s finite parameter presentation."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/cohen-structure",
+      "kind": "theorem",
+      "name": "Regular-local presentations over an imported Cohen coefficient map",
+      "statement": "Let (A0,m,k) be a complete Noetherian regular local ring of mixed characteristic (0,p) and dimension d, with k perfect. Import a chosen continuous local coefficient map iota:W(k)→A0 inducing the identity on k from cohen-coefficient-ring (R03.1). All presentations below are maps of W(k)-algebras for this chosen iota. If p ∉ m², then A0 ≅ W(k)⟦x_2,…,x_d⟧. If p ∈ m², any generators x_1,…,x_d of m give a surjection W(k)⟦x_1,…,x_d⟧→A0 whose kernel is generated by an element p−f with f a power series in (p,x_1,…,x_d)²; moreover p ∤ f and f has no constant term.",
+      "locator": "Proof of Proposition 5.2, pp. 8–9 ('A0 is isomorphic to W⟦x_2, ..., x_d⟧'; 'a surjection ψ : P0 := W⟦x_1, ..., x_d⟧ → A0 … generated by an element of the form p − f')",
+      "status": "missing",
+      "note": "Consumer corollary in DirectSummandsAndBigCohenMacaulay importing the common coefficient map requested at R03.1 by this paper and accepted PAPER-ANDRE-18-B route 4, together with R03.3 regular-local dimension/depth and complete-intersection inputs. The extra regular-local isomorphism/hypersurface conclusion differs from André’s finite parameter presentation; neither is substituted for the other. The earlier assertion that no layer owns the coefficient construction is removed. Exact Cohen construction remains a missing source addition, not a built node. The paper applies the corollary after enlarging the residue field to an algebraically closed one.",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-BHATT-18/regular",
+        "PAPER-BHATT-18/completion",
+        "PAPER-BHATT-18/cohen-coefficient-ring"
+      ],
+      "proofSteps": [
+        "Import the chosen coefficient map iota from cohen-coefficient-ring/R03.1; map W(k)⟦x_1,…,x_d⟧ onto A0 using that same iota and the chosen generators. R03.3 supplies the regular-local dimension and hypersurface arguments for the consumer corollary.",
         "Unramified case: p, x_2, …, x_d is a regular system of parameters, so W(k)⟦x_2,…,x_d⟧→A0 is a surjection of regular local rings of the same dimension, hence an isomorphism.",
         "Ramified case: the kernel is a height-one prime of the factorial ring W(k)⟦x_1,…,x_d⟧, hence principal. A generator lies outside the square of the maximal ideal because A0 is regular, and p ∈ m² makes it a unit multiple of p−f with f ∈ (p,x_1,…,x_d)². p-torsionfreeness and p-adic completeness of A0 give p ∤ f and no constant term."
       ],
@@ -2869,12 +2979,17 @@
           "name": "cohen-structure.test_2",
           "statement": "A0 = Z_p⟦y⟧ is unramified of dimension 2 and equals W(F_p)⟦x_2⟧.",
           "status": "planning test; not Lean-checked"
+        },
+        {
+          "name": "cohen-structure.shared_coefficient_map",
+          "statement": "For A0=W(k)[[y]] with its constant coefficient map, retain that same map in Bhatt’s regular-local presentation and André’s (p²,y) finite parameter presentation. Under a compatible separable residue extension, the parameter-evaluation square commutes. No perfectoid or splitting theorem is a prerequisite of the coefficient input.",
+          "status": "planning test; not Lean-checked"
         }
       ],
       "uses": [
         {
           "where": "Proof of Proposition 5.2, pp. 8–9 ('A0 is isomorphic to W⟦x_2, ..., x_d⟧'; 'a surjection ψ : P0 := W⟦x_1, ..., x_d⟧ → A0 … generated by an element of the form p − f')",
-          "how": "Construct the coefficient ring W(k)→A0 from the perfectness of k and the completeness of A0, and map W(k)⟦x_1,…,x_d⟧ onto A0 by sending the x_i to generators of m."
+          "how": "Import the chosen coefficient map iota from cohen-coefficient-ring/R03.1; map W(k)⟦x_1,…,x_d⟧ onto A0 using that same iota and the chosen generators. R03.3 supplies the regular-local dimension and hypersurface arguments for the consumer corollary."
         }
       ]
     },
@@ -3114,9 +3229,10 @@
       ],
       "items": [
         "PAPER-BHATT-18/hom-pro",
-        "PAPER-BHATT-18/hom-lim-one"
+        "PAPER-BHATT-18/hom-lim-one",
+        "PAPER-BHATT-18/cohen-coefficient-ring"
       ],
-      "reason": "The finite adic Hom comparison and vanishing lim-one belong with complete local coefficient algebra. Import Artin–Rees and Krull intersection already in the pinned libraries. Review: hom-pro uses the pro-isomorphisms of pro-tower (route 4, E2), and R03.1 is not a descendant of E2. Either add the link EnhancedDerivedSheaves:E2 → DeformationAndDerivedPatchingAlgebra:R03.1, which closes no cycle, or state the ℕ-indexed notion in R03.1 directly."
+      "reason": "The finite adic Hom comparison and vanishing lim-one belong with complete local coefficient algebra. Import Artin–Rees and Krull intersection already in the pinned libraries. Review: hom-pro uses the pro-isomorphisms of pro-tower (route 4, E2), and R03.1 is not a descendant of E2. Either add the link EnhancedDerivedSheaves:E2 → DeformationAndDerivedPatchingAlgebra:R03.1, which closes no cycle, or state the ℕ-indexed notion in R03.1 directly. Fix RT-PAPER-BHATT-18/2: add the common Cohen coefficient-map input here, reusing accepted PAPER-ANDRE-18-B route 4 and its coefficient-change data. Do not reconstruct it in the splitting roadmap; the exact addition remains a request to R03.1."
     },
     {
       "route": "source",
@@ -3191,8 +3307,8 @@
         "PAPER-BHATT-18/perfect-cone-detection",
         "PAPER-BHATT-18/perfect-cone-limit"
       ],
-      "brief": "Coalesce with DirectSummandsAndBigCohenMacaulay, the new roadmap proposed by PAPER-ANDRE-18-B and accepted by its review (design DESIGN-DirectSummandsAndBigCohenMacaulay); this route replaces the earlier proposal of a Part II of DeformationAndDerivedPatchingAlgebra, which would have opened a second roadmap in the same direction. State the direct summand theorem once, with André's and Bhatt's proofs as alternative routes, and add the derived direct summand theorem. Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import Perfectoid rings and spaces (PerfectoidSpaces) P0–P3; Perfectoid quotients and their prismatic prerequisites (PerfectoidQuotients) Q0:integral-algebra and Q3; the quantitative tower theorem of the shared Part II Perfectoid rings and spaces, Part II: ramification and Riemann extension (PerfectoidRamification); Derived de Rham cohomology and its algebraic foundations (DerivedDeRhamCohomology) DD.1; Enhanced derived categories of sheaves (EnhancedDerivedSheaves) E1 and E2; the modification theory of Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) SF.4; the integral generic-fibre map of Foundations of adic spaces, Part II (AdicSpacesPartII) R2; the regular-local homological algebra of Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.1, R03.3 and P7; and, from the Tau Ceti roadmap Stable reduction of curves and stable maps (tauceti:TauCetiRoadmap/StableReduction), layer 2's coherent proper pushforward and layer 4's blowups, which are imported, never re-planned. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions (cohen-structure, residue-field-extension), completing before the domain reduction (E14, E9), obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, the local and complete reduction of the derived obstruction (derived-local-reduction, E15), the perfect-cone obstruction calculus (perfect-cone-detection, perfect-cone-limit), generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's accepted route 10, a Part II of SchemeAndStackFoundations whose item splinter defines the predicate; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target; G8 records its later answer. Remark 1.3 frames the two proofs: André proved Theorem 1.1 first, and Bhatt replaces the perfectoid Abhyankar lemma by the quantitative Riemann extension theorem (Theorem 4.2), keeping André's flatness lemma (Theorem 2.3) as the essential new ingredient. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them. Also: prove the reduction to a finite domain extension explicitly (source issue E9) and state Theorem 5.4 with its finite extension (E10). For the characteristic-0 branch of the derived theorem over an arbitrary regular noetherian Q-algebra, reduce to the complete local case (the splitting obstruction lies in Ext^1_{A_0} of a bounded coherent complex, which commutes with the faithfully flat completion), then to finite type over a characteristic-0 field by Popescu approximation, and only then apply Kovács's theorem, which Bhatt's Derived splinters (arXiv v1, Example 1.2) states for varieties over C.",
-      "reason": "PAPER-ANDRE-18-B's accepted route 1 established DirectSummandsAndBigCohenMacaulay as the single owner of the direct-summand direction; its review found no existing direct-summand direction in the atlas. Both of Bhatt's main theorems, the regular local perfectoid covers, the obstruction calculus and the proper-map splitting belong there, and routing them to the same roadmap id lets the design job merge them instead of creating a parallel Part II of the deformation-theory commutative algebra, which owns Noetherian local algebra but no splitting theorem. DeformationAndDerivedPatchingAlgebra R03.1 and R03.3 remain imported suppliers. Review: every item now names this roadmap as proposedOwner. proper-cohomology moved here from route 6 as a corollary of planned inputs (StableReduction layer 2, R03.3, P7). The reductions and the perfect-cone obstruction steps, which the extraction left inside G5, are now items. Remarks 1.3 and 5.5 are no longer items: their content is in the brief, the report and direct-summand's note."
+      "brief": "Coalesce with DirectSummandsAndBigCohenMacaulay, the new roadmap proposed by PAPER-ANDRE-18-B and accepted by its review (design DESIGN-DirectSummandsAndBigCohenMacaulay); this route replaces the earlier proposal of a Part II of DeformationAndDerivedPatchingAlgebra, which would have opened a second roadmap in the same direction. State the direct summand theorem once, with André's and Bhatt's proofs as alternative routes, and add the derived direct summand theorem. Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import Perfectoid rings and spaces (PerfectoidSpaces) P0–P3; Perfectoid quotients and their prismatic prerequisites (PerfectoidQuotients) Q0:integral-algebra and Q3; the quantitative tower theorem of the shared Part II Perfectoid rings and spaces, Part II: ramification and Riemann extension (PerfectoidRamification); Derived de Rham cohomology and its algebraic foundations (DerivedDeRhamCohomology) DD.1; Enhanced derived categories of sheaves (EnhancedDerivedSheaves) E1 and E2; the modification theory of Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) SF.4; the integral generic-fibre map of Foundations of adic spaces, Part II (AdicSpacesPartII) R2; the regular-local homological algebra of Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra) R03.1, R03.3 and P7; and, from the Tau Ceti roadmap Stable reduction of curves and stable maps (tauceti:TauCetiRoadmap/StableReduction), layer 2's coherent proper pushforward and layer 4's blowups, which are imported, never re-planned. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Import R03.1’s chosen Cohen coefficient map and its compatible coefficient changes, shared with accepted PAPER-ANDRE-18-B route 4. Prove only the extra regular-local isomorphism/hypersurface corollary (cohen-structure) using that map and R03.3’s dimension/depth inputs; do not rebuild the coefficient ring. Prove the localization/completion, component, residue-field and discriminant reductions (residue-field-extension), completing before the domain reduction (E14, E9), obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, the local and complete reduction of the derived obstruction (derived-local-reduction, E15), the perfect-cone obstruction calculus (perfect-cone-detection, perfect-cone-limit), generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's accepted route 10, a Part II of SchemeAndStackFoundations whose item splinter defines the predicate; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target; G8 records its later answer. Remark 1.3 frames the two proofs: André proved Theorem 1.1 first, and Bhatt replaces the perfectoid Abhyankar lemma by the quantitative Riemann extension theorem (Theorem 4.2), keeping André's flatness lemma (Theorem 2.3) as the essential new ingredient. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them. Also: prove the reduction to a finite domain extension explicitly (source issue E9) and state Theorem 5.4 with its finite extension (E10). For the characteristic-0 branch of the derived theorem over an arbitrary regular noetherian Q-algebra, reduce to the complete local case (the splitting obstruction lies in Ext^1_{A_0} of a bounded coherent complex, which commutes with the faithfully flat completion), then to finite type over a characteristic-0 field by Popescu approximation, and only then apply Kovács's theorem, which Bhatt's Derived splinters (arXiv v1, Example 1.2) states for varieties over C.",
+      "reason": "PAPER-ANDRE-18-B's accepted route 1 established DirectSummandsAndBigCohenMacaulay as the single owner of the direct-summand direction; its review found no existing direct-summand direction in the atlas. Both of Bhatt's main theorems, the regular local perfectoid covers, the obstruction calculus and the proper-map splitting belong there, and routing them to the same roadmap id lets the design job merge them instead of creating a parallel Part II of the deformation-theory commutative algebra, which owns Noetherian local algebra but no splitting theorem. DeformationAndDerivedPatchingAlgebra R03.1 and R03.3 remain imported suppliers. Review: every item now names this roadmap as proposedOwner. proper-cohomology moved here from route 6 as a corollary of planned inputs (StableReduction layer 2, R03.3, P7). The reductions and the perfect-cone obstruction steps, which the extraction left inside G5, are now items. Remarks 1.3 and 5.5 are no longer items: their content is in the brief, the report and direct-summand's note. Fix /2: cohen-structure is only the regular-local consumer corollary. The new cohen-coefficient-ring item is routed to R03.1 through route 5. The shared coefficient supplier receives no reverse dependency on splitting or perfectoid covers."
     }
   ],
   "sourceIssues": [
@@ -3812,7 +3928,7 @@
     {
       "id": "PAPER-BHATT-18/G5",
       "title": "Regular local obstruction proof closure",
-      "task": "Decompose completion/residue-field/Cohen/discriminant reductions, localization regularity and finite global dimension. Prove the annihilator detection calculation, then its perfect-complex version for 6.1, at declaration granularity. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): declaration-granularity decomposition belongs to the DirectSummandsAndBigCohenMacaulay design job, whose brief now includes these reductions, E9 and the obstruction calculation. Review: the perfect-complex versions are now the items perfect-cone-detection and perfect-cone-limit, and the reductions the items cohen-structure, residue-field-extension and derived-local-reduction. Completion must precede the domain reduction (E14, E9).",
+      "task": "Decompose completion/residue-field/Cohen/discriminant reductions, localization regularity and finite global dimension. Prove the annihilator detection calculation, then its perfect-complex version for 6.1, at declaration granularity. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): declaration-granularity decomposition belongs to the DirectSummandsAndBigCohenMacaulay design job, whose brief now includes these reductions, E9 and the obstruction calculation. Review: the perfect-complex versions are now the items perfect-cone-detection and perfect-cone-limit, and the reductions the items cohen-structure, residue-field-extension and derived-local-reduction. Completion must precede the domain reduction (E14, E9). Fix /2: the common coefficient-map construction is now a separate missing item requested at R03.1, shared with accepted André route 4. The design job only constructs the regular-local consumer corollary using that map and R03.3.",
       "affects": [
         "PAPER-BHATT-18/local-complete-reduction",
         "PAPER-BHATT-18/obstruction-detection",
@@ -3822,7 +3938,8 @@
         "PAPER-BHATT-18/residue-field-extension",
         "PAPER-BHATT-18/derived-local-reduction",
         "PAPER-BHATT-18/perfect-cone-detection",
-        "PAPER-BHATT-18/perfect-cone-limit"
+        "PAPER-BHATT-18/perfect-cone-limit",
+        "PAPER-BHATT-18/cohen-coefficient-ring"
       ],
       "status": "transferred"
     },
@@ -3908,6 +4025,16 @@
         "PAPER-BHATT-18/proper-modification-domination",
         "PAPER-BHATT-18/formal-domination"
       ]
+    },
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
+      "statement": "Reuse the exact Cohen coefficient-map construction requested by accepted PAPER-ANDRE-18-B route 4: for complete Noetherian mixed-characteristic B with perfect residue field k, choose W(k)→B inducing the identity on k. Coordinate its separable coefficient-change theorem with PAPER-ANDRE-18-B/coefficient-ring-compatibility, retaining the chosen maps and their commuting square. The common coefficient input is planned once here. This request does not assert that a registered blueprint node or proof already exists. DirectSummandsAndBigCohenMacaulay keeps only the extra regular-local presentation corollary, importing this map and R03.3. Do not make R03.1 depend on completed perfectoid covers or splitting theorems.",
+      "consumers": [
+        "PAPER-BHATT-18/cohen-coefficient-ring",
+        "PAPER-BHATT-18/cohen-structure",
+        "PAPER-BHATT-18/unramified-cover",
+        "PAPER-BHATT-18/ramified-general-cover"
+      ]
     }
   ],
   "boundaries": [
@@ -3927,5 +4054,17 @@
     "status": "complete",
     "reading": "arXiv:1608.08882v2 re-fetched (sha256 08578ca1…) and read completely; Bhatt–Scholze arXiv v1–v3, Bhatt 2012 and Bhatt 2014 (arXiv v1) read at the cited statements.",
     "changes": "Regular-ring Part II replaced by a route coalescing with the accepted DirectSummandsAndBigCohenMacaulay; PerfectoidRamification reason updated; new source issues E9 (missing domain reduction) and E10 (Theorem 5.4 statement); gaps G8, G9 closed, G2–G7 transferred to the design and blueprint jobs with the facts found, G1 kept; status complete."
+  },
+  "fixes": {
+    "job": "FIX-RT-PAPER-BHATT-18",
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-01",
+    "status": "complete",
+    "findings": [
+      "RT-PAPER-BHATT-18/1",
+      "RT-PAPER-BHATT-18/2"
+    ],
+    "note": "General tensor-square right adjoint corrected; common coefficient-ring construction split into the existing R03.1 source route, with regular-local presentation retained downstream. Source issues and existing reading gaps preserved."
   }
 }
