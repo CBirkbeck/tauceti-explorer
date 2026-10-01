@@ -1,0 +1,75 @@
+{
+  "redteam": "RT-PAPER-DELIGNE-74",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-DELIGNE-74",
+  "summary": "Five findings: three high-severity errors in the extracted convergence estimate, the corrected arithmetic-monodromy fibers, and the construction order of a Weil I input; two medium-severity gaps in the ownership of the general Grothendieck–Ogg–Shafarevich theorem and the claimed elementary equivalence in the Ramanujan–Petersson note. All 35 published content pages and all 208 extraction items checked. The first two findings concern propagation of already confirmed corrections E16 and E8, not newly discovered source errata.",
+  "checked": [
+    "Independent audit by Codex, session codex-rtOQ9t, on 2026-10-01, base 5c5f074dba31f27ee7f6f9d69d7fce0300a12ff8. Extraction: Claude Code cc-f805bf, PR #4551; review: Claude Code cc-fb70e5. Neither is this session. Claim 5928706578 on #4596 confirmed by github-actions.",
+    "Read the complete extraction result, reader report and accepted independent review: 208 items, five source routes, eight prerequisite records and 16 source issues. Frontier is 165 planned / 1 library / 42 missing. All 42 missing IDs occur in exactly one route, with no extra routed IDs. All 30 distinct planned or route stage endpoints resolve.",
+    "Read every published content page, pp.273–307 including proofs and bibliography, on Numdam page images; the 36-page PDF includes a cover. Primary URL https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf; SHA-256 8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5. OCR is unreliable for formulas, so the source comparison uses the images.",
+    "Goncharov translation https://arxiv.org/pdf/1807.10810v2, SHA-256 44bb5bd09dde3037ca9c12da1b9d7c2f3763281e3230301d6120caf1d8d75c78: targeted comparison of 3.8, 6.10–6.13 and 8.2 only, not a second complete read. Numdam/publisher and IAS author listings, arXiv version history and public erratum/corrigendum searches inspected. No additional correction located; this is a bounded search, not proof that none exists.",
+    "Compared the existing E1–E16 records with the published pages. E5 remains rejected as in the independent review; this audit does not reopen its Lie-generation objection. Findings /1 and /2 identify accepted E16/E8 corrections left out of executable planning statements. Other existing corrections, the radical quotient, the geometric/arithmetic Frobenius distinction and the half-unit error are retained.",
+    "Read the full current descriptions of all 30 referenced destination/planned stages, including the DWP.0/2/3/4/6, EDC.0/1:biduality/2:trace-purity/2:pairings/4, LPV.0–5, WC.0–5, FF.2, SF.2, R01.3, R19.1/3, R34.1/6 and upstream algebraic-topology comparison contracts. Also read WeilConjectures scope/ownership boundaries and DWP's early/late construction boundary. Reviewed library-coverage rows for those campaign contracts were read; the upstream topology endpoint has no exact audit row.",
+    "Fresh assemble(require_distances=False): 2,907 actual stage nodes and 8,246 edges between actual nodes form a DAG. The 8,322 stage-edge records also contain 76 records touching external UPSTREAM proxies; those are not silently counted as actual vertices. Existing path DWP.4 → DWP.5 → DWP.6 verified. Adding the advertised DWP.6 supplier back to DWP.4 would close a cycle; no such reverse edge is claimed to exist today.",
+    "Read the FF.2 GOS request, gap and proposed ownership change in the current partial FiniteFieldsAndCharacterSums packet, together with confirmed RT-AREA-finitefields/3 and its verifier. Distinguished a proposed EDC substage from a registered or proved theorem. The rigid-cohomology packet's p-adic GOS analogue is not substituted for the ℓ-adic statement.",
+    "The only library-status item was checked at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: cuspFormCharSpace, mem_cuspFormCharSpace_iff_nebentypus, TauCeti.cuspFormsNew and HeckeRing.GL2.IsEigenformAwayFromLevel. Read their actual definitions/statements and the normalized-eigenvalue bridge. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 Gamma0Map uses the lower-right entry; ad=1 mod N gives epsilon(a)^(-1)=epsilon(d). The extraction correctly requires the additional new/eigen/normalization conjunction, rather than claiming a single bundled primitive-form declaration.",
+    "Pinned bounded searches in Mathlib AlgebraicGeometry/NumberTheory/Analysis/Geometry and TauCeti for Weil-number, lisse-sheaf, Lefschetz-pencil, GOS, Hasse–Weil and p-adic Lie terminology; no contrary implementation of the specialized geometric inputs located. Number-field Chebotarev files and generic linear algebra are not geometric closed-point density or a weight theorem. Read Mathlib riemannZeta_eulerProduct_hasProd/tprod: these cover the Spec Z numerical Euler product only, not the scheme-level definition. These are bounded searches, not exhaustive absence proofs for every auxiliary remark in the extraction.",
+    "Exact rational arithmetic confirms 3/64 > 1/31. The quadratic obstruction is alpha=2ir, beta=−ir/2 with r>0: sum 3ir/2, product r², unequal root moduli. These are transparent mathematical counterexamples, not Lean formalizations.",
+    "Validation: scripts/check_redteam.py, intake.py check-files for both deliverables, and staged git diff --cached --check. No Lean deliverable, compilation, library build, cache download or language server."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-DELIGNE-74/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-DELIGNE-74.result.json, item s3-3.8-euler-product-convergence (index 72), companion s3-3.8-closed-point-count and route 2; existing source issue E16",
+      "claim": "The planning statement still uses the false bound Σ_x q_x^(−1−epsilon) ≤ Σ_{n≥1} q^(−n epsilon) for the given open U0 of P1. Its own accepted E16 corrects precisely this bound, but the correction was not propagated into the item or its routing explanation.",
+      "evidence": "Weil I, proof of 3.8, published p.286, counts the affine line; 3.1 permits an open of P1. E16 and the accepted review already supply the counterexample: over F2 remove the degree-two point defined by X²+X+1. All three rational points remain, so epsilon=5 gives a left side at least 3/64, whereas Σ_{n≥1}2^(−5n)=1/31. Item 72 reproduces the uncorrected inequality. https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
+      "fix": "Replace the item 72 estimate by N Σ_{n≥1}(q^n+1)q^(−n(1+epsilon)), and justify convergence by two geometric series. Retain the true A1 count in item 73 if useful, but add the P1 count actually needed for the given U0; synchronize route 2 and the reader. Keep the original H1_c(U,F) and the same convergence radius. Cite existing E16 rather than opening a duplicate source-erratum record. Test q=2 and the degree-two puncture."
+    },
+    {
+      "id": "RT-PAPER-DELIGNE-74/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-DELIGNE-74.result.json, s6-6.12-measure-zero (index 153), compared with s6-6.10-arithmetic-monodromy-CSp and E8",
+      "claim": "The extraction corrects H to mu(g)=q^(−da) in 6.10 but still proves 6.12 using fibers mu(g)=q^(−a). Here d is the fixed odd fiber dimension and a is the Z-hat coordinate. For d≠1 those are not the fibers of its corrected group H, so the displayed intersection cannot support the asserted Fubini argument.",
+      "evidence": "Weil I pp.295,297–298 fixes the pairing with values in Q_l(−d). Accepted E8 explicitly corrects both 6.10 and 6.12. Item 150 applies that correction, while item 153 still defines CSp_n by mu(g)=q^(−n) with n now the Z-hat coordinate. At d=3 and a=1, the actual fiber has multiplier q^(−3), not q^(−1). The corrected quotient H1 → Z-hat is surjective by 6.11, so that fiber cannot be ignored.",
+      "fix": "Use separate symbols d for fiber dimension and a for the profinite degree. Define CSp_a={g:mu(g)=q^(−da)} and Z_a inside that torsor by delta^a being an eigenvalue; apply the algebraic-null-locus statement and Fubini to these actual fibers. Synchronize 6.10–6.13 and the geometric Frobenius convention: F_x projects to −deg(x), so use delta^(-1) when converting delta^(deg(x)) exceptional eigenvalues. This implements E8, not a new erratum."
+    },
+    {
+      "id": "RT-PAPER-DELIGNE-74/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-DELIGNE-74.result.json, s7-H1-P1-constant-vanishes (index 165), planned=[DeligneWeightsAndPurity:DWP.6]",
+      "claim": "A basic input to the Weil I dimension induction is assigned solely to the later Weil II stage DWP.6. Its note recognizes the ordering problem but leaves the status/owner unresolved. DWP.6 already depends transitively on DWP.4, the consumer that needs this lemma.",
+      "evidence": "Weil I p.300 uses vanishing of H1(P1,constant) in the 7.1 middle Leray term, including 7.1.2', 7.1.4' and 7.1.5'. Current DWP.4 explicitly excludes DWP.5–9 as inputs. Fresh stage edges contain DWP.4 → DWP.5 → DWP.6. EDC.4 already plans the projective-bundle decomposition through powers of c1(O(1)), independently of Weil bounds; applied to P1 over an algebraically closed point it yields the required vanishing.",
+      "fix": "Assign this input to the early EDC.4 projective-bundle computation (or its existing upstream computation if a precise supplier is identified), with H*(P1,Q_l)=Q_l in degree 0 plus Q_l(−1) in degree 2 and zero degree 1. DWP.4 and DWP.6 both import that early result. Update item 165 and the reader; remove the instruction to defer the order check to the assembler. Do not add DWP.6 → DWP.4. Verify the actual stage graph remains acyclic."
+    },
+    {
+      "id": "RT-PAPER-DELIGNE-74/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DELIGNE-74.result.json, s8-GOS-formula (index 205), route 4 and reader route 4; compare RT-AREA-finitefields/3 and FiniteFieldsAndCharacterSums packet requests",
+      "claim": "Route 4 assigns the general Grothendieck–Ogg–Shafarevich theorem to FF.2 as part of its proof, and the review leaves FF.2 free to construct it. This conflicts with the already confirmed common-owner instruction: FF.2 is a consumer of the general curve Euler-characteristic theorem, requested in the étale-duality direction. The fact that no registered stage yet supplies it is a remaining request, not permission for another owner.",
+      "evidence": "Weil I 8.11, p.306, imports the Euler-characteristic formula by reference to Raynaud, Bourbaki 286; it does not prove it as a polynomial-sum theorem. RT-AREA-finitefields/3 is independently confirmed and requests one EDC owner after EDC.2. The current partial FiniteFieldsAndCharacterSums packet has an EDC.2 GOS request needed by h1c-conductor-bound, artin-schreier-sum-on-curve-bound and deligne-cohomology-of-polynomial-sheaf, plus an explicit rescope proposal. No registered EDC.2:euler-characteristic vertex appears in the fresh stage set.",
+      "fix": "Route the general item to the shared étale-duality owner/request consistently with the confirmed area finding, and retain only its Artin–Schreier specialization/application in FF.2. Reuse the existing GOS request instead of creating another construction. Keep the exact smooth-curve, lisse-coefficient and l≠p hypotheses and the general genus term. If a new EDC layer is required, carry an explicit proposal/brief under section 16 rather than treating the suggested substage ID as already planned. Preserve the separate R01.3 local-conductor route. Update route/report counts after splitting as needed."
+    },
+    {
+      "id": "RT-PAPER-DELIGNE-74/5",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-DELIGNE-74.result.json, note of s8-8.2-ramanujan-petersson (index 181)",
+      "claim": "The note presents the trace bound and root-purity formulation as equivalent using only alpha+beta=a_p, alpha beta=epsilon(p)p^(k−1), and |epsilon(p)|=1. Those algebraic relations do not prove the reverse implication; the root-purity assertion is stronger without an additional normalized-reality relation.",
+      "evidence": "Weil I 8.2, p.302, proves root purity by identifying both roots with Frobenius eigenvalues in smooth-projective cohomology. For the note's proposed elementary implication set r=p^((k−1)/2)>0, epsilon=1, alpha=2ir and beta=−ir/2. Then alpha beta=r² and |alpha+beta|=3r/2≤2r, but |alpha|=2r and |beta|=r/2. This refutes the claimed sufficiency of those three identities, not the modular-form theorem.",
+      "fix": "Make the proof direction explicit: geometric eigenspace purity gives both root moduli, and the triangle inequality gives the trace bound. Remove the assertion that the three listed relations suffice for equivalence. If an actual equivalence lemma is wanted, add and justify a_p/sqrt(epsilon(p)) real (with a chosen unit square root), for example via the appropriate Hecke adjoint relation, before applying the quadratic discriminant argument. Include the imaginary-trace counterexample as a negative test for the generic linear-algebra interface."
+    }
+  ],
+  "upstreamNotes": [],
+  "inputHashes": {
+    "research/blueprint/papers/PAPER-DELIGNE-74.result.json": "3a3ababb6a3926ab0f3fe94d86e12fe2d3c75dc6992fc3587e8af5b807a6a7ab",
+    "research/blueprint/papers/PAPER-DELIGNE-74.md": "4d6aefd0241cc6a6a1347f55e262838be4fa9a8c582305901d3991c9bc015bf3",
+    "research/blueprint/papers/PAPER-DELIGNE-74.review.json": "726efca50b4b64785a425d27672e382c27feab77d03319a559711570ee39c9b8",
+    "research/blueprint/packets/FiniteFieldsAndCharacterSums.json": "b3b368bbcfc93c75d503587493defa9407c5b9a6a0902a7f5d6da03e99f233d6"
+  }
+}
