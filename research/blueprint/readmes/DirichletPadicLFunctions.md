@@ -37985,3 +37985,513 @@ Exact controls check578 reflection pairs,60 reflected normalizers and60 fourth p
 All73 captured inputs are unchanged from5379; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
 
 The separate partial signature file also compiled with zero errors and 3,907 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1f9ee6507d34947714fbe5571b46df51cbe6618422686331baf63c4528f1dbc1.
+
+
+## Explicit integral rational Gamma logarithm orbit sums and averages
+
+Eighteen L3 nodes make the actual integral rational orbit, finite logarithm sum and period mean explicit, with their full basic APIs and endpoint, reflection, Frobenius and period laws. All1,201 predecessor nodes,914baseline records,20findings and six source versions remain whole.
+
+Uses the fully read Gross–Koblitz1979 published575–577, including the least-period phi and the next universal odd-distribution paragraph. Reads the pinned positive fractional representative/decomposition/translation proofs and the existing native rational-circle API; the latter is not replaced or needed by these finite integral rational functions. Reuses the fully read Coleman Iwasawa-logarithm owner boundary and existing exact period lemmas. Searches open Mathlib PRs and Zulip discovery results for Gross–Koblitz/Morita Gamma; no relevant candidate was identified in the returned results, which is not an exhaustive absence claim.
+
+### The actual integral rational orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit` — `DirichletPadic.grossKoblitzIntegralOrbit`
+
+Define X_j(q) in Z_p by p^j*q minus the integer toIocDiv(0,p^j*q) for period1. Its image in Q_p is exactly <p^j*q> in(0,1].
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Embed the given integral rational q into native Z_p using its norm bound. Multiply by the native integer p^j and subtract the native integer toIocDiv of the rational argument.
+2. This expression stays in Z_p. The existing positive fractional representative is defined by exactly the same subtraction in Q; casting it to Q_p proves the comparison.
+3. The complete integralOrbit definition and its APIs handle negative rationals and integer endpoints. No choice of approximate p-adic points, new quotient or hidden integrality assumption is used.
+
+**Prerequisites:** `mathlib:toIocDiv`, `mathlib:toIocMod`, `mathlib:PadicInt.ext`.
+
+**Uses:**
+
+- Gross–Koblitz1979, published576–577, least-period phi and its reflection/Frobenius laws: Provides explicit arguments and finite evaluations with the positive fractional convention and least-period normalization.
+- DirichletPadicLFunctions:L3/gross-koblitz-weighted-log-distribution and gross-koblitz-averaged-log-distribution: Supplies the actual integral orbit family and distinctly named sums and means used by the proved period formulas; prevents erasing the period ratios.
+
+**API:**
+
+- `grossKoblitzIntegralOrbit_coe` (coercion): The Q_p image of X_j(q) equals the rational positive fractional representative <p^j*q>.
+- `grossKoblitzIntegralOrbit_unique` (extensionality): Any native integral point with that Q_p image equals X_j(q); the integrality proof does not affect the value.
+- `grossKoblitzIntegralOrbit_integer` (simp): For an integer n, X_j(n)=1 at every index.
+- `grossKoblitzIntegralOrbit_translation` (compatibility): X_j(q+n)=X_j(q) for every integer n and the corresponding integral inputs.
+- `grossKoblitzIntegralOrbit_frobenius` (relation): X_j(p*q)=X_(j+1)(q).
+- `grossKoblitzIntegralOrbit_periodic` (compatibility): Any period of the rational positive fractional sequence is a period of X.
+- `grossKoblitzIntegralOrbit_neg` (relation): X_j(−q)=1 if <p^j*q>=1, and otherwise X_j(−q)=1−X_j(q).
+- `grossKoblitzIntegralOrbit_period_exists` (characterisation): For q=n/D with D>0 and gcd(p,D)=1, X has a positive period dividing every period.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.integer_class_is_one` (degenerate): The integer zero class has positive representative1 at every index.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.eighths_first_rotation` (computation): Multiplication by3 sends the initial1/8point to3/8.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.unique_actual_lift` (characterisation): A native integral point with the same rational coe equals the orbitpoint.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.zero_representative_rejected` (non-example): Using zero for the zero class violates the positive interval convention.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### The rational image of the integral orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe` — `DirichletPadic.grossKoblitzIntegralOrbit_coe`
+
+For every natural j, the native inclusion sends X_j(q) to <p^j*q> in Q_p.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Unfold only the integral-point constructor. Native Z_p multiplication, powers, subtraction and integer casts agree with those in Q_p.
+2. Expand the native toIocMod definition and cast the rational subtraction. Both expressions become p^j*q minus the same integer. Complete integralOrbit_coe proves their equality; integralOrbit_unique follows from PadicInt.ext.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit`, `mathlib:toIocMod`, `mathlib:PadicInt.ext`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.ternary_thirteenths_coe` (computation): The second thirteenth orbitpoint is the actual rational6/13.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Integer translation of the integral orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-translation` — `DirichletPadic.grossKoblitzIntegralOrbit_translation`
+
+For every integer n, X_j(q+n)=X_j(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Compare both points after the injective Z_p inclusion. Their rational arguments differ by the integer p^j*n.
+2. Use the native equality criterion toIocMod_eq_toIocMod, with the appropriate negative difference witness, then cast the equality back. Complete integralOrbit_translation keeps the input integrality certificates explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `mathlib:toIocMod_eq_toIocMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.negative_integer_translation` (compatibility): Translating1/8by−2 preserves every orbitpoint.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Frobenius shift of the integral orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-frobenius` — `DirichletPadic.grossKoblitzIntegralOrbit_frobenius`
+
+For every j, X_j(p*q)=X_(j+1)(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Use the preceding rational-image comparison on both sides.
+2. The rational arguments p^j*(p*q) and p^(j+1)*q are equal by the power law. Injectivity of Z_p→Q_p gives the exact orbit shift, including the integer class.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `mathlib:PadicInt.ext`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.frobenius_shift` (compatibility): The orbit of3/8is the one-step shift ofthe orbit of1/8.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Transport of rational orbit periods
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-periodic` — `DirichletPadic.grossKoblitzIntegralOrbit_periodic`
+
+Every native Function.Periodic certificate for j↦<p^j*q> transports to j↦X_j(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. For each index compare X_(j+d) and X_j in Q_p using the coe theorem.
+2. Apply congrArg for the rational cast to the supplied periodicity equality, and use PadicInt.ext. This is genuine periodicity at every index, not just equality at the first and last terms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `mathlib:Function.Periodic`, `mathlib:PadicInt.ext`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.eighths_period_two` (computation): The actual ternary eighths orbit has period2.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### The integer-class integral orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-integer` — `DirichletPadic.grossKoblitzIntegralOrbit_integer`
+
+For every integer n and every j, X_j(n)=1.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. The rational p^j*n is an integer. Translate it to zero using toIocMod_add_zsmul.
+2. The native positive fractional representative at the left endpoint0 is the right endpoint1. The coe theorem and injectivity transport this equality to Z_p. This endpoint convention is essential for the source’s Gamma argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `mathlib:toIocMod_add_zsmul`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.negative_integer_endpoint` (degenerate): The positive fractional representative of−2is1.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Negation of the integral rational orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-negation` — `DirichletPadic.grossKoblitzIntegralOrbit_neg`
+
+The reflected point is X_j(−q)=1 when <p^j*q>=1, and X_j(−q)=1−X_j(q) otherwise.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Write the rational argument r as its positive representative u plus the integer toIocDiv(r), using toIocMod_add_toIocDiv_zsmul; native membership gives0<u≤1.
+2. If u=1, the positive representative of −r is1. Otherwise0<1−u<1, and −r differs from1−u by the integer −toIocDiv(r)−1. The native toIocMod_eq_iff proves both cases; complete fractional_neg performs this argument.
+3. Cast the resulting piecewise rational equality into Q_p and apply the coe comparison. Complete integralOrbit_neg includes the endpoint case; omitting it would incorrectly send the integer class to0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `mathlib:toIocMod_mem_Ioc`, `mathlib:toIocMod_add_toIocDiv_zsmul`, `mathlib:toIocMod_eq_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.negative_eighths` (computation): The negative1/8orbit starts at7/8.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.integer_reflection_exception` (non-example): At the integerclass both signs represent1, so the formula1−x alone would give0.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### The finite Gamma logarithm orbit sum
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum` — `DirichletPadic.grossKoblitzLogOrbitSum`
+
+Define S_f(q)=sum_(0≤j<f)ell(iota(Gamma(X_j(q)))) in K. The source phi(q) is S_d(q) for its least positive orbit period d.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Use the preceding actual integral orbit and the existing unit-valued Morita Gamma. Apply the supplied ring homomorphism and logarithm, then form the native finite range sum.
+2. The empty and singleton formulas and successor recursion follow from the native range-sum API. The product comparison expands the logarithm of the actual unit Gamma product, so every logarithm argument is nonzero.
+3. Integer translation, the endpoint-aware reflection theorem and a complete-period Frobenius shift give the source relations. Repeating a period multiplies the unnormalized sum by its repetition count; a sum is not a period mean.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-translation`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-frobenius`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-integer`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-negation`, `DirichletPadicLFunctions:L3/morita-gamma`, `DirichletPadicLFunctions:L3/morita-gamma-reflection-pair-square`, `DirichletPadicLFunctions:L3/gross-koblitz-period-sum`, `ColemanIntegration:L0/iwasawa-logarithm`, `mathlib:Finset.prod_range_succ`, `mathlib:Units.coe_prod`.
+
+**Uses:**
+
+- Gross–Koblitz1979, published576–577, least-period phi and its reflection/Frobenius laws: Provides explicit arguments and finite evaluations with the positive fractional convention and least-period normalization.
+- DirichletPadicLFunctions:L3/gross-koblitz-weighted-log-distribution and gross-koblitz-averaged-log-distribution: Supplies the actual integral orbit family and distinctly named sums and means used by the proved period formulas; prevents erasing the period ratios.
+
+**API:**
+
+- `grossKoblitzLogOrbitSum_zero` (simp): S_0(q)=0.
+- `grossKoblitzLogOrbitSum_one` (simp): S_1(q)=ell(iota(Gamma(X_0(q)))).
+- `grossKoblitzLogOrbitSum_succ` (relation): S_(f+1)(q)=S_f(q)+ell(iota(Gamma(X_f(q)))).
+- `grossKoblitzLogOrbitSum_product` (compatibility): With the logarithm laws, S_f(q) is the logarithm of the actual product of the f unit Gamma values.
+- `grossKoblitzLogOrbitSum_translation` (compatibility): S_f(q+n)=S_f(q) for integer n.
+- `grossKoblitzLogOrbitSum_integer` (simp): S_f(n)=0 for integer n and the supplied root-vanishing logarithm.
+- `grossKoblitzLogOrbitSum_neg` (relation): S_f(−q)=−S_f(q) with the supplied logarithm laws.
+- `grossKoblitzLogOrbitSum_frobenius` (relation): If X_f(q)=X_0(q), then S_f(p*q)=S_f(q).
+- `grossKoblitzLogOrbitSum_period` (relation): If d is an orbit period dividing f, then S_f(q)=(f/d)*S_d(q).
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.empty_log_orbit` (degenerate): The length-zero Gamma logarithm orbit sum iszero.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.single_log_orbit` (computation): Lengthone evaluates the actual Gamma logarithm at the initial integralpoint.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.sum_counts_all_terms` (non-example): A constant-one test function makes the sum ofthree terms3, distinguishing it fromthe mean.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.integer_log_sum` (compatibility): The actual logarithm sum on an integer class vanishes.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### The Gamma logarithm reflection law
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-reflection` — `DirichletPadic.moritaGamma_log_reflection`
+
+For every x in Z_p, ell(iota(Gamma(1−x)))=−ell(iota(Gamma(x))).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. The previously proved all-prime reflection-pair square theorem gives (Gamma(x)*Gamma(1−x))^2=1.
+2. Map this torsion identity through iota. The supplied logarithm kills the resulting root of unity, while multiplicativity expands its logarithm as the sum of the two logarithms; both factors are units.
+3. Rearrange the zero sum. Complete log_reflection uses the all-prime square identity, so the dyadic sign distinction is respected.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-reflection-pair-square`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.ternary_log_reflection` (compatibility): The actual Gamma logarithms atxand1−xsumtozero.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Vanishing of integer-class logarithm sums
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer` — `DirichletPadic.grossKoblitzLogOrbitSum_integer`
+
+For every integer n and every length f, S_f(n)=0.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Every integral orbit point is1. Gamma recurrence at0 and Gamma(0)=1 give Gamma(1)=−1.
+2. This is a root of order dividing2, so its image has logarithmzero. Sum the zero terms. Complete log_gamma_one supplies this routine torsion step and logOrbitSum_integer proves the finite-sum assertion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-integer`, `DirichletPadicLFunctions:L3/morita-gamma`, `ColemanIntegration:L0/iwasawa-logarithm`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.minus_two_log_sum` (degenerate): Every finite logarithm orbit sum at−2vanishes.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Oddness of finite logarithm orbit sums
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-negation` — `DirichletPadic.grossKoblitzLogOrbitSum_neg`
+
+For every integral rational q and length f, S_f(−q)=−S_f(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Apply the integral-orbit negation formula term by term. Off the integer endpoint, the logarithmic Gamma reflection law negates the summand.
+2. At the endpoint both reflected points are1 and both logarithms vanish since Gamma(1)=−1. Thus no incorrect zero representative enters the sum.
+3. Sum the pointwise negatives using native finite-sum negation. Complete logOrbitSum_neg proves the identity for every finite length, without a periodicity assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-negation`, `DirichletPadicLFunctions:L3/gross-koblitz-log-reflection`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.negative_orbit_sum` (compatibility): Negating a rationalpoint negates its Gamma logarithm sum.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Frobenius invariance of complete orbit sums
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-frobenius` — `DirichletPadic.grossKoblitzLogOrbitSum_frobenius`
+
+If X_f(q)=X_0(q), then S_f(p*q)=S_f(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. The integral Frobenius law identifies the new summands with the original ones at indices j+1.
+2. The native range-sum successor identities compare sums over indices1 through f and0 through f−1. The endpoint equality cancels the two boundary terms. Complete logOrbitSum_frobenius also includes f=0.
+3. A positive period supplies the displayed endpoint equality by evaluating periodicity at0. A general incomplete segment does not supply it.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-frobenius`, `mathlib:Finset.prod_range_succ`, `mathlib:Finset.prod_range_succ'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.complete_eighths_frobenius` (compatibility): A complete period2sum is unchanged on passingfrom1/8to3/8.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Repetition of actual Gamma logarithm orbit sums
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-repetition` — `DirichletPadic.grossKoblitzLogOrbitSum_period`
+
+If the actual integral orbit has period d and d divides f, then S_f(q)=(f/d)*S_d(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Compose the supplied native orbit periodicity with the actual Gamma logarithm; congrArg proves periodicity of the summand sequence.
+2. Apply the previously proved finite period-sum theorem. Complete logOrbitSum_period retains the natural quotient f/d exactly; it never identifies an unnormalized sum with its average.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-period-sum`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.six_eighths_terms` (computation): Length6repeats the period2sumthreetimes.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Integer translation of finite logarithm orbit sums
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation` — `DirichletPadic.grossKoblitzLogOrbitSum_translation`
+
+For every integer n and finite length f, S_f(q+n)=S_f(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Apply the integral-orbit translation theorem separately to every summand.
+2. The Gamma, coefficient homomorphism and logarithm arguments then agree exactly, with no use of logarithm laws or a period certificate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-translation`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.log_translation` (compatibility): Integertranslations preservefiniteGamma logarithm sums.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### The Gamma logarithm orbit average
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average` — `DirichletPadic.grossKoblitzLogOrbitAverage`
+
+Define A_f(q)=S_f(q)/f in K. For a positive orbit period this is the corrected normalized function; for f=0 it is the totalized value0.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Divide the actual finite logarithm sum by the native natural cast of f in the coefficient field. No inverse in Z_p is required or asserted.
+2. For positive f in characteristic zero, multiplication by f recovers S_f. The mean inherits integer translation and reflection, and Frobenius invariance when the endpoint closes.
+3. The preceding period-average theorem makes A_f independent of the positive period chosen. The least-period mean S_d/d is therefore intrinsic, while the unnormalized source value remains S_d.
+4. The corrected mean need not belong to p*Z_p. For the canonical Iwasawa logarithm at p=3,q=2/13, the least orbit is2/13,6/13,5/13. Modulo9 their Gamma residues are1,4,1, whose logarithms are0,3,0: log(u)=(u^2−1)/2 modulo9 because all later terms have valuation at least2. Hence S_3=3 modulo9 and A_3=1 modulo3. Two independent exact factorial implementations and the explicit logarithm-tail bound verify this, including precisions2 through5. This does not show nonintegrality, nor refute the original unnormalized codomain claim; the source’s universal-distribution target must be assessed afresh for the corrected normalization.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-sum`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-translation`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-integer`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-negation`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-frobenius`, `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-repetition`, `DirichletPadicLFunctions:L3/gross-koblitz-period-average`.
+
+**Uses:**
+
+- Gross–Koblitz1979, published576–577, least-period phi and its reflection/Frobenius laws: Provides explicit arguments and finite evaluations with the positive fractional convention and least-period normalization.
+- DirichletPadicLFunctions:L3/gross-koblitz-weighted-log-distribution and gross-koblitz-averaged-log-distribution: Supplies the actual integral orbit family and distinctly named sums and means used by the proved period formulas; prevents erasing the period ratios.
+
+**API:**
+
+- `grossKoblitzLogOrbitAverage_zero` (simp): A_0(q)=0 under totalized field division; period-independence excludes this length.
+- `grossKoblitzLogOrbitAverage_one` (simp): A_1(q)=ell(iota(Gamma(X_0(q)))).
+- `grossKoblitzLogOrbitAverage_mul` (characterisation): For positive f in characteristic zero, f*A_f(q)=S_f(q).
+- `grossKoblitzLogOrbitAverage_integer` (simp): A_f(n)=0 for integers n under the supplied root-vanishing logarithm.
+- `grossKoblitzLogOrbitAverage_translation` (compatibility): A_f(q+n)=A_f(q) for integer n.
+- `grossKoblitzLogOrbitAverage_frobenius` (relation): If X_f(q)=X_0(q), then A_f(p*q)=A_f(q).
+- `grossKoblitzLogOrbitAverage_neg` (relation): A_f(−q)=−A_f(q) under the supplied logarithm laws.
+- `grossKoblitzLogOrbitAverage_period` (compatibility): If d is an orbit period dividing positive f, then A_f(q)=A_d(q) in characteristic zero.
+- `grossKoblitzLogOrbitAverage_independent` (characterisation): Any two positive orbit periods give the same mean in characteristic zero, even when neither period divides the other.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.empty_average_convention` (degenerate): The totalized lengthzero mean iszero, but independence requires positiveperiods.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.constant_mean_is_one` (computation): The mean ofthe constant-one test functionover3termsis1.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.mean_distinct_from_sum` (non-example): The constant-one test function atlength3has mean1andsum3.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.recover_sum_by_period` (compatibility): Multiplying the period3meanby3recovers its sum even inQ3.
+- `SuggestedGrossKoblitzOrbitFunctionsTests.codomain_finite_certificate` (non-example): The exact canonical-log certificate sum3mod9has quotient1mod3, which isnotzero; the analytic logseries boundaryis recordedseparately.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Invariance of an orbit average under period repetition
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average-period` — `DirichletPadic.grossKoblitzLogOrbitAverage_period`
+
+In characteristic zero, if d is an orbit period dividing positive f, then A_f(q)=A_d(q).
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Compose orbit periodicity with the actual Gamma logarithm to get the period certificate for the summands.
+2. Apply the previously proved period_average theorem to the actual sequence. The theorem accounts for exact natural division, nonzero field casts and cancellation of the repetition factor.
+3. Complete logOrbitAverage_period works when p divides a period. The theorem takes place in K; computing the resulting residue requires enough precision to survive division.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average`, `DirichletPadicLFunctions:L3/gross-koblitz-period-average`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.ternary_multiple_period_average` (computation): A length6average agrees with the length2average.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### Independence from the chosen positive orbit period
+
+`DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average-independence` — `DirichletPadic.grossKoblitzLogOrbitAverage_independent`
+
+For any two positive periods d,e of the actual integral orbit, A_d(q)=A_e(q) in characteristic zero.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. Use the positive common length d*e. Both d and e divide it, irrespective of whether either period divides the other.
+2. Apply the preceding period-average invariance theorem twice, once for each divisor, and compose the equalities. Complete logOrbitAverage_independent proves the intrinsic value without constructing a private period or quotient type.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-log-orbit-average-period`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.incomparable_periods` (compatibility): The means atlengths4and6agree, although neither length divides theother.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+### A minimal positive period of the constructed integral orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-minimal-period` — `DirichletPadic.grossKoblitzIntegralOrbit_period_exists`
+
+For D>0, gcd(p,D)=1 and integral q=n/D, the constructed X has a positive period d that divides every period of X.
+
+**Hypotheses:** The prime p may be2. The domain is an actual rational number q together with the native integrality proof norm(q in Q_p)≤1. The integral orbit X_j is the unique Z_p point whose Q_p image is the positive fractional representative of p^j*q. The representative interval is(0,1], including X_j=1 for the integer class. No replacement rational or p-adic carrier is introduced. Gamma is actual unit-valued Morita Gamma. For the logarithmic functions K is a field, iota:Z_p→K is a ring homomorphism and ell:K→K is the existing consumer parameter for the Coleman Iwasawa logarithm. Reflection and integer-vanishing statements require its multiplicativity on nonzero arguments and vanishing on every positive-order root of unity. Pure finite-sum and period identities hold for any ell. The actual logarithm and its analytic coefficient interface remain with their existing owners. A finite length f need not be a period. Frobenius invariance of a sum requires X_f=X_0; repetition requires a period d dividing f. Averages use field division; characteristic zero and positive lengths are required for period independence. The totalized empty average is zero by the field convention, and is excluded from the independence theorem. For the source unnormalized function choose its least positive orbit period d and evaluate the finite sum S_d(q). The corrected normalized function uses A_d(q)=S_d(q)/d. These are distinct functions. Divisibility of a period by p is permitted in K, but does not permit treating that denominator as a unit of Z_p.
+
+**Proof:**
+
+1. The integral-orbit coe theorem gives exactly the rational-lift hypotheses of the previously proved integral period-existence theorem.
+2. That theorem uses Euler’s positive totient period and the native least-witness construction to produce the minimal period and its divisibility property. Specialize the multiplying integer to the prime p.
+3. Complete integralOrbit_period_exists applies it to the actual constructed sequence, so the source least-period specialization and corrected period mean both have concrete inputs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-coe`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-orbit-periodic`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-period-existence`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzOrbitFunctionsTests.least_thirteenth_period_three` (computation): The2/13ternary orbit hasperiod3andneither1nor2isaperiod.
+
+**Acceptance:** Every displayed test uses the actual native integral orbit or actual Morita Gamma. Exact rational and finite-ring controls and the complete native consumer proofs are retained; implementation status remains unchecked.
+
+**Source:** Section3, published576–577/PDF8–9: the least-period definition of phi, relations(3.4)–(3.6), and the following paragraph on universal odd distributions. Published575 supplies the underlying reflection and multiplication formulas; these complete pages were read in the retained scan. The source motivates the actual rational Gamma logarithm orbit sum and its reflection/Frobenius laws. The period mean is the separately named correction proved in the preceding checkpoint, not the source’s unnormalized phi. The E18 finding is preserved. This checkpoint supplies concrete definitions and native APIs for the already established period formulas and records the corrected normalization’s codomain boundary without claiming a new published error or an established universality theorem.
+
+**Remaining:** The finite actual rational orbit, unnormalized sum and distinct mean now have concrete definitions and APIs, including endpoint-aware reflection, Frobenius and period independence. Next connect the named functions to the corrected distribution theorem for all integral rational inputs, then assess the corrected universal odd-distribution target against Kubert, whose body remains unread. The corrected mean cannot inherit the source’s p*Z_p codomain without qualification: the p3,2/13 witness gives a unit mean. No nonintegrality or new source error is asserted. Continue the original Katz/Fermat and external Stickelberger proof routes and remaining Ferrero–Greenberg/L3 source coverage. Both RD.6 Dwork interfaces and the inherited Coleman/LAD analytic logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.
+
+### Explicit integral rational Gamma logarithm orbit sums and averages validation
+
+All 1201 predecessor nodes, 914 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 18 nodes, 30 named suggested declarations and 29 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1479 reachable nodes, 6888 edges and 1082 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. New integral-orbit routes end in prior local nodes and pinned native facts. Logarithmic routes reuse ColemanIntegration:L0/iwasawa-logarithm and its existing LocallyAnalyticDistributions:L1 analytic-functions interface request; no new request or owner construction is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5383 verbatim and adds3definitions and29complete lemmas, totaling38definitions and653lemmas. Thirty suggested declarations specialize the native statements to actual Morita Gamma;29typed tests include integer endpoints, negative inputs, rational rotations, distinct sum/mean normalization and a finite codomain certificate. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls check14,848 positive orbit points,14,848 repetitions,29,696 translations,14,848 Frobenius shifts,14,848 endpoint-aware reflections and14,848 denominator integrality cases. At odd primes,249 cases each check logarithm oddness, Frobenius and translation;498 repeat the log sum and373 compare admissible modular means. The separate p3 period3 codomain certificate uses two factorial methods, four precisions and an explicit log-tail bound. Exact Fraction orbit checks include negative rational inputs, integral endpoints, translation, Frobenius, reflection and period repetition. Canonical unit logarithms at odd primes use exact rational truncated series with the explicit valuation tail bound. Modular mean comparisons use unit denominators; the separate p3 period3 certificate accounts for precision loss on division. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs are unchanged from5383; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
+
+The separate partial signature file also compiled with zero errors and 3,966 expected placeholder warnings across 3,604 pinned source modules. It includes all 30 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 190ff20123029d9dcc3f4c58b0a77f9f9dff5babe83dd2fbe1466ff468444a0c.
