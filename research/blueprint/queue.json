@@ -39634,7 +39634,8 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4257"
   },
   {
    "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
