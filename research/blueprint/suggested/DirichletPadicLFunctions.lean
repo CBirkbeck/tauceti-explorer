@@ -17995,3 +17995,159 @@ example
       (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m)))
  : HasSum (fun m => (3 : ℚ_[3])^(m+2)*v (m+2)) (moritaDifferenceExtension v 3-3*v 1) := by sorry
 end DirichletPadic.SuggestedMoritaInverseBoundsTests
+
+/- The second derivative and actual translated reciprocal means. -/
+
+namespace DirichletPadic
+noncomputable section
+open scoped Classical
+open Filter
+open scoped Topology ENNReal
+variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K]
+
+lemma moritaScalarSeries_deriv (f : K → K) (v : ℕ → K) (r : ℝ≥0∞)
+    (hf : HasFPowerSeriesOnBall f (FormalMultilinearSeries.ofScalars K v) 0 r) :
+    HasFPowerSeriesOnBall (deriv f)
+      (FormalMultilinearSeries.ofScalars K (fun m => ((m+1 : ℕ) : K)*v (m+1))) 0 r := by sorry
+
+lemma moritaDifferenceExtension_second_hasSum (v : ℕ → K) (hr : (1 : ℝ≥0∞)≤(FormalMultilinearSeries.ofScalars K v).radius)
+    (z : K) (hz : ‖z‖<1) :
+    HasSum (fun m => z^m * (((m+2 : ℕ) : K)*((m+1 : ℕ) : K)*v (m+2)))
+      (iteratedDeriv 2 (moritaDifferenceExtension v) z) := by sorry
+
+omit [CompleteSpace K] in
+lemma moritaInverseKernel_geometric_hasSum (a z : K) (ha : ‖a‖=1) (hz : ‖z‖<1) :
+    HasSum (fun m => z^m*((-1 : K)^m*a^(-((m+1 : ℕ) : ℤ)))) (a+z)⁻¹ := by sorry
+
+variable (p : ℕ) [Fact p.Prime] [NormedAlgebra ℚ_[p] K]
+
+omit [CompleteSpace K] in
+lemma moritaReciprocalFiniteMean_hasSum (n : ℕ) (z : K) (hz : ‖z‖<1) :
+    HasSum (fun m => z^m*((-1 : K)^m*
+      (((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+        ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+          (a : K)^(-((m+1 : ℕ) : ℤ)))))
+      (((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+        ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else ((a : K)+z)⁻¹) := by sorry
+
+omit [CompleteSpace K] [NormedAlgebra ℚ_[p] K] in
+lemma moritaSecondCoefficient_tendsto [CharZero K]
+     (ι : ℤ_[p] →+* K) (ℓ : K → K) (v : ℕ → K)
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) (m : ℕ) :
+    Tendsto (fun n => (-1 : K)^m *
+      (((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+        ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+          (a : K)^(-((m+1 : ℕ) : ℤ)))) atTop
+      (𝓝 (((m+2 : ℕ) : K)*((m+1 : ℕ) : K)*v (m+2))) := by sorry
+
+omit [CompleteSpace K] in
+lemma moritaSecondCoefficient_norm [CharZero K] [IsUltrametricDist K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (m n : ℕ) :
+    ‖(-1 : K)^m * (((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+        ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else
+          (a : K)^(-((m+1 : ℕ) : ℤ)))‖≤moritaMeanBoundConstant (K:=K) p (moritaModulus p) := by sorry
+
+lemma moritaReciprocalMean_second_tendsto [CharZero K] [IsUltrametricDist K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (ℓ : K → K) (v : ℕ → K)
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) (z : K) (hz : ‖z‖<1) :
+    Tendsto (fun n => ((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+      ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else ((a : K)+z)⁻¹)
+      atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) z)) := by sorry
+
+omit [CompleteSpace K] [NormedAlgebra ℚ_[p] K] in
+lemma moritaShiftedReciprocalMean_eq
+     (ι : ℤ_[p] →+* K) (n : ℕ) (z : ℤ_[p]) :
+    moritaShiftedMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) 2) n z
+      (fun x => (ι x)⁻¹) =
+      ((moritaLevel p (moritaModulus p) n : ℕ) : K)⁻¹ *
+        ∑ a ∈ Finset.range (moritaLevel p (moritaModulus p) n), if p ∣ a then 0 else ((a : K)+ι z)⁻¹ := by sorry
+
+lemma moritaShiftedMean_secondDeriv_tendsto [CharZero K] [IsUltrametricDist K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (ℓ : K → K) (v : ℕ → K)
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m)))
+    (z : ℤ_[p]) (hz : ‖z‖≤‖(moritaModulus p : ℤ_[p])‖) :
+    Tendsto (fun n => moritaShiftedMean p
+      (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) 2) n z (fun x => (ι x)⁻¹))
+      atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) (ι z))) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaSecondDerivativeTests
+open Filter
+open scoped Topology ENNReal
+-- derivative_linear_series
+example : HasFPowerSeriesOnBall (deriv (fun z : ℚ_[2] => 7*z)) (FormalMultilinearSeries.ofScalars ℚ_[2] (fun m => if m=0 then (7 : ℚ_[2]) else 0)) 0 1 := by sorry
+-- derivative_quadratic_series
+example : HasFPowerSeriesOnBall (deriv (fun z : ℚ_[3] => z^2)) (FormalMultilinearSeries.ofScalars ℚ_[3] (fun m => if m=1 then (2 : ℚ_[3]) else 0)) 0 1 := by sorry
+-- second_cubic_at_four
+example : iteratedDeriv 2 (moritaDifferenceExtension (fun m => if m=2 then (1/2 : ℚ_[2]) else if m=3 then -1/6 else 0)) 4=-3 := by sorry
+-- second_geometric_at_two
+example : HasSum (fun m => (2 : ℚ_[2])^m*(((m+2 : ℕ) : ℚ_[2])*((m+1 : ℕ) : ℚ_[2]))) (-2) := by sorry
+-- second_linear_zero
+example : iteratedDeriv 2 (moritaDifferenceExtension (fun m => if m=1 then (7 : ℚ_[3]) else 0)) 3=0 := by sorry
+-- inverse_geometric_positive
+example : HasSum (fun m => (4 : ℚ_[2])^m*((-1 : ℚ_[2])^m*(5 : ℚ_[2])^(-((m+1 : ℕ) : ℤ)))) (1/9) := by sorry
+-- inverse_geometric_negative
+example : HasSum (fun m => (2 : ℚ_[2])^m*((-1 : ℚ_[2])^m*(-3 : ℚ_[2])^(-((m+1 : ℕ) : ℤ)))) (-1) := by sorry
+-- inverse_geometric_boundary
+example : ¬Summable (fun m : ℕ => (-1 : ℚ_[3])^m) := by sorry
+-- finite_reciprocal_dyadic
+example : (((moritaLevel 2 (moritaModulus 2) 0 : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 (moritaModulus 2) 0), if 2 ∣ a then 0 else ((a : ℚ_[2])+4)⁻¹)=3/35 := by sorry
+-- finite_reciprocal_ternary
+example : (((moritaLevel 3 (moritaModulus 3) 0 : ℕ) : ℚ_[3])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 3 (moritaModulus 3) 0), if 3 ∣ a then 0 else ((a : ℚ_[3])+3)⁻¹)=3/20 := by sorry
+-- second_coefficient_constant
+example
+     (ι : ℤ_[2] →+* ℚ_[2]) (ℓ : ℚ_[2] → ℚ_[2]) (v : ℕ → ℚ_[2])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) : Tendsto (fun n => (-1 : ℚ_[2])^0 * (((moritaLevel 2 (moritaModulus 2) n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 (moritaModulus 2) n), if 2 ∣ a then 0 else (a : ℚ_[2])^(-(1 : ℤ)))) atTop (𝓝 (2*v 2)) := by sorry
+-- second_coefficient_linear
+example
+     (ι : ℤ_[3] →+* ℚ_[3]) (ℓ : ℚ_[3] → ℚ_[3]) (v : ℕ → ℚ_[3])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 3 (moritaCharacterTwist 3 ι (moritaTorsionCharacterMap 3 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) : Tendsto (fun n => (-1 : ℚ_[3])^1 * (((moritaLevel 3 (moritaModulus 3) n : ℕ) : ℚ_[3])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 3 (moritaModulus 3) n), if 3 ∣ a then 0 else (a : ℚ_[3])^(-(2 : ℤ)))) atTop (𝓝 (6*v 3)) := by sorry
+-- second_finite_bound_dyadic
+example
+     (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+ (m n : ℕ) : ‖(-1 : ℚ_[2])^m*(((moritaLevel 2 (moritaModulus 2) n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 (moritaModulus 2) n), if 2 ∣ a then 0 else (a : ℚ_[2])^(-((m+1 : ℕ) : ℤ)))‖≤16 := by sorry
+-- second_finite_bound_ternary
+example
+     (ι : ℤ_[3] →+* ℚ_[3]) (hι : ∀ x : ℤ_[3], ‖ι x‖=‖x‖)
+ (m n : ℕ) : ‖(-1 : ℚ_[3])^m*(((moritaLevel 3 (moritaModulus 3) n : ℕ) : ℚ_[3])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 3 (moritaModulus 3) n), if 3 ∣ a then 0 else (a : ℚ_[3])^(-((m+1 : ℕ) : ℤ)))‖≤9 := by sorry
+-- reciprocal_second_at_two
+example
+     (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (v : ℕ → ℚ_[2])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) : Tendsto (fun n => ((moritaLevel 2 (moritaModulus 2) n : ℕ) : ℚ_[2])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 2 (moritaModulus 2) n), if 2 ∣ a then 0 else ((a : ℚ_[2])+2)⁻¹) atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) 2)) := by sorry
+-- reciprocal_second_at_three
+example
+     (ι : ℤ_[3] →+* ℚ_[3]) (hι : ∀ x : ℤ_[3], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[3] → ℚ_[3]) (v : ℕ → ℚ_[3])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 3 (moritaCharacterTwist 3 ι (moritaTorsionCharacterMap 3 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m))) : Tendsto (fun n => ((moritaLevel 3 (moritaModulus 3) n : ℕ) : ℚ_[3])⁻¹ * ∑ a ∈ Finset.range (moritaLevel 3 (moritaModulus 3) n), if 3 ∣ a then 0 else ((a : ℚ_[3])+3)⁻¹) atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) 3)) := by sorry
+-- shifted_reciprocal_dyadic
+example (ι : ℤ_[2] →+* ℚ_[2]) : moritaShiftedMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) 2) 0 4 (fun x => (ι x)⁻¹)=3/35 := by sorry
+-- shifted_reciprocal_ternary
+example (ι : ℤ_[3] →+* ℚ_[3]) : moritaShiftedMean 3 (moritaCharacterTwist 3 ι (moritaTorsionCharacterMap 3 ι) 2) 0 3 (fun x => (ι x)⁻¹)=3/20 := by sorry
+-- shifted_second_negative
+example
+     (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (v : ℕ → ℚ_[2])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m)))
+ : Tendsto (fun n => moritaShiftedMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) 2) n (-4) (fun x => (ι x)⁻¹)) atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) (ι (-4)))) := by sorry
+-- shifted_second_nonintegral
+example
+     (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (v : ℕ → ℚ_[2])
+    (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n
+      (fun x => moritaLogDivided ℓ m (ι x))) atTop (𝓝 (v m)))
+ (x : ℤ_[2]) (hx : 3*x=1) : Tendsto (fun n => moritaShiftedMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) 2) n (4*x) (fun x => (ι x)⁻¹)) atTop (𝓝 (iteratedDeriv 2 (moritaDifferenceExtension v) (ι (4*x)))) := by sorry
+end DirichletPadic.SuggestedMoritaSecondDerivativeTests

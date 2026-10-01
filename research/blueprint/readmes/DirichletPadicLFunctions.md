@@ -32008,3 +32008,259 @@ Exact controls pass36 principal-unit norms,432 inverse-kernel norms,3888 Lipschi
 Capture at c5c89c512a176033500404e38e01f394ecd89028 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5333. Source-register findings and owned interfaces are unchanged.
 
 The separate partial signature file also compiled with zero errors and 3,186 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a65d549a522cf89ca50e605eb633eb95c672ab0fb6aba1756d8217b7a80bbd59.
+
+
+## Morita’s second derivative and translated reciprocal means
+
+Nine L3 nodes identify the second derivative of the actual logarithmic coefficient model with normalized reciprocal means throughout the open unit disc and with the source’s shifted θ⁻¹ angular means on the closed q-disc. All997 predecessor nodes,760 baseline records,17 findings and14 requests remain whole.
+
+Rereads Morita p.261(iii) beside its displayed coefficient expansion and open-unit-disc claim. Reads the pinned derivative power-series theorem and proof, continuous linear composition, scalar multilinear coefficient formula, derivative-series coefficient evaluation and scalar coefficient recovery. Rereads the geometric HasSum proof, the additive finite-sum theorem generated from hasProd_prod, iterated-derivative successor and dominated-series limit interface. The reciprocal-sum proof and wider coefficient-field statement are explicitly worker-derived; generic analytic/logarithm ownership remains unchanged.
+
+### Differentiate a scalar power series on its actual ball
+
+`DirichletPadicLFunctions:L3/morita-scalar-series-derivative` — `DirichletPadic.moritaScalarSeries_deriv`
+
+If f has scalar power series v on a ball centered at0 with radius r, then deriv(f) has scalar power series m↦(m+1)v_(m+1) on the same ball.
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Apply the native HasFPowerSeriesOnBall.fderiv theorem, retaining the given radius and complete target.
+2. Compose its continuous-linear-map-valued series with evaluation at1, using the native continuous linear composition theorem. This turns the Frechet derivative into the scalar derivative.
+3. Evaluate each scalar multilinear coefficient on the all-ones vector. The native derivative-series coefficient identity gives(m+1)v_(m+1). The scalar multilinear product formula then identifies the whole series.
+4. The complete derivative_series proof checks the native power-series predicate, scalar coefficient recovery, and exact radius. It reuses native differentiation rather than introducing a new analytic carrier.
+
+**Prerequisites:** `mathlib:HasFPowerSeriesOnBall.fderiv`, `mathlib:ContinuousLinearMap.comp_hasFPowerSeriesOnBall`, `mathlib:FormalMultilinearSeries.apply_eq_prod_smul_coeff`, `mathlib:FormalMultilinearSeries.derivSeries_coeff_one`, `mathlib:FormalMultilinearSeries.coeff_ofScalars`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.derivative_linear_series` (computation): The derivative of7z has the constant scalar series7 on the unit ball.
+- `SuggestedMoritaSecondDerivativeTests.derivative_quadratic_series` (computation): The derivative of z² has the scalar series with coefficient2 in degree1.
+
+**Acceptance:** The input is the actual HasFPowerSeriesOnBall predicate; a bare coefficient sequence is insufficient.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### The second derivative is the twice-differentiated convergent series
+
+`DirichletPadicLFunctions:L3/morita-difference-second-series` — `DirichletPadic.moritaDifferenceExtension_second_hasSum`
+
+For radius(v)≥1 and‖z‖<1,Σ_(m≥0)z^m(m+2)(m+1)v_(m+2) has sum iteratedDeriv2(E_v)(z).
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Use the native representation of the scalar sum on its positive convergence ball. Apply the preceding scalar differentiation lemma twice without shrinking the ball.
+2. At z in the open unit disc, evaluate the resulting actual HasSum and simplify the shifted coefficients to(m+2)(m+1)v_(m+2).
+3. Rewrite E_v as the scalar sum plus the constant−v_0. Positive-order iterated derivatives ignore that constant, and the native successor formula identifies two scalar derivatives with iteratedDeriv2.
+4. The complete second_series proof establishes HasSum to the native derivative at the arbitrary point z.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-scalar-series-derivative`, `DirichletPadicLFunctions:L3/morita-difference-field-extension`, `mathlib:FormalMultilinearSeries.hasFPowerSeriesOnBall`, `mathlib:FormalMultilinearSeries.ofScalars_apply_eq`, `mathlib:iteratedDeriv_const_add`, `mathlib:iteratedDeriv_succ`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.second_cubic_at_four` (computation): For E(z)=z²/2−z³/6 in Q_2, its second derivative at4 is−3.
+- `SuggestedMoritaSecondDerivativeTests.second_geometric_at_two` (boundary): The twice-differentiated geometric series at2 in Q_2 has sum−2.
+- `SuggestedMoritaSecondDerivativeTests.second_linear_zero` (degenerate): A model supported in degree1 has second derivative0.
+
+**Acceptance:** The full derivative series includes its degree0 term2v_2; neither that term nor the factorial factors may be dropped.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### Expand a reciprocal around a norm-one point
+
+`DirichletPadicLFunctions:L3/morita-reciprocal-geometric-series` — `DirichletPadic.moritaInverseKernel_geometric_hasSum`
+
+For‖a‖=1 and‖z‖<1, the seriesΣ_(m≥0)z^m(−1)^m a^(−m−1) has sum(a+z)⁻¹.
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. The geometric ratio−z/a has norm‖z‖<1. Apply the native geometric HasSum and multiply by a⁻¹.
+2. Expand powers and simplify the sum(1+z/a)⁻¹a⁻¹=(a+z)⁻¹ using a≠0. The complete inverse_geometric proof checks all negative integer exponents and signs.
+3. The native geometric theorem supplies this closed-form sum without completeness of K; the auxiliary lemma has that unnecessary instance omitted.
+
+**Prerequisites:** `mathlib:hasSum_geometric_of_norm_lt_one`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.inverse_geometric_positive` (computation): At a=5,z=4 in Q_2, the reciprocal series sums to1/9.
+- `SuggestedMoritaSecondDerivativeTests.inverse_geometric_negative` (boundary): At a=−3,z=2 in Q_2 it sums to−1.
+- `SuggestedMoritaSecondDerivativeTests.inverse_geometric_boundary` (non-example): The ratio−1 has powers of norm1 in Q_3, so its series is not summable.
+
+**Acceptance:** The strict disc is necessary; a norm-one ratio need not yield a convergent geometric series.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### A finite reciprocal mean has the inverse-moment expansion
+
+`DirichletPadicLFunctions:L3/morita-finite-reciprocal-series` — `DirichletPadic.moritaReciprocalFiniteMean_hasSum`
+
+For‖z‖<1 and every n,Σ_m z^m(−1)^m[N_n⁻¹Σ_(0≤a<N_n,p∤a)a^(−m−1)] has sum N_n⁻¹Σ_(0≤a<N_n,p∤a)(a+z)⁻¹.
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Every natural p-unit has norm1 after the normalized coefficient embedding, by the native unit criterion and normed algebra-map equality.
+2. Apply the preceding reciprocal geometric series at each p-unit a in the actual finite averaging range; use the zero series on excluded multiples of p.
+3. The native finite-sum HasSum theorem, generated by the indexed hasProd_prod declaration, sums these witnesses. Multiply by N_n⁻¹ and distribute the finite sum to obtain the asserted coefficient.
+4. The complete finite_reciprocal_series proof works at every averaging level and needs no completeness or limit interchange.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-reciprocal-geometric-series`, `DirichletPadicLFunctions:L3/morita-mean-level`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:norm_algebraMap'`, `mathlib:hasProd_prod`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.finite_reciprocal_dyadic` (computation): At p=2,N=4,z=4 the finite reciprocal mean is3/35.
+- `SuggestedMoritaSecondDerivativeTests.finite_reciprocal_ternary` (computation): At p=3,N=3,z=3 it is3/20.
+
+**Acceptance:** Use the same original p-unit support at every z; do not replace it by the units of a+z on arbitrary coefficient-field points.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### The differentiated finite coefficients have the required limits
+
+`DirichletPadicLFunctions:L3/morita-second-coefficient-limit` — `DirichletPadic.moritaSecondCoefficient_tendsto`
+
+For each m, the signed inverse-power finite means tend to(m+2)(m+1)v_(m+2).
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Multiply the given Tendsto witness for the actual divided coefficient of order m+2 by the nonzero scalar(m+2)(m+1).
+2. Use the preceding literal divided-mean identity and its normalized inverse-power finite-mean comparison.
+3. Cancel the two positive natural denominator factors in characteristic zero. The complete second_coefficient_limit proof checks this cancellation, preserving the factor(−1)^m.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-divided-angular-mean`, `DirichletPadicLFunctions:L3/morita-log-inverse-power-finite-mean`, `mathlib:Filter.Tendsto.const_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.second_coefficient_constant` (computation): The dyadic reciprocal moment of exponent−1 tends to2v_2.
+- `SuggestedMoritaSecondDerivativeTests.second_coefficient_linear` (computation): The negative ternary inverse-square moment tends to6v_3.
+
+**Acceptance:** Completeness and the normed Q_p-algebra instance are not needed for this rescaling of an already supplied limit.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### One bound controls all differentiated finite coefficients
+
+`DirichletPadicLFunctions:L3/morita-second-coefficient-finite-bound` — `DirichletPadic.moritaSecondCoefficient_norm`
+
+For all m,n, the norm of the signed normalized inverse-power finite mean is at most C_q.
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. The sign(−1)^m has norm1. Rewrite the normalized inverse-power sum as the actual angular mean using the existing finite comparison.
+2. Apply the preceding uniform inverse-power mean bound. The complete second_coefficient_bound proof retains the same C_q independent of m and n.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-inverse-power-finite-mean`, `DirichletPadicLFunctions:L3/morita-inverse-power-mean-bound`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.second_finite_bound_dyadic` (computation): Every differentiated finite coefficient has dyadic norm at most16.
+- `SuggestedMoritaSecondDerivativeTests.second_finite_bound_ternary` (computation): Every differentiated finite coefficient has ternary norm at most9.
+
+**Acceptance:** This stronger constant bound results after canceling the scalar denominators; it is not inferred by an unjustified boundedness claim for arbitrary normalized sums.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### Reciprocal means converge to the second derivative
+
+`DirichletPadicLFunctions:L3/morita-reciprocal-second-derivative-limit` — `DirichletPadic.moritaReciprocalMean_second_tendsto`
+
+For every coefficient-field z with‖z‖<1, the actual normalized finite sums N_n⁻¹Σ_(0≤a<N_n,p∤a)(a+z)⁻¹ tend to iteratedDeriv2(E_v)(z).
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Use the preceding signed coefficient limits term by term after multiplying by z^m.
+2. The preceding uniform finite coefficient bound gives the summable real majorant C_q‖z‖^m. Apply the native dominated-limit theorem for series in a complete normed additive group.
+3. For each finite n, the preceding reciprocal-series HasSum identifies its infinite sum with the actual finite reciprocal mean.
+4. For the limiting sequence, use the already established radius-at-least-one theorem and the preceding second-derivative HasSum. The complete reciprocal_second_limit proof performs both identifications and the limit interchange.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-second-coefficient-limit`, `DirichletPadicLFunctions:L3/morita-second-coefficient-finite-bound`, `DirichletPadicLFunctions:L3/morita-finite-reciprocal-series`, `DirichletPadicLFunctions:L3/morita-difference-second-series`, `DirichletPadicLFunctions:L3/morita-logarithmic-unit-radius`, `mathlib:tendsto_tsum_of_dominated_convergence`, `mathlib:summable_geometric_of_lt_one`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.reciprocal_second_at_two` (boundary): At2∈Q_2 the reciprocal means converge to the second derivative of the model, although2∉4Z_2.
+- `SuggestedMoritaSecondDerivativeTests.reciprocal_second_at_three` (computation): At3∈Q_3 they converge to the model’s second derivative at3.
+
+**Acceptance:** This proves the specific second-derivative identity using a summable majorant; it does not assert a general right to differentiate limits of means.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### The source’s shifted inverse kernel is the reciprocal finite sum
+
+`DirichletPadicLFunctions:L3/morita-shifted-reciprocal-finite-comparison` — `DirichletPadic.moritaShiftedReciprocalMean_eq`
+
+For z∈Z_p and every n, the existing shifted angular mean with twist θ·θ^(−2) and kernel x↦ι(x)⁻¹ equals N_n⁻¹Σ_(0≤a<N_n,p∤a)(a+ιz)⁻¹.
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Expand the actual shifted mean, keeping its original p-unit support and simplifying the common averaging level.
+2. At a p-unit, the twist weight is Ω(a)Ω(a)⁻²=Ω(a)⁻¹. The shifted argument isα(a)+Ω(a)⁻¹z.
+3. Use the existing factorizationΩ(a)α(a)=a. Multiplying the shifted argument byΩ(a) gives a+z, so inverse multiplicativity cancels the torsion factor even if a+z=0.
+4. The complete shifted_reciprocal_mean proof checks the unit coercions, coefficient homomorphism and common level. This algebraic identity holds for all z∈Z_p; the subsequent convergence statement restricts the disc.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-mean`, `DirichletPadicLFunctions:L3/morita-shifted-samples`, `DirichletPadicLFunctions:L3/morita-character-twist-level`, `DirichletPadicLFunctions:L3/morita-character-twist-omega-weight`, `DirichletPadicLFunctions:L3/morita-torsion-character-map-unit`, `DirichletPadicLFunctions:L3/morita-angular-factorization`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.shifted_reciprocal_dyadic` (computation): The actual shifted dyadic angular mean at N=4,z=4 is3/35.
+- `SuggestedMoritaSecondDerivativeTests.shifted_reciprocal_ternary` (computation): The actual shifted ternary angular mean at N=3,z=3 is3/20.
+
+**Acceptance:** The source character is Ω⁻¹ on units. The twist construction provides that character without redefining its level or extending its unit values incorrectly.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+### Morita’s second derivative is the translated inverse-power mean
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-second-derivative` — `DirichletPadic.moritaShiftedMean_secondDeriv_tendsto`
+
+For z in the closed q-disc, the actual shifted θ⁻¹ angular means of u⁻¹ tend to iteratedDeriv2(E_v)(ιz).
+
+**Hypotheses:** For generic power-series differentiation, K is a complete nontrivially normed field and the input is an actual native HasFPowerSeriesOnBall witness. For the second derivative of E_v, the native scalar coefficient series has radius at least1 and‖z‖<1. For arithmetic applications, p is prime, q=4 for p=2 and q=p otherwise, N_n=q^(n+1), and K is a normalized normed Q_p-algebra of characteristic zero. The coefficient mapι:Z_p→K preserves norms when applying the arithmetic coefficient bound. Completeness is needed for the analytic sum and dominated-limit interchange; finite reciprocal expansions and algebraic finite-mean identities do not need completeness. The given v_m are limits of the actual twisted angular means of the literal divided logarithmic family moritaLogDivided(ℓ,m). Its higher terms are(−1)^m x^(−m−1)/((m+2)(m+1)). No new sequence of moments, arbitrary derivative family or unproved differentiation-under-a-limit hypothesis is assumed. The coefficient-field statement is valid for every z∈K with‖z‖<1. The actual shifted angular-mean specialization uses z∈Z_p with‖z‖≤‖q‖ and the character twist θ·θ^(−2)=θ⁻¹ on units. Existing Gamma agreement and logarithm laws apply on that previously established arithmetic disc. All bounds, series and derivatives concern the existing explicit model E_v=ofScalarsSum(v)−v_0. Actual coefficient-limit and logarithm supplier obligations remain open. The second derivative is the native iteratedDeriv2, identified through a convergent power series rather than merely formal coefficient manipulation.
+
+**Proof:**
+
+1. Norm preservation and‖z‖≤‖q‖<1 placeιz in the coefficient-field open unit disc.
+2. Apply the preceding reciprocal second-derivative limit atιz. Rewrite every finite term with the preceding exact shifted-mean comparison.
+3. The complete shifted_second_derivative proof establishes the actual Tendsto witness required by the source’s translated functional. In conjunction with the earlier logarithmic Gamma model agreement this supplies the second derivative of that specified analytic model on the source disc.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-reciprocal-second-derivative-limit`, `DirichletPadicLFunctions:L3/morita-shifted-reciprocal-finite-comparison`, `DirichletPadicLFunctions:L3/morita-radius-contracting`.
+
+**Tests:**
+
+- `SuggestedMoritaSecondDerivativeTests.shifted_second_negative` (boundary): At z=−4 in Z_2 the actual shifted reciprocal means tend to the model’s second derivative atι(−4).
+- `SuggestedMoritaSecondDerivativeTests.shifted_second_nonintegral` (boundary): For x∈Z_2 with3x=1, the same identity holds at the nonintegral point z=4x.
+
+**Acceptance:** The given actual coefficient limits still need their earlier analytic/logarithmic construction; the theorem does not erase those supplier requests.
+
+**Source:** Section3 p.261/PDF7, Remark items(iii)–(iv) and displayed logarithmic coefficient series; Section2 pp.259–260, translated mean notation. Extracts the arbitrary-point second derivative in item(iii) as the actual translated θ⁻¹ mean of u⁻¹. A worker-derived coefficient proof first differentiates the native convergent series, then expands the finite reciprocal means geometrically and passes to their limit using the existing uniform inverse-power bound. The coefficient-field reciprocal-sum identity holds throughout the open unit disc from item(iv).
+
+**Remaining:** Morita p.261(iii) now has an actual translated inverse-power Tendsto identification with the second derivative of the specified logarithmic model. A coefficient-field reciprocal-mean identity holds throughout the open unit disc. The next major required target is the full Gross–Koblitz formula, beginning with the complete source proof and its exact Gauss-sum, root and embedding conventions; Ferrero–Greenberg remains required. Morita’s remaining source material and the actual analytic/logarithm supplier construction remain to be accounted for. All14 requests and18 gaps remain open, all implementation statuses unchecked, zero closed stages.
+
+### Morita’s second derivative and translated reciprocal means validation
+
+All 997 predecessor nodes, 760 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1266 reachable nodes, 6131 edges and 935 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Scalar derivative/geometric, finite expansion, coefficient rescaling and finite shifted-mean comparison nodes have no unresolved stage leaves. The uniform differentiated-coefficient bound and both second-derivative limit nodes inherit LAD L0 through the existing inverse-power bound. All14 requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves PR5335’s23definitions290lemmas verbatim and adds9lemmas. It uses native derivative-series and HasSum predicates, proves finite reciprocal expansions, passes the actual moment coefficient limits through a uniform geometric majorant, and verifies torsion cancellation for the existing shifted means. No new function carrier or Gamma definition is introduced. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Actual logarithmic coefficient-limit witnesses remain explicit. The second derivative belongs to the existing coefficient-field model; the source Gamma comparison keeps its previously certified q-disc and logarithm inputs. Full suggested file remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. General roadmap declarations remain unchecked.
+
+Exact controls pass252 polynomial second derivatives,420 reciprocal geometric remainders,144 coefficient rescalings,144 coefficient bounds,36 finite-mean series remainders,36 tail bounds,18 actual dyadic/ternary shifted-mean identities and5 discriminating examples. The largest12-term finite remainder norm is1/4096; all exact identities have discrepancy0. Exact rational repeated polynomial differentiation, finite geometric reciprocal remainders and actual normalized inverse-power moments at three depths for four primes. Coefficient rescaling, uniform second-coefficient bounds, finite mean tail identities and bounds are checked independently. Actual angular/torsion cancellation is computed for the dyadic and ternary branches; higher-prime Teichmuller lifts are not simulated. Finite remainder valuations are recorded, without claiming they certify the infinite limits proved by the native Lean probe. The largest observed discrepancy is 1/4096 for finite12-term remainders; all exact identities have discrepancy0.
+
+Capture at b52181d669d71d0c6556387403aba4a1dcde8bea has zero changes among72 tracked inputs and an unchanged issue body after merged PR5335. Source findings and supplier interfaces are unchanged.
+
+The separate partial signature file also compiled with zero errors and 3,215 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1112e22cabd181da88769bbe30948200aa9db57e5534cbf8692d902881a6b45d.
