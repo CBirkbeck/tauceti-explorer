@@ -1,3 +1,4 @@
+import Mathlib.RepresentationTheory.Intertwining
 import Mathlib.RingTheory.WittVector.DiscreteValuationRing
 import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.Algebra.Module.ZMod
@@ -25578,3 +25579,126 @@ example [Fintype (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : 
 example [Fintype (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ] (f : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ℤ) : (kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) f).support=Finset.univ.filter (fun y => kubertCartanUnitReduction 2 1 1 2 (by decide) y ∈ f.support) := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanTests
+
+/- Local Cartan norm on native group rings and regular-action equivariance. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+
+noncomputable def kubertCartanGroupRingNorm (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    MonoidAlgebra R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ →ₗ[R]
+      MonoidAlgebra R (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_coeff (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (f : MonoidAlgebra R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    (kubertCartanGroupRingNorm p k R M N hMN f).coeff=kubertCartanLocalNorm p k R M N hMN f.coeff := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_coeff_apply (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (f : MonoidAlgebra R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ)
+    (y : (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    (kubertCartanGroupRingNorm p k R M N hMN f).coeff y=
+      f.coeff (kubertCartanUnitReduction p k M N hMN y) := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_injective (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    Function.Injective (kubertCartanGroupRingNorm p k R M N hMN) := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_self (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (N : ℕ+) :
+    kubertCartanGroupRingNorm p k R N N (le_refl _)=LinearMap.id := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_comp (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (L M N : ℕ+)
+    (hLM : (L : ℕ) ≤ (M : ℕ)) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (kubertCartanGroupRingNorm p k R M N hMN).comp (kubertCartanGroupRingNorm p k R L M hLM)=
+      kubertCartanGroupRingNorm p k R L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_single (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    [Fintype (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ]
+    (x : (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ) (a : R) :
+    kubertCartanGroupRingNorm p k R M N hMN (MonoidAlgebra.single x a)=
+      ∑ y ∈ Finset.univ.filter (fun y => kubertCartanUnitReduction p k M N hMN y=x),
+        MonoidAlgebra.single y a := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_equivariant (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (g : (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ)
+    (f : MonoidAlgebra R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    kubertCartanGroupRingNorm p k R M N hMN
+      (Representation.leftRegular R _ (kubertCartanUnitReduction p k M N hMN g) f)=
+      Representation.leftRegular R _ g (kubertCartanGroupRingNorm p k R M N hMN f) := by sorry
+
+lemma kubertCartanEquivariance_cartanGroupRingNorm_kernel_invariant (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (g : (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ)
+    (hg : kubertCartanUnitReduction p k M N hMN g=1)
+    (f : MonoidAlgebra R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    Representation.leftRegular R _ g (kubertCartanGroupRingNorm p k R M N hMN f)=
+      kubertCartanGroupRingNorm p k R M N hMN f := by sorry
+
+noncomputable def kubertCartanNormIntertwining (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    Representation.IntertwiningMap
+      ((Representation.leftRegular R (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ).comp
+        (kubertCartanUnitReduction p k M N hMN))
+      (Representation.leftRegular R (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanEquivariance_cartanNormIntertwining_toLinearMap (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (kubertCartanNormIntertwining p k R M N hMN).toLinearMap=
+      kubertCartanGroupRingNorm p k R M N hMN := by sorry
+
+lemma kubertCartanEquivariance_cartanNormIntertwining_injective (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    Function.Injective (kubertCartanNormIntertwining p k R M N hMN) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanEquivarianceTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fact (Nat.Prime 5)]
+-- actual_group_ring_coefficients
+example (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f).coeff=kubertCartanLocalNorm 5 1 ℤ 1 2 (by decide) f.coeff := by sorry
+-- zero_group_ring_norm
+example : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) 0=0 := by sorry
+-- native_identity_basis_not_preserved
+example : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) 1 ≠ 1 := by sorry
+-- native_group_ring_scalar
+example (a : ℤ) (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) (a • f)=a • kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f := by sorry
+-- same_native_coefficient_map
+example (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f).coeff=kubertCartanLocalNorm 5 1 ℤ 1 2 (by decide) f.coeff := by sorry
+-- actual_unit_coefficient
+example (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (y : (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f).coeff y=f.coeff (kubertCartanUnitReduction 5 1 1 2 (by decide) y) := by sorry
+-- recover_lower_group_ring_element
+example (f g : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (h : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f=kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) g) : f=g := by sorry
+-- same_exponent_native_group_ring
+example : kubertCartanGroupRingNorm 5 1 ℤ 2 2 (le_refl _)=LinearMap.id := by sorry
+-- native_group_ring_chain
+example : (kubertCartanGroupRingNorm 5 1 ℤ 2 3 (by decide)).comp (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide))=kubertCartanGroupRingNorm 5 1 ℤ 1 3 (by decide) := by sorry
+-- full_native_basis_lift_sum
+example [Fintype (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ] (x : (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (a : ℤ) : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) (MonoidAlgebra.single x a)=∑ y ∈ Finset.univ.filter (fun y => kubertCartanUnitReduction 5 1 1 2 (by decide) y=x),MonoidAlgebra.single y a := by sorry
+-- actual_regular_action_commutes
+example (g : (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) (Representation.leftRegular ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ (kubertCartanUnitReduction 5 1 1 2 (by decide) g) f)=Representation.leftRegular ℤ (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ g (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f) := by sorry
+-- actual_reduction_kernel_fixes_image
+example (g : (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (hg : kubertCartanUnitReduction 5 1 1 2 (by decide) g=1) (f : MonoidAlgebra ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : Representation.leftRegular ℤ (TruncatedWittVector 5 ((2 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ g (kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f)=kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) f := by sorry
+-- underlying_actual_linear_norm
+example : (kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide)).toLinearMap=kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) := by sorry
+-- intertwiner_zero
+example : kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide) 0=0 := by sorry
+-- native_regular_basis_direction
+example (g : (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) : Representation.leftRegular ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ g (MonoidAlgebra.single 1 1)=MonoidAlgebra.single g 1 := by sorry
+-- inverse_direction_is_distinct
+example (g : (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ) (hg : g ≠ g⁻¹) : Representation.leftRegular ℤ (TruncatedWittVector 5 ((1 : ℕ+) : ℕ) (GaloisField 5 ((1 : ℕ+) : ℕ)))ˣ g (MonoidAlgebra.single 1 1) ≠ MonoidAlgebra.single g⁻¹ 1 := by sorry
+-- injective_in_characteristic_five
+example : Function.Injective (kubertCartanNormIntertwining 5 1 (ZMod 5) 1 2 (by decide)) := by sorry
+-- forget_native_intertwining_structure
+example : (kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide)).toLinearMap=kubertCartanGroupRingNorm 5 1 ℤ 1 2 (by decide) := by sorry
+-- native_intertwiner_recovers_input
+example : Function.Injective (kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide)) := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanEquivarianceTests

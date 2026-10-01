@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twelve L3 nodes construct actual unit reduction and the full-lift linear norm in the existing FF.4 Galois-ring model. Surjectivity, injectivity, identity, composition, full basis-lift sums and exact supports are explicit. All 1,657 predecessor nodes and 1,096 baseline records remain whole.",
+  "summary": "Twelve L3 nodes place the actual local full-lift norm on native Cartan group rings, prove regular-action equivariance and reduction-kernel invariance, and package the injection as a native intertwining map. All 1,669 predecessor nodes and 1,107 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7763,6 +7763,48 @@
         "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
         "provides": "Each retained coefficient of an actual truncated-Witt reduction is the corresponding original coefficient.",
         "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeffLinearEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
+        "provides": "The existing native linear equivalence between a group-ring structure and its actual finitely supported coefficient vector.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
+      },
+      {
+        "ref": "mathlib:Representation.leftRegular",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "The native regular representation induced by actual left multiplication on the group, acting on its native group ring.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
+      },
+      {
+        "ref": "mathlib:Representation.ofMulAction_single",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "The existing action-induced representation sends a single basis vector at x to the single vector at g acting on x with the same coefficient.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
+      },
+      {
+        "ref": "mathlib:Representation.coeff_ofMulAction",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "For a group action, the coefficient of the native action-induced representation at y is the original coefficient at the inverse action of g on y.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
+      },
+      {
+        "ref": "mathlib:Representation.IntertwiningMap",
+        "kind": "structure",
+        "module": "Mathlib/RepresentationTheory/Intertwining.lean",
+        "provides": "The existing native structure containing an actual linear map and its commuting equations between two representations of the same monoid.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
+      },
+      {
+        "ref": "mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Intertwining.lean",
+        "provides": "The native constructor packaging an existing linear map and its pointwise equivariance as an actual intertwining map.",
+        "checked": "Complete statement, hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges recorded in the reading note. The actual consumer uses the native coefficient equivalence, regular action and intertwining-map constructor."
       }
     ]
   },
@@ -107647,6 +107689,720 @@
       "acceptance": [
         "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local norm on native Cartan group rings",
+      "kind": "construction",
+      "statement": "For positive M≤N, construct the native R-linear map from the group ring of actual units of GR(p^M,k) to the group ring of actual units of GR(p^N,k), with exactly the established full-lift coefficient map.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Use the native coefficient linear equivalence from each MonoidAlgebra to its actual finitely supported coefficient module.",
+        "Compose the lower coefficient projection, established full-lift coefficient norm and inverse upper coefficient equivalence.",
+        "The composition is a native linear map on the actual group rings. No generic group-ring object or regular representation is redefined."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanGroupRingNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.actual_group_ring_coefficients",
+          "kind": "compatibility",
+          "statement": "The native group-ring norm has exactly the previously proved full-lift coefficient vector."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.zero_group_ring_norm",
+          "kind": "degenerate",
+          "statement": "Zero in the actual native lower group ring maps to zero."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.native_identity_basis_not_preserved",
+          "kind": "non-example",
+          "statement": "In degree one from exponent one to two at p=5, the group-ring identity has five unit lifts; the linear norm is not unital."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.native_group_ring_scalar",
+          "kind": "compatibility",
+          "statement": "The group-ring norm preserves integer scalar multiplication."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_coeff",
+          "role": "characterisation",
+          "statement": "The coefficient vector of the native group-ring norm of f equals the established local coefficient norm of the coefficient vector of f."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_coeff_apply",
+          "role": "characterisation",
+          "statement": "For each actual upper unit y, the coefficient of the native group-ring norm at y is the original lower coefficient at the actual reduction of y."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_injective",
+          "role": "characterisation",
+          "statement": "The local norm on actual native group rings is injective over every coefficient semiring R."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_self",
+          "role": "compatibility",
+          "statement": "The native group-ring norm at equal exponents N is the native identity linear map."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_comp",
+          "role": "compatibility",
+          "statement": "For positive L≤M≤N, the native group-ring norm from L to M followed by the norm from M to N equals the direct norm from L to N."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_single",
+          "role": "characterisation",
+          "statement": "The norm of a native group-ring single vector at lower unit x with coefficient a is the sum of native single vectors with coefficient a over the full actual unit-reduction fiber above x."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_equivariant",
+          "role": "compatibility",
+          "statement": "For every actual upper unit g and lower group-ring element f, the norm of the lower regular action of the reduction of g on f equals the upper regular action of g on the norm of f."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanGroupRingNorm_kernel_invariant",
+          "role": "compatibility",
+          "statement": "Every actual upper unit whose reduction is the identity acts trivially, through the native regular representation, on every element in the group-ring norm image."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187 equation(2.7)",
+          "how": "Provides the full-lift linear map on the actual native group rings named by the source."
+        },
+        {
+          "where": "Native Cartan action",
+          "how": "Allows the native regular representations to act on the exact coefficient norm."
+        },
+        {
+          "where": "Transition system",
+          "how": "Identity and composition preserve the actual group-ring maps for later global comparison."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native group-ring norm has the original coefficients",
+      "kind": "lemma",
+      "statement": "The coefficient vector of the native group-ring norm of f equals the established local coefficient norm of the coefficient vector of f.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Evaluate the actual composite of coefficient linear equivalences.",
+        "The upper coefficient equivalence cancels its inverse, leaving precisely the original coefficient norm."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.same_native_coefficient_map",
+          "kind": "compatibility",
+          "statement": "The actual native group-ring coefficient projection agrees with the full-lift Finsupp norm."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Native group-ring coefficients pull back through reduction",
+      "kind": "lemma",
+      "statement": "For each actual upper unit y, the coefficient of the native group-ring norm at y is the original lower coefficient at the actual reduction of y.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Use the exact coefficient-vector comparison.",
+        "Apply the established full-lift coefficient evaluation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_coeff_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.actual_unit_coefficient",
+          "kind": "characterisation",
+          "statement": "The coefficient at an actual upper unit equals the coefficient at its reduction."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native group-ring norm is injective",
+      "kind": "lemma",
+      "statement": "The local norm on actual native group rings is injective over every coefficient semiring R.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Apply the native coefficient projection to an equality of group-ring norms.",
+        "The exact coefficient-vector comparison gives equality under the established injective coefficient norm.",
+        "Recover the original coefficient vectors and use injectivity of the native coefficient linear equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-injective",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.recover_lower_group_ring_element",
+          "kind": "characterisation",
+          "statement": "Equal group-ring norms imply equal original group-ring elements."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-self",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Same-exponent group-ring norm is identity",
+      "kind": "lemma",
+      "statement": "The native group-ring norm at equal exponents N is the native identity linear map.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Compare native linear maps at an arbitrary actual group-ring element.",
+        "Apply the coefficient linear equivalence.",
+        "Use the exact coefficient comparison and the established identity coefficient norm, then cancel the coefficient equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-self",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_self"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.same_exponent_native_group_ring",
+          "kind": "degenerate",
+          "statement": "At equal exponents the native group-ring norm is the identity linear map."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-comp",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Native Cartan group-ring norms compose",
+      "kind": "lemma",
+      "statement": "For positive L≤M≤N, the native group-ring norm from L to M followed by the norm from M to N equals the direct norm from L to N.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Compare linear maps on an arbitrary actual group-ring element and pass to coefficient vectors.",
+        "Twice apply the actual coefficient comparison.",
+        "Use the established composition theorem for the full-lift coefficient norms and cancel the coefficient equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-comp",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.native_group_ring_chain",
+          "kind": "compatibility",
+          "statement": "The native group-ring transition through exponent two equals the direct transition from one to three."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-single",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native basis norm includes every actual unit lift",
+      "kind": "lemma",
+      "statement": "The norm of a native group-ring single vector at lower unit x with coefficient a is the sum of native single vectors with coefficient a over the full actual unit-reduction fiber above x.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Apply the injective native coefficient linear equivalence.",
+        "It preserves the finite sum, and native single vectors have the corresponding Finsupp single coefficients.",
+        "Apply the established complete unit-lift basis formula for the coefficient norm."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-single",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv",
+        "mathlib:MonoidAlgebra.coeff_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_single"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.full_native_basis_lift_sum",
+          "kind": "characterisation",
+          "statement": "The norm of a native single vector is the full sum over actual unit lifts."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-equivariant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual Cartan regular action commutes with the norm",
+      "kind": "lemma",
+      "statement": "For every actual upper unit g and lower group-ring element f, the norm of the lower regular action of the reduction of g on f equals the upper regular action of g on the norm of f.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Compare the actual native group-ring elements by their coefficients at an arbitrary upper unit y.",
+        "The native regular-action coefficient theorem evaluates both sides by inverse multiplication.",
+        "The norm coefficient formula reduces the desired equality to reduction of g inverse times y.",
+        "The already constructed unit reduction is an actual group homomorphism, so it preserves multiplication and inverses. This gives the required coefficient equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-coeff-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+        "mathlib:Representation.leftRegular",
+        "mathlib:Representation.coeff_ofMulAction",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_equivariant"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.actual_regular_action_commutes",
+          "kind": "compatibility",
+          "statement": "Upper regular action after the norm equals lower regular action through actual unit reduction before the norm."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-kernel-invariant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual reduction kernel fixes the norm image",
+      "kind": "lemma",
+      "statement": "Every actual upper unit whose reduction is the identity acts trivially, through the native regular representation, on every element in the group-ring norm image.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Rewrite the upper action on the norm by the proved actual equivariance.",
+        "Replace the reduced unit by the identity using the stated kernel condition.",
+        "The native regular representation preserves the identity, so its lower action is the identity linear map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-equivariant",
+        "mathlib:Representation.leftRegular"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanGroupRingNorm_kernel_invariant"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.actual_reduction_kernel_fixes_image",
+          "kind": "characterisation",
+          "statement": "An actual upper unit reducing to one fixes every element in the norm image."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local Cartan norm as a native intertwining map",
+      "kind": "construction",
+      "statement": "Package the actual native group-ring norm as an intertwining map from the lower native regular representation composed with actual unit reduction to the upper native regular representation.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Reuse the existing native regular representations on the two actual unit group rings.",
+        "Precompose the lower regular representation with the actual unit-reduction homomorphism, so both representations are of the actual upper unit group.",
+        "Apply the native constructor for an intertwining map to the existing linear norm and the proved pointwise equivariance.",
+        "The native regular single-vector law fixes the forward basis orientation; its coefficient formula is inverse pullback."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm",
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-equivariant",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+        "mathlib:Representation.leftRegular",
+        "mathlib:Representation.ofMulAction_single",
+        "mathlib:Representation.IntertwiningMap",
+        "mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanNormIntertwining"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.underlying_actual_linear_norm",
+          "kind": "compatibility",
+          "statement": "The native intertwining map has exactly the already defined group-ring linear norm as underlying map."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.intertwiner_zero",
+          "kind": "degenerate",
+          "statement": "The native intertwining map preserves the zero group-ring element."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.native_regular_basis_direction",
+          "kind": "compatibility",
+          "statement": "The native regular action used in the intertwiner moves the identity basis to g, so coefficients pull back through g inverse."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.inverse_direction_is_distinct",
+          "kind": "non-example",
+          "statement": "For a unit distinct from its inverse, replacing the regular action by the opposite basis direction changes the result."
+        },
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.injective_in_characteristic_five",
+          "kind": "compatibility",
+          "statement": "The native intertwiner is still injective when the coefficient characteristic divides the lift cardinal."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanEquivariance_cartanNormIntertwining_toLinearMap",
+          "role": "compatibility",
+          "statement": "The underlying native linear map of the local Cartan intertwiner equals exactly the already constructed native group-ring norm."
+        },
+        {
+          "name": "kubertCartanEquivariance_cartanNormIntertwining_injective",
+          "role": "characterisation",
+          "statement": "The actual native Cartan intertwining map is injective as a function on the lower native group ring, over every semiring R."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187 Cartan-module injection",
+          "how": "Packages the actual injective equivariant linear transition in the existing native interface."
+        },
+        {
+          "where": "Lower action through reduction",
+          "how": "Both representations act by the same actual upper unit group, with the lower one precomposed by reduction."
+        },
+        {
+          "where": "Future compatible Cartan action",
+          "how": "Provides the real local module transition before constructing the global product and inverse-limit action."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining-to-linear-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Forgetting equivariance retains the actual linear norm",
+      "kind": "lemma",
+      "statement": "The underlying native linear map of the local Cartan intertwiner equals exactly the already constructed native group-ring norm.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Evaluate the native intertwining-map constructor.",
+        "It adds only the equivariance certificate to the original linear map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanNormIntertwining_toLinearMap"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.forget_native_intertwining_structure",
+          "kind": "compatibility",
+          "statement": "Forgetting the native equivariance certificate retains exactly the original group-ring norm."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The native Cartan intertwiner is injective",
+      "kind": "lemma",
+      "statement": "The actual native Cartan intertwining map is injective as a function on the lower native group ring, over every semiring R.",
+      "hypotheses": [
+        "The prime p has its native primality certificate, the degree k is positive, and L, M, N are positive exponents with the stated inequalities. The actual source levels are p^L, p^M, p^N.",
+        "Use the exact native unit groups of the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4, together with the actual unit reduction and full-lift coefficient norm already constructed. No replacement unit group or assumed surjectivity is introduced.",
+        "The coefficient semiring R is arbitrary. Group rings are native MonoidAlgebra structures, whose coefficient linear equivalence identifies them with the existing Finsupp carriers. Regular action and bundled intertwining maps are the existing Mathlib constructions.",
+        "An upper unit acts below through actual unit reduction. Basis labels move by forward multiplication, while coefficients pull back by inverse multiplication. The linear norm requires no averaging and need not preserve ring multiplication or the ring identity.",
+        "The owner unramified local-field identification, global Cartan product and inverse-limit action, actual primitive torsor and comparison with primitive transfer remain open. The node proves precisely the local module transition in the owned finite model."
+      ],
+      "proofSteps": [
+        "Its underlying function is the original native group-ring norm.",
+        "Apply the proved injectivity of that actual norm."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-norm-intertwining-to-linear-map",
+        "DirichletPadicLFunctions:L3/kubert-cartan-equivariance-cartan-group-ring-norm-injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanEquivariance_cartanNormIntertwining_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, equation(2.7) and its preceding statement that the full unit-lift transition is an injection of Cartan modules. The adjacent primitive-point identification remains an independent bridge.",
+          "match": "Realises the local transition on native group rings and proves equivariance for the actual upper unit group, acting below through reduction. Packages it using the existing native intertwining-map structure; does not replan regular representations or assume a primitive torsor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanEquivarianceTests.native_intertwiner_recovers_input",
+          "kind": "characterisation",
+          "statement": "The actual native Cartan intertwiner is injective."
+        }
+      ],
+      "acceptance": [
+        "Keep the exact native group-ring carrier, original full-lift coefficient map and actual reduction. Prove equivariance with the native regular actions, using inverse coefficient pullback. Verify injectivity in coefficient characteristics dividing the lift size, reduction-kernel invariance, full basis sums and non-unitality. Keep the global and primitive-torsor comparisons open."
+      ]
     }
   ],
   "requests": [
@@ -107793,7 +108549,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "Local Cartan unit reduction and the injective full-lift linear norm are now explicit in the exact Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Import the owner finite-ring/locality/presentation interfaces rather than replan them. Next construct the actual global product transitions and establish their primitive-point comparison using genuine coordinates and the owner unramified model. The identification with integers of the unramified Qp extension, actual simply transitive Cartan action and equality of local/global norms with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The local full-lift Cartan norm now acts on native group rings and is an injective native intertwining map for the actual upper regular action and lower action through unit reduction. Its image is fixed by the actual reduction kernel. Next construct the actual global Cartan product transitions, including primes newly appearing in the upper level, and the compatible action before comparing with the genuine primitive-point transfer. FF.4 owns the Galois rings, generic unit theory and unramified presentation; import those interfaces. The unramified local-field identification, actual simply transitive primitive torsor and source norm comparison remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -107825,7 +108581,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Local Cartan unit reduction and the injective full-lift linear norm are now explicit in the exact Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Import the owner finite-ring/locality/presentation interfaces rather than replan them. Next construct the actual global product transitions and establish their primitive-point comparison using genuine coordinates and the owner unramified model. The identification with integers of the unramified Qp extension, actual simply transitive Cartan action and equality of local/global norms with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The local full-lift Cartan norm now acts on native group rings and is an injective native intertwining map for the actual upper regular action and lower action through unit reduction. Its image is fixed by the actual reduction kernel. Next construct the actual global Cartan product transitions, including primes newly appearing in the upper level, and the compatible action before comparing with the genuine primitive-point transfer. FF.4 owns the Galois rings, generic unit theory and unramified presentation; import those interfaces. The unramified local-field identification, actual simply transitive primitive torsor and source norm comparison remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -108375,24 +109131,24 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. FF.4 ownership is explicit. The local-field, global-product and primitive-torsor comparison, independent lower rank bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. Native local Cartan module equivariance is explicit. FF.4 ownership, global and source local-field identifications, actual primitive torsor, independent lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1669,
+      "nodes": 1681,
       "kinds": {
         "definition": 22,
-        "lemma": 925,
-        "construction": 156,
+        "lemma": 935,
+        "construction": 158,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1148,
-      "packetTests": 3066,
-      "definitionConstructionTests": 707,
-      "typedExamples": 3069,
+      "api": 1158,
+      "packetTests": 3085,
+      "definitionConstructionTests": 716,
+      "typedExamples": 3088,
       "planets": 24,
-      "baseline": 1107,
-      "preservedWholeNodes": 1657,
-      "preservedBaseline": 1096,
+      "baseline": 1113,
+      "preservedWholeNodes": 1669,
+      "preservedBaseline": 1107,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
       "newNodes": 12,
@@ -108401,10 +109157,10 @@
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1931,
-      "dependencyEdges": 8267,
+      "reachableNodes": 1943,
+      "dependencyEdges": 8302,
       "acyclic": true,
-      "baselineLeaves": 1280,
+      "baselineLeaves": 1286,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -108419,7 +109175,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 852046,
+      "readerWords": 858032,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -108439,15 +109195,15 @@
       "currentSupplierNodes": 369,
       "supplierArtifactAvailable": true,
       "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3630,
+      "pinnedMathlibSourceModules": 3632,
       "requiredPinnedTauSourceModules": 29,
       "availablePinnedTauArtifacts": 28,
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 98,
-      "scratchCompleteLemmas": 1046,
-      "scratchMathlibModules": 3006,
+      "scratchCompleteDefinitions": 100,
+      "scratchCompleteLemmas": 1056,
+      "scratchMathlibModules": 3008,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
@@ -108455,22 +109211,21 @@
       "finiteControls": {
         "ringModels": 18,
         "unitElements": 1672,
-        "inverseChecks": 1672,
-        "transitionPairs": 38,
-        "unitLiftChecks": 4420,
-        "nonemptyFibers": 1890,
-        "coefficientChecks": 4420,
-        "compositionChains": 68
+        "transitions": 38,
+        "regularActions": 2147562,
+        "intertwiningChecks": 2147562,
+        "kernelInvarianceChecks": 93250,
+        "basisActionChecks": 4420
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25",
-        "modules": 3626,
-        "warnings": 5085,
+        "sourceSha256": "d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6",
+        "modules": 3628,
+        "warnings": 5116,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,116 expected placeholder warnings across 3,628 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -108480,7 +109235,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "58a12699c7455ec91b8b44e1acb43f9356ae72f83d2a2a741a390cce0a231789",
+      "sha256": "9964af487708a198931fb2c0541c5557cd4d88ab34fecc3cb1178e0c6a3580ec",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -108495,11 +109250,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1046,
+        "completeLemmas": 1056,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "4686ead5cad9e18b2862a9e88d2ef803a5b43e55fed604aceac83fe25b7c8394"
+        "sha256": "d4ca644a17720b50c7c4c74e2043c95e00223feb870a2ad2e53a64ca4ff5b5b7"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -108514,7 +109269,7 @@
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
         "nativeTauModules": 29,
-        "nativeMathlibModules": 3630,
+        "nativeMathlibModules": 3632,
         "artifactSha256": {
           "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
           "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
@@ -108637,17 +109392,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25",
-        "modules": 3626,
-        "warnings": 5085,
+        "sourceSha256": "d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6",
+        "modules": 3628,
+        "warnings": 5116,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,116 expected placeholder warnings across 3,628 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "c6252ecb5c9b237f40e30c6eee9d59d27e0eda33",
+      "base": "5ed7da8771f67a67587e33dccf106fe083a18a5c",
       "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -119859,6 +120614,54 @@
         "warnings": 5085,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanEquivariance": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5465,
+      "previousHead": "7356592ce824824c30b6fd585c31367ffcaad105",
+      "previousMerge": "b8c8af11e345aa98602ccd5011960c65edcf80c8",
+      "preservedWholeNodes": 1669,
+      "preservedBaseline": 1107,
+      "preservedFindings": 26,
+      "newNodes": 12,
+      "reading": "The Cartan-module injection in Kubert187(2.7) was reread. The full native coefficient linear equivalence, regular representation, inverse-action coefficient theorem, forward basis-action theorem and native intertwining-map structure and constructor were read at the pins. The group-ring carrier is a native structure, so the existing coefficient norm is transported by the exact coefficient equivalence before applying the native regular actions. FF.4 ownership and its unchecked source boundary remain unchanged.",
+      "boundary": "The local full-lift Cartan norm now acts on native group rings and is an injective native intertwining map for the actual upper regular action and lower action through unit reduction. Its image is fixed by the actual reduction kernel. Next construct the actual global Cartan product transitions, including primes newly appearing in the upper level, and the compatible action before comparing with the genuine primitive-point transfer. FF.4 owns the Galois rings, generic unit theory and unramified presentation; import those interfaces. The unramified local-field identification, actual simply transitive primitive torsor and source norm comparison remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "8e2d26b05c193cec0f3cd7f7a3f02510d6e2d3f5",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. Native local Cartan module equivariance is explicit. FF.4 ownership, global and source local-field identifications, actual primitive torsor, independent lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "5ed7da8771f67a67587e33dccf106fe083a18a5c",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "ringModels": 18,
+        "unitElements": 1672,
+        "transitions": 38,
+        "regularActions": 2147562,
+        "intertwiningChecks": 2147562,
+        "kernelInvarianceChecks": 93250,
+        "basisActionChecks": 4420
+      },
+      "numericalMethod": "Exact independent degree-one and degree-two polynomial-ring controls over prime powers. All actual unit elements are enumerated, with explicit inverses. For every ordered exponent transition, every upper acting unit and every upper coefficient position, compare lower regular action through reduction with upper regular action after full coefficient pullback. Check reduction-kernel invariance and forward basis labels; a unit of order four modulo5 distinguishes inverse coefficient pullback from forward pullback. Models and their still-open owner presentation bridge retain the prior uncertified boundary: no certified native Witt evaluation or primitive-torsor comparison is claimed.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6",
+        "modules": 3628,
+        "warnings": 5116,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,116 expected placeholder warnings across 3,628 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
