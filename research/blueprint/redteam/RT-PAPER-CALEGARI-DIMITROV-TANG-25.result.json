@@ -1,0 +1,90 @@
+{
+  "redteam": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-CALEGARI-DIMITROV-TANG-25",
+  "summary": "Six findings: five high-severity statement/construction errors and one medium-severity pair of local source-proof slips. Correct Eisenstein’s normalization, the central-sign hypotheses for Wohlfahrt and theta, the vector-valued connection construction, and the nondegeneracy hypothesis of Mason’s corollary. No challenge to the main scalar unbounded-denominators theorem is claimed.",
+  "checked": [
+    "Independent worker Codex, session codex-rtOQ9t; claimed issue #4260 after bot confirmation. Read extraction #1414 / PR #1902 by Claude Code cc-d67081 and accepted review #1415 / PR #2415 by cc-7b31c4. Neither is this worker’s work.",
+    "At atlas commit f64cfc460af226a7dfcbb7f70f77a030b8c04f31 read all 148 extraction items, all 26 prerequisites, all nine routes and their briefs, all eleven sourceIssues with review annotations, the extraction reader, and the accepted review JSON and reader.",
+    "Read the entire published author-hosted JAMS offprint, journal pp.627–702 (76 PDF pages). Visually inspected pp.637, 640–641 and 688–691 to check the notation behind findings 1 and 3–6. Downloaded arXiv 2109.09040v4 and compared the quotient construction, bundle construction and corollary on its pp.12, 53–54.",
+    "Re-read all 28 cited declarations behind the 14 library items at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, including hypotheses and the inflation-injectivity instance. These are source inspections, not new Lean proofs.",
+    "Checked the five planned items against current stage descriptions, reviewed library coverage, and applicable restructuring records: QM.0/1, FuchsianOrbifolds Layers 2–4, ModularCurvesPartII R12.4, AlgebraicModularFormsAndSerreWeights R15.1, ArithmeticGaloisDuality R02.2/D7. Read the six source-route stages and their current scope; broad source routes are not evidence that their full proofs are built.",
+    "Checked route coverage: exactly 129 missing items, each routed once; 14 library and five planned items are not routed. Every cited planned/source stage and all three Part-II parents exist. Read the ConformalMapping anchor, relevant ModularForms conventions and layer inventory, and the current DiophantineApproximationAndTranscendence scope; searched the assembled atlas and other paper extractions for overlapping proposed owners.",
+    "Investigated and rejected a suspected Mathlib reuse error for disc counting/characteristic: MeromorphicOn.divisor at the pin checks MeromorphicOn f U globally on its chosen U; with U=univ, a non-global extension gives the zero divisor. Hence the extraction’s whole-plane limitation is real. Also searched for Hadamard’s determinant inequality; no matching theorem located at the pin.",
+    "Checked the existing sourceIssues E1–E11 against their published locations and their displayed corrections. Retained their repairs; did not recursively audit the cited literature or reproduce the source’s Magma calculations. Checked the new constant examples and computed the matrices in finding 5 with exact integer arithmetic.",
+    "Checked for existing corrections on 2026-10-01: the author’s research entry, its current published PDF, arXiv v4/version listing, Crossref DOI 10.1090/jams/1053 metadata, and title/author plus erratum/correction searches. No correction to the reported passages was located. This is a bounded search, not a claim that no correction exists."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: eisenstein-theorem; route 2, layer 1",
+      "claim": "The extracted Eisenstein theorem drops the scalar denominator of the constant coefficient. Variable rescaling alone cannot make an arbitrary algebraic Puiseux series integral.",
+      "evidence": "The item asserts y ∈ Zbar[[x^(1/N)/M₁]] for every algebraic branch y ∈ Qbar[[x^(1/N)]]. Take N=1 and y=1/2, algebraic over Q(x). Every series in Zbar[[x/M₁]] has algebraic-integral constant coefficient, whereas 1/2 is not integral. The published proof of Lemma 2.1.2, p.637, applies Eisenstein only to the normalized inverse branch x(y)=ζ_N*y^(1/N)+higher terms, whose constant term is zero. The other locator, p.695, only invokes finiteness of exceptional denominator primes.",
+      "fix": "Restate the general result with positive integers c,M and c*y ∈ Zbar[[x^(1/N)/M]], or explicitly assume an algebraic-integral constant term for the variable-only version. Retain the zero-constant normalized specialization used by inverse-series-denominators. Update route 2 and the reader report consistently. This overgeneralization is in the extraction, so do not attribute it to the published argument."
+    },
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: wohlfahrt-theorem; Wohlfahrt prerequisite; route 1, layer 1",
+      "claim": "The first clause of the extracted Wohlfahrt theorem omits −I ∈ G. It is false with the geometric cusp widths that the extraction itself defines.",
+      "evidence": "Let H=Γ(2)∩Γ₁(4). This is a congruence subgroup because Γ(4)⊆H. For every matrix in Γ(2), its two diagonal entries are equal modulo 4, so exactly one of it and its negative belongs to H; hence ±H=Γ(2). Its geometric cusp widths therefore all equal 2, and its extracted Wohlfahrt level is 2. But −I∉H, so Γ(2) is not contained in H. The source on p.659 explicitly includes the phrase “containing E” in the application of [Woh64, Theorem 2]; E={±I} is fixed on pp.652–653.",
+      "fix": "Add E⊆G to the first clause, the prerequisite description and the route-1 formulation, or state the general projective result Γ(N)⊆⟨G,−I⟩ instead. Keep the downstream application to groups containing E. Include H as a negative example in the design brief. This is an extraction error, not a newly discovered error in the source application."
+    },
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: jacobi-hypergeometric-theta; modular-forms-finite-index; route 1, layer 2; sourceIssues",
+      "claim": "The nonzero function θ₃² is assigned weight one for Γ(2) without a character, incompatible with the extraction’s scalar slash-invariance definition.",
+      "evidence": "Published equations (1.1.5), p.631, and (7.2.4), p.688, describe a “weight one modular form” for Γ(2). But −I∈Γ(2), and the weight-one slash gives f|₁(−I)=−f. Trivial-character invariance would force f=0, while θ₃² has constant q-coefficient 1. At pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, NumberTheory/ModularForms/JacobiTheta/OneVariable.lean:37–45 proves jacobiTheta_T_sq_smul and jacobiTheta_S_smul. Squaring and composing gives multiplier 1 on T² and U₂=(1,0;2,1), and −1 on −I.",
+      "fix": "State θ₃² with character χ(γ)=χ_{−4}(d) on Γ(2), where χ_{−4}(d)=1 for d≡1 mod 4 and −1 for d≡3 mod 4; equivalently use trivial character on Γ(2)∩Γ₁(4). Import the theta multiplier convention from QM.1 and upstream ModularForms Layer 0, rather than asserting a nonzero element of the trivial-character weight-one space for Γ(2). Keep the hypergeometric identity and transcendence conclusion. Record the source’s omitted character qualification under sourceIssues with both published locators and the version/search evidence in this report."
+    },
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: vvmf-connection; thm-7.3.3 proof note; route 1, application layer; sourceIssues",
+      "claim": "The stated rank-6n free integral module of scalar slash translates is not the vector bundle with connection it purports to construct. In particular its rank claim already fails for the trivial one-dimensional form.",
+      "evidence": "Published §7.3, p.690 (also arXiv v4 p.53), constructs a “rank-6n free” Z[x,1/x,1/(1−16x)]-module from F_j|γ and declares monodromy ρ|Γ(2):Γ(2)→GL_n(C). For n=1, k=0, ρ trivial and F=1, all six translates are 1: their module is the rank-one base ring, not rank six. A bundle of rank 6n also cannot have the displayed n-dimensional monodromy representation. Merely taking these scalar functions’ span does not prove stability under d/dx or descent of an arbitrary complex multiplier representation to that integral base ring.",
+      "fix": "Replace the literal construction by a correctly typed complex local system from ρ restricted to Γ(2)/{±I}, of rank n, distinguishing it from the local system generated by analytic continuations of a selected component (rank at most n). State separately the differential-module/regular-singular realization and the arithmetic descent or rational differential-equation theorem needed to apply the G-function inputs to that component. Supply an exact source for those steps, or mark them as explicit missing inputs in this item and the route-1 brief; remove the unsupported rank-6n and integral-free assertions and the unproved irreducible reduction in the proof note. Record a source error affecting the proof on p.690, without claiming that Theorem 7.3.3 or the main scalar theorem is false. F=1 must produce a rank-one component system."
+    },
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/5",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: def-7.3.1; cor-7.3.4; route 1 final theorems/application layer; sourceIssues",
+      "claim": "Corollary 7.3.4 cannot conclude congruence kernel for the whole ambient representation without requiring that the values of F span it. Definition 7.3.1 supplies no such hypothesis.",
+      "evidence": "Published Definition 7.3.1, pp.688–689, requires transformation, semisimplicity of ρ(T), and moderate growth, but no full-span condition. Corollary 7.3.4, p.691 (arXiv v4 p.54), concludes that “ρ has a finite image”. Write PSL₂(Z)=⟨S,R | S²=R³=1⟩, T=SR. Set σ(S)=diag(1,−1), σ(R)=(2,1;−7,−3). Exact multiplication gives σ(S)²=σ(R)³=I and σ(T)=(2,1;7,3), with distinct eigenvalues (5±sqrt(29))/2. Thus σ(T) is semisimple and has infinite order. For ρ=1⊕σ and the nonzero constant weight-zero form F=(1,0,0), all stated hypotheses hold and all coefficients are integers, yet ρ has infinite image.",
+      "fix": "Add span_C{F(τ):τ∈H}=C^n (equivalently linear independence of the component functions) to the full-representation corollary, or conclude congruence kernel only for the induced representation on that invariant span. Preserve the broad definition and componentwise Theorem 7.3.3. Revise the route-1 target and reader report, and record the missing source hypothesis as an error affecting Corollary 7.3.4, with the explicit nonzero counterexample. Do not infer facts about invisible summands from Fourier coefficients of F."
+    },
+    {
+      "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/6",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json: sourceIssues; lemma-2.3.1; routes 2 and 3 proof guidance",
+      "claim": "The sourceIssues list misses two local slips in the quotient-representation proof: its complex reconstruction loses a constant phase and its following bound loses a logarithm.",
+      "evidence": "Published (2.3.2), p.640, reconstructs G solely from log|G| with no phase factor. For g=G=i and B=1, both exponential factors equal 1, giving 1 rather than i. The first line of p.641 bounds sup_D|h| by the mean of log⁺|g|; with g=h=1 it gives 1≤0. Both slips also occur on arXiv v4 p.12. The lemma’s actual statement uses logarithms, and the subsequent proof only needs absolute values, so these are local repairs.",
+      "fix": "Add two sourceIssues entries: multiply the quotient in (2.3.2) (and the preceding radius-r reconstruction) by G(0)/|G(0)|, or phrase the reconstruction as equality of absolute values; replace sup_D|h| by sup_D log|h| on p.641. Keep Lemma 2.3.1 and the extraction’s normalized herglotz-log theorem unchanged. Point routes 2 and 3 to these proof corrections; include the sourceVersions and correction-search evidence below."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf",
+      "citation": "J. Amer. Math. Soc. 38 (2025), 627–702, DOI 10.1090/jams/1053; publisher offprint hosted by the first author",
+      "read": "2026-10-01",
+      "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2109.09040v4",
+      "citation": "arXiv:2109.09040v4, 16 September 2024; selected passages only",
+      "read": "2026-10-01",
+      "sha256": "9bffb12953db37d237e75451ed659219d955bf57d55da8dbc09ad888f62956ad"
+    }
+  ]
+}
