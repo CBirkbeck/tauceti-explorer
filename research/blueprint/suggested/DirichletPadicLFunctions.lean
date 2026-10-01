@@ -24871,3 +24871,152 @@ example : Module.Finite ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 
 example : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker => (x : (Fin 1 → AddCircle (1 : ℚ))))))≤Nat.card (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 12) := by sorry
 end
 end DirichletPadic.SuggestedKubertPresentationTests
+
+/- Kubert primitive-point lifts and actual transfer maps for arbitrary divisibility. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+universe u
+variable {X : Type u} [AddCommGroup X]
+
+noncomputable def kubertPrimitiveReduction (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    kubertPrimitivePoints X (N : ℕ) →
+      kubertPrimitivePoints X (M : ℕ) := by sorry
+
+lemma kubertTransfer_primitiveReduction_coe (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (y : kubertPrimitivePoints X (N : ℕ)) :
+    (kubertPrimitiveReduction M N hMN y : X)=((N : ℕ)/(M : ℕ)) • (y : X) := by sorry
+
+lemma kubertTransfer_primitiveReduction_eq_iff (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (y : kubertPrimitivePoints X (N : ℕ))
+    (x : kubertPrimitivePoints X (M : ℕ)) :
+    kubertPrimitiveReduction M N hMN y=x ↔ ((N : ℕ)/(M : ℕ)) • (y : X)=(x : X) := by sorry
+
+lemma kubertTransfer_primitiveReduction_self (N : ℕ+)
+    (y : kubertPrimitivePoints X (N : ℕ)) :
+    kubertPrimitiveReduction N N (dvd_refl _) y=y := by sorry
+
+lemma kubertTransfer_primitiveReduction_comp (L M N : ℕ+)
+    (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (y : kubertPrimitivePoints X (N : ℕ)) :
+    kubertPrimitiveReduction L M hLM (kubertPrimitiveReduction M N hMN y)=
+      kubertPrimitiveReduction L N (hLM.trans hMN) y := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+lemma kubertTransfer_primitive_lift_all_divisors (k : ℕ) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)) :
+    ∃ y : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ),
+      ((N : ℕ)/(M : ℕ)) • (y : Fin (k+1) → AddCircle (1 : ℚ))=x.val := by sorry
+
+lemma kubertTransfer_primitiveReduction_surjective (k : ℕ) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Function.Surjective (kubertPrimitiveReduction (X := Fin (k+1) → AddCircle (1 : ℚ)) M N hMN) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertPrimitiveTransfer (k : ℕ) (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ) →₀ R) →ₗ[R]
+      (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) →₀ R) := by sorry
+
+lemma kubertTransfer_primitiveTransfer_apply (k : ℕ) (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (f : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ) →₀ R)
+    (y : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertPrimitiveTransfer k R M N hMN f y=f (kubertPrimitiveReduction M N hMN y) := by sorry
+
+lemma kubertTransfer_primitiveTransfer_injective (k : ℕ) (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Function.Injective (kubertPrimitiveTransfer k R M N hMN) := by sorry
+
+lemma kubertTransfer_primitiveTransfer_self (k : ℕ) (R : Type*) [Semiring R]
+    (N : ℕ+) : kubertPrimitiveTransfer k R N N (dvd_refl _)=LinearMap.id := by sorry
+
+lemma kubertTransfer_primitiveTransfer_comp (k : ℕ) (R : Type*) [Semiring R]
+    (L M N : ℕ+) (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertPrimitiveTransfer k R M N hMN).comp (kubertPrimitiveTransfer k R L M hLM)=
+      kubertPrimitiveTransfer k R L N (hLM.trans hMN) := by sorry
+
+lemma kubertTransfer_primitiveTransfer_single (k : ℕ) (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (x : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ)) (a : R) :
+    kubertPrimitiveTransfer k R M N hMN (Finsupp.single x a)=
+      ∑ y ∈ Finset.univ.filter (fun y : kubertPrimitivePoints
+        (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ) =>
+          ((N : ℕ)/(M : ℕ)) • (y : Fin (k+1) → AddCircle (1 : ℚ))=x.val),Finsupp.single y a := by sorry
+
+lemma kubertTransfer_primitiveTransfer_support (k : ℕ) (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ))]
+    (f : kubertPrimitivePoints
+      (Fin (k+1) → AddCircle (1 : ℚ)) (M : ℕ) →₀ R) :
+    (kubertPrimitiveTransfer k R M N hMN f).support=
+      Finset.univ.filter (fun y => kubertPrimitiveReduction M N hMN y ∈ f.support) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertTransferTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ))]
+variable [Fintype (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ))]
+variable [Fintype (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ))]
+-- actual_degree_multiple_is_retained
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ)) : (kubertPrimitiveReduction 3 12 (by decide) y : (Fin 1 → AddCircle (1 : ℚ)))=(4 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- reduced_point_has_exact_lower_order
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : addOrderOf (kubertPrimitiveReduction 2 6 (by decide) y : (Fin 1 → AddCircle (1 : ℚ)))=2 := by sorry
+-- unit_target_is_the_zero_point
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : (kubertPrimitiveReduction 1 6 (by decide) y : (Fin 1 → AddCircle (1 : ℚ)))=0 := by sorry
+-- point_value_formula
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ)) : (kubertPrimitiveReduction 2 12 (by decide) y : (Fin 1 → AddCircle (1 : ℚ)))=(6 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- typed_fiber_is_the_actual_root_fiber
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ)) (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ)) : kubertPrimitiveReduction 3 12 (by decide) y=x ↔ (4 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=(x : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- same_level_reduction_is_identity
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveReduction 6 6 (by decide) y=y := by sorry
+-- actual_reductions_compose
+example (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ)) : kubertPrimitiveReduction 2 6 (by decide) (kubertPrimitiveReduction 6 12 (by decide) y)=kubertPrimitiveReduction 2 12 (by decide) y := by sorry
+-- primitive_lifts_exist_across_new_primes
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ)) : ∃ y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ),(3 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=(x : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- unit_primitive_point_has_new_prime_lift
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)) : ∃ y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ),(3 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=(x : (Fin 1 → AddCircle (1 : ℚ))) := by sorry
+-- all_lower_primitive_points_occur
+example : Function.Surjective (kubertPrimitiveReduction (X := (Fin 1 → AddCircle (1 : ℚ))) 2 12 (by decide)) := by sorry
+-- transfer_coefficients_are_actual_pullbacks
+example (f : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ) →₀ ℤ) (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)) : kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide) f y=f (kubertPrimitiveReduction 2 6 (by decide) y) := by sorry
+-- integer_linear_combinations_are_preserved
+example (f g : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ) →₀ ℤ) (a : ℤ) : kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide) (a • f+g)=a • kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide) f+kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide) g := by sorry
+-- unit_source_vector_uses_all_primitive_roots
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)) (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ)) : kubertPrimitiveTransfer 0 (ℤ) 1 3 (by decide) (Finsupp.single x 1) y=1 := by sorry
+-- transfer_support_is_exact_root_preimage
+example (f : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ) →₀ ℤ) : (kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide) f).support=Finset.univ.filter (fun y => kubertPrimitiveReduction 2 6 (by decide) y∈f.support) := by sorry
+-- coefficient_evaluation
+example (f : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ) →₀ ℤ) (y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ)) : kubertPrimitiveTransfer 0 (ℤ) 3 12 (by decide) f y=f (kubertPrimitiveReduction 3 12 (by decide) y) := by sorry
+-- integer_transfer_is_injective
+example : Function.Injective (kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide)) := by sorry
+-- transfer_is_injective_in_characteristic_two
+example : Function.Injective (kubertPrimitiveTransfer 0 (ZMod 2) 1 3 (by decide)) := by sorry
+-- same_level_transfer_is_identity
+example : kubertPrimitiveTransfer 0 (ℤ) 6 6 (by decide)=LinearMap.id := by sorry
+-- linear_transfers_compose
+example : (kubertPrimitiveTransfer 0 (ℤ) 6 12 (by decide)).comp (kubertPrimitiveTransfer 0 (ℤ) 2 6 (by decide))=kubertPrimitiveTransfer 0 (ℤ) 2 12 (by decide) := by sorry
+-- basis_vector_is_the_complete_primitive_root_sum
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ)) (a : ℤ) : kubertPrimitiveTransfer 0 (ℤ) 3 12 (by decide) (Finsupp.single x a)=∑ y ∈ Finset.univ.filter (fun y : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((12 : ℕ+) : ℕ) => (4 : ℕ) • (y : (Fin 1 → AddCircle (1 : ℚ)))=(x : (Fin 1 → AddCircle (1 : ℚ)))),Finsupp.single y a := by sorry
+-- unit_to_three_has_two_target_atoms
+example (x : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)) : (kubertPrimitiveTransfer 0 (ℤ) 1 3 (by decide) (Finsupp.single x (1 : ℤ))).support.card=2 := by sorry
+-- support_preimage_formula
+example (f : kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) ((3 : ℕ+) : ℕ) →₀ ℤ) : (kubertPrimitiveTransfer 0 (ℤ) 3 12 (by decide) f).support=Finset.univ.filter (fun y => kubertPrimitiveReduction 3 12 (by decide) y∈f.support) := by sorry
+end
+end DirichletPadic.SuggestedKubertTransferTests
