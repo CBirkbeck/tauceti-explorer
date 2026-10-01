@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twenty-three L3 nodes restrict actual additive equivalences to primitive points, construct native coefficient equivalences and the actual integral general-linear representation, and prove the full primitive-root transfer intertwines those actions. All 1,609 predecessor nodes and 1,082 baseline records remain whole.",
+  "summary": "Twenty-five L3 nodes construct the full finite general-linear action on actual torus torsion and primitive points, its native coefficient representation, and the integral representation factorization under actual matrix reduction. All 1,632 predecessor nodes and 1,092 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7658,6 +7658,34 @@
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The existing native representation type, a monoid homomorphism into the native module endomorphism monoid.",
         "checked": "Full declaration body and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact source ranges retained in the reading note. The complete native probe uses the existing actual equivalence, coefficient, matrix-module and representation APIs directly."
+      },
+      {
+        "ref": "mathlib:Int.cast_smul_eq_zsmul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/NatInt.lean",
+        "provides": "In any module over a ring, scalar action of an integer cast agrees with the canonical integer multiple in the underlying additive group.",
+        "checked": "Full declaration, surrounding hypotheses and complete body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges retained in the reading note. The complete native probe directly uses the existing modular-module, scalar-cast and matrix-reduction APIs on the actual point carriers."
+      },
+      {
+        "ref": "mathlib:AddCommGroup.zmodModule",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Module/ZMod.lean",
+        "provides": "The existing native modular-module structure on an additive commutative group killed by N, including its integer-module branch at N=0.",
+        "checked": "Full declaration, surrounding hypotheses and complete body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges retained in the reading note. The complete native probe directly uses the existing modular-module, scalar-cast and matrix-reduction APIs on the actual point carriers."
+      },
+      {
+        "ref": "mathlib:ZMod.intCast_zmod_cast",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Casting the native integer lift of a modular coefficient back to its original ZMod ring gives the original coefficient, including level zero.",
+        "checked": "Full declaration, surrounding hypotheses and complete body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges retained in the reading note. The complete native probe directly uses the existing modular-module, scalar-cast and matrix-reduction APIs on the actual point carriers."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "The native group homomorphism on general-linear matrix groups induced by a coefficient ring homomorphism, via existing matrix ring map and unit-group map.",
+        "checked": "Full declaration, surrounding hypotheses and complete body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges retained in the reading note. The complete native probe directly uses the existing modular-module, scalar-cast and matrix-reduction APIs on the actual point carriers."
       }
     ]
   },
@@ -105334,6 +105362,1513 @@
       "acceptance": [
         "Keep the actual primitive-point subtype, original additive maps, native integer matrices and existing coefficient modules. Establish pointwise formulas and native inverse/composition laws before deriving the actual transfer square. Coefficient action uses the inverse point map. Do not assume a replacement action, equivariance certificate, Cartan torsor or independent full-rank conclusion."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual circle coordinates of a torus level kernel",
+      "kind": "construction",
+      "statement": "Construct the native additive equivalence between the actual kernel of N on the rational torus and the vector of actual circle N-kernel points.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate each actual torus point at its coordinates.",
+        "The torus annihilation certificate gives the coordinate annihilation certificates by function evaluation.",
+        "Conversely assemble the original coordinate values; function extensionality assembles their annihilation certificates.",
+        "Forward/inverse and additive laws hold on the actual point values."
+      ],
+      "prerequisites": [
+        "mathlib:MonoidHom.ker",
+        "mathlib:AddSubgroup"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertLevelCoordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.actual_torsion_coordinates",
+          "kind": "compatibility",
+          "statement": "The coordinate equivalence retains the actual torus coordinate."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.coordinates_are_killed_by_level",
+          "kind": "characterisation",
+          "statement": "Each actual circle coordinate is annihilated by the same level."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.zero_coordinates_are_zero",
+          "kind": "degenerate",
+          "statement": "The actual coordinate equivalence sends the zero level point to the zero coordinate vector."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_levelCoordinates_coe",
+          "role": "characterisation",
+          "statement": "The ambient value of each actual circle-kernel coordinate is exactly the original torus coordinate."
+        },
+        {
+          "name": "kubertCongruence_levelCoordinates_symm_coe",
+          "role": "characterisation",
+          "statement": "The inverse coordinate equivalence assembles the actual ambient values of the circle-kernel vector."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Actual finite action",
+          "how": "Provides real circle-kernel coordinates for the modular matrix action."
+        },
+        {
+          "where": "Point comparison",
+          "how": "Retains the original coordinate values in both directions."
+        },
+        {
+          "where": "Unit level",
+          "how": "Includes the actual zero torsion group at level one."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Level coordinates retain the original point values",
+      "kind": "lemma",
+      "statement": "The ambient value of each actual circle-kernel coordinate is exactly the original torus coordinate.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the concrete coordinate equivalence.",
+        "The only extra data is the coordinate annihilation proof."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_levelCoordinates_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.coordinate_value_formula",
+          "kind": "compatibility",
+          "statement": "The coordinate map is the original point evaluation."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates-symm-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Inverse level coordinates retain the original values",
+      "kind": "lemma",
+      "statement": "The inverse coordinate equivalence assembles the actual ambient values of the circle-kernel vector.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the inverse coordinate equivalence at an index.",
+        "The value is the original circle-kernel point with only its certificate forgotten."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_levelCoordinates_symm_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.inverse_coordinate_value",
+          "kind": "compatibility",
+          "statement": "The inverse coordinate equivalence retains each actual circle-torsion point."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual primitive points inside the actual level subgroup",
+      "kind": "construction",
+      "statement": "Identify actual ambient primitive N-points with actual primitive N-points of the kernel of N, as a native equivalence.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "The established primitive-level membership theorem places every actual primitive point in the kernel of N.",
+        "Native subgroup order preservation shows its order inside the kernel is the same exact order N.",
+        "The inverse forgets the level certificate and uses the same native order theorem.",
+        "The two maps retain the same actual point, so they are inverse by subtype extensionality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-points",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level",
+        "mathlib:Subgroup.orderOf_coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimitiveLevelEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_level_point_value",
+          "kind": "compatibility",
+          "statement": "An ambient primitive point becomes the same actual level-kernel point."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.exact_order_in_actual_kernel",
+          "kind": "characterisation",
+          "statement": "Exact order remains five in the actual level subgroup."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_level_inverse_recovers_point",
+          "kind": "compatibility",
+          "statement": "The actual level identification and its inverse recover the primitive point."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_primitiveLevelEquiv_coe",
+          "role": "characterisation",
+          "statement": "The primitive-level equivalence adds the level certificate to the same original ambient point."
+        },
+        {
+          "name": "kubertCongruence_primitiveLevelEquiv_symm_coe",
+          "role": "characterisation",
+          "statement": "The inverse primitive-level equivalence forgets the kernel certificate without changing the original point."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Exact subgroup order",
+          "how": "Identifies actual ambient and level-subgroup primitive points."
+        },
+        {
+          "where": "Finite primitive action",
+          "how": "Transfers the actual level additive automorphism back to the original primitive carrier."
+        },
+        {
+          "where": "Comparison",
+          "how": "Forgets only level certificates, retaining the actual original point."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive level embedding retains the ambient point",
+      "kind": "lemma",
+      "statement": "The primitive-level equivalence adds the level certificate to the same original ambient point.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the concrete primitive-level map.",
+        "Its nested subtype carries the original point value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveLevelEquiv_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.level_embedding_value",
+          "kind": "compatibility",
+          "statement": "The primitive level embedding retains the actual torus point."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-symm-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive level forgetting retains the ambient point",
+      "kind": "lemma",
+      "statement": "The inverse primitive-level equivalence forgets the kernel certificate without changing the original point.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the inverse primitive-level map.",
+        "Its ambient value is the original nested-subtype value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveLevelEquiv_symm_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.level_forgetting_value",
+          "kind": "compatibility",
+          "statement": "Forgetting the level certificate retains the actual point."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual modular module on the circle level kernel",
+      "kind": "construction",
+      "statement": "Equip the actual rational-circle N-kernel with the existing native ZMod N-module structure.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Each actual kernel point is killed by N by its membership certificate.",
+        "Use native subtype extensionality to express this equality within the actual kernel group.",
+        "Apply the existing AddCommGroup.zmodModule construction to these actual certificates. No general modular-module theory is replanned."
+      ],
+      "prerequisites": [
+        "mathlib:AddCommGroup.zmodModule"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCircleLevelModule"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.integer_scalar_compatibility",
+          "kind": "compatibility",
+          "statement": "The actual modular scalar structure agrees with integer multiplication after casting."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.zero_modular_scalar",
+          "kind": "degenerate",
+          "statement": "Zero in the modular ring acts as zero on the actual circle kernel."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.one_modular_scalar",
+          "kind": "characterisation",
+          "statement": "The modular unit acts as the identity on the actual circle kernel."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_coe",
+          "role": "characterisation",
+          "statement": "Each coordinate of the finite action is the sum of the original circle coordinates multiplied by the chosen actual integer lifts of the modular matrix entries."
+        },
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_intCast_coe",
+          "role": "characterisation",
+          "statement": "For an actual integer invertible matrix and actual torus N-kernel point, applying its modular reduction through the finite action has the same ambient value as the established integer torus action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Native modular module",
+          "how": "Uses the actual annihilation certificates in the existing modular-module construction."
+        },
+        {
+          "where": "Full finite matrices",
+          "how": "Supplies the genuine scalar module used by the finite matrix action."
+        },
+        {
+          "where": "Integer comparison",
+          "how": "Native cast compatibility preserves original integer multiples."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full finite general-linear action on the actual torus level",
+      "kind": "construction",
+      "statement": "Each native invertible matrix over ZMod N defines an actual additive automorphism of the torus N-kernel.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Use the actual modular module on the circle N-kernel.",
+        "The existing native matrix-module action gives the action on vectors of these actual points.",
+        "The native matrix-unit group action supplies the corresponding additive equivalence.",
+        "Conjugate it by the proved actual level-coordinate equivalence. This constructs every finite matrix action directly, without integral lifting."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module",
+        "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates",
+        "mathlib:Matrix.Module.matrixModule",
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:DistribMulAction.toAddEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruenceLevelEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.actual_finite_matrix_coordinates",
+          "kind": "characterisation",
+          "statement": "The finite GL action has the actual coordinate sum using integer lifts of modular entries."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_inverse_recovers_point",
+          "kind": "compatibility",
+          "statement": "The actual finite inverse matrix recovers each level point."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_action_fixes_zero",
+          "kind": "degenerate",
+          "statement": "The actual finite matrix action fixes the zero level point."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.unit_level_finite_action",
+          "kind": "degenerate",
+          "statement": "The finite group over the unit ring acts trivially on the actual unit-level torus kernel."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_coe",
+          "role": "characterisation",
+          "statement": "Each coordinate of the finite action is the sum of the original circle coordinates multiplied by the chosen actual integer lifts of the modular matrix entries."
+        },
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_one",
+          "role": "compatibility",
+          "statement": "The actual level-kernel equivalence of the finite identity matrix is the native identity additive equivalence."
+        },
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_mul",
+          "role": "compatibility",
+          "statement": "The actual level action of g*h equals the action of h followed by that of g."
+        },
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_inv",
+          "role": "compatibility",
+          "statement": "The level-kernel equivalence of the inverse finite matrix is the inverse of the level-kernel equivalence."
+        },
+        {
+          "name": "kubertCongruence_congruenceLevelEquiv_intCast_coe",
+          "role": "characterisation",
+          "statement": "For an actual integer invertible matrix and actual torus N-kernel point, applying its modular reduction through the finite action has the same ambient value as the established integer torus action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Full finite group",
+          "how": "Acts directly for all finite invertible matrices, without assuming integral lifts."
+        },
+        {
+          "where": "Actual coordinates",
+          "how": "Computes the genuine finite matrix action on original torus points."
+        },
+        {
+          "where": "Integral comparison",
+          "how": "Identifies reduced matrix action with the existing integer action."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite matrix action has the actual coordinate sum",
+      "kind": "lemma",
+      "statement": "Each coordinate of the finite action is the sum of the original circle coordinates multiplied by the chosen actual integer lifts of the modular matrix entries.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the actual coordinate action and the native matrix-module finite sum.",
+        "Use the native theorem that casting the chosen integer lift back to ZMod N gives the original modular coefficient.",
+        "Use native integer-cast scalar compatibility in the actual circle-kernel module.",
+        "Map the finite sum and scalar multiples through the actual kernel inclusion, preserving original coordinate values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates-coe",
+        "mathlib:ZMod.intCast_zmod_cast",
+        "mathlib:Int.cast_smul_eq_zsmul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceLevelEquiv_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_coordinate_value",
+          "kind": "compatibility",
+          "statement": "The finite action is the actual sum of lifted modular matrix entries acting on the original coordinates."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite identity matrix acts identically",
+      "kind": "lemma",
+      "statement": "The actual level-kernel equivalence of the finite identity matrix is the native identity additive equivalence.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Apply additive-equivalence extensionality.",
+        "Use the native identity action in actual circle-torsion coordinates.",
+        "Cancel the actual coordinate equivalence and its inverse."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceLevelEquiv_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_identity_action",
+          "kind": "degenerate",
+          "statement": "The identity finite matrix acts by the identity additive equivalence."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite matrix multiplication preserves the action order",
+      "kind": "lemma",
+      "statement": "The actual level action of g*h equals the action of h followed by that of g.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Compare actions on an arbitrary actual level point.",
+        "Cancel the consecutive coordinate equivalence and inverse.",
+        "Apply the native matrix-module multiplication law."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceLevelEquiv_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_multiplication_order",
+          "kind": "compatibility",
+          "statement": "Finite matrix multiplication acts in the usual h-then-g order."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-inv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite matrix inversion gives the inverse level map",
+      "kind": "lemma",
+      "statement": "The level-kernel equivalence of the inverse finite matrix is the inverse of the level-kernel equivalence.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "The actual native group-action equivalence uses the inverse matrix action as its inverse.",
+        "Conjugation by the actual coordinate equivalence preserves that inverse."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceLevelEquiv_inv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_matrix_inverse",
+          "kind": "compatibility",
+          "statement": "Finite matrix inversion agrees with actual additive-equivalence inversion."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-int-cast-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced integer matrices agree on the actual torus level",
+      "kind": "lemma",
+      "statement": "For an actual integer invertible matrix and actual torus N-kernel point, applying its modular reduction through the finite action has the same ambient value as the established integer torus action.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Use the native general-linear reduction induced by the integer-to-ZMod ring homomorphism.",
+        "Evaluate its actual matrix coefficients on the vector of circle-kernel points.",
+        "Native integer-cast scalar compatibility changes each modular scalar to the original integer multiple inside the actual kernel.",
+        "The native inclusion preserves finite sums and integer multiples, giving the exact earlier integer torus action coordinatewise."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-level-coordinates-coe",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-integer-torus-equiv-apply",
+        "mathlib:Matrix.GeneralLinearGroup.map",
+        "mathlib:Int.cast_smul_eq_zsmul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceLevelEquiv_intCast_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.integral_finite_point_comparison",
+          "kind": "compatibility",
+          "statement": "Reducing an actual integer matrix and acting at level five agrees with its original torus action."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full finite GL permutation of actual primitive points",
+      "kind": "construction",
+      "statement": "Every native finite general-linear matrix permutes the actual ambient primitive N-points of the rational torus.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Use the actual primitive-level equivalence to view a primitive point inside its actual level subgroup.",
+        "Restrict the constructed finite level additive equivalence to primitive points using the existing exact-order restriction.",
+        "Use the inverse primitive-level equivalence to return to the same actual ambient carrier.",
+        "This is an explicit native equivalence and requires no assumed primitive torsor or transitivity statement."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPrimitiveCongruenceEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.actual_primitive_finite_image",
+          "kind": "characterisation",
+          "statement": "The finite primitive permutation has the actual level-action point value."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_action_preserves_exact_order",
+          "kind": "characterisation",
+          "statement": "Every finite matrix preserves exact primitive order five."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.unit_primitive_finite_action",
+          "kind": "degenerate",
+          "statement": "The actual primitive point at level one is fixed by the full finite group."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_primitiveCongruenceEquiv_coe",
+          "role": "characterisation",
+          "statement": "The ambient value of the finite primitive permutation is exactly the actual finite level action applied to that same point with its level certificate."
+        },
+        {
+          "name": "kubertCongruence_primitiveCongruenceEquiv_one",
+          "role": "compatibility",
+          "statement": "The primitive permutation of the finite identity matrix is the native identity equivalence."
+        },
+        {
+          "name": "kubertCongruence_primitiveCongruenceEquiv_mul",
+          "role": "compatibility",
+          "statement": "The primitive permutation for g*h equals the permutation for h followed by that for g."
+        },
+        {
+          "name": "kubertCongruence_primitiveCongruenceEquiv_inv",
+          "role": "compatibility",
+          "statement": "The primitive permutation for g inverse equals the inverse native primitive permutation for g."
+        },
+        {
+          "name": "kubertCongruence_primitiveCongruenceEquiv_intCast",
+          "role": "compatibility",
+          "statement": "The finite primitive permutation of an actual reduced integer matrix equals the already constructed restriction of its actual integer torus action."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Actual primitive carrier",
+          "how": "Keeps exact-order points in the original rational torus."
+        },
+        {
+          "where": "Coefficient action",
+          "how": "Provides the real permutation underlying the native finite representation."
+        },
+        {
+          "where": "Source congruence claim",
+          "how": "Connects the actual primitive action to the established integral action."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite primitive action keeps the actual level-action value",
+      "kind": "lemma",
+      "statement": "The ambient value of the finite primitive permutation is exactly the actual finite level action applied to that same point with its level certificate.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the concrete composition defining the primitive permutation.",
+        "Both primitive-level maps change only certificates, so the original level-action value remains."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-coe",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-symm-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveCongruenceEquiv_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_finite_point_formula",
+          "kind": "compatibility",
+          "statement": "Primitive finite action agrees with the actual level-kernel action."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite identity fixes all actual primitive points",
+      "kind": "lemma",
+      "statement": "The primitive permutation of the finite identity matrix is the native identity equivalence.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Use the proved identity law of the actual finite level action.",
+        "Primitive restriction of an identity is an identity.",
+        "Cancel the actual primitive-level equivalence and its inverse."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-one",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-refl"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveCongruenceEquiv_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_finite_identity",
+          "kind": "degenerate",
+          "statement": "The identity matrix fixes every actual primitive point."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite primitive permutations preserve multiplication",
+      "kind": "lemma",
+      "statement": "The primitive permutation for g*h equals the permutation for h followed by that for g.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Use the actual finite level multiplication law.",
+        "The existing primitive restriction preserves ordered composition.",
+        "Cancel the actual primitive-level equivalence and inverse between consecutive actions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-mul",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-trans"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveCongruenceEquiv_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_finite_product",
+          "kind": "compatibility",
+          "statement": "The actual primitive permutations respect ordered finite matrix multiplication."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-inv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse finite matrix reverses the primitive permutation",
+      "kind": "lemma",
+      "statement": "The primitive permutation for g inverse equals the inverse native primitive permutation for g.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Compare the actual point maps by equivalence extensionality.",
+        "The concrete conjugated native equivalence has precisely the inverse finite level action."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveCongruenceEquiv_inv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.primitive_finite_inverse",
+          "kind": "compatibility",
+          "statement": "The inverse finite matrix gives the inverse primitive permutation."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-int-cast",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced integer matrices agree on actual primitive points",
+      "kind": "lemma",
+      "statement": "The finite primitive permutation of an actual reduced integer matrix equals the already constructed restriction of its actual integer torus action.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Compare native primitive equivalences pointwise.",
+        "Use subtype extensionality to reduce to actual ambient point values.",
+        "Apply the proved integral-to-finite level comparison at the actual primitive point with its level certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-coe",
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-level-equiv-int-cast-coe",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveCongruenceEquiv_intCast"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.integral_finite_primitive_comparison",
+          "kind": "compatibility",
+          "statement": "The actual finite primitive permutation of a reduced integer matrix equals its existing integral primitive action."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full finite GL representation on actual primitive coefficients",
+      "kind": "construction",
+      "statement": "Construct a native representation of the full general-linear group over ZMod N on the actual finitely supported primitive-point coefficient module over any semiring R.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Apply native Finsupp.domLCongr to the constructed actual primitive permutation of each finite matrix.",
+        "Use the underlying native linear map as the representation value.",
+        "The actual primitive identity and multiplication laws, together with the native coefficient-congruence laws, give the native representation axioms.",
+        "The construction is defined on all finite invertible matrices and is independent of whether a matrix has an integral invertible lift."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-one",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-mul",
+        "mathlib:Finsupp.domLCongr",
+        "mathlib:Finsupp.domLCongr_refl",
+        "mathlib:Finsupp.domLCongr_trans",
+        "mathlib:Representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruenceRepresentation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.full_finite_representation_identity",
+          "kind": "degenerate",
+          "statement": "The full finite native representation sends identity to the identity linear map."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.full_finite_representation_product",
+          "kind": "compatibility",
+          "statement": "The full finite native representation preserves finite matrix multiplication."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.unit_finite_representation",
+          "kind": "degenerate",
+          "statement": "The full unit-level finite group acts trivially on primitive coefficients."
+        },
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_action_in_characteristic_two",
+          "kind": "compatibility",
+          "statement": "The full finite coefficient representation also works in characteristic two."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ],
+      "api": [
+        {
+          "name": "kubertCongruence_congruenceRepresentation_apply",
+          "role": "characterisation",
+          "statement": "After finite GL action, the coefficient at a primitive point is the original coefficient at its actual image under the inverse finite matrix."
+        },
+        {
+          "name": "kubertCongruence_congruenceRepresentation_single",
+          "role": "compatibility",
+          "statement": "The full finite representation sends the native single vector at x to the native single vector at the actual finite primitive image of x, preserving its coefficient."
+        },
+        {
+          "name": "kubertCongruence_congruenceRepresentation_intCast",
+          "role": "compatibility",
+          "statement": "The constructed finite representation evaluated at an actual reduced integer matrix equals the established integral general-linear representation evaluated at that matrix."
+        },
+        {
+          "name": "kubertCongruence_primitiveGLRepresentation_factors",
+          "role": "characterisation",
+          "statement": "Composing the full native finite general-linear representation with the actual matrix-reduction homomorphism gives exactly the established integral representation."
+        },
+        {
+          "name": "kubertCongruence_primitiveGLRepresentation_congruent",
+          "role": "compatibility",
+          "statement": "Two actual invertible integer matrices with equal entries in ZMod N induce the same native linear map on the actual primitive N-point coefficient module."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert finite action",
+          "how": "Constructs the full finite representation required before equation(2.6)."
+        },
+        {
+          "where": "Congruence factorization",
+          "how": "Recovers the integral representation under the actual reduction homomorphism."
+        },
+        {
+          "where": "Coefficient orientation",
+          "how": "Retains inverse pullback and forward basis labels over every semiring."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite coefficients pull back by the inverse primitive action",
+      "kind": "lemma",
+      "statement": "After finite GL action, the coefficient at a primitive point is the original coefficient at its actual image under the inverse finite matrix.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Evaluate the native domain linear congruence.",
+        "Its coefficients pull back by the inverse primitive equivalence.",
+        "That inverse is the actual primitive permutation of the inverse finite matrix."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceRepresentation_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_inverse_coefficient",
+          "kind": "characterisation",
+          "statement": "The actual coefficient action pulls back through the inverse finite primitive permutation."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation-single",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite GL action moves actual primitive basis labels",
+      "kind": "lemma",
+      "statement": "The full finite representation sends the native single vector at x to the native single vector at the actual finite primitive image of x, preserving its coefficient.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Apply the native Finsupp.domLCongr single-vector theorem.",
+        "Its domain equivalence is the constructed actual finite primitive permutation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation",
+        "mathlib:Finsupp.domLCongr_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceRepresentation_single"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.finite_basis_point_image",
+          "kind": "compatibility",
+          "statement": "The full finite representation moves a basis label to its actual finite matrix image."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation-int-cast",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite and integral coefficient actions agree under reduction",
+      "kind": "lemma",
+      "statement": "The constructed finite representation evaluated at an actual reduced integer matrix equals the established integral general-linear representation evaluated at that matrix.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Write the finite representation as the native domain linear congruence of its actual primitive permutation.",
+        "Substitute the proved equality between reduced finite and actual integral primitive permutations.",
+        "The result is definitionally the established actual integral coefficient map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation",
+        "DirichletPadicLFunctions:L3/kubert-congruence-primitive-congruence-equiv-int-cast",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-g-l-representation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_congruenceRepresentation_intCast"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.integral_finite_coefficient_comparison",
+          "kind": "compatibility",
+          "statement": "The finite representation at a reduced integer matrix equals the established integral representation."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-g-l-representation-factors",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual integral representation factors through full finite GL",
+      "kind": "theorem",
+      "statement": "Composing the full native finite general-linear representation with the actual matrix-reduction homomorphism gives exactly the established integral representation.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Apply native monoid-homomorphism extensionality.",
+        "At every actual integer matrix, use congruenceRepresentation_intCast.",
+        "This proves factorization through a separately constructed full finite GL action without any surjectivity claim for the reduction map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation-int-cast",
+        "mathlib:Matrix.GeneralLinearGroup.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveGLRepresentation_factors"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.actual_factorization_through_full_finite_GL",
+          "kind": "characterisation",
+          "statement": "The native integral representation factors through the constructed full finite GL representation and the actual reduction homomorphism."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-congruence-primitive-g-l-representation-congruent",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Congruent integral matrices give identical primitive coefficient actions",
+      "kind": "lemma",
+      "statement": "Two actual invertible integer matrices with equal entries in ZMod N induce the same native linear map on the actual primitive N-point coefficient module.",
+      "hypotheses": [
+        "All points and level groups are the established actual rational torus and kernels of natural multiplication. The coordinate equivalence identifies the actual torus kernel with vectors of actual circle-kernel points; it does not replace their ambient values.",
+        "The concrete circle kernel is killed by N by its existing membership certificate. Reuse the native modular-module construction to obtain its ZMod N structure and the native matrix-module action on its vectors.",
+        "The full finite general-linear group is the native unit group of matrices over ZMod N. Its actual action is built directly, including matrices that do not lift to invertible integer matrices. No surjectivity of integral matrix reduction is assumed.",
+        "The complete native constructions allow natural N, with the native integer-ring branch at N=0. Kubert uses positive levels; tests include N=1 and its trivial coefficient ring. The rational torus has positive dimension k+1.",
+        "Primitive points are actual points of exact order N; native subgroup order preservation compares ambient and level-subgroup orders. Coefficient modules and representations are native over arbitrary semiring R. Cartan comparison and the independent rank lower bound remain separate."
+      ],
+      "proofSteps": [
+        "Replace both integral coefficient maps by the proved values of the full finite representation.",
+        "The two native reduced matrix units are equal by unit extensionality and entrywise equality.",
+        "The same finite representation therefore gives the same coefficient map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-congruence-congruence-representation-int-cast",
+        "mathlib:Matrix.GeneralLinearGroup.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCongruenceAction",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCongruence_primitiveGLRepresentation_congruent"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 187, the statement immediately before (2.6) that the actual primitive coefficient action factors through GL_k(Z/NZ). The Cartan group-ring identification (2.7) remains distinct.",
+          "match": "Constructs the action of the full native modular general-linear group on actual level torsion and primitive points, proves comparison under the actual integral matrix reduction, and obtains the native coefficient-representation factorization. Does not assume every finite matrix lifts to an integral matrix."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCongruenceTests.congruent_integer_matrices_act_equally",
+          "kind": "compatibility",
+          "statement": "Actual integer matrices with equal entries modulo five give identical coefficient maps."
+        }
+      ],
+      "acceptance": [
+        "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
+      ]
     }
   ],
   "requests": [
@@ -105480,7 +107015,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual primitive-root transfer now intertwines all actual additive torus automorphisms and the constructed native integral general-linear representations. The matrix action and its coefficient orientation, identity, multiplication and inverse are explicit. Next prove the level-N action depends only on the integer matrix entries modulo N and construct the actual finite general-linear action and its comparison, as required in the same paragraph on Kubert187. Then construct and compare the actual Cartan finite rings, units, primitive torsors and norm maps of 186–189, reusing native and owner interfaces. Complete the independent rank lower bound from the Cartan or rational model of 186–199 and combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. No assumed action, Cartan torsor or full-rank certificate substitutes for those constructions. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The actual primitive coefficient action now factors through the constructed representation of the full finite general-linear group over ZMod N. Actual circle-torsion coordinates, modular scalar compatibility, finite matrix action, primitive restriction and integer-reduction comparison are explicit. Next construct and compare the actual Cartan finite rings, unit groups, primitive torsors and linear norm maps of Kubert186–189, checking existing native and owner interfaces first. The finite GL action gives an actual comparison target; it does not supply an unramified Cartan ring or a simply transitive Cartan subgroup by assumption. Complete the independent lower rank bound through the Cartan or rational model of 186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -105512,7 +107047,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual primitive-root transfer now intertwines all actual additive torus automorphisms and the constructed native integral general-linear representations. The matrix action and its coefficient orientation, identity, multiplication and inverse are explicit. Next prove the level-N action depends only on the integer matrix entries modulo N and construct the actual finite general-linear action and its comparison, as required in the same paragraph on Kubert187. Then construct and compare the actual Cartan finite rings, units, primitive torsors and norm maps of 186–189, reusing native and owner interfaces. Complete the independent rank lower bound from the Cartan or rational model of 186–199 and combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. No assumed action, Cartan torsor or full-rank certificate substitutes for those constructions. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual primitive coefficient action now factors through the constructed representation of the full finite general-linear group over ZMod N. Actual circle-torsion coordinates, modular scalar compatibility, finite matrix action, primitive restriction and integer-reduction comparison are explicit. Next construct and compare the actual Cartan finite rings, unit groups, primitive torsors and linear norm maps of Kubert186–189, checking existing native and owner interfaces first. The finite GL action gives an actual comparison target; it does not supply an unramified Cartan ring or a simply transitive Cartan subgroup by assumption. Complete the independent lower rank bound through the Cartan or rational model of 186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -106062,36 +107597,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual GL-equivariance in equation(2.6) is supplied; finite congruence action, Cartan norm comparison, the independent distribution lower bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The full finite GL action and actual representation factorization are constructed. Cartan ring/torsor/norm comparison, the independent distribution lower bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1632,
+      "nodes": 1657,
       "kinds": {
         "definition": 22,
-        "lemma": 897,
-        "construction": 148,
-        "theorem": 358,
+        "lemma": 915,
+        "construction": 154,
+        "theorem": 359,
         "comparison": 207
       },
-      "api": 1117,
-      "packetTests": 3008,
-      "definitionConstructionTests": 678,
-      "typedExamples": 3011,
+      "api": 1138,
+      "packetTests": 3047,
+      "definitionConstructionTests": 698,
+      "typedExamples": 3050,
       "planets": 24,
-      "baseline": 1092,
-      "preservedWholeNodes": 1609,
-      "preservedBaseline": 1082,
+      "baseline": 1096,
+      "preservedWholeNodes": 1632,
+      "preservedBaseline": 1092,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 23,
-      "newNamedDeclarations": 23,
-      "newTypedTests": 35,
+      "newNodes": 25,
+      "newNamedDeclarations": 25,
+      "newTypedTests": 39,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1892,
-      "dependencyEdges": 8153,
+      "reachableNodes": 1917,
+      "dependencyEdges": 8215,
       "acyclic": true,
-      "baselineLeaves": 1254,
+      "baselineLeaves": 1258,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -106106,7 +107641,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 834998,
+      "readerWords": 846494,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -106132,35 +107667,32 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 90,
-      "scratchCompleteLemmas": 1017,
+      "scratchCompleteDefinitions": 96,
+      "scratchCompleteLemmas": 1036,
       "scratchMathlibModules": 2986,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 44,
-        "primitivePoints": 1416,
-        "automorphismPointChecks": 6540,
-        "inverseChecks": 6540,
-        "compositionChecks": 31620,
-        "levelPairs": 139,
-        "newPrimePairs": 77,
-        "reductionEquivarianceChecks": 20876,
-        "coefficientEquivarianceChecks": 20876,
-        "basisImageChecks": 148,
-        "unitLevels": 3
+        "levels": 21,
+        "finiteMatrices": 3150,
+        "primitivePointActions": 118182,
+        "pointInverses": 118182,
+        "matrixProducts": 12508,
+        "coefficientChecks": 118182,
+        "integerComparisonChecks": 604,
+        "unitLevelMatrices": 3
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4",
+        "sourceSha256": "aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7",
         "modules": 3606,
-        "warnings": 4990,
+        "warnings": 5054,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,990 expected placeholder warnings across 3,606 pinned source modules. It includes all 23 new named declarations and 35 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -106170,7 +107702,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "c10b8401de3c8d6d77c37bc44bb9b3d660f2f0db9583809595b3123f7f79790f",
+      "sha256": "2880916d970ccfee6ef2d39d91139c7e83565bcfd9c71978610e9bbc89c3bb8a",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -106185,11 +107717,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1017,
+        "completeLemmas": 1036,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "5594903c6848dd268af0c0691faaf328a6fc7c6a6886f431128691cbc3bd4323"
+        "sha256": "fe6e211ed1dc0320db80cb7990f765da82b44c826d34fad6d3f58b58e0c7dcf8"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -106327,17 +107859,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4",
+        "sourceSha256": "aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7",
         "modules": 3606,
-        "warnings": 4990,
+        "warnings": 5054,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,990 expected placeholder warnings across 3,606 pinned source modules. It includes all 23 new named declarations and 35 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "4da0764eecf57ec4973c65029de5469931d4c112",
+      "base": "a690f5030137ee4f324732e98412c481bfceea25",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -117451,6 +118983,55 @@
         "warnings": 4990,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,990 expected placeholder warnings across 3,606 pinned source modules. It includes all 23 new named declarations and 35 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 61f6ea3c767cd7e78fe57666432e9027ed2441d642b20b4a2fef86d7929ddfe4.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCongruenceAction": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5458,
+      "previousHead": "c7f7da0596f7e156ccc7de54371cac080d577af3",
+      "previousMerge": "2f570f082b377ab66ea758c8f3fced18a10e69b2",
+      "preservedWholeNodes": 1632,
+      "preservedBaseline": 1092,
+      "preservedFindings": 26,
+      "newNodes": 25,
+      "reading": "Kubert187 finite congruence action immediately before(2.6) was reread. Native ZMod-module construction for an actually annihilated group, integer-cast scalar compatibility, integer representatives of modular coefficients and the actual general-linear coefficient-reduction map were read in full. Existing actual primitive restrictions, matrix-module action and coefficient representations are reused. The full finite action is built directly; the invalid surjectivity of integral matrix reduction is neither assumed nor used.",
+      "boundary": "The actual primitive coefficient action now factors through the constructed representation of the full finite general-linear group over ZMod N. Actual circle-torsion coordinates, modular scalar compatibility, finite matrix action, primitive restriction and integer-reduction comparison are explicit. Next construct and compare the actual Cartan finite rings, unit groups, primitive torsors and linear norm maps of Kubert186–189, checking existing native and owner interfaces first. The finite GL action gives an actual comparison target; it does not supply an unramified Cartan ring or a simply transitive Cartan subgroup by assumption. Complete the independent lower rank bound through the Cartan or rational model of 186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "90b155747dd298af31b82a1d7f721295b85f3bb3",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The full finite GL action and actual representation factorization are constructed. Cartan ring/torsor/norm comparison, the independent distribution lower bound and internal/global equality remain open.",
+      "publication": {
+        "base": "a690f5030137ee4f324732e98412c481bfceea25",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 21,
+        "finiteMatrices": 3150,
+        "primitivePointActions": 118182,
+        "pointInverses": 118182,
+        "matrixProducts": 12508,
+        "coefficientChecks": 118182,
+        "integerComparisonChecks": 604,
+        "unitLevelMatrices": 3
+      },
+      "numericalMethod": "Exact enumeration of all native finite general-linear matrices via the unit-determinant criterion in dimensions one through three, at levels up to12,7,2 respectively. Exact rational torus coordinates verify full finite matrix action, inverses, primitive-point preservation, coefficient recovery and composition with actual integral generators. Integer matrices and their reductions agree at every tested point. Includes the unit ring at N=1, congruent shears, and the GL1(Z/5) element2 outside the reduction of GL1(Z), excluding an invalid surjectivity argument. These finite controls do not prove Cartan comparison or the independent rank lower bound.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7",
+        "modules": 3606,
+        "warnings": 5054,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
