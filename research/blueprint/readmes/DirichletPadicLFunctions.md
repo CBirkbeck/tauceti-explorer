@@ -32553,3 +32553,560 @@ Exact rational integer-Gamma controls and finite residue controls check positive
 Capture at 4d6014efcff1f030403a804702f6b17aab2ec3b7 has zero changes among72 tracked inputs and an unchanged issue body after merged PR5336. The new source reading and finding are additions; all existing source findings and supplier interfaces remain whole. Publication refresh to fb8ad3f5b0fcd327dd616dc70452f15714612b61 changes only the source registry and generated register among72 guarded inputs. The complete semantic delta adds PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E17 and/E18, both awaiting review. Their full rows were read: the missing automorphic matching condition and failed strong-regularity reduction concern the 2019 paper, not Gross–Koblitz or any current supplier. All older rows and other register fields remain unchanged. REGISTER equals its renderer output. Four deliverable bytes are preserved across the checked fast-forward; no mathematical input or review verdict changes.
 
 The separate partial signature file also compiled with zero errors and 3,256 expected placeholder warnings across 3,600 pinned source modules. It includes all 14 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 69878a0dcce99c0792c06a44db12dd3c9d4b88a7030e1d82f8edad88fde7b6fe.
+
+
+## Cyclic digits and the Gross–Koblitz fractional-part exponent
+
+Twenty L3 nodes construct the actual cyclic numerators and carries, reconstruct the base-p digits and prove the fractional-part exponent and positive-residue comparisons. All1015 predecessor nodes,772 baseline records and18 findings remain whole.
+
+Rereads the complete proof of Gross–Koblitz Lemma2.4 on published572–573 and Lemma2.11 on575 from the retained published scan. The complete paper reading from5339 remains current. Reads native interval reduction and its equality characterization, native little-endian digit evaluation, congruence multiplication, coprimality and positive-power statements in full at the pin. Bounded public searches for Gross–Koblitz on Lean Zulip/Mathlib and cyclic-digit PRs located no matching implementation lead; unrelated results were not used. The pinned declarations are the actual design baseline. The source Katz and Stickelberger citations remain proof-source obligations.
+
+### Cyclic numerators for the Frobenius orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator` — `DirichletPadic.grossKoblitzOrbitNumerator`
+
+Define n_j=(p^j k) mod(p^f−1), a natural numerator, for all natural p,f,k,j.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Use native natural exponentiation, multiplication and remainder. There is no new residue-class carrier and no representative choice beyond Nat.mod.
+2. For prime p and f>0, one_lt_pow gives p^f>1 and therefore M>0. All following bounds use this positive denominator.
+3. Promote the initial value, upper bound, nonvanishing, successor and period API entries because the digit and fractional-part comparisons consume them. The complete orbitNumerator definition uses the literal arithmetic expression.
+
+**Prerequisites:** .
+
+**Uses:**
+
+- Gross–Koblitz Lemma2.4: Tracks the rational arguments under multiplication by p with a fixed denominator p^f−1.
+- Gross–Koblitz Lemma2.11(1): Summing all f rational representatives determines the exponent of π.
+- The cyclic digit reconstruction: The exact next numerator and period supply the carries and close the telescoping identity.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzOrbitNumerator_def` (constructor): n_j=(p^j k) mod(p^f−1).
+- `DirichletPadic.grossKoblitzOrbitNumerator_zero` (simp): n_0=k if k<M; promoted below.
+- `DirichletPadic.grossKoblitzOrbitNumerator_lt` (characterisation): n_j<M for prime p,f>0; promoted below.
+- `DirichletPadic.grossKoblitzOrbitNumerator_pos` (characterisation): 0<n_j for0<k<M; promoted below.
+- `DirichletPadic.grossKoblitzOrbitNumerator_step` (relation): n_(j+1)=(p n_j) mod M; promoted below.
+- `DirichletPadic.grossKoblitzOrbitNumerator_period` (relation): n_(j+f)=n_j; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.orbit_first` (computation): For p=3,f=2,k=5 the initial numerator is5.
+- `SuggestedGrossKoblitzDigitsTests.orbit_second` (computation): Its next numerator is7.
+- `SuggestedGrossKoblitzDigitsTests.orbit_dyadic` (computation): At p=2,f=3,k=3 the second shifted numerator is5.
+- `SuggestedGrossKoblitzDigitsTests.orbit_zero_class` (degenerate): The zero class stays zero under every shift.
+
+**Acceptance:** Keep f explicit. Do not replace the chosen period by an unstated least period, and do not substitute the unbounded integer p^j k for its representative.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The initial cyclic numerator
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-initial` — `DirichletPadic.grossKoblitzOrbitNumerator_zero`
+
+If k<p^f−1 then n_0=k, with no prime or positive-period assumption needed.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The zeroth power is1, so the definition is k mod M. Native reduction below the modulus gives k.
+2. The complete orbit_zero proof includes k=0. The range hypothesis is necessary: k=M reduces to0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.initial_residue` (computation): The representative k=7 is unchanged initially at p=5,f=2.
+- `SuggestedGrossKoblitzDigitsTests.outside_initial_range` (non-example): Initial reduction of8 modulo3²−1 is0, not8.
+
+**Acceptance:** Keep the representative bound when identifying the starting integer.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The upper bound for cyclic numerators
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound` — `DirichletPadic.grossKoblitzOrbitNumerator_lt`
+
+For prime p,f>0 and every k,j, n_j<M.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Native one_lt_pow at the prime p>1 gives p^f>1, so M>0.
+2. Apply the native strict remainder bound to p^j k modulo M. The complete orbit_lt proof is exactly that bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator`, `mathlib:one_lt_pow'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.orbit_bound` (characterisation): Every numerator at p=3,f=2 is less than8.
+
+**Acceptance:** This bound allows arbitrary k, including0 and integers at least M.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Nonzero rational classes stay nonzero
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-positive` — `DirichletPadic.grossKoblitzOrbitNumerator_pos`
+
+For prime p,f>0 and0<k<M, every n_j is strictly positive.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Consecutive positive integers p^f and p^f−1 are coprime by Nat.coprime_self_sub_right. Native coprime_pow_left_iff removes the positive exponent and gives Coprime(p,M). This is the complete denominator_coprime helper.
+2. If n_j=0 then M divides p^j k. Coprimality with p persists under powers, so native coprime cancellation gives M dividing k.
+3. As k>0, this implies M≤k, contradicting k<M. The complete orbit_pos proof retains both inequalities.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound`, `mathlib:Nat.coprime_self_sub_right`, `mathlib:Nat.coprime_pow_left_iff`, `mathlib:Nat.Coprime.dvd_mul_left`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.orbit_positive` (characterisation): Every shift of the nonzero class5 modulo8 stays positive.
+- `SuggestedGrossKoblitzDigitsTests.zero_not_positive` (non-example): The zero class fails the strict positivity conclusion.
+
+**Acceptance:** Nonzero k alone is insufficient: a nonzero multiple of M still represents the zero class.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### One Frobenius step on the numerator
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-step` — `DirichletPadic.grossKoblitzOrbitNumerator_step`
+
+For all natural p,f,k,j, n_(j+1)=(p n_j) mod M.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Native mod_modEq identifies the remainder of p^j k with p^j k modulo M.
+2. Multiply that congruence by p using Nat.ModEq.mul_left. Rewrite the exponent p^(j+1)=p^j p and rearrange natural multiplication.
+3. The complete orbit_step proof unfolds equality of residues. No positivity, primeness or coprimality is needed for this identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator`, `mathlib:Nat.mod_modEq`, `mathlib:Nat.ModEq.mul_left`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.orbit_step_wrap` (computation): The ternary orbit5→7→5 wraps by reduction modulo8.
+- `SuggestedGrossKoblitzDigitsTests.orbit_step_degenerate` (degenerate): The dyadic denominator2¹−1=1 has only zero remainders.
+
+**Acceptance:** The statement uses the reduced n_j, not an independent sequence assumed to satisfy a recurrence.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### A full Frobenius cycle returns to the numerator
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-period` — `DirichletPadic.grossKoblitzOrbitNumerator_period`
+
+For prime p,f>0, n_(j+f)=n_j for every k,j.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The positive denominator satisfies p^f=M+1. Expand p^(j+f) using the native power-add identity.
+2. Ring arithmetic writes p^j(M+1)k=M(p^j k)+p^j k, whose remainder modulo M equals that of p^j k.
+3. The complete orbit_period proof works for any k and includes the degenerate modulus1 at p=2,f=1. It proves a period, not minimality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.orbit_full_period` (characterisation): Adding2 to the shift fixes every numerator modulo3²−1.
+- `SuggestedGrossKoblitzDigitsTests.orbit_smaller_period` (non-example): At p=3,f=2,k=4 the actual orbit has period1; f need not be minimal.
+
+**Acceptance:** An orbit may have smaller period: k=4 modulo8 is fixed by multiplication by3.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The actual base-p carry
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry` — `DirichletPadic.grossKoblitzCarry`
+
+Define d_j=(p n_j)/M using native natural division, for every p,f,k,j.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The numerator n_j is the preceding concrete remainder. Define d_j by the actual Euclidean quotient p n_j divided by M.
+2. The digit bound and the quotient-remainder equation are promoted below. Their combination shows that the carries are valid base-p digits, rather than unspecified numbers satisfying an assumed formula.
+3. The complete carry definition is computational. Leading zero carries are allowed and retained in the fixed-length representation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator`.
+
+**Uses:**
+
+- Gross–Koblitz Lemma2.11(1): The sum of the actual carries equals the source digit sum and the fractional-part exponent.
+- Gross–Koblitz Lemma2.4: Each carry is the next cyclic numerator’s units digit, determining its positive residue.
+- The fixed-length base-p expansion: Reversing the f carries reconstructs k through native Nat.ofDigits, including leading zeros.
+
+**API:**
+
+- `DirichletPadic.grossKoblitzCarry_def` (constructor): d_j=floor(p n_j/M).
+- `DirichletPadic.grossKoblitzCarry_lt` (characterisation): d_j<p for prime p,f>0; promoted below.
+- `DirichletPadic.grossKoblitzCarry_step` (relation): p n_j=M d_j+n_(j+1); promoted below.
+- `DirichletPadic.grossKoblitzCarry_ofDigits` (compatibility): Nat.ofDigits p of the reversed f carries equals k for k<M; promoted below.
+- `DirichletPadic.grossKoblitzCarry_residue` (relation): d_j=n_(j+1) mod p; promoted below.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.carry_first` (computation): At p=3,f=2,k=5 the first carry is1.
+- `SuggestedGrossKoblitzDigitsTests.carry_second` (computation): The next carry is2.
+- `SuggestedGrossKoblitzDigitsTests.carry_leading_zero` (computation): At p=3,f=3,k=5 the first carry is0; leading zeros are retained.
+- `SuggestedGrossKoblitzDigitsTests.carry_zero` (degenerate): The zero numerator has zero carry.
+
+**Acceptance:** Use chronological carries for the orbit and reverse them for native little-endian Nat.ofDigits.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Carries lie in the base-p digit range
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry-bound` — `DirichletPadic.grossKoblitzCarry_lt`
+
+For prime p,f>0 and all k,j, d_j<p.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The orbit upper bound gives n_j<M. Multiplication by positive p gives p n_j<p M.
+2. For positive M, the native natural-division strict inequality is equivalent to this product inequality. Apply it to the actual quotient d_j.
+3. The complete carry_lt proof does not require k to be a nonzero class.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-carry`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.carry_digit_bound` (characterisation): Every dyadic carry belongs to{0,1}.
+
+**Acceptance:** In particular dyadic carries are0 or1.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The quotient-remainder equation for a Frobenius step
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry-step` — `DirichletPadic.grossKoblitzCarry_step`
+
+For all natural p,f,k,j, p n_j=M d_j+n_(j+1).
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The orbit-step theorem identifies n_(j+1) with the remainder of p n_j modulo M.
+2. Unfold d_j and use the native natural quotient-remainder identity. The complete carry_step proof checks the order of the multiplier M and the carry.
+3. The identity is algebraic and also holds for natural division by0; only its arithmetic uses require f>0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-carry`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-step`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.carry_decomposition` (computation): 3·7=8·2+5 verifies the wrapped recurrence.
+
+**Acceptance:** Retain the factor p on n_j and the factor M on d_j; exchanging them breaks the small numerical tests.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The positive fractional part of a Frobenius translate
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit` — `DirichletPadic.grossKoblitzOrbitNumerator_fraction`
+
+For prime p,f>0 and0<k<M, the native positive fractional part of p^j k/M equals n_j/M in ℚ.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The orbit lower and upper bounds give0<n_j/M<1, hence membership in the native interval(0,1].
+2. Natural Euclidean division gives p^j k=n_j+M floor(p^j k/M). Cast that identity into ℚ and divide by the nonzero M.
+3. Use toIocMod_eq_iff with the explicit integer floor(p^j k/M). The complete fractional_orbit proof checks every natural/integer/rational cast.
+4. At k=0 the native positive representative is1 but n_j/M=0; this is why the source nonzero-class restriction is not discarded.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-positive`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound`, `mathlib:toIocMod`, `mathlib:toIocMod_eq_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.fractional_orbit_value` (computation): The positive fractional part of15/8 is7/8.
+- `SuggestedGrossKoblitzDigitsTests.fractional_negative` (compatibility): The native positive representative of−1/8 is7/8.
+- `SuggestedGrossKoblitzDigitsTests.fractional_zero_boundary` (non-example): The positive representative of0 is1, unlike a zero remainder divided by8.
+
+**Acceptance:** The native Ico fractional part has a different zero convention. The stated strict inequalities make both coincide only in this nonzero case.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Cyclic invariance of the numerator sum
+
+`DirichletPadicLFunctions:L3/gross-koblitz-orbit-sum-shift` — `DirichletPadic.grossKoblitzOrbitNumerator_sum_shift`
+
+For prime p,f>0, Σ_(j<f)n_(j+1)=Σ_(j<f)n_j, as an equality in ℚ.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Induction on a range length n gives Σ_(j<n)n_(j+1)+n_0=Σ_(j<n)n_j+n_n, using the generated additive sum_range_succ of the indexed prod_range_succ.
+2. Set n=f and apply n_f=n_0 from the period theorem. Cancel the common boundary term.
+3. The complete orbit_sum_shift proof uses this telescoping identity and does not assume that all orbit points are distinct.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-period`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.shift_sum` (computation): The two cyclic numerator sums at p=3,f=2,k=5 both equal12.
+
+**Acceptance:** Sum over the chosen f terms even if the minimal period is smaller.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Summing the Frobenius carry equation
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry-sum` — `DirichletPadic.grossKoblitzCarry_sum`
+
+For prime p,f>0 and every k, (p−1)Σ_(j<f)n_j=MΣ_(j<f)d_j in ℚ.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Cast each exact natural carry equation p n_j=M d_j+n_(j+1) into ℚ and sum it over j<f.
+2. Distribute the finite sums and take out the constant factors p and M.
+3. The preceding cyclic sum identity replaces Σ n_(j+1) by Σ n_j. Subtract that sum and factor p−1. The complete carry_sum proof checks the resulting identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-carry-step`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-sum-shift`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.carry_sum_identity` (computation): For p=3,f=2,k=5, twice the numerator sum is8 times the carry sum.
+
+**Acceptance:** This algebraic equality still holds at the zero class; the positive-fraction comparison does not.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The fractional-part exponent is the digit sum
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-sum` — `DirichletPadic.grossKoblitz_fractional_sum`
+
+For prime p,f>0 and0<k<M, (p−1)Σ_(j<f)⟨p^j k/M⟩=Σ_(j<f)d_j in ℚ, where ⟨·⟩ is native toIocMod for(0,1].
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Replace every positive fractional part by the exact n_j/M comparison.
+2. Move the fixed nonzero denominator outside the finite sum. The carry-sum identity makes the numerator M times the carry sum.
+3. Cancel M. The complete fractional_sum proof establishes the exponent as an actual natural digit sum viewed in ℚ.
+4. The following native digit expansion and the bound d_j<p verify that the d_j really are the f base-p digits of k in reverse order. Together these give the source Lemma2.11(1), including repeated periods and leading zeros.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-sum`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.exponent_ternary` (computation): Twice the sum of5/8 and7/8 is3, the carry sum.
+- `SuggestedGrossKoblitzDigitsTests.exponent_dyadic` (computation): The dyadic orbit of3/7 gives exponent2.
+- `SuggestedGrossKoblitzDigitsTests.exponent_zero_failure` (non-example): At zero class,p=3,f=2 the positive-fraction sum gives4 although the carry sum is0.
+
+**Acceptance:** Do not apply this statement to the zero rational class. At p=3,f=2,k=0 the positive-fraction left side is4 and the carry sum is0.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Reconstructing the numerator from the carries
+
+`DirichletPadicLFunctions:L3/gross-koblitz-digit-expansion` — `DirichletPadic.grossKoblitzCarry_ofDigits`
+
+For prime p,f>0 and k<M, Nat.ofDigits p ((List.range f).reverse.map d)=k.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. For n≥0 let D_n be native Nat.ofDigits of the first n carries in reverse order. Native little-endian evaluation and range succession give D_(n+1)=d_n+pD_n, with D_0=0.
+2. Induct on n using the actual carry equation to prove p^n n_0=M D_n+n_n. This unrolls the concrete division process; no expansion formula is assumed.
+3. At n=f, initial reduction and periodicity give n_0=n_f=k. Since p^f=M+1, the equality reduces to M D_f=M k.
+4. Cancel positive M in ℕ. The complete digit_expansion proof includes k=0 and fixed-length leading zero digits. Together with carry_lt, this is the ordinary base-p expansion with the precise native ordering.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-carry`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-step`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-initial`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-period`, `mathlib:Nat.ofDigits`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.digit_expansion` (compatibility): Reversing the ternary carries[1,2] gives native little-endian digits[2,1], representing5.
+- `SuggestedGrossKoblitzDigitsTests.digits_zero_padding` (computation): The three ternary digits[2,1,0] also represent5.
+- `SuggestedGrossKoblitzDigitsTests.digits_reversed_failure` (non-example): Using chronological carries as little-endian digits gives7 instead of5.
+
+**Acceptance:** Chronological order must be reversed for Nat.ofDigits: at p=3,f=2,k=5, [2,1] represents5 while [1,2] represents7.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### Uniqueness of the positive reflection residue
+
+`DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-unique` — `DirichletPadic.grossKoblitzPositiveResidue_unique`
+
+If0<r≤p and (r:ZMod p)=toZMod(z), then the existing positive residue hat_p(z) equals r.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Unfold the existing positive-residue construction and substitute the given native residue equality.
+2. If r=p, its native residue and natural value are zero, so the definition returns p. Otherwise0<r<p and the native natural residue value equals r, which is nonzero.
+3. The complete positiveResidue_unique proof separates these two branches. It promotes the uniqueness clause implicit in source Lemma2.3 for use in Lemma2.4.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`, `mathlib:ZMod.val_natCast`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.residue_unique_zero` (characterisation): The positive representative3 is forced by the ternary zero residue.
+
+**Acceptance:** The strict positivity condition excludes the alternative representative0 of the zero class.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The rational orbit denominator is a p-adic unit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit` — `DirichletPadic.grossKoblitz_denominator_isUnit`
+
+For prime p and f>0, the natural integer M=p^f−1 is a unit of native ℤ_p.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. The consecutive-integer and power-coprimality calculation above gives Coprime(p,M).
+2. Native PadicInt.norm_natCast_eq_one_iff makes the norm of M equal1, and PadicInt.isUnit_iff turns that into a unit certificate.
+3. The complete denominator_unit proof has no algebraic extension, chosen prime of a number field or Gauss-sum assumption.
+
+**Prerequisites:** `mathlib:Nat.coprime_self_sub_right`, `mathlib:Nat.coprime_pow_left_iff`, `mathlib:one_lt_pow'`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.denominator_unit_dyadic` (compatibility): 7 is a dyadic unit.
+- `SuggestedGrossKoblitzDigitsTests.denominator_unit_ternary` (compatibility): 8 is a ternary unit.
+
+**Acceptance:** This supplies the denominator needed for an actual p-adic integer rational argument.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The native p-adic integer representing n divided by p^f−1
+
+`DirichletPadicLFunctions:L3/gross-koblitz-rational-point` — `DirichletPadic.grossKoblitz_rational_point`
+
+For prime p,f>0 and n∈ℕ, there exists exactly one x∈ℤ_p with Mx=n.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Obtain a native unit u with scalar value M from the preceding denominator theorem.
+2. Take x=u⁻¹n using native unit coercion into ℤ_p. Unit inverse cancellation proves Mx=n.
+3. For any y satisfying My=n, multiply by u⁻¹ to recover y=u⁻¹n. The complete rational_point proof establishes both existence and uniqueness, including n=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.rational_point_ternary` (characterisation): There is exactly one ternary integer x with8x=5.
+- `SuggestedGrossKoblitzDigitsTests.rational_point_zero` (degenerate): There is exactly one dyadic integer x with7x=0.
+
+**Acceptance:** No totalized inverse on nonunits is used, and the solution is an actual native p-adic integer.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The positive residue of a rational orbit argument
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-positive-residue` — `DirichletPadic.grossKoblitzPositiveResidue_fraction`
+
+For prime p,f>0 and a native solution Mx=n, hat_p(x)=p−(n mod p).
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Cast M=p^f−1 into ZMod p. As f>0, p^f has residue0 and M has residue−1.
+2. Apply the residue homomorphism to Mx=n, obtaining toZMod(x)=−(n:ZMod p).
+3. The integer r=p−(n mod p) satisfies0<r≤p and has precisely that native residue. Apply positiveResidue_unique. The complete fractional_positive_residue proof handles n divisible by p without deleting its positive representative p.
+4. The preceding unique-solvability theorem supplies such x for every n, so this is the genuine rational n/M comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue-unique`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-point`, `mathlib:PadicInt.toZMod`, `mathlib:ZMod.natCast_zmod_val`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.rational_positive_residue` (computation): The ternary positive residue of5/8 is1.
+- `SuggestedGrossKoblitzDigitsTests.rational_zero_residue` (degenerate): The ternary positive residue of3/8 is3, retaining the zero branch.
+
+**Acceptance:** At zero residue return p; returning0 gives the wrong Gamma reflection sign.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### A carry is the next cyclic numerator’s units digit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-carry-residue` — `DirichletPadic.grossKoblitzCarry_residue`
+
+For prime p,f>0 and every k,j, n_(j+1) mod p=d_j.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Cast p n_j=M d_j+n_(j+1) into ZMod p. Since M has residue−1, this becomes0=−d_j+n_(j+1).
+2. Thus the next numerator and the carry have equal native residues. Apply ZMod.val to that equality.
+3. The carry bound d_j<p removes the carry’s own reduction, giving the exact natural equality. The complete carry_residue proof keeps the direction of the cyclic shift explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-carry-step`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-bound`, `mathlib:ZMod.val_natCast`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.carry_units_digit` (compatibility): The carry1 is the units digit of the next numerator7 in base3.
+- `SuggestedGrossKoblitzDigitsTests.carry_last_units` (compatibility): The final carry2 is the units digit of the original numerator5.
+
+**Acceptance:** At j=f−1, periodicity identifies the final carry with the units digit of k, the source z_f.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+### The positive residue in terms of the preceding carry
+
+`DirichletPadicLFunctions:L3/gross-koblitz-next-positive-residue` — `DirichletPadic.grossKoblitzPositiveResidue_next`
+
+For prime p,f>0 and Mx=n_(j+1), hat_p(x)=p−d_j.
+
+**Hypotheses:** Write M=p^f−1. The definitions and purely algebraic remainder/quotient recurrences make sense for arbitrary natural p,f,k,j; all bounds, periodicity, rational comparisons and digit results explicitly assume p prime and f>0. The positive rational fractional part is the EXISTING native toIocMod (zero_lt_one : (0:ℚ)<1) 0, with range(0,1] and zero class represented by1. No new fractional-part or rational-quotient definition is introduced. For the positive fractional-part orbit and its exponent identity require0<k<M. The initial representative and digit reconstruction allow k=0 but require k<M. Uniform orbit and carry bounds and the additive carry identity allow arbitrary k. The chosen f is a period and need not be minimal. The actual carries are d_j=floor(p n_j/M), where n_j=(p^j k) mod M. Chronological carries d_0,…,d_(f−1) run from the most significant digit to the least significant one. The native Nat.ofDigits list is reversed, retaining leading zeros to give f positions. In the printed numbering, z_f=d_(f−1) and z_s=d_(f−1−s) for1≤s<f. In ℤ_p the denominator M is a unit. The rational argument n/M is stated using its unique native solution Mx=n; existence and uniqueness are proved below. This is a concrete linear equation, not an assumed Gamma, Gauss or analytic comparison. The source globally assumes odd p; the elementary arithmetic here is also valid at p=2. No extension of the odd-prime Gross–Koblitz Gauss formula or the reflection formula to p=2 follows. E18 and every existing source finding remain unchanged.
+
+**Proof:**
+
+1. Apply the rational positive-residue theorem to the actual next numerator n_(j+1).
+2. Replace its remainder modulo p by the carry-residue theorem. The complete fractional_next_residue proof is this exact composition.
+3. For0<k<M, the fractional-orbit theorem identifies x with the p-adic rational value of⟨p^(j+1)k/M⟩. For the initial point use the wrap j=f−1. The reversed digit expansion then translates to the source’s z_(f−j) convention in Lemma2.4.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-positive-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit`, `DirichletPadicLFunctions:L3/gross-koblitz-digit-expansion`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDigitsTests.next_positive_residue` (computation): The ternary positive residue of7/8 is3−1=2.
+- `SuggestedGrossKoblitzDigitsTests.wrap_positive_residue` (computation): After a full orbit the residue of5/8 is3−2=1.
+
+**Acceptance:** The next exponent is j+1 and the carry index is j. The initial rational point uses the last carry; a one-place shift reverses small reflection signs.
+
+**Source:** Section1,p.570 positive fractional part; Section2,Lemma2.4 pp.572–573 and Lemma2.11(1) p.575, including their proofs. The source writes (p^f−1)a=z_f+z_1p+⋯+z_(f−1)p^(f−1). This decomposition proves the source digit and exponent arithmetic using actual cyclic remainders and Euclidean carries. The original source z_f is the units digit. Native toIocMod provides the positive fractional part and native Nat.ofDigits supplies the digit interpretation. The source Jacobi/Gauss and Stickelberger inputs are not assumed or discharged by this arithmetic.
+
+**Remaining:** The actual cyclic numerators and Euclidean carries now reconstruct the integer numerator in native base-p digits, give the positive fractional-part exponent, and identify the positive p-adic reflection residues with the preceding carry. This supplies the arithmetic content of Gross–Koblitz Lemmas2.4 and2.11(1), including exact zero exclusions, leading zeros and the source z_f units digit. Next combine reflection with the digit parity to prove the source elementary Jacobi case Lemma2.5, and identify the mod-p Gamma factorial product used in Lemma2.11(3). The exact negative Gauss-sum convention, fixed additive character and compatible π, Katz’s Fermat-curve Frobenius limit2.7, and Stickelberger’s leading Gauss congruence still require their mathematical constructions and proof-source/owner work. E18’s period-weighted distribution repair remains unproved and unused. Ferrero–Greenberg’s proof and all analytic supplier requirements remain open. All18 gaps and14 requests remain; no stage closes.
+
+### Cyclic digits and the Gross–Koblitz fractional-part exponent validation
+
+All 1015 predecessor nodes, 772 baseline records, 18 findings, requests and sourceVersions remain whole. This checkpoint adds 20 nodes, 22 named suggested declarations and 41 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1295 reachable nodes, 6214 edges and 950 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All twenty new nodes have no unresolved stage leaves. They use existing positive-residue nodes and native arithmetic; all14 supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The composite probe preserves the PR5339 native24definitions311lemmas verbatim and adds two actual arithmetic definitions and20 complete lemmas, including the two routine positive-denominator/coprimality helpers. It uses existing native toIocMod and Nat.ofDigits. No Gamma, Gauss formula or analytic comparison is assumed. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. The full suggested module is NOT COMPILED because pinned TwistedDivisorSum lacks a compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact finite controls check orbit bounds and periods, quotient-remainder recurrences, rational positive fractional parts, exponent sums, reversed digit reconstruction, units digits and p-adic rational residues; zero-class and wrong-order counterexamples are retained. Exact Python integers and Fraction arithmetic only. Tests use the literal modular orbit, Euclidean quotients and positive fractional part; a separate repeated-division algorithm checks native little-endian digit order with zero padding. Modular inverses at three precisions check the actual rational representatives and reflection residues. Finite controls support the complete Lean proofs and are not a formal proof for arbitrary p-adic limits. The largest observed discrepancy is 0 in every exact rational and finite-ring identity.
+
+Capture at 285d741d94572947b02d3ceec150204ea9fd4370 changes only the source registry and its rendered register among72 guarded inputs after merged5339. The complete semantic delta is the own E18 row from that PR, exactly matching its published text, correction boundary, counterexamples and searches, awaiting independent review. All older rows and other fields remain unchanged; the Markdown register equals its renderer output. No supplier, policy, issue text or review verdict changes.
+
+The separate partial signature file also compiled with zero errors and 3,319 expected placeholder warnings across 3,600 pinned source modules. It includes all 22 new named declarations and 41 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2cb3968de8587f48572d0aaf7c81e8249e067f9610c54f43f57ec8f0747c5f28.
