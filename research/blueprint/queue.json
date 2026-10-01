@@ -33896,8 +33896,9 @@
     "REV-PAPER-DASGUPTA-KAKDE-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4060"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4060",
+   "finishedAt": "2026-10-01T07:42:36Z"
   },
   {
    "id": "REV-RT-PAPER-DASGUPTA-KAKDE-23",
@@ -34116,8 +34117,9 @@
     "REV-PAPER-DADDEZIO-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DADDEZIO-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5056"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5056",
+   "finishedAt": "2026-10-01T07:42:40Z"
   },
   {
    "id": "REV-RT-PAPER-DADDEZIO-23",
@@ -34640,7 +34642,8 @@
     "REV-PAPER-MASSER-ZANNIER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MASSER-ZANNIER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5061"
   },
   {
    "id": "REV-RT-PAPER-MASSER-ZANNIER-20",
