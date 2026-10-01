@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Items 099 and 121 write the quotient as W_rΩ^m_R/dV^{r−1}Ω^m_R. In arXiv v2, p. 55, equations (26)–(27) print the same, as page-image checks confirm. But d raises degree, so dV^{r−1}Ω^m lies in degree m + 1 and is not a subgroup of W_rΩ^m. The intended quotient is W_rΩ^m_R/dV^{r−1}Ω^{m−1}_R. The r = 1 formula immediately above, ν̃^m(R) = coker(1 − C^{−1}: Ω^m_R → Ω^m_R/dΩ^{m−1}_R), has this form. The red team also cites Morrow's Corollary 4.2, which has W_rΩ^n_A/dV^{r−1}Ω^{n−1}_A; I did not re-read Morrow's paper. The fix is right: correct both items and record a misprint sourceIssue."
+  },
+  {
+   "finding": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item 038 (nonunital R-algebras, the equivalence with augmented algebras via R ⋉ I) is 'missing' as a whole. At the pinned Mathlib the algebraic part exists. NonUnitalAlgHom is defined at Mathlib/Algebra/Algebra/NonUnitalHom.lean:57. In Mathlib/Algebra/Algebra/Unitization.lean, `structure Unitization (R A : Type*) extends R × A` is at line 68, `def fstHom : Unitization R A →ₐ[R] R` at line 660, and `def inrNonUnitalAlgHom` at line 675. The same file has `def lift : (A →ₙₐ[R] C) ≃ (Unitization R A →ₐ[R] C)`, the universal property, at line 766. The fix is right: split the item, mark the existing data 'library', and keep the categorical equivalence, the limits and colimits and the henselian theory missing."
+  },
+  {
+   "finding": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Definition 5.14 (arXiv v2, pp. 42–43) says a tower is almost nilpotent 'if for each n ∈ Z, the truncated tower {τ_{≤n}X_i} is nilpotent, or equivalently if each tower {π_n(X_i)} of abelian groups is nilpotent'. The next sentence adds the qualifier 'If the tower is uniformly bounded below' only for the quickly converging variant. Without such a bound the 'equivalently' is false. In X_i = ⊕_{j≥i} Σ^{−j}HF_p with tail inclusions, each homotopy tower {π_{−j}X_i} is nilpotent, but τ_{≤0}X_i = X_i and no single N kills X_{i+N} → X_i. The fix is right: add a sourceIssue and keep item 091's truncation definition."
+  },
+  {
+   "finding": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it low. The proof of Theorem 5.21 (p. 44) reads 'By Theorem 4.36 we see K^inv(R) = K^inv(R ⊗_{HZ} HZ/p^iZ)', although the conclusion needed and supplied is modulo p. The proof of Corollary 5.33 (p. 49) says the surjection {K_n(R/I^s)}_s → {K_n(R/I^s; Z/p)}_s 'is an isomorphism'. For R = F_p, I = 0 and n = 0 that map is ℤ → ℤ/p. Only the quotient by p is an isomorphism, together with the vanishing of {K_{n−1}(R/I^s)[p]}_s. Both slips are in proofs and leave the stated theorems intact, so recording them as misprints is right, but they are presentation-level."
+  }
+ ]
+}
