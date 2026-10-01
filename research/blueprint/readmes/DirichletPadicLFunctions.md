@@ -33110,3 +33110,260 @@ Exact finite controls check orbit bounds and periods, quotient-remainder recurre
 Capture at 285d741d94572947b02d3ceec150204ea9fd4370 changes only the source registry and its rendered register among72 guarded inputs after merged5339. The complete semantic delta is the own E18 row from that PR, exactly matching its published text, correction boundary, counterexamples and searches, awaiting independent review. All older rows and other fields remain unchanged; the Markdown register equals its renderer output. No supplier, policy, issue text or review verdict changes.
 
 The separate partial signature file also compiled with zero errors and 3,319 expected placeholder warnings across 3,600 pinned source modules. It includes all 22 new named declarations and 41 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2cb3968de8587f48572d0aaf7c81e8249e067f9610c54f43f57ec8f0747c5f28.
+
+
+## Gamma factorial congruences for the Gross–Koblitz orbit
+
+Nine L3 nodes derive Gamma factorial residues and their actual cyclic product from the existing Morita recurrence and sharp congruence. All1035 predecessor nodes,780 baseline records and18 findings remain whole; no baseline record or source finding is added.
+
+Rereads Gross–Koblitz p.575, the full Gamma-side calculation in Lemma2.11(3), retaining the complete13-page reading and digit conventions. Reads both native residue kernels, maximalIdeal_eq_span_p and the finite product-range successor formulas in full at the pin; all are existing baseline records. The native Gauss inverse-character product and Wilson statements were also read as leads, but neither is used as a new input here. The recurrence-based negative-factorial proof gives the same Gamma congruence without a second Wilson argument.
+
+### Gamma congruence for the native residue map
+
+`DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence` — `DirichletPadic.moritaGamma_toZMod_congr`
+
+If toZMod(x)=toZMod(y), then toZMod(Γ_p(x))=toZMod(Γ_p(y)).
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. The two native reduction maps toZMod and toZModPow1 have the same kernel: native ker_toZMod is the maximal ideal, native ker_toZModPow1 is span(p^1), and maximalIdeal_eq_span_p identifies the two ideals.
+2. Apply those kernel identities to x−y to prove that equality under one reduction is equivalent to equality under the other. The complete reduction_one_iff helper checks this comparison explicitly, without treating the two codomain types as definitionally equal.
+3. The earlier sharp Gamma congruence applies at exponent1: it is positive and differs from2 even at the dyadic prime. Transfer the input equality to that reduction, apply the existing theorem and transfer the output equality back.
+4. The complete gamma_modp_congr proof composes exactly these comparisons; its native sharp-reduction hypothesis is the previously established theorem specialized at1. The suggested signature uses the actual moritaGamma.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.maximalIdeal_eq_span_p`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.congr_ternary` (compatibility): Equal ternary residues of inputs give equal Gamma residues.
+- `SuggestedGrossKoblitzGammaTests.congr_dyadic` (compatibility): Modulo2, Gamma at0 and4 agrees even though the sharper modulo4 assertion fails.
+
+**Acceptance:** This all-prime mod-p statement does not assert a dyadic mod4 congruence.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### Gamma at negative integers below the first nonunit
+
+`DirichletPadicLFunctions:L3/morita-gamma-negative-factorial` — `DirichletPadic.moritaGamma_neg_factorial`
+
+For0≤d<p, Γ_p(−d)·d!=1 as an equality in ℤ_p.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. Induct on d. At d=0 the equality is Γ_p(0)·1=1.
+2. For the successor d+1<p, positivity and the strict bound imply p does not divide d+1. The native natural unit criterion and invariance under negation make−(d+1) a unit.
+3. The existing unit recurrence at−(d+1) gives Γ_p(−d)=(d+1)Γ_p(−(d+1)). Insert this in the induction hypothesis and use (d+1)!=(d+1)d!.
+4. The complete gamma_negative_factorial proof checks the signs and natural casts. No factorial inverse or Wilson congruence is assumed. At d=p the nonunit recurrence changes the result; the strict bound is necessary.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.factorial_negative_three` (computation): Γ_5(−3)·6=1.
+- `SuggestedGrossKoblitzGammaTests.factorial_negative_one` (computation): Γ_2(−1)=1.
+- `SuggestedGrossKoblitzGammaTests.factorial_zero` (degenerate): Γ_3(0)·0!=1.
+- `SuggestedGrossKoblitzGammaTests.factorial_bound_failure` (non-example): At d=p=3 the product is−3, not1.
+
+**Acceptance:** At p=3,d=3 the product Γ_3(−3)·6 is−3 rather than1.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### Gamma modulo p is an inverse factorial
+
+`DirichletPadicLFunctions:L3/morita-gamma-factorial-residue` — `DirichletPadic.moritaGamma_factorial_toZMod`
+
+If d<p and toZMod(x)=−d, then toZMod(Γ_p(x))·d!=1 in ZMod p.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. The native residue of−(d:ℤ_p) is−(d:ZMod p). Thus x and−d have equal residues.
+2. Apply the preceding Gamma congruence to identify their Gamma residues.
+3. Map Γ_p(−d)·d!=1 through the native residue ring homomorphism. The complete gamma_factorial_residue proof checks multiplication, natural factorial casts and the image of1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-to-zmod-congruence`, `DirichletPadicLFunctions:L3/morita-gamma-negative-factorial`, `mathlib:PadicInt.toZMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.residue_positive_integer` (computation): Γ_3(7)·2! has residue1.
+- `SuggestedGrossKoblitzGammaTests.residue_zero_digit` (degenerate): Γ_3(3) has residue1, corresponding to d=0.
+
+**Acceptance:** The digit d is allowed to be0. The conclusion is a unit equation in ZMod p and determines the inverse factorial unambiguously.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### The factorial residue at n divided by p^f−1
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-rational-residue` — `DirichletPadic.grossKoblitzGamma_rational_toZMod`
+
+For f>0 and Mx=n in ℤ_p, toZMod(Γ_p(x))·((n mod p)!)=1.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. The prior rational positive-residue theorem gives hat_p(x)=p−(n mod p). Its native cast API identifies toZMod(x) with the cast of this representative.
+2. Since n mod p<p, natural subtraction casts correctly. As p is zero in ZMod p, the result is toZMod(x)=−(n mod p).
+3. Apply the preceding factorial-residue theorem with d=n mod p. The complete gamma_rational_residue proof retains the unique native rational representative through the explicit equation Mx=n.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-factorial-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-positive-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-positive-residue`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.rational_factorial` (computation): For8x=5 inℤ_3, Γ_3(x)·2 has residue1.
+- `SuggestedGrossKoblitzGammaTests.rational_quinary` (computation): For24x=7 inℤ_5, Γ_5(x) has residue3, the inverse of2.
+- `SuggestedGrossKoblitzGammaTests.rational_zero_digit` (degenerate): For8x=3 inℤ_3, Γ_3(x) has residue1.
+
+**Acceptance:** This is meaningful even if p divides n: then d=0 and the residue is1. No real-valued representative is cast into ℤ_p without the denominator condition.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### The next rational Gamma value and its carry factorial
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-next-residue` — `DirichletPadic.grossKoblitzGamma_next_toZMod`
+
+For f>0 and Mx=n_(j+1), toZMod(Γ_p(x))·d_j!=1.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. Apply the rational factorial residue theorem to the actual next numerator n_(j+1).
+2. The predecessor proved n_(j+1) mod p=d_j for the actual Euclidean carry. Substitute that exact natural equality into the factorial.
+3. The complete gamma_next_residue proof therefore gives the source digit orientation with no sign or index shift left implicit. For the initial point, the last carry supplies the units digit after wrapping.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-gamma-rational-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-carry-residue`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.next_factorial` (computation): The next point7/8 for p=3,f=2,k=5 has Gamma residue1.
+- `SuggestedGrossKoblitzGammaTests.wrap_factorial` (computation): After wrapping to5/8, Gamma has residue2.
+
+**Acceptance:** The Gamma argument is the next orbit point, and its factorial uses the preceding carry.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### Periodicity of the native rational orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-rational-period` — `DirichletPadic.grossKoblitz_rational_period`
+
+If Mx_j=n_j for every j, then x_(j+f)=x_j for every j.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. The predecessor orbit period gives n_(j+f)=n_j.
+2. Multiply the two rational points by M and use their defining equations to obtain Mx_(j+f)=Mx_j.
+3. M is a native unit by the prior denominator theorem, so multiplication by its native inverse cancels it. The complete rational_period proof verifies this cancellation in ℤ_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-orbit-period`, `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-point`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.rational_period_ternary` (characterisation): The native rational orbit of5/8 is2-periodic.
+- `SuggestedGrossKoblitzGammaTests.rational_period_dyadic` (characterisation): The native rational orbit of3/7 is3-periodic.
+
+**Acceptance:** This proves the chosen f is a period. No least-period claim is made.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### Cyclic invariance of the Gamma product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-product-shift` — `DirichletPadic.grossKoblitzGamma_product_shift`
+
+For the actual rational orbit, ∏_(j<f)Γ_p(x_(j+1))=∏_(j<f)Γ_p(x_j) in ℤ_p.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. Periodicity gives x_f=x_0, so the first and last Gamma factors agree.
+2. Use the two native product-range successor formulas: one separates the final factor and the other separates the initial factor. For positive f write f=n+1; both remaining products are over j<n with argument j+1.
+3. The complete product_shift helper proves this elementary identity for any commutative monoid, including the empty product, without cancelling a potentially zero factor. The complete gamma_product_shift proof applies it to the actual orbit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-rational-period`, `mathlib:Finset.prod_range_succ`, `mathlib:Finset.prod_range_succ'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.gamma_product_shift` (compatibility): Cyclic shift leaves the two-factor ternary Gamma product unchanged.
+
+**Acceptance:** Do not require an injective orbit or divide by a Gamma factor to justify this finite reindexing.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### The Gamma product times the digit factorial product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-factorial-product` — `DirichletPadic.grossKoblitzGamma_factorial_product`
+
+For the actual rational orbit, toZMod(∏_(j<f)Γ_p(x_j))·∏_(j<f)d_j!=1.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. Multiply the already proved equalities toZMod(Γ_p(x_(j+1)))·d_j!=1 over the fixed range j<f.
+2. Distribute the finite product and use the residue ring homomorphism to write the product of Gamma residues as the residue of the Gamma product.
+3. Apply the preceding cyclic Gamma-product identity to replace x_(j+1) by x_j in the product. The product of1 is1.
+4. The complete gamma_factorial_product proof establishes an actual unit equation. It uses neither the Gauss sum nor the source Stickelberger congruence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-gamma-next-residue`, `DirichletPadicLFunctions:L3/gross-koblitz-gamma-product-shift`, `mathlib:PadicInt.toZMod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.factorial_product_ternary` (computation): The ternary Gamma product times1!2! has residue1.
+- `SuggestedGrossKoblitzGammaTests.factorial_product_dyadic` (computation): The dyadic product for3/7 has residue1.
+
+**Acceptance:** Leading zero digits contribute0!=1. The same fixed f is used in every product, even for an orbit of smaller least period.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+### The Gamma product is the inverse digit factorial product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-product-inverse` — `DirichletPadic.grossKoblitzGamma_product_inverse`
+
+For the actual rational orbit, toZMod(∏_(j<f)Γ_p(x_j))=(∏_(j<f)d_j!)⁻¹ in ZMod p.
+
+**Hypotheses:** p is any prime, including2. Γ_p is the existing signed continuous unit-valued Morita Gamma; products and recurrences use its scalar projection into native ℤ_p, with Γ_p(0)=1 and Γ_p(x+1)=−(if x is a unit then x else1)Γ_p(x). The factorial identity at a negative natural argument assumes d<p. Reduction to ZMod p uses the preceding sharp Gamma congruence at exponent1, which is admissible for every prime; no false dyadic exponent2 congruence is used. For the rational orbit write M=p^f−1 with f>0, n_j the existing cyclic numerator and d_j the existing Euclidean carry. A native sequence x:ℕ→ℤ_p satisfies the actual equations Mx_j=n_j. The prior denominator-unit and unique-solvability nodes supply these values; no Gamma comparison is included in this input. The algebraic rational and product statements allow any natural k, including the zero class. To identify these values with the paper’s positive fractional parts, require0<k<M and use the preceding native toIocMod comparison. At the zero class the rational point0 and positive fractional representative1 have different signed Gamma values. The original Gross–Koblitz paper assumes odd p. These Gamma factorial congruences themselves extend to p=2; this does not extend the source odd-prime Gauss formula. This checkpoint proves only the Gamma side of Lemma2.11(3), not the cited leading congruence for a Gauss sum.
+
+**Proof:**
+
+1. The preceding product equation gives A·B=1, where A is the reduced Gamma product and B is the product of the digit factorials.
+2. In the native finite field ZMod p, this equation implies B is nonzero and A=B⁻¹. The complete gamma_product_inverse proof applies the native field identity directly.
+3. For0<k<M, the earlier fractional-orbit and reversed-digit comparisons identify this with the Gamma-side congruence in Gross–Koblitz Lemma2.11(3). The source leading congruence for the normalized Gauss sum is a different input and remains to be supplied.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-gamma-factorial-product`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit`, `DirichletPadicLFunctions:L3/gross-koblitz-digit-expansion`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzGammaTests.inverse_product_ternary` (computation): The Gamma product for5/8 and7/8 has residue2.
+- `SuggestedGrossKoblitzGammaTests.inverse_product_quinary` (computation): The Gamma product for7/24 and11/24 has residue3.
+- `SuggestedGrossKoblitzGammaTests.zero_class_gamma_product` (degenerate): The zero rational orbit has Gamma product1.
+- `SuggestedGrossKoblitzGammaTests.positive_endpoint_failure` (non-example): At the zero class the rational point0 and positive fractional representative1 have different Gamma residues modulo3.
+
+**Acceptance:** The zero rational orbit remains valid algebraically with Γ_p(0), but cannot be silently identified with the paper’s positive fractional representative1.
+
+**Source:** Section2, published p.575/PDF7, proof of Lemma2.11(3): Γ_p(⟨p^j a⟩) congruent to the inverse of the corresponding digit factorial, and the resulting product. Lemma2.4 on pp.572–573 fixes the digit index. The source obtains the Gamma factorial residue using Wilson and the positive digit representative. The present proof obtains the same statement from the already established Morita recurrence at negative integers plus the already established sharp Gamma congruence. The cyclic carry convention from the predecessor identifies the source digits exactly. The separate Stickelberger Gauss congruence remains an explicit unproved input.
+
+**Remaining:** The Gamma side of Gross–Koblitz Lemma2.11(3) is now planned with a complete native proof: the reduced orbit product is the inverse product of the actual digit factorials. This does not prove the Gauss-side leading congruence or identify its π-normalized unit. Next combine the earlier reflection and digit parity for the elementary Jacobi case Lemma2.5. The native finite-field Gauss inverse-character product is available and should be reused once the exact negative Gauss convention, Teichmuller exponent, primitive additive character and compatible π are constructed. The Katz Frobenius limit2.7 and Stickelberger Gauss congruence retain their proof-source and ownership obligations. E18’s distribution repair remains unproved and unused, as do the Ferrero–Greenberg proof and analytic supplier obligations. All18 gaps and14 requests remain; no stage closes.
+
+### Gamma factorial congruences for the Gross–Koblitz orbit validation
+
+All 1035 predecessor nodes, 780 baseline records, 18 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 22 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1304 reachable nodes, 6245 edges and 950 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All nine new nodes terminate in existing Gamma/arithmetic nodes and native library facts, with no unresolved stage leaves. All14 supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The composite probe preserves the PR5340 native26definitions331lemmas verbatim and adds11 complete lemmas:9 planned results plus routine reduction-one and finite cyclic-product helpers. Its only Gamma inputs are the already established zero value, functional equation and sharp mod-p congruence. Suggested signatures specialize the actual moritaGamma; no target Gauss identity is assumed. The separate probe compiles against 2910 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. The full suggested module is NOT COMPILED because pinned TwistedDivisorSum lacks a compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact rational controls check the negative Gamma factorial identities and their strict-bound failure; finite residue controls check Gamma congruence, rational/carry residues, cyclic products, inverse factorial products and the zero-class endpoint distinction. Exact Python integers and fractions compute the signed Gamma recurrence at positive and negative integers. Finite signed products at independently computed rational representatives modulo p,p²,p³ test the residue formulas and their cyclic products. Factorials and modular inverses are evaluated independently of Gamma. The finite controls are not a replacement for the complete Lean proofs or a formal proof of the separate Gauss congruence. The largest observed discrepancy is 0 in every exact rational or finite-field identity.
+
+Capture at 6e6825ad76fdf14b34441151368148c602c204a8 has zero changes among72 guarded inputs after merged5340, with unchanged issue body and source findings. No supplier, policy or review verdict changed.
+
+The separate partial signature file also compiled with zero errors and 3,350 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cd92cba4aaa71aa50e2445a87f624304e8865d5e655e1912349e1fa9f67c5819.
