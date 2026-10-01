@@ -1,3 +1,5 @@
+import Mathlib.Data.Nat.Digits.Lemmas
+import Mathlib.NumberTheory.GaussSum
 import Mathlib.Data.Nat.Digits.Defs
 import Mathlib.Algebra.Order.ToIntervalMod
 import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
@@ -18549,3 +18551,100 @@ example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1
 -- positive_endpoint_failure
 example : PadicInt.toZMod (moritaGamma 3 (0) : ℤ_[3])≠PadicInt.toZMod (moritaGamma 3 (1) : ℤ_[3]) := by sorry
 end DirichletPadic.SuggestedGrossKoblitzGammaTests
+
+/- Elementary Jacobi pair in the Gross–Koblitz formula. -/
+
+namespace DirichletPadic
+noncomputable section
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma grossKoblitzCarry_sum_parity (hp : p≠2) (f : ℕ) (hf : 0<f) (k : ℕ) (hk : k<p^f-1) :
+    (∑ j ∈ range f, grossKoblitzCarry p f k j)%2=k%2 := by sorry
+
+lemma grossKoblitzCarry_sum_sign (hp : p≠2) (f : ℕ) (hf : 0<f) (k : ℕ) (hk : k<p^f-1) :
+    (-1 : ℤ_[p])^(∑ j ∈ range f, grossKoblitzCarry p f k j)=(-1)^k := by sorry
+
+
+lemma grossKoblitzGamma_next_pair (hp : p≠2) (f : ℕ) (hf : 0<f)
+
+
+    (k j : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(grossKoblitzOrbitNumerator p f k (j+1) : ℤ_[p])) :
+    (fun x => (moritaGamma p x : ℤ_[p])) x*(fun x => (moritaGamma p x : ℤ_[p])) (1-x)=-((-1 : ℤ_[p])^(grossKoblitzCarry p f k j)) := by sorry
+
+lemma grossKoblitzGamma_pair_product (hp : p≠2) (f : ℕ) (hf : 0<f)
+
+
+    (k : ℕ) (hk : k<p^f-1) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j)*(fun x => (moritaGamma p x : ℤ_[p])) (1-x j))=(-1 : ℤ_[p])^(f+k) := by sorry
+
+lemma grossKoblitzGamma_jacobi_pair (hp : p≠2) (f : ℕ) (hf : 0<f)
+
+
+    (k : ℕ) (hk : k<p^f-1) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    (-(p : ℤ_[p]))^f*(∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j)*(fun x => (moritaGamma p x : ℤ_[p])) (1-x j))=(p : ℤ_[p])^f*(-1)^k := by sorry
+
+lemma grossKoblitzGauss_pair_comparison (hp : p≠2) (f : ℕ) (hf : 0<f)
+
+
+    (k : ℕ) (hk : k<p^f-1) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K]
+    (ι : ℤ_[p] →+* K) (χ : MulChar F K) (ψ : AddChar F K)
+    (hχ : χ≠1) (hψ : ψ.IsPrimitive) (hcard : Fintype.card F=p^f)
+    (hneg : χ (-1)=(-1 : K)^k) :
+    (-gaussSum χ ψ)*(-gaussSum χ⁻¹ ψ)=
+      ι ((-(p : ℤ_[p]))^f*(∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j)*(fun x => (moritaGamma p x : ℤ_[p])) (1-x j))) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzPairTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- parity_ternary
+example : (∑ j ∈ Finset.range 2, grossKoblitzCarry 3 2 5 j)%2=1 := by sorry
+-- parity_quinary
+example : (∑ j ∈ Finset.range 2, grossKoblitzCarry 5 2 7 j)%2=1 := by sorry
+-- parity_zero
+example : (∑ j ∈ Finset.range 2, grossKoblitzCarry 3 2 0 j)%2=0 := by sorry
+-- dyadic_parity_failure
+example : (∑ j ∈ Finset.range 3, grossKoblitzCarry 2 3 3 j)%2≠3%2 := by sorry
+-- sign_ternary
+example : (-1 : ℤ_[3])^(∑ j ∈ Finset.range 2, grossKoblitzCarry 3 2 5 j)=-1 := by sorry
+-- sign_shorter_orbit
+example : (-1 : ℤ_[3])^(∑ j ∈ Finset.range 2, grossKoblitzCarry 3 2 4 j)=1 := by sorry
+-- next_pair_ternary
+example (x : ℤ_[3]) (hx : 8*x=7) : (moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (1-x) : ℤ_[3])=1 := by sorry
+-- wrapped_pair_ternary
+example (x : ℤ_[3]) (hx : 8*x=5) : (moritaGamma 3 (x) : ℤ_[3])*(moritaGamma 3 (1-x) : ℤ_[3])=-1 := by sorry
+-- next_pair_quinary
+example (x : ℤ_[5]) (hx : 24*x=11) : (moritaGamma 5 (x) : ℤ_[5])*(moritaGamma 5 (1-x) : ℤ_[5])=1 := by sorry
+-- pair_product_ternary
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=-1 := by sorry
+-- pair_product_quinary
+example (x : ℕ → ℤ_[5]) (hx : ∀ j, 24*x j=(grossKoblitzOrbitNumerator 5 2 7 j : ℤ_[5])) : (∏ j ∈ Finset.range 2, (moritaGamma 5 (x j) : ℤ_[5])*(moritaGamma 5 (1-x j) : ℤ_[5]))=-1 := by sorry
+-- pair_product_half
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 1 j : ℤ_[3])) : (∏ j ∈ Finset.range 1, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=1 := by sorry
+-- pair_product_zero
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 0 j : ℤ_[3])) : (∏ j ∈ Finset.range 1, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=-1 := by sorry
+-- jacobi_pair_ternary
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (-3 : ℤ_[3])^2*(∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=-9 := by sorry
+-- jacobi_pair_quinary
+example (x : ℕ → ℤ_[5]) (hx : ∀ j, 24*x j=(grossKoblitzOrbitNumerator 5 2 7 j : ℤ_[5])) : (-5 : ℤ_[5])^2*(∏ j ∈ Finset.range 2, (moritaGamma 5 (x j) : ℤ_[5])*(moritaGamma 5 (1-x j) : ℤ_[5]))=-25 := by sorry
+-- jacobi_pair_half
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 1 j : ℤ_[3])) : (-3 : ℤ_[3])^1*(∏ j ∈ Finset.range 1, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=-3 := by sorry
+-- jacobi_pair_zero
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 0 j : ℤ_[3])) : (-3 : ℤ_[3])^1*(∏ j ∈ Finset.range 1, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))=3 := by sorry
+-- normalization_sign_failure
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 1 j : ℤ_[3])) : (3 : ℤ_[3])*(∏ j ∈ Finset.range 1, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))≠-3 := by sorry
+-- gauss_same_additive
+example {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K] (χ : MulChar F K) (ψ : AddChar F K) (hχ : χ≠1) (hψ : ψ.IsPrimitive) (hcard : Fintype.card F=9) (hneg : χ (-1)=-1) : (-gaussSum χ ψ)*(-gaussSum χ⁻¹ ψ)=(-9 : K) := by sorry
+-- gauss_inverse_additive
+example {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K] (χ : MulChar F K) (ψ : AddChar F K) (hχ : χ≠1) (hψ : ψ.IsPrimitive) (hcard : Fintype.card F=9) : (-gaussSum χ ψ)*(-gaussSum χ⁻¹ ψ⁻¹)=(9 : K) := by sorry
+-- gauss_gamma_comparison
+example {F K : Type*} [Field F] [Fintype F] [CommRing K] [IsDomain K] (χ : MulChar F K) (ψ : AddChar F K) (hχ : χ≠1) (hψ : ψ.IsPrimitive) (hcard : Fintype.card F=9) (ι : ℤ_[3] →+* K) (hneg : χ (-1)=-1) (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (-gaussSum χ ψ)*(-gaussSum χ⁻¹ ψ)=ι ((-3 : ℤ_[3])^2*(∏ j ∈ Finset.range 2, (moritaGamma 3 (x j) : ℤ_[3])*(moritaGamma 3 (1-x j) : ℤ_[3]))) := by sorry
+end DirichletPadic.SuggestedGrossKoblitzPairTests
