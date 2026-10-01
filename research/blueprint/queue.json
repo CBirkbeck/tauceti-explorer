@@ -37867,8 +37867,9 @@
     "REV-PAPER-BHATT-MATHEW-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-MATHEW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4188"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4188",
+   "finishedAt": "2026-10-01T13:25:38Z"
   },
   {
    "id": "REV-RT-PAPER-BHATT-MATHEW-21",
@@ -38110,7 +38111,8 @@
     "REV-PAPER-LIPNOWSKI-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4198"
   },
   {
    "id": "REV-RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -38757,7 +38759,8 @@
     "REV-PAPER-HACON-WITASZEK-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4223"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
@@ -39192,8 +39195,9 @@
     "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4241"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4241",
+   "finishedAt": "2026-10-01T13:25:43Z"
   },
   {
    "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
