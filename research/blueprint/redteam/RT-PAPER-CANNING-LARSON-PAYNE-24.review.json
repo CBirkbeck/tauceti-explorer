@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-CANNING-LARSON-PAYNE-24",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CANNING-LARSON-PAYNE-24/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On arXiv v3 p. 21 (§5.3, published p. 20), the paper says 'The spinor representation of SO10 corresponds to a rank 16 vector bundle S+ on the classifying stack BSO10'. It also states Mukai's equivalence (5.10) M°_7 ≅ [(Gr(7,S+)∖∆)/SO10], with Gr(7−n,Q_n) built over BSO10 in (5.13) and Lemma 5.13. Item /60 copies all of this. Both statements fail as written. The half-spin representation of Spin_10 is faithful on the centre μ_4, so −1 ∈ ker(Spin_10 → SO_10) acts by −Id on S+, and S+ is not an SO_10-representation. No rank-16 bundle S+ on BSO_10 exists. Moreover, −I_10 ∈ SO_10 lifts to a central element of order 4, which acts on S+ by a scalar, and so trivially on PS+, on OG(5,10) and on Gr(7,S+). Every point of the SO_10 quotient therefore has μ_2 in its stabilizer, and the quotient is a μ_2-gerbe over the quotient by the effective group PSO_10 (the image of Spin_10 in PGL(S+)). It is not M°_7. The paper's results are rational, and the repair keeps them. Over Q, A*(BSpin_10) ≅ A*(BSO_10), and a gerbe banded by a finite group induces isomorphisms on rational Chow groups and cohomology, so working with [U/Spin_10] (where S+ is genuine) or the rigidified quotient gives the same rational Chow ring and CKgP. The fix is right in asking for a recorded source error, a Spin or rigidified presentation with the comparisons proved, and checks on the central actions."
+  },
+  {
+   "finding": "RT-PAPER-CANNING-LARSON-PAYNE-24/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item /13 states cl: A_i(X) → W_{2i}H^{2i}(X), 'compatible with proper pushforward'. The paper's Chow groups are graded by dimension. In the proof of Lemma 4.3 (v3 pp. 12–13), the diagonal lies in A_d(X × X) with d = dim X, and the lemma itself is stated for the ungraded sum ⊕_i A_i(X) → ⊕_k W_kH^k(X). With dimension grading, the class of a point in A_0(P²) would land in H^0 and not H^4, so the graded formula and its pushforward compatibility are false. The fix is right: either A^i → W_{2i}H^{2i}, or A_i → W_{2d−2i}H^{2d−2i} on pure d-dimensional X, with the P² tests."
+  },
+  {
+   "finding": "RT-PAPER-CANNING-LARSON-PAYNE-24/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Route 1's brief requires 'the moduli stacks M_{g,n} and M̄_{g,n} as smooth proper Deligne–Mumford stacks'. The open stack M_{g,n} is not proper: M_{0,4} ≅ P¹ ∖ {0,1,∞} is not proper. The paper's §4 exists to handle the non-proper M_{g,n} through Lemma 4.3 ('an open substack of a smooth proper Deligne–Mumford stack'), and item /2 states the distinction correctly. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-CANNING-LARSON-PAYNE-24/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium), with two corrections to the red team's own bindings. I resolved the identifiers through the arXiv API: 1310.3859 is a Kelvin–Helmholtz SPH simulation paper, 1408.4509 a paper on GRB jets, and 2110.11061 'Polyadic Sets and Homomorphism Counting'. None is a source of the paper, while 2208.02357 is Canning–Larson's 'On the Chow and cohomology rings of moduli spaces of stable curves' (CLP [5]). Crossref gives the published article as Forum Math. Pi 12, e23, not e22. The Mukai DOI in prerequisite 10, 10.2307/2374777, does not resolve, while 10.2307/2375032 is 'Curves and Symmetric Spaces, I', Amer. J. Math. 117, 1627 (CLP [21]). CLP's reference list (v3) has [27] Petersen, Pacific J. Math. 275, [28] Petersen, Compositio 152, [3] Bergström–Faber, Épijournal 7, [2] the GitHub software and [34] Totaro, 'The motive of a classifying space', used for the CKgP equivalence on p. 20. Correction 1: Petersen–Tavakol–Yin is CLP [29], not [30]; [30] is Petersen–Tommasi, Invent. Math. 196 (2014), cited on pp. 3 and 8. Prerequisite 9 conflates the two, so both should be listed separately. Correction 2: Bergström–Faber arXiv:2207.05130 resolves to the Chenevier–Lannes paper, so it is [3], as the red team says. The rest of the fix is right."
+  },
+  {
+   "finding": "RT-PAPER-CANNING-LARSON-PAYNE-24/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). On v3 p. 29 (proof of Lemma 7.3, published p. 27) the paper prints 'the S12 action on the symbols Mij is Ind^{S12}_{S10}(V_{1^10}) = V_{2,1^10} ⊕ V_{3,1^9}, which is a sum of irreducible representations of dimension 11 and 55'. The left side has dimension [S_12 : S_10] = 132, and the right side 11 + 55 = 66. The symbols M_ij are indexed by unordered pairs, so the stabilizer is S_10 × S_2, and Ind_{S10×S2}^{S12}(sgn ⊠ 1) has dimension 66. By Pieri, adding a horizontal 2-strip to (1^10) gives exactly (3,1^9) and (2,1^10), of dimensions C(11,2) = 55 and C(11,1) = 11. The paper's argument (891 − 55 = 836) is unaffected. The fix is right."
+  }
+ ]
+}
