@@ -32,7 +32,7 @@
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
  },
- "summary": "Deligne proves the Riemann hypothesis of the Weil conjectures: for a smooth projective variety X₀ over F_q the characteristic polynomial of geometric Frobenius on H^i(X, Q_ℓ) has integer coefficients independent of ℓ ≠ p, and all complex conjugates of its roots have absolute value q^{i/2} (Theorem 1.6, reduced in §1 to Lemma 1.7 by Grothendieck's cohomological rationality). §§1–2 recall Grothendieck's ℓ-adic theory: constructible and lisse Q_ℓ-sheaves, Frobenius conventions, the trace formula, L-functions of sheaves, Tate twists and Poincaré duality with the functional equation. §3 proves the fundamental estimate (3.2): a lisse sheaf on a curve with a symplectic pairing to Q_ℓ(−β), open symplectic monodromy and rational local factors is pure of weight β. The proof is Rankin's tensor-power positivity trick with the invariant theory of Sp. §§4–5 recall Picard–Lefschetz theory and Lefschetz pencils, including Kazhdan–Margulis openness of the monodromy (5.10). §6 proves rationality of the local factors of the radical quotient E/(E∩E^⊥) (6.2). §7 completes (1.7) by induction on dimension through a Lefschetz pencil and removes the error term by the tensor-power trick. §8 gives applications: point counts of complete intersections (8.1), the Ramanujan–Petersson conjecture (8.2), and Bombieri's bound (d−1)ⁿq^{n/2} for exponential sums of polynomials with smooth leading form (8.4). The atlas was built for this proof. DeligneWeightsAndPurity DWP.0–DWP.4 plan §§3, 6 and 7 almost step by step. LefschetzPencilsAndVanishingCycles LPV.0–LPV.5 plan the ℓ-adic Lefschetz theory. WeilConjectures WC.0–WC.3 and EtaleDualityAndPerverseSheaves EDC.1–EDC.4 plan the rationality, duality and final assembly. The §1 formalism is imported from the upstream CohomologicalPointCounting supplier through SchemeAndStackFoundations SF.2 and WC.0/WC.1. Of 208 items, 165 are planned, one is in the libraries (Tau Ceti's primitive forms with character, as needed in (8.2)) and 42 are missing. Every missing item goes to an existing campaign layer as a source, and no new roadmap or Part II is needed. The routes are: WC.1/WC.5 for the Hasse–Weil zeta function and the complete-intersection application; DWP.2/DWP.3 for four small inputs of §§3 and 6; LPV.0/LPV.2–LPV.4 for the complex model and trait recalls of §§4–5; FiniteFieldsAndCharacterSums FF.2 for the whole proof of Bombieri's bound; and ArithmeticGaloisRepresentations R01.3 for the Artin–Schreier conductor computation.",
+ "summary": "Deligne proves the Riemann hypothesis of the Weil conjectures: for a smooth projective variety X₀ over F_q the characteristic polynomial of geometric Frobenius on H^i(X, Q_ℓ) has integer coefficients independent of ℓ ≠ p, and all complex conjugates of its roots have absolute value q^{i/2} (Theorem 1.6, reduced in §1 to Lemma 1.7 by Grothendieck's cohomological rationality). §§1–2 recall Grothendieck's ℓ-adic theory: constructible and lisse Q_ℓ-sheaves, Frobenius conventions, the trace formula, L-functions of sheaves, Tate twists and Poincaré duality with the functional equation. §3 proves the fundamental estimate (3.2): a lisse sheaf on a curve with a symplectic pairing to Q_ℓ(−β), open symplectic monodromy and rational local factors is pure of weight β. The proof is Rankin's tensor-power positivity trick with the invariant theory of Sp. §§4–5 recall Picard–Lefschetz theory and Lefschetz pencils, including Kazhdan–Margulis openness of the monodromy (5.10). §6 proves rationality of the local factors of the radical quotient E/(E∩E^⊥) (6.2). §7 completes (1.7) by induction on dimension through a Lefschetz pencil and removes the error term by the tensor-power trick. §8 gives applications: point counts of complete intersections (8.1), the Ramanujan–Petersson conjecture (8.2), and Bombieri's bound (d−1)ⁿq^{n/2} for exponential sums of polynomials with smooth leading form (8.4). The atlas was built for this proof. DeligneWeightsAndPurity DWP.0–DWP.4 plan §§3, 6 and 7 almost step by step. LefschetzPencilsAndVanishingCycles LPV.0–LPV.5 plan the ℓ-adic Lefschetz theory. WeilConjectures WC.0–WC.3 and EtaleDualityAndPerverseSheaves EDC.1–EDC.4 plan the rationality, duality and final assembly. The §1 formalism is imported from the upstream CohomologicalPointCounting supplier through SchemeAndStackFoundations SF.2 and WC.0/WC.1. Of 208 items, 165 are planned, one is in the libraries (Tau Ceti's primitive forms with character, as needed in (8.2)) and 42 are missing. The 42 missing items are routed once: 41 to existing layers through five source routes, and the general GOS theorem to the outstanding shared étale-duality extension proposal with an explicit registration brief. The routes are: WC.1/WC.5 for the Hasse–Weil zeta function and the complete-intersection application; DWP.2/DWP.3 for four small inputs of §§3 and 6; LPV.0/LPV.2–LPV.4 for the complex model and trait recalls of §§4–5; FiniteFieldsAndCharacterSums FF.2 for the Artin–Schreier construction and applications in Bombieri's bound, importing general GOS from the shared étale-duality owner; and ArithmeticGaloisRepresentations R01.3 for the Artin–Schreier conductor computation. Route 6 coordinates that GOS proposal with the existing FF packet request instead of claiming the proposed EDC.2:euler-characteristic substage already exists. The P¹ constant-sheaf input is planned at early EDC.4, imported by both DWP.4 and DWP.6.",
  "items": [
   {
    "id": "PAPER-DELIGNE-74/s1-1.1.1-hasse-weil-zeta",
@@ -923,22 +923,32 @@
    "id": "PAPER-DELIGNE-74/s3-3.8-euler-product-convergence",
    "kind": "theorem",
    "name": "Absolute convergence of the Euler product for |t| < q^{−β/2−1}",
-   "statement": "Let N be the rank of F and det(1 − F_x t, F) = Π_{i=1}^N (1 − α_{i,x} t). By (3.2), |α_{i,x}| = q_x^{β/2}. The infinite product Z converges absolutely (hence is nonzero) for |t| < q^{−β/2 − 1}: for |t| = q^{−β/2−1−ε} (ε>0), Σ_{i,x} |α_{i,x} t^{deg(x)}| = N Σ_x q_x^{−1−ε} ≤ N Σ_n q^n·q^{n(−1−ε)} = N Σ_n q^{−nε} < ∞. Hence every zero 1/α of det(1−F*t, H¹_c) satisfies |1/α| ≥ q^{−β/2−1}.",
+   "statement": "Under (3.2), let N be the rank of ℱ and write det(1−F_x t,ℱ)=Π_{i=1}^N(1−α_{i,x}t), so |α_{i,x}|=q_x^(β/2). For |t|=q^(−β/2−1−ε), ε>0, and the given open U₀⊂P¹ over F_q, Σ_{i,x}|α_{i,x}t^deg(x)|=NΣ_x q_x^(−1−ε)≤NΣ_{n≥1}(q^n+1)q^(−n(1+ε))=N(Σ_{n≥1}q^(−nε)+Σ_{n≥1}q^(−n(1+ε)))<∞. Both series are geometric. Thus the Euler product is absolutely convergent and nonzero for |t|<q^(−β/2−1), and every zero 1/α of det(1−F*t,H¹_c(U,ℱ)) satisfies |1/α|≥q^(−β/2−1).",
    "locator": "§3, proof of (3.8), p. 286",
    "status": "planned",
    "planned": [
     "DeligneWeightsAndPurity:DWP.2"
    ],
-   "note": "DWP.2: \"absolute convergence of the Euler product\"."
+   "note": "Implements existing E16 in DWP.2’s convergence proof. The P¹ rational-point count q^n+1 gives the bound actually needed; the original H¹_c group and convergence radius are unchanged.",
+   "prerequisites": [
+    "PAPER-DELIGNE-74/s3-3.8-closed-point-count"
+   ],
+   "tests": [
+    {
+     "name": "Deligne74.EulerProduct.projectivePuncture",
+     "kind": "non-example",
+     "statement": "For q=2 and U₀=P¹ minus the degree-two point X²+X+1, all three rational points remain. At ε=5 the sum is at least 3/64>1/31, disproving the affine-only bound; the corrected two-series upper bound is 1/31+1/63."
+    }
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s3-3.8-closed-point-count",
    "kind": "theorem",
-   "name": "At most q^n closed points of degree n on the affine line",
-   "statement": "On the affine line there are q^n points with values in F_{q^n}, hence at most q^n closed points of degree n.",
+   "name": "Closed-point count on the affine and projective lines",
+   "statement": "For every n≥1, A¹(F_{q^n}) has q^n points and P¹(F_{q^n}) has q^n+1 points. Each degree-n closed point supplies n distinct F_{q^n}-points, so the number of degree-n closed points is at most q^n on A¹ and at most q^n+1 on P¹ and on every open U₀⊂P¹. In particular, the projective bound applies to the U₀ in (3.1).",
    "locator": "§3, proof of (3.8), p. 286",
    "status": "missing",
-   "note": "Elementary (closed points of degree n of A¹ ↔ monic irreducible polynomials of degree n over F_q). Not found in Mathlib/Tau Ceti (grep of declarations index for irreducible/card; Tau Ceti has TauCeti.Place.ratFuncEquivMonicIrreducible in FieldTheory/FunctionField/Place/RatFunc/Basic.lean:365, a bijection of places with monic irreducibles, but no count). No atlas stage plans this exact count; DWP.2 absorbs it implicitly."
+   "note": "The affine count is retained; the projective count implements existing E16 and supplies the convergence estimate. This missing elementary input remains routed once to DWP.2, with no new formalization claim."
   },
   {
    "id": "PAPER-DELIGNE-74/s3-3.9-H1-jstar-coarse-bounds",
@@ -1819,13 +1829,13 @@
    "id": "PAPER-DELIGNE-74/s6-6.10-arithmetic-monodromy-CSp",
    "kind": "construction",
    "name": "Arithmetic monodromy rho: pi_1(U_0,u) -> CSp(calF_u, psi), group H and rho_1",
-   "statement": "(6.10) For u in U with fibre calF_u of calF, the arithmetic fundamental group pi_1(U_0, u), an extension of Z-hat = Gal(F_q-bar/F_q) (generator phi) by the geometric fundamental group pi_1(U, u), acts on calF_u by symplectic similitudes: rho : pi_1(U_0, u) -> CSp(calF_u, psi). With mu(g) the multiplier of a symplectic similitude g, let H ⊂ Z-hat × CSp(calF_u, psi) be the subgroup {(a, g) : mu(g) = q^{-na}}, n being the fibre dimension and a in Z-hat (q being an ℓ-adic unit, q^a in Q_ℓ^* is defined for all a in Z-hat; the printed equation q^{-n} = mu(g) reuses n for the Z-hat coordinate). That psi has values in Q_ℓ(-n) means the map pi_1 -> Z-hat × CSp with coordinates the canonical projection and rho factors through rho_1 : pi_1(U_0, u) -> H.",
+   "statement": "In the setting of (6.1), let d be the fixed odd geometric dimension of the smooth fibers of the Lefschetz pencil (not the rank of ℱ_u), so the alternating pairing on the nonzero radical quotient ℱ_u has values in Q_ℓ(−d). Let a∈Ẑ denote the arithmetic degree, with arithmetic Frobenius φ:x↦x^q identified with +1. Arithmetic monodromy ρ:π₁(U₀,u)→CSp(ℱ_u,ψ) factors together with the degree projection through H={(a,g):μ(g)=q^(−da)} and ρ₁:π₁(U₀,u)→H. Powers q^a are defined continuously since q is an ℓ-adic unit. Geometric Frobenius F_x maps to −deg(x), so μ(ρ(F_x))=q^(d·deg(x)).",
    "locator": "§6, (6.10), pp. 297–298",
    "status": "planned",
    "planned": [
     "DeligneWeightsAndPurity:DWP.3"
    ],
-   "note": "DWP.3: 'the auxiliary compact ℓ-adic group/density argument'. The defining equation of H has a notational clash (PAPER-DELIGNE-74/E8; the statement above uses the corrected form). Mathlib has Matrix.symplecticGroup but no similitude group CSp/GSp with multiplier (grep of declarations.tsv)."
+   "note": "Implements existing E8 with distinct d and a. The pairing’s geometric degree d is fixed throughout 6.10–6.13; the Ẑ coordinate varies. DWP.3 owns this density argument."
   },
   {
    "id": "PAPER-DELIGNE-74/s6-6.10-homotopy-exact-sequence",
@@ -1840,43 +1850,66 @@
    "id": "PAPER-DELIGNE-74/s6-6.11-image-open",
    "kind": "theorem",
    "name": "The image H_1 of rho_1 is open in H",
-   "statement": "Lemma (6.11). The image H_1 of rho_1 is open in H. Indeed pi_1(U_0, u) maps onto Z-hat, and the image of pi_1(U, u) = Ker(pi_1(U_0,u) -> Z-hat) in Sp(calF_u, psi) = Ker(H -> Z-hat) is open by (5.10).",
+   "statement": "In the corrected H={(a,g):μ(g)=q^(−da)} of (6.10), the compact image H₁=im(ρ₁) is open in H: it projects onto Ẑ and its intersection with ker(H→Ẑ)=Sp(ℱ_u,ψ) is open by (5.10). Its fibers over a are open subsets of the actual Sp-torsors CSp_a={g:μ(g)=q^(−da)}.",
    "locator": "§6, Lemma (6.11), p. 298",
    "status": "planned",
    "planned": [
     "DeligneWeightsAndPurity:DWP.3"
    ],
-   "note": "DWP.3: 'the auxiliary compact ℓ-adic group/density argument'. Uses (5.10) (LPV.5). Openness in H needs a small topological argument (e.g. Baire, or H_1 compact with open intersection with Sp and surjecting onto Z-hat), left implicit."
+   "note": "DWP.3. Openness uses the compact-image/open-geometric-kernel/surjective-degree argument; no replacement of q^(−da) by q^(−a) is made.",
+   "prerequisites": [
+    "PAPER-DELIGNE-74/s6-6.10-arithmetic-monodromy-CSp"
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s6-6.12-measure-zero",
    "kind": "theorem",
    "name": "Frobenius-eigenvalue locus is closed of Haar measure zero",
-   "statement": "Lemma (6.12). For delta in Q_ℓ-bar an ℓ-adic unit, the set Z of (n, g) in H_1 such that delta^n is an eigenvalue of g is closed of measure zero. Proof: Z is clearly closed. For n in Z-hat let CSp_n = {g in CSp(calF_u, psi) : mu(g) = q^{-n}} and Z_n the set of g in CSp_n such that delta^n is an eigenvalue of g. CSp_n is a homogeneous space under Sp, and Z_n is a proper algebraic subspace, hence of measure 0. By (6.11), H_1 ∩ ({n} × Z_n) has measure 0 in the inverse image of n in H_1, and one applies Fubini to the projection H_1 -> Z-hat.",
+   "statement": "In (6.10)–(6.11) with fixed odd pencil-fiber dimension d, let δ∈Q_ℓ-bar be an ℓ-adic unit and extend a↦δ^a continuously to a∈Ẑ in a finite coefficient extension containing δ. Then Z_δ={(a,g)∈H₁:det(g−δ^a I)=0} is closed and Haar-null. For each a define CSp_a={g:μ(g)=q^(−da)} and Z_a={g∈CSp_a:det(g−δ^a I)=0}. CSp_a is an Sp-torsor; Z_a is a proper algebraic zero locus after coefficient extension and is null for its invariant ℓ-adic analytic measure. Each H₁-fiber is open in that torsor, so its intersection with Z_a has conditional measure zero. Haar disintegration/Fubini for H₁→Ẑ proves that Z_δ has total measure zero.",
    "locator": "§6, Lemma (6.12), p. 298",
    "status": "planned",
    "planned": [
     "DeligneWeightsAndPurity:DWP.3"
    ],
-   "note": "DWP.3: 'Prove the stronger measure/density conclusion needed by6.13: the Frobenius classes in a closed Haar-measure-zero exceptional set have density zero'. Needs: proper Zariski-closed subsets of an ℓ-adic analytic manifold have Haar measure 0 (not in Mathlib)."
+   "note": "Implements existing E8 in the actual fibers rather than the incorrect μ(g)=q^(−a) fibers. DWP.3 must supply the proper-algebraic-zero-locus measure lemma and Haar/Fubini interface. For 6.13 use Z_(δ_j^(-1)), because F_x has degree coordinate −deg(x). If the radical quotient is zero, its eigenvalue locus is empty and the density exclusion is immediate; the nonzero symplectic argument supplies the substantive case.",
+   "prerequisites": [
+    "PAPER-DELIGNE-74/s6-6.10-arithmetic-monodromy-CSp",
+    "PAPER-DELIGNE-74/s6-6.11-image-open"
+   ],
+   "tests": [
+    {
+     "name": "Deligne74.Monodromy.fixedDimension",
+     "kind": "non-example",
+     "statement": "At d=3,a=1,q=2 the fiber multiplier is 1/8, not 1/2. A similitude diag(1,1/8) in a symplectic plane lies in the corrected multiplier torsor."
+    },
+    {
+     "name": "Deligne74.Monodromy.geometricSign",
+     "kind": "characterisation",
+     "statement": "For m=deg(x), a(F_x)=−m and (δ^(-1))^a=δ^m; the corrected fiber multiplier is q^(dm)."
+    }
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s6-6.13-proof-of-6.6",
    "kind": "theorem",
    "name": "Proof of (6.6) via Chebotarev density",
-   "statement": "(6.13) For each i, j the set of integers n with gamma_i^n = delta_j^n is the set of multiples of a fixed integer n_ij (n_ij = 0 not excluded); by hypothesis n_ij != 1. By (6.12) and the Chebotarev density theorem, the set of x in |U_0| such that some beta_j^{deg(x)} [read: delta_j^{deg(x)}] is an eigenvalue of F_x* acting on calF_0 has density 0. Take K = {n_ij} and L = the set of these x.",
+   "statement": "For each i,j the positive integers r with γ_i^r=δ_j^r are multiples of a fixed integer n_ij (n_ij=0 denotes no positive solution), with n_ij≠1 under (6.6)’s hypothesis. By (6.12) applied to δ_j^(-1) and closed-point Chebotarev, the points x∈|U₀| for which some δ_j^deg(x) is an eigenvalue of geometric F_x on ℱ₀ have density zero: ρ₁(F_x) has a=−deg(x), so (δ_j^(-1))^a=δ_j^deg(x). Take K={n_ij} and L to be this exceptional set. The fixed odd pencil-fiber dimension d and H’s multipliers q^(−da) are unchanged throughout.",
    "locator": "§6, (6.13), p. 298",
    "status": "planned",
    "planned": [
     "DeligneWeightsAndPurity:DWP.3"
    ],
-   "note": "DWP.3: 'Construct the function-field closed-point Chebotarev/density input in §6.13, including conjugacy classes in finite étale quotients and the degree congruences imposed by the constant-field extension.' The print has β_j for δ_j here (PAPER-DELIGNE-74/E9)."
+   "note": "DWP.3. Retains the degree-congruence conditions and the existing E9 correction β_j→δ_j; applying 6.12 to the inverse unit matches the geometric-Frobenius convention of (1.15).",
+   "prerequisites": [
+    "PAPER-DELIGNE-74/s6-6.12-measure-zero",
+    "PAPER-DELIGNE-74/s6-6.13-chebotarev-function-field"
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s6-6.13-chebotarev-function-field",
    "kind": "theorem",
    "name": "Chebotarev density for pi_1(U_0): Frobenii in a closed Haar-null subset of the image have density zero",
-   "statement": "(Chebotarev density theorem, used in (6.13).) For the continuous representation rho_1 : pi_1(U_0,u) -> H_1 (compact ℓ-adic group), the Frobenius elements F_x (x in |U_0|) are equidistributed for Haar measure in the appropriate sense, so the set of x whose Frobenius image lies in a closed subset of Haar measure zero has (Dirichlet) density zero.",
+   "statement": "For the compact arithmetic image H₁ of the corrected ρ₁:π₁(U₀,u)→H={(a,g):μ(g)=q^(−da)}, function-field Chebotarev approximates conjugacy-invariant closed Haar-null sets by finite-quotient neighborhoods and shows that their geometric Frobenius points have Dirichlet density zero. Geometric F_x has degree coordinate −deg(x); retain constant-field degree-congruence restrictions in the finite quotients.",
    "locator": "§6, (6.13), p. 298",
    "status": "planned",
    "planned": [
@@ -1996,13 +2029,13 @@
    "id": "PAPER-DELIGNE-74/s7-H1-P1-constant-vanishes",
    "kind": "theorem",
    "name": "H^1 of a constant sheaf on P^1 vanishes",
-   "statement": "For a constant Q_ℓ-sheaf on P^1 over an algebraically closed field, H^1(P^1, constant sheaf) = 0.",
+   "statement": "Let k be algebraically closed of characteristic p≠ℓ. The early projective-bundle computation gives H⁰(P¹_k,Q_ℓ)=Q_ℓ, H¹(P¹_k,Q_ℓ)=0 and H²(P¹_k,Q_ℓ)=Q_ℓ(−1), with all other degrees zero; H¹(P¹_k,C)=0 for every finite-dimensional constant Q_ℓ-sheaf C by tensoring. When descended to F_q, geometric Frobenius acts by 1 in degree zero and q in degree two.",
    "locator": "§7, proof of (7.1), C), p. 300",
    "status": "planned",
    "planned": [
-    "DeligneWeightsAndPurity:DWP.6"
+    "EtaleDualityAndPerverseSheaves:EDC.4"
    ],
-   "note": "DWP.6 states \"The constant constituents on ℙ¹ contribute no H¹\" (in its own Weil II pencil argument). DWP.4 needs this earlier; the assembler should check ordering (DWP.4 does not depend on DWP.6) — likely it is provided by the basic P^1 cohomology computation (EDC.4 projective bundle / PR196), which I did not find as an explicit atlas phrase. Used in (7.1.2'), (7.1.4'), (7.1.5')."
+   "note": "EDC.4 explicitly plans the projective-bundle decomposition via powers of c₁(O(1)), with Tate twists and Frobenius on every summand, independently of Weil bounds. DWP.4 and DWP.6 both import EDC.4. This supplies 7.1.2′, 7.1.4′ and 7.1.5′ before the Weil I induction, with no DWP.6→DWP.4 dependency."
   },
   {
    "id": "PAPER-DELIGNE-74/s7-7.1-case-C-first",
@@ -2187,14 +2220,21 @@
    "id": "PAPER-DELIGNE-74/s8-8.2-ramanujan-petersson",
    "kind": "theorem",
    "name": "Theorem 8.2: Ramanujan–Petersson conjecture for weight k ≥ 2",
-   "statement": "Let N ≥ 1, ε: (Z/N)^* → C^* a character, k ≥ 2 and f a holomorphic modular form on Γ_0(N) of weight k and character ε, cuspidal and primitive, f = Σ a_n q^n with a_1 = 1. Then for p prime not dividing N, |a_p| ≤ 2·p^{(k−1)/2}. In other words, the roots of T^2 − a_p T + ε(p)·p^{k−1} have absolute value p^{(k−1)/2}.",
+   "statement": "Let N ≥ 1, ε: (Z/N)^* → C^* a character, k ≥ 2 and f a holomorphic modular form on Γ_0(N) of weight k and character ε, cuspidal and primitive, f = Σ a_n q^n with a_1 = 1. Then for p prime not dividing N, both roots of T^2 − a_p T + ε(p)·p^{k−1} have absolute value p^{(k−1)/2}, and consequently |a_p| ≤ 2·p^{(k−1)/2}.",
    "locator": "§8, (8.2), p. 302",
    "status": "planned",
    "planned": [
     "AutomorphicGaloisRepresentations:R19.3",
     "WeightsInEtaleCohomology:R34.6"
    ],
-   "note": "AutomorphicGaloisRepresentations:R19.3: \"Use the weight theorem R34 to prove purity and the coefficient-independent Frobenius polynomials. Construct the compatible family for a fixed eigenform\"; WeightsInEtaleCohomology:R34.6 \"Use DWP.10's export contracts in the existing eigenform/Kuga–Sato geometric realizations to deduce the actual eigenspace purity\". Note the TauCeti ModularForms roadmap Layer 9 says explicitly \"Proving Ramanujan–Deligne is **not a target**\" there and uses the bound only as a hypothesis. The equivalence of the two formulations uses a_p = α+β, αβ = ε(p)p^{k−1}, |ε(p)| = 1."
+   "note": "AutomorphicGaloisRepresentations:R19.3: \"Use the weight theorem R34 to prove purity and the coefficient-independent Frobenius polynomials. Construct the compatible family for a fixed eigenform\"; WeightsInEtaleCohomology:R34.6 \"Use DWP.10's export contracts in the existing eigenform/Kuga–Sato geometric realizations to deduce the actual eigenspace purity\". Note the TauCeti ModularForms roadmap Layer 9 says explicitly \"Proving Ramanujan–Deligne is **not a target**\" there and uses the bound only as a hypothesis. The geometric eigenspace realization and purity prove both root moduli; α+β=a_p and the triangle inequality then give the trace bound. The reverse implication does not follow from α+β=a_p, αβ=ε(p)p^(k−1) and |ε(p)|=1 alone; it would require an independently justified normalized-reality relation. No such extra equivalence lemma is claimed here.",
+   "tests": [
+    {
+     "name": "Deligne74.Ramanujan.imaginaryTrace",
+     "kind": "non-example",
+     "statement": "For any r>0, ε=1, α=2ir and β=−ir/2 have αβ=r² and |α+β|=3r/2≤2r, but |α|=2r and |β|=r/2. A trace bound and determinant modulus alone do not imply root purity."
+    }
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s8-8.2-kuga-sato-frobenius",
@@ -2410,19 +2450,23 @@
    "id": "PAPER-DELIGNE-74/s8-8.11-euler-characteristic",
    "kind": "theorem",
    "name": "Case n = 1: χ_c(A, ℱ_j) = 1 − d",
-   "statement": "To prove (i) it remains to check χ_c(A, ℱ_j) = 1 − d. By the Euler–Poincaré formula (Raynaud, Sém. Bourbaki exp. 286, Feb. 1965) this is equivalent to Lemma 8.12.",
+   "statement": "In the n=1 case Q=x^d, p∤d, and nontrivial Artin–Schreier character j, the imported general Grothendieck–Ogg–Shafarevich formula specializes to χ_c(A¹,ℱ_j)=rank(ℱ_j)(2−0−1)−Sw_∞(ℱ_j)=1−d using Lemma 8.12. Together with 8.11’s vanishing outside H¹_c this gives dim H¹_c=d−1.",
    "locator": "§8, (8.11), p. 306",
    "status": "missing",
-   "note": "χ_c(A^1, ℱ) = rank·χ_c(A^1) − Sw_∞(ℱ) = 1 − Sw_∞. No atlas stage plans the Grothendieck–Ogg–Shafarevich formula (searched \"Ogg\", \"Euler–Poincaré\", \"Euler characteristic\", \"Swan\")."
+   "note": "FF.2 owns this Artin–Schreier application, not construction of the general genus-g GOS theorem. Reuse the existing FF packet’s shared EDC request and R01.3’s local Swan computation; the supplier’s ℓ-adic passage and proof closure belong to its étale-duality blueprint.",
+   "prerequisites": [
+    "PAPER-DELIGNE-74/s8-GOS-formula",
+    "PAPER-DELIGNE-74/s8-8.12-swan-conductor"
+   ]
   },
   {
    "id": "PAPER-DELIGNE-74/s8-GOS-formula",
    "kind": "theorem",
    "name": "Grothendieck–Ogg–Shafarevich (Euler–Poincaré) formula",
-   "statement": "For a lisse ℓ-adic (λ-adic) sheaf ℱ on a smooth curve U over an algebraically closed field of characteristic p ≠ ℓ, with smooth compactification \\bar U, χ_c(U, ℱ) = rank(ℱ)·χ_c(U) − Σ_{x ∈ \\bar U − U} Sw_x(ℱ).",
+   "statement": "Let k be algebraically closed of characteristic p, ℓ≠p, C/k a smooth projective connected curve of genus g, D⊂C a finite set of geometric points, U=C∖D and ℱ a finite-rank lisse E_λ-sheaf on U, where E_λ is a finite extension of Q_ℓ. Then χ_c(U,ℱ)=rank(ℱ)(2−2g−|D|)−Σ_{x∈D}Sw_x(ℱ). The genus and puncture terms are part of the general formula, not specialized away.",
    "locator": "§8, (8.11), p. 306 (cited: Raynaud, Bourbaki 286)",
    "status": "missing",
-   "note": "Standard input recalled by citation only; not planned by any atlas stage (ArithmeticGaloisRepresentations R01.3 defines Artin and Swan conductors of Galois representations but not the Euler characteristic formula)."
+   "note": "General supplier requested once in the étale-duality direction by RT-AREA-finitefields/3 (confirmed) and the existing FiniteFieldsAndCharacterSums packet’s EDC.2 request. Route 6 carries the proposal for that same owner; EDC.2:euler-characteristic is only a proposed substage, not registered/planned or proved. FF.2 imports it for 8.11. ArithmeticGaloisRepresentations:R01.3 remains the separate equal-characteristic local-conductor supplier."
   },
   {
    "id": "PAPER-DELIGNE-74/s8-8.12-swan-conductor",
@@ -2513,7 +2557,7 @@
     "PAPER-DELIGNE-74/s3-3.8-closed-point-count",
     "PAPER-DELIGNE-74/s6-6.10-homotopy-exact-sequence"
    ],
-   "reason": "DWP.2 and DWP.3 plan Weil I's fundamental estimate and rationality theorem from this very paper; these four small inputs of their proofs are stated in no atlas layer: the Zariski density of an open subgroup of Sp(Q_ℓ) (used to replace π₁-coinvariants by Sp-coinvariants), the vanishing of H⁰_c on an affine curve, the bound of at most qⁿ closed points of degree n on the affine line (convergence of the Euler product), and the homotopy exact sequence π₁(U,u) → π₁(U₀,u) → Ẑ used in (6.10). They belong inside the layers that use them."
+   "reason": "DWP.2 and DWP.3 receive four missing proof inputs: Zariski density of an open subgroup of Sp(Q_ℓ), H⁰_c vanishing on an affine curve, the closed-point counts for A¹ and P¹, and the arithmetic/geometric fundamental exact sequence. For (3.8), use #P¹(F_{q^n})=q^n+1 and the two convergent geometric series in the corrected estimate, implementing E16 on the original open U₀⊂P¹. For (6.10)–(6.13), use the fixed odd pencil-fiber dimension d, arithmetic degree a, multiplier q^(−da) and geometric F_x coordinate −deg(x), so 6.12 is applied to δ_j^(-1). These suppliers serve the existing DWP.2/3 owners."
   },
   {
    "route": "source",
@@ -2566,10 +2610,9 @@
     "PAPER-DELIGNE-74/s8-8.10-kunneth-separation",
     "PAPER-DELIGNE-74/s8-8.11-n1-vanishing",
     "PAPER-DELIGNE-74/s8-8.11-duality-n1",
-    "PAPER-DELIGNE-74/s8-8.11-euler-characteristic",
-    "PAPER-DELIGNE-74/s8-GOS-formula"
+    "PAPER-DELIGNE-74/s8-8.11-euler-characteristic"
    ],
-   "reason": "FF.2 ('State polynomial/rational exponential-sum bounds via curves and l-adic trace functions', source route DELIGNE) plans the headline of Theorem (8.4), the bound |Σ ψ(Q(x))| ≤ (d−1)ⁿ q^{n/2} for a polynomial Q of degree d prime to p whose leading form defines a smooth hypersurface in P^{n−1}. Weil I gives the whole proof, which no layer states: the Artin–Schreier sheaves ℱ_j and the trace formula for them, Lemma (8.5) (cohomology concentrated in degree n of dimension (d−1)ⁿ, duality between ℱ_j and ℱ_{−j}, the smooth compactification), its proof by Zariski resolution, local constancy in the family and a Künneth reduction to n = 1, Q = x^d, and the Euler characteristic χ_c = 1 − d from the Grothendieck–Ogg–Shafarevich formula. All of it is FF.2's proof, so the paper is FF.2's source for it."
+   "reason": "FF.2 owns the Artin–Schreier constructions and applications of Bombieri’s (8.4): its sheaves and trace formula, (8.5) cohomology concentration/duality, (8.6)–(8.9) compactification, deformation/local constancy and Künneth reduction, and the n=1 application χ_c(A¹,ℱ_j)=1−d. It imports the general genus-g Grothendieck–Ogg–Shafarevich theorem from the shared étale-duality request carried by route 6, and the local Artin–Schreier Swan computation from R01.3 via route 5. It must not construct another general GOS theorem. The original polynomial hypotheses (p∤d and smooth leading form) remain unchanged."
   },
   {
    "route": "source",
@@ -2582,6 +2625,18 @@
     "PAPER-DELIGNE-74/s8-8.13-artin-schreier-conductor"
    ],
    "reason": "Lemmas (8.12)–(8.13) compute a Swan conductor: the character of an Artin–Schreier extension T^p − T = y⁻¹ with v(y) = d prime to p has conductor d + 1, so ℱ_j has Swan conductor d at infinity. R01.3 plans Artin and Swan conductors from the ramification filtration; this computation is its natural worked example (Serre, Corps locaux à corps résiduel algébriquement clos, 1961, n° 4.4)."
+  },
+  {
+   "route": "part-ii",
+   "parent": "EtaleDualityAndPerverseSheaves",
+   "roadmap": "EtaleDualityAndPerverseSheavesPartIICurveEulerCharacteristic",
+   "title": "Étale duality, cycle classes and perverse sheaves, Part II: Euler characteristics of lisse sheaves on curves",
+   "area": "cohomology",
+   "items": [
+    "PAPER-DELIGNE-74/s8-GOS-formula"
+   ],
+   "reason": "The general GOS theorem is not specified by any registered stage. This is the same outstanding étale-duality owner request and proposed EDC.2:euler-characteristic addition already recorded by the FiniteFieldsAndCharacterSums packet and confirmed RT-AREA-finitefields/3, now expressed as a section-16 extension brief. It is not another competing general construction in FF.2.",
+   "brief": "Resolve the existing FiniteFieldsAndCharacterSums packet request to EtaleDualityAndPerverseSheaves:EDC.2 and confirmed RT-AREA-finitefields/3 as one general curve Euler-characteristic supplier. Extend Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves) after its EDC.2 curve trace/duality interfaces. For C a smooth projective connected curve of genus g over an algebraically closed field k of characteristic p, D a finite set of geometric points, U=C minus D, and a finite-rank lisse E_λ-sheaf F with E_λ/Q_ℓ finite and ℓ≠p, prove χ_c(U,F)=rank(F)(2−2g−|D|)−Σ_{x∈D}Sw_x(F). Import local Artin/Swan conductors from ArithmeticGaloisRepresentations:R01.3 after checking the equal-characteristic local-field contract; do not rebuild ramification or the conductor here. Read Raynaud, Séminaire Bourbaki 286, Part I Theorem 1, and supply the finite-torsion-to-ℓ-adic, coefficient-extension and compact-support comparisons; the extraction does not claim those proofs read. Export to FiniteFieldsAndCharacterSums FF.2 and the proposed KloostermanMomentsAndPotentialAutomorphy, including genus-g rational-function consumers. FF.2 retains its Artin–Schreier applications and reduced-pole Swan calculations; this route is their shared general supplier. Keep the rank, genus, boundary cardinality and Swan terms explicit. Tests include constant sheaves on projective and punctured curves, tame rank-one coefficients, a polynomial Artin–Schreier sheaf with p∤d giving χ_c=1−d, and the two-pole Kloosterman input. Register a real supplier endpoint before any consumer claims it planned. Coordinate with the parent’s existing proposed EDC.2:euler-characteristic rescope: either integrate this extension there or register its Part II carrier, with one theorem owner, never both as parallel constructions. The suggested substage is not currently registered and is not used as a planned item ID."
   }
  ],
  "sourceIssues": [
@@ -2919,6 +2974,23 @@
     "reason": "Found by the review on the page image of p. 286; the counterexample (q = 2, U₀ = P¹ minus the degree-2 point, ε = 5: 3/64 > 1/31) was checked by hand.",
     "by": "REV-PAPER-DELIGNE-74"
    }
+  }
+ ],
+ "fixes": [
+  {
+   "job": "FIX-RT-PAPER-DELIGNE-74",
+   "agent": "Codex",
+   "session": "codex-J6LwjP",
+   "date": "2026-10-01",
+   "findings": [
+    "RT-PAPER-DELIGNE-74/1",
+    "RT-PAPER-DELIGNE-74/2",
+    "RT-PAPER-DELIGNE-74/3",
+    "RT-PAPER-DELIGNE-74/4",
+    "RT-PAPER-DELIGNE-74/5"
+   ],
+   "read": "Reacquired Numdam published scan and read rendered pp. 279, 286, 295, 297–298, 300, 302 and 306. SHA-256 matches the existing record. Raynaud Bourbaki286 pp. 129–133 text and p. 133 rendered: the finite-torsion formula and genus term were read, not the complete proof or ℓ-adic passage.",
+   "changes": "Implement E16 and E8; move the P¹ constant-sheaf input to early EDC.4; separate the general GOS supplier from FF.2 by reusing the outstanding étale-duality request with an explicit registration brief; use purity→trace rather than an unjustified converse. Source issue ledger unchanged."
   }
  ]
 }
