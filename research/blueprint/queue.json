@@ -33071,7 +33071,8 @@
     "REV-PAPER-CALMES-ETAL-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CALMES-ETAL-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4031"
   },
   {
    "id": "REV-RT-PAPER-CALMES-ETAL-26",
@@ -40913,8 +40914,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
