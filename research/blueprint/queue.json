@@ -37892,7 +37892,9 @@
     "REV-PAPER-BHATT-MATHEW-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MATHEW-21.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4187",
+   "finishedAt": "2026-10-01T13:35:50Z"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-20",
