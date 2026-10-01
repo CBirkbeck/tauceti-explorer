@@ -39607,7 +39607,8 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4258"
   },
   {
    "id": "REV-RT-PAPER-BOXER-CALEGARI-GEE-25",
@@ -46498,8 +46499,8 @@
     "REV-ArithmeticKTheory--N.1"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ArithmeticKTheory--N.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4427"
+   "state": "pending",
+   "note": "released on GitHub issue #4427"
   },
   {
    "id": "REV-RT-BP-ArithmeticKTheory--N.1",
