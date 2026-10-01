@@ -38535,7 +38535,8 @@
     "REV-PAPER-IM-KIM-LE-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4214"
   },
   {
    "id": "REV-RT-PAPER-IM-KIM-LE-ETAL-24",
@@ -40500,8 +40501,9 @@
     "REV-PAPER-NEWTON-THORNE-21-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4298"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4298",
+   "finishedAt": "2026-10-01T16:59:35Z"
   },
   {
    "id": "REV-RT-PAPER-NEWTON-THORNE-21-B",
