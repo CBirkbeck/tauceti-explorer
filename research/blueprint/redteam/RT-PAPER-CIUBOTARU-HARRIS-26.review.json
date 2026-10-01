@@ -1,0 +1,15 @@
+{
+ "redteam": "RT-PAPER-CIUBOTARU-HARRIS-26",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CIUBOTARU-HARRIS-26/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Definition 8.4 (p. 28) calls ℜ(s) extraneous when s = φ(Frob) is geometric, L(s) is unitary and ℜ(s) is not the central point. The item extraneous-exceptional states Theorem 8.5's exceptional list with 'none in G2', as Remark 8.7 (p. 30) says. The point recorded in E11 contradicts it. Take G2 with short and long simple roots α1, α2, s = s_c s_ν with (aα1 + bα2)(s) = (−1)^a q^{b/2} and ν = ½ω2. I recomputed the positive-root values: −1, q^{1/2}, −q^{1/2}, q^{1/2}, −q^{1/2}, −q; none is q^{±1}, and along s_c s_{tν}, t ∈ [0, 1], none becomes q^{±1}. So X(s) is irreducible on the whole path, hermitian (w0 = −1), and unitarily induced at t = 0, hence unitary. Since g∨_q = 0, L(s) is generic and s ∈ CS(G2, 0), whose central point is 1. ℜ(s) = ½ω2 ≠ 0. All weights of a faithful representation of the dual G2 are integral root combinations, so the eigenvalues ±q^{b/2} are Weil numbers of integer weight and s is geometric in the sense of Definition 2.5. G2 has trivial, hence connected, centre. So s is an extraneous point for G2. The proof of Theorem 8.5 (p. 29) breaks at 'Applying Theorem 6.14 to z(O∨)', which treats ℜ(s) as a real unitary parameter. This is E11's gap propagated to Theorem 8.5, which E11's locators do not list. The fix is right, including its instruction not to assert a global counterexample."
+  },
+  {
+   "finding": "RT-PAPER-CIUBOTARU-HARRIS-26/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item galois-discrete-series (Theorem 4.2: discrete series of the §4.1 groups have number-field models stable under conjugation) is on route 2, the local SmoothRepresentationsPartIIUnitarySpherical. Its note attributes it to [GHS] with Beuzart-Plessis's globalization appendix (every discrete series is a local component of a cuspidal automorphic representation) and the cusp-coefficient argument of §3.1. Route 2's brief imports SR.2, SR.3, SR.4, SmoothRepresentationsPartIIUnitaryDual, the nilpotent-orbit Part II and ES5/ES7, but no global or arithmetic supplier. The arithmetic items geometric-discrete-series, ghs-discrete-series-purity and galois-temperedness are on route 3, GlobalShtukasPartIIRamanujanArthur, whose brief imports FA.6 and also consumes UnitarySpherical. So importing route 3 into route 2 would close a loop. The fix is right: put the item in the early arithmetic part of route 3 with FA.6, GS and SR imports, or name a separate earlier arithmetic supplier."
+  }
+ ]
+}
