@@ -38326,8 +38326,9 @@
     "REV-PAPER-PASKUNAS-QUAST-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-PASKUNAS-QUAST-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4206"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4206",
+   "finishedAt": "2026-10-01T12:31:43Z"
   },
   {
    "id": "REV-RT-PAPER-PASKUNAS-QUAST-26",
@@ -38660,8 +38661,9 @@
     "REV-PAPER-BHATT-MATHEW-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4219"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4219",
+   "finishedAt": "2026-10-01T12:31:49Z"
   },
   {
    "id": "RT-PAPER-ANSCHUTZ-LEBRAS-23",
@@ -38724,7 +38726,8 @@
     "REV-PAPER-HACON-WITASZEK-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4224"
   },
   {
    "id": "REV-RT-PAPER-HACON-WITASZEK-23",
