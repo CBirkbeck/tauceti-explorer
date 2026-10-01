@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The published text (Annals 183 (2016), open PDF from the Annals site, read 2026-10-01), §1.3, p. 984, says 'le théorème de déformation de Serre-Tate implique que le morphisme P est formellement étale', with no restriction to bases on which p is nilpotent, and item 7 copies it ('By Serre–Tate (item 6) the morphism P …'). Serre–Tate is a statement about p-nilpotent bases, and without that restriction the claim fails. Over an algebraically closed field K of characteristic 0, a p-divisible group or truncated level is étale and lifts uniquely to K[ε]/(ε²), while a non-isotrivial family of elliptic curves gives non-trivial first-order deformations of the abelian scheme. (The red team's Legendre example is one: for j(t) = 256(t²−t+1)³/(t²(1−t)²) I checked j′(3) = 31360/27 ≠ 0, so t = 3 + ε moves the j-invariant.) So P is not formally étale as a morphism over Z_p. The fix is right: restrict the assertion to p-nilpotent test schemes (equivalently, to the p-adic formal completions, which is how the paper uses it) and record the omission as a new sourceIssue."
+  },
+  {
+   "finding": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Lemma 4.4.5 (p. 1004) assumes only that the bad operator involves complements with deg L ≥ ν, and concludes ‖U_i^bad‖_V ≤ p^{d_ia_i(a_i+1)/2 − ν·inf_j k_{i,j,a_i}} (type (C); similarly in type (A)), for the weight κ of §4 (p. 994), which is any dominant weight. The norm of a branch scales like p^{−deg(L)·inf k} on the weight factor, so replacing deg L by a lower bound ν gives an upper bound only when inf k ≥ 0. For inf k < 0 the inequality runs the wrong way, and the red team's explicit branch (scalar weight (−1, −1), deg L = 2, ν = 1: actual p^5 against the asserted p^4) shows it can fail. The paper's own use is safe, because Hypothesis 4.5.1 (p. 1004) forces inf k > v(α_i) + d_ia_i(a_i+1)/2 > 0. But item 28 exports the lemma for every dominant κ. The fix is right: add the sign condition (or keep the actual degrees), record a new sourceIssue, and discharge positivity from Hypothesis 4.5.1 in the classicality chain."
+  },
+  {
+   "finding": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The proof of Lemma 4.4.3 (p. 1003) defines q : B_k^0 → (X_Iw^rig)^k, the j-th component being the quotient by L_j, and says 'p et q sont finis et étales'. B_k^0 lies over U by the finite étale forgetful map p, so it has the dimension D of the moduli space, while (X_Iw^rig)^k has dimension kD. An étale map is locally an isomorphism on completed local rings, so q cannot be étale for k ≥ 2 and D ≥ 1. The conclusion (U_{k,l} quasi-compact) survives with the red team's repair: pull back V_l along each finite coordinate map separately, intersect the finitely many quasi-compact opens, and push forward by the finite étale p. Medium is right; a blueprint should not be asked to prove the product map étale."
+  },
+  {
+   "finding": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Item 21 (Proposition 4.1.8, p. 997: for f : X → Y finite étale between separated rigid spaces and a quasi-compact open U ⊆ X such that the geometric fibres of f|_U have constant cardinality, f|_U and f|_{X∖U} are finite étale) is marked missing. The integrated decomposition data/decompositions/AdicSpacesPartII.json has the node AdicSpacesPartII:R2/fibral-finiteness-criterion: Conrad's Theorem A.1.2, a flat map of rigid spaces is finite iff it is quasi-compact and separated with finite fibres and locally constant fibre rank. f|_U is étale, hence flat; it is quasi-compact and separated; and its fibre rank equals the constant geometric fibre cardinality. So A.1.2 gives finiteness of f|_U. Then U → X is proper, so U is also closed, and the complement is finite étale. The item is therefore planned at AdicSpacesPartII R2 (with R0 for the finite étale consequences), as the fix says."
+  }
+ ]
+}
