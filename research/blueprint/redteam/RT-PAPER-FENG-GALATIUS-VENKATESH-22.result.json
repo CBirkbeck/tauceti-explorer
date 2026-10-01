@@ -1,0 +1,47 @@
+{
+  "redteam": "RT-PAPER-FENG-GALATIUS-VENKATESH-22",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-FENG-GALATIUS-VENKATESH-22",
+  "summary": "Three high-severity contract errors: the hyperbolic splitting needs a factor of 1/2; arbitrary symmetric monoidal group completion does not provide the claimed ring map; and special Γ-spaces give Ω-equivalences only in positive levels before replacing the zeroth space. All 57 items and the complete published article were reread; the five route assignments and seven cited library definitions were checked.",
+  "checked": [
+    "Independent claim on issue #4158 confirmed by the bot for Codex — codex-rtOQ9t. Extraction and review histories identify Claude Code sessions cc-39fac3 and cc-d67081; neither is this worker/session.",
+    "Fresh full reread of the published 95-page article, journal pp.225–319 including Appendix A and references, on 2026-10-01. Downloaded publisher PDF SHA-256 5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d exactly matches the extraction. Visually checked pp.237–238,255–256,302 for the three findings.",
+    "Read all 57 extraction items, all five routes, all 13 prerequisite records, all 17 source-issue cores, the human extraction report, and both review records. Checked the source locators against the published article; existing source-issue repairs were not resubmitted as new findings.",
+    "Checked all seven Mathlib declarations cited by item /1 at 082e2d37e8b0463410cdb532e111cd43d5a66174, reading their definitions and hypotheses. Also read ClassGroup.equivPic and IsPrimitiveRoot.adjoinEquivRingOfIntegers (including its prime-power version) for the class-group/Picard and O_q = Z[ζ_q] clauses. Noted the coordinate permutation/sign needed between the paper’s interleaved symplectic form and Matrix.J.",
+    "Assembled the atlas at base commit 58d7e52 and read the descriptions of all 26 cited stage ids and their corresponding reviewed data/library-coverage.json entries. Read the active restructure records on A5, R02.2, S.6, H.4, H.5:spectra and H.6. Checked the three source routes, the ArithmeticKTheory Part II parent/title and the EtaleHomotopyTypes coalescence identity.",
+    "Checked route incidence: 1 library item, 15 planned items, 41 missing items; every missing item occurs in exactly one route. The source routes cover 3 items, EtaleHomotopyTypes 2 and the Part II 36. No new duplicate owner established. The current Schmidt–Stix coalesced brief is an explicitly unaccepted candidate, so its unresolved foundation imports remain unresolved rather than being certified here.",
+    "Checked fresh arXiv version metadata (v3, 2022-05-08, final accepted version), publisher identification/licence and Crossref DOI metadata. Crossref returned no correction relation/update; a bounded title-plus-erratum/correction search found no separate correction notice. This is not a proof that no correction exists.",
+    "Verified the hyperbolic/forgetful rank calculation, the Q/Z obstruction to a unital ring, and the special Γ-space N-to-Z counterexample by explicit mathematical arguments. These disprove the stated contracts; they do not disprove the paper’s main Galois-action theorems.",
+    "Original extraction passes scripts/check_paper.py. The red-team result passes scripts/check_redteam.py, its two files pass intake.py check-files, and git diff --cached --check passes. No Lean file is requested, written or compiled; no library build, cache acquisition or language server was run."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json item /25; route 3 to GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+      "claim": "The stated retraction of the standard hyperbolic inclusion is incorrectly normalized. With H the unscaled hyperbolic construction and c_B the forgetful Betti map, c_B H = 1 + ψ^{−1}, hence 2 id on K(Z)[1/2]^(+), not id. Thus the fibre sequence with the specified first map is not split by c_B itself.",
+      "evidence": "FGV, published §3.4, pp.254–255, describes the inclusion as hyperbolic and says that (3.5) is “canonically split” by the forgetful spectrum map. But §3.5, p.256, explicitly computes the hyperbolic/Betti–Hodge composite as (1 + ψ^{−1}, 0). Already on K_0(Z)[1/2] = Z[1/2], the class of Z maps under H to a symplectic rank-two module and under c_B to 2[Z]. Inverting 2 makes this composite invertible, not equal to the identity. Publisher PDF DOI 10.1007/s00222-022-01127-8; both pages visually checked.",
+      "fix": "Keep the fibre sequence and splitting existence. If its first arrow is the standard H on the positive eigensummand, give the retraction as (1/2)c_B. Alternatively keep c_B as projection and explicitly use (1/2)H as the summand inclusion; specify the identification with homotopy orbits accordingly. Amend item /25 and the route-3 design instruction, record this normalization issue in sourceIssues, and require the degree-zero test c_B(H([Z])) = 2[Z]. Theorem 3.5 and the universal-extension results are not contradicted."
+    },
+    {
+      "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json item /2; imports StableHomotopyKTheory:H.4 and H.5:spectra",
+      "claim": "The item promotes the adjoint Σ∞_+|C| → K(C) for an arbitrary symmetric monoidal groupoid to a ring map. One monoidal operation provides additive group completion, not a unital ring structure on K(C); the assertion needs a second compatible multiplicative structure or a specific multiplicative map into K(R).",
+      "evidence": "Published §2.2, pp.237–238, gives a spectrum and the group-completion map (2.2). §2.3, p.238, obtains products for commutative R from tensor product, distinct from direct sum. The ring-spectrum map on p.240 is specifically Σ∞_+|Pic(R)| → K(R), preserving tensor product, not the generic group-completion adjunction. Counterexample: let C be the discrete groupoid on Q/Z with addition. It is symmetric monoidal and already group-like, so π_0 K(C) = Q/Z. No nonzero unital ring has this additive group: if its unit has finite additive order n, every element is killed by n, whereas Q/Z has unbounded exponent. Also, using the sole operation as multiplication on Σ∞_+|C|, its unit [0] maps to additive zero under group completion.",
+      "fix": "Replace the general “adjoint ring maps” clause by “adjoint maps of spectra”. State multiplicativity separately for commutative-ring projectives with direct sum and tensor product, and for the Picard-groupoid map Σ∞_+|Pic(R)| → K(R) already in item /17. Do not claim K(Pic(R), tensor) is the codomain of that map. Preserve the existing general group-completion owner and place any required ring-product input with GeneralAlgebraicKTheory:K.7/SchemeKTheoryOperations:S.6; no new generic ring structure on every K(C)."
+    },
+    {
+      "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json item /51 (Γ-spaces and Segal machine); imports StableHomotopyKTheory:H.4 and H.5:spectra",
+      "claim": "After specifying the spaces of B∞X as |X(S^n)|, the item says specialness makes this an Ω-spectrum. Specialness supplies the Ω-equivalences only for n ≥ 1; the zero structure map is group completion and need not be a weak equivalence. The omitted qualification would erase the group completion that algebraic and symplectic K-theory require.",
+      "evidence": "Published Appendix A.1, p.302, explicitly restricts the weak equivalences (A.2) to n ≥ 1 and says B∞X is equivalent to an Ω-spectrum whose zeroth space is Ω|X(S^1)|, followed by the group-completion map (A.4). Take the special Γ-space X(S) = N^(S minus basepoint), with pointed maps acting by summation over fibres. Its Segal maps are isomorphisms, X({*}) is a point, and |X(S^0)| = N. Its zero structure map is N → ΩBN and on π_0 is N → Z, not a bijection. Thus it is not an Ω-spectrum at level zero. This example satisfies even the paper’s strict reduction condition, so it is separate from existing E15.",
+      "fix": "State that |X(S^n)| → Ω|X(S^(n+1))| is a weak equivalence for n ≥ 1. Give the Ω-spectrum replacement with zeroth space Ω|X(S^1)| and retain |X(S^0)| → Ω∞B∞X as group completion. If the unmodified prespectrum is claimed to be an Ω-spectrum also at zero, add that π_0 X(S^0) is a group (very specialness). Carry the N-to-Z test into the H.4/H.5 design contract. The source itself gives the correct distinction; this finding is an extraction error, not a new published-source error."
+    }
+  ]
+}
