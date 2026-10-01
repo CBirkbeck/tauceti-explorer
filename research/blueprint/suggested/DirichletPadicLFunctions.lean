@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.WittVector.DiscreteValuationRing
+import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.Algebra.Module.ZMod
 import Mathlib.LinearAlgebra.Matrix.Module
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
@@ -25459,3 +25461,120 @@ example : (kubertCongruenceRepresentation 1 ℤ 5).comp (Matrix.GeneralLinearGro
 example (g : Matrix.GeneralLinearGroup (Fin 2) ℤ) (h : Matrix.GeneralLinearGroup (Fin 2) ℤ) (heq : ∀ i j,(g i j : ZMod 5)=(h i j : ZMod 5)) : kubertPrimitiveGLRepresentation 1 ℤ 5 g=kubertPrimitiveGLRepresentation 1 ℤ 5 h := by sorry
 end
 end DirichletPadic.SuggestedKubertCongruenceTests
+
+/- Cartan unit transitions in the existing FF.4 Galois-ring model. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertCartanUnitReduction (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ →*
+      (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ := by sorry
+
+lemma kubertCartan_cartanUnitReduction_coe (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (u : (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    (kubertCartanUnitReduction p k M N hMN u : TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))=
+      TruncatedWittVector.truncate hMN u.val := by sorry
+
+lemma kubertCartan_cartanUnitReduction_self (p : ℕ) [Fact p.Prime] (k : ℕ+) (N : ℕ+) :
+    kubertCartanUnitReduction p k N N (le_refl _)=MonoidHom.id _ := by sorry
+
+lemma kubertCartan_cartanUnitReduction_comp (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (L M N : ℕ+) (hLM : (L : ℕ) ≤ (M : ℕ)) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (kubertCartanUnitReduction p k L M hLM).comp (kubertCartanUnitReduction p k M N hMN)=
+      kubertCartanUnitReduction p k L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartan_cartanUnitReduction_surjective (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    Function.Surjective (kubertCartanUnitReduction p k M N hMN) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertCartanLocalNorm (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    ((TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ →₀ R) →ₗ[R]
+      ((TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ →₀ R) := by sorry
+
+lemma kubertCartan_cartanLocalNorm_apply (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    (f : (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ →₀ R)
+    (y : (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ) :
+    kubertCartanLocalNorm p k R M N hMN f y=f (kubertCartanUnitReduction p k M N hMN y) := by sorry
+
+lemma kubertCartan_cartanLocalNorm_injective (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    Function.Injective (kubertCartanLocalNorm p k R M N hMN) := by sorry
+
+lemma kubertCartan_cartanLocalNorm_self (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (N : ℕ+) :
+    kubertCartanLocalNorm p k R N N (le_refl _)=LinearMap.id := by sorry
+
+lemma kubertCartan_cartanLocalNorm_comp (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (L M N : ℕ+)
+    (hLM : (L : ℕ) ≤ (M : ℕ)) (hMN : (M : ℕ) ≤ (N : ℕ)) :
+    (kubertCartanLocalNorm p k R M N hMN).comp (kubertCartanLocalNorm p k R L M hLM)=
+      kubertCartanLocalNorm p k R L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartan_cartanLocalNorm_single (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    [Fintype (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ]
+    (x : (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ) (a : R) :
+    kubertCartanLocalNorm p k R M N hMN (Finsupp.single x a)=
+      ∑ y ∈ Finset.univ.filter (fun y => kubertCartanUnitReduction p k M N hMN y=x),
+        Finsupp.single y a := by sorry
+
+lemma kubertCartan_cartanLocalNorm_support (p : ℕ) [Fact p.Prime] (k : ℕ+)
+    (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ≤ (N : ℕ))
+    [Fintype (TruncatedWittVector p (N : ℕ) (GaloisField p (k : ℕ)))ˣ]
+    (f : (TruncatedWittVector p (M : ℕ) (GaloisField p (k : ℕ)))ˣ →₀ R) :
+    (kubertCartanLocalNorm p k R M N hMN f).support=
+      Finset.univ.filter (fun y => kubertCartanUnitReduction p k M N hMN y ∈ f.support) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanTests
+open scoped BigOperators Classical
+noncomputable section
+-- actual_unit_truncation
+example (u : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanUnitReduction 2 1 1 2 (by decide) u).val=TruncatedWittVector.truncate (by decide : 1 ≤ 2) u.val := by sorry
+-- reduction_preserves_identity
+example : kubertCartanUnitReduction 2 1 1 2 (by decide) 1=1 := by sorry
+-- reduction_preserves_product
+example (u v : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanUnitReduction 2 1 1 2 (by decide) (u*v)=(kubertCartanUnitReduction 2 1 1 2 (by decide) u)*(kubertCartanUnitReduction 2 1 1 2 (by decide) v) := by sorry
+-- two_distinct_identity_lifts
+example : ∃ u v : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ,u ≠ v ∧ kubertCartanUnitReduction 2 1 1 2 (by decide) u=1 ∧ kubertCartanUnitReduction 2 1 1 2 (by decide) v=1 := by sorry
+-- truncation_keeps_zero_coordinate
+example (u : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : (kubertCartanUnitReduction 2 1 1 2 (by decide) u).val.coeff ⟨0,by decide⟩=u.val.coeff ⟨0,by decide⟩ := by sorry
+-- identity_reduction
+example : kubertCartanUnitReduction 2 1 2 2 (le_refl _)=MonoidHom.id _ := by sorry
+-- actual_reduction_chain
+example : (kubertCartanUnitReduction 2 1 1 2 (by decide)).comp (kubertCartanUnitReduction 2 1 2 3 (by decide))=kubertCartanUnitReduction 2 1 1 3 (by decide) := by sorry
+-- every_actual_unit_lifts
+example (x : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : ∃ y : (TruncatedWittVector 2 ((3 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ,kubertCartanUnitReduction 2 1 1 3 (by decide) y=x := by sorry
+-- coefficient_is_actual_pullback
+example (f : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ℤ) (y : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) f y=f (kubertCartanUnitReduction 2 1 1 2 (by decide) y) := by sorry
+-- zero_coefficients
+example : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) 0=0 := by sorry
+-- characteristic_two_without_averaging
+example (y : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) (hy : kubertCartanUnitReduction 2 1 1 2 (by decide) y=1) : kubertCartanLocalNorm 2 1 (ZMod 2) 1 2 (by decide) (Finsupp.single 1 1) y=1 := by sorry
+-- linear_norm_not_unital
+example : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) (Finsupp.single 1 1) ≠ Finsupp.single 1 1 := by sorry
+-- coefficient_additivity
+example (f g : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ℤ) : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) (f+g)=kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) f+kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) g := by sorry
+-- exact_coefficient_formula
+example (f : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ℤ) (y : (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) f y=f (kubertCartanUnitReduction 2 1 1 2 (by decide) y) := by sorry
+-- coefficient_recovery
+example (f g : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ZMod 2) (h : kubertCartanLocalNorm 2 1 (ZMod 2) 1 2 (by decide) f=kubertCartanLocalNorm 2 1 (ZMod 2) 1 2 (by decide) g) : f=g := by sorry
+-- identity_linear_norm
+example : kubertCartanLocalNorm 2 1 ℤ 2 2 (le_refl _)=LinearMap.id := by sorry
+-- linear_norm_chain
+example : (kubertCartanLocalNorm 2 1 ℤ 2 3 (by decide)).comp (kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide))=kubertCartanLocalNorm 2 1 ℤ 1 3 (by decide) := by sorry
+-- all_actual_unit_lifts
+example [Fintype (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ] (x : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ) (a : ℤ) : kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) (Finsupp.single x a)=∑ y ∈ Finset.univ.filter (fun y => kubertCartanUnitReduction 2 1 1 2 (by decide) y=x),Finsupp.single y a := by sorry
+-- exact_support_preimage
+example [Fintype (TruncatedWittVector 2 ((2 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ] (f : (TruncatedWittVector 2 ((1 : ℕ+) : ℕ) (GaloisField 2 ((1 : ℕ+) : ℕ)))ˣ →₀ ℤ) : (kubertCartanLocalNorm 2 1 ℤ 1 2 (by decide) f).support=Finset.univ.filter (fun y => kubertCartanUnitReduction 2 1 1 2 (by decide) y ∈ f.support) := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanTests

@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twenty-five L3 nodes construct the full finite general-linear action on actual torus torsion and primitive points, its native coefficient representation, and the integral representation factorization under actual matrix reduction. All 1,632 predecessor nodes and 1,092 baseline records remain whole.",
+  "summary": "Twelve L3 nodes construct actual unit reduction and the full-lift linear norm in the existing FF.4 Galois-ring model. Surjectivity, injectivity, identity, composition, full basis-lift sums and exact supports are explicit. All 1,657 predecessor nodes and 1,096 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7686,6 +7686,83 @@
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "The native group homomorphism on general-linear matrix groups induced by a coefficient ring homomorphism, via existing matrix ring map and unit-group map.",
         "checked": "Full declaration, surrounding hypotheses and complete body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026; exact ranges retained in the reading note. The complete native probe directly uses the existing modular-module, scalar-cast and matrix-reduction APIs on the actual point carriers."
+      },
+      {
+        "ref": "mathlib:GaloisField",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+        "provides": "The existing splitting-field model of the finite field, with native field and finiteness instances. The FF.4 owner uses this exact carrier.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:WittVector.one_coeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Defs.lean",
+        "provides": "The zeroth coefficient of the native full-Witt identity equals one.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:WittVector.mul_coeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Defs.lean",
+        "provides": "The zeroth coefficient of native full-Witt multiplication is the product of the original zeroth coefficients.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:WittVector.isUnit_of_coeff_zero_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
+        "provides": "For prime p and a field of characteristic p, a native Witt vector with nonzero zeroth coefficient is a unit; used to lift an actual lower Cartan unit.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "The existing finite-length Witt-vector carrier and native ring operations used by the FF.4 Galois-ring model.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.truncateFun_out",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Truncating the canonical full-Witt lift of an actual truncated vector to its original length recovers that vector.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:WittVector.truncate",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "The existing ring homomorphism from full Witt vectors to a fixed truncation length.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.truncate",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "The existing ring homomorphism between truncation lengths with the stated inequality.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.truncate_wittVector_truncate",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Truncating a full Witt vector to a higher length and then a lower length equals direct truncation.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.truncate_truncate",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Actual truncated-Witt ring reductions compose for ordered lengths.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.coeff_truncate",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Each retained coefficient of an actual truncated-Witt reduction is the corresponding original coefficient.",
+        "checked": "Complete declaration and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The full native consumer proof uses the existing actual units, coefficient, lift and truncation APIs. Exact ranges and owner boundary retained in the reading note."
       }
     ]
   },
@@ -108564,6 +108641,719 @@
       "acceptance": [
         "Construct the full finite matrix action on actual torsion coordinates and preserve exact point values and orders. Use native modular-module, matrix and coefficient APIs. Prove actual comparison under integer reduction before asserting representation factorization. Include the unit level and do not assume reduction of integral invertible matrices is surjective. Keep Cartan and rank conclusions open."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduction between actual local Cartan unit groups",
+      "kind": "construction",
+      "statement": "For positive M≤N, construct the native group homomorphism from the units of GR(p^N,k) to those of GR(p^M,k), induced by the owner ring reduction.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Use precisely the native truncated-Witt model of the FF.4 Galois ring.",
+        "Take its existing truncation ring homomorphism from length N to M.",
+        "Apply the existing native map on units; values and inverses both truncate."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
+        "mathlib:TruncatedWittVector",
+        "mathlib:GaloisField",
+        "mathlib:TruncatedWittVector.truncate",
+        "mathlib:Units.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanUnitReduction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.actual_unit_truncation",
+          "kind": "compatibility",
+          "statement": "Degree-one reduction from exponent two to one truncates the actual Witt-vector value."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.reduction_preserves_identity",
+          "kind": "degenerate",
+          "statement": "Unit reduction preserves the actual multiplicative identity."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.reduction_preserves_product",
+          "kind": "compatibility",
+          "statement": "The actual reduction is a homomorphism of unit groups."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.two_distinct_identity_lifts",
+          "kind": "non-example",
+          "statement": "At p=2 and degree one the identity unit has distinct lifts at exponent two; reduction need not be injective."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartan_cartanUnitReduction_coe",
+          "role": "compatibility",
+          "statement": "The underlying ring value of the reduced unit equals the native truncation of the original unit value."
+        },
+        {
+          "name": "kubertCartan_cartanUnitReduction_self",
+          "role": "compatibility",
+          "statement": "Reduction from exponent N to itself is the identity native unit-group homomorphism."
+        },
+        {
+          "name": "kubertCartan_cartanUnitReduction_comp",
+          "role": "compatibility",
+          "statement": "For positive L≤M≤N, reducing actual units from N to M and then L equals the direct reduction from N to L."
+        },
+        {
+          "name": "kubertCartan_cartanUnitReduction_surjective",
+          "role": "characterisation",
+          "statement": "For positive M≤N and positive degree k, every actual unit of GR(p^M,k) is the reduction of an actual unit of GR(p^N,k)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert186 local Cartan levels",
+          "how": "Supplies the actual unit reduction in the existing owner finite-ring model."
+        },
+        {
+          "where": "Kubert187 equation(2.7)",
+          "how": "The full reduction fibers index the linear unit-lift norm."
+        },
+        {
+          "where": "Coefficient recovery",
+          "how": "Surjectivity supplies an actual lift for each lower coefficient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Unit reduction retains the actual truncated value",
+      "kind": "lemma",
+      "statement": "The underlying ring value of the reduced unit equals the native truncation of the original unit value.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Evaluate the native map on units.",
+        "Its value field is the original truncation ring homomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanUnitReduction_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.truncation_keeps_zero_coordinate",
+          "kind": "compatibility",
+          "statement": "Unit reduction retains the actual zeroth Witt coordinate."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-self",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Same-exponent unit reduction is identity",
+      "kind": "lemma",
+      "statement": "Reduction from exponent N to itself is the identity native unit-group homomorphism.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare homomorphisms on each actual unit and then compare underlying truncated-Witt values.",
+        "Native coefficient truncation at equal lengths leaves each coefficient unchanged."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-coe",
+        "mathlib:TruncatedWittVector.coeff_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanUnitReduction_self"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.identity_reduction",
+          "kind": "degenerate",
+          "statement": "Same-exponent reduction is the identity homomorphism."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-comp",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual unit reductions compose",
+      "kind": "lemma",
+      "statement": "For positive L≤M≤N, reducing actual units from N to M and then L equals the direct reduction from N to L.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare native homomorphisms and their underlying unit values.",
+        "Apply the existing native composition theorem for truncated-Witt ring reductions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+        "mathlib:TruncatedWittVector.truncate_truncate"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanUnitReduction_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.actual_reduction_chain",
+          "kind": "compatibility",
+          "statement": "Reducing exponents three to two to one is the direct actual reduction."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every actual lower Cartan unit lifts",
+      "kind": "lemma",
+      "statement": "For positive M≤N and positive degree k, every actual unit of GR(p^M,k) is the reduction of an actual unit of GR(p^N,k).",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Use the FF.4 local-unit interface; the following explicit native lift validates this consumer without publishing another generic unit-criterion node.",
+        "For the actual lower unit, evaluate its value-times-inverse equality at coordinate zero. Native Witt multiplication and identity coefficients show that the zeroth coordinate of its canonical full-Witt lift is nonzero.",
+        "Apply the existing native full-Witt unit theorem to obtain an actual unit with this lifted value.",
+        "Truncate that actual full-Witt unit to length N through the existing native unit map.",
+        "Truncating again to M gives the original lower unit by native truncation composition and the canonical lift round trip."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring-is-local",
+        "mathlib:WittVector.mul_coeff_zero",
+        "mathlib:WittVector.one_coeff_zero",
+        "mathlib:WittVector.isUnit_of_coeff_zero_ne_zero",
+        "mathlib:WittVector.truncate",
+        "mathlib:TruncatedWittVector.truncate_wittVector_truncate",
+        "mathlib:TruncatedWittVector.truncateFun_out"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanUnitReduction_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.every_actual_unit_lifts",
+          "kind": "characterisation",
+          "statement": "Every lower unit has an actual unit lift, with no assumed surjectivity certificate."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local Cartan full-lift linear norm",
+      "kind": "construction",
+      "statement": "For positive M≤N, define the native R-linear map on finitely supported unit coefficients from exponent M to exponent N by assigning to every upper unit y the coefficient of its actual reduction. Here R is any semiring.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "The owner ring is finite through the existing finite Galois field and finite truncated-Witt carrier, so its actual unit groups are finite.",
+        "Use the native linear equivalence between finitely supported coefficients and functions on these finite groups.",
+        "The native product of coordinate projections pulls coefficients back along the constructed actual unit reduction.",
+        "Conjugate by the native finite-function linear equivalences to produce the stated native linear map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction",
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
+        "mathlib:Finsupp.linearEquivFunOnFinite",
+        "mathlib:LinearMap.pi",
+        "mathlib:LinearMap.proj"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLocalNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.coefficient_is_actual_pullback",
+          "kind": "characterisation",
+          "statement": "The linear norm copies the lower coefficient to every actual unit lift."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.zero_coefficients",
+          "kind": "degenerate",
+          "statement": "The local linear norm sends zero coefficients to zero."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.characteristic_two_without_averaging",
+          "kind": "compatibility",
+          "statement": "In characteristic two each lift of the identity still has coefficient one; no division by the even fiber cardinal is used."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.linear_norm_not_unital",
+          "kind": "non-example",
+          "statement": "At degree one and exponents one to two over the integers, the identity basis vector maps to both unit lifts; it is not the upper identity basis vector."
+        },
+        {
+          "name": "SuggestedKubertCartanTests.coefficient_additivity",
+          "kind": "compatibility",
+          "statement": "The full-lift norm preserves addition of native coefficient vectors."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ],
+      "api": [
+        {
+          "name": "kubertCartan_cartanLocalNorm_apply",
+          "role": "characterisation",
+          "statement": "For every lower coefficient vector f and upper unit y, the coefficient of the local norm at y is f evaluated at the actual reduction of y."
+        },
+        {
+          "name": "kubertCartan_cartanLocalNorm_injective",
+          "role": "compatibility",
+          "statement": "The full-lift linear norm is injective over every semiring, including those whose characteristic divides the number of lifts."
+        },
+        {
+          "name": "kubertCartan_cartanLocalNorm_self",
+          "role": "compatibility",
+          "statement": "The local linear norm from exponent N to itself is the native identity linear map."
+        },
+        {
+          "name": "kubertCartan_cartanLocalNorm_comp",
+          "role": "compatibility",
+          "statement": "For positive L≤M≤N, the norm from L to M followed by the norm from M to N equals the norm from L to N."
+        },
+        {
+          "name": "kubertCartan_cartanLocalNorm_single",
+          "role": "characterisation",
+          "statement": "The local norm sends a basis vector with coefficient a at lower unit x to the sum of basis vectors with coefficient a at every actual upper unit reducing to x."
+        },
+        {
+          "name": "kubertCartan_cartanLocalNorm_support",
+          "role": "characterisation",
+          "statement": "The support of the local norm of f is exactly the finite set of upper units whose actual reductions belong to the support of f."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187 equation(2.7)",
+          "how": "Gives the full unit-lift sum as a linear transition in the owned local finite model."
+        },
+        {
+          "where": "Compatible direct system",
+          "how": "Identity and ordered composition provide the transition laws."
+        },
+        {
+          "where": "Future primitive-transfer comparison",
+          "how": "The actual coefficient and basis formulas give concrete comparison targets; the primitive torsor is still required."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Each unit lift receives the original coefficient",
+      "kind": "lemma",
+      "statement": "For every lower coefficient vector f and upper unit y, the coefficient of the local norm at y is f evaluated at the actual reduction of y.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Evaluate the native finite-function linear equivalences and coordinate projection.",
+        "The resulting coefficient is exactly the original value at the reduction of y."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.exact_coefficient_formula",
+          "kind": "characterisation",
+          "statement": "Each upper coefficient is exactly its lower reduction coefficient."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local Cartan linear norm is injective",
+      "kind": "lemma",
+      "statement": "The full-lift linear norm is injective over every semiring, including those whose characteristic divides the number of lifts.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare two lower coefficient vectors pointwise.",
+        "For every actual lower unit, choose an actual upper unit using the proved surjectivity of unit reduction.",
+        "Equality of the upper coefficient vectors at this lift gives equality of the original lower coefficients. No sum cancellation or division is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.coefficient_recovery",
+          "kind": "characterisation",
+          "statement": "Equality of upper coefficient vectors recovers equality below, even in characteristic two."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-self",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Same-exponent local norm is identity",
+      "kind": "lemma",
+      "statement": "The local linear norm from exponent N to itself is the native identity linear map.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare native linear maps on each coefficient vector and each actual unit.",
+        "Use the coefficient formula and the proved identity unit reduction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-self"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_self"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.identity_linear_norm",
+          "kind": "degenerate",
+          "statement": "The same-exponent norm is the identity native linear map."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-comp",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Local Cartan linear norms compose",
+      "kind": "lemma",
+      "statement": "For positive L≤M≤N, the norm from L to M followed by the norm from M to N equals the norm from L to N.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare native linear maps on arbitrary coefficient vectors and actual upper units.",
+        "Twice evaluating the coefficient formula gives successive actual unit reductions.",
+        "Apply the proved composition of unit reductions to obtain the direct lower coefficient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-comp"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.linear_norm_chain",
+          "kind": "compatibility",
+          "statement": "The full-lift norm through exponent two equals the direct norm from exponent one to three."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-single",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The norm sums all actual unit lifts",
+      "kind": "lemma",
+      "statement": "The local norm sends a basis vector with coefficient a at lower unit x to the sum of basis vectors with coefficient a at every actual upper unit reducing to x.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Compare the two coefficient vectors at an arbitrary actual upper unit.",
+        "The native finitely supported sum evaluation leaves coefficient a precisely when the actual reduction equals x, and zero otherwise.",
+        "This is exactly the proved coefficient formula for the norm of the lower single vector."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+        "mathlib:Finsupp.finsetSum_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_single"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.all_actual_unit_lifts",
+          "kind": "characterisation",
+          "statement": "A basis vector expands to exactly the sum over its full actual unit-reduction fiber."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-support",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The norm has the exact full-lift support",
+      "kind": "lemma",
+      "statement": "The support of the local norm of f is exactly the finite set of upper units whose actual reductions belong to the support of f.",
+      "hypotheses": [
+        "The prime p has its native primality certificate. The degree k and exponents L, M, N are positive integers, with exponent inequalities where needed; the source levels are p^L, p^M, p^N, not L, M, N themselves.",
+        "Use exactly the existing owner model GR(p^n,k)=TruncatedWittVector p n (GaloisField p k) and its actual native unit group. FiniteFieldsAndCharacterSums:FF.4 owns this ring, generic unit criterion, locality and unramified presentation. No replacement ring, unit group or assumed surjectivity package is introduced.",
+        "Coefficients form native finitely supported functions on the actual unit groups over any semiring R. The local norm is an R-linear map defined by coefficient pullback, without division by fiber size.",
+        "The owner packet is partial and unchecked. The identification with the unramified local-field quotient in Kubert186, global CRT products, actual primitive torsor and comparison with the primitive transfer are still open; this checkpoint proves the local transition in the exact owned finite model."
+      ],
+      "proofSteps": [
+        "Use native support membership as nonvanishing of the coefficient.",
+        "Apply the exact norm coefficient formula.",
+        "Finite-set membership is then precisely the full preimage of the lower support."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-cartan-local-norm-apply",
+        "mathlib:Finsupp.mem_support_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanTransitions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartan_cartanLocalNorm_support"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, finite Cartan ring and unit-group construction; 187, equation (2.7), the linear unit-lift transition. The local-field and primitive-point identifications remain separate.",
+          "excerpt": "Maps (2.6) and (2.7) are identical",
+          "match": "Constructs the local unit-reduction and full-lift linear transition in the exact Galois-ring model owned by FF.4. The comparison asserted by the quoted sentence is a remaining bridge, not assumed in these nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanTests.exact_support_preimage",
+          "kind": "characterisation",
+          "statement": "The upper support is precisely the full preimage of the lower support."
+        }
+      ],
+      "acceptance": [
+        "Retain actual native unit values and all unit lifts. Verify positive exponent conventions, identity and composition, coefficient recovery and the complete basis-lift sum. Include the characteristic-two test and the degree-one p=2 two-lift counterexample to unitality. Import generic Galois-ring mathematics from FF.4 and keep the source local-field and primitive-torsor comparisons open."
+      ]
     }
   ],
   "requests": [
@@ -108710,7 +109500,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual primitive coefficient action now factors through the constructed representation of the full finite general-linear group over ZMod N. Actual circle-torsion coordinates, modular scalar compatibility, finite matrix action, primitive restriction and integer-reduction comparison are explicit. Next construct and compare the actual Cartan finite rings, unit groups, primitive torsors and linear norm maps of Kubert186–189, checking existing native and owner interfaces first. The finite GL action gives an actual comparison target; it does not supply an unramified Cartan ring or a simply transitive Cartan subgroup by assumption. Complete the independent lower rank bound through the Cartan or rational model of 186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "Local Cartan unit reduction and the injective full-lift linear norm are now explicit in the exact Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Import the owner finite-ring/locality/presentation interfaces rather than replan them. Next construct the actual global product transitions and establish their primitive-point comparison using genuine coordinates and the owner unramified model. The identification with integers of the unramified Qp extension, actual simply transitive Cartan action and equality of local/global norms with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -108742,7 +109532,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual primitive coefficient action now factors through the constructed representation of the full finite general-linear group over ZMod N. Actual circle-torsion coordinates, modular scalar compatibility, finite matrix action, primitive restriction and integer-reduction comparison are explicit. Next construct and compare the actual Cartan finite rings, unit groups, primitive torsors and linear norm maps of Kubert186–189, checking existing native and owner interfaces first. The finite GL action gives an actual comparison target; it does not supply an unramified Cartan ring or a simply transitive Cartan subgroup by assumption. Complete the independent lower rank bound through the Cartan or rational model of 186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Local Cartan unit reduction and the injective full-lift linear norm are now explicit in the exact Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Import the owner finite-ring/locality/presentation interfaces rather than replan them. Next construct the actual global product transitions and establish their primitive-point comparison using genuine coordinates and the owner unramified model. The identification with integers of the unramified Qp extension, actual simply transitive Cartan action and equality of local/global norms with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -109293,36 +110083,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The full finite GL action and actual representation factorization are constructed. Cartan ring/torsor/norm comparison, the independent distribution lower bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. FF.4 ownership is explicit. The local-field, global-product and primitive-torsor comparison, independent lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1657,
+      "nodes": 1669,
       "kinds": {
         "definition": 22,
-        "lemma": 915,
-        "construction": 154,
+        "lemma": 925,
+        "construction": 156,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1138,
-      "packetTests": 3047,
-      "definitionConstructionTests": 698,
-      "typedExamples": 3050,
+      "api": 1148,
+      "packetTests": 3066,
+      "definitionConstructionTests": 707,
+      "typedExamples": 3069,
       "planets": 24,
-      "baseline": 1096,
-      "preservedWholeNodes": 1632,
-      "preservedBaseline": 1092,
+      "baseline": 1107,
+      "preservedWholeNodes": 1657,
+      "preservedBaseline": 1096,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 25,
-      "newNamedDeclarations": 25,
-      "newTypedTests": 39,
+      "newNodes": 12,
+      "newNamedDeclarations": 12,
+      "newTypedTests": 19,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1917,
-      "dependencyEdges": 8215,
+      "reachableNodes": 1931,
+      "dependencyEdges": 8267,
       "acyclic": true,
-      "baselineLeaves": 1258,
+      "baselineLeaves": 1280,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -109337,7 +110127,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 846494,
+      "readerWords": 852046,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -109357,38 +110147,38 @@
       "currentSupplierNodes": 369,
       "supplierArtifactAvailable": true,
       "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3610,
+      "pinnedMathlibSourceModules": 3630,
       "requiredPinnedTauSourceModules": 29,
       "availablePinnedTauArtifacts": 28,
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 96,
-      "scratchCompleteLemmas": 1036,
-      "scratchMathlibModules": 2986,
+      "scratchCompleteDefinitions": 98,
+      "scratchCompleteLemmas": 1046,
+      "scratchMathlibModules": 3006,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 21,
-        "finiteMatrices": 3150,
-        "primitivePointActions": 118182,
-        "pointInverses": 118182,
-        "matrixProducts": 12508,
-        "coefficientChecks": 118182,
-        "integerComparisonChecks": 604,
-        "unitLevelMatrices": 3
+        "ringModels": 18,
+        "unitElements": 1672,
+        "inverseChecks": 1672,
+        "transitionPairs": 38,
+        "unitLiftChecks": 4420,
+        "nonemptyFibers": 1890,
+        "coefficientChecks": 4420,
+        "compositionChains": 68
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7",
-        "modules": 3606,
-        "warnings": 5054,
+        "sourceSha256": "3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25",
+        "modules": 3626,
+        "warnings": 5085,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -109398,7 +110188,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "2880916d970ccfee6ef2d39d91139c7e83565bcfd9c71978610e9bbc89c3bb8a",
+      "sha256": "58a12699c7455ec91b8b44e1acb43f9356ae72f83d2a2a741a390cce0a231789",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -109413,11 +110203,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1036,
+        "completeLemmas": 1046,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "fe6e211ed1dc0320db80cb7990f765da82b44c826d34fad6d3f58b58e0c7dcf8"
+        "sha256": "4686ead5cad9e18b2862a9e88d2ef803a5b43e55fed604aceac83fe25b7c8394"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -109432,7 +110222,7 @@
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
         "nativeTauModules": 29,
-        "nativeMathlibModules": 3610,
+        "nativeMathlibModules": 3630,
         "artifactSha256": {
           "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
           "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
@@ -109555,18 +110345,18 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7",
-        "modules": 3606,
-        "warnings": 5054,
+        "sourceSha256": "3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25",
+        "modules": 3626,
+        "warnings": 5085,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "a690f5030137ee4f324732e98412c481bfceea25",
-      "unchangedInputs": 76,
+      "base": "c6252ecb5c9b237f40e30c6eee9d59d27e0eda33",
+      "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
@@ -120728,6 +121518,55 @@
         "warnings": 5054,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,054 expected placeholder warnings across 3,606 pinned source modules. It includes all 25 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aaab2b2352006fb82fbd23e68ac809ce181aa6bbf538174e36af41b8e5e6abb7.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanUnitTransitions": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5462,
+      "previousHead": "cb8bd869b0c0411d80230320983c420ba1251db6",
+      "previousMerge": "511d66e7e3d4032b41deb71cb5ce5f3a1ff4f7d3",
+      "preservedWholeNodes": 1657,
+      "preservedBaseline": 1096,
+      "preservedFindings": 26,
+      "newNodes": 12,
+      "reading": "Kubert186–187 finite Cartan rings and equation(2.7) were reread. FF.4 owns the Galois-ring model, generic local-unit criterion and unramified presentation; its complete node objects and suggested interface were read and imported, without independently reviewing its Goresky–Klapper source. Native truncated-Witt constructions, full-Witt unit lifting, zeroth-coordinate multiplication and identity, Galois-field instances and native unit maps were read in full at the pins. The actual consumer proof introduces no replacement ring and no generic unit-criterion node.",
+      "boundary": "Local Cartan unit reduction and the injective full-lift linear norm are now explicit in the exact Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Import the owner finite-ring/locality/presentation interfaces rather than replan them. Next construct the actual global product transitions and establish their primitive-point comparison using genuine coordinates and the owner unramified model. The identification with integers of the unramified Qp extension, actual simply transitive Cartan action and equality of local/global norms with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "511d66e7e3d4032b41deb71cb5ce5f3a1ff4f7d3",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. FF.4 ownership is explicit. The local-field, global-product and primitive-torsor comparison, independent lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "c6252ecb5c9b237f40e30c6eee9d59d27e0eda33",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "ringModels": 18,
+        "unitElements": 1672,
+        "inverseChecks": 1672,
+        "transitionPairs": 38,
+        "unitLiftChecks": 4420,
+        "nonemptyFibers": 1890,
+        "coefficientChecks": 4420,
+        "compositionChains": 68
+      },
+      "numericalMethod": "Exact independent polynomial-presentation controls for degree-one rings ZMod(p^n) and degree-two unramified presentations with mod-p irreducible polynomials X^2+X+1 at2, X^2+1 at3 and X^2+2 at5. Checks all units, explicit inverses, reduction fibers, full coefficient pullback, coefficient recovery modulo2 and3 and transition composition. The owner plans the identification of these presentations with its native truncated-Witt Galois-ring model; these controls are not certified evaluation of native Witt operations or proof of that bridge. The degree-one2→4 identity basis has two lifts and its convolution square is zero modulo2, excluding a unital ring-map interpretation.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25",
+        "modules": 3626,
+        "warnings": 5085,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,085 expected placeholder warnings across 3,626 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3b8fe8b7f4a2d4c9c6005af900ea03448575a6df34b0eb7427b3815db3794a25.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
