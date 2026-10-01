@@ -33784,8 +33784,9 @@
     "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4056"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4056",
+   "finishedAt": "2026-10-01T07:02:13Z"
   },
   {
    "id": "REV-RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -45013,7 +45014,8 @@
     "REV-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-12~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5110"
   },
   {
    "id": "REV-RT-RS-12~3",
