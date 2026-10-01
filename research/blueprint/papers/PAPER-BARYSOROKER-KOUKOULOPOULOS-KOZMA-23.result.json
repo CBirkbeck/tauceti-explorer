@@ -37,6 +37,17 @@
         "inputCommit": "0fb51ac (tauceti-explorer main, 23 September 2026)",
         "readExtent": "The arXiv v3 TeX source (irreducible.tex, 233,664 bytes; e-print SHA-256 2151453bef4bb6c092245f480846dae2e9e9026cf7d5c35a11e44ee2bee17d69) was read in full, with the v3 PDF. Statement and equation numbers were simulated from the TeX counters and matched to the PDF. The author PDF of 24 May 2023 was compared with v3 word by word: identical apart from the date and the arXiv stamp. Recomputed: α(210) for every N from 35 to 33729 (maximum 0.99211, at N = 35), the optimal exponents behind Table 1 and the ±1 case of Theorem 3.5 at 60 digits, and the E17 counterexample. The cited suppliers (Mignotte, Dobrowolski, Kolmogorov–Rogozin, Smati, Rosen, Koukoulopoulos's book, Bary-Soroker–Kozma, Łuczak–Pyber) were not re-read; they enter as items stated as the paper uses them."
       }
+    ],
+    "fixes": [
+      {
+        "job": "FIX-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-10-01",
+        "finding": "RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/1",
+        "read": "Reacquired arXiv v3; SHA-256 matches adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1. Read pp. 18 (including rendered page), 60 and 64. Hardy–Wright itself was not read.",
+        "change": "Strengthened /129, retained its subpower corollary and existing dependencies/route; added the actual cited prerequisite and synchronized S4, source gates, route 6 and reader."
+      }
     ]
   },
   "summary": "Bary-Soroker, Koukoulopoulos and Kozma prove that a random monic integer polynomial of degree n, with independent coefficients drawn from a fixed finitely supported law μ and non-zero constant term, has no divisor of positive degree ≤ θ(μ)n with probability 1 − O(n^{−c}) (Theorem 2), and is irreducible with Galois group A_n or S_n with that probability under Fourier conditions modulo four primes: for N ≥ 35 consecutive coefficients (Theorem 1(a)), laws with small ℓ²-norm (Theorem 3, Corollary 1(b)), odd powers (Theorem 4) and random sets (Theorem 5); for 2 to 34 consecutive values and arithmetic progressions it is irreducible with positive probability (Theorem 1(b), Theorem 3.5). The engine is joint equidistribution of the reductions modulo four primes in 𝔽_p[T] beyond the square-root barrier (Proposition 2.3), the anatomy of polynomials over 𝔽_p with a Brun sieve (Proposition 2.2), Konyagin's small-factor argument (Proposition 2.1) and a Łuczak–Pyber theorem for random partitions with a ramified Frobenius (Propositions 2.4 and 12.1). The atlas plans prime counting, sieves, finite-field character sums and Mahler measure, and Tau Ceti has polynomial Galois groups with Frobenius elements; none has random polynomials of growing degree. 133 items (15 library, 3 planned, 115 missing) are routed to Part IIs of ArithmeticStatistics (random polynomials) and of Tau Ceti's PolynomialGaloisGroups (ramified merging and random partitions) and to five source routes. Twenty-five mistakes are recorded. Among them are a lost negation in Theorem 7, a missing four-prime hypothesis in Theorem 8, an unproved exponent in Theorem 2 and false Hölder comparisons in Remark 2.2. The gaps in Lemmas 3.7 and 12.9 and in the height range of Theorem 4 are repaired.",
@@ -1686,7 +1697,7 @@
       "note": "Not a claim of formalization. See sourceIssues and the report.",
       "cluster": "random",
       "sourceGates": [
-        "S4: original divisor-bound source and constant range require full acquisition."
+        "S4: /129 records the maximal-order supplier used here; original supplier proof development remains deferred."
       ]
     },
     {
@@ -3705,7 +3716,7 @@
       "note": "Not a claim of formalization. See sourceIssues and the report.",
       "cluster": "galois",
       "sourceGates": [
-        "S4"
+        "S4: uses the subpower corollary retained in /129; original supplier proof development remains deferred."
       ]
     },
     {
@@ -4245,21 +4256,23 @@
     {
       "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/129",
       "kind": "theorem",
-      "name": "Subpower divisor bound",
-      "statement": "For every η>0 there is C_η such that the number τ(k) of positive divisors of each integer k≥1 is≤C_η k^η.",
-      "locator": "arXiv v3, Lemma 3.1 pp. 17–18 and Lemma 12.3 p. 60",
+      "name": "Maximal-order divisor bound and subpower corollary",
+      "statement": "Let τ(k) be the number of positive divisors of the positive integer k. For every ε>0 there is K_ε>e such that, for every integer k≥K_ε, τ(k)≤exp((log 2+ε)log k/loglog k). Consequently, for every η>0 there is C_η>0 such that τ(k)≤C_η k^η for every integer k≥1. All logarithms are natural.",
+      "locator": "arXiv v3, proof of Lemma 3.1, p. 18, citing [18, §18.1, Theorem 317] (Hardy–Wright, sixth edition); subpower use in the proof of Lemma 12.3, p. 60",
       "status": "missing",
       "library": [],
       "planned": [],
       "prerequisites": [],
       "proofSteps": [
-        "Acquire a complete elementary prime-factorization proof, including the dependence of C_η.",
-        "Do not substitute a fixed polynomial divisor bound in the probability union estimate."
+        "Blueprint obligation: acquire and decompose Hardy–Wright §18.1, Theorem 317, preserving the leading log 2 constant and the ε-dependent threshold; the book proof has not been read in this extraction or fix.",
+        "Deduce the subpower corollary by taking loglog k sufficiently large for each fixed η>0, then absorb the finitely many smaller positive k in C_η.",
+        "For /48 use the maximal-order bound uniformly on 1≤|a|≤N^(loglog(100N)): split off bounded |a|, and take ε with log 2+ε<0.695 before taking N sufficiently large. A fixed-η subpower estimate alone does not give this uniform support bound.",
+        "For /110 use the retained subpower corollary with η=δ/4; its constant may depend on δ."
       ],
-      "note": "Not a claim of formalization. See sourceIssues and the report.",
+      "note": "Supplier statement extracted from the citing paper; proof development remains deferred to AnalyticNumberTheory:AN.5. No formalization or access to the Hardy–Wright book is claimed.",
       "cluster": "analytic",
       "sourceGates": [
-        "S4"
+        "S4: maximal-order and subpower supplier extraction complete; Hardy–Wright proof acquisition/decomposition deferred to AN.5."
       ]
     },
     {
@@ -4537,7 +4550,7 @@
         "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/128",
         "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/129"
       ],
-      "reason": "AN.2 owns prime counts and counts of fixed-size products of medium primes; AN.5 supplies inverse-totient/divisor/Mertens estimates. Already-built Dirichlet infinitude is imported, not replanned and not confused with PNT. The items state these suppliers as the paper uses them; their proofs belong to the layers' blueprints."
+      "reason": "AN.2 owns prime counts and counts of fixed-size products of medium primes; AN.5 supplies inverse-totient/Mertens estimates and /129’s maximal-order divisor bound with leading log 2 constant and its subpower corollary. /48 needs the maximal-order bound uniformly on its growing coefficient support; /110 needs only the subpower corollary. /129 remains routed exactly once here to AN.5. Already-built Dirichlet infinitude is imported, not replanned and not confused with PNT. Supplier extraction is complete; original supplier proof acquisition and development belong to the layers’ blueprints."
     },
     {
       "route": "source",
@@ -4581,7 +4594,7 @@
     {
       "citation": "D. Koukoulopoulos, The distribution of prime numbers, GSM203(2019), Theorems 1.11,3.4 and 7.11 as cited by BKK.",
       "link": "https://arxiv.org/pdf/2007.14567v3",
-      "why": "S4,S6: source locator is BKK's reference 22; acquire complete divisor, prime-counting, Mertens and large-sieve proofs with uniformity. These directions have owners AN/SV but the exact supplier proofs are not closed by this extraction."
+      "why": "S6: source locator is BKK’s reference 22; acquire complete prime-counting, Mertens and large-sieve proofs with uniformity. These directions have owners AN/SV but the exact supplier proofs are not closed by this extraction. The maximal-order divisor supplier for S4 is instead identified by BKK as Hardy–Wright, reference 18."
     },
     {
       "citation": "L. Bary-Soroker and G. Kozma, Irreducible polynomials of bounded height, Duke Math.J.169(2020),579–598.",
@@ -4602,6 +4615,11 @@
       "citation": "A. Granville, Bounding the coefficients of a divisor of a given polynomial, Monatsh. Math. 109 (1990), 271–277",
       "link": "https://doi.org/10.1007/BF01320692",
       "why": "Coefficient bound (7.1) for a divisor of A in terms of its root bound (§7, p. 36; /60)."
+    },
+    {
+      "citation": "G. H. Hardy and E. M. Wright, An introduction to the theory of numbers, sixth edition, Oxford University Press (2008), §18.1, Theorem 317.",
+      "link": "https://arxiv.org/pdf/2007.14567v3",
+      "why": "S4: the maximal-order divisor upper bound /129 used by Lemma 3.1 (/48), with its subpower corollary used by Lemma 12.3 (/110). BKK p. 18 cites [18, §18.1, Theorem 317], and reference [18] on p. 64 identifies the sixth edition. The link is the citing paper read on 2026-10-01, not access to the book; the Hardy–Wright proof was not read and is deferred to AN.5 blueprint development."
     }
   ],
   "sourceIssues": [
@@ -5338,9 +5356,9 @@
     },
     {
       "id": "S4",
-      "task": "Acquire and decompose the subpower divisor bound 129 and all parameter choices in Lemma 3.1; no source-proof closure claimed.",
+      "task": "Acquire and decompose the original maximal-order divisor proof in /129 and develop the parameter choices used by Lemma 3.1; supplier extraction is complete, source-proof development is deferred.",
       "status": "deferred",
-      "resolution": "A cited supplier or a sketch of the paper: it is an item stated as the paper uses it, with the source listed under prerequisites. Re-deriving it belongs to the design and blueprint jobs of its route."
+      "resolution": "Extraction complete: /129 states the quantified maximal-order bound with leading constant log 2 and retains its fixed-η subpower corollary; /48 and /110 depend on it. Hardy–Wright, sixth edition, §18.1 Theorem 317 is a prerequisite located honestly through BKK p. 18 and reference 18 on p. 64. Route 6 assigns /129 once to AnalyticNumberTheory:AN.5. The Hardy–Wright book proof has not been read; acquisition and proof decomposition belong to AN.5’s design/blueprint work, not an extraction-completeness gate."
     },
     {
       "id": "S5",

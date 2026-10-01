@@ -65,7 +65,7 @@ The engine has four parts:
 - The checkpoint's completion gates are closed or deferred, and the result records each resolution:
   - closed: S2, S3, S11, S12, S14 and S15;
   - unavailable: S1, the paywalled published version;
-  - deferred: S4–S10 and S13. These asked for the proofs of cited suppliers (Mignotte, Dobrowolski, Kolmogorov–Rogozin, Smati, Rosen, Koukoulopoulos's book) and for Remark 3.2's sketch to be re-derived. An extraction states such theorems as items and lists their sources as prerequisites; re-deriving them is the work of the routes' design and blueprint jobs.
+  - deferred: S4–S10 and S13. These asked for the proofs of cited suppliers (Hardy–Wright, Mignotte, Dobrowolski, Kolmogorov–Rogozin, Smati, Rosen, Koukoulopoulos's book) and for Remark 3.2's sketch to be re-derived. An extraction states such theorems as items and lists their sources as prerequisites; re-deriving them is the work of the routes' design and blueprint jobs.
 
 ## Sources and provenance
 
@@ -156,7 +156,7 @@ Type: source, layers ClassicalArithmeticCompletion:CA.3, ClassicalArithmeticComp
 
 ### 6. AnalyticNumberTheory
 
-Type: source, layers AnalyticNumberTheory:AN.2, AnalyticNumberTheory:AN.5. 5 items. AN.2 owns prime counts and counts of fixed-size products of medium primes; AN.5 supplies inverse-totient/divisor/Mertens estimates. Already-built Dirichlet infinitude is imported, not replanned and not confused with PNT. The items state these suppliers as the paper uses them; their proofs belong to the layers' blueprints.
+Type: source, layers AnalyticNumberTheory:AN.2, AnalyticNumberTheory:AN.5. 5 items. AN.2 owns prime counts and counts of fixed-size products of medium primes; AN.5 supplies inverse-totient/Mertens estimates and /129’s maximal-order divisor bound with leading `log 2` constant and its subpower corollary. Item /129 is routed once here to AN.5. Lemma 3.1 (/48) needs the maximal-order bound uniformly on its growing support; Lemma 12.3 (/110) uses the subpower corollary. Already-built Dirichlet infinitude is imported, not replanned and not confused with PNT. Supplier extraction is complete; original supplier proof acquisition and development belong to the layers’ blueprints.
 
 ### 7. ProbabilisticAndMetricNumberTheory
 
@@ -436,6 +436,7 @@ No Lean deliverable is part of a paper job.
 - Check the reach of E4: Theorem 2 as stated promises θ = c′ε/(log H)⁵.
 - The cited suppliers were not re-read. Their statements enter as items (/48–/51, /55–/58, /62, /65, /69–/70, /73, /115, /128–/130) and their sources as prerequisites:
   - Mignotte 1988; Dobrowolski 1979; Kolmogorov 1958 and Rogozin 1961; Smati 1992;
+  - Hardy–Wright’s *An introduction to the theory of numbers*, sixth edition, §18.1 Theorem 317 (located through BKK p. 18 and reference [18] on p. 64; the book was not read);
   - Rosen's *Number theory in function fields*; Koukoulopoulos's *The distribution of prime numbers*;
   - Bary-Soroker–Kozma 2020; Łuczak–Pyber 1993; Granville 1990.
 - The published pagination was not seen; the locators follow arXiv v3.
@@ -472,3 +473,11 @@ routes accepted; no item, status, route or locator changed.
   `verification.structural` (112 → 115, after items /131–/133 were added).
 
 Full report: `research/blueprint/reviews/REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md`.
+
+## Confirmed divisor-supplier fix (2026-10-01)
+
+Codex, session codex-J6LwjP, addressed finding RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/1 under [issue #5504](https://github.com/CBirkbeck/tauceti-explorer/issues/5504). Item /129 now states the supplier actually used by Lemma 3.1: for every ε>0 there is K_ε>e such that τ(k)≤exp((log 2+ε)log k/loglog k) for all integers k≥K_ε. Its fixed-η subpower corollary remains available to /110. The status stays missing and route 6 assigns it once to AN.5.
+
+For /48, write X_N=N^(loglog(100N)). For sufficiently large k the function log k/loglog k is increasing, and log X_N/loglog X_N=(1+o(1))log N. Choose ε>0 with log 2+ε<0.695; the maximal-order estimate then gives max_{1≤k≤X_N}τ(k)≪N^0.695 after absorbing the finitely many small k. Combining this with n≤N^0.005 gives the lemma’s N^(−0.3) reducibility bound. A fixed-η estimate alone cannot supply this support-uniform bound. The statement of /48 and the existing E25 diagnosis are unchanged.
+
+The fix reread [BKK arXiv v3](https://arxiv.org/pdf/2007.14567v3), pp. 18 (text and rendered page), 60 and 64, on 2026-10-01; its SHA-256 matches the primary-source hash above. The new prerequisite identifies Hardy–Wright, sixth edition, §18.1 Theorem 317 through BKK’s citation and reference list. The book itself was not read. S4 now distinguishes the completed extraction of this supplier from deferred acquisition and decomposition of its original proof in AN.5’s blueprint work. The item inventory remains 133, with 115 missing items and seven routes.
