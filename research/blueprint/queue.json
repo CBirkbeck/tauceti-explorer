@@ -42294,8 +42294,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5535"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5535",
+   "finishedAt": "2026-10-01T22:27:58Z"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-21",
@@ -46772,7 +46773,8 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5113"
   },
   {
    "id": "RT-RS-22",
