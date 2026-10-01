@@ -38351,8 +38351,9 @@
     "REV-PAPER-PASKUNAS-QUAST-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-PASKUNAS-QUAST-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4205"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4205",
+   "finishedAt": "2026-10-01T12:41:27Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
