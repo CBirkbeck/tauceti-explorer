@@ -38759,8 +38759,9 @@
     "REV-PAPER-HACON-WITASZEK-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4223"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4223",
+   "finishedAt": "2026-10-01T13:29:52Z"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
