@@ -1,0 +1,54 @@
+{
+  "redteam": "RT-RS-08",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-08",
+  "summary": "One low-severity presentation finding: the report still directs work according to superseded pre-review assignments, although the accepted and promoted JSON contains the corrections. All 98 member stages are conserved, all 198 evidence rows are accounted for, and all 417 proposed links resolve without introducing a cycle. The existing R08.3/L7 and étale-Chern ownership findings remain separate tracked work, not new findings here.",
+  "checked": [
+    "Read the full RS-08 report, accepted result, REV-RS-08 report and all eleven member README documents. Compared all 36 narrowed layer contracts, 68 owner records, eleven roadmap decisions and 75 distinct link reasons against the member contracts. The promoted result equals the research result.",
+    "All 98 original member stage IDs appear exactly once in the conservation table, including the seven KU checkpoints. Its 98 pair rows cover each of the 198 family evidence indices exactly once. Every narrowed target was compared with its retained mathematics and its named suppliers.",
+    "Read the targets and notes of all 49 available member library-coverage entries. Direct pinned-source checks: Mathlib continuousCohomology and TopRep.homogeneousCochains; LinearMap.eventually_codisjoint_ker_pow_range_pow, eventually_isCompl_ker_pow_range_pow and isCompl_iSup_ker_pow_iInf_range_pow; TauCeti.InternalHom, evalPairing and evalPairing_equivariant. Other library assessments remain attributed to the audits, not a new exhaustive absence search.",
+    "Read the relevant ProfiniteCohomology scope/carrier and Layer 12 contracts; ModularCurves 0G, 4D, 7D and 7F; ModularForms 7, 8, 10A and the relevant Layer 11 period-polynomial comparison. Checked SF.5 and the relevant cross-family owner records, including RS-16's complete-local perfect-complex/determinant distinction. This is not a reread of every anchor proof plan.",
+    "Reopened Stacks 08TB section 13.34, 0BKN Lemmas 20.37.1–20.37.2 and 0FFZ's definition/composition of Chow correspondences on 2026-10-01. Checked that the retained contracts distinguish derived limits from ordinary limits and effective motivic input from geometric/Tate-stabilized comparisons.",
+    "Fresh assembly at fc11c08924a3bc90f573817a690328fb7d73c5d0: 2907 stage records, 8322 edge records; 8246 distinct edges have two actual stage endpoints, and that stage graph is acyclic. The remaining 76 edges touch UPSTREAM metadata proxies. No full-graph acyclicity claim is made about those bidirectional proxy records.",
+    "Applied all accepted restructurings except RS-08 to data/atlas.json, then added all 417 RS-08 links without cycle filtering: the 37 nontrivial strongly connected components involving metadata proxies are unchanged. Normal assembly skips no RS-08 link. All endpoints resolve, no link is a self-loop, and 427 supplier-to-layer/original-direct-consumer reachability checks pass.",
+    "Checked live paths from Selmer L1 to D8, G8 to G7 and SF.5 to M.4, and the corrected deletion of Iwasawa L3 as a D8 supplier. Two roadmap extensions, nine keeps and 36 narrowings alter no Tau Ceti roadmap or layer.",
+    "Read the existing RT-AREA-langlands-2/18 and RT-AREA-ktheory-2/18 findings and their confirmed verification records. Their R08.3/L7 and étale-Chern overlaps are already tracked, and are not represented as resolved or newly discovered here.",
+    "Inspected the integrated DeformationAndDerivedPatchingAlgebra and PadicFamilies packet inventories and relevant gap summaries. They retain source/decomposition gaps; this restructuring audit does not certify their proof leaves or all external consumer blueprints.",
+    "Only the two issue deliverables are changed. No Lean file is required; no Lean compilation, Lake cache, or language server was run."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-08/1",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/restructure/RS-08.md: opening summary, section 3 rows D/D8, D/R02.5, T/R22.6, V/R08.4, M/M.8, F/L1; sections 4 and 7 counts",
+      "claim": "The report presents the original proposal as the current work assignment after the independent review changed the accepted JSON. Its conservation table still imports Iwasawa control into D8 and promises family flatness, and it still misassigns local tangent calculations, dyadic inputs and p-adic regulators. This is report drift, not an error in the corrected operational JSON.",
+      "evidence": "RS-08.md line 225 tells D8 to import 'control maps from L3'; line 356 asks F/L1 to prove 'family flatness'. REV-RS-08.md lines 115–127 explicitly remove the false L3 supplier, assign local tangent calculations to R08.6, keep dyadic inputs at R08.5 and p-adic regulators at PadicHodgeRegulators, remove unsupported family flatness, and narrow R22.6. The accepted JSON implements those decisions: D8.suppliedBy is [Selmer L2, P7]; F/L1 retains module, period and control constructions without the flatness claim; R22.6.action is narrow. Yet the report marks R22.6 keep (line 256), assigns local tangent calculations to R02.5 (230), dyadic hypotheses to R08.4 (286), and p-adic regulator construction to M.8 (337). It also advertises 35 narrowed layers/59 owners/385 links, whereas the accepted result has 36/68/417.",
+      "fix": "Synchronize the report's current summary and conservation/ownership tables with the accepted JSON. Remove L3 as a D8 supplier and the unsupported family-flatness obligation; identify R08.6, R08.5 and PadicHodgeRegulators as the respective suppliers, and mark R22.6 narrowed with R08.4/R08.5 imports. Update current totals to 36 narrowed layers, 68 owner records and 417 links. Preserve genuine historical snapshot receipts and original-run check counts, but label them explicitly as pre-review measurements. Do not undo the accepted JSON corrections or refile the separately tracked R08.3/L7 and Chern-class overlaps."
+    }
+  ],
+  "upstreamNotes": [],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "inputHashes": {
+    "research/blueprint/restructure/RS-08.json": "d91ce409298850758243f59da55ed3a68b59c9762e04e08eb15b290fc8a7517f",
+    "research/blueprint/restructure/RS-08.result.json": "d49e0dbbac19febb66b11e1a0ef39b8e421f7b28db096b21073530d89052c992",
+    "research/blueprint/restructure/RS-08.md": "7f9a15bbe3746270cb5b8916f3358268d9fafb825e2dba4adeb75f635d8882ab",
+    "research/blueprint/reviews/REV-RS-08.md": "2a0472133fe91ad295249dcf6c50298620ca6a6c96bb331de9686ed365c61b4f",
+    "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
+    "content/campaign/ArithmeticGaloisDuality/README.md": "3d03575f79f6db55e90f44437241a67cd73157b2be0158be76b0f783a9a53329",
+    "content/campaign/DeformationAndDerivedPatchingAlgebra/README.md": "fcf66a36a2007a3156f741881360b63ce698eef9f55d1eb668b177fb5aa01feb",
+    "content/campaign/GL2ModularityLifting/README.md": "10a3d29209fb0ad831b45ab1b6b5272957901337828757ebb3e15f2602dbc595",
+    "content/campaign/GlobalGaloisDeformations/README.md": "1ed2c9cce00b4ba0b6081fd3efa288f3e634a19e5aa5ff5ad1b859bd2c2e49b8",
+    "content/campaign/LocalGaloisDeformationRings/README.md": "8925d162411301b4007c386e2a7eaa1527485d18c7ddb2c46be259f54ab7ae96",
+    "content/campaign/ModularSymbolsPadicLFunctions/README.md": "d4d72f8a1ba559cc28a7b2a7f67cb99fb1156db6b3754d9c5a6db7753e76f4bc",
+    "content/campaign/MotivesAndAlgebraicCycles/README.md": "bfefe58a919f1b4dd74b6860e1f005e1820032ed28b4003744d7a9ec9d718c2a",
+    "content/campaign/MotivicEtaleKTheory/README.md": "d579a7f437341a7b9b80fa9413e30fd8cef00a7dd7182ee785548efb83d01ee2",
+    "content/campaign/OrdinaryAutomorphicFormsAndModularityLifting/README.md": "e0f37810404e8dce6a6767fa4319f3f1d71d9259a1fb5579c00bd86eee1c4c96",
+    "content/campaign/PadicFamilies/README.md": "19f4178c9431f9edaa0b4f7d0e3de10bd5e61db57b1b09f6da8c46a07e4caab4",
+    "content/campaign/SelmerIwasawaCohomology/README.md": "f74d83cdae8b871df5fb01d198b8a2b19f044560d8988b5cec804221750cbc2a"
+  }
+}
