@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eight L3 nodes realize the actual difference coefficients as a native analytic function and construct an explicit analytic extension agreeing with Gamma on the small disc. All949 predecessor nodes,731 baseline records,17 findings and14 requests remain whole.",
+  "summary": "Eight L3 nodes transport the existing conditional small-disc analytic Gamma model to every p-adic point through explicit finite shift factors and native residue representatives. All957 predecessor nodes,741 baseline records,17 findings and14 requests remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5201,6 +5201,41 @@
         "module": "Mathlib/Analysis/Analytic/Constructions.lean",
         "provides": "Constant functions between the stated normed spaces are analytic.",
         "checked": "Full statement or definition, ambient field/algebra/norm-one/completeness hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. The complete MoritaAnalyticProbe checks the actual series, radius, analytic composition and Gamma extension; existing AnalyticAt.sub and comp were also reread."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.add",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Constructions.lean",
+        "provides": "The sum of two functions analytic at a point is analytic there.",
+        "checked": "Full statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Complete MoritaResidueProbe checks the finite factor, residue representative and analytic transport. Existing norm/unit, reduction kernel, cast-value and analytic subtraction/composition statements were reread."
+      },
+      {
+        "ref": "mathlib:AnalyticAt.mul",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Analytic/Constructions.lean",
+        "provides": "The product of two functions analytic at a point with values in a normed algebra is analytic there.",
+        "checked": "Full statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Complete MoritaResidueProbe checks the finite factor, residue representative and analytic transport. Existing norm/unit, reduction kernel, cast-value and analytic subtraction/composition statements were reread."
+      },
+      {
+        "ref": "mathlib:Finset.analyticAt_fun_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Constructions.lean",
+        "provides": "A finite product of functions analytic at a point is analytic there, with values in a normed commutative algebra.",
+        "checked": "Full statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Complete MoritaResidueProbe checks the finite factor, residue representative and analytic transport. Existing norm/unit, reduction kernel, cast-value and analytic subtraction/composition statements were reread."
+      },
+      {
+        "ref": "mathlib:PadicInt.nonarchimedean",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The norm of a sum of p-adic integers is at most the maximum of their norms.",
+        "checked": "Full statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Complete MoritaResidueProbe checks the finite factor, residue representative and analytic transport. Existing norm/unit, reduction kernel, cast-value and analytic subtraction/composition statements were reread."
+      },
+      {
+        "ref": "mathlib:analyticAt_id",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Analytic/Linear.lean",
+        "provides": "The identity on a normed vector space over a nontrivially normed field is analytic at every point.",
+        "checked": "Full statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on1October2026. Complete MoritaResidueProbe checks the finite factor, residue representative and analytic transport. Existing norm/unit, reduction kernel, cast-value and analytic subtraction/composition statements were reread."
       }
     ]
   },
@@ -63268,6 +63303,523 @@
       "acceptance": [
         "This remains a conditional roadmap theorem until the actual owned analytic data and exp/log certificates are supplied. It does not close Gamma’s global residue-disc transport or Gross–Koblitz/Ferrero–Greenberg."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-small-disc-unit-support",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Unit support is constant on each translated small disc",
+      "kind": "lemma",
+      "statement": "If ‖z‖≤ρ and j∈N, then z+j is a unit of Z_p exactly when p does not divide j.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "The existing small-disc inclusion and contracting q-radius give‖z‖<1.",
+        "If p divides j, its natural cast has norm less than1. The ultrametric bound makes z+j a nonunit.",
+        "Otherwise the natural cast has norm1. Unequal summand norms force‖z+j‖=1, proving it is a unit. The complete small_add_isUnit proof checks both directions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-small-disc-inclusion",
+        "DirichletPadicLFunctions:L3/morita-radius-contracting",
+        "mathlib:PadicInt.norm_natCast_lt_one_iff",
+        "mathlib:PadicInt.nonarchimedean",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:PadicInt.norm_add_eq_max_of_ne"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaSmallDisc_add_isUnit"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.unit_support_dyadic",
+          "kind": "boundary",
+          "statement": "For every z∈8Z_2, z+3 is a unit and z+2 is not."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.unit_support_requires_smallness",
+          "kind": "non-example",
+          "statement": "At z=1, j=1 and p=2, p does not divide j but z+j=2 is not a unit."
+        }
+      ],
+      "acceptance": [
+        "The support is a condition on the fixed index j only after the smallness hypothesis; dropping it gives a false polynomial formula."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-shift-factor",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite arithmetic Gamma shift factor",
+      "kind": "construction",
+      "statement": "Define P_a:K→K by P_a(y)=(−1)^a∏_{0≤j<a}(1 if p divides j, and y+j otherwise).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Use the literal finite product of affine factors and the sign (−1)^a. The definition uses any natural p; primality is unnecessary for this function and its basic algebraic API.",
+        "The empty product gives P_0=1. Since p divides0, P_1=−1. Separating the final product term gives P_(a+1)(y)=P_a(y)·−c_a(y), where c_a=1 for p|a and y+a otherwise.",
+        "The complete shiftFactor definition and its four basic API proofs are checked. Promote analyticity to its own theorem, and relate the function to actual Gamma only through the small-disc support theorem."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaShiftFactor"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.factor_zero",
+          "kind": "degenerate",
+          "statement": "P_0(y)=1 over Q_2."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_one",
+          "kind": "degenerate",
+          "statement": "P_1(y)=−1 over Q_3."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_succ",
+          "kind": "compatibility",
+          "statement": "The dyadic successor law keeps the sign and skips even indices."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_dyadic_four",
+          "kind": "computation",
+          "statement": "For p=2, P_4(y)=(y+1)(y+3)."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_ternary_three",
+          "kind": "computation",
+          "statement": "For p=3, P_3(y)=−(y+1)(y+2)."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_nonunit_skip",
+          "kind": "non-example",
+          "statement": "P_5(0)=−3 at p=2, whereas multiplying every index gives0."
+        }
+      ],
+      "acceptance": [
+        "The finite function is defined literally. Multiplying nonunits or dropping the sign fails the stated tests."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.moritaGammaShiftFactor_def",
+          "role": "constructor",
+          "statement": "The signed finite product with factors1 at p-divisible indices."
+        },
+        {
+          "name": "DirichletPadic.moritaGammaShiftFactor_zero",
+          "role": "simp",
+          "statement": "P_0(y)=1."
+        },
+        {
+          "name": "DirichletPadic.moritaGammaShiftFactor_one",
+          "role": "simp",
+          "statement": "P_1(y)=−1."
+        },
+        {
+          "name": "DirichletPadic.moritaGammaShiftFactor_succ",
+          "role": "relation",
+          "statement": "P_(a+1)(y)=P_a(y)·−(1 if p|a, and y+a otherwise)."
+        },
+        {
+          "name": "DirichletPadic.moritaGammaShiftFactor_analyticAt",
+          "role": "compatibility",
+          "statement": "For every a and y, P_a is analytic at y over K; promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Morita1975 Section1, finite iteration of the functional equation",
+          "how": "Encodes the locally fixed unit/nonunit factors when shifting a point from the small disc."
+        },
+        {
+          "where": "Residue-disc analytic transport below",
+          "how": "Multiplies the translated small-disc analytic extension by an explicitly analytic finite function."
+        },
+        {
+          "where": "Negative and nonintegral residue tests",
+          "how": "Makes the representative-dependent translation and signs observable without changing Gamma’s definition."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-shift-factor-analytic",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite shift factor is analytic everywhere",
+      "kind": "theorem",
+      "statement": "For every a∈N and y∈K, P_a is analytic at y over K.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Each index contributes either the constant1 or the affine map y↦y+j; use the native analytic constant, identity and addition theorems.",
+        "Apply the native finite-product theorem, then multiply by the constant sign.",
+        "The complete shiftFactor_analytic proof uses no completeness, exponential radius or Gamma hypothesis."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-shift-factor",
+        "mathlib:analyticAt_const",
+        "mathlib:analyticAt_id",
+        "mathlib:AnalyticAt.add",
+        "mathlib:AnalyticAt.mul",
+        "mathlib:Finset.analyticAt_fun_prod"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGammaShiftFactor_analyticAt"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.factor_analytic_nonintegral",
+          "kind": "compatibility",
+          "statement": "The dyadic factor P_7 is analytic at every Q_2 point, including nonintegral ones."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.factor_analytic_zero_shift",
+          "kind": "degenerate",
+          "statement": "The empty ternary shift factor is analytic everywhere."
+        }
+      ],
+      "acceptance": [
+        "This is a finite polynomial expression, so no convergence assumption is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-shift-factor-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The small-disc Gamma shift is the finite factor",
+      "kind": "comparison",
+      "statement": "For a∈N and z∈Z_p with‖z‖≤ρ, ιΓ(z+a)=P_a(ιz)·ιΓ(z).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Start from the already planned moritaGamma_add_nat finite shift law, then apply the ring homomorphism to its sign and finite product.",
+        "The unit-support lemma replaces the branch at z+j by the condition p∤j. Mapping natural casts and sums identifies every factor with the defining product of P_a.",
+        "The complete gamma_shift_factor proof uses an explicit finite Gamma law; the suggested signature specializes it to the existing actual Gamma function."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-finite-shift",
+        "DirichletPadicLFunctions:L3/morita-small-disc-unit-support",
+        "DirichletPadicLFunctions:L3/morita-gamma-shift-factor"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGamma_shiftFactor"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.gamma_shift_five",
+          "kind": "computation",
+          "statement": "For p=2, Γ(5)=P_5(0)Γ(0)=−3."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.gamma_shift_negative",
+          "kind": "computation",
+          "statement": "For p=2, Γ(−1)=P_7(−8)Γ(−8)=105Γ(−8)=1."
+        }
+      ],
+      "acceptance": [
+        "The argument permits negative and nonintegral z in the small disc; it does not replace z by a natural integer."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-small-disc-residue-representative",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A canonical residue representative reaches the small disc",
+      "kind": "lemma",
+      "statement": "For x∈Z_p set a to the natural value of the native reduction of x modulo p^e, where e=3 at p=2 and e=1 otherwise. Then‖x−a‖≤ρ.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Use the already established radiusρ=p^(−e). The native norm-ball theorem identifies this bound with membership in the ideal generated by p^e.",
+        "That ideal is the kernel of the native toZModPow(e). The natural cast of the reduction’s value reduces to the original residue.",
+        "Their difference therefore maps to zero. The complete residue_small proof checks the norm, ideal, kernel and finite-ring coercions; no new residue-map carrier is defined."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-small-disc-radius",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:ZMod.natCast_zmod_val"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaSmallDisc_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.residue_dyadic_negative",
+          "kind": "computation",
+          "statement": "The representative of−1 modulo8 is7, and−1−7=−8 lies in the small disc."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.residue_ternary_two",
+          "kind": "degenerate",
+          "statement": "At p=3 the representative of2 is2, with difference0."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.residue_nonintegral",
+          "kind": "boundary",
+          "statement": "At p=2, x=1/3 has representative3 modulo8, and x−3=−8/3 has norm1/8."
+        }
+      ],
+      "acceptance": [
+        "The p=2 modulus is8; using the odd-prime radius there would lose the preceding exponential certificate."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-small-disc-residue-ball",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A whole residue ball uses the same small-disc translation",
+      "kind": "lemma",
+      "statement": "If‖x−a‖≤ρ and‖w−x‖≤ρ, then‖w−a‖≤ρ.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Write w−a=(w−x)+(x−a).",
+        "Apply the native ultrametric inequality and the two given bounds. The complete residue_ball proof explicitly includes the closed-ball boundary."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.nonarchimedean"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaSmallDisc_residue_ball"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.residue_ball_boundary",
+          "kind": "boundary",
+          "statement": "Every dyadic w with‖w+1‖≤1/8 also satisfies‖w−7‖≤1/8."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.residue_ball_negative",
+          "kind": "boundary",
+          "statement": "Every ternary w with‖w+1‖≤1/3 also satisfies‖w−2‖≤1/3."
+        }
+      ],
+      "acceptance": [
+        "The same representative works for every point in the stated ball, which is required for agreement of the analytic model on a neighborhood."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-residue-analytic-transport",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Transport a Gamma analytic extension to any residue disc",
+      "kind": "theorem",
+      "statement": "Assume that every z in the small disc has a K-valued function analytic atιz and agreeing withιΓ on the entire small disc. Then for every x∈Z_p there is H:K→K analytic atιx and satisfying H(ιw)=ιΓ(w) whenever‖w−x‖≤ρ.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "Choose the explicit residue representative a of x and the given small-disc analytic extension G at x−a.",
+        "Define H(y)=P_a(y−a)G(y−a). Translation is analytic by the native identity, constant and subtraction rules; composition and multiplication give analyticity of H atιx.",
+        "For each w in the closed ball around x, the preceding residue-ball lemma puts w−a in the small disc. Substitute the given agreement of G and then the finite Gamma shift comparison.",
+        "The complete gamma_residue_analytic proof constructs H and proves agreement at every point of the ball, rather than merely matching its value at x."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-small-disc-residue-representative",
+        "DirichletPadicLFunctions:L3/morita-small-disc-residue-ball",
+        "DirichletPadicLFunctions:L3/morita-gamma-shift-factor-analytic",
+        "DirichletPadicLFunctions:L3/morita-gamma-shift-factor-comparison",
+        "mathlib:analyticAt_id",
+        "mathlib:analyticAt_const",
+        "mathlib:AnalyticAt.sub",
+        "mathlib:AnalyticAt.comp",
+        "mathlib:AnalyticAt.mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGamma_residue_analyticExtension"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.transport_at_five",
+          "kind": "compatibility",
+          "statement": "A supplied small-disc model transports to the entire dyadic ball5+8Z_2."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.transport_at_negative",
+          "kind": "compatibility",
+          "statement": "The same construction supplies a model at−1 agreeing throughout−1+8Z_2."
+        }
+      ],
+      "acceptance": [
+        "This conditional transport itself has no unresolved analytic supplier leaf; the next node supplies its hypothesis from the existing arithmetic construction."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-gamma-all-residue-analytic-extension",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual mean model gives Gamma an analytic extension at every point",
+      "kind": "theorem",
+      "statement": "Under all the retained actual logarithmic mean data and the exact principal-unit exp/log inverse and convergence-domain certificates, for every x∈Z_p there exists G:K→K analytic atιx with G(ιw)=ιΓ(w) whenever‖w−x‖≤ρ.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, and ρ=‖2q‖=p^(−e), where e=3 at p=2 and e=1 otherwise. Gamma is the existing signed continuous Z_p-valued unit function. K is a nontrivially normed field and ι:Z_p→K is a ring homomorphism; norm preservation is needed only in the final actual-mean application.",
+        "The finite shift factor P_a(y)=(−1)^a∏_{0≤j<a,p∤j}(y+j) is a K-valued function for a natural number a. The factors indexed by p-divisible j are1, including j=0. No Polynomial or analytic-function carrier is introduced.",
+        "The transport theorem assumes an actual small-disc extension: for each small z there is G analytic atιz, agreeing withιΓ on the entire small disc. The final theorem obtains exactly this hypothesis from the preceding explicit exponential model; it does not assume Gamma already analytic at the arbitrary target point.",
+        "The final application retains the complete normalized ultrametric characteristic-zero Q_p-algebra K, the norm-preserving embedding, continuous logarithm off zero with multiplication and torsion laws, actual divided derivatives D_0(u)=ιu(ℓ(ιu)−1), D_1=ℓ∘ι, value/Lipschitz/Taylor bounds with R>‖q‖, actual twisted mean coefficient limits, and the supplied principal-unit exp/log inverse and native exponential convergence-ball membership. All14 existing supplier requests remain open."
+      ],
+      "proofSteps": [
+        "For each small z, apply the existing moritaGamma_smallDisc_analyticExtension theorem to the actual coefficient sequence and its Taylor and mean-limit data.",
+        "Use that family of explicit small-disc models in the preceding residue transport theorem. The final gamma_all_points native proof keeps every arithmetic and supplier input visible.",
+        "For K=Q_p this is a local analytic extension at every point of Z_p. It does not assert a single entire K-function or an unconditional supplier theorem, and it leaves the further Gamma derivative/expansion and Gross–Koblitz/Ferrero–Greenberg targets open."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-gamma-small-disc-analytic-extension",
+        "DirichletPadicLFunctions:L3/morita-gamma-residue-analytic-transport"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaAnalytic",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaGamma_analyticExtension"
+      },
+      "sources": [
+        {
+          "sourceId": "Morita-1975",
+          "locator": "Section1 p.256/PDF2, Remark following Theorem1 (functional equation); Section3 p.261/PDF7, Theorem3 and its corrected exponential proof.",
+          "match": "Worker-derived residue-disc transport of the existing small-disc analytic model using the source functional equation. The paper states Theorem3 on the small disc; this checkpoint does not misquote it as an explicit global theorem. The prior E17 sign correction and all conditional analytic inputs are retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaResidueTests.actual_gamma_at_one",
+          "kind": "computation",
+          "statement": "With the actual dyadic logarithmic mean hypotheses, Gamma has an analytic extension at1 with agreement on1+8Z_2."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.actual_gamma_at_five",
+          "kind": "computation",
+          "statement": "The actual arithmetic model extends Gamma at5."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.actual_gamma_at_negative",
+          "kind": "computation",
+          "statement": "The same retained actual inputs give an extension at−1."
+        },
+        {
+          "name": "SuggestedMoritaResidueTests.actual_gamma_nonintegral",
+          "kind": "boundary",
+          "statement": "For x=1/3∈Z_2, the extension is analytic atιx and agrees on x+8Z_2, with no smallness assumption on x."
+        }
+      ],
+      "acceptance": [
+        "All18 gaps,14 requests and17 source findings remain. This proves the conditional transport step in scratch, not closure or formalization of the roadmap."
+      ]
     }
   ],
   "requests": [
@@ -63400,7 +63952,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "An explicit coefficient-field analytic model now agrees with the existing Gamma throughout2qℤ_p, conditional on the actual Taylor/coefficient mean inputs and the exact Coleman exp/log and radius certificates. Next transport this model to every p-adic residue disc using the existing signed finite-shift recurrence with its locally constant unit/nonunit factors, then address the remaining Gamma derivative/expansion and Gross–Koblitz/Ferrero–Greenberg targets. The14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages.",
+        "The actual small-disc analytic Gamma model now transports to an analytic extension at every p-adic point, with agreement throughout a fixed residue ball. This remains conditional on the previously owned actual Taylor/coefficient mean inputs and Coleman exp/log and radius certificates. Next extract the remaining source Gamma logarithmic derivative and Taylor coefficients, then the Gross–Koblitz and Ferrero–Greenberg targets. All14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -63432,7 +63984,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "An explicit coefficient-field analytic model now agrees with the existing Gamma throughout2qℤ_p, conditional on the actual Taylor/coefficient mean inputs and the exact Coleman exp/log and radius certificates. Next transport this model to every p-adic residue disc using the existing signed finite-shift recurrence with its locally constant unit/nonunit factors, then address the remaining Gamma derivative/expansion and Gross–Koblitz/Ferrero–Greenberg targets. The14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual small-disc analytic Gamma model now transports to an analytic extension at every p-adic point, with agreement throughout a fixed residue ball. This remains conditional on the previously owned actual Taylor/coefficient mean inputs and Coleman exp/log and radius certificates. Next extract the remaining source Gamma logarithmic derivative and Taylor coefficients, then the Gross–Koblitz and Ferrero–Greenberg targets. All14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -63836,36 +64388,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All17 findings and all sourceVersions remain whole, including E17 awaiting independent review. No new source finding or verdict is added.",
+    "sourceIssues": "All17 findings and three sourceVersions remain whole, including E17 awaiting independent review. No new source finding or verdict is added.",
     "validation": {
-      "nodes": 957,
+      "nodes": 965,
       "kinds": {
         "definition": 2,
-        "lemma": 395,
-        "construction": 99,
-        "theorem": 271,
-        "comparison": 190
+        "lemma": 398,
+        "construction": 100,
+        "theorem": 274,
+        "comparison": 191
       },
-      "api": 746,
-      "packetTests": 1795,
-      "definitionConstructionTests": 421,
-      "typedExamples": 1798,
+      "api": 751,
+      "packetTests": 1818,
+      "definitionConstructionTests": 427,
+      "typedExamples": 1821,
       "planets": 24,
-      "baseline": 741,
-      "preservedWholeNodes": 949,
-      "preservedBaseline": 731,
+      "baseline": 746,
+      "preservedWholeNodes": 957,
+      "preservedBaseline": 741,
       "preservedSourceIssues": 17,
       "newSourceIssues": 0,
       "newNodes": 8,
       "newNamedDeclarations": 12,
-      "newTypedTests": 20,
+      "newTypedTests": 23,
       "requests": 14,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1217,
-      "dependencyEdges": 5947,
+      "reachableNodes": 1225,
+      "dependencyEdges": 5981,
       "acyclic": true,
-      "baselineLeaves": 913,
+      "baselineLeaves": 918,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -63879,7 +64431,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 481246,
+      "readerWords": 485265,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -63905,20 +64457,25 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 21,
-      "scratchCompleteLemmas": 245,
+      "scratchCompleteDefinitions": 22,
+      "scratchCompleteLemmas": 256,
       "scratchMathlibModules": 2887,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "polynomialExtensionValues": 252,
-        "coefficientRadiusBounds": 480,
-        "geometricTailBounds": 624,
-        "nonintegralGeometricValues": 1,
-        "exponentialCoefficientChecks": 45,
-        "boundaryDivergenceControls": 4
+        "unitSupport": 5304,
+        "factorRecurrence": 4080,
+        "residueRepresentatives": 504,
+        "residueBalls": 3528,
+        "gammaShiftValues": 572,
+        "explicitPolynomials": 34,
+        "negativeGammaExamples": 1,
+        "positiveGammaExamples": 1,
+        "nonintegralExample": 1,
+        "smallnessCounterexample": 1,
+        "nonunitFactorCounterexample": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -63928,11 +64485,11 @@
       ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59",
+        "sourceSha256": "78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33",
         "modules": 3600,
-        "warnings": 3051,
+        "warnings": 3085,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,051 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,085 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -63942,7 +64499,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "15f5330839115afea865eeac72c12715591a3a84472e55e41de6feb7d596cdaa",
+      "sha256": "3b9aa3afd4e0a7608a3697955a11e268d8e5089fa1ca5078c9f05e160200b7fc",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -63957,11 +64514,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 245,
+        "completeLemmas": 256,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "8a19e9e885e48c75c9a38c5cffc2849c69b028f45e123e3dc42e341cf754597e"
+        "sha256": "60af4c722c30ac26de9a95a5fe5caab6b9ea661126ec3b88ece74a9fe9c13641"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -64099,17 +64656,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59",
+        "sourceSha256": "78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33",
         "modules": 3600,
-        "warnings": 3051,
+        "warnings": 3085,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 3,051 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59.",
+        "scope": "The separate partial signature file also compiled with zero errors and 3,085 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "74ff40f44d1d9e0851f21d2aa925c12657554b16",
+      "base": "cd547d7ae29de4274d9f4e2a62583f4593959562",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -72912,6 +73469,58 @@
         "warnings": 3051,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 3,051 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8b3558e45628d7c97ae111bff302fe2c2b249d2b62980d554d798367186def59.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "moritaResidueTransport": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5329,
+      "previousHead": "415f2370785e02506417e7b60cde01d0c1752494",
+      "previousMerge": "ed8cf61076484eac5c37dc3569d4512e37dbc55d",
+      "preservedWholeNodes": 957,
+      "preservedBaseline": 741,
+      "preservedFindings": 17,
+      "newNodes": 8,
+      "reading": "Retains the complete Morita1975 and KL1964 readings and rereads Morita pp.256 and261 as page images. This checkpoint derives residue-disc transport from the Section1 functional equation and the corrected Section3 small-disc model; it does not attribute an unstated global theorem to the paper. Reads the full pinned finite-product, identity/addition/multiplication analytic statements and their ambient hypotheses, plus native ultrametric/unit, residue kernel and cast-value statements. Generic analytic and logarithm inputs retain their existing owners.",
+      "boundary": "The actual small-disc analytic Gamma model now transports to an analytic extension at every p-adic point, with agreement throughout a fixed residue ball. This remains conditional on the previously owned actual Taylor/coefficient mean inputs and Coleman exp/log and radius certificates. Next extract the remaining source Gamma logarithmic derivative and Taylor coefficients, then the Gross–Koblitz and Ferrero–Greenberg targets. All14 supplier requests and18 gaps remain open, all implementation statuses unchecked, with zero closed stages.",
+      "inputBase": "cd547d7ae29de4274d9f4e2a62583f4593959562",
+      "sourceBoundary": "All17 findings and three sourceVersions remain whole, including E17 awaiting independent review. No new source finding or verdict is added.",
+      "publication": {
+        "base": "cd547d7ae29de4274d9f4e2a62583f4593959562",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "unitSupport": 5304,
+        "factorRecurrence": 4080,
+        "residueRepresentatives": 504,
+        "residueBalls": 3528,
+        "gammaShiftValues": 572,
+        "explicitPolynomials": 34,
+        "negativeGammaExamples": 1,
+        "positiveGammaExamples": 1,
+        "nonintegralExample": 1,
+        "smallnessCounterexample": 1,
+        "nonunitFactorCounterexample": 1
+      },
+      "numericalMethod": "Exact Python rational arithmetic and p-adic valuations; integer Gamma values are computed from the signed recurrence in both directions. These finite regressions do not certify the infinite analytic theorems, which are checked by the separate complete native Lean probe.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33",
+        "modules": 3600,
+        "warnings": 3085,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 3,085 expected placeholder warnings across 3,600 pinned source modules. It includes all 12 new named declarations and 23 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 78b6591ff9aa9f70c1d60c40a4852a92e7a693d0c4265149dffa6837f5752d33.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
