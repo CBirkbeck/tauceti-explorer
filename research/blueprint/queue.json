@@ -37437,8 +37437,9 @@
     "REV-PAPER-CASTELLA-ETAL-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CASTELLA-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4167"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4167",
+   "finishedAt": "2026-10-01T18:25:41Z"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
