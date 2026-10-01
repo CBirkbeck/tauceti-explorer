@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fifteen L3 nodes define the actual exceptional-coordinate finite set, prove exact deletion and both induction decreases, and complete source generation of the internal ordinary quotient at every positive level. All 1,565 predecessor nodes and 1,063 baseline records remain whole.",
+  "summary": "Fifteen L3 nodes construct the actual source maps, prove their finite-level surjectivity and exact ambient range, and establish finite generation and primitive-point rank upper bounds with native integer-module APIs. All 1,580 predecessor nodes and 1,067 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7483,6 +7483,69 @@
         "module": "Mathlib/Data/Nat/Init.lean",
         "provides": "Native strong induction on natural numbers, supplying the conclusion at every strictly smaller index.",
         "checked": "Full statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact paths and ranges are recorded in the retained reading note. The complete native probe exercises both strong inductions, the finite-set erase bound, strict complementary-level decrease and divisibility of the primary power."
+      },
+      {
+        "ref": "mathlib:Subgroup.map_top",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The native image of the top subgroup under a group homomorphism is its range, with the generated additive theorem.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:MonoidHom.range_comp",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The native range of a composite is the image of the first range under the second map; includes the generated additive API.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:MonoidHom.range_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "A native group homomorphism is surjective exactly when its range is top; includes the generated additive API.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:AddMonoidHom.toIntLinearMap",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "The native conversion of an additive homomorphism between additive commutative groups to its integer-linear map, with exactly the same point function.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:FreeAbelianGroup.basis",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeGroup/GeneratorEquiv.lean",
+        "provides": "The existing integer basis of a free abelian group, indexed by its actual generator type, from its native finitely-supported integer equivalence.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:Module.finrank_eq_nat_card_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "Over a ring satisfying the strong rank condition, the finrank of a module with a given basis equals the natural cardinality of that basis index.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:LinearMap.finrank_le_finrank_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
+        "provides": "A surjective linear map from a finitely generated module over a semiring with the strong rank condition bounds target finrank by source finrank.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Finite/Basic.lean",
+        "provides": "A module with a native basis indexed by a finite type is finitely generated.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
+      },
+      {
+        "ref": "mathlib:Module.Finite.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "A surjective semilinear map carries finite generation to its codomain; used for an ordinary integer-linear map.",
+        "checked": "Full statement, surrounding hypotheses and complete proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges are in the retained reading note. The complete native probe uses these existing APIs at the actual source and quotient carriers; generated additive APIs cite their indexed multiplicative sources."
       }
     ]
   },
@@ -103712,6 +103775,917 @@
       "acceptance": [
         "Use the actual primary projections and actual source set, prove exact deletion of one index for every other root, and prove both induction measures decrease. The unit level must require no choice of prime. The final result has no lower-level generation assumption. Preserve full valid internal relations and the distinction between generation and independence."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual source presentation of the internal quotient",
+      "kind": "construction",
+      "statement": "Construct the native additive homomorphism from the free abelian group on the actual source set T(N) to the existing internal ordinary quotient F(N)/D(N), sending each source point to its actual level-N point label.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Use the established theorem that every source point lies in the actual level kernel.",
+        "Send the resulting level point through the native free-abelian generator and existing quotient map.",
+        "Apply the native free-abelian lift. No new free group, quotient or availability carrier is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-generators",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations",
+        "mathlib:FreeAbelianGroup.lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertSourceMap"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.actual_source_generator_maps_to_its_point_label",
+          "kind": "compatibility",
+          "statement": "A source generator maps to its actual point label in the internal ordinary quotient."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.integer_coefficients_are_preserved",
+          "kind": "compatibility",
+          "statement": "The source presentation is a native additive homomorphism and preserves integer coefficients."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.unit_zero_point_label_is_not_zero",
+          "kind": "degenerate",
+          "statement": "At level one the source zero-point generator maps to a nonzero free label."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ],
+      "api": [
+        {
+          "name": "kubertPresentation_sourceMap_of",
+          "role": "compatibility",
+          "statement": "The internal source presentation sends the native generator of a source point t to the quotient label of that same point, with its established level-membership certificate."
+        },
+        {
+          "name": "kubertPresentation_sourceMap_range",
+          "role": "characterisation",
+          "statement": "The range of the actual source presentation equals the existing native additive subgroup B(N) generated by source-point labels."
+        },
+        {
+          "name": "kubertPresentation_sourceMap_surjective",
+          "role": "characterisation",
+          "statement": "Every element of the actual internal ordinary quotient is the image of a finite integer combination of actual source points."
+        },
+        {
+          "name": "kubertPresentation_internal_module_finite",
+          "role": "compatibility",
+          "statement": "The actual internal ordinary quotient at a positive level is finitely generated as an integer module."
+        },
+        {
+          "name": "kubertPresentation_internal_finrank_le",
+          "role": "compatibility",
+          "statement": "The integer rank of the actual internal ordinary quotient at N is at most the cardinality of the actual primitive N-points of the rational torus."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Actual source generation",
+          "how": "Turns B(N)=top into the actual free source surjection."
+        },
+        {
+          "where": "Integer-module comparison",
+          "how": "Provides the map used for finite generation and the rank upper bound."
+        },
+        {
+          "where": "Unit level",
+          "how": "Retains the free label of the zero torus point."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-map-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Internal source presentation evaluates to the same point label",
+      "kind": "lemma",
+      "statement": "The internal source presentation sends the native generator of a source point t to the quotient label of that same point, with its established level-membership certificate.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Apply native free-abelian lift evaluation to the source presentation.",
+        "The only added data is the proof that the original point belongs to the level kernel."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceMap_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.source_map_evaluation",
+          "kind": "characterisation",
+          "statement": "Evaluation retains the actual source point and only adds its existing level-membership certificate."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-map-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source presentation image is the established source subgroup",
+      "kind": "lemma",
+      "statement": "The range of the actual source presentation equals the existing native additive subgroup B(N) generated by source-point labels.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "For range containment, use native free-abelian generator induction. Source generators lie in B(N), and its zero, negation and addition laws preserve membership.",
+        "For the reverse containment, apply the native closure universal property to the existing definition of B(N).",
+        "Each actual source label has its own free source generator as a preimage, by sourceMap_of."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-of",
+        "DirichletPadicLFunctions:L3/kubert-prime-power-reduced-generator-span",
+        "DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem",
+        "mathlib:FreeAbelianGroup.induction_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceMap_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.source_range_is_the_existing_subgroup",
+          "kind": "characterisation",
+          "statement": "The presentation image equals the already defined source subgroup, without a replacement carrier."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-map-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual internal source presentation is surjective",
+      "kind": "theorem",
+      "statement": "Every element of the actual internal ordinary quotient is the image of a finite integer combination of actual source points.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "The proved composite-level generation theorem gives B(N)=top, including level one.",
+        "sourceMap_range identifies that subgroup with the actual presentation image.",
+        "The native range-equals-top characterization gives surjectivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-range",
+        "DirichletPadicLFunctions:L3/kubert-composite-source-span-eq-top",
+        "mathlib:MonoidHom.range_eq_top"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceMap_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.source_presentation_is_onto",
+          "kind": "characterisation",
+          "statement": "Every element of the internal ordinary quotient has a finite integer source expression."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source presentation of the finite global quotient",
+      "kind": "construction",
+      "statement": "Construct the additive homomorphism from the free abelian group on T(N) to the existing quotient of F(N) by the preimage of all global ordinary relations, as the established internal-to-global comparison after the internal source presentation.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Use the already constructed comparison between the two actual finite-level quotients.",
+        "Compose it with sourceMap using native additive-homomorphism composition.",
+        "The global relations retain the supplied actual complete ambient root fibers."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertSourceGlobalMap"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.source_global_map_factors_through_comparison",
+          "kind": "compatibility",
+          "statement": "The map to the finite global-relation quotient is precisely comparison after the internal source map."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.global_source_map_preserves_integer_coefficients",
+          "kind": "compatibility",
+          "statement": "The finite global source map preserves arbitrary integer coefficients."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.finite_global_quotient_has_source_preimages",
+          "kind": "characterisation",
+          "statement": "Each finite-level global quotient element has an actual finite source preimage."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ],
+      "api": [
+        {
+          "name": "kubertPresentation_sourceGlobalMap_of",
+          "role": "compatibility",
+          "statement": "A source generator maps to the label of the same level-N point in the quotient by the preimage of all global relations."
+        },
+        {
+          "name": "kubertPresentation_sourceGlobalMap_surjective",
+          "role": "characterisation",
+          "statement": "Every element of the existing finite-level quotient by global relations has an actual free source preimage."
+        },
+        {
+          "name": "kubertPresentation_global_level_module_finite",
+          "role": "compatibility",
+          "statement": "At every positive level, the existing quotient by the preimage of all global ordinary relations is a finitely generated integer module."
+        },
+        {
+          "name": "kubertPresentation_global_level_finrank_le",
+          "role": "compatibility",
+          "statement": "The integer rank of the existing finite-level quotient by global ordinary relations is at most the cardinality of actual primitive N-points."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Global relation comparison",
+          "how": "Composes only with the existing surjective finite-level comparison."
+        },
+        {
+          "where": "Independent lower bound",
+          "how": "Exposes the actual finite global quotient to which a later lower rank estimate must apply."
+        },
+        {
+          "where": "Carrier distinction",
+          "how": "Keeps the finite global quotient separate from the infinite universal quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite global source evaluation keeps the original label",
+      "kind": "lemma",
+      "statement": "A source generator maps to the label of the same level-N point in the quotient by the preimage of all global relations.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Evaluate sourceMap at the generator.",
+        "Apply the established comparison evaluation theorem, which preserves the original free point label."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-of",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-comparison-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceGlobalMap_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.global_source_generator_keeps_its_label",
+          "kind": "characterisation",
+          "statement": "Evaluation uses the actual point label in the quotient by the preimage of all global relations."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map-surjective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite global source presentation is surjective",
+      "kind": "theorem",
+      "statement": "Every element of the existing finite-level quotient by global relations has an actual free source preimage.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "The internal source presentation is surjective by sourceMap_surjective.",
+        "The established finite-level comparison is surjective.",
+        "Their native composition is therefore surjective. No injectivity assertion is used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-surjective",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-comparison-surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceGlobalMap_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.finite_global_source_presentation_is_onto",
+          "kind": "characterisation",
+          "statement": "Surjectivity follows from the established comparison and internal source surjections."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-to-global",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual source map into the universal quotient",
+      "kind": "construction",
+      "statement": "Construct the additive map from the free abelian group on T(N) into the full universal ordinary distribution quotient by composing sourceMap with the existing level-to-global map.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Use the established map from the internal quotient into the actual full universal quotient.",
+        "Compose with the actual source presentation.",
+        "The construction does not identify the full universal quotient with either finite-level quotient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertSourceToGlobal"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.ambient_source_map_uses_actual_points",
+          "kind": "compatibility",
+          "statement": "The map into the entire universal distribution quotient sends a source point to that same ambient point label."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.ambient_map_factors_through_level_map",
+          "kind": "compatibility",
+          "statement": "The ambient map is the existing level-to-global map after the internal source map."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.source_image_is_the_existing_level_image",
+          "kind": "characterisation",
+          "statement": "The source image in the full universal quotient is exactly its existing level-six image."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ],
+      "api": [
+        {
+          "name": "kubertPresentation_sourceToGlobal_of",
+          "role": "compatibility",
+          "statement": "In the full universal quotient, the source generator t maps to the actual ambient torus label of t."
+        },
+        {
+          "name": "kubertPresentation_sourceToGlobal_range",
+          "role": "characterisation",
+          "statement": "The source map into the full universal quotient has exactly the range of the existing level-to-global map at N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Actual universal quotient",
+          "how": "Preserves each ambient point label."
+        },
+        {
+          "where": "Finite-level image",
+          "how": "Identifies precisely the existing level image, without an infinite-global surjectivity claim."
+        },
+        {
+          "where": "Source coefficients",
+          "how": "Preserves actual integer linear combinations through native homomorphisms."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-to-global-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Ambient source evaluation retains the actual torus point",
+      "kind": "lemma",
+      "statement": "In the full universal quotient, the source generator t maps to the actual ambient torus label of t.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Evaluate the internal source presentation.",
+        "Apply the existing level-to-global evaluation law. The result forgets only the level certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-to-global",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-of",
+        "DirichletPadicLFunctions:L3/kubert-finite-level-level-to-global-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceToGlobal_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.ambient_evaluation_formula",
+          "kind": "characterisation",
+          "statement": "The ambient image keeps the source label without a scalar or representative change."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-to-global-range",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual source image equals the existing level image",
+      "kind": "lemma",
+      "statement": "The source map into the full universal quotient has exactly the range of the existing level-to-global map at N.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Use the native formula for the range of a composite.",
+        "The internal source image is B(N), which the proved generation theorem identifies with top.",
+        "The native image-of-top formula identifies the resulting image with the existing level-to-global range. This is an exact range statement, not surjectivity onto the infinite universal quotient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-to-global",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-range",
+        "DirichletPadicLFunctions:L3/kubert-composite-source-span-eq-top",
+        "mathlib:MonoidHom.range_comp",
+        "mathlib:Subgroup.map_top"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_sourceToGlobal_range"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.ambient_range_equality",
+          "kind": "characterisation",
+          "statement": "Source generation identifies the exact finite-level image; it does not assert onto the full infinite quotient."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-source-module-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual free source group is a finite integer module",
+      "kind": "lemma",
+      "statement": "The free abelian group on the actual finite source set T(N) is finitely generated as an integer module.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "The established source-set finiteness theorem supplies finiteness of its actual subtype.",
+        "Use the existing native integer basis on a free abelian group.",
+        "The native finite-basis theorem gives finite generation. No finite enumeration of the level kernel is needed for this result."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-finite",
+        "mathlib:FreeAbelianGroup.basis",
+        "mathlib:Module.Finite.of_basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_source_module_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.actual_source_module_is_finite",
+          "kind": "characterisation",
+          "statement": "The free abelian group on the actual finite source set is a finitely generated integer module."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-internal-module-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The internal ordinary quotient is finitely generated",
+      "kind": "lemma",
+      "statement": "The actual internal ordinary quotient at a positive level is finitely generated as an integer module.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "The actual source module is finitely generated.",
+        "View the native additive source presentation as an integer-linear map.",
+        "Apply the native finite-module theorem to its proved surjectivity. The target is not assumed free."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-module-finite",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-surjective",
+        "mathlib:AddMonoidHom.toIntLinearMap",
+        "mathlib:Module.Finite.of_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_internal_module_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.internal_quotient_is_finitely_generated",
+          "kind": "characterisation",
+          "statement": "The internal quotient is a finitely generated integer module by source surjectivity."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-internal-finrank-le",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The internal rank is at most the primitive-point count",
+      "kind": "theorem",
+      "statement": "The integer rank of the actual internal ordinary quotient at N is at most the cardinality of the actual primitive N-points of the rational torus.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "The actual integer-linear source map is surjective from a finitely generated module.",
+        "Apply the native finrank inequality for such a surjection.",
+        "Evaluate the source rank using its existing native free-abelian basis, obtaining the cardinality of T(N).",
+        "The established source-cardinality theorem identifies this with the actual primitive-point cardinality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-module-finite",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-map-surjective",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-card-primitive",
+        "mathlib:AddMonoidHom.toIntLinearMap",
+        "mathlib:FreeAbelianGroup.basis",
+        "mathlib:Module.finrank_eq_nat_card_basis",
+        "mathlib:LinearMap.finrank_le_finrank_of_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_internal_finrank_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.internal_rank_is_bounded_by_primitive_count",
+          "kind": "characterisation",
+          "statement": "The internal quotient rank is bounded by the actual number of primitive points."
+        },
+        {
+          "name": "SuggestedKubertPresentationTests.unit_rank_upper_bound",
+          "kind": "degenerate",
+          "statement": "The level-one internal quotient has rank at most one."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-global-level-module-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite global quotient is finitely generated",
+      "kind": "lemma",
+      "statement": "At every positive level, the existing quotient by the preimage of all global ordinary relations is a finitely generated integer module.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Use the finite actual source module and the surjective sourceGlobalMap.",
+        "Convert that native additive map to its integer-linear form.",
+        "Apply the native finite-generation theorem under a surjection."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-module-finite",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map-surjective",
+        "mathlib:AddMonoidHom.toIntLinearMap",
+        "mathlib:Module.Finite.of_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_global_level_module_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.finite_global_quotient_is_finitely_generated",
+          "kind": "characterisation",
+          "statement": "The quotient by global relations at a fixed finite level is finitely generated."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-presentation-global-level-finrank-le",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite global rank has the same primitive-point upper bound",
+      "kind": "theorem",
+      "statement": "The integer rank of the existing finite-level quotient by global ordinary relations is at most the cardinality of actual primitive N-points.",
+      "hypotheses": [
+        "Fix a positive level N and the rational torus (Q/Z)^(k+1), of positive dimension. The source carrier is the actual established finite set T(N), never a replacement set with an assumed generation property.",
+        "The internal quotient is the existing F(N)/D(N), using complete valid ordinary distribution relations. The finite global quotient is the existing quotient of F(N) by the preimage of all global ordinary relations. The full universal quotient is a third existing carrier; these codomains remain distinct.",
+        "Native finite-type structures are provided on the actual level kernel, and on actual ambient root fibers where global relations are used. Source finite generation itself needs no level-kernel enumeration and derives finiteness from the established source-set theorem.",
+        "All maps are native additive homomorphisms, built with the existing free-abelian universal map and existing quotient comparison maps. Integer-linear maps use the native conversion of additive homomorphisms. Every generator retains its actual point value.",
+        "The finite-generation and rank conclusions use native integer-module APIs. The upper bounds require no freeness assumption on either quotient. No infinite-global surjectivity, rank lower bound, independence or internal/global injectivity is asserted."
+      ],
+      "proofSteps": [
+        "Apply the native finrank inequality to the actual surjective sourceGlobalMap from the finite source module.",
+        "Compute the source rank with its existing native integer basis.",
+        "Use the established equality of source cardinality and primitive-point cardinality. The independent lower bound and internal/global equality are still separate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-module-finite",
+        "DirichletPadicLFunctions:L3/kubert-presentation-source-global-map-surjective",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-card-primitive",
+        "mathlib:AddMonoidHom.toIntLinearMap",
+        "mathlib:FreeAbelianGroup.basis",
+        "mathlib:Module.finrank_eq_nat_card_basis",
+        "mathlib:LinearMap.finrank_le_finrank_of_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertSourcePresentation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertPresentation_global_level_finrank_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, the source cardinality and the explanation of the rank comparison before Theorem 1.8; published 184–185, the full proof of Proposition 1.9. The internal and global relation groups are distinguished on 182–183.",
+          "excerpt": "explicit generators",
+          "match": "The actual source generators give a surjection onto the internal quotient. Its composition with the existing comparison gives a surjection onto the quotient by global relations at the same finite level. Their finite cardinality gives finite generation and the primitive-point rank upper bound; the independent lower bound remains separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertPresentationTests.finite_global_rank_upper_bound",
+          "kind": "characterisation",
+          "statement": "The finite global quotient rank has the same primitive-point upper bound."
+        }
+      ],
+      "acceptance": [
+        "Retain actual source-point labels and distinguish the internal, finite global and full universal codomains. Derive surjectivity from the proved source generation theorem. Use the native integer basis on the free source group and native finite-module/rank APIs. Preserve the nonzero unit-level zero-point label and do not infer freeness or the missing lower bound from these upper bounds."
+      ]
     }
   ],
   "requests": [
@@ -103858,7 +104832,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "Kubert Proposition 1.9 now has a complete route through actual primary-coordinate comparison, exact exceptional-set deletion, strong induction on exceptional cardinality, proper admissible-level transport, and strong induction on positive levels. B(N)=top is established without a remaining generation assumption, including composite and unit levels. Next expose the actual source presentation map and its surjectivity if needed by the rank comparison, then read and decompose the independent Cartan or rational-model rank lower bound. Generation and the known source cardinality do not by themselves prove a basis. Freeness and internal/global relation equality remain open, as do finite parity ranks and Tate conventions. Preserve all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The actual source free-abelian presentation now surjects onto the internal quotient and, through the existing comparison, the finite quotient by global relations. Both are finitely generated integer modules and have the primitive-point rank upper bound. The actual ambient source image equals the existing level image. Next construct the actual primitive-point transfer maps for every divisibility M|N, as required on Kubert 187. Prove primitive-root existence for arbitrary divisibility using support completion, coprime lower roots and a primitive complementary point. Then complete the independent rank lower bound using the Cartan or rational model of Kubert 186–199, and combine it with these actual maps through native module APIs to prove independence, freeness and equality of internal/global relations. Do not assume a renamed full-rank certificate. The source finite calculations are not a general lower bound. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -103890,7 +104864,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Kubert Proposition 1.9 now has a complete route through actual primary-coordinate comparison, exact exceptional-set deletion, strong induction on exceptional cardinality, proper admissible-level transport, and strong induction on positive levels. B(N)=top is established without a remaining generation assumption, including composite and unit levels. Next expose the actual source presentation map and its surjectivity if needed by the rank comparison, then read and decompose the independent Cartan or rational-model rank lower bound. Generation and the known source cardinality do not by themselves prove a basis. Freeness and internal/global relation equality remain open, as do finite parity ranks and Tate conventions. Preserve all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual source free-abelian presentation now surjects onto the internal quotient and, through the existing comparison, the finite quotient by global relations. Both are finitely generated integer modules and have the primitive-point rank upper bound. The actual ambient source image equals the existing level image. Next construct the actual primitive-point transfer maps for every divisibility M|N, as required on Kubert 187. Prove primitive-root existence for arbitrary divisibility using support completion, coprime lower roots and a primitive complementary point. Then complete the independent rank lower bound using the Cartan or rational model of Kubert 186–199, and combine it with these actual maps through native module APIs to prove independence, freeness and equality of internal/global relations. Do not assume a renamed full-rank certificate. The source finite calculations are not a general lower bound. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -104441,24 +105415,24 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The final source-generation theorem is the internal Proposition 1.9. The separate source cardinality theorem and generation do not yet establish independence or a basis.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source presentations supply the rank upper bounds and preserve all three quotient codomains. The independent general lower bound, freeness and internal/global equality remain open.",
     "validation": {
-      "nodes": 1580,
+      "nodes": 1595,
       "kinds": {
         "definition": 22,
-        "lemma": 863,
-        "construction": 139,
-        "theorem": 349,
+        "lemma": 871,
+        "construction": 142,
+        "theorem": 353,
         "comparison": 207
       },
-      "api": 1076,
-      "packetTests": 2929,
-      "definitionConstructionTests": 646,
-      "typedExamples": 2932,
+      "api": 1087,
+      "packetTests": 2951,
+      "definitionConstructionTests": 655,
+      "typedExamples": 2954,
       "planets": 24,
-      "baseline": 1067,
-      "preservedWholeNodes": 1565,
-      "preservedBaseline": 1063,
+      "baseline": 1076,
+      "preservedWholeNodes": 1580,
+      "preservedBaseline": 1067,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
       "newNodes": 15,
@@ -104467,10 +105441,10 @@
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1840,
-      "dependencyEdges": 8008,
+      "reachableNodes": 1855,
+      "dependencyEdges": 8063,
       "acyclic": true,
-      "baselineLeaves": 1230,
+      "baselineLeaves": 1239,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -104485,7 +105459,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 810113,
+      "readerWords": 817724,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -104511,33 +105485,31 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 81,
-      "scratchCompleteLemmas": 974,
-      "scratchMathlibModules": 2982,
+      "scratchCompleteDefinitions": 84,
+      "scratchCompleteLemmas": 986,
+      "scratchMathlibModules": 2984,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 74,
-        "primaryCoordinateChecks": 9052,
-        "exceptionalDeletionChecks": 11778,
-        "primitiveGenerationSteps": 9358,
-        "lowerLevelImports": 1494,
-        "integerEliminationIdentities": 1155,
-        "nonprimitiveLiftingIdentities": 719,
-        "allGeneratedLabels": 11417,
-        "unitLevels": 3
+        "levels": 29,
+        "pointLabels": 411,
+        "sourceGenerators": 304,
+        "validRelationRows": 563,
+        "exactRationalRanks": 29,
+        "surjectivePresentations": 29,
+        "unitNonzeroLabels": 3
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a",
+        "sourceSha256": "9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077",
         "modules": 3604,
-        "warnings": 4859,
+        "warnings": 4896,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,896 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -104547,7 +105519,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "6fd7ca9c9d8269e60f0ae09c4c8dcc8910e0e12e90dbb7f67c8e16a20a7d0dc1",
+      "sha256": "efd1e34f681a6e3b7c0498c44b8e796399e2e97da294ab748714dc0646b04745",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -104562,11 +105534,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 974,
+        "completeLemmas": 986,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "b94c3936b7357f21a8265a9e5a0e6398055078fe24db355cc3e3d746d827eb6b"
+        "sha256": "5e65dbfb5ea1619e5d6c745f5206916b3aceede453f3cbe7a11b8386fa342f10"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -104704,17 +105676,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a",
+        "sourceSha256": "9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077",
         "modules": 3604,
-        "warnings": 4859,
+        "warnings": 4896,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,896 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "8b1144aaa5482fc81f76f46979f691a01a5d1e5f",
+      "base": "477fed2b30be04cb7cd1887e85dc0971618be3b6",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -115678,6 +116650,54 @@
         "warnings": 4859,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,859 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0db5e50f59e773ecaa6c30fe58fc7b9fd912b806026d38c74888d1b5991d1e8a.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertSourcePresentation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5446,
+      "previousHead": "80ba5b40f4f91bb6ae4c9106201af1f73c25e633",
+      "previousMerge": "3edc64cee286ed3067fbf56d2c24c612c698c2d0",
+      "preservedWholeNodes": 1580,
+      "preservedBaseline": 1067,
+      "preservedFindings": 26,
+      "newNodes": 15,
+      "reading": "The source rank-comparison transition on Kubert 183 and the generation proof on 184–185 were reread. The actual internal, finite global and full universal quotient maps from #5414 were inspected. Native free-abelian lift and basis, finite-module, integer-linear and rank APIs were read at their pins and used directly, without new generic presentation or rank machinery.",
+      "boundary": "The actual source free-abelian presentation now surjects onto the internal quotient and, through the existing comparison, the finite quotient by global relations. Both are finitely generated integer modules and have the primitive-point rank upper bound. The actual ambient source image equals the existing level image. Next construct the actual primitive-point transfer maps for every divisibility M|N, as required on Kubert 187. Prove primitive-root existence for arbitrary divisibility using support completion, coprime lower roots and a primitive complementary point. Then complete the independent rank lower bound using the Cartan or rational model of Kubert 186–199, and combine it with these actual maps through native module APIs to prove independence, freeness and equality of internal/global relations. Do not assume a renamed full-rank certificate. The source finite calculations are not a general lower bound. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "0d239d95dbe322a93493ed922810497336df9bcd",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source presentations supply the rank upper bounds and preserve all three quotient codomains. The independent general lower bound, freeness and internal/global equality remain open.",
+      "publication": {
+        "base": "477fed2b30be04cb7cd1887e85dc0971618be3b6",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 29,
+        "pointLabels": 411,
+        "sourceGenerators": 304,
+        "validRelationRows": 563,
+        "exactRationalRanks": 29,
+        "surjectivePresentations": 29,
+        "unitNonzeroLabels": 3
+      },
+      "numericalMethod": "Exact rational row reduction of the actual complete ordinary relation vectors at 29 small levels in dimensions one through three. Source columns retain the actual source point labels. The augmented relation/source matrix spans every point coordinate, and the finite quotient ranks equal the already known source cardinalities in these examples. These finite rank checks do not prove the general independent lower bound or integral freeness, and do not compute the infinite global intersection of relations.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077",
+        "modules": 3604,
+        "warnings": 4896,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,896 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b3184712b7e901650ad30b5b8c6137454a6673fe762c4d8456d4271691b6077.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }

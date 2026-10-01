@@ -24744,3 +24744,130 @@ example : kubertReducedGeneratorSpan 0 30=⊤ := by sorry
 example (x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) : (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of x))∈kubertReducedGeneratorSpan 0 12 := by sorry
 end
 end DirichletPadic.SuggestedKubertCompositeTests
+
+/- Kubert actual source presentations and finite-level rank upper bounds. -/
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (k : ℕ) (N : ℕ+)
+variable [Fintype (nsmulAddMonoidHom (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+
+noncomputable def kubertSourceMap :
+    FreeAbelianGroup (kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') →+
+      (FreeAbelianGroup ((nsmulAddMonoidHom
+        (α := Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)).ker) ⧸
+        kubertInternalLevelRelations
+          (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0) := by sorry
+
+lemma kubertPresentation_sourceMap_of
+    (t : kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') :
+    kubertSourceMap k N (FreeAbelianGroup.of t)=
+      QuotientAddGroup.mk' (kubertInternalLevelRelations
+        (X := Fin (k+1) → AddCircle (1 : ℚ)) N 0)
+          (FreeAbelianGroup.of ⟨t.val,
+            kubertGeneratorProduct_generators_mem_level k (N : ℕ) N.pos.ne' t.property⟩) := by sorry
+
+lemma kubertPresentation_sourceMap_range : (kubertSourceMap k N).range=
+    kubertReducedGeneratorSpan k N := by sorry
+
+lemma kubertPresentation_sourceMap_surjective : Function.Surjective (kubertSourceMap k N) := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (k : ℕ) (N : ℕ+)
+variable [Fintype (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+variable [∀ (m : ℕ+) (a : (Fin (k+1) → AddCircle (1 : ℚ))), Fintype {c : (Fin (k+1) → AddCircle (1 : ℚ)) // (m : ℕ) • c=a}]
+
+noncomputable def kubertSourceGlobalMap : FreeAbelianGroup (kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') →+ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker) ⧸ (kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker => (x : (Fin (k+1) → AddCircle (1 : ℚ)))))) := by sorry
+
+lemma kubertPresentation_sourceGlobalMap_of (t : kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') :
+    kubertSourceGlobalMap k N (FreeAbelianGroup.of t)=
+      QuotientAddGroup.mk' ((kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker => (x : (Fin (k+1) → AddCircle (1 : ℚ)))))) (FreeAbelianGroup.of ⟨t.val,kubertGeneratorProduct_generators_mem_level k (N : ℕ) N.pos.ne' t.property⟩) := by sorry
+
+lemma kubertPresentation_sourceGlobalMap_surjective : Function.Surjective (kubertSourceGlobalMap k N) := by sorry
+
+noncomputable def kubertSourceToGlobal : FreeAbelianGroup (kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') →+ (FreeAbelianGroup (Fin (k+1) → AddCircle (1 : ℚ)) ⧸ kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) := by sorry
+
+lemma kubertPresentation_sourceToGlobal_of (t : kubertAdmissibleGenerators k (N : ℕ) N.pos.ne') :
+    kubertSourceToGlobal k N (FreeAbelianGroup.of t)=
+      QuotientAddGroup.mk' (kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (t : (Fin (k+1) → AddCircle (1 : ℚ)))) := by sorry
+
+lemma kubertPresentation_sourceToGlobal_range : (kubertSourceToGlobal k N).range=
+    (kubertLevelToGlobal (X := (Fin (k+1) → AddCircle (1 : ℚ))) N 0).range := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+variable (k : ℕ) (N : ℕ+)
+
+lemma kubertPresentation_source_module_finite : Module.Finite ℤ (FreeAbelianGroup (kubertAdmissibleGenerators k (N : ℕ) N.pos.ne')) := by sorry
+
+variable [Fintype (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+
+lemma kubertPresentation_internal_module_finite : Module.Finite ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) N 0) := by sorry
+
+lemma kubertPresentation_internal_finrank_le : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) N 0) ≤
+    Nat.card (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) := by sorry
+
+variable [∀ (m : ℕ+) (a : (Fin (k+1) → AddCircle (1 : ℚ))), Fintype {c : (Fin (k+1) → AddCircle (1 : ℚ)) // (m : ℕ) • c=a}]
+
+lemma kubertPresentation_global_level_module_finite : Module.Finite ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker) ⧸ (kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker => (x : (Fin (k+1) → AddCircle (1 : ℚ)))))) := by sorry
+
+lemma kubertPresentation_global_level_finrank_le : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker) ⧸ (kubertRelations (X := (Fin (k+1) → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin (k+1) → AddCircle (1 : ℚ))) (N : ℕ)).ker => (x : (Fin (k+1) → AddCircle (1 : ℚ)))))) ≤
+    Nat.card (kubertPrimitivePoints (Fin (k+1) → AddCircle (1 : ℚ)) (N : ℕ)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertPresentationTests
+open scoped BigOperators Classical
+noncomputable section
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker]
+variable [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker]
+variable [∀ (m : ℕ+) (a : (Fin 1 → AddCircle (1 : ℚ))), Fintype {c : (Fin 1 → AddCircle (1 : ℚ)) // (m : ℕ) • c=a}]
+-- actual_source_generator_maps_to_its_point_label
+example (t : kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5)) : kubertSourceMap 0 6 (FreeAbelianGroup.of t)=QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 6 0) (FreeAbelianGroup.of ⟨t.val,kubertGeneratorProduct_generators_mem_level 0 6 (by decide) t.property⟩) := by sorry
+-- integer_coefficients_are_preserved
+example (a : FreeAbelianGroup (kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5))) (z : ℤ) : kubertSourceMap 0 6 (z • a)=z • kubertSourceMap 0 6 a := by sorry
+-- unit_zero_point_label_is_not_zero
+example (t : kubertAdmissibleGenerators 0 1 (Nat.succ_ne_zero 0)) : kubertSourceMap 0 1 (FreeAbelianGroup.of t)≠0 := by sorry
+-- source_map_evaluation
+example (t : kubertAdmissibleGenerators 0 12 (Nat.succ_ne_zero 11)) : kubertSourceMap 0 12 (FreeAbelianGroup.of t)=QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) (FreeAbelianGroup.of ⟨t.val,kubertGeneratorProduct_generators_mem_level 0 12 (by decide) t.property⟩) := by sorry
+-- source_range_is_the_existing_subgroup
+example : (kubertSourceMap 0 6).range=kubertReducedGeneratorSpan 0 6 := by sorry
+-- source_presentation_is_onto
+example : Function.Surjective (kubertSourceMap 0 12) := by sorry
+-- source_global_map_factors_through_comparison
+example (a : FreeAbelianGroup (kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5))) : kubertSourceGlobalMap 0 6 a=kubertLevelComparison 6 0 (kubertSourceMap 0 6 a) := by sorry
+-- global_source_map_preserves_integer_coefficients
+example (a : FreeAbelianGroup (kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5))) (z : ℤ) : kubertSourceGlobalMap 0 6 (z • a)=z • kubertSourceGlobalMap 0 6 a := by sorry
+-- finite_global_quotient_has_source_preimages
+example (z : (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker) ⧸ (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker => (x : (Fin 1 → AddCircle (1 : ℚ))))))) : ∃ a,kubertSourceGlobalMap 0 6 a=z := by sorry
+-- global_source_generator_keeps_its_label
+example (t : kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5)) : kubertSourceGlobalMap 0 6 (FreeAbelianGroup.of t)=QuotientAddGroup.mk' ((kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker => (x : (Fin 1 → AddCircle (1 : ℚ)))))) (FreeAbelianGroup.of ⟨t.val,kubertGeneratorProduct_generators_mem_level 0 6 (by decide) t.property⟩) := by sorry
+-- finite_global_source_presentation_is_onto
+example : Function.Surjective (kubertSourceGlobalMap 0 12) := by sorry
+-- ambient_source_map_uses_actual_points
+example (t : kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5)) : kubertSourceToGlobal 0 6 (FreeAbelianGroup.of t)=QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (t : (Fin 1 → AddCircle (1 : ℚ)))) := by sorry
+-- ambient_map_factors_through_level_map
+example (a : FreeAbelianGroup (kubertAdmissibleGenerators 0 6 (Nat.succ_ne_zero 5))) : kubertSourceToGlobal 0 6 a=kubertLevelToGlobal 6 0 (kubertSourceMap 0 6 a) := by sorry
+-- source_image_is_the_existing_level_image
+example : (kubertSourceToGlobal 0 6).range=(kubertLevelToGlobal (X := (Fin 1 → AddCircle (1 : ℚ))) 6 0).range := by sorry
+-- ambient_evaluation_formula
+example (t : kubertAdmissibleGenerators 0 12 (Nat.succ_ne_zero 11)) : kubertSourceToGlobal 0 12 (FreeAbelianGroup.of t)=QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (t : (Fin 1 → AddCircle (1 : ℚ)))) := by sorry
+-- ambient_range_equality
+example : (kubertSourceToGlobal 0 12).range=(kubertLevelToGlobal (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0).range := by sorry
+-- actual_source_module_is_finite
+example : Module.Finite ℤ (FreeAbelianGroup (kubertAdmissibleGenerators 0 12 (Nat.succ_ne_zero 11))) := by sorry
+-- internal_quotient_is_finitely_generated
+example : Module.Finite ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0) := by sorry
+-- internal_rank_is_bounded_by_primitive_count
+example : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 12 0)≤Nat.card (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 12) := by sorry
+-- unit_rank_upper_bound
+example : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((1 : ℕ+) : ℕ)).ker) ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 1 0)≤1 := by sorry
+-- finite_global_quotient_is_finitely_generated
+example : Module.Finite ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker => (x : (Fin 1 → AddCircle (1 : ℚ)))))) := by sorry
+-- finite_global_rank_upper_bound
+example : Module.finrank ℤ (FreeAbelianGroup ((nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker) ⧸ (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0).comap (FreeAbelianGroup.map (fun x : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((12 : ℕ+) : ℕ)).ker => (x : (Fin 1 → AddCircle (1 : ℚ))))))≤Nat.card (kubertPrimitivePoints (Fin 1 → AddCircle (1 : ℚ)) 12) := by sorry
+end
+end DirichletPadic.SuggestedKubertPresentationTests
