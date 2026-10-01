@@ -33,8 +33,8 @@ ordinary stackification to DiamondsAndVStacks D0. This finding concerns VS4 and 
 **/1 (high): VS4 conflates compactness with the ULA criterion.** RS-05 keeps for VS4 "compact objects of finite HN
 support and perfect compact-open invariants". The source has two separate criteria:
 
-- **Compactness (V.4.1, and VII.7.4 for D_lis).** An object is compact when every stratum restriction is compact, that is,
-  in the thick closure of the c-Ind_K Λ with K pro-p, and the object vanishes on almost all strata.
+- **Compactness (V.4.1, and VII.7.4 for D_lis).** An object is compact when every stratum restriction is compact, that
+  is, in the thick closure of the c-Ind_K Λ with K pro-p, and the object vanishes on almost all strata.
 - **ULA (V.7.1, and VII.7.9 for D_lis).** An object is ULA when every M_b^K is perfect.
 
 **The counterexample is right.** On the degree-0 stratum of Bun_{GL_1} over Q_5 with Λ = F_3, the generator
