@@ -33338,7 +33338,8 @@
     "REV-PAPER-KISIN-ZHOU-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4041"
   },
   {
    "id": "REV-RT-PAPER-KISIN-ZHOU-25",
