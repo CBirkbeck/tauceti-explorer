@@ -35362,8 +35362,9 @@
     "REV-PAPER-YUAN-ZHANG-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4103"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4103",
+   "finishedAt": "2026-10-01T18:16:52Z"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -37410,8 +37411,9 @@
     "REV-PAPER-CASTELLA-ETAL-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CASTELLA-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4168"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4168",
+   "finishedAt": "2026-10-01T18:16:56Z"
   },
   {
    "id": "REV-RT-PAPER-CASTELLA-ETAL-22",
@@ -38192,7 +38194,8 @@
     "REV-PAPER-CLOZEL-THORNE-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CLOZEL-THORNE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4200"
   },
   {
    "id": "REV-RT-PAPER-CLOZEL-THORNE-17",
@@ -38573,7 +38576,8 @@
     "REV-PAPER-IM-KIM-LE-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4213"
   },
   {
    "id": "RT-PAPER-VANHOFTEN-24",
@@ -39844,8 +39848,9 @@
     "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4263"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4263",
+   "finishedAt": "2026-10-01T18:17:01Z"
   },
   {
    "id": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
