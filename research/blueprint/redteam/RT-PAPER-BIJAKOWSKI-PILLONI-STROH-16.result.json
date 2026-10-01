@@ -1,0 +1,115 @@
+{
+  "redteam": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "inputCommit": "e77fc6af2ce1556ba6e593af63fdcaf059480b30",
+  "summary": "Read all 40 published pages against all 43 accepted items, 19 prerequisites, five routes, the reader and independent review. Four findings: two high (unrestricted formal étaleness and a negative-weight counterexample to the bad-operator bound), two medium (a false product-map helper in the quasi-compactness proof and an already planned finiteness criterion marked missing). These concern the exported statements and planning frontier; the corrected hypotheses suffice for the intended classicality argument. The 14 previously confirmed sourceIssues are credited rather than reported again.",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf",
+      "citation": "Bijakowski–Pilloni–Stroh, Annals of Mathematics 183 (2016), 975–1014",
+      "read": "2026-10-01",
+      "sha256": "13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c",
+      "scope": "All 40 pages, including proofs and bibliography; inspected page images 984, 1003 and 1004."
+    },
+    {
+      "kind": "prerequisite",
+      "url": "https://web.math.princeton.edu/~nmk/old/serretatelocmod.pdf",
+      "citation": "Katz, Serre–Tate local moduli, LNM 868 (1981), 138–202",
+      "read": "2026-10-01",
+      "sha256": "9c1209a71dbcd8f14da7cc42cf768fcfabaf43d2dc317483a992d5ceaf377938",
+      "scope": "PDF pages 1–4 and 6, especially Theorem 1.2.1 (printed p.143), and PDF pages 31–34, especially Lemma 4.1.3 (printed p.170). Images of pp.143 and 170 inspected; not a full-paper read."
+    },
+    {
+      "kind": "prerequisite-author-copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/pro_an.pdf",
+      "citation": "Pilloni, Prolongement analytique sur les variétés de Siegel, author copy of Duke Math. J. 157 (2011)",
+      "read": "2026-10-01",
+      "sha256": "79a30aa640839ad284d2bed18f1efa804b57cda1df1c77f82415822c6a1866c4",
+      "scope": "PDF pp.27 and 29: weights, norms and Lemma 5.1 / Propositions 5.2–5.3. The published version was not obtained."
+    },
+    {
+      "kind": "precursor",
+      "url": "https://arxiv.org/pdf/1212.2035v2",
+      "citation": "Bijakowski, Classicité de formes modulaires de Hilbert et de Siegel, arXiv:1212.2035v2, 28 April 2015",
+      "read": "2026-10-01",
+      "sha256": "5e1c4159dd6fb06318b37e248b305bea002774fff005a1415657acaa260b3a1f",
+      "scope": "Selected passages: Lemma 2.20 at PDF p.18; Proposition 3.14 and Lemma 3.15 with proof at pp.22–23. This predates the published BPS article and is not a correction."
+    },
+    {
+      "kind": "prerequisite-author-copy",
+      "url": "https://math.stanford.edu/~conrad/papers/genpaper.pdf",
+      "citation": "Conrad, Modular curves and rigid-analytic spaces, 51-page author PDF",
+      "read": "2026-10-01",
+      "sha256": "ab6daecb7fa0679170fdd6b92021f206a9c990f621fc246eb146c3220d64e2bc",
+      "scope": "Appendix A.1, pp.37–39, including A.1.2, A.1.3, A.1.4 and the proof of A.1.2; hash matches the integrated AdicSpacesPartII source."
+    }
+  ],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "checked": [
+    "Independence: extraction by ClaudeCode cc-fb70e5 and review by ClaudeCode cc-58621d; this session authored neither. Claimed issue #5063 only after bot confirmation.",
+    "Every accepted item 1–43, all 19 prerequisite records, all five complete route objects, complete reader and independent review reports. Read each E1–E14 sourceIssue's printed claim, correction and reasoning; used the independent review for their accepted disposition.",
+    "Full published source: PEL hypotheses and matrix Morita reduction; BT/Iwahori models; weights, degree and correspondences; degree dynamics; rigid preliminaries; continuation and good/bad decompositions; norm estimates; Kassaei gluing; compactifications, Köcher and GAGA.",
+    "All 35 missing items routed exactly once; every current planned stage and existing destination resolves in a fresh atlas. HigherHidaAndColemanTheory is a proposal, not an already integrated roadmap. Its id, parent, title and area agree with the accepted Pilloni-20, Boxer–Calegari–Gee–Pilloni-21 and Boxer–Pilloni-26 proposals.",
+    "Read relevant layer contracts: PELModuli M0–M6; AbelianSchemesAndArithmeticModuli A4; HodgeTateAndCanonicalSubgroups T0; AutomorphicBundles B2–B5; ShimuraCompactifications C5–C6; AdicSpacesPartII R0–R5; OverconvergentAutomorphicForms O3/O4/O6/O7/O8. Read available focused library-audit target notes for PEL M0/M2/M4, A4, bundles B2/B4 and C5.",
+    "Read the integrated AdicSpacesPartII fibral-finiteness-criterion node in full and its primary Conrad source. Inspected the AdicSpacesPartII, AutomorphicBundles and O8 packet node/gap inventories; these are partial packets, not completed library implementations.",
+    "At the pinned Mathlib commit, read ModuleCat.matrixEquivalence and moritaEquivalenceMatrix / IsMoritaEquivalent.matrix in Mathlib/RingTheory/Morita/Matrix.lean. Their nonempty matrix-index requirement is supplied by the paper's positive matrix size. No library misattribution established for item 4.",
+    "Pinned whole-Lean-text searches for Kassaei, Serre–Tate, Barsotti–Tate, canonical subgroup, overconvergent and classicality: inspected all resulting lines (Mathlib bibliography and unrelated Tau Ceti group-theory uses). No specialized implementation found by this bounded search; no claim of an exhaustive semantic absence proof.",
+    "Tested formal étaleness on characteristic-zero dual numbers using an explicit nonconstant Legendre j-invariant. Checked the bad-operator inequality on a genus-two ordinary canonical branch of scalar weight (-1,-1), with Katz's differential calculation and the paper's p^(-3) normalization.",
+    "Tested the product map of Lemma 4.4.3 by dimension for k=2 and positive-dimensional PEL moduli. Gave a replacement using finite coordinate maps and finite intersections of quasi-compact opens; retained the already accepted closed-box correction E12.",
+    "Errata screen on 2026-10-01: Annals article page, title/erratum/corrigendum searches, Crossref record and updates filter (no update found). The selected 2015 Bijakowski precursor repeats the product-map and norm-step defects. This bounded search is not a claim that no correction exists.",
+    "Fresh atlas has 2907 actual stages and 8322 edge records, of which 8246 join actual stages; its actual-stage dependency graph is acyclic. The 76 proxy-touching records are not actual-stage cycle failures. This review proposes no dependency edges.",
+    "No Lean source changed, build run or language server started. Prerequisite papers were read only to the explicit extents recorded above."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json: item 7; HigherHidaAndColemanTheory route's BT/Iwahori construction",
+      "claim": "Item 7 asserts that the algebraic morphism P from the integral PEL model to the BT stack is formally étale without restricting to p-nilpotent bases. It is false on characteristic-zero infinitesimal thickenings. Item 6's correct p-nilpotence restriction is not carried into this derived assertion.",
+      "evidence": "Published §1.3, p.984, writes the unrestricted P and calls it 'formellement étale'; Katz, Serre–Tate local moduli, Theorem 1.2.1, printed p.143, explicitly assumes p nilpotent in the base ring. Over an algebraically closed characteristic-zero field K, finite étale group schemes, and hence p-divisible groups with their compatible levels, lift uniquely across K[ε]/(ε²)→K. Elliptic curves do not: for E_t:y²=x(x−1)(x−t), j(t)=256(t²−t+1)³/(t²(1−t)²), and j'(3)=31360/27≠0. Thus t=3+ε gives a nontrivial first-order deformation with the same lifted BT group. Polarization and prime-to-p level do not remove this example. P is not even formally unramified there.",
+      "fix": "Keep the algebraic construction of P and the Iwahori fiber product. Restrict its formal-étaleness assertion to p-locally-nilpotent test schemes, equivalently the relevant p-adic formal completions with their fixed dimension/signature components. Import this restricted Serre–Tate theorem from AbelianSchemesAndArithmeticModuli A4. Add a sourceIssue for the missing qualification on p.984 and propagate the qualification into item 7, the reader and the Part II brief."
+    },
+    {
+      "id": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json: item 28; HigherHidaAndColemanTheory norm-estimate obligation",
+      "claim": "The bad-operator norm bound is exported for every dominant integral weight, but replacing the actual degree by a lower bound requires a nonnegative minimum weight. For negative minimum weight the claimed inequality can fail, not merely become unproved.",
+      "evidence": "Published Lemma 4.4.5, p.1004, only assumes “deg L ≥ ν”; the weight domain on p.994 allows all dominant GL-weights. In type C take F0=Q, a1=2, d1=n=1, κ=(-1,-1) and an ordinary étale Iwahori flag. Its canonical multiplicative complement L=μ_p² has degree 2 and gives a single branch. Katz Lemma 4.1.3, printed p.170, gives canonical-isogeny pullback p on invariant differentials, hence p² on det ω and p^(-2) on det ω^(-1). BPS §2.3 normalizes this branch by p^(-3); on integral local trivializations its operator norm is p^5. The permitted lower bound ν=1 instead predicts p^(3−1·(-1))=p^4. The same sign-sensitive replacement is explicit in Bijakowski v2, Lemma 3.15 proof, pp.22–23.",
+      "fix": "State the degree-lower-bound version with c_i≥0, where c_i is min_j k_{i,j,a_i} in type C or min_j(k_{i,j,a_i}+l_{i,j,b_i}) in type A; otherwise retain actual partial degrees with their signed weights rather than substitute ν. Add a sourceIssue identifying the missing sign condition in Lemma 4.4.5 and update item 28, reader and Part II brief. In the classicality application explicitly discharge positivity using Hypothesis 4.5.1 and the nonnegative eigenvalue valuations stated on p.994. This repairs the exported lemma without changing the intended small-slope theorem."
+    },
+    {
+      "id": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/3",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json: item 27's proof locator Lemma 4.4.3; sourceIssues and Part II good/bad decomposition brief",
+      "claim": "The extraction leaves unmarked a false helper assertion in the proof of Lemma 4.4.3: the map q:B_k^0→(X_Iw^rig)^k of simultaneous quotients is not étale for k≥2 on positive-dimensional moduli. A blueprint following the accepted source would be asked to prove an impossible helper.",
+      "evidence": "Published p.1003 says 'p et q sont finis et étales'. The domain B_k^0 is an open in a finite étale cover of X_Iw^rig and has dimension D, while the target product has dimension kD. For genus-two Siegel moduli D=3 and k=2 with two distinct complements, the dimensions are 3 and 6, ruling out étaleness. The predecessor's Lemma 2.20, PDF p.18, repeats the assertion. The desired quasi-compactness conclusion has a repair: each coordinate quotient map from the full B_k^rig factors through the finite étale forgetful map to C_i^rig and p2; §2.2, pp.989–990, supplies finiteness of both correspondence projections.",
+      "fix": "Add a sourceIssue for the proof helper and attach it to item 27 and its design obligation. Work on E12's closed quasi-compact degree boxes. On the full B_k^rig pull back V_l separately along each finite coordinate map, intersect these finitely many quasi-compact opens with p^(-1)(U), and apply the finite étale p-image result (Proposition 4.1.4). Separatedness supplies quasi-separatedness for the intersections. Do not assert that the product map is étale or that restriction to an arbitrary open preserves its finiteness. Preserve Lemma 4.4.3 and Theorem 4.4.1 with this repaired argument."
+    },
+    {
+      "id": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16/4",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json: item 21 status/planned, route 1 explanation and summary; corresponding reader frontier",
+      "claim": "The finiteness criterion of Proposition 4.1.8 is marked missing although the current integrated atlas already plans the stronger Conrad criterion at AdicSpacesPartII:R2/fibral-finiteness-criterion. The route is in the correct roadmap, but its missing frontier would commission an already owned theorem.",
+      "evidence": "data/decompositions/AdicSpacesPartII.json, node AdicSpacesPartII:R2/fibral-finiteness-criterion, states and decomposes Conrad A.1.2: a flat rigid map is finite iff “quasi-compact and separated with finite fibers” and its fiber rank is locally constant. Read the source at https://math.stanford.edu/~conrad/papers/genpaper.pdf, pp.37–39 (matching accepted hash ab6daecb…). For g=f|U in item 21, étaleness supplies flatness, the quasi-compact open immersion and finite f supply quasi-compactness, and the constant geometric fiber cardinality equals the fiber rank. Thus A.1.2 makes g finite. The open U is then also closed in X (its map to the separated finite Y-space X is proper), and the complement is finite étale. These are applications of the existing R2 criterion and R0 finite/étale API, not a new missing finiteness theorem.",
+      "fix": "Mark item 21 planned, with AdicSpacesPartII:R2 (and R0 for the finite/étale consequence) and an exact note naming the existing fibral-finiteness-criterion node. Keep BPS Proposition 4.1.8 as an application/alternate source in the existing source route if useful; section 16 permits that. Update the baseline counts from 1 library / 7 planned / 35 missing to 1 / 8 / 34. Retain the packet's unchecked implementation status and documented formal-model imports; planned does not mean built."
+    }
+  ],
+  "inputHashes": {
+    "data/decompositions/AdicSpacesPartII.json": "d4909cc2642583c2b1d6e982d9fdd72ca072889390f149b5b5e1e252438fea53",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md": "1eab94f16c7bf1990623d609420a2d8f9af4c9014a93ec03dbff20f19a5c96b3",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json": "6bcafabe9d9db85a7d9154d00cb5045619a1f0279b8967dde17582e30e9b7070",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.review.json": "7d3c1231923dbfb49c655a8660b2c034cc3c6ef13b745bf33712ebf06407a090"
+  }
+}
