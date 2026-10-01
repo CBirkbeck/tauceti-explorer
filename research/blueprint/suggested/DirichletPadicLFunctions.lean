@@ -1,3 +1,4 @@
+import Mathlib.NumberTheory.Padics.MahlerBasis
 import Mathlib.NumberTheory.Wilson
 import Mathlib.RingTheory.RootsOfUnity.Lemmas
 import Mathlib.Data.Nat.Digits.Lemmas
@@ -18996,3 +18997,72 @@ example (ζ : 𝒪[K]) (hζ : IsPrimitiveRoot ζ 3) : grossKoblitzFieldPi 3 K (b
 end Field
 end
 end DirichletPadic.SuggestedGrossKoblitzPiTests
+
+/- Source endpoint and norm-domain checks for Robert2001. -/
+
+namespace DirichletPadic
+open ValuativeRel
+
+section Characters
+variable (p : ℕ) [Fact p.Prime] (K : Type*) [Field K] [ValuativeRel K]
+  [TopologicalSpace K] [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [Algebra (ZMod p) 𝓀[K]]
+
+lemma grossKoblitz_negativeGauss_zero (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    -gaussSum (grossKoblitzInverseChar K 0)
+      (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+
+lemma grossKoblitz_negativeGauss_card_sub_one (ζ : K) (hζ : IsPrimitiveRoot ζ p) :
+    -gaussSum (grossKoblitzInverseChar K (Nat.card 𝓀[K]-1))
+      (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+
+end Characters
+
+section Norms
+variable {F K : Type*} [Field F] [Fintype F] [NormedField K]
+
+
+variable [CharZero K]
+
+variable [IsUltrametricDist K]
+
+lemma robert_cubicBinomial_extensionNorm (h3 : ‖(3 : K)‖=(1/3 : ℝ)) (u : K) (hu : u^2=-1) :
+    ‖Ring.choose u 3‖=3 := by sorry
+
+lemma robert_cubicBinomial_extensionCounterexample (h3 : ‖(3 : K)‖=(1/3 : ℝ)) (u : K) (hu : u^2=-1) :
+    ‖u‖≤1 ∧ ¬‖Ring.choose u 3‖≤1 := by sorry
+
+end Norms
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertSourceTests
+open ValuativeRel
+noncomputable section
+section Characters
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [Algebra (ZMod 3) 𝓀[K]]
+-- zero_exponent_value
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : -gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+-- zero_character_still_zero
+example : grossKoblitzInverseChar K 0 0=0 := by sorry
+-- ternary_endpoint
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) (hq : Nat.card 𝓀[K]=3) : -gaussSum (grossKoblitzInverseChar K 2) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+-- degree_two_endpoint
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) (hq : Nat.card 𝓀[K]=9) : -gaussSum (grossKoblitzInverseChar K 8) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+-- endpoint_zero_comparison
+example (ζ : K) (hζ : IsPrimitiveRoot ζ 3) : -gaussSum (grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=-gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) := by sorry
+end Characters
+section Norms
+variable {K : Type*} [NormedField K] [CharZero K] [IsUltrametricDist K]
+-- quadratic_cubic_norm
+example (h3 : ‖(3 : K)‖=(1/3 : ℝ)) (u : K) (hu : u^2=-1) : ‖Ring.choose u 3‖=3 := by sorry
+-- negative_quadratic_cubic_norm
+example (h3 : ‖(3 : K)‖=(1/3 : ℝ)) (u : K) (hu : u^2=-1) : ‖Ring.choose (-u) 3‖=3 := by sorry
+-- unit_point_not_bounded
+example (h3 : ‖(3 : K)‖=(1/3 : ℝ)) (u : K) (hu : u^2=-1) : ‖u‖≤1 ∧ ¬‖Ring.choose u 3‖≤1 := by sorry
+-- base_integral_norm
+example : ‖(mahler 3 : C(ℤ_[3],ℤ_[3]))‖=1 := by sorry
+-- base_integral_value
+example : mahler 3 (3 : ℤ_[3])=1 := by sorry
+end Norms
+end
+end DirichletPadic.SuggestedRobertSourceTests
