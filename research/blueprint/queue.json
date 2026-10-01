@@ -36923,7 +36923,9 @@
     "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4149",
+   "finishedAt": "2026-10-01T17:28:14Z"
   },
   {
    "id": "RT-PAPER-GAN-SAVIN-23",
@@ -37519,8 +37521,9 @@
     "REV-PAPER-BENOIST-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4171"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4171",
+   "finishedAt": "2026-10-01T17:28:19Z"
   },
   {
    "id": "RT-PAPER-CALEGARI-GERAGHTY-18",
@@ -37608,7 +37611,8 @@
     "REV-PAPER-BHATT-SCHOLZE-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4175"
   },
   {
    "id": "RT-PAPER-COLMEZ-NIZIOL-25",
@@ -39186,7 +39190,8 @@
     "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4239"
   },
   {
    "id": "RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
