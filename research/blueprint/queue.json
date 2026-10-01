@@ -37491,8 +37491,9 @@
     "REV-PAPER-BENOIST-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4172"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4172",
+   "finishedAt": "2026-10-01T16:04:35Z"
   },
   {
    "id": "REV-RT-PAPER-BENOIST-WITTENBERG-20",
@@ -37578,7 +37579,8 @@
     "REV-PAPER-BHATT-SCHOLZE-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4176"
   },
   {
    "id": "REV-RT-PAPER-BHATT-SCHOLZE-17",
