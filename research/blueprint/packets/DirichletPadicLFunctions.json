@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Fifteen L3 nodes construct the actual primary coordinates of the existing native level kernel, their inverse-sum and component formulas, and the primitive-point product equivalence with its cardinality consequence. The actual point normalization is fixed before the source generating sets are defined. All 1,430 predecessor nodes and 998 baseline records remain whole.",
+  "summary": "Thirty-seven L3 nodes define the source exceptional primitive sets, reduced strata and admissible union on actual rational-torus points. Divisor-level primary compatibility and support-order admissibility prove the actual union-to-product equivalence and Theorem 1.8(i). All 1,445 predecessor nodes and 1,018 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7140,6 +7140,104 @@
         "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
         "provides": "The native natural cardinality of a finite-index dependent product is the product of the individual natural cardinalities.",
         "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The native integer scalar action, generated additive APIs, internal-sum maps and exact inverse evaluations were checked in source and exercised in the complete probe. The retained reading note records source files and the normalization boundary."
+      },
+      {
+        "ref": "mathlib:Finset.prod_mul_prod_compl",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "The product over a finite subset multiplied by the product over its complement equals the full finite product.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Finset.prod_filter",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "A filtered finite product equals the full product of the conditional factor, with one off the filter.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Pi.evalMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Pi/Lemmas.lean",
+        "provides": "Evaluation at an index as a native homomorphism from a dependent function group, including its generated additive version.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Subgroup.inclusion",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "The existing inclusion homomorphism for nested native subgroups, including its generated additive version; no new level-inclusion map is defined.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Set.toFinite",
+        "kind": "theorem",
+        "module": "Mathlib/Basic/Finite/Defs.lean",
+        "provides": "The existing bridge from a native finite subtype instance to the corresponding finite-set proposition.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Finset.isEmpty_coe_sort",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Finset/Empty.lean",
+        "provides": "A native finite-set subtype is empty exactly when the finite set is empty.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.ordProj_dvd_ordProj_of_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "Under divisibility into a nonzero level, each full prime-power projection at the smaller level divides its counterpart at the larger level.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.factorization_eq_of_coprime_left",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "At a prime factor of the first member of a coprime product, the product exponent equals the exponent in that first member.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "A prime dividing a nonzero natural number has a positive native factorization exponent.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_prod_left_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/BigOperators.lean",
+        "provides": "A finite product is coprime to a natural number exactly when each factor is coprime to that number.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_prod_right_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/BigOperators.lean",
+        "provides": "A natural number is coprime to a finite product exactly when it is coprime to each factor.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors_mono",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Divisibility into a nonzero natural level includes the smaller native prime-factor set in the larger one.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primeFactors_iff_mem_primeFactorsList",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Membership in the native finite prime-factor set agrees with membership in the native prime-factor list.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
+      },
+      {
+        "ref": "mathlib:Set.finite_iUnion",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Lattice.lean",
+        "provides": "An indexed union over a finite index type is finite when each constituent set is finite.",
+        "checked": "Complete statement, hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. The retained reading note records the exact source ranges; the native inclusion, evaluation, factorization, finite-union and product APIs are exercised in the complete proof probe."
       }
     ]
   },
@@ -95746,6 +95844,2051 @@
       "acceptance": [
         "Construct the actual native equivalences and retain point values under subtype transport. Prove inverse-sum and same/other component formulas. The level-six normalization test must give the 3-primary component 4 for point 1 in Z/6, rejecting the complementary multiple 2. State no global generating-set, rank or freeness result from these coordinate calculations."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Divisor levels include as native torsion kernels",
+      "kind": "lemma",
+      "statement": "If M divides N, the native kernel T_M is contained in T_N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Convert the annihilation certificate to divisibility of the native point order.",
+        "Compose that divisibility with M dividing N and convert back to N-annihilation. The inclusion map itself is the existing native subgroup inclusion."
+      ],
+      "prerequisites": [
+        "mathlib:MonoidHom.ker",
+        "mathlib:orderOf_dvd_of_pow_eq_one",
+        "mathlib:orderOf_dvd_iff_pow_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_level_mono"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.level_four_inside_twelve",
+          "kind": "compatibility",
+          "statement": "The actual order-four kernel includes in the order-twelve kernel."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-lifted-component-same",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "An included primary point keeps its coordinate",
+      "kind": "lemma",
+      "statement": "For a prime p dividing M and a point y in T_(p^v_p(M)), include y in T_N. Its p-primary coordinate at N has underlying value y.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Native full-prime-power divisibility under M dividing N shows that y is killed by the full p-power at N.",
+        "Apply the established same-component evaluation at N to the actual included point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-same",
+        "mathlib:Subgroup.inclusion",
+        "mathlib:Nat.primeFactors_mono",
+        "mathlib:Nat.ordProj_dvd",
+        "mathlib:Nat.ordProj_dvd_ordProj_of_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_lifted_component_same"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.included_primary_point_fixed",
+          "kind": "computation",
+          "statement": "The order-four point is fixed in the 2-primary coordinate after inclusion into level twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-lifted-component-other",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "An included primary point has no other components",
+      "kind": "lemma",
+      "statement": "For y in the p-primary kernel at M, its inclusion into T_N has zero r-primary coordinate for every prime r at N different from p.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Place the included point in the full p-primary kernel at N by divisibility of full prime powers.",
+        "Apply the established different-component evaluation. Distinct prime values give distinct native subtype indices."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-other",
+        "mathlib:Subgroup.inclusion",
+        "mathlib:Nat.primeFactors_mono",
+        "mathlib:Nat.ordProj_dvd",
+        "mathlib:Nat.ordProj_dvd_ordProj_of_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_lifted_component_other"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.included_primary_other_zero",
+          "kind": "computation",
+          "statement": "The 3-primary coordinate of a point from level four is zero at level twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-included-primary-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The included point is the sum of its old components",
+      "kind": "lemma",
+      "statement": "For nonzero M dividing N and x in T_M, its native inclusion into T_N equals the sum of the inclusions of its actual M-primary coordinates.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use subtype extensionality to compare actual ambient values.",
+        "Commute the native subgroup homomorphism with the finite sum.",
+        "Apply the previously proved actual primary reconstruction formula at M."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-level-mono",
+        "DirichletPadicLFunctions:L3/kubert-primary-sum-primary-coordinates",
+        "mathlib:Subgroup.inclusion",
+        "mathlib:Nat.ordProj_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_included_primary_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.included_sum_reconstructs",
+          "kind": "compatibility",
+          "statement": "The included level-six point is still the sum of its original ambient components."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primary-coordinates-inclusion",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primary values are compatible across divisor levels",
+      "kind": "lemma",
+      "statement": "For nonzero M dividing nonzero N, the p-primary value of x in T_M agrees with the p-primary value of its inclusion in T_N, for every p dividing M.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Compose the actual N-coordinate additive equivalence, native evaluation homomorphism and subgroup inclusion to obtain an ambient-valued projection homomorphism.",
+        "Expand the included point as the sum of its M-primary components and commute that homomorphism with the sum.",
+        "All distinct-primary terms vanish by lifted_component_other. The remaining p-term equals the original M-coordinate by lifted_component_same."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-included-primary-sum",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-lifted-component-same",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-lifted-component-other",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates",
+        "mathlib:Pi.evalMonoidHom",
+        "mathlib:Subgroup.inclusion"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primaryCoordinates_inclusion"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.nonadmissible_level_compatibility",
+          "kind": "compatibility",
+          "statement": "Primary coordinate values agree for inclusion from level two to level twelve, even though that divisor is not admissible."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primary-coordinates-outside",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "New prime coordinates of an old-level point vanish",
+      "kind": "lemma",
+      "statement": "For nonzero M dividing nonzero N, the r-primary coordinate of an included x in T_M is zero if r does not divide M.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use the ambient-valued native r-projection homomorphism on the expansion of the included point.",
+        "Every summand belongs to a different prime because r is outside the old prime-factor set.",
+        "Apply lifted_component_other to each term and sum the zeros."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-included-primary-sum",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-lifted-component-other",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates",
+        "mathlib:Pi.evalMonoidHom",
+        "mathlib:Subgroup.inclusion"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primaryCoordinates_outside"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.new_prime_coordinate_zero",
+          "kind": "computation",
+          "statement": "A point from level four has no new 3-component when viewed at level twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-factorization",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Admissible divisors retain full prime exponents",
+      "kind": "lemma",
+      "statement": "If M is an admissible divisor of nonzero N and p divides M, then the exponent of p in N equals its exponent in M.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Unpack admissibility into M dividing N and coprimality of M with N/M.",
+        "Write N as M times N/M.",
+        "Convert native finite prime-factor membership to list membership and apply the existing factorization theorem for a coprime product."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff",
+        "mathlib:Nat.factorization_eq_of_coprime_left",
+        "mathlib:Nat.mem_primeFactors_iff_mem_primeFactorsList"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_admissible_factorization"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.admissible_exponent_agreement",
+          "kind": "computation",
+          "statement": "The 2-exponent of the admissible divisor four agrees with that of twelve."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.nonadmissible_exponents_differ",
+          "kind": "non-example",
+          "statement": "The nonadmissible divisor two has a strictly smaller 2-exponent than twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-primary-power",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Admissible divisors retain full primary powers",
+      "kind": "lemma",
+      "statement": "For an admissible divisor M of nonzero N and p dividing M, the full p-primary powers of N and M are equal.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Substitute the proved equality of factorization exponents into the two powers."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-factorization"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_admissible_primary_power"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.admissible_primary_power_four",
+          "kind": "computation",
+          "statement": "The full 2-primary power at twelve equals the one at the admissible divisor four."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primitive-coordinate-inclusion",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive coordinates agree with ambient level inclusion",
+      "kind": "lemma",
+      "statement": "For a primitive point of exact order M dividing nonzero N, its actual p-primary coordinate at N equals its primitive-product coordinate at M for every p dividing M.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Certify the primitive point as an element of T_M and T_N using its exact native order.",
+        "Apply primaryCoordinates_inclusion.",
+        "The primitive equivalence uses the same actual projections and only adds certificates."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-coordinates-inclusion",
+        "DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates-coe",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primitive_coordinate_inclusion"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.primitive_coordinate_value_compatible",
+          "kind": "compatibility",
+          "statement": "A primitive level-four point retains its actual 2-primary coordinate at level twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primitive-coordinate-outside",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A primitive old-level point has zero new coordinates",
+      "kind": "lemma",
+      "statement": "For a primitive point of exact order M dividing nonzero N, its r-primary coordinate at N is zero for every r outside the prime factors of M.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use exact primitivity to certify the actual native level point.",
+        "Apply primaryCoordinates_outside to that same point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-coordinates-outside",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primitive_coordinate_outside"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.primitive_missing_prime_zero",
+          "kind": "computation",
+          "statement": "A primitive level-four point has zero 3-primary coordinate at level twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exceptional primitive points at a primary factor",
+      "kind": "definition",
+      "statement": "Define Z*(N,p) as the actual subset of primitive order-N points whose p-primary component equals e(p^v_p(N)), using the established primitive-coordinate equivalence.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use the existing primitive subset as the carrier condition.",
+        "Test equality of the actual projected ambient point with the existing distinguished point. A primitive-membership witness only certifies the same point; proof irrelevance makes its choice immaterial."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-points",
+        "DirichletPadicLFunctions:L3/kubert-generators-distinguished-point",
+        "DirichletPadicLFunctions:L3/kubert-primary-primitive-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertExceptionalPrimitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.exceptional_third",
+          "kind": "computation",
+          "statement": "The order-three distinguished point belongs to its actual exceptional subset."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.nonexceptional_two_thirds",
+          "kind": "non-example",
+          "statement": "The other primitive order-three point is not exceptional."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.zero_not_exceptional",
+          "kind": "degenerate",
+          "statement": "Zero is not a primitive exceptional point at level three."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ],
+      "api": [
+        {
+          "name": "kubertGeneratorProduct_exceptional_mem_iff",
+          "role": "characterisation",
+          "statement": "A point lies in Z*(N,p) exactly when it is primitive of exact order N and its actual p-primary projection is e(p^v_p(N))."
+        },
+        {
+          "name": "kubertGeneratorProduct_exceptional_subset",
+          "role": "compatibility",
+          "statement": "The exceptional subset Z*(N,p) is contained in the primitive order-N subset."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert (1.6)",
+          "how": "Defines the actual subsets removed from primitive points."
+        },
+        {
+          "where": "Reduced membership criterion",
+          "how": "Expresses each forbidden coordinate without confusing scalar multiples and primary components."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced primitive points",
+      "kind": "definition",
+      "statement": "Define T*(N) as the primitive order-N subset minus the union of Z*(N,p) over its native prime-factor indices.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Take the set difference and actual indexed union of the exceptional subsets.",
+        "The unit-level convention follows from the empty prime-factor index and the existing primitive-one theorem; it is proved separately."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-points"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertReducedPrimitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.reduced_level_one",
+          "kind": "degenerate",
+          "statement": "The empty exceptional union gives the source convention T*(1)={0}."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.reduced_thirds",
+          "kind": "computation",
+          "statement": "The reduced primitive set in one dimension at level three is exactly {2/3}."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.excluded_distinguished_third",
+          "kind": "non-example",
+          "statement": "The distinguished primitive point is removed from the reduced set."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ],
+      "api": [
+        {
+          "name": "kubertGeneratorProduct_reduced_mem_iff",
+          "role": "characterisation",
+          "statement": "A point belongs to T*(N) if and only if it has exact order N and each actual p-primary coordinate differs from e(p^v_p(N))."
+        },
+        {
+          "name": "kubertGeneratorProduct_reduced_subset",
+          "role": "compatibility",
+          "statement": "T*(N) is contained in the primitive order-N set."
+        },
+        {
+          "name": "kubertGeneratorProduct_reduced_one",
+          "role": "compatibility",
+          "statement": "For every positive dimension, T*(1) is exactly {0}."
+        },
+        {
+          "name": "kubertGeneratorProduct_reduced_zero_iff",
+          "role": "characterisation",
+          "statement": "For nonzero N, zero belongs to T*(N) if and only if N=1."
+        },
+        {
+          "name": "kubertGeneratorProduct_reduced_finite",
+          "role": "compatibility",
+          "statement": "Every T*(N) for nonzero N in a positive-dimensional rational torus is a finite actual subset."
+        },
+        {
+          "name": "kubertGeneratorProduct_reduced_disjoint",
+          "role": "compatibility",
+          "statement": "T*(M) and T*(N) are disjoint for distinct nonzero levels M and N."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert (1.7)",
+          "how": "Supplies the actual strata of the source union."
+        },
+        {
+          "where": "Source product identification",
+          "how": "Provides both primitivity and local avoidance conditions."
+        },
+        {
+          "where": "Remaining generation induction",
+          "how": "Retains exact orders and the distinguished-coordinate exclusions required for source Lemma 1.12."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-mem-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exceptional membership tests the actual projection",
+      "kind": "lemma",
+      "statement": "A point lies in Z*(N,p) exactly when it is primitive of exact order N and its actual p-primary projection is e(p^v_p(N)).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Unfold the exceptional subset. Its primitive certificate supplies the input to the already-defined actual projection."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_exceptional_mem_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.exceptional_requires_actual_projection",
+          "kind": "characterisation",
+          "statement": "Exceptional membership for a primitive level-six point is equality of the actual 3-component with e(3)."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-subset",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exceptional points remain primitive",
+      "kind": "lemma",
+      "statement": "The exceptional subset Z*(N,p) is contained in the primitive order-N subset.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Project the primitive-membership component of an exceptional-membership witness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-primitive"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_exceptional_subset"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.exceptional_points_are_primitive",
+          "kind": "compatibility",
+          "statement": "Every exceptional level-six point has exact order six."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced primitivity avoids every exceptional coordinate",
+      "kind": "lemma",
+      "statement": "A point belongs to T*(N) if and only if it has exact order N and each actual p-primary coordinate differs from e(p^v_p(N)).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Expand the complement of the exceptional union.",
+        "For the forward implication, any equality with e supplies membership in that exceptional summand and contradicts the complement.",
+        "For the reverse implication, any membership in the exceptional union supplies a forbidden coordinate equality. Primitive certificates represent the same actual point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-primitive",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-exceptional-mem-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_mem_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.avoid_all_primary_exceptions",
+          "kind": "characterisation",
+          "statement": "A primitive level-six point is reduced exactly when every actual component avoids the corresponding distinguished point."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-subset",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced points remain primitive",
+      "kind": "lemma",
+      "statement": "T*(N) is contained in the primitive order-N set.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Apply the native set-difference containment to its defining difference."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-primitive"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_subset"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.reduced_points_have_exact_order",
+          "kind": "compatibility",
+          "statement": "Every reduced level-six point is primitive."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The unit reduced stratum is the source singleton",
+      "kind": "lemma",
+      "statement": "For every positive dimension, T*(1) is exactly {0}.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The native finite prime-factor set of one is empty, so every-coordinate avoidance is vacuous.",
+        "Apply the existing primitive-one equality. This recovers the source separately stated convention."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-one",
+        "mathlib:Finset.isEmpty_coe_sort"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.rank_two_unit_reduced_set",
+          "kind": "degenerate",
+          "statement": "The unit-level convention also holds in dimension two."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-zero-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Zero belongs only to the unit reduced stratum",
+      "kind": "lemma",
+      "statement": "For nonzero N, zero belongs to T*(N) if and only if N=1.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Reduced membership implies primitive membership, whose zero criterion forces N=1.",
+        "Conversely use the proved singleton formula at one."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-subset",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-one",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-zero-mem-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_zero_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.no_zero_in_nonunit_stratum",
+          "kind": "non-example",
+          "statement": "Zero is absent from a nonunit reduced primitive stratum."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reduced primitive strata are finite",
+      "kind": "lemma",
+      "statement": "Every T*(N) for nonzero N in a positive-dimensional rational torus is a finite actual subset.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use the existing finiteness of the exact primitive set.",
+        "Convert the native finite subtype to a finite set and restrict to the proved reduced subset."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-subset",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-finite",
+        "mathlib:Set.toFinite"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.finite_reduced_stratum",
+          "kind": "compatibility",
+          "statement": "The actual reduced order-twelve set is finite."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-disjoint",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Distinct reduced orders give disjoint strata",
+      "kind": "lemma",
+      "statement": "T*(M) and T*(N) are disjoint for distinct nonzero levels M and N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The existing primitive strata at distinct native orders are disjoint.",
+        "Restrict that disjointness to the reduced subsets."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-subset",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-disjoint"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_reduced_disjoint"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.distinct_order_strata_disjoint",
+          "kind": "compatibility",
+          "statement": "The reduced order-three and order-four strata are disjoint."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-generators",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Kubert admissible generating set",
+      "kind": "definition",
+      "statement": "Define the source set T(N) as the union of T*(M) over all admissible divisors M of nonzero N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Index the union by the existing native finite admissible-divisor subtype.",
+        "Use positivity of each admissible divisor to provide the nonzero-level argument for its actual reduced stratum.",
+        "This is the source union definition; no product membership condition is inserted into the definition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-primitive",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-divisors",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-pos"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertAdmissibleGenerators"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_union_at_six",
+          "kind": "computation",
+          "statement": "The source generating set at level six in dimension one is {0,2/3}."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.wrong_multiplier_rejected",
+          "kind": "non-example",
+          "statement": "The incorrect complementary-multiplier normalization would admit 1/3, but the actual source set excludes it."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.unit_source_union",
+          "kind": "degenerate",
+          "statement": "The admissible union at level one is {0}."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ],
+      "api": [
+        {
+          "name": "kubertGeneratorProduct_generators_mem_iff",
+          "role": "characterisation",
+          "statement": "A point belongs to T(N) exactly when some admissible divisor M of N has that point in T*(M)."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_mem_level",
+          "role": "compatibility",
+          "statement": "Every point of T(N) belongs to the actual native kernel T_N."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_zero",
+          "role": "compatibility",
+          "statement": "Zero belongs to T(N) for every nonzero level N."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_one",
+          "role": "compatibility",
+          "statement": "For every positive dimension, T(1)={0}."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_finite",
+          "role": "compatibility",
+          "statement": "T(N) is a finite actual subset of the positive-dimensional rational torus."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_coordinates_iff",
+          "role": "characterisation",
+          "statement": "For a point x of the actual native level kernel T_N, membership in the source union T(N) is equivalent to every actual primary coordinate lying in its local replacement factor."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert Theorem 1.8(i)",
+          "how": "Defines the exact set whose cardinality must be calculated."
+        },
+        {
+          "where": "Kubert Proposition 1.9",
+          "how": "Supplies the proposed points whose labels must generate the internal relation quotient."
+        },
+        {
+          "where": "Product identification",
+          "how": "Provides the independently defined union to compare with local choices."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Source-union membership has an admissible witness",
+      "kind": "lemma",
+      "statement": "A point belongs to T(N) exactly when some admissible divisor M of N has that point in T*(M).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Use native membership in the defining indexed union."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-generators"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_mem_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.admissible_union_witness",
+          "kind": "characterisation",
+          "statement": "Membership at level twelve is witnessed by an admissible divisor and its actual reduced stratum."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every source generator lies at its stated level",
+      "kind": "lemma",
+      "statement": "Every point of T(N) belongs to the actual native kernel T_N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Choose its admissible divisor M and reduced-stratum membership.",
+        "Reduced membership implies exact order M, while admissibility gives M dividing N.",
+        "Apply the existing primitive-to-level lemma."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-subset",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_mem_level"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.generator_annihilation",
+          "kind": "compatibility",
+          "statement": "Every generator at level twelve is killed by twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source union always contains zero",
+      "kind": "lemma",
+      "statement": "Zero belongs to T(N) for every nonzero level N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The unit divisor is admissible.",
+        "Use the singleton description of T*(1) as the witness in the source union."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-one",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.zero_is_generator_at_six",
+          "kind": "degenerate",
+          "statement": "The admissible unit divisor ensures zero remains in the generating set."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The unit source union is a singleton",
+      "kind": "lemma",
+      "statement": "For every positive dimension, T(1)={0}.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Every source point lies in the multiplication-by-one kernel and is therefore zero.",
+        "Conversely the source union always contains zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.rank_two_unit_union",
+          "kind": "degenerate",
+          "statement": "The unit-level source union is {0} in dimension two."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-finite",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual admissible source union is finite",
+      "kind": "lemma",
+      "statement": "T(N) is a finite actual subset of the positive-dimensional rational torus.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Each reduced stratum is finite.",
+        "The admissible-divisor index is a native finite subtype. Apply the existing finite indexed-union theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-generators",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-finite",
+        "mathlib:Set.finite_iUnion"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_union_is_finite",
+          "kind": "compatibility",
+          "statement": "The actual source union at level twelve is finite."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Source generators have allowed local coordinates",
+      "kind": "lemma",
+      "statement": "For x in the actual source union T(N), each p-primary coordinate belongs to the existing local set {0} union (primitive order-q_p points minus e(q_p)).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Choose an admissible M with x in T*(M) and unpack the primitive and avoidance conditions.",
+        "If p divides M, primitive_coordinate_inclusion identifies the actual N-coordinate with the primitive M-coordinate; admissible_primary_power identifies their full primary levels. Primitivity and avoidance give the local membership.",
+        "If p is outside M, primitive_coordinate_outside gives the zero coordinate, which is an allowed local choice."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primitive-coordinate-inclusion",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primitive-coordinate-outside",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-primary-power",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-zero",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_generator_local_choices",
+          "kind": "compatibility",
+          "statement": "Every component of a source generator belongs to its local replacement factor."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primary-subproduct-admissible",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Products of full primary factors are admissible",
+      "kind": "lemma",
+      "statement": "For nonzero N and any native finite subset of its prime-factor indices, the product of the corresponding full primary powers is an admissible divisor of N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The selected factors are positive. Native product partition writes N as their product times the complementary-factor product.",
+        "This gives divisibility and identifies N divided by the selected product with the complementary product.",
+        "Expand coprimality of the two products in each variable. Every selected prime differs from every complementary prime, so native pairwise coprimality of full primary powers applies.",
+        "Combine divisibility and coprimality using the existing admissibility criterion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff",
+        "mathlib:Finset.prod_mul_prod_compl",
+        "mathlib:Nat.prod_primeFactors_coe_pow_factorization",
+        "mathlib:Nat.pairwise_coprime_pow_primeFactors_factorization",
+        "mathlib:Nat.coprime_prod_left_iff",
+        "mathlib:Nat.coprime_prod_right_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primary_subproduct_admissible"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.full_primary_subproducts_admissible",
+          "kind": "characterisation",
+          "statement": "Every product of a subset of the full primary factors at twelve is an admissible divisor."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.proper_primary_piece_not_admissible",
+          "kind": "non-example",
+          "statement": "Taking only one factor of two from the full factor four does not give an admissible divisor of twelve."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-local-order-admissible",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Allowed local choices force an admissible point order",
+      "kind": "lemma",
+      "statement": "If every actual primary coordinate of x in T_N is an allowed local replacement choice, the native additive order of x is an admissible divisor of N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Let the support be the native finite subset of primary indices at which the actual component is nonzero.",
+        "An allowed nonzero component is primitive of its full primary order. A zero component has order one.",
+        "Use the already-proved product formula for point order and native filtered-product expansion to identify the order with the product of the full primary powers on that support.",
+        "Apply primary_subproduct_admissible. This supplies admissibility, rather than assuming it from a bare torsion certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-order",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-points",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-subproduct-admissible",
+        "mathlib:Finset.prod_filter"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_local_order_admissible"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.allowed_tuple_order_admissible",
+          "kind": "characterisation",
+          "statement": "Allowed actual local components force the point order to be an admissible divisor."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-primary-power-gt-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A present primary factor is nonunit",
+      "kind": "lemma",
+      "statement": "For a prime-factor index p of nonzero N, its full primary power p^v_p(N) is strictly greater than one.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Native prime membership supplies a prime greater than one and divisibility of N.",
+        "The native factorization theorem makes its exponent positive.",
+        "Apply the existing strict power inequality."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.factorization_pos_of_dvd",
+        "mathlib:one_lt_pow'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_primary_power_gt_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.full_primary_power_nonunit",
+          "kind": "compatibility",
+          "statement": "Every full primary factor of twelve is strictly greater than one."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-of-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Allowed coordinates reconstruct the source union",
+      "kind": "lemma",
+      "statement": "If every actual primary coordinate of x in T_N is an allowed local choice, the underlying point x belongs to the independently defined source union T(N).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Set M equal to the native additive order of x. It is positive, divides N and is admissible by local_order_admissible.",
+        "The point is primitive of exact order M by definition. For each prime dividing M, compare its actual M-coordinate with the N-coordinate using primitive_coordinate_inclusion.",
+        "Admissible_primary_power identifies the distinguished points being excluded. If an M-coordinate equalled its distinguished point, the corresponding allowed N-coordinate would equal a distinguished point at a nonunit primary level, contradicting the existing localChoices_distinguished theorem.",
+        "Thus the point lies in T*(M). Its proved admissibility supplies membership in the actual union T(N)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-local-order-admissible",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primitive-coordinate-inclusion",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-admissible-primary-power",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-power-gt-one",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-pos",
+        "DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-distinguished",
+        "mathlib:Nat.primeFactors_mono"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_of_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.product_lies_in_source_union",
+          "kind": "characterisation",
+          "statement": "A level-six point with all allowed local components belongs to the actual source union."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-coordinates-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source union has the local-product criterion",
+      "kind": "lemma",
+      "statement": "For a point x of the actual native level kernel T_N, membership in the source union T(N) is equivalent to every actual primary coordinate lying in its local replacement factor.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The forward implication is generators_coordinates, after adding the source-membership certificate to the same point.",
+        "The reverse implication is generators_of_coordinates. No new set is substituted for the source union."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-of-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_coordinates_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_union_product_criterion",
+          "kind": "characterisation",
+          "statement": "The source union and allowed-coordinate condition agree in both directions."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual admissible-generator product equivalence",
+      "kind": "construction",
+      "statement": "Construct an equivalence from the actual source union T(N) to the dependent product of the existing local replacement subsets at its full primary powers.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "On a source point, use the actual N-primary coordinates and the proved forward membership certificates.",
+        "Given a tuple of actual local choices, use their existing level certificates and the inverse primary-coordinate equivalence. The proved reverse membership theorem places its underlying point in the source union.",
+        "Both inverse laws follow from the actual primary equivalence after subtype and function extensionality. This constructs the source product equivalence without choosing a bijection from a cardinality calculation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-of-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-level",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorCoordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.generator_inverse_law",
+          "kind": "compatibility",
+          "statement": "The coordinate equivalence recovers every actual source point."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.local_tuple_inverse_law",
+          "kind": "compatibility",
+          "statement": "Every tuple of actual local choices is recovered after reconstruction."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.zero_coordinates",
+          "kind": "degenerate",
+          "statement": "The actual source zero has zero in every primary coordinate."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ],
+      "api": [
+        {
+          "name": "kubertGeneratorProduct_generatorCoordinates_coe",
+          "role": "compatibility",
+          "statement": "Every component of generatorCoordinates is exactly the underlying actual primary projection of the certified source point at level N."
+        },
+        {
+          "name": "kubertGeneratorProduct_generatorCoordinates_symm_coe",
+          "role": "compatibility",
+          "statement": "The underlying rational-torus point of the inverse generator-coordinate equivalence is the finite sum of its actual local-choice points."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_card_product",
+          "role": "compatibility",
+          "statement": "The natural cardinality of the actual source union T(N) is the product of the natural cardinalities of its local replacement factors."
+        },
+        {
+          "name": "kubertGeneratorProduct_generators_card_primitive",
+          "role": "compatibility",
+          "statement": "For nonzero N and positive dimension k+1, the actual source union T(N) and the primitive order-N rational-torus set have the same natural cardinality, as in Theorem 1.8(i)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert Theorem 1.8(i)",
+          "how": "Gives an actual equivalence proving the source-set cardinality."
+        },
+        {
+          "where": "Local replacement factors",
+          "how": "Makes both directions and actual point normalization explicit."
+        },
+        {
+          "where": "Remaining generation proof",
+          "how": "Allows local-coordinate descriptions while retaining the original source set."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The generator map uses the actual primary projection",
+      "kind": "lemma",
+      "statement": "Every component of generatorCoordinates is exactly the underlying actual primary projection of the certified source point at level N.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Evaluate the forward restricted equivalence: it only adds local-membership certificates to the existing projected point."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generatorCoordinates_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.generator_map_actual_projection",
+          "kind": "compatibility",
+          "statement": "The generator equivalence uses precisely the established actual projection."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates-symm-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse generator map is the actual component sum",
+      "kind": "lemma",
+      "statement": "The underlying rational-torus point of the inverse generator-coordinate equivalence is the finite sum of its actual local-choice points.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "The inverse uses the same primary inverse on the tuple with level certificates.",
+        "Apply the already-proved actual inverse-sum formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-symm-coe"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generatorCoordinates_symm_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.generator_inverse_actual_sum",
+          "kind": "compatibility",
+          "statement": "The inverse generator equivalence is the actual sum of the chosen primary points."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-card-product",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source generating-set cardinality is a local product",
+      "kind": "lemma",
+      "statement": "The natural cardinality of the actual source union T(N) is the product of the natural cardinalities of its local replacement factors.",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Transport cardinality along the constructed actual generator equivalence.",
+        "Apply the native dependent-product cardinality formula. The actual source set is already known finite."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generator-coordinates",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-finite",
+        "mathlib:Nat.card_congr",
+        "mathlib:Nat.card_pi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_card_product"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_cardinality_product",
+          "kind": "characterisation",
+          "statement": "The actual source set has the product of the local replacement cardinalities."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-generator-product-generators-card-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Kubert generating-set cardinality",
+      "kind": "theorem",
+      "statement": "For nonzero N and positive dimension k+1, the actual source union T(N) and the primitive order-N rational-torus set have the same natural cardinality, as in Theorem 1.8(i).",
+      "hypotheses": [
+        "For level compatibility, X is a native additive commutative group, M divides the nonzero natural level N, and T_N is the existing native multiplication-by-N kernel. The primary factors and factorization exponents are native Mathlib objects. The compatibility claims are for actual ambient point values; they do not identify different primary kernel types.",
+        "For source generating sets, the ambient group is (Q/Z)^(k+1), with k a natural number, so the source distinguished point e(N) has a first coordinate. N is nonzero. Primitive points mean exact native additive order, and the existing actual primary equivalence supplies the coordinates.",
+        "Admissible means M divides N and M is coprime to N/M. The source exceptional subsets are defined inside primitive points by equality of an actual primary coordinate with the corresponding distinguished point. T*(M) removes their union. T(N) is the union of these reduced strata over the native admissible-divisor set.",
+        "The set product is a proved consequence of these source definitions. The resulting equality of cardinalities proves the combinatorial claim in Theorem 1.8(i); generation of the distribution quotient, the independent rank lower bound, freeness and equality of internal/global relation subgroups remain separate obligations."
+      ],
+      "proofSteps": [
+        "Expand the source-set cardinality by generators_card_product and the primitive-set cardinality by the established primitive product theorem.",
+        "Each full primary power is greater than one. The existing local replacement equivalence therefore equates its local-choice cardinality with the primitive cardinality.",
+        "Substitute these equalities factor by factor. The empty product at N=1 is included. This supplies no distribution-quotient generation or independence assertion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-generator-product-generators-card-product",
+        "DirichletPadicLFunctions:L3/kubert-generator-product-primary-power-gt-one",
+        "DirichletPadicLFunctions:L3/kubert-generators-local-choices-card",
+        "DirichletPadicLFunctions:L3/kubert-primary-primitive-torus-card-product"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertGeneratorProduct",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertGeneratorProduct_generators_card_primitive"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 183, equations (1.5)–(1.7), Theorem 1.8(i), and product description after Proposition 1.9, using 182 equation (1.4). Full body 179–202 read; 182–185 and page 183 image reread at this continuation.",
+          "excerpt": "where M is admissible",
+          "match": "The source exceptional subsets and admissible union are defined first on actual rational-torus points. Their product description is then proved using actual primary-coordinate compatibility and admissibility of the nonzero support order. Native local swaps give the cardinality conclusion. The cardinality proof makes no generation or independence claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertGeneratorProductTests.source_theorem_cardinality",
+          "kind": "characterisation",
+          "statement": "Theorem 1.8(i) compares the actual source union with the primitive set in dimension two."
+        },
+        {
+          "name": "SuggestedKubertGeneratorProductTests.dimension_one_level_six_cardinality",
+          "kind": "computation",
+          "statement": "At level six the one-dimensional source set has two elements."
+        }
+      ],
+      "acceptance": [
+        "Retain the actual point values under inclusions and primary projections. Derive the product description from the separately defined source union, including its unit-level convention. At level six in dimension one the set must be {0,2/3}; unadjusted complementary multiples incorrectly give {0,1/3}. Cardinality alone must not be used to assert generation or a free basis."
+      ]
     }
   ],
   "requests": [
@@ -95892,7 +98035,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual primary-coordinate equivalence, its inverse sum, same/other component evaluations, point-order product, primitive-point product equivalence and primitive cardinality product are now planned from native direct-sum APIs. Next define the source exceptional subsets and T*(M), then the admissible union T(N), using these actual primary components. Prove that this source union equals the product of the already-constructed local replacement factors before concluding its cardinality. Then prove Lemma 1.10 and exceptional-point elimination in Lemma 1.12 to establish generation. The independent Cartan or rational-model rank lower bound is still required for internal/global relation equality and freeness. No local or primitive cardinality theorem proves those distribution-quotient results. Preserve the positive-dimension hypotheses, finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The source exceptional subsets Z*(M,p), reduced primitive strata T*(M), and admissible union T(N) are now planned on actual rational-torus points. The actual primary coordinates identify this separately defined union with the product of local replacement sets, proving Theorem 1.8(i) in positive dimension, including N=1. Next prove source Lemma 1.10 reducing point labels to admissible-level primitive labels, then the exceptional-coordinate elimination of Lemma 1.12 and Proposition 1.9 generation of the internal relation quotient. The independent Cartan or rational-model rank lower bound is still required to establish internal/global relation equality and freeness. Cardinality alone proves neither generation nor independence. Preserve finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -95924,7 +98067,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual primary-coordinate equivalence, its inverse sum, same/other component evaluations, point-order product, primitive-point product equivalence and primitive cardinality product are now planned from native direct-sum APIs. Next define the source exceptional subsets and T*(M), then the admissible union T(N), using these actual primary components. Prove that this source union equals the product of the already-constructed local replacement factors before concluding its cardinality. Then prove Lemma 1.10 and exceptional-point elimination in Lemma 1.12 to establish generation. The independent Cartan or rational-model rank lower bound is still required for internal/global relation equality and freeness. No local or primitive cardinality theorem proves those distribution-quotient results. Preserve the positive-dimension hypotheses, finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The source exceptional subsets Z*(M,p), reduced primitive strata T*(M), and admissible union T(N) are now planned on actual rational-torus points. The actual primary coordinates identify this separately defined union with the product of local replacement sets, proving Theorem 1.8(i) in positive dimension, including N=1. Next prove source Lemma 1.10 reducing point labels to admissible-level primitive labels, then the exceptional-coordinate elimination of Lemma 1.12 and Proposition 1.9 generation of the internal relation quotient. The independent Cartan or rational-model rank lower bound is still required to establish internal/global relation equality and freeness. Cardinality alone proves neither generation nor independence. Preserve finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -96475,36 +98618,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual source primary-component normalization is preserved.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source unit-level convention and positive-dimensional distinguished point are preserved.",
     "validation": {
-      "nodes": 1445,
+      "nodes": 1482,
       "kinds": {
-        "definition": 15,
-        "lemma": 752,
-        "construction": 131,
-        "theorem": 340,
+        "definition": 18,
+        "lemma": 784,
+        "construction": 132,
+        "theorem": 341,
         "comparison": 207
       },
-      "api": 1007,
-      "packetTests": 2739,
-      "definitionConstructionTests": 596,
-      "typedExamples": 2742,
+      "api": 1025,
+      "packetTests": 2787,
+      "definitionConstructionTests": 608,
+      "typedExamples": 2790,
       "planets": 24,
-      "baseline": 1018,
-      "preservedWholeNodes": 1430,
-      "preservedBaseline": 998,
+      "baseline": 1032,
+      "preservedWholeNodes": 1445,
+      "preservedBaseline": 1018,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 15,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 27,
+      "newNodes": 37,
+      "newNamedDeclarations": 37,
+      "newTypedTests": 48,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 1705,
-      "dependencyEdges": 7576,
+      "reachableNodes": 1742,
+      "dependencyEdges": 7702,
       "acyclic": true,
-      "baselineLeaves": 1181,
+      "baselineLeaves": 1195,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -96519,7 +98662,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 743036,
+      "readerWords": 759497,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -96545,30 +98688,32 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 66,
-      "scratchCompleteLemmas": 854,
+      "scratchCompleteDefinitions": 70,
+      "scratchCompleteLemmas": 887,
       "scratchMathlibModules": 2982,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 90,
-        "pointDecompositions": 9950,
-        "componentChecks": 16423,
-        "primitiveCharacterizations": 9950,
-        "orderProducts": 9950,
-        "componentRestrictions": 14814
+        "levels": 60,
+        "sourceUnionMemberships": 9920,
+        "productMemberships": 9920,
+        "generatorInverseLaws": 8054,
+        "cardinalityEqualities": 60,
+        "includedPointCoordinates": 21156,
+        "admissiblePowerChecks": 76,
+        "sourceStratumDisjointness": 232
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8",
+        "sourceSha256": "6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087",
         "modules": 3604,
-        "warnings": 4534,
+        "warnings": 4619,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,534 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,619 expected placeholder warnings across 3,604 pinned source modules. It includes all 37 new named declarations and 48 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -96578,7 +98723,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "bad678780e2a89dbeb30011507ebf158e46ea2a8cd3b52d02f16fdc493d2f609",
+      "sha256": "faff250950fbefdc4681ebb55ae7987603730c4b4430735476328f532fcb3bd8",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -96593,11 +98738,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 854,
+        "completeLemmas": 887,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "1708266ba0a90ef08cc1139f0d7ba1897f9071d732135fbf7eb2ca52f41c0ec7"
+        "sha256": "359d6486cdc6c50b97eede286bcca7597014c3438adffb5ae5f958cafe10f06a"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -96735,17 +98880,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8",
+        "sourceSha256": "6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087",
         "modules": 3604,
-        "warnings": 4534,
+        "warnings": 4619,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 4,534 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8.",
+        "scope": "The separate partial signature file also compiled with zero errors and 4,619 expected placeholder warnings across 3,604 pinned source modules. It includes all 37 new named declarations and 48 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "fff2b3908c221914c175c97d02773234607768dd",
+      "base": "ef0c4b8565e5ef03db2a9a303be3cfa07fe1500f",
       "unchangedInputs": 76,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -107367,6 +109512,55 @@
         "warnings": 4534,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 4,534 expected placeholder warnings across 3,604 pinned source modules. It includes all 15 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 9b684a8d70d20b0e2e35afce3b4a375a6bc0ae6f83c595bf461c4ef14f61baa8.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertGeneratorProduct": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5423,
+      "previousHead": "15d4406f5f2ea604a4d276b779a8ee19c0b415b9",
+      "previousMerge": "3055fc088939865faa4dc80eddab42d26eb9a855",
+      "preservedWholeNodes": 1445,
+      "preservedBaseline": 1018,
+      "preservedFindings": 26,
+      "newNodes": 37,
+      "reading": "Kubert 182–185 and the source definitions (1.5)–(1.7), product description and Theorem 1.8(i) were checked against the fully read published body and page 183 image. The native inclusion/evaluation homomorphisms, prime-factor monotonicity, full-power divisibility, coprime factorization, finite-set bridges, finite unions and product/complement APIs were read at the pins. The source union is kept distinct from its proved product criterion until both directions are established. Exact rational controls independently enumerate these two descriptions.",
+      "boundary": "The source exceptional subsets Z*(M,p), reduced primitive strata T*(M), and admissible union T(N) are now planned on actual rational-torus points. The actual primary coordinates identify this separately defined union with the product of local replacement sets, proving Theorem 1.8(i) in positive dimension, including N=1. Next prove source Lemma 1.10 reducing point labels to admissible-level primitive labels, then the exceptional-coordinate elimination of Lemma 1.12 and Proposition 1.9 generation of the internal relation quotient. The independent Cartan or rational-model rank lower bound is still required to establish internal/global relation equality and freeness. Cardinality alone proves neither generation nor independence. Preserve finite-level parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "85988fb91ac844f6d168fa73288f5906a3ebeb32",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The source unit-level convention and positive-dimensional distinguished point are preserved.",
+      "publication": {
+        "base": "ef0c4b8565e5ef03db2a9a303be3cfa07fe1500f",
+        "unchangedInputs": 76,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 60,
+        "sourceUnionMemberships": 9920,
+        "productMemberships": 9920,
+        "generatorInverseLaws": 8054,
+        "cardinalityEqualities": 60,
+        "includedPointCoordinates": 21156,
+        "admissiblePowerChecks": 76,
+        "sourceStratumDisjointness": 232
+      },
+      "numericalMethod": "Independent exact rational arithmetic on actual Q/Z points: enumerate the source union of reduced exact-order strata, separately enumerate the product of local replacement factors, reconstruct by actual sums, and compare inclusion coordinates at every divisor level. Finite controls are not proof certificates.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087",
+        "modules": 3604,
+        "warnings": 4619,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 4,619 expected placeholder warnings across 3,604 pinned source modules. It includes all 37 new named declarations and 48 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6ffa289e9e4ce272e1dcfaf3270607a1ba0cc3ab15f8ef8503c8fe7656978087.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
