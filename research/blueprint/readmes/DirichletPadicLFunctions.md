@@ -51032,3 +51032,467 @@ Independent polynomial models verify every unit action at 18 finite rings, acros
 After actual merge of #5465, all 77 guarded inputs and four predecessor outputs are unchanged. This includes the exact FF.4 packet and suggested ring/local-unit interface, policies, library audit, source registers and owner boundaries. The issue body, original winning claim and blocked unclaimed review #390 remain unchanged. No new source finding, independent owner review or supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 5,116 expected placeholder warnings across 3,628 pinned source modules. It includes all 12 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3cb63dcbc77e6c33961fb5d0e29ce660cdd7f07efd6d4fc6b3ada0bed4795c6.
+
+
+## Actual finite Cartan products and all-divisibility norm transitions
+
+Sixteen L3 nodes construct actual finite Cartan product reductions and injective native group-ring norms for every positive divisibility, including new primes and level one. Full basis sums, identity, composition and native regular equivariance are explicit. All 1,681 predecessor nodes and 1,113 baseline records remain whole.
+
+Kubert186(2.4) and187(2.7) were reread for finite products and all-divisibility transitions. Native Pi-units, actual prime-factor certificates and support inclusions, factorization exponent positivity and monotonicity, and native group-ring coefficient injectivity and sum laws were read with complete hypotheses and bodies. Local units are exactly the FF.4 model and use the established actual surjective local reduction. New-prime coordinates use genuine identity units when constructing lifts; no equal-support or torsor assumption is introduced.
+
+### Reduction of actual finite Cartan products
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction` — `DirichletPadic.kubertCartanProductReduction`
+
+For every positive divisibility M|N, construct the native homomorphism from the actual Cartan product group at N to the actual Cartan product group at M by truncating each surviving local unit and forgetting the upper coordinates at primes not dividing M.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Native prime-factor monotonicity embeds the actual lower prime index into the upper index.
+2. At each lower prime, the native factorization-divisibility theorem gives the inequality of actual truncation exponents.
+3. Apply the native unit map of truncated-Witt reduction to the actual corresponding upper coordinate. Prime membership supplies the defining routine primality instances.
+4. Pointwise native unit-map laws prove identity and multiplication preservation.
+5. The existing native Pi-units equivalence identifies both carriers with actual units of the respective product rings; no new product-ring or generic units theorem is planned.
+
+**Prerequisites:** `FiniteFieldsAndCharacterSums:FF.4/galois-ring`, `mathlib:Nat.prime_of_mem_primeFactors`, `mathlib:Nat.primeFactors_mono`, `mathlib:Nat.factorization_le_iff_dvd`, `mathlib:TruncatedWittVector.truncate`, `mathlib:Units.map`, `mathlib:MulEquiv.piUnits`.
+
+**Uses:**
+
+- Kubert186 equation(2.4): Gives the actual finite product transition of local unit groups, identified with product-ring units by native Pi-units.
+- Changing prime supports: Extra upper coordinates are forgotten; lower coordinates use actual local reductions.
+- Kubert187 equation(2.7): Actual nonempty fibers supply the full-lift group-ring map and its injectivity.
+
+**API:**
+
+- `kubertCartanProducts_cartanProductReduction_apply` (characterisation): At every lower prime p, the ring value of the reduced tuple coordinate is exactly the native truncation of the original upper p-coordinate, with exponent inequality supplied by M|N.
+- `kubertCartanProducts_cartanProductReduction_self` (compatibility): At any positive N, the actual Cartan product reduction from N to N is the native identity homomorphism.
+- `kubertCartanProducts_cartanProductReduction_comp` (compatibility): For positive L|M|N, reduction from N to M followed by reduction to L equals direct reduction from N to L, including changing prime supports.
+- `kubertCartanProducts_cartanProductReduction_surjective` (characterisation): For every positive M|N, actual Cartan product reduction from N to M is surjective, including transitions which introduce new primes upstairs.
+- `kubertCartanProducts_cartanProduct_unit_level` (compatibility): Every actual tuple of units indexed by the prime divisors of level1 equals the identity tuple.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.product_reduction_preserves_identity` (degenerate): The actual transition from level30 to6 preserves the unit tuple.
+- `SuggestedKubertCartanProductsTests.product_reduction_preserves_multiplication` (compatibility): The actual mixed-prime transition is a native group homomorphism.
+- `SuggestedKubertCartanProductsTests.new_prime_projection_has_multiple_lifts` (non-example): The new prime5 at upper level30 gives distinct actual unit tuples with the same image at level6; reduction need not be injective.
+- `SuggestedKubertCartanProductsTests.all_units_reduce_to_empty_tuple` (degenerate): Every actual upper unit tuple reduces to the identity of the empty product at level1.
+- `SuggestedKubertCartanProductsTests.prime_power_transition_retains_values` (compatibility): At the actual prime2 coordinate, the transition8 to4 truncates the original local unit value.
+- `SuggestedKubertCartanProductsTests.native_product_ring_unit_coordinates` (compatibility): The native Pi-units equivalence identifies each actual tuple component with the same coordinate of a unit in the product ring.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Product reduction retains each actual truncated unit value
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-apply` — `DirichletPadic.kubertCartanProducts_cartanProductReduction_apply`
+
+At every lower prime p, the ring value of the reduced tuple coordinate is exactly the native truncation of the original upper p-coordinate, with exponent inequality supplied by M|N.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Evaluate the concrete dependent product homomorphism at the lower prime.
+2. The native unit-map value is the original truncation ring map applied to the same upper coordinate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.actual_component_truncation` (characterisation): At each lower prime coordinate, mixed-prime product reduction is precisely the native local truncation.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Same-level Cartan product reduction is identity
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-self` — `DirichletPadic.kubertCartanProducts_cartanProductReduction_self`
+
+At any positive N, the actual Cartan product reduction from N to N is the native identity homomorphism.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare actual homomorphisms, then actual tuples at each prime, then their underlying truncated-Witt unit values.
+2. Equal-level truncation retains each coefficient by the native coefficient theorem.
+3. The prime inclusion has the same original value; its membership certificates are proof-irrelevant.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-apply`, `mathlib:TruncatedWittVector.coeff_truncate`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.identity_product_reduction` (degenerate): Equal-level reduction is the actual identity group homomorphism.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Actual Cartan product reductions compose
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-comp` — `DirichletPadic.kubertCartanProducts_cartanProductReduction_comp`
+
+For positive L|M|N, reduction from N to M followed by reduction to L equals direct reduction from N to L, including changing prime supports.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare homomorphisms on actual upper tuples and evaluate each surviving lower prime.
+2. All three prime-index embeddings retain that same prime value.
+3. Apply the native truncated-Witt composition theorem to its two factorization-exponent inequalities.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-apply`, `mathlib:Nat.factorization_le_iff_dvd`, `mathlib:TruncatedWittVector.truncate_truncate`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.product_reduction_chain` (compatibility): The chain60 to12 to6 gives the direct mixed-prime reduction.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Every actual lower Cartan tuple lifts
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-surjective` — `DirichletPadic.kubertCartanProducts_cartanProductReduction_surjective`
+
+For every positive M|N, actual Cartan product reduction from N to M is surjective, including transitions which introduce new primes upstairs.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. For a given actual lower tuple and each upper prime which also divides M, native prime-factor membership gives positive lower and upper factorization exponents.
+2. Apply the established actual local-unit reduction surjectivity at those positive exponents to choose an upper local unit lifting the prescribed lower component.
+3. At every upper prime absent from M, choose the actual identity unit.
+4. Assemble these choices into the genuine upper dependent tuple.
+5. At each lower prime the positive membership branch is selected, and the local chosen-lift equation proves the required exact component.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `DirichletPadicLFunctions:L3/kubert-cartan-cartan-unit-reduction-surjective`, `mathlib:Nat.Prime.factorization_pos_of_dvd`, `mathlib:Nat.dvd_of_mem_primeFactors`, `mathlib:Nat.factorization_le_iff_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.mixed_prime_actual_unit_lifts` (characterisation): Every actual lower tuple at level6 has an actual lift at level30, including a coordinate for the new prime.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The unit-level Cartan product is trivial
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-unit-level` — `DirichletPadic.kubertCartanProducts_cartanProduct_unit_level`
+
+Every actual tuple of units indexed by the prime divisors of level1 equals the identity tuple.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. The native theorem identifies the prime-factor set of1 with the empty finite set.
+2. A putative coordinate would give membership in the empty set.
+3. Function extensionality therefore identifies every tuple with the identity. Its group-ring identity basis remains present.
+
+**Prerequisites:** `mathlib:Nat.primeFactors_one`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.empty_product_identity` (degenerate): The actual group of unit tuples indexed by prime factors of1 has exactly the identity element.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The full-lift norm on actual Cartan product group rings
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm` — `DirichletPadic.kubertCartanProductNorm`
+
+For every positive M|N, define the native R-linear map from the actual Cartan product group ring at M to that at N by assigning to each upper unit tuple the original coefficient at its actual reduction.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. The exact owner Galois fields are finite, and native truncated-Witt and unit finiteness give finite local unit carriers.
+2. The native prime-factor index is finite, so the actual dependent tuple groups are finite.
+3. Pass from each native group ring to its coefficient vector and then through the existing finite-function linear equivalence.
+4. Use native coordinate projections to pull coefficients back through the actual product reduction.
+5. Return through the inverse upper finite-function and group-ring coefficient equivalences. This gives a native linear map with every lift retained, including choices at new primes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `FiniteFieldsAndCharacterSums:FF.4/galois-ring`, `mathlib:MonoidAlgebra.coeffLinearEquiv`, `mathlib:Finsupp.linearEquivFunOnFinite`, `mathlib:LinearMap.pi`, `mathlib:LinearMap.proj`.
+
+**Uses:**
+
+- Kubert187 equation(2.7): Gives the full group-ring lift sum at every positive divisibility.
+- Compatible transition system: Identity and composition are proved on the genuine actual tuple carriers.
+- Finite Cartan action: Proved regular equivariance supplies the native Cartan-module map.
+
+**API:**
+
+- `kubertCartanProducts_cartanProductNorm_coeff_apply` (characterisation): The coefficient of the Cartan product norm at an actual upper tuple y equals the original lower coefficient at the actual reduction of y.
+- `kubertCartanProducts_cartanProductNorm_injective` (characterisation): The actual Cartan product group-ring norm is injective over every coefficient semiring, including characteristics dividing its fiber cardinal.
+- `kubertCartanProducts_cartanProductNorm_self` (compatibility): At every positive level, the actual product group-ring norm to the same level is the native identity linear map.
+- `kubertCartanProducts_cartanProductNorm_comp` (compatibility): For positive L|M|N, the actual norm from L to M followed by the norm from M to N equals the actual norm from L to N.
+- `kubertCartanProducts_cartanProductNorm_single` (characterisation): The norm of a lower native single basis vector at x with coefficient a is the sum of native single vectors with coefficient a at all actual upper unit tuples reducing to x.
+- `kubertCartanProducts_cartanProductNorm_equivariant` (compatibility): The product norm intertwines the native upper regular action with the lower regular action composed with actual product reduction, for every positive M|N.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.product_norm_actual_coefficients` (characterisation): The global norm coefficient is exactly the lower coefficient at actual tuple reduction.
+- `SuggestedKubertCartanProductsTests.product_norm_zero` (degenerate): The actual group-ring norm sends zero to zero.
+- `SuggestedKubertCartanProductsTests.new_prime_norm_not_unital` (non-example): The mixed-prime full-lift norm is not unital: the identity at level6 has several lifts at30.
+- `SuggestedKubertCartanProductsTests.empty_level_basis_fills_upper_units` (characterisation): The identity basis at level1 gives coefficient one at every actual upper unit tuple.
+- `SuggestedKubertCartanProductsTests.positive_characteristic_unit_level` (compatibility): The empty-level basis still gives coefficient one at every upper unit in characteristic two, with no averaging.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Product-norm coefficients use actual tuple reduction
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_coeff_apply`
+
+The coefficient of the Cartan product norm at an actual upper tuple y equals the original lower coefficient at the actual reduction of y.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Evaluate the native coefficient and finite-function equivalences.
+2. The native coordinate projection selects exactly the lower reduction of the original upper tuple.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.exact_product_coefficient` (characterisation): The full-lift coefficient formula uses the actual mixed-prime unit tuple reduction.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The full Cartan product norm is injective
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-injective` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_injective`
+
+The actual Cartan product group-ring norm is injective over every coefficient semiring, including characteristics dividing its fiber cardinal.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare two lower group-ring elements by their coefficient vectors and each actual lower tuple.
+2. The proved actual product reduction surjectivity supplies an upper tuple reducing to that lower tuple.
+3. Equality of the upper group-ring norms evaluated at this lift gives equality of the original coefficients.
+4. The native coefficient projection is injective, recovering the original lower group-ring element.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-surjective`, `mathlib:MonoidAlgebra.coeff_injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.recover_product_group_ring_input` (characterisation): Equality of norms recovers the actual lower group-ring element.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Same-level Cartan product norm is identity
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-self` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_self`
+
+At every positive level, the actual product group-ring norm to the same level is the native identity linear map.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare native linear maps on an arbitrary group-ring element and evaluate every actual unit-tuple coefficient.
+2. Apply the coefficient formula and the proved same-level product reduction identity.
+3. The native coefficient projection recovers equality of group-ring elements.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-self`, `mathlib:MonoidAlgebra.coeff_injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.identity_product_group_ring_norm` (degenerate): The actual equal-level group-ring norm is the identity.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Actual Cartan product norms compose
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-comp` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_comp`
+
+For positive L|M|N, the actual norm from L to M followed by the norm from M to N equals the actual norm from L to N.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare linear maps on actual group-ring elements and evaluate each upper tuple coefficient.
+2. Successive coefficient pullbacks evaluate at the successive actual product reductions.
+3. Use the proved composition of product reductions to recover the direct lower coefficient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-comp`, `mathlib:MonoidAlgebra.coeff_injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.product_group_ring_norm_chain` (compatibility): The actual group-ring norm from6 to12 to60 equals the direct norm6 to60.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The product norm sums the entire actual tuple fiber
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-single` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_single`
+
+The norm of a lower native single basis vector at x with coefficient a is the sum of native single vectors with coefficient a at all actual upper unit tuples reducing to x.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Use native coefficient injectivity and compare the coefficient at an arbitrary actual upper tuple.
+2. Native group-ring coefficient preservation of finite sums and the native Finsupp sum evaluation reduce the right side to the unique matching tuple.
+3. It contributes a exactly when the actual reduction equals x, and zero otherwise, agreeing with the norm coefficient formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `mathlib:MonoidAlgebra.coeff_injective`, `mathlib:MonoidAlgebra.coeff_sum`, `mathlib:MonoidAlgebra.coeff_single`, `mathlib:Finsupp.finsetSum_apply`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.full_mixed_prime_basis_lift_sum` (characterisation): Each actual lower unit basis maps to the full upper tuple fiber, including all choices at newly introduced primes.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The full finite Cartan action commutes with the product norm
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-equivariant` — `DirichletPadic.kubertCartanProducts_cartanProductNorm_equivariant`
+
+The product norm intertwines the native upper regular action with the lower regular action composed with actual product reduction, for every positive M|N.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Compare both actual group-ring elements coefficientwise.
+2. The native regular-action coefficient theorem uses inverse tuple multiplication.
+3. The exact norm coefficient formula reduces the equality to preservation of products and inverses by actual product reduction.
+4. Use the native group-homomorphism laws of that concrete reduction. No primitive torsor or equal-support hypothesis is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-coeff-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:MonoidAlgebra.coeff_injective`, `mathlib:Representation.leftRegular`, `mathlib:Representation.coeff_ofMulAction`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.mixed_prime_regular_equivariance` (compatibility): The full actual upper regular action commutes with the mixed-prime norm when the lower action uses actual reduction.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The finite Cartan product transition as a native intertwiner
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining` — `DirichletPadic.kubertCartanProductIntertwining`
+
+Package the actual full-lift group-ring norm as a native intertwining map from the lower regular representation pulled back by product reduction to the upper regular representation.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Both native representations are of the same actual upper tuple group after precomposing the lower action with actual product reduction.
+2. Apply the native intertwining-map constructor to the existing actual norm and its proved pointwise regular-action equivariance.
+3. The construction retains exactly the original linear map and adds only its commuting certificate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-equivariant`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:Representation.leftRegular`, `mathlib:Representation.IntertwiningMap`, `mathlib:LinearMap.intertwiningMap_of_isIntertwiningMap`.
+
+**Uses:**
+
+- Finite Cartan-module injection: Packages the actual linear norm and equivariance in the existing native interface.
+- New primes and level one: The same native construction includes support changes and the empty lower product.
+- Future infinite Cartan action: Supplies the real finite transitions before constructing compatible inverse-limit actions and primitive comparisons.
+
+**API:**
+
+- `kubertCartanProducts_cartanProductIntertwining_toLinearMap` (compatibility): The underlying native linear map of the Cartan product intertwiner is exactly the actual full-lift product norm.
+- `kubertCartanProducts_cartanProductIntertwining_injective` (characterisation): The native Cartan product intertwiner is injective over every semiring R for every positive divisibility M|N.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.native_product_intertwiner_linear_map` (compatibility): The native product intertwiner retains precisely the actual product group-ring norm.
+- `SuggestedKubertCartanProductsTests.product_intertwiner_zero` (degenerate): The native product intertwiner preserves zero.
+- `SuggestedKubertCartanProductsTests.product_intertwiner_characteristic_two` (compatibility): The actual mixed-prime intertwiner remains injective in characteristic two even when its fiber cardinal is even.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### Forgetting product equivariance retains the norm
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining-to-linear-map` — `DirichletPadic.kubertCartanProducts_cartanProductIntertwining_toLinearMap`
+
+The underlying native linear map of the Cartan product intertwiner is exactly the actual full-lift product norm.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. Evaluate the native intertwining-map constructor.
+2. Its underlying linear map is the one supplied in the construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.forget_product_equivariance_certificate` (compatibility): Forgetting the native product equivariance certificate gives the exact original linear map.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+### The finite Cartan product intertwiner is injective
+
+`DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining-injective` — `DirichletPadic.kubertCartanProducts_cartanProductIntertwining_injective`
+
+The native Cartan product intertwiner is injective over every semiring R for every positive divisibility M|N.
+
+**Hypotheses:** The degree k and levels L, M, N are positive integers. Level transitions carry the stated divisibility, with no assumption that the prime supports are equal. At positive level N the actual Cartan product group is the dependent product, over the native finite set of prime divisors p of N, of the actual units of GR(p raised to v_p(N),k). Each local ring is exactly the Galois-ring model owned by FiniteFieldsAndCharacterSums:FF.4. Native factorization supplies its exponent. The native Pi-units equivalence identifies this actual product of unit groups with the units of the product ring of those same local factors. Prime-membership certificates supply the routine native primality instances needed by the factor rings. No generic Galois-ring theory or alternative product carrier is introduced. The coefficient semiring R is arbitrary; group rings, coefficient equivalences, regular representations and intertwining maps are native. Upper units act below through actual componentwise reduction. Basis labels move forward and coefficients pull back by inverse action. The unit level has an empty prime index and the trivial product group; its group ring still has its identity basis vector. Extra primes upstairs supply free choices of upper unit coordinates and are forgotten by reduction. This constructs finite Cartan product transitions in the exact owned ring model. Identification with unramified local-field integer quotients, the compatible infinite Cartan action, actual primitive torsor, comparison with primitive transfer and independent lower rank remain open.
+
+**Proof:**
+
+1. The native intertwiner has the exact original group-ring norm as underlying function.
+2. Apply the established actual product norm injectivity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-intertwining-to-linear-map`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProductsTests.product_native_injective_intertwiner` (characterisation): The native intertwiner on the actual mixed-prime Cartan group rings is injective.
+
+**Acceptance:** Use actual native prime factors and factorization exponents. Retain original unit values at surviving primes and account for every newly appearing prime. Prove actual surjectivity, full basis-lift sum, identity, composition and native regular equivariance. Include levels1,6,30 and mixed prime powers; never assume equal prime supports, divide by fiber cardinality or treat the linear norm as unital. Keep source local-field and primitive-torsor bridges open.
+
+**Source:** Published 186 equation(2.4), finite Cartan rings and products of local unit groups, and 187 equation(2.7), injective Cartan-module transition for every M dividing N. Constructs the actual product transition in the FF.4 finite local models, including changing prime support and unit level, followed by its full-lift native group-ring norm and regular-action equivariance. The source local-field and primitive-coordinate comparisons remain separate.
+
+**Remaining:** Actual finite Cartan product reductions and injective native group-ring norms now exist for every positive M|N, including changed prime support and unit level. Identity, composition, full tuple-fiber basis sum and native regular equivariance are explicit. Next construct the compatible infinite Cartan action and genuine primitive-point comparison, using the owner unramified model and actual coordinates. FF.4 owns Galois rings and generic unit, presentation and locality theory. The unramified local-field quotient identification, simply transitive actual primitive torsor and equality with the established primitive transfer remain open. Complete the independent lower rank bound through the Cartan or rational model of Kubert186–199, then combine it with the actual source surjections and native rank upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Actual finite Cartan products and all-divisibility norm transitions validation
+
+All 1681 predecessor nodes, 1113 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 16 nodes, 16 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1959 reachable nodes, 8356 edges and 1290 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All new routes terminate in established local Cartan unit reduction or native prime-factor, factorization, product-unit, group-ring, regular-action and intertwining interfaces, with exact FF.4 owner dependencies. No new supplier-stage leaf or duplicated generic ring/action theory is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3632 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains #5470 verbatim and adds three actual constructions and thirteen complete lemmas, plus the routine native primality instance derived from actual prime-factor membership. Totals are 103 definitions and 1,069 lemmas with zero placeholders. The public append contains 16 declarations and 27 typed tests; the routine primality instance uses the existing native membership lemma directly. No product ring, generic Galois-ring theory or regular representation is duplicated. The separate probe compiles against 3008 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent polynomial models cover 67 positive levels and 3,016 actual unit tuples. They check 264 divisibility transitions, including158 with new primes and67 from the empty unit level,13,642 unit lifts and coefficient recoveries,4,185 nonempty fibers,698 composition chains and3,761,622 regular-action comparisons. These controls do not certify native Witt evaluation, the owner presentation bridge or primitive-torsor comparison. Exact independent polynomial presentations of the local factors, assembled as actual finite tuples indexed by the prime divisors of each positive level. Degree one levels1–48 and degree two levels1–18 and30 include empty unit level, mixed prime powers and primes newly appearing upstairs. Every divisibility transition is checked for full nonempty fibers, coefficient recovery and all compatible chains; every acting unit and coefficient position verifies the regular-action intertwining identity. The already documented owner presentation bridge is still open: these are uncertified finite polynomial controls, not evaluation of native Witt operations or proof of the primitive-torsor comparison. The largest observed discrepancy is 0.
+
+After actual merge of #5470, all 77 guarded inputs and four predecessor outputs are unchanged. Exact FF.4 packet and suggested ring interfaces, policies, audit, source registers and all existing owner boundaries remain guarded. The issue body, original winning claim and blocked unclaimed review #390 remain unchanged. No new source finding, independent owner review or supplier request is introduced.
+
+The separate partial signature file also compiled with zero errors and 5,159 expected placeholder warnings across 3,628 pinned source modules. It includes all 16 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f30e5fc6276b3230e05857be4c130e03b6c9cf7f76c81356b024b61c1ef9f1fa.

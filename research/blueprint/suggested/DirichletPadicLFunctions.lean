@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Group.Pi.Units
 import Mathlib.RepresentationTheory.Intertwining
 import Mathlib.RingTheory.WittVector.DiscreteValuationRing
 import Mathlib.FieldTheory.Finite.GaloisField
@@ -25702,3 +25703,147 @@ example : (kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide)).toLinearMap=kub
 example : Function.Injective (kubertCartanNormIntertwining 5 1 ℤ 1 2 (by decide)) := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanEquivarianceTests
+
+/- Actual prime-factor Cartan products and their full-lift native module transitions. -/
+namespace DirichletPadic
+open scoped Classical
+
+
+instance kubertPrimeFactorFact (N : ℕ) (p : N.primeFactors) : Fact p.val.Prime :=
+  ⟨Nat.prime_of_mem_primeFactors p.prop⟩
+
+noncomputable def kubertCartanProductReduction (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (∀ p : (N : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →*
+    (∀ p : (M : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanProducts_cartanProductReduction_apply (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ))
+    (u : ∀ p : (N : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)
+    (p : (M : ℕ).primeFactors) :
+    (kubertCartanProductReduction k M N hMN u p).val=
+      TruncatedWittVector.truncate
+        ((Nat.factorization_le_iff_dvd M.ne_zero N.ne_zero).2 hMN p.val)
+        (u ⟨p.val,Nat.primeFactors_mono hMN N.ne_zero p.prop⟩).val := by sorry
+
+lemma kubertCartanProducts_cartanProductReduction_self (k : ℕ+) (N : ℕ+) :
+    kubertCartanProductReduction k N N (dvd_refl _)=MonoidHom.id _ := by sorry
+
+lemma kubertCartanProducts_cartanProductReduction_comp (k : ℕ+) (L M N : ℕ+)
+    (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductReduction k L M hLM).comp (kubertCartanProductReduction k M N hMN)=
+      kubertCartanProductReduction k L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartanProducts_cartanProductReduction_surjective (k : ℕ+) (M N : ℕ+)
+    (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Function.Surjective (kubertCartanProductReduction k M N hMN) := by sorry
+
+lemma kubertCartanProducts_cartanProduct_unit_level (k : ℕ+)
+    (u : ∀ p : (1 : ℕ).primeFactors,
+      (TruncatedWittVector p.val ((1 : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) :
+    u=1 := by sorry
+
+end DirichletPadic
+namespace DirichletPadic
+open scoped BigOperators Classical
+
+noncomputable def kubertCartanProductNorm (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_coeff_apply (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (y : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    (kubertCartanProductNorm k R M N hMN f).coeff y=f.coeff (kubertCartanProductReduction k M N hMN y) := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_injective (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) : Function.Injective (kubertCartanProductNorm k R M N hMN) := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_self (k : ℕ+) (R : Type*) [Semiring R] (N : ℕ+) :
+    kubertCartanProductNorm k R N N (dvd_refl _)=LinearMap.id := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_comp (k : ℕ+) (R : Type*) [Semiring R] (L M N : ℕ+)
+    (hLM : (L : ℕ) ∣ (M : ℕ)) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductNorm k R M N hMN).comp (kubertCartanProductNorm k R L M hLM)=
+      kubertCartanProductNorm k R L N (hLM.trans hMN) := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_single (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)]
+    (x : (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (a : R) :
+    kubertCartanProductNorm k R M N hMN (MonoidAlgebra.single x a)=
+      ∑ y ∈ Finset.univ.filter (fun y => kubertCartanProductReduction k M N hMN y=x),MonoidAlgebra.single y a := by sorry
+
+lemma kubertCartanProducts_cartanProductNorm_equivariant (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (g : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanProductNorm k R M N hMN (Representation.leftRegular R _ (kubertCartanProductReduction k M N hMN g) f)=
+      Representation.leftRegular R _ g (kubertCartanProductNorm k R M N hMN f) := by sorry
+
+noncomputable def kubertCartanProductIntertwining (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Representation.IntertwiningMap
+      ((Representation.leftRegular R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)).comp (kubertCartanProductReduction k M N hMN))
+      (Representation.leftRegular R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) := by sorry
+
+lemma kubertCartanProducts_cartanProductIntertwining_toLinearMap (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductIntertwining k R M N hMN).toLinearMap=kubertCartanProductNorm k R M N hMN := by sorry
+
+lemma kubertCartanProducts_cartanProductIntertwining_injective (k : ℕ+) (R : Type*) [Semiring R] (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    Function.Injective (kubertCartanProductIntertwining k R M N hMN) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanProductsTests
+open scoped BigOperators Classical
+noncomputable section
+-- product_reduction_preserves_identity
+example : kubertCartanProductReduction 1 6 30 (by decide) 1=1 := by sorry
+-- product_reduction_preserves_multiplication
+example (u v : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanProductReduction 1 6 30 (by decide) (u*v)=(kubertCartanProductReduction 1 6 30 (by decide) u)*(kubertCartanProductReduction 1 6 30 (by decide) v) := by sorry
+-- new_prime_projection_has_multiple_lifts
+example : ∃ u v : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),u ≠ v ∧ kubertCartanProductReduction 1 6 30 (by decide) u=kubertCartanProductReduction 1 6 30 (by decide) v := by sorry
+-- all_units_reduce_to_empty_tuple
+example (u : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanProductReduction 1 1 30 (by decide) u=1 := by sorry
+-- prime_power_transition_retains_values
+example (u : (∀ p : ((8 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((8 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : ((4 : ℕ+) : ℕ).primeFactors) : (kubertCartanProductReduction 1 4 8 (by decide) u p).val=TruncatedWittVector.truncate ((Nat.factorization_le_iff_dvd (show (4 : ℕ) ≠ 0 by decide) (show (8 : ℕ) ≠ 0 by decide)).2 (by decide) p.val) (u ⟨p.val,Nat.primeFactors_mono (by decide : (4 : ℕ) ∣ 8) (by decide) p.prop⟩).val := by sorry
+-- actual_component_truncation
+example (u : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : ((6 : ℕ+) : ℕ).primeFactors) : (kubertCartanProductReduction 1 6 30 (by decide) u p).val=TruncatedWittVector.truncate ((Nat.factorization_le_iff_dvd (show (6 : ℕ) ≠ 0 by decide) (show (30 : ℕ) ≠ 0 by decide)).2 (by decide) p.val) (u ⟨p.val,Nat.primeFactors_mono (by decide : (6 : ℕ) ∣ 30) (by decide) p.prop⟩).val := by sorry
+-- identity_product_reduction
+example : kubertCartanProductReduction 1 30 30 (dvd_refl _)=MonoidHom.id _ := by sorry
+-- product_reduction_chain
+example : (kubertCartanProductReduction 1 6 12 (by decide)).comp (kubertCartanProductReduction 1 12 60 (by decide))=kubertCartanProductReduction 1 6 60 (by decide) := by sorry
+-- mixed_prime_actual_unit_lifts
+example (x : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : ∃ y : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),kubertCartanProductReduction 1 6 30 (by decide) y=x := by sorry
+-- empty_product_identity
+example (u : (∀ p : ((1 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((1 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : u=1 := by sorry
+-- product_norm_actual_coefficients
+example (f : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (y : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanProductNorm 1 ℤ 6 30 (by decide) f).coeff y=f.coeff (kubertCartanProductReduction 1 6 30 (by decide) y) := by sorry
+-- product_norm_zero
+example : kubertCartanProductNorm 1 ℤ 6 30 (by decide) 0=0 := by sorry
+-- new_prime_norm_not_unital
+example : kubertCartanProductNorm 1 ℤ 6 30 (by decide) 1 ≠ 1 := by sorry
+-- empty_level_basis_fills_upper_units
+example (y : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanProductNorm 1 ℤ 1 6 (by decide) 1).coeff y=1 := by sorry
+-- positive_characteristic_unit_level
+example (y : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanProductNorm 1 (ZMod 2) 1 6 (by decide) 1).coeff y=1 := by sorry
+-- exact_product_coefficient
+example (f : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (y : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanProductNorm 1 ℤ 6 30 (by decide) f).coeff y=f.coeff (kubertCartanProductReduction 1 6 30 (by decide) y) := by sorry
+-- recover_product_group_ring_input
+example (f g : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (h : kubertCartanProductNorm 1 ℤ 6 30 (by decide) f=kubertCartanProductNorm 1 ℤ 6 30 (by decide) g) : f=g := by sorry
+-- identity_product_group_ring_norm
+example : kubertCartanProductNorm 1 ℤ 6 6 (dvd_refl _)=LinearMap.id := by sorry
+-- product_group_ring_norm_chain
+example : (kubertCartanProductNorm 1 ℤ 12 60 (by decide)).comp (kubertCartanProductNorm 1 ℤ 6 12 (by decide))=kubertCartanProductNorm 1 ℤ 6 60 (by decide) := by sorry
+-- full_mixed_prime_basis_lift_sum
+example [Fintype (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)] (x : (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (a : ℤ) : kubertCartanProductNorm 1 ℤ 6 30 (by decide) (MonoidAlgebra.single x a)=∑ y ∈ Finset.univ.filter (fun y => kubertCartanProductReduction 1 6 30 (by decide) y=x),MonoidAlgebra.single y a := by sorry
+-- mixed_prime_regular_equivariance
+example (g : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanProductNorm 1 ℤ 6 30 (by decide) (Representation.leftRegular ℤ (∀ p : ((6 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((6 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (kubertCartanProductReduction 1 6 30 (by decide) g) f)=Representation.leftRegular ℤ (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) g (kubertCartanProductNorm 1 ℤ 6 30 (by decide) f) := by sorry
+-- native_product_intertwiner_linear_map
+example : (kubertCartanProductIntertwining 1 ℤ 6 30 (by decide)).toLinearMap=kubertCartanProductNorm 1 ℤ 6 30 (by decide) := by sorry
+-- product_intertwiner_zero
+example : kubertCartanProductIntertwining 1 ℤ 6 30 (by decide) 0=0 := by sorry
+-- product_intertwiner_characteristic_two
+example : Function.Injective (kubertCartanProductIntertwining 1 (ZMod 2) 6 30 (by decide)) := by sorry
+-- forget_product_equivariance_certificate
+example : (kubertCartanProductIntertwining 1 ℤ 6 30 (by decide)).toLinearMap=kubertCartanProductNorm 1 ℤ 6 30 (by decide) := by sorry
+-- product_native_injective_intertwiner
+example : Function.Injective (kubertCartanProductIntertwining 1 ℤ 6 30 (by decide)) := by sorry
+-- native_product_ring_unit_coordinates
+example (u : (∀ p : ((30 : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((30 : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : ((30 : ℕ+) : ℕ).primeFactors) : (MulEquiv.piUnits.symm u).val p=(u p).val := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanProductsTests
