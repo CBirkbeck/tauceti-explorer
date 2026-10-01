@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
+ "findings": [
+  {
+   "finding": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). LT arXiv:1511.02212v1, Definition 5.1 (p. 24), reads 'Let L = {L_i} be a collection of CM-fields … R_{L,n} = ∏ End_{n_i}(O_{L_i})', with no distinctness. Item model-ring adds 'For distinct CM fields'. I recounted the red team's example over F_5. y² = x³ + x has 4 points and y² = x³ + 4x has 8, so the traces are 2 and −2 and the Frobenius polynomials are X² − 2X + 5 and X² + 2X + 5. Both are ordinary, both have Frobenius field Q(i), and they are not isogenous. End⁰(E × E′) is therefore Q(i) × Q(i), which cannot be written with distinct fields. The fix, indexing by simple isogeny factors and allowing repeated fields, is right."
+  },
+  {
+   "finding": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed, though I would grade it medium: it concerns the proof of an optional sharper target, not a statement the main chain uses. Lee, arXiv:2002.04420v3, p. 3, defines d′(g | W) := ∏_{λ≠μ}(λ − μ) 'where λ, µ run over all pairs of distinct roots (counted with multiplicity)'. Equation (11) bounds it by (2g)^{2g} p^{C(2g,2)}, using a Vandermonde bound for m points on a circle. That bound is valid for the full Vandermonde, which vanishes when roots repeat, but not for d′. I checked the counterexample. y² + y = x³ over F_2 has 3 points, so its trace is 0 and its Frobenius polynomial is X² + 2. For A_0 = E^g the roots ±i√2 each occur g times, there are 2g² ordered unequal pairs, and |d′| = (2√2)^{2g²} = 2^{3g²}. At g = 16 that is 2^{768}, while (11) gives 2^{160}·2^{496} = 2^{656}. E7, E21 and the T2 option should therefore distinguish Lee's stated 45/4 theorem from a verified proof. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). LT v1 §5.4.1 (p. 27) begins '(40)' with 'By assumption, K is the fraction field of some p-Weil number', and the O_p(g²) discriminant bounds rest on that. Items model-count-source and model-concentration-source quantify over every model ring with Σ[K_i:Q]n_i = g, and model-ring imposes no p-Weil condition, so constants depending only on p do not follow. The red team's quadratic check is right: a 2-Weil number with |w| = √2 has trace t ∈ {0, ±1, ±2} and discriminant t² − 8 ∈ {−8, −7, −4}, so Q(√−163) is excluded. The fix, adding the p-Weil restriction to both items and their routes, is right."
+  },
+  {
+   "finding": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). LT v1 p. 14 takes U_{0,d} as 'the image of GL_{4d}(Ẑ)' and states the class-set comparison (21) with the ordinary class group. Item nonabelian-class-comparison silently replaces these by ∏_v GL_{2d}(O_{K_0,v}) and Cl⁺(K_0), but no sourceIssue records either change, as §18 requires. The narrow class group matters: for p = 3, K_0 = Q(√3) has class number 1 (Minkowski bound √12/2 < 2) but narrow class number 2, since x² − 3y² = −1 has no solution mod 3. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). LT v1 Lemma 5.19 (p. 36) argues that 'If both E(F_p) and E(F_{p²}) are p-groups, then a = 1 and b = 1. But then … p = (a² − b)/2 = 0'. For p ≥ 5 the Hasse intervals force exactly this. 1 < (√p − 1)² ≤ #E(F_p) ≤ (√p + 1)² < p², so #E(F_p) = p, and similarly #E(F_{p²}) = p². The contradiction then follows, so the printed proof is valid for p ≥ 5 and fails only at p = 2, 3. E17's 'The printed proof … is wrong for every p' overstates this. The fix, stating the proof's validity for p ≥ 5 and its small-prime gap while keeping the all-odd-p repair and the p = 2 counterexample, is right."
+  }
+ ]
+}
