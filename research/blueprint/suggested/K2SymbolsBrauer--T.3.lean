@@ -50,7 +50,7 @@ implementation, and `implementationStatus` stays `"unchecked"` for every node.
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Compiled with `lean` against the pinned commits; the only warnings are uses of sorry. Mathlib came
+Historical pre-area-fix version: compiled with `lean` against the pinned commits; the only warnings are uses of sorry. Mathlib came
 from a project pinned to `082e2d3`, and the Tau Ceti modules imported below were compiled from the
 `f790474` sources and placed first on `LEAN_PATH`.
 
@@ -63,6 +63,14 @@ were brought in line with the packet. Every declaration this revision adds is a 
 signature, and **this revision was not compiled**. Stage placement after finding 28:
 `T.3:symbols` (tame symbol and Milnor residues) → `T.4` (Milnor norms, Kato, reciprocity) →
 `T.3:localization-comparison` (comparison with Quillen K-theory) → `T.5`.
+
+Revision for FIX-RT-BP-K2SymbolsBrauer--T.3 (1 October 2026), Codex — codex-a71f92:
+relative D3 has the source's entry-in-ideal guard; real Hilbert tests have unit inputs;
+the existing m = 1 real-factor correction is retained and tested; the valued-embedding residue
+interfaces no longer require finite-dimensionality and now pass positive ramification indices
+through the residue-field map. Trivial restrictions are treated by the units-residue-zero
+argument, not by an e = 0 residue-field map. This revision is **not compiled**: no matching
+pre-existing build at both pins was found. Historical elaboration does not certify these edits.
 
 ## Pinned conventions
 
@@ -444,22 +452,43 @@ def valuationSubringMap (w : Valuation E ℤᵐ⁰) (e : ℕ)
   ((algebraMap F E).comp v.valuationSubring.subtype).codRestrict w.valuationSubring
     (fun _ => by sorry)
 
-/-- The residue field extension `k_v → k_w` for `w` over `v` (a real definition). -/
-def residueFieldMap (w : Valuation E ℤᵐ⁰) (e : ℕ)
+/-- The residue field extension `k_v → k_w` for a positive-index valued embedding.
+The restricted valuation-ring map is local only when `e > 0`; no finiteness is used. -/
+def residueFieldMap (w : Valuation E ℤᵐ⁰) (e : ℕ) (he : 0 < e)
     (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) :
     ResidueField v →+* ResidueField w :=
-  haveI : IsLocalHom (valuationSubringMap v w e hvw) := by sorry
+  haveI : IsLocalHom (valuationSubringMap v w e hvw) := by
+    -- For a nonzero ring element, ord_w(f(r)) = e * ord_v(r).
+    -- Positivity he makes positive orders equivalent, so nonunits map to nonunits.
+    -- Zero maps to zero. Use the local-hom criterion for these valuation rings.
+    sorry
   IsLocalRing.ResidueField.map (valuationSubringMap v w e hvw)
 
-/-- `K2SymbolsBrauer:T.3/ramification-formula`: for a finite extension `E/F` and `w` over `v`
-with ramification index `e ≥ 1`, `∂_w{r₁, r₂} = (∂_v{r₁, r₂})^e` in `k_wˣ` for `r₁, r₂ ∈ Fˣ`.
+/-- `K2SymbolsBrauer:T.3/ramification-formula`: for any field embedding `F → E` and normalised valuations
+with positive ramification index `e ≥ 1`, `∂_w{r₁, r₂} = (∂_v{r₁, r₂})^e` in `k_wˣ` for `r₁, r₂ ∈ Fˣ`.
 (With all `e_i = 1` the diagonal `k_vˣ → ∏ k_{w_i}ˣ` carries `∂_v` to `(∂_{w_i})_i`.) -/
-theorem ramification_formula [FiniteDimensional F E] (w : Valuation E ℤᵐ⁰)
+theorem ramification_formula (w : Valuation E ℤᵐ⁰)
     (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
     (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) (r₁ r₂ : Fˣ) :
     tameSymbol w hw (Units.map (algebraMap F E).toMonoidHom r₁)
         (Units.map (algebraMap F E).toMonoidHom r₂) =
-      Units.map (residueFieldMap v w e hvw).toMonoidHom (tameSymbol v hv r₁ r₂) ^ e := by
+      Units.map (residueFieldMap v w e he hvw).toMonoidHom (tameSymbol v hv r₁ r₂) ^ e := by
+  sorry
+
+-- test TauCeti.TameSymbol.residueFieldMap_residue (compatibility)
+example (w : Valuation E ℤᵐ⁰) (e : ℕ) (he : 0 < e)
+    (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r)
+    (a : v.valuationSubring) :
+    residueFieldMap v w e he hvw (IsLocalRing.residue v.valuationSubring a) =
+      IsLocalRing.residue w.valuationSubring (valuationSubringMap v w e hvw a) := by
+  sorry
+
+-- test TauCeti.TameSymbol.residueFieldMap_requires_positive (non-example)
+-- The u-adic valuation on ℚ(u) supplies htriv. 5 is a nonunit at v but a unit at w.
+example [Fact (Nat.Prime 5)] (w : Valuation (RatFunc ℚ) ℤᵐ⁰)
+    (htriv : ∀ r : ℚ, w.ord (algebraMap ℚ (RatFunc ℚ) r) = 0) :
+    ¬ IsLocalHom (valuationSubringMap (Rat.padicValuation 5) w 0
+      (by intro r; simpa using htriv r)) := by
   sorry
 
 end Extension
@@ -951,13 +980,41 @@ theorem specialisation_change_of_uniformiser (c : v.valuationSubring.unitGroup)
   sorry
 
 /-- `K2SymbolsBrauer:T.3/higher-ramification-formula` (Ex. III.7.8; parented in `T.4`, one of the
-elementary identities before Kato's theorem): for `w` over `v` with ramification index `e`,
-`∂_w(res_{E/F} x) = e · res_{k_w/k_v}(∂_v x)`. -/
-theorem higher_ramification_formula {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
+elementary identities before Kato's theorem): for any field embedding with normalised
+surjective valuations and positive ramification index `e`,
+`∂_w(res_{E/F} x) = e · res_{k_w/k_v}(∂_v x)`. The source states the finite case;
+the unit/uniformiser calculation also proves this generalisation. -/
+theorem higher_ramification_formula {E : Type v} [Field E] [Algebra F E]
     (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
     (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) {n : ℕ} (x : milnorK F (n + 1)) :
     milnorResidue w hw n (milnorK.map (algebraMap F E) (n + 1) x) =
-      e • milnorK.map (residueFieldMap v w e hvw) n (milnorResidue v hv n x) := by
+      e • milnorK.map (residueFieldMap v w e he hvw) n (milnorResidue v hv n x) := by
+  sorry
+
+-- test TauCeti.MilnorK.higher_ramification_infinite (compatibility)
+-- The 5-adic Gauss valuation on ℚ(u) supplies w and hvw; k_w = F_5(u).
+-- No FiniteDimensional ℚ (RatFunc ℚ) instance is assumed or requested.
+example [Fact (Nat.Prime 5)] (w : Valuation (RatFunc ℚ) ℤᵐ⁰) (hw : Function.Surjective w)
+    (hvw : ∀ r : ℚ, w.ord (algebraMap ℚ (RatFunc ℚ) r) = (Rat.padicValuation 5).ord r)
+    (n : ℕ) (x : milnorK ℚ (n + 1)) :
+    milnorResidue w hw n (milnorK.map (algebraMap ℚ (RatFunc ℚ)) (n + 1) x) =
+      milnorK.map (residueFieldMap (Rat.padicValuation 5) w 1 (by decide)
+        (by intro r; simpa using hvw r)) n
+        (milnorResidue (Rat.padicValuation 5) (Rat.surjective_padicValuation 5) n x) := by
+  simpa using higher_ramification_formula (Rat.padicValuation 5)
+    (Rat.surjective_padicValuation 5) w hw 1 (by decide) (by intro r; simpa using hvw r) x
+
+-- test TauCeti.MilnorK.higher_residue_trivial_restriction (degenerate)
+-- In the constant extension F(t) → F(u)(t), the place t-u supplies this condition.
+-- All imported entries are units; symbol generation extends zero to the whole group.
+example {A B : Type u} [Field A] [Field B] (f : A →+* B)
+    (w : Valuation B ℤᵐ⁰) (hw : Function.Surjective w)
+    (htriv : ∀ a : Aˣ, w.ord (f a) = 0)
+    (n : ℕ) (a : Fin (n + 1) → Aˣ) :
+    milnorResidue w hw n
+      (milnorK.map f (n + 1) (milnorK.symbol a)) = 0 := by
+  -- Lift each f(a_i) to w.valuationSubring.unitGroup using htriv;
+  -- map the symbol and apply milnorResidue_symbol_units.
   sorry
 
 /-- `K2SymbolsBrauer:T.3/rigidity`: for `F` complete for `v` and `q` prime to `char k`,
@@ -1512,7 +1569,10 @@ theorem prime_to_p_closure (p : ℕ) [Fact p.Prime] :
 
 /-- `K2SymbolsBrauer:T.4/transfer-base-change` (Exercise III.7.7, for any `F'/F`): if
 `π = ∏ πᵢ^{eᵢ}` over `F'` with `πᵢ` the minimal polynomial of `bᵢ`, and `σᵢ : F⟮a⟯ → F'⟮bᵢ⟯` sends
-`a ↦ bᵢ`, then `res ∘ N_{a/F} = Σᵢ eᵢ · N_{bᵢ/F'} ∘ σᵢ`. -/
+`a ↦ bᵢ`, then `res ∘ N_{a/F} = Σᵢ eᵢ · N_{bᵢ/F'} ∘ σᵢ`.
+Use higher_ramification_formula at nontrivially restricting places, with positive index.
+At a place trivial on F(t), all imported symbols are symbols of units and their residue is zero.
+This separate case is necessary for F' = F(u), e.g. the place t-u; no e = 0 residue map exists. -/
 theorem transfer_base_change {E : Type v} [Field E] [Algebra F E] (a : E) (ha : IsIntegral F a)
     {F' L : Type w} [Field F'] [Field L] [Algebra F F'] [Algebra F' L] {r : ℕ} (b : Fin r → L)
     (hb : ∀ i, IsIntegral F' (b i)) (e : Fin r → ℕ)
@@ -1551,8 +1611,9 @@ theorem kato_prime_degree {E : Type v} [Field E] [Algebra F E] [FiniteDimensiona
 
 /-- The residue degree `f(w | v) = [k_w : k_v]` (a real definition). -/
 def residueDegree {E : Type v} [Field E] [Algebra F E] (v : Valuation F ℤᵐ⁰)
-    (w : Valuation E ℤᵐ⁰) (e : ℕ) (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) : ℕ :=
-  letI := (residueFieldMap v w e hvw).toAlgebra
+    (w : Valuation E ℤᵐ⁰) (e : ℕ) (he : 0 < e)
+    (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) : ℕ :=
+  letI := (residueFieldMap v w e he hvw).toAlgebra
   Module.finrank (TameSymbol.ResidueField v) (TameSymbol.ResidueField w)
 
 /-- `K2SymbolsBrauer:T.4/kato-complete-residue` (Corollary III.7.6.3): for `F` complete for `v` and
@@ -1561,13 +1622,13 @@ theorem kato_complete_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimens
     [Normal F E] (hp : (Module.finrank F E).Prime) (v : Valuation F ℤᵐ⁰)
     (hv : Function.Surjective v)
     [IsAdicComplete (IsLocalRing.maximalIdeal v.valuationSubring) v.valuationSubring]
-    (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ)
+    (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
     (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r)
     (hunique : ∀ (w' : Valuation E ℤᵐ⁰) (e' : ℕ), Function.Surjective w' →
       (∀ r : F, w'.ord (algebraMap F E r) = e' * v.ord r) → w' = w)
     (n : ℕ) (x : milnorK E (n + 1)) :
     milnorResidue v hv n (milnorNorm F E (n + 1) x) =
-      milnorNormOf (residueFieldMap v w e hvw) n (milnorResidue w hw n x) := by
+      milnorNormOf (residueFieldMap v w e he hvw) n (milnorResidue w hw n x) := by
   sorry
 
 /-- `K2SymbolsBrauer:T.3/transfer-and-norm-residue` (reparented to T.4): for a finite extension
@@ -1576,15 +1637,16 @@ theorem kato_complete_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimens
 not enter; without the finiteness hypothesis the degree-one case fails. -/
 theorem transfer_and_norm_residue {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
     (v : Valuation F ℤᵐ⁰) (hv : Function.Surjective v) (W : Finset (Valuation E ℤᵐ⁰))
-    (e : Valuation E ℤᵐ⁰ → ℕ) (hsurj : ∀ w ∈ W, Function.Surjective w)
+    (e : Valuation E ℤᵐ⁰ → ℕ) (he : ∀ w ∈ W, 0 < e w)
+    (hsurj : ∀ w ∈ W, Function.Surjective w)
     (hvw : ∀ w ∈ W, ∀ r : F, w.ord (algebraMap F E r) = e w * v.ord r)
     (hall : ∀ (w : Valuation E ℤᵐ⁰) (e' : ℕ), Function.Surjective w → 0 < e' →
       (∀ r : F, w.ord (algebraMap F E r) = e' * v.ord r) → w ∈ W)
-    (hfin : ∑ w ∈ W.attach, e w.1 * residueDegree v w.1 (e w.1) (hvw w.1 w.2) =
+    (hfin : ∑ w ∈ W.attach, e w.1 * residueDegree v w.1 (e w.1) (he w.1 w.2) (hvw w.1 w.2) =
       Module.finrank F E)
     (n : ℕ) (x : milnorK E (n + 1)) :
     milnorResidue v hv n (milnorNorm F E (n + 1) x) =
-      ∑ w ∈ W.attach, milnorNormOf (residueFieldMap v w.1 (e w.1) (hvw w.1 w.2)) n
+      ∑ w ∈ W.attach, milnorNormOf (residueFieldMap v w.1 (e w.1) (he w.1 w.2) (hvw w.1 w.2)) n
         (milnorResidue w.1 (hsurj w.1 w.2) n x) := by
   sorry
 
@@ -1599,13 +1661,14 @@ theorem constant_extension_residue {E : Type u} [Field E] [Algebra F E] [FiniteD
     (hX : algebraMap (RatFunc F) (RatFunc E) RatFunc.X = RatFunc.X)
     (v : Valuation (RatFunc F) ℤᵐ⁰) (hv : Function.Surjective v) [v.IsTrivialOn F]
     (W : Finset (Valuation (RatFunc E) ℤᵐ⁰)) (e : Valuation (RatFunc E) ℤᵐ⁰ → ℕ)
+    (he : ∀ w ∈ W, 0 < e w)
     (hsurj : ∀ w ∈ W, Function.Surjective w)
     (hvw : ∀ w ∈ W, ∀ r, w.ord (algebraMap (RatFunc F) (RatFunc E) r) = e w * v.ord r)
     (hall : ∀ (w : Valuation (RatFunc E) ℤᵐ⁰) (e' : ℕ), Function.Surjective w → 0 < e' →
       (∀ r, w.ord (algebraMap (RatFunc F) (RatFunc E) r) = e' * v.ord r) → w ∈ W)
     (n : ℕ) (x : milnorK (RatFunc E) (n + 1)) :
     milnorResidue v hv n (milnorNorm (RatFunc F) (RatFunc E) (n + 1) x) =
-      ∑ w ∈ W.attach, milnorNormOf (residueFieldMap v w.1 (e w.1) (hvw w.1 w.2)) n
+      ∑ w ∈ W.attach, milnorNormOf (residueFieldMap v w.1 (e w.1) (he w.1 w.2) (hvw w.1 w.2)) n
         (milnorResidue w.1 (hsurj w.1 w.2) n x) := by
   sorry
 
@@ -2356,12 +2419,26 @@ def relDSRel : Set (FreeAbelianGroup (RelDSGen I)) :=
       (hst : r ∈ I ∨ s + t - r * s * t ∈ I),
       z = FreeAbelianGroup.of ⟨(r, s), hs⟩ + FreeAbelianGroup.of ⟨(r, t), ht⟩ -
         FreeAbelianGroup.of ⟨(r, s + t - r * s * t), hst⟩} ∪
-  {z | ∃ (r s t : R) (h : r ∈ I ∨ s * t ∈ I) (h₁ : r * s ∈ I ∨ t ∈ I) (h₂ : t * r ∈ I ∨ s ∈ I),
-      z = FreeAbelianGroup.of ⟨(r, s * t), h⟩ - FreeAbelianGroup.of ⟨(r * s, t), h₁⟩ -
-        FreeAbelianGroup.of ⟨(t * r, s), h₂⟩}
+  {z | ∃ (r s t : R) (hI3 : r ∈ I ∨ s ∈ I ∨ t ∈ I),
+      z = FreeAbelianGroup.of ⟨(r, s * t), by
+        rcases hI3 with hr | hs | ht
+        · exact Or.inl hr
+        · exact Or.inr (I.mul_mem_right t hs)
+        · exact Or.inr (I.mul_mem_left s ht)⟩ -
+      FreeAbelianGroup.of ⟨(r * s, t), by
+        rcases hI3 with hr | hs | ht
+        · exact Or.inl (I.mul_mem_right s hr)
+        · exact Or.inl (I.mul_mem_left r hs)
+        · exact Or.inr ht⟩ -
+      FreeAbelianGroup.of ⟨(t * r, s), by
+        rcases hI3 with hr | hs | ht
+        · exact Or.inl (I.mul_mem_left t hr)
+        · exact Or.inr hs
+        · exact Or.inl (I.mul_mem_right r ht)⟩}
 
 /-- The relative Dennis–Stein group, generated by the relative generators subject only to
-(D1)–(D3). -/
+(D1), (D2), and D3 only when an entry of the triple is in I. Pair admissibility alone
+is not a relation condition. -/
 def relDennisSteinGroup : Type u := FreeAbelianGroup (RelDSGen I) ⧸ AddSubgroup.closure (relDSRel I)
 
 instance : AddCommGroup (relDennisSteinGroup I) :=
@@ -2375,13 +2452,57 @@ def relDennisSteinGroup.toRelK2 (hI : I ≤ Ideal.jacobson ⊥) :
   QuotientAddGroup.lift _ (FreeAbelianGroup.lift fun p : RelDSGen I =>
     if h : p.1.2 ∈ I then Additive.ofMul (relDennisStein p.1.1 p.1.2 h (Commute.all _ _) (by sorry))
     else Additive.ofMul (relDennisStein p.1.2 p.1.1 (p.2.resolve_right h) (Commute.all _ _)
-      (by sorry))⁻¹) (by sorry)
+      (by sorry))⁻¹) (by
+      -- Check the relation generators, then extend to their additive closure.
+      -- D1/D2 use relative-symbol identities. For D3 split on its hI3 witness;
+      -- use D1 to place the ideal entry correctly and apply the source's relative D3.
+      -- There is no case for a triple with all entries outside I.
+      sorry)
 
 /-- `K2SymbolsBrauer:T.6/relative-presentation` (Theorem III.5.11.1(b), cited): for a radical ideal
 of a commutative ring, `K₂(R, I)` is presented by the relative Dennis–Stein symbols subject only
 to (D1)–(D3). -/
 theorem relative_presentation (hI : I ≤ Ideal.jacobson ⊥) :
     Function.Bijective (relDennisSteinGroup.toRelK2 I hI) := by
+  sorry
+
+-- test TauCeti.K2.relative_D3_guard (non-example)
+-- This actual iterated dual-number ring is F_3[x,y]/(x²,y²), not a free carrier.
+example :
+    let R := DualNumber (DualNumber (ZMod 3))
+    let x : R := TrivSqZeroExt.inl (DualNumber.eps : DualNumber (ZMod 3))
+    let y : R := DualNumber.eps
+    let I : Ideal R := Ideal.span {x * y}
+    I ^ 2 = ⊥ ∧ I ≤ Ideal.jacobson ⊥ ∧
+      ¬ (x ∈ I ∨ y ∈ I ∨ x + y ∈ I) ∧
+      (x ∈ I ∨ y * (x + y) ∈ I) ∧
+      (x * y ∈ I ∨ x + y ∈ I) ∧
+      ((x + y) * x ∈ I ∨ y ∈ I) := by
+  sorry
+
+-- test TauCeti.K2.relative_D3_detector (computation)
+-- Ex. III.5.14(a) and relative_square_zero_kaehler give δ⟨i,a⟩ = i⊗da.
+-- The following signature identifies the actual tensor target and the three images.
+example :
+    let R := DualNumber (DualNumber (ZMod 3))
+    let x : R := TrivSqZeroExt.inl (DualNumber.eps : DualNumber (ZMod 3))
+    let y : R := DualNumber.eps
+    let I : Ideal R := Ideal.span {x * y}
+    let z : I := ⟨x * y, by exact Ideal.subset_span (by simp)⟩
+    letI : Module R Ω[(R ⧸ I)⁄ℤ] := Module.compHom _ (Ideal.Quotient.mk I)
+    ∃ coord : (I ⊗[R] Ω[(R ⧸ I)⁄ℤ]) ≃+ (ZMod 3 × ZMod 3),
+      coord (-(z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I x))) = (2, 0) ∧
+      coord (z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I (x + y))) = (1, 1) ∧
+      coord (z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I y)) = (0, 1) ∧
+      coord (-(z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I x)) -
+        (z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I (x + y))) -
+        (z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I y))) = (1, 1) ∧
+      ((1, 1) : ZMod 3 × ZMod 3) ≠ 0 := by
+  sorry
+
+-- test TauCeti.K2.relative_presentation_bot (degenerate)
+example {A : Type u} [CommRing A] :
+    Subsingleton (relDennisSteinGroup (⊥ : Ideal A)) := by
   sorry
 
 end RelativePresentation
@@ -2656,8 +2777,12 @@ example : conicSymbol ℚ_[2] (-1) (-1) = -1 := by
   sorry
 
 -- test TauCeti.NormResidueSymbol.hilbertSymbol_real (compatibility)
-example (r s : ℝ) : conicSymbol ℝ r s = -1 ↔ r < 0 ∧ s < 0 := by
+example (r s : ℝˣ) : conicSymbol ℝ r s = -1 ↔ (r : ℝ) < 0 ∧ (s : ℝ) < 0 := by
   sorry
+
+-- test TauCeti.NormResidueSymbol.conicSymbol_zero_not_hilbert (non-example)
+example : conicSymbol ℝ 0 0 = -1 ∧ ¬ ((0 : ℝ) < 0 ∧ (0 : ℝ) < 0) := by
+  simp [conicSymbol]
 
 -- test TauCeti.NormResidueSymbol.hilbertSymbol_eq_qfi (compatibility): not stated here; needs
 -- `hilbertSymbol` of QuadraticFormInvariants 6C (supplier: QuadraticFormInvariants 6C).
@@ -2799,6 +2924,32 @@ theorem global_reciprocity (F : Type u) [Field F] [NumberField F] (m : ℕ) [NeZ
           (if m = 2 then Units.map (Int.castRingHom F).toMonoidHom
             (TameSymbol.signSymbolAt (InfinitePlace.embedding_of_isReal w.2)
               (steinbergSymbol a b (Commute.all _ _))) else 1) = 1 := by
+  sorry
+
+-- test TauCeti.NormResidueSymbol.global_reciprocity_one (degenerate)
+-- This is the full m = 1 symbol-product assertion on ℚ at {-1,-1};
+-- it needs neither the nontrivial reciprocity law nor the unresolved comparison.
+open IsDedekindDomain NumberField in
+example :
+    ∃ c : HeightOneSpectrum (𝓞 ℚ) → rootsOfUnity 1 ℚ,
+      (∀ v, restrictRootsOfUnity (algebraMap ℚ (v.adicCompletion ℚ)) 1 (c v) =
+        normResidueSymbol (v.adicCompletion ℚ) 1 (by simp) (-1) (-1)) ∧
+      (Function.mulSupport c).Finite ∧
+      (∏ᶠ v, ((c v : rootsOfUnity 1 ℚ) : ℚˣ)) *
+        ∏ᶠ w : {w : InfinitePlace ℚ // w.IsReal},
+          (if (1 : ℕ) = 2 then Units.map (Int.castRingHom ℚ).toMonoidHom
+            (TameSymbol.signSymbolAt (InfinitePlace.embedding_of_isReal w.2)
+              (steinbergSymbol (-1 : ℚˣ) (-1) (Commute.all _ _))) else 1) = 1 := by
+  refine ⟨fun _ => 1, ?_, ?_, ?_⟩
+  · intro v
+    exact Subsingleton.elim _ _
+  · simp [Function.mulSupport]
+  · simp
+
+-- test TauCeti.NormResidueSymbol.global_reciprocity_two_real_dyadic (computation)
+example :
+    conicSymbol ℝ (-1) (-1) = -1 ∧ conicSymbol ℚ_[2] (-1) (-1) = -1 ∧
+      conicSymbol ℝ (-1) (-1) * conicSymbol ℚ_[2] (-1) (-1) = 1 := by
   sorry
 
 /- `K2SymbolsBrauer:T.7/symbol-formula`: not stated here; needs the Galois symbol
