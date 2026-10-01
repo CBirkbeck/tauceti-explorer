@@ -41998,7 +41998,9 @@
     "REV-PAPER-DELIGNE-74"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DELIGNE-74.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4594",
+   "finishedAt": "2026-10-01T09:57:55Z"
   },
   {
    "id": "RT-PAPER-DELIGNE-80",
