@@ -2,7 +2,7 @@
 
 Ziyang Gao, Tangli Ge and Lars Kühne, *The Uniform Mordell–Lang Conjecture*, [Publications Mathématiques de l'IHÉS 143 (2026), 189–235](https://doi.org/10.5802/pmihes.26); arXiv [2105.15085](https://arxiv.org/abs/2105.15085).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1438). Status: **complete**. The whole published article (§§1–8, Appendix A, references) was read, and every missing item is routed once. The machine-readable extraction is [PAPER-GAO-GE-KUHNE-26.result.json](PAPER-GAO-GE-KUHNE-26.result.json): 93 items (3 library, 16 planned, 74 missing), 6 routes, 17 prerequisite entries and 13 recorded source slips.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1438). Status: **complete**. The whole published article (§§1–8, Appendix A, references) was read, and every missing item is routed once. The machine-readable extraction is [PAPER-GAO-GE-KUHNE-26.result.json](PAPER-GAO-GE-KUHNE-26.result.json): 93 items (3 library, 16 planned, 74 missing), 6 routes, 17 prerequisite entries, 16 active source diagnostics, and historical E8 retained as retracted.
 
 **Source.** The published article is open access under CC BY 4.0: [PDF](https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf), SHA-256 `4ee5a38b327807289885a1d7292bddc3341b7fc3e0aa8a3682d995d13237834f`, read 2026-09-22. The revised version is dated March 2026, and it controls over the arXiv v4.
 
@@ -72,9 +72,9 @@ The reviewed library audit marks all of these planned layers "not built" or "par
 
    PAPER-YUAN-26 already proposed this id for uniform Bogomolov for curves. This paper's Theorem 1.3 contains the number-field curve case, so the two routes coalesce instead of duplicating the programme; Yuan's function-field statements stay in their own brief.
 
-## Source slips (`sourceIssues` E1–E13)
+## Source diagnostics (`sourceIssues` E1–E7, E9–E17)
 
-None of these affects a stated theorem. They are recorded so that a formalization uses the corrected constants.
+None currently requires changing a stated theorem. E14–E17 affect proof steps and have explicit repairs; historical E8 is retracted. They are recorded so that a formalization uses the correct hypotheses, groups, measures and constants.
 
 - **E1** Theorem 1.3 names the second constant c₃ instead of c₄.
 - **E2** The proof of Lemma 2.5 uses 8^r where (2.4) gives 16^r, and the step factor is similarly off. The lemma only claims ≪_g.
@@ -83,14 +83,32 @@ None of these affects a stated theorem. They are recorded so that a formalizatio
 - **E5** Proposition 5.2 labels a constant c′₃ instead of c″₃.
 - **E6** Step 5 of Proposition 5.2 sums over i = 2,…,M instead of M+1.
 - **E7** Step 5(a) uses the degree exponent L^{⊠m} instead of L^{⊠m(M+2)}.
-- **E8** Proposition 6.1 takes c₂ = max{c′₂, c″₂}, but the exceptional set is a union of two sets, so c₂ = c′₂ + c″₂ is needed.
+- **E8 (retracted).** The published max bound is correct. With H=max{1,h_Fal(A)} and B=max{1,2c′₃/c′₁} fixed for A, H≤B puts all small points in (6.3), while H>B puts them all in (6.2). Choose one exceptional set; its degree is below max{c′₂,c″₂}. The original record, including its old confirming review, remains under `resolvedSourceObservations` as history and is excluded from the active errata list.
 - **E9** In (7.4)–(7.6) and (A.12), a ball holds at most c₀^{rk Γ+1} points, not c₀.
 - **E10** Proposition 7.2 needs c₀ = max{c₁⁻¹, c₃}, not max{c₁, c₃}.
 - **E11** Appendix Step 3 has (4c₈+1) where (8c₈+1) is needed.
 - **E12** (gap, affects the proof) §8 applies Proposition 5.1 and the induction hypothesis to non-generating components without translating. The repair translates by a small point P₁, using ĥ(P−P₁) ≤ 2ĥ(P)+2ĥ(P₁) and Lemma 2.5, and proves the statement for all X. Item 93 records that form.
 - **E13** Proposition A.3(ii) has "<" where the proof gives "≤".
 
-I checked each slip against the text; E2, E4, E8, E9, E10 and E12 were re-derived. No published correction was found (journal page, Crossref).
+The original extraction checked E1–E13 and reported no published correction (journal page, Crossref). Its conclusion about E8 was superseded by the later independent red-team verification. The current fix reads selected loci, not the whole paper again. E14–E17 persist at the checked author-copy loci; publisher, Crossref, latest-version metadata and Gao’s publication page revealed no correction for this paper on 1 October 2026.
+
+## Verified fixes (FIX-RT-PAPER-GAO-GE-KUHNE-26, 1 October 2026)
+
+Codex (`codex-J6LwjP`, issue #5532) addresses all six findings confirmed by
+[REV-RT-PAPER-GAO-GE-KUHNE-26](../reviews/REV-RT-PAPER-GAO-GE-KUHNE-26.md).
+The 93 item ids, statuses, six routes and their endpoint memberships are preserved.
+The binding briefs and affected items now contain the following proof adapters.
+
+- **E14, rank-preserving reduction (/4, /85).** Choose Γ₀ from representatives of a basis of Γ⊗ℚ. Clear denominators and the remaining torsion to put each γ in its division hull. The exact sequence with finite kernel A[n](F) proves [n]⁻¹Γ₀ is finitely generated of rank ρ. The nested factorial preimages cover every finite subset, so the uniform bound passes to Γ. Lemma 7.3 needs no endomorphism stability. For ℤ(P,0) in E×E, a stable enlargement has rank at least two; it cannot replace the original rank-one subgroup.
+- **E15, coset representatives (/88, /89).** The addition isogeny f:B×B^⊥→A gives Γ_B=pr₂(f⁻¹Γ). Its finite kernel preserves rank before projection, hence rk Γ_B≤ρ. A coset meeting Γ has a representative in X_B°∩Γ_B. Apply Theorem 1.1′ with this group to the bounded-degree components and sum over maximal B. For X=E×C′ and Γ=ℤ(P,c), the coset E×{c} meets Γ even though X_B∩Γ is empty; its representative belongs to Γ_B.
+- **Total-dimension Betti tests (/47, /48 and the Betti Part II).** Δ(E) over a curve has dim_ℂ=2 but real Betti rank ≤2, so it is a negative example. Over a point every subvariety of a single polarized abelian variety is non-degenerate. Torsion sections over positive-dimensional bases remain negative examples.
+- **Retraction of E8 (/70 and the uniformity Part II).** Choose one locus casewise for fixed H, as above. The published maximum works, including H=B; no union degree is needed.
+- **E16, small-height signs (/64, /68).** Replace the two printed ≥ tolerance hypotheses after (5.8)–(5.9) by <. The subsequent Claim still concludes that at least one of the two heights is ≥δ.
+- **E17, finite-degree normalization (/68).** On each component’s finite étale locus of degree d_D, set ν=(1/d_D)D*μ₂ using ordinary top-form pullback. Step 2 gives non-proportionality, so μ₁≠ν; its diagonal witness remains useful even when d_D>1. Choose a separating compactly supported test on that locus and average over the finite stabilizer. It descends to f₂, with f₁=f₂∘D and ∫f₁ν=∫f₂μ₂. The original equilibrium measures μ₁ and μ₂ enter the two small-height estimates; equal orbit averages then contradict the separation. Do not rescale μ₂ or assume a trivial stabilizer.
+
+E14–E17 are recorded as proof diagnostics, with separate published and author-copy
+locators and bounded correction searches. These are planning proofs awaiting the
+existing owners’ formal implementations and the independent fix review.
 
 ## Prerequisites not yet covered
 
@@ -111,7 +129,7 @@ Links and reasons are in the JSON.
 ## Checks
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json`: ok.
-- Every missing item appears in exactly one route, and no source route takes a planned or library item. The two briefs are 327 and 423 words.
+- Every missing item appears in exactly one route, and no source route takes a planned or library item. The two briefs meet the minimum length; their current versions include the verified proof adapters below.
 - Library citations were read at the pinned commits: Tau Ceti f790474 (`AbelianVariety/Basic.lean:94`, `AbelianVariety/Isogeny.lean:61`, `LineBundle/Basic.lean:78`) and Mathlib 082e2d3 (`NumberTheory/Height/Projectivization.lean:51`). Every planned layer id was checked against `data/atlas.json`.
 - No Lean was written or compiled; none is a deliverable of this job.
 
@@ -142,7 +160,7 @@ statement as written is not in the libraries; the Mathlib declaration stays in t
 supplier RP.0 will import. The three Tau Ceti citations stand, and their notes already say what is
 not there yet.
 
-All thirteen findings are **confirmed**, each read at its locator and checked against the definitions
+The original reviewer reported all thirteen findings **confirmed**. That historical verdict for E8 is now superseded by the independently verified retraction above; the remaining twelve were not re-reviewed by this fix worker. The original account reads: each was read at its locator and checked against the definitions
 it depends on: Lemma 2.4's constant for E2, the definition of `D` and Lemma 4.3 for E6 and E7,
 (Hyp pack) for E9 and E10, the case analysis on p.219 for E8, the pigeonhole on p.232 for E11, and
 Step 1 on p.230 for E13. E12, the one gap, is real — the §8 induction applies Proposition 5.1 and the
