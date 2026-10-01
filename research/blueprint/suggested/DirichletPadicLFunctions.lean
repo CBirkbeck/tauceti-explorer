@@ -19066,3 +19066,169 @@ example : mahler 3 (3 : ℤ_[3])=1 := by sorry
 end Norms
 end
 end DirichletPadic.SuggestedRobertSourceTests
+
+/- Robert continuous factorial quotient and fixed-point Gamma product. -/
+namespace DirichletPadic
+noncomputable section
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+lemma moritaGamma_neg_factorial_all
+     (n : ℕ) :
+    (fun x => (moritaGamma p x : ℤ_[p])) (-(n : ℤ_[p]))*(n.factorial : ℤ_[p]) =
+      (-(p : ℤ_[p]))^(n/p)*((n/p).factorial : ℤ_[p]) := by sorry
+
+lemma moritaGamma_factorial_telescope
+     (n f : ℕ) :
+    (∏ i ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (-((n/p^i : ℕ) : ℤ_[p])))*(n.factorial : ℤ_[p]) =
+      (-(p : ℤ_[p]))^(∑ i ∈ range f, n/p^(i+1))*((n/p^f).factorial : ℤ_[p]) := by sorry
+
+
+lemma robert_factorial_valuation_tail (n f : ℕ) :
+    padicValNat p n.factorial =
+      (∑ i ∈ range f, n/p^(i+1))+padicValNat p (n/p^f).factorial := by sorry
+
+
+
+lemma robert_factorial_exponent (f a m : ℕ) (ha : a<p^f) :
+    (∑ i ∈ range f, (a+p^f*m)/p^(i+1))=
+      padicValNat p a.factorial+((p^f-1)/(p-1))*m := by sorry
+
+noncomputable def robertAffinePath (f a i : ℕ) (x : ℤ_[p]) : ℤ_[p] := by sorry
+
+lemma robertAffinePath_apply (f a i : ℕ) (x : ℤ_[p]) :
+    robertAffinePath p f a i x=(a/p^i : ℕ)+(p^(f-i) : ℕ)*x := by sorry
+
+lemma robertAffinePath_zero (f a : ℕ) (x : ℤ_[p]) :
+    robertAffinePath p f a 0 x=(a : ℤ_[p])+(p^f : ℕ)*x := by sorry
+
+lemma robertAffinePath_last (f a : ℕ) (ha : a<p^f) (x : ℤ_[p]) :
+    robertAffinePath p f a f x=x := by sorry
+
+lemma robertAffinePath_nat (f a i m : ℕ) (hi : i≤f) :
+    robertAffinePath p f a i (m : ℤ_[p])=((a+p^f*m)/p^i : ℕ) := by sorry
+
+lemma robertAffinePath_continuous (f a i : ℕ) : Continuous (robertAffinePath p f a i) := by sorry
+
+noncomputable def robertFactorialQuotient  (f a : ℕ) (x : ℤ_[p]) : ℚ_[p] := by sorry
+
+lemma robertFactorialQuotient_apply  (f a : ℕ) (x : ℤ_[p]) :
+    robertFactorialQuotient p f a x=(∏ i ∈ range f, ((fun x => (moritaGamma p x : ℤ_[p])) (-robertAffinePath p f a i x) : ℚ_[p])) /
+      (-(p : ℚ_[p]))^(padicValNat p a.factorial) := by sorry
+
+lemma robertFactorialQuotient_continuous   (f a : ℕ) :
+    Continuous (robertFactorialQuotient p f a) := by sorry
+
+lemma robertFactorialQuotient_nat
+
+    (f a : ℕ) (ha : a<p^f) (m : ℕ) :
+    robertFactorialQuotient p f a (m : ℤ_[p]) =
+      (-(p : ℚ_[p]))^(((p^f-1)/(p-1))*m)*(m.factorial : ℚ_[p]) /
+        ((a+p^f*m).factorial : ℚ_[p]) := by sorry
+
+lemma robertFactorialQuotient_zero
+
+    (f a : ℕ) (ha : a<p^f) :
+    robertFactorialQuotient p f a 0=(a.factorial : ℚ_[p])⁻¹ := by sorry
+
+lemma robertFactorialQuotient_unique
+
+    (f a : ℕ) (ha : a<p^f) (F : ℤ_[p] → ℚ_[p]) (hF : Continuous F)
+    (hFn : ∀ m : ℕ, F m=(-(p : ℚ_[p]))^(((p^f-1)/(p-1))*m)*
+      (m.factorial : ℚ_[p])/((a+p^f*m).factorial : ℚ_[p])) :
+    F=robertFactorialQuotient p f a := by sorry
+
+lemma robertFactorialQuotient_ne_zero
+    (f a : ℕ) (x : ℤ_[p]) : robertFactorialQuotient p f a x≠0 := by sorry
+
+lemma robertFactorialQuotient_pi_scale {K : Type*} [Field K] [CharZero K]
+    (ι : ℚ_[p] →+* K) (π : K) (hπ : π^(p-1)=-(p : K))
+     (f a : ℕ) (x : ℤ_[p]) :
+    π^a*ι (robertFactorialQuotient p f a x)=
+      π^((p.digits a).sum)*(∏ i ∈ range f, ι ((fun x => (moritaGamma p x : ℤ_[p])) (-robertAffinePath p f a i x))) := by sorry
+
+lemma robertAffinePath_fixed_relation (f a i : ℕ) (hi : i≤f) (x : ℤ_[p])
+    (hx : (1-(p^f : ℕ) : ℤ_[p])*x=(a : ℤ_[p])) :
+    ((p^f-1 : ℕ) : ℤ_[p])*(-robertAffinePath p f a i x)=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p]) := by sorry
+
+lemma robertFactorialQuotient_fixedPoint {K : Type*} [Field K] [CharZero K]
+    (ι : ℚ_[p] →+* K) (π : K) (hπ : π^(p-1)=-(p : K))
+     (f : ℕ) (hf : 0<f) (a : ℕ) (x : ℤ_[p])
+    (hx : (1-(p^f : ℕ) : ℤ_[p])*x=(a : ℤ_[p]))
+    (y : ℕ → ℤ_[p])
+    (hy : ∀ i<f, ((p^f-1 : ℕ) : ℤ_[p])*y i=
+      ((a/p^i+p^(f-i)*(a%p^i) : ℕ) : ℤ_[p])) :
+    π^a*ι (robertFactorialQuotient p f a x)=
+      π^((p.digits a).sum)*(∏ i ∈ range f, ι ((fun x => (moritaGamma p x : ℤ_[p])) (y i))) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertFactorialTests
+open Finset
+noncomputable section
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- ternary_six
+example : (moritaGamma 3 (-6) : ℤ_[3])*(Nat.factorial 6 : ℤ_[3])=18 := by sorry
+-- dyadic_two
+example : (moritaGamma 2 (-2) : ℤ_[2])*2=-2 ∧ (moritaGamma 2 (-2) : ℤ_[2])*2≠1 := by sorry
+-- zero_factorial
+example : (moritaGamma 3 0 : ℤ_[3])*(Nat.factorial 0 : ℤ_[3])=1 := by sorry
+-- ternary_telescope
+example : (moritaGamma 3 (-14) : ℤ_[3])*(moritaGamma 3 (-4) : ℤ_[3])*(Nat.factorial 14 : ℤ_[3])=(-3)^5 := by sorry
+-- empty_telescope
+example (n : ℕ) : (∏ i ∈ range 0, (moritaGamma 3 (-((n/3^i : ℕ) : ℤ_[3])) : ℤ_[3]))*(n.factorial : ℤ_[3])=(n.factorial : ℤ_[3]) := by sorry
+-- valuation_tail
+example : padicValNat 3 (Nat.factorial 30)=10+padicValNat 3 (Nat.factorial 10) := by sorry
+-- zero_tail
+example : padicValNat 3 (Nat.factorial 0)=0 := by sorry
+-- ternary_exponent
+example : (∑ i ∈ range 2, (5+3^2*2)/3^(i+1) : ℕ)=9 := by sorry
+-- dyadic_exponent
+example : (∑ i ∈ range 3, (5+2^3)/2^(i+1) : ℕ)=10 := by sorry
+-- path_initial
+example (x : ℤ_[3]) : robertAffinePath 3 2 5 0 x=5+9*x := by sorry
+-- path_middle
+example (x : ℤ_[3]) : robertAffinePath 3 2 5 1 x=1+3*x := by sorry
+-- path_last
+example (x : ℤ_[3]) : robertAffinePath 3 2 5 2 x=x := by sorry
+-- path_integer
+example : robertAffinePath 3 2 5 1 2=7 := by sorry
+-- path_continuous
+example : Continuous (robertAffinePath 3 2 5 1) := by sorry
+-- path_out_of_range
+example : robertAffinePath 3 2 9 2 0=1 ∧ robertAffinePath 3 2 9 2 0≠0 := by sorry
+-- path_zero
+example : robertAffinePath 2 3 0 1 0=0 := by sorry
+-- quotient_ternary
+example : robertFactorialQuotient 3 2 5 1=81/(Nat.factorial 14 : ℚ_[3]) := by sorry
+-- quotient_dyadic
+example : robertFactorialQuotient 2 3 5 1=(-128)/(Nat.factorial 13 : ℚ_[2]) := by sorry
+-- quotient_zero
+example : robertFactorialQuotient 3 2 5 0=(120 : ℚ_[3])⁻¹ := by sorry
+-- quotient_zero_numerator
+example : robertFactorialQuotient 2 3 0 0=1 := by sorry
+-- quotient_continuous
+example : Continuous (robertFactorialQuotient 3 2 5) := by sorry
+-- quotient_nonzero
+example (x : ℤ_[3]) : robertFactorialQuotient 3 2 5 x≠0 := by sorry
+-- quotient_unique
+example (F : ℤ_[3] → ℚ_[3]) (hF : Continuous F) (h : ∀ m : ℕ, F m=(-3 : ℚ_[3])^(4*m)*(m.factorial : ℚ_[3])/((5+9*m).factorial : ℚ_[3])) : F=robertFactorialQuotient 3 2 5 := by sorry
+-- quotient_range_failure
+example : robertFactorialQuotient 3 1 6 0=2/(Nat.factorial 6 : ℚ_[3]) ∧ robertFactorialQuotient 3 1 6 0≠1/(Nat.factorial 6 : ℚ_[3]) := by sorry
+-- scale_dyadic
+example (x : ℤ_[2]) : (-2 : ℚ_[2])^5*robertFactorialQuotient 2 3 5 x=(-2 : ℚ_[2])^2*(∏ i ∈ range 3, ((moritaGamma 2 (-robertAffinePath 2 3 5 i x) : ℤ_[2]) : ℚ_[2])) := by sorry
+-- scale_zero
+example (x : ℤ_[3]) : robertFactorialQuotient 3 2 0 x=(∏ i ∈ range 2, ((moritaGamma 3 (-robertAffinePath 3 2 0 i x) : ℤ_[3]) : ℚ_[3])) := by sorry
+-- fixed_ternary_rotation
+example (x : ℤ_[3]) (hx : 8*x=-5) : 8*(-robertAffinePath 3 2 5 1 x)=7 := by sorry
+-- fixed_card_endpoint
+example : -robertAffinePath 3 2 8 1 (-1)=1 ∧ -robertAffinePath 3 2 8 1 (-1)≠0 := by sorry
+-- fixed_product_dyadic
+example (x y₀ y₁ y₂ : ℤ_[2]) (hx : 7*x=-3) (h₀ : 7*y₀=3) (h₁ : 7*y₁=5) (h₂ : 7*y₂=6) : (-2 : ℚ_[2])^3*robertFactorialQuotient 2 3 3 x=4*((moritaGamma 2 y₀ : ℤ_[2]) : ℚ_[2])*((moritaGamma 2 y₁ : ℤ_[2]) : ℚ_[2])*((moritaGamma 2 y₂ : ℤ_[2]) : ℚ_[2]) := by sorry
+-- fixed_product_zero
+example : robertFactorialQuotient 3 2 0 0=1 := by sorry
+end
+end DirichletPadic.SuggestedRobertFactorialTests

@@ -34653,3 +34653,297 @@ Exact controls compute15 trivial-character Gauss sums,25 endpoint digit/period c
 Capture at 64620fae385b7312504aa9bd336a14ba6ba2fb18 has zero changes in the72 predecessor guarded inputs after merged5347; adds the full existing PadicDifferentialEquationsAndRigidCohomology packet as a73rd guarded input after reading its Dwork source interface. The whole issue is unchanged and review390 is unclaimed.
 
 The separate partial signature file also compiled with zero errors and 3,493 expected placeholder warnings across 3,604 pinned source modules. It includes all 4 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cbdfdabb6ecc4f024b93c3342eaeb86f859338d3367905d8a356e386383de7cc.
+
+
+## Robert’s continuous factorial quotient and fixed-point product
+
+Nine L3 nodes construct the actual continuous factorial quotient and derive its fixed-point Gamma product, uniformly at every prime. All 1,087 predecessor nodes, 819 baseline records, 20 findings and five source versions remain whole.
+
+Rereads Robert2001 pp.158–161 in full page images, including the factorial telescope, dyadic sign, G_a definition, reflection simplification, pi exponent and fixed-point product. Reads six new native baseline declarations and their proofs at the pin. The same negative-Gamma product is now derived directly from the already established recurrence, uniformly for every prime. Existing Morita Gamma, native factorial valuations, finite-range reflection, geometric sums, rational points and density are reused.
+
+### Gamma at every negative integer
+
+`DirichletPadicLFunctions:L3/morita-gamma-negative-factorial-all` — `DirichletPadic.moritaGamma_neg_factorial_all`
+
+For every natural n, Gamma_p(−n) n! = (−p)^floor(n/p) floor(n/p)! in Z_p.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Induct on n from Gamma(0)=1. Apply the existing recurrence at −(n+1). If p does not divide n+1, the argument is a native unit and Gamma(−n)=(n+1)Gamma(−(n+1)); the quotient floor((n+1)/p) does not change.
+2. If p divides n+1, the recurrence is Gamma(−n)=−Gamma(−(n+1)). Native natural division gives floor((n+1)/p)=floor(n/p)+1 and n+1=p(floor(n/p)+1). Insert these in the successor factorial formula.
+3. Both branches are equalities in Z_p; no division by a nonunit is used. The complete gamma_negative_factorial proof checks the factorial casts and signs, including p=2. This extends the earlier strict n<p result with its necessary p-power factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.ternary_six` (computation): Γ3(−6)·6! =18.
+- `SuggestedRobertFactorialTests.dyadic_two` (non-example): At n=p=2 the omitted p-power factor would give the wrong value.
+- `SuggestedRobertFactorialTests.zero_factorial` (degenerate): At n=0 the identity has value1.
+
+**Acceptance:** For p=3,n=6 the product is18; for p=2,n=2 it is−2, not1.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The finite Gamma factorial product
+
+`DirichletPadicLFunctions:L3/morita-gamma-factorial-telescope` — `DirichletPadic.moritaGamma_factorial_telescope`
+
+For n,f natural, (product over i<f of Gamma_p(−floor(n/p^i))) n! = (−p)^(sum over i<f of floor(n/p^(i+1))) floor(n/p^f)!.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Induct on the length f. The empty product and zero exponent give the identity at f=0.
+2. Separate the last Gamma factor and the last summand using native finite-range successor formulas. Apply the preceding one-step identity to floor(n/p^f).
+3. Native successive-division arithmetic identifies floor(floor(n/p^f)/p) with floor(n/p^(f+1)). Rearrange the commutative product and combine powers. The complete gamma_factorial_telescope proof performs no factorial cancellation in Z_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-negative-factorial-all`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.ternary_telescope` (computation): The factors at−14 and−4 give the exponent4+1=5.
+- `SuggestedRobertFactorialTests.empty_telescope` (degenerate): At f=0 the empty product leaves n! unchanged.
+
+**Acceptance:** The statement retains the terminal factorial for arbitrary n and f; it is not silently1.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The factorial valuation with a finite tail
+
+`DirichletPadicLFunctions:L3/robert-factorial-valuation-tail` — `DirichletPadic.robert_factorial_valuation_tail`
+
+ord_p(n!) = sum over i<f of floor(n/p^(i+1)) + ord_p(floor(n/p^f)!).
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. The full native padicValNat_factorial_mul and padicValNat_mul_div_factorial declarations give ord_p(n!)=ord_p(floor(n/p)!)+floor(n/p). The complete factorial_valuation_step helper composes them.
+2. Iterate this one-step native equality by induction on f, using successive division and the native sum-range successor formula. This produces the stated finite tail rather than choosing a logarithmic cutoff.
+3. The complete factorial_valuation_telescope proof treats n=0 and f=0 without exceptions. When n<p^f, the terminal factorial is0!=1 and its valuation vanishes.
+
+**Prerequisites:** `mathlib:padicValNat_factorial_mul`, `mathlib:padicValNat_mul_div_factorial`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.valuation_tail` (computation): At n=30,f=1 the valuation tail is vp(10!)=4.
+- `SuggestedRobertFactorialTests.zero_tail` (degenerate): The valuation tail at n=0 vanishes.
+
+**Acceptance:** Existing Legendre theory is reused; only its finite-tail consumer identity is planned.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The source factorial exponent
+
+`DirichletPadicLFunctions:L3/robert-factorial-exponent` — `DirichletPadic.robert_factorial_exponent`
+
+If a<p^f, sum over i<f of floor((a+p^f m)/p^(i+1)) = ord_p(a!)+((p^f−1)/(p−1))m.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. For i≤f, factor p^f=p^i p^(f−i). Native Euclidean division gives floor((a+p^f m)/p^i)=floor(a/p^i)+p^(f−i)m. The complete affine_quotient helper proves this before summing.
+2. Apply the preceding valuation-tail identity to a. The hypothesis a<p^f makes its tail vanish, so the sum of the a-quotients is ord_p(a!).
+3. Split the sum, factor out m, and reverse the finite range in the powers p^(f−i−1). The native generated sum_range_reflect theorem supplies this reindexing; its indexed multiplicative declaration is read and recorded.
+4. Native geom_sum_mul_of_one_le identifies the geometric sum with (p^f−1)/(p−1) by exact natural division, since p−1>0. The complete factorial_exponent proof checks every index and denominator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-valuation-tail`, `mathlib:Finset.prod_range_reflect`, `mathlib:geom_sum_mul_of_one_le`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.ternary_exponent` (computation): For a=5,q=9,m=2 the exponent is9.
+- `SuggestedRobertFactorialTests.dyadic_exponent` (computation): For a=5,q=8,m=1 the exponent is10.
+
+**Acceptance:** The quotient (q−1)/(p−1) is exact. No rounding error or rational exponent remains.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### Robert’s affine factorial arguments
+
+`DirichletPadicLFunctions:L3/robert-affine-path` — `DirichletPadic.robertAffinePath`
+
+Define n_i(x)=floor(a/p^i)+p^(f−i)x in Z_p.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Use native natural division and powers, cast their coefficients into Z_p, and form the affine function. The complete affinePath definition is this expression.
+2. At i=0 the argument is a+p^f x. At i=f and a<p^f it is x. For integer m and i≤f, the exact division calculation above identifies it with floor((a+p^f m)/p^i).
+3. Continuity follows from native ring operations on Z_p. The apply, zero, last, nat and continuous proofs supply the API consumed by the factorial quotient and fixed-point comparison.
+
+**Prerequisites:** `mathlib:PadicInt.Coe.ringHom`.
+
+**Uses:**
+
+- Robert Section2, Theorem1 and the definition of G_a: Names each affine Gamma argument, interpolating the integer factorial quotients.
+- Robert p.161 fixed-point product: At the fixed point the negatives are the exact right-rotated rational Gamma arguments.
+
+**API:**
+
+- `DirichletPadic.robertAffinePath_apply` (constructor): The defining affine formula.
+- `DirichletPadic.robertAffinePath_zero` (simp): n_0(x)=a+p^f x.
+- `DirichletPadic.robertAffinePath_last` (simp): n_f(x)=x if a<p^f.
+- `DirichletPadic.robertAffinePath_nat` (compatibility): For i≤f, n_i(m)=floor((a+p^f m)/p^i).
+- `DirichletPadic.robertAffinePath_continuous` (functoriality): Each affine argument is continuous on Z_p.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.path_initial` (computation): The initial affine argument is a+qx.
+- `SuggestedRobertFactorialTests.path_middle` (computation): The next affine argument is1+3x.
+- `SuggestedRobertFactorialTests.path_last` (characterisation): The last affine argument is x when a<q.
+- `SuggestedRobertFactorialTests.path_integer` (compatibility): At m=2 the middle affine path is floor(23/3)=7.
+- `SuggestedRobertFactorialTests.path_continuous` (functoriality): Each affine path is continuous.
+- `SuggestedRobertFactorialTests.path_out_of_range` (non-example): Without a<q the last path may be x+1.
+- `SuggestedRobertFactorialTests.path_zero` (degenerate): The zero input and zero numerator give zero.
+
+**Acceptance:** The last-index law fails without a<q: for p=3,f=2,a=9 it is x+1.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### Robert’s continuous factorial quotient
+
+`DirichletPadicLFunctions:L3/robert-factorial-quotient` — `DirichletPadic.robertFactorialQuotient`
+
+Define G_a(x)=(product over i<f of Gamma_p(−n_i(x)))/(−p)^ord_p(a!) in Q_p. If a<q, its integer values are (−p)^(((q−1)/(p−1))m)m!/(a+qm)!.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Form the actual Gamma product using the preceding affine arguments, include its Z_p values canonically in Q_p, and divide by the nonzero constant (−p)^ord_p(a!). The complete quotient definition records this literal expression.
+2. Continuity follows from the existing continuous Gamma function, affine continuity, the continuous inclusion Z_p→Q_p, finite products and division by a fixed nonzero constant. The complete quotient_continuous proof checks this topology.
+3. At a natural m, use the affine-path comparison and map the complete Gamma telescope from Z_p into Q_p through native PadicInt.Coe.ringHom. The terminal quotient is m because a<q. Substitute the factorial exponent and cancel the nonzero factorial and p-power in Q_p. The complete quotient_nat proof derives the source interpolation without assuming it.
+4. At m=0 the value is1/a!. All Gamma factors are units and the denominator is nonzero, so G_a has no zeros. The complete quotient_zero and quotient_ne_zero proofs check these boundaries.
+5. Any continuous Q_p-valued function with the same integer factorial values equals G_a by native density of the natural numbers in Z_p and the native equalizer theorem. The complete quotient_unique proof gives uniqueness, including all coefficient and domain types.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-affine-path`, `DirichletPadicLFunctions:L3/morita-gamma-factorial-telescope`, `DirichletPadicLFunctions:L3/robert-factorial-exponent`, `DirichletPadicLFunctions:L3/morita-gamma`, `DirichletPadicLFunctions:L3/morita-gamma-value-continuous`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `DirichletPadicLFunctions:L3/morita-gamma-value-unit-norm`, `mathlib:PadicInt.Coe.ringHom`, `mathlib:PadicInt.denseRange_natCast`.
+
+**Uses:**
+
+- Robert Section3, Mahler coefficient computation: Supplies the actual continuous function and exact factorial samples needed for the exponential-generating-function identity.
+- Robert Section4, finite telescoping and the Gauss comparison: Identifies the initial G_a with its Gamma product before extending the coefficient-defined family to all a.
+- Robert p.161 fixed-point product: Provides the Gamma side of the eventual Gauss formula at x=a/(1−q).
+
+**API:**
+
+- `DirichletPadic.robertFactorialQuotient_apply` (constructor): The actual Gamma product divided by the p-power.
+- `DirichletPadic.robertFactorialQuotient_continuous` (functoriality): G_a is continuous from Z_p to Q_p.
+- `DirichletPadic.robertFactorialQuotient_nat` (compatibility): For a<q its natural values are the stated factorial quotient.
+- `DirichletPadic.robertFactorialQuotient_zero` (simp): G_a(0)=1/a! for a<q.
+- `DirichletPadic.robertFactorialQuotient_unique` (characterisation): These natural values uniquely determine a continuous extension.
+- `DirichletPadic.robertFactorialQuotient_ne_zero` (relation): G_a never vanishes.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.quotient_ternary` (computation): The ternary source quotient at a=5,m=1 is81/14!.
+- `SuggestedRobertFactorialTests.quotient_dyadic` (computation): The dyadic value retains the negative sign from (−2)^7.
+- `SuggestedRobertFactorialTests.quotient_zero` (degenerate): At m=0 the value is the inverse of a!.
+- `SuggestedRobertFactorialTests.quotient_zero_numerator` (degenerate): The zero numerator and zero input give1.
+- `SuggestedRobertFactorialTests.quotient_continuous` (functoriality): The actual Gamma product is a continuous Q3-valued function.
+- `SuggestedRobertFactorialTests.quotient_nonzero` (non-example): The continuous product never vanishes.
+- `SuggestedRobertFactorialTests.quotient_unique` (characterisation): Integer factorial values uniquely determine the continuous function.
+- `SuggestedRobertFactorialTests.quotient_range_failure` (non-example): The product at a=6,q=3 is2/6!, not1/6!.
+
+**Acceptance:** The scalar target is Q_p, since a! can be divisible by p. The source range a<q is substantive: at p=3,f=1,a=6,m=0 the product gives2/6!, not1/6!.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The digit-sum normalization of the factorial quotient
+
+`DirichletPadicLFunctions:L3/robert-factorial-quotient-pi-scale` — `DirichletPadic.robertFactorialQuotient_pi_scale`
+
+For pi^(p−1)=−p, pi^a G_a(x)=pi^S_p(a) product over i<f of Gamma_p(−n_i(x)), after the specified Q_p-to-K map.
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Read and reuse native sub_one_mul_padicValNat_factorial and Nat.digit_sum_le. Together they give the exact natural exponent identity a=(p−1)ord_p(a!)+S_p(a), with no truncated subtraction left.
+2. The root equation implies pi is nonzero in the characteristic-zero field K. Map the quotient denominator to K and replace (−p)^ord_p(a!) by pi^((p−1)ord_p(a!)).
+3. Split pi^a using the exponent identity and cancel the nonzero denominator. Native map_div₀ and map_prod retain the exact coefficient map. The complete quotient_pi_scale proof uses no Gauss norm, Dwork estimate or arbitrary extension of a Z_p algebra.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-quotient`, `mathlib:sub_one_mul_padicValNat_factorial`, `mathlib:Nat.digit_sum_le`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.scale_dyadic` (compatibility): For p=2 the normalized root is−2, and a=5 has digit sum2.
+- `SuggestedRobertFactorialTests.scale_zero` (degenerate): At a=0 no power ofπ remains.
+
+**Acceptance:** The identity holds for the product-defined G_a for all natural a; its identification with the source factorial interpolation still requires a<q.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The affine arguments at the source fixed point
+
+`DirichletPadicLFunctions:L3/robert-affine-fixed-relation` — `DirichletPadic.robertAffinePath_fixed_relation`
+
+If (1−q)x=a and i≤f, then (q−1)(−n_i(x))=floor(a/p^i)+p^(f−i)(a mod p^i).
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. Use the native division-with-remainder identity a=p^i floor(a/p^i)+(a mod p^i), and factor p^f=p^i p^(f−i).
+2. Expand (q−1)(−n_i(x)). The fixed-point equation turns the x term into p^(f−i)a. Substitute the division identity and cancel the two q floor(a/p^i) terms by ring algebra.
+3. The complete affine_fixed_relation proof checks the cast of q−1 from natural numbers using 1≤q. For a<q, the resulting numerator is precisely the right cyclic digit rotation a^(i). No least-period assertion is made.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-affine-path`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.fixed_ternary_rotation` (computation): At8x=−5, the next positive Gamma argument has numerator7.
+- `SuggestedRobertFactorialTests.fixed_card_endpoint` (non-example): At a=q−1 the fixed point is−1 and the Gamma argument is1, not0.
+
+**Acceptance:** At a=0 every argument is0. At a=q−1 every argument is1; reducing this endpoint to the zero residue would change Gamma(1)=−1 to Gamma(0)=1.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+### The Gamma product at the fixed point
+
+`DirichletPadicLFunctions:L3/robert-factorial-fixed-product` — `DirichletPadic.robertFactorialQuotient_fixedPoint`
+
+For f>0 and the specified native rational points y_i=a^(i)/(q−1), pi^a G_a(a/(1−q))=pi^S_p(a) product over i<f of Gamma_p(y_i).
+
+**Hypotheses:** p is any prime, including 2. The Gamma function is the existing signed, continuous, unit-valued moritaGamma on native Z_p, with Gamma(0)=1 and Gamma(x+1)=−(if x is a unit then x else 1)Gamma(x). Its construction and recurrence are dependencies, not replanned here. Write q=p^f. The source takes f>0 and 0≤a<q. Natural factorial interpolation explicitly requires a<q; the product definition and some algebraic identities make sense more generally. The terminal affine-path identity also requires a<q, and fixed-point uniqueness uses f>0. The affine path is n_i(x)=floor(a/p^i)+p^(f−i)x for 0≤i≤f. Natural subtraction in f−i is used only with that index bound in its source comparisons. The quotient is an actual Q_p-valued function, the Gamma product divided by (−p)^ord_p(a!), with the canonical Z_p-to-Q_p inclusion. For pi scaling use a characteristic-zero field K, a ring homomorphism Q_p→K and an actual root pi^(p−1)=−p. No norm, chosen additive character or full Gross–Koblitz formula is assumed. The preceding normalized-pi construction can supply a compatible choice in its specified coefficient fields. At the fixed point (1−q)x=a, the Gamma arguments y_i are the unique native Z_p solutions of (q−1)y_i=floor(a/p^i)+p^(f−i)(a mod p^i). The prior denominator-unit and rational-point results supply these solutions. These are concrete linear equations, not assumptions about Gamma values. The published all-prime product formula on p.161 is derived here directly from the already established Gamma recurrence at negative integers. This proves the source formula without separately importing the dyadic reflection identity. It does not assert a new dyadic Gauss formula or discharge Dwork, Katz, Stickelberger or the full Gauss comparison. Complete native proofs take only the previously established Gamma laws as inputs. Suggested declarations specialize the actual moritaGamma. All 20 source findings and five read source versions remain whole; E18–E20 retain their independent-review boundary.
+
+**Proof:**
+
+1. The earlier denominator-unit and rational-point nodes supply the unique native points with (q−1)y_i=a^(i); negating the point for a supplies the fixed point x=a/(1−q). No new rational-point carrier is introduced.
+2. The preceding affine fixed-point relation shows that −n_i(x) satisfies the same linear equation as y_i. Since q−1 is nonzero, cancel it in Z_p to identify these two actual points.
+3. Apply the digit-sum scaling theorem and replace each finite Gamma argument using this point equality. The complete quotient_fixedPoint proof retains the explicit f>0, field embedding and root equation.
+4. For the source application restrict a<q, and for the later nontrivial Gauss formula restrict a<q−1 as already recorded in E19. The zero case uses Gamma(0); the excluded cardinality endpoint has Gamma(1).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-quotient-pi-scale`, `DirichletPadicLFunctions:L3/robert-affine-fixed-relation`, `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-point`.
+
+**Tests:**
+
+- `SuggestedRobertFactorialTests.fixed_product_dyadic` (compatibility): The dyadic fixed-point product has the two exact rational Gamma arguments3/7,5/7,6/7.
+- `SuggestedRobertFactorialTests.fixed_product_zero` (degenerate): For the zero fixed point the scaled Gamma product is1.
+
+**Acceptance:** This is the Gamma side of Robert’s proof. The Dwork coefficient identity and the equality to a Gauss sum remain to be established.
+
+**Source:** Published pp.158–161, Section2 factorial telescope and Theorem1, the definition of G_a and its all-prime negative-Gamma product, and the start of Section3 giving pi scaling and the fixed-point product. Full article reading retained; these pages reread visually. The planned G_a is the source inverse factorial quotient. Its direct negative-integer recurrence proof verifies the all-prime product and signs independently of the source reflection simplification. The fixed-point arguments use the printed right digit rotation; a=q−1 gives argument1, whereas a=0 gives argument0.
+
+**Remaining:** Robert’s actual continuous factorial quotient and its fixed-point Gamma product are now planned with complete native proofs. Next decompose the Mahler coefficient identity in Section3, including the actual formal-series coefficients of Theta_q(T)=exp(pi(T−T^q)), the finite-difference/exponential-generating-function comparison, and the exact coefficient extraction. Then prove the Section4 finite telescoping and norm-decay steps on Z_p. Reuse the existing RD.6/dwork-isocrystal owner for coefficient overconvergence and primitive trace-character values, with the inverse Frobenius-sign convention checked; read the primary proofs and request missing precise consumer APIs rather than duplicating that theory. The original Katz/Fermat and Gauss-side Stickelberger inputs remain unresolved until the alternate Gauss proof is complete. The E18 repair is unproved and unused; E19–E20 await independent review. All 18 gaps and 14 supplier requests remain; no stage closes.
+
+### Robert’s continuous factorial quotient and fixed-point product validation
+
+All 1087 predecessor nodes, 819 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 20 named suggested declarations and 30 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1356 reachable nodes, 6417 edges and 994 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Every new route terminates in existing Gamma/arithmetic nodes and pinned native library facts. There are no new unresolved stage leaves; all14 supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves PR5349 verbatim and adds two definitions and21 complete lemmas, including three routine arithmetic helpers. It takes only existing Gamma laws; suggested declarations specialize the actual moritaGamma. No target factorial interpolation, Gauss identity or Dwork estimate is assumed. The separate probe compiles against 2927 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. Full suggested module NOT COMPILED: pinned TwistedDivisorSum has no compatible existing artifact. No native library was built. General roadmap declarations remain unchecked.
+
+Exact rational and integer controls check the negative Gamma identity, finite telescope, valuation tail, source exponent, affine paths, factorial samples, dyadic signs, fixed-point rotations and the source range/endpoint boundaries. Exact integer and rational arithmetic; no floating-point tolerances. The largest observed discrepancy is 0.
+
+Capture at d5e45b9a547c535f9a44ff02bc677d807ab65bd4 after merged5349 has two changed guarded inputs: the source-issue registry and generated errata register add exactly E19–E20 from that checkpoint as awaiting independent review. The complete semantic diff was read; there is no new mathematical correction, changed owner or review verdict. The other71 guarded inputs and all four predecessor deliverables are unchanged; the whole issue is unchanged and review390 remains unclaimed.
+
+The separate partial signature file also compiled with zero errors and 3,543 expected placeholder warnings across 3,604 pinned source modules. It includes all 20 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 53a1424524fefdec8f1ea6f2338cfe566dcbc12a6f2aab3c1a7a525a50d663e6.
