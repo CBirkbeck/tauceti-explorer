@@ -1,52 +1,52 @@
-# BP-DirichletPadicLFunctions: Robert’s continuous factorial quotient and fixed-point product
+# BP-DirichletPadicLFunctions: Robert’s actual Mahler coefficients and convergent expansion
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #5349,
-merged d1aa436f3437fdf65662af5182a2a4d7ee516877 with head 2ea885261c8234e4a6b3ac2bd947b7ea73bb9d56.
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #5350,
+merged e660ddba13e0fd7f9dee2da59e6a58fb82d1daf1 with head 77e91ec817b3a59332c0ecd8c874f16fa70f389d.
 Original claim5854790528, winning bot5854791937; no additional claim.
 Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Plans the all-integer negative Gamma identity, its finite telescope, the finite valuation tail and source exponent, two concrete constructions with eleven API lemmas, and the pi/fixed-point product comparisons.
+Plans finite coefficients of the actual native exponential product, the low-degree boundary, the actual quotient coefficient identity, native Mahler convergence and decay, the evaluated expansion and root independence. Adds no new definition or supplier request.
 
-Totals: 1096 unchecked nodes (2 definitions, 482 lemmas, 111 constructions, 302 theorems, 199 comparisons), 824 API entries,
-2118 packet tests (482 on definitions/constructions),
-2121 typed examples, 24 planets and 825 baseline records.
+Totals: 1104 unchecked nodes (2 definitions, 487 lemmas, 111 constructions, 303 theorems, 201 comparisons), 824 API entries,
+2137 packet tests (482 on definitions/constructions),
+2140 typed examples, 24 planets and 839 baseline records.
 20 findings, 18 gaps, 14 requests and zero closed stages.
-All20 source findings and all five sourceVersions remain whole. No new finding or review verdict is added.
+All20 source findings and five sourceVersions remain whole. No new finding or review verdict is added.
 
-Robert’s actual continuous factorial quotient and its fixed-point Gamma product are now planned with complete native proofs. Next decompose the Mahler coefficient identity in Section3, including the actual formal-series coefficients of Theta_q(T)=exp(pi(T−T^q)), the finite-difference/exponential-generating-function comparison, and the exact coefficient extraction. Then prove the Section4 finite telescoping and norm-decay steps on Z_p. Reuse the existing RD.6/dwork-isocrystal owner for coefficient overconvergence and primitive trace-character values, with the inverse Frobenius-sign convention checked; read the primary proofs and request missing precise consumer APIs rather than duplicating that theory. The original Katz/Fermat and Gauss-side Stickelberger inputs remain unresolved until the alternate Gauss proof is complete. The E18 repair is unproved and unused; E19–E20 await independent review. All 18 gaps and 14 supplier requests remain; no stage closes.
+Robert Theorem2 is now planned with a complete native coefficient proof and a convergent Mahler expansion of the actual G_a on Z_p. Next use the formal product’s coefficient recurrence to define and control the extended coefficient family for every a≥0, then decompose the Section4 finite telescoping identity and prove its uniform tail decay. The fixed-a Mahler coefficient decay proved here is insufficient for that varying-a tail. Read the primary Dwork proofs and reuse the existing RD.6/dwork-isocrystal owner for overconvergence, quantitative coefficient bounds and primitive trace-character values, requesting any missing precise consumer interface. Keep the inverse Frobenius sign explicit. The full alternate Gauss proof, original Katz/Fermat and Gauss-side Stickelberger inputs remain open. E18’s repair is unproved and unused; E19–E20 await independent review. All18 gaps and14 requests remain; no stage closes.
 
 ## Reading and validation
 
-Rereads Robert2001 pp.158–161 in full page images, including the factorial telescope, dyadic sign, G_a definition, reflection simplification, pi exponent and fixed-point product. Reads six new native baseline declarations and their proofs at the pin. The same negative-Gamma product is now derived directly from the already established recurrence, uniformly for every prime. Existing Morita Gamma, native factorial valuations, finite-range reflection, geometric sums, rational points and density are reused.
+Rereads Robert2001 pp.162–163, Theorem2, its full Atkin/Boole proof and the root-choice comment, from the published page images. Reads the actual native exponential, rescaling, expansion, coefficient convolution, factorial-binomial and forward-difference APIs. Reads the full native Mahler decay and convergence proofs with their module hypotheses. The direct finite convolution proof supplies the same source coefficient identity without duplicating an Atkin or Dwork operator.
 
-All 1087 predecessor nodes, 819 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 20 named suggested declarations and 30 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1356 reachable nodes, 6417 edges and 994 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. Every new route terminates in existing Gamma/arithmetic nodes and pinned native library facts. There are no new unresolved stage leaves; all14 supplier requests remain whole.
+All 1096 predecessor nodes, 825 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1364 reachable nodes, 6452 edges and 1007 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All eight new routes terminate in existing Gamma/factorial nodes and pinned native facts. No new unresolved stage leaf is introduced; Dwork analytic theory remains with its existing owner and all14 current requests remain whole.
 
 **The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
 
 The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
 
-The complete probe preserves PR5349 verbatim and adds two definitions and21 complete lemmas, including three routine arithmetic helpers. It takes only existing Gamma laws; suggested declarations specialize the actual moritaGamma. No target factorial interpolation, Gauss identity or Dwork estimate is assumed. The separate probe compiles against 2927 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. Full suggested module NOT COMPILED: pinned TwistedDivisorSum has no compatible existing artifact. No native library was built. General roadmap declarations remain unchecked.
+The complete probe preserves5350 verbatim after two native imports and adds13 complete lemmas, including five routine reindexing, factorial, finite-difference and root-power helpers. The canonical bounded scalar action is derived in a local instance. Suggested signatures specialize the actual factorial quotient; no target coefficient or Gauss identity is assumed. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. No native library was built. General roadmap declarations remain unchecked.
 
-Exact rational and integer controls check the negative Gamma identity, finite telescope, valuation tail, source exponent, affine paths, factorial samples, dyadic signs, fixed-point rotations and the source range/endpoint boundaries. Exact integer and rational arithmetic; no floating-point tolerances. The largest observed discrepancy is 0.
+Exact calculations in Q[pi]/(pi^(p−1)+p) check eight constant terms,63 low coefficients,552 coefficient-recurrence values,567 actual Mahler coefficients,504 integer evaluations, and both source range boundaries. These finite checks make no convergence or overconvergence claim. Exact rational arithmetic in Q[pi]/(pi^(p-1)+p); no floating point. The largest observed discrepancy is 0.
 
-Capture at d5e45b9a547c535f9a44ff02bc677d807ab65bd4 after merged5349 has two changed guarded inputs: the source-issue registry and generated errata register add exactly E19–E20 from that checkpoint as awaiting independent review. The complete semantic diff was read; there is no new mathematical correction, changed owner or review verdict. The other71 guarded inputs and all four predecessor deliverables are unchanged; the whole issue is unchanged and review390 remains unclaimed.
+Capture at e660ddba13e0fd7f9dee2da59e6a58fb82d1daf1 after actual merge5350 has no changes among the73 guarded inputs. All four predecessor deliverables and the whole issue are unchanged; review390 remains unclaimed.
 
-The publication guard at d5e45b9a547c535f9a44ff02bc677d807ab65bd4 checks 73 inputs,
+The publication guard at 7e2b13085cfcf1cf46ff452073fb9f3d8f9522fc checks 73 inputs,
 four predecessor outputs, unchanged issue text, the original winning claim
 and unclaimed review #390.
-Suggested SHA256: `fac75ff7d467754b980a3666b33bd330170e766eae0cf4b10fac8b473832f68a`.
-Native probe SHA256: `a787f8ddba8a169a658e8ba14dff26e399950d4d133d274de4cce988509f189a`.
+Suggested SHA256: `6bb0c4f0e6b26c21a6497907682d61a96e3c7b4e999f25b86d6ece45ea4d0457`.
+Native probe SHA256: `394fc0d527828e8d41246e5b7d57fcac8e9def318deda7313554a3818033ca85`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain RobertFactorialProbe.lean and its compiler/result/source audit, finite
+Retain RobertMahlerProbe.lean and its compiler/result/source audit, finite
 control code and results, the full-module NOT-COMPILED receipt and source
 audit, artifact-availability and source-review assessment, dependency and
 preservation receipts, captured inputs and guard, and exact submitted files
 with remote receipts. These are retained with this PR's local evidence;
 scratch is retired after submission. The seven-module Teichmuller reuse receipt and artifact hashes are retained alongside the artifact audit. No private path or source PDF is published.
 
-The separate partial signature file also compiled with zero errors and 3,543 expected placeholder warnings across 3,604 pinned source modules. It includes all 20 new named declarations and 30 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 53a1424524fefdec8f1ea6f2338cfe566dcbc12a6f2aab3c1a7a525a50d663e6.
+The separate partial signature file also compiled with zero errors and 3,570 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: fca2205ab8c77446b44b67de809725333bb00af739f6b2d8f4d105384cc2447e.
