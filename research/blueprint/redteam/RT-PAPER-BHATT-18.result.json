@@ -1,0 +1,41 @@
+{
+  "redteam": "RT-PAPER-BHATT-18",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-BHATT-18",
+  "summary": "Two findings: a high-severity false right-adjoint formula over general almost bases, with a valuation-quotient counterexample; and a medium-severity duplicated Cohen coefficient-ring construction already assigned by the accepted André extraction to R03.1. All 12 pages of Bhatt arXiv v2 reread. Existing source issues and acknowledged design obligations are not counted again; no claim that the direct summand theorems fail.",
+  "checked": [
+    "Independence: extraction sessions codex-hjdg0j, codex-7e92bd, cc-fb70e5, cc-39fac3; reviewer cc-58621d; this audit Codex codex-rtOQ9t. Claim 5927522598 confirmed by 5927525129. Base 699b19dfd79b6e3ab2c60fff104cef262378c094, read 2026-10-01.",
+    "Complete accepted extraction, reader, review result/report and handoff: 89 items, nine routes, nine prerequisite records, 25 source issues, nine gap groups and requests. Counts: 10 library, 14 planned, 65 missing. Each missing item is routed exactly once; all local dependencies resolve and the 89-item graph is acyclic.",
+    "Bhatt https://arxiv.org/pdf/1608.08882v2, all 12 pages including proofs, footnotes and references; images 3,6,7,9,11 inspected. SHA-256 08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430. Published Inventiones text not collated; existing G1 retained as a limitation.",
+    "Gabber–Ramero, Almost ring theory, sixth release 22 July 2002, https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf, pp.8–15 read; images 8,12,14 checked. Remark 2.1.4, Proposition 2.1.7, equation (2.2.4), §§2.2.8–9 and Proposition 2.2.13 supply the actual general almost-base adjunction. SHA-256 c4ab39ad5cd3f95f12a4c2f1f100f0c9f91578c6cbe2085a1962d111df8d7dc8.",
+    "Bhatt, published Derived splinters, https://compositio.nl/Content/prize2016_bhatt.pdf, printed pp.1758,1760,1763–1764: Theorem 1.4, Examples 2.2–3 and Theorem 2.12. The characteristic-zero theorem is available over any characteristic-zero field for finite-type schemes; the arbitrary regular Q-algebra reduction remains G7. SHA-256 1895449ddef2c920b3f88d1c1fbe4dd9c6f545ecd9368759b66da6a712e38ba9.",
+    "Fresh assembled contracts: P0–P3; Q0:integral-algebra/Q3; DD.1; E1/E2/E5:animation; R03.1/R03.3/P7 and its perfect-complex node; SF.4; R2; upstream StableReduction layers 2/4. Route endpoints resolve and actual stageEdges form a DAG. Future pending edges are not certified. Reviewed R03.1/R03.3, E1/E2 and SF.4 library audits and AUDIT-01/17/22 acceptance metadata read.",
+    "Accepted PAPER-ANDRE-18-B shared DirectSummands/PerfectoidRamification routes and R03.1 coefficient items compared. PAPER-BHATT-ETAL-23 local-algebra and birational route inspected as neighboring consumer. Pending proposals are not treated as implemented declarations.",
+    "All ten library items checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: regular predicates, faithful flatness, ordinary completion, DerivedCategory/Q, Artin–Rees, controlled lift, Krull intersection, proper H0 integrality and its localization/affinization inputs, Rees algebra and Proj. Extra obstruction imports singleTriangle, extClass, zero-morphism/split-mono criterion and DerivedCategory linearity read at the pin. Local files used were compared with pinned blobs.",
+    "Bounded pinned searches for almost modules/almostification, Cohen structure and general Néron desingularization found no implementations in the searched Mathlib algebra/category/ring trees or TauCeti tree. The Gabriel–Popescu category theorem is not Popescu approximation. No exhaustive absence claim.",
+    "Exact counterexample: V is the valuation ring of completed F_p((t^(1/p^infinity))), m its maximal ideal, W=V/(t), n=mW. The flat tensor square tilde n is m/tm; its map to n=m/(t) has nonzero kernel (t)/(tm). Identity of tilde n cannot factor through that quotient. Existing almost-pro quantifiers, coherent obstruction distinctions and corrected generic surjectivity checked; no additional finding on those.",
+    "Validation: scripts/check_redteam.py, intake.py check-files on the two deliverables, staged git diff --cached --check. No Lean deliverable or compilation. Earlier authors' finite diagnostic scripts were read, not rerun."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-BHATT-18/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-BHATT-18.result.json, item almost-category, API AlmostElements.hom; imported PerfectoidSpaces:P0 general almost-base contract",
+      "claim": "The item assumes only m²=m and flatness of m⊗_V m, but asserts (N^a)_*=Hom_V(m,N). In this scope the right adjoint is Hom_V(m⊗_V m,N). The simpler formula cannot be extended from the flat valuation ideal to arbitrary base changes.",
+      "evidence": "Gabber–Ramero sixth release, https://websites.umich.edu/~bhattb/almost_purity_2011/almost_ring_theory.pdf, equation (2.2.4) p.12 and Proposition 2.2.13(ii) p.14 use tilde m=m⊗m; Remark 2.1.4 p.8 distinguishes flatness of m from flatness of tilde m. For V=K° with K=completed F_p((t^(1/p^infinity))), m its maximal ideal, W=V/(t), n=mW: tilde n≅m/tm is W-flat, while multiplication to n=m/(t) has kernel (t)/(tm)≅V/m≠0. For N=tilde n, its identity is absent from the comparison Hom_W(n,N)→Hom_W(tilde n,N). The report also distinguishes the representing modules by n-annihilated elements.",
+      "fix": "Correct the general API to Hom_V(tilde m,N), with its natural adjunction and counit. Derive Hom_V(m,N) only when multiplication tilde m→m is an isomorphism, in particular when m is flat. Preserve the general P0 base and the module/algebra adjoint distinction; do not exclude quotient bases by globally assuming m flat. Add valuation-base and V/(t) tests with the nonzero class of t in m/tm. Bhatt footnote 5 is valid over K°; record this as an extraction error, not a source erratum."
+    },
+    {
+      "id": "RT-PAPER-BHATT-18/2",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-BHATT-18.result.json, cohen-structure and route 9; comparison with PAPER-ANDRE-18-B route 4, cohen-parameter-presentation and coefficient-ring-compatibility",
+      "claim": "The new splitting roadmap is instructed to construct the mixed-characteristic coefficient ring again, despite the accepted André route assigning that common construction to R03.1. The item’s no-owner justification and route 9’s import-foundations boundary are inconsistent. This finding concerns the common coefficient input, not an assertion that the two full presentation conclusions coincide.",
+      "evidence": "BHATT cohen-structure first constructs W(k)→A0 inducing identity on the residue field and names DirectSummandsAndBigCohenMacaulay as owner. Accepted ANDRE route 4 at the same base names DeformationAndDerivedPatchingAlgebra:R03.1 and says “Add the exact Cohen presentation/compatibility”; cohen-parameter-presentation explicitly needs W(k) as coefficient ring for complete reduced p-torsion-free Noetherian local rings with perfect residue field. Bhatt’s complete regular mixed-characteristic input is in that overlap. The live R03.1 coefficient-category contract and reviewed AUDIT-17 identify the shared direction while retaining its missing interfaces.",
+      "fix": "Split/import the common coefficient-ring construction at R03.1 and reconcile it with accepted ANDRE route 4 and its coefficient-change data. Put the extra regular-local isomorphism/hypersurface corollary with that supplier, or keep a clearly identified DirectSummands consumer corollary importing R03.1 and R03.3. Update item note, prerequisites, route and reader together; no nonexistent node should be marked built. Reuse one chosen coefficient map in both papers’ tests. Keep perfectoid covers and splitting applications downstream without a whole-roadmap reverse dependency."
+    }
+  ],
+  "upstreamNotes": []
+}
