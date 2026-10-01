@@ -35429,3 +35429,316 @@ Exact rational controls after extracting pi^a check5,040 finite differences,1,06
 All73 captured policy, source, ownership, registry and roadmap input blobs match5352; four deliverables equal the merged predecessor. The whole713 issue body is unchanged. Review390 remains unclaimed; same-session continuation, no new claim.
 
 The separate partial signature file also compiled with zero errors and 3,602 expected placeholder warnings across 3,604 pinned source modules. It includes all 12 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 46206b71ab31a667e88afeac208a03ad2adca794ac75ea25cedec692601ee04e.
+
+
+## Robert’s coefficient convergence and moving-input decay
+
+Eleven L3 nodes compare the actual coefficient family with the Gamma quotient and prove its all-a convergence, continuity and moving-input decay from a precise Dwork coefficient bound. All1,112 predecessor nodes,854 baseline records,20 findings and five source versions remain whole; Robert2000 adds a sixth source version and the existing RD.6 owner receives one exact interface request.
+
+Fully reads Robert2000 VII2 pp.385–403, including the complete Artin–Hasse and Dwork proofs and all small-prime checks, together with the precise analytic prerequisite sections listed in its source record. Rereads Robert2001 pp.163–167 for the comparison, telescope and full odd/dyadic norm argument. Reads the entire current RD.6 Dwork node and its API; it supplies no exact native coefficient-bound statement. Full pinned native statements/proofs for all sixteen new baseline records were read. Complete native consumer proofs supply the normalized factorial identity, geometric majorant, all-a summability and continuity, sharp norm bounds and moving-input tail.
+
+### The small-index coefficient series has the Gamma sum
+
+`DirichletPadicLFunctions:L3/robert-small-index-series-sum` — `DirichletPadic.robertCoefficientSeries_hasSum_small`
+
+For a<p^f the actual falling-factorial series has sum pi^a iota(robertFactorialQuotient(p,f,a,x)).
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. For the small-index comparison K is a characteristic-zero topological ring field, iota:Q_p→K is continuous, pi^(p−1)=−p, q=p^f and a<q. The equality/continuity statements require a Hausdorff target. The native proof takes exactly the existing Gamma continuity, zero value and recurrence; suggested signatures specialize the actual moritaGamma factorial quotient. No quantitative Dwork bound is used. This Gamma comparison is not extended to a≥q. The coefficient-defined all-a function remains the actual native tsum, whose value on natural inputs was established in the predecessor.
+
+**Proof:**
+
+1. Start with the predecessor’s actual quotient_expansion HasSum, proved from the continuous-function Mahler theorem and the actual formal coefficients.
+2. The complete falling_mahler helper proves (iota(x))_k=k! iota(mahler k x). It uses the native ascending/descending polynomial comparison, binomial-ring choose and map_choose; no new falling-factorial theory is introduced.
+3. Multiply the known HasSum by pi^a. Since p is prime and the target has characteristic zero, the root equation implies pi≠0. Cancel powers using pi^(a+k)=pi^a pi^k and identify each term.
+4. The complete native series_hasSum_small proof requires no all-a Dwork estimate and no rearrangement of a divergent series.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-mahler-expansion`, `DirichletPadicLFunctions:L3/robert-coefficient-series`, `mathlib:Ring.map_choose`, `mathlib:Polynomial.descPochhammer_smeval_eq_ascPochhammer`, `mathlib:Polynomial.ascPochhammer_smeval_eq_eval`, `mathlib:descPochhammer_eval_eq_ascPochhammer`, `mathlib:Ring.descPochhammer_eq_factorial_smul_choose`, `mathlib:HasSum.mul_left`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.small_sum_0` (computation): The dyadic a=0 series atx=0 has sum1.
+- `SuggestedRobertDecayTests.small_sum_1` (computation): The dyadic a=0 series atx=1 has sum-1.
+
+**Acceptance:** At p=q=2,a=0 the sums at x=0 and1 are1 and−1.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying.
+
+### The coefficient and Gamma families agree in their common range
+
+`DirichletPadicLFunctions:L3/robert-coefficient-gamma-comparison` — `DirichletPadic.robertCoefficientSeries_eq_factorial`
+
+For a<q=p^f, robertCoefficientSeries(a,x)=pi^a iota(robertFactorialQuotient(p,f,a,x)).
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. For the small-index comparison K is a characteristic-zero topological ring field, iota:Q_p→K is continuous, pi^(p−1)=−p, q=p^f and a<q. The equality/continuity statements require a Hausdorff target. The native proof takes exactly the existing Gamma continuity, zero value and recurrence; suggested signatures specialize the actual moritaGamma factorial quotient. No quantitative Dwork bound is used. This Gamma comparison is not extended to a≥q. The coefficient-defined all-a function remains the actual native tsum, whose value on natural inputs was established in the predecessor.
+
+**Proof:**
+
+1. Apply the native HasSum.tsum_eq theorem to the preceding small-index HasSum.
+2. The left side is precisely the predecessor’s actual coefficient-series definition, with the composite Z_p→Q_p→K embedding.
+3. Keep the range condition a<q: at p=q=2,a=2,x=0 the actual coefficient family is4 but pi² times the old Gamma quotient is2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-small-index-series-sum`, `mathlib:HasProd.tprod_eq`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.gamma_comparison_0` (compatibility): For a=0<q=2 the actual extended family equals pi^a times the existing factorial quotient.
+- `SuggestedRobertDecayTests.gamma_comparison_1` (compatibility): For a=1<q=2 the actual extended family equals pi^a times the existing factorial quotient.
+- `SuggestedRobertDecayTests.gamma_range_failure` (non-example): The a<q condition cannot be omitted: at a=q=2,x=0 the two values are4 and2.
+
+**Acceptance:** The dyadic indices0 and1 agree for everyx∈Z2; the index2 comparison fails.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying.
+
+### Continuity from the small-index Gamma comparison
+
+`DirichletPadicLFunctions:L3/robert-small-index-series-continuous` — `DirichletPadic.robertCoefficientSeries_continuous_small`
+
+For a<p^f the coefficient family is continuous on Z_p, using only the existing continuous Gamma quotient and the continuous embedding.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. For the small-index comparison K is a characteristic-zero topological ring field, iota:Q_p→K is continuous, pi^(p−1)=−p, q=p^f and a<q. The equality/continuity statements require a Hausdorff target. The native proof takes exactly the existing Gamma continuity, zero value and recurrence; suggested signatures specialize the actual moritaGamma factorial quotient. No quantitative Dwork bound is used. This Gamma comparison is not extended to a≥q. The coefficient-defined all-a function remains the actual native tsum, whose value on natural inputs was established in the predecessor.
+
+**Proof:**
+
+1. Use function extensionality on the comparison equality.
+2. The Gamma quotient is continuous by the predecessor; compose with iota and multiply by the constant pi^a.
+3. This proof is independent of the later quantitative Dwork request and covers the complete small-index range, including a=q−1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-gamma-comparison`, `DirichletPadicLFunctions:L3/robert-factorial-quotient`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.small_continuous_0` (compatibility): The low-index family is continuous directly from the Gamma comparison.
+- `SuggestedRobertDecayTests.small_continuous_1` (compatibility): The low-index family is continuous directly from the Gamma comparison.
+
+**Acceptance:** At p=q=2 both a=0 and a=1 give continuous functions without a coefficient-bound hypothesis.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying.
+
+### The normalized factorial norm is controlled by digits
+
+`DirichletPadicLFunctions:L3/robert-factorial-ratio-norm` — `DirichletPadic.robert_factorial_ratio_norm`
+
+For every k, ‖k!‖/‖pi‖^k=‖pi‖^(−S_p(k)), where S_p(k) is the sum of the native base-p digits.
+
+**Hypotheses:** The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. No Dwork estimate, completeness, ultrametric target hypothesis or restriction on q is needed for this scalar identity.
+
+**Proof:**
+
+1. Transport natural scalar norms through the displayed norm-preserving Q_p embedding. Native Padic.eq_padicNorm, padicNorm.eq_zpow_of_nonzero and padicValRat.of_nat show ‖n‖=‖p‖^v_p(n) for n≠0; nat_norm is a complete routine proof.
+2. Take norms of pi^(p−1)=−p. The existing native Legendre formula (p−1)v_p(k!)=k−S_p(k) gives ‖k!‖=r^(k−S_p(k)); factorial_norm proves this equality including k=0.
+3. The native digit_sum_le justifies converting the natural subtraction into real subtraction. Rewrite the quotient with real powers and cancel k; the complete factorial_ratio_norm proof yields r^(−S_p(k)).
+
+**Prerequisites:** `mathlib:Padic.eq_padicNorm`, `mathlib:padicNorm.eq_zpow_of_nonzero`, `mathlib:padicValRat.of_nat`, `mathlib:sub_one_mul_padicValNat_factorial`, `mathlib:Nat.digit_sum_le`, `mathlib:Real.rpow_sub`, `mathlib:Real.rpow_natCast`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.factorial_zero` (degenerate): At k=0 the factorial norm ratio is1.
+- `SuggestedRobertDecayTests.factorial_binary_three` (computation): The k=3 ratio is4 because the binary digit sum is2.
+
+**Acceptance:** The k=0 ratio is1; at p=2,k=3 it is4, corresponding to the two binary digits.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying.
+
+### A geometric bound for every falling-factorial term
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound` — `DirichletPadic.robertCoefficientSeries_term_bound`
+
+For all a,k≥0 and x∈Z_p, ‖A_(a+qk)(iota(x))_k/pi^k‖≤r^(a/(2q)+k/4−5/4), conditional on the exact Dwork coefficient bound.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. The complete falling_mahler helper and ‖mahler k x‖≤1 give ‖(iota(x))_k‖≤‖k!‖. Norm preservation of iota and PadicInt.norm_le_one justify the bound on the image of each Mahler value.
+2. Combine the actual coefficient bound with the factorial-ratio equality. The resulting exact exponent is E=(a+qk)(p−1)^2/(p q)−S_p(k); coefficient_term_norm proves this step.
+3. For p≥3 native digit_sum_le gives S_p(k)≤k. Since (p−1)^2/p≥4/3, odd_exponent proves E≥a/q+k/3. The proof retains this strict k-rate at p=3.
+4. For p=2 use the native digit recursion. The complete binary_digit_half and binary_digit_quarter proofs give2S2(k)≤k+1 and4S2(k)≤k+5. The latter implies E≥a/(2q)+k/4−5/4.
+5. The odd estimate implies the same common majorant. The root equation and norm preservation give0<r<1, so the native real-power comparison reverses the exponent inequality. The complete series_term_bound specializes the generic routine to the actual formal coefficients.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-factorial-ratio-norm`, `DirichletPadicLFunctions:L3/robert-small-index-series-sum`, `PadicDifferentialEquationsAndRigidCohomology:RD.6`, `mathlib:Nat.digits_def'`, `mathlib:pow_lt_one_iff_of_nonneg`, `mathlib:Real.rpow_le_rpow_of_exponent_ge`, `mathlib:Real.rpow_add`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.binary_half_boundary` (non-example): The tempting bound2S2(k)≤k fails at k=1; the extra1 is needed.
+- `SuggestedRobertDecayTests.binary_quarter_boundary` (computation): The quarter estimate is sharp at k=3.
+- `SuggestedRobertDecayTests.ternary_strict_rate` (computation): The exact p=3 slope after subtracting k is1/3, not0.
+- `SuggestedRobertDecayTests.term_large_index` (compatibility): The actual dyadic series has the geometric majorant also at a=q.
+
+**Acceptance:** The false dyadic estimate2S2(k)≤k fails at k=1;4S2(3)=3+5 is sharp. The ternary slope is1/3. The bound applies also at a=q.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### Summability of the extended coefficient family
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-summable` — `DirichletPadic.robertCoefficientSeries_summable`
+
+For every a≥0 and x∈Z_p the actual coefficient series is summable, conditional on the Dwork estimate and completeness of K.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. Rewrite the common term majorant as r^(a/(2q)−5/4) times (r^(1/4))^k.
+2. Since0<r<1, native Real.rpow_lt_one gives r^(1/4)<1. The complete geometric_rpow helper uses the native geometric summability theorem and multiplication by a constant.
+3. Apply the existing Summable.of_norm_bounded comparison theorem in the complete normed field. The complete terms_summable and actual series_summable proofs need no finite-support or a<q restriction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `mathlib:Real.rpow_lt_one`, `mathlib:Real.rpow_mul_natCast`, `mathlib:summable_geometric_of_lt_one`, `mathlib:Summable.of_norm_bounded`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.summable_above_range_2` (compatibility): The Dwork bound implies summability at a=2 beyond the Gamma interpolation range.
+- `SuggestedRobertDecayTests.summable_above_range_5` (compatibility): The Dwork bound implies summability at a=5 beyond the Gamma interpolation range.
+
+**Acceptance:** The dyadic series at a=2 and5,x=−1 is summable under the actual coefficient bound; it cannot be obtained by substituting those indices into the old Gamma interpolation formula.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### Continuity of the extended coefficient family
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-continuous` — `DirichletPadic.robertCoefficientSeries_continuous`
+
+Under the coefficient bound, completeness and continuity of iota, robertCoefficientSeries(a,−) is continuous on Z_p for every a.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. Each individual term is a constant multiple of the native falling polynomial evaluated after the continuous inclusion Z_p→Q_p and iota. Native Polynomial.continuous proves this termwise continuity.
+2. Use the same geometric majorant as in summability; crucially it is independent of x∈Z_p.
+3. Read and apply native continuous_tsum, which follows from uniform convergence of the finite partial sums. The complete terms_continuous and actual series_continuous proofs establish the stated all-a continuity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `DirichletPadicLFunctions:L3/robert-coefficient-series-summable`, `mathlib:Polynomial.continuous`, `mathlib:continuous_tsum`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.continuous_above_range_2` (compatibility): With the coefficient bound the extended family is continuous at every index, here a=2.
+- `SuggestedRobertDecayTests.continuous_above_range_5` (compatibility): With the coefficient bound the extended family is continuous at every index, here a=5.
+
+**Acceptance:** The all-a statements at dyadic a=2 and5 retain exactly the same actual function and domain.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### A uniform norm bound at every prime
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-uniform-bound` — `DirichletPadic.robertCoefficientSeries_norm_bound`
+
+For all a≥0 and x∈Z_p, ‖robertCoefficientSeries(a,x)‖≤r^((a−q)/(2q)), with the coefficient bound explicit and K ultrametric.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. The exact term exponent is E=(a+qk)(p−1)^2/(p q)−S_p(k). At p=2 use2S2(k)≤k+1 to get E≥(a−q)/(2q).
+2. For p≥3 the stronger E≥a/q+k/3 implies the same lower bound. The complete all_uniform_exponent and term_uniform_bound helpers prove the common bound.
+3. Apply the native ultrametric norm_tsum_le_of_forall_le theorem, attributed to its indexed multiplicative declaration. Every term has norm at most the same constant; no factor counting the number of terms appears.
+4. This norm inequality for a total tsum does not by itself certify convergence. The preceding separate summability node supplies that analytic fact in a complete K. The actual series_norm_bound proof states the weaker assumptions sufficient for the inequality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.uniform_bound_0` (compatibility): The uniform bound at a=0 holds for allx inZ2.
+- `SuggestedRobertDecayTests.uniform_bound_2` (compatibility): The uniform bound at a=2 holds for allx inZ2.
+
+**Acceptance:** At p=q=2 the bound is r^(a/4−1/2), including a=0 and a=q. It is a bound on Z2, not on the unit ball of C2.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### The sharper odd-prime norm bound
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-odd-bound` — `DirichletPadic.robertCoefficientSeries_norm_bound_odd`
+
+For p≥3, every a≥0 and x∈Z_p satisfy ‖robertCoefficientSeries(a,x)‖≤r^(a/q), under the same actual coefficient estimate and ultrametric hypotheses.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. Retain the exact odd-prime exponent calculation E≥a/q+k/3 from the geometric-bound proof.
+2. Discard only the nonnegative k/3 term, giving a common term norm bound r^(a/q).
+3. Apply native ultrametric norm_tsum_le_of_forall_le. The complete actual series_norm_bound_odd proof establishes Robert’s stronger odd-prime bound without using the false C_p-domain parenthetical E20.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.odd_norm_0` (compatibility): The sharper odd-prime estimate uses exponent a/q, including a=q.
+- `SuggestedRobertDecayTests.odd_norm_3` (compatibility): The sharper odd-prime estimate uses exponent a/q, including a=q.
+
+**Acceptance:** At p=q=3 the bounds for a=0 and3 are1 andr respectively.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### The moving-input terminal value vanishes
+
+`DirichletPadicLFunctions:L3/robert-coefficient-series-tail` — `DirichletPadic.robertCoefficientSeries_tail`
+
+If q>1, then for every a≥0 and every sequence x_N∈Z_p, robertCoefficientSeries(a+N(q−1),x_N) tends to0. In particular x_N=x−N is allowed.
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. Apply the uniform all-prime bound at index a+N(q−1) and input x_N. No continuity, boundedness of coordinates in a larger field, or convergence of x_N is needed.
+2. Its majorant is r^((a−q)/(2q)+N(q−1)/(2q)). Since q>1, the slope (q−1)/(2q) is strictly positive.
+3. The native geometric_rpow helper makes this real sequence summable. Native Summable.tendsto_atTop_zero then gives its limit0.
+4. Apply native squeeze_zero_norm. Complete terms_tail and actual series_tail proofs establish the varying-index conclusion, which does not follow from fixed-a Mahler coefficient decay.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-uniform-bound`, `mathlib:Multipliable.tendsto_atTop_one`, `mathlib:squeeze_one_norm`, `mathlib:Real.rpow_mul_natCast`, `mathlib:summable_geometric_of_lt_one`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.tail_constant` (characterisation): The increasing-index terminal value tends to0 with constant input inZ2.
+- `SuggestedRobertDecayTests.tail_moving` (characterisation): The increasing-index terminal value tends to0 with moving input inZ2.
+
+**Acceptance:** Both x_N=0 andx_N=−N are covered at p=q=2. The q>1 condition is displayed.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+### The limiting coefficient telescope
+
+`DirichletPadicLFunctions:L3/robert-coefficient-telescope-limit` — `DirichletPadic.robertCoefficientSeries_telescope_limit`
+
+If q>1 and(1−q)iota(x)=a, the sequence (1−q)sum_(j<N)A_(a+j(q−1)) tends to robertCoefficientSeries(a,x).
+
+**Hypotheses:** Write A_n for the coefficient of the actual native formal product rescale(pi,PowerSeries.exp K) times expand(q,rescale(−pi,PowerSeries.exp K)). The existing robertCoefficientSeries is the tsum of A_(a+qk)/pi^k times native descPochhammer evaluated at iota(x), with x in Z_p. No replacement Dwork object is defined. The quantitative statements use a characteristic-zero normed field K and an explicit norm-preserving ring homomorphism iota:Q_p→K. Put r=‖pi‖ and assume pi^(p−1)=−p. The proof derives 0<r<1 and the factorial norm formula; it does not infer a normalized norm from an arbitrary algebra structure. The exact unresolved Dwork input is ∀n, ‖A_n‖≤r^(n(p−1)^2/(p q)). It is explicitly displayed in every quantitative consumer signature. The source supplies it when q=p^f and f>0; the consumers themselves allow any positive natural q satisfying the displayed bound. Summability and continuity use CompleteSpace K. Continuity also displays continuity of iota. The sharp sup bounds and moving-input tail require IsUltrametricDist K. The domain is Z_p, not the whole unit ball of C_p. The tail and limiting telescope require q>1. The coefficient estimate remains owned by RD.6. Its current dwork-isocrystal node gives the prime bound in proofSteps but has no API statement on these actual native coefficients. The new precise request records this missing interface; the native consumer proof does not assume its own summability, continuity, norm bound or tail conclusion.
+
+**Proof:**
+
+1. The preceding summability node discharges exactly the all-a, x∈Z_p summability hypothesis of the predecessor’s actual finite-N telescope.
+2. The finite identity retains Gtilde_a(x)−Gtilde_(a+N(q−1))(x−N). Apply the moving-input tail theorem with x_N=x−N.
+3. Subtract that limit0 from the constant first value. The complete series_telescope_limit proof identifies the resulting sequence with the scaled coefficient partial sums by the predecessor’s telescope.
+4. This checkpoint proves convergence of those partial sums, not yet their equality with a finite-field Gauss sum. Dwork trace values, chosen-root compatibility and residue-class coefficient orthogonality remain separate next consumers.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-coefficient-series-summable`, `DirichletPadicLFunctions:L3/robert-coefficient-series-tail`, `DirichletPadicLFunctions:L3/robert-coefficient-series-telescope`.
+
+**Tests:**
+
+- `SuggestedRobertDecayTests.telescope_limit_0` (compatibility): The scaled residue-class coefficient partial sums converge to the fixed-point value at a=0.
+- `SuggestedRobertDecayTests.telescope_limit_1` (compatibility): The scaled residue-class coefficient partial sums converge to the fixed-point value at a=1.
+
+**Acceptance:** At p=q=2 the fixed points a=0,x=0 anda=1,x=−1 give the two typed limiting partial-sum statements.
+
+**Source:** Published pp.163–167: Section3 Mahler coefficient comparison, Section4 all-a series, full Theorem3 telescope proof and complete subsequent norm argument. The small-index family is pi^a times the preceding factorial quotient. Legendre and the Dwork coefficient estimate bound the all-a falling-factorial series on Z_p. The new proof retains a strictly positive geometric rate also at p=3 and uses two binary digit estimates at p=2. The norm bound is then applied with both the index and input varying. VII2.1–2.4, pp.386–397; analytic prerequisites VI1.2–1.5 pp.283–297, VI2.3 infinite-product lemma p.313, VI4.6 bounded-coefficient lemma pp.350–351. The fully read primary proof obtains Artin–Hasse integrality, controls the omitted exponential tail by the growth modulus, and gives the Dwork radius p^((p−1)/p²), norm1 on the open convergence disc and the q-product radius p^((p−1)/(p q)). Gauss norm estimates on smaller radii and passage to the limiting real radius give v_p(A_n)≥n(p−1)/(p q), equivalently the displayed r-bound. This source supports the RD.6 request, not a new Dirichlet Artin–Hasse construction.
+
+**Supplier request — PadicDifferentialEquationsAndRigidCohomology:RD.6:** Export the precise coefficient norm theorem for the actual native series Theta_q=rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)), q=p^f,f>0,pi^(p−1)=−p. With K a complete ultrametric characteristic-zero normed field, an explicitly norm-preserving Q_p embedding and r=‖pi‖, supply ∀n, ‖PowerSeries.coeff n Theta_q‖≤r^(n(p−1)^2/(p q)), equivalently normalized v_p(A_n)≥n(p−1)/(p q). The current RD.6/dwork-isocrystal node only gives the prime coefficient inequality in proofSteps, with no standalone native PowerSeries API. Its Frobenius factor is the inverse of this Robert-sign series; preserve that sign distinction. Primary proof now read: Robert2000 VII2.1–2.4 pp.386–397, using Artin–Hasse integrality, the strict growth-modulus condition and bounded coefficients on smaller radii. The q-product radius is p^((p−1)/(p q)); taking the limiting real radius gives the non-strict coefficient bound. Do not numerically substitute exp(pi(1−1)) to obtain Theta_p(1); formal composition and analytic evaluation differ at that boundary. This request asks the existing Dwork owner for its exact coefficient interface, not for the consumer’s factorial, digit, continuity or moving-tail proofs.
+
+**Consumers:** `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`.
+
+**Remaining:** The coefficient-defined all-a family now agrees with pi^a times the Gamma quotient for a<q and has complete native proofs of summability, continuity, uniform decay and the limiting telescope conditional on the explicitly requested Dwork coefficient bound. Next use finite-field multiplicative orthogonality to identify the limiting residue-class coefficient sum with the source-negative Gauss sum, respecting0≤a<q−1 and the endpoint correction E19. Obtain the actual primitive splitting value and its trace-character/normalized-pi compatibility from RD.6; the bound request is a dependency, not a completed owner theorem. The original Katz/Fermat and Gauss-side Stickelberger route remains open until the alternate proof is fully assembled. E18’s proposed repair remains unproved/unused; E19–E20 await independent review. All18 gaps remain, with15 requests and zero closed stages.
+
+### Robert’s coefficient convergence and moving-input decay validation
+
+All 1112 predecessor nodes, 854 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 11 named suggested declarations and 25 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1383 reachable nodes, 6536 edges and 1035 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6. The first four new nodes use existing native and Gamma/Mahler facts. The seven quantitative consumers reach exactly the new RD.6 stage request. The source owner is not duplicated and its coefficient estimate is not marked discharged. Every other inherited route and all14 older requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5354 verbatim and adds32 complete lemmas, including routine binomial, valuation, digit and real-exponent estimates. Eleven suggested declarations and25 typed tests match the promoted nodes. The actual Dwork coefficient bound is explicit; the target summability, continuity and tail conclusions are proved, not assumed. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. No native library was built. General roadmap declarations remain unchecked.
+
+Exact arithmetic checks20,000 binary digit inequalities,728 actual coefficient valuation samples,648 factorial ratios,22,032 exponent bounds,2,170 falling-term bounds,270 small-index Gamma comparisons and the strict ternary/range boundaries. Finite samples do not prove Dwork overconvergence. Exact integer digit arithmetic and rational exponents, with formal coefficients computed in Q[pi]/(pi^(p-1)+p) after extracting pi^n. Norm comparisons use exact p-adic valuations; no floating-point radius approximation. The largest observed discrepancy is 0.
+
+All73 captured inputs match5354; four deliverables equal the merged predecessor. Whole713 issue body unchanged. Same-session continuation after actual5354merge; review390 unclaimed.
+
+The separate partial signature file also compiled with zero errors and 3,638 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 25 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 77e4cab5ee76414f4bf9793a57eadad838c750f4c8b2b4aa41e84e8d34887b16.
