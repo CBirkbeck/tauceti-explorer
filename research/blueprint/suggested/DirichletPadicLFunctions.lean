@@ -1,3 +1,5 @@
+import Mathlib.FieldTheory.AlgebraicClosure
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
 import Mathlib.RingTheory.PowerSeries.Exp
 import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.NumberTheory.Padics.MahlerBasis
@@ -20191,3 +20193,234 @@ example (hq : Nat.card 𝓀[K]=2) (a : ℕ) : ‖gaussSum (grossKoblitzInverseCh
 end Modulus
 end
 end DirichletPadic.SuggestedRobertValuesTests
+
+/- Robert rational Gamma values in the precise cyclotomic-radical field. -/
+
+namespace DirichletPadic
+open Finset
+open scoped Classical
+variable {K : Type*} [Field K] [CharZero K]
+
+lemma grossKoblitzGauss_mem_cyclotomic_radical (p n : ℕ) (hn : 0<n) (ρ : K)
+    {F : Type*} [Field F] [Fintype F] (χ : MulChar F K) (hχ : χ^n=1)
+    (ψ : AddChar F K) (hψ : ∀z, (ψ z)^p=1) :
+    -gaussSum χ ψ ∈ IntermediateField.adjoin ℚ (insert ρ {z : K | z^(n*p)=1}) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel
+open scoped Classical
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]]
+
+omit [Fintype 𝓀[K]] in
+lemma grossKoblitzInverseChar_denominator_power (n l m : ℕ) (hln : l*n=Nat.card 𝓀[K]-1) :
+    (grossKoblitzInverseChar K (l*m))^n=1 := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+
+variable (p : ℕ) [Fact p.Prime] (F K : Type*) [Field F] [Finite F]
+  [Algebra (ZMod p) F] [CommMonoid K]
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+variable {K : Type*} [Field K] [CharZero K]
+
+lemma grossKoblitzRadicalField_eq (n p : ℕ) (ρ σ : K) (hρ : ρ≠0) (hσ : σ≠0)
+    (he : ρ^n=σ^n) :
+    IntermediateField.adjoin ℚ (insert ρ {z : K | z^(n*p)=1})=
+      IntermediateField.adjoin ℚ (insert σ {z : K | z^(n*p)=1}) := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+lemma robert_rationalGamma_gauss (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (hcard : Nat.card 𝓀[K]=p)
+    (hA : ∀k, ‖PowerSeries.coeff k (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand p (Fact.out : p.Prime).ne_zero (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((k : ℝ)*(p-1 : ℝ)^2/(p*p)))
+    [Algebra (ZMod p) 𝓀[K]] (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (hθ : ∀u : 𝓀[K]ˣ, (∑'k, PowerSeries.coeff k
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^k)=(grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one) u)
+
+    (n l m : ℕ) (_hn : 0<n) (hln : l*n=p-1) (hm : m<n)
+    (y : ℤ_[p]) (hy : (n : ℤ_[p])*y=m) :
+    -gaussSum (grossKoblitzInverseChar K (l*m)) (grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one)=π^(l*m)*ι ((fun z => (moritaGamma p z : ℤ_[p])) y) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+lemma moritaGamma_intShift_mem_iff (ι : ℚ_[p] →+* K) (L : IntermediateField ℚ K)
+
+    (x : ℤ_[p]) (hx : ι (x : ℚ_[p])∈L) (k : ℤ) :
+    ι ((fun z => (moritaGamma p z : ℤ_[p])) (x+k) : ℚ_[p])∈L ↔ ι ((fun z => (moritaGamma p z : ℤ_[p])) x : ℚ_[p])∈L := by
+  sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+lemma robert_rationalGamma_mem (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (hcard : Nat.card 𝓀[K]=p)
+    (hA : ∀k, ‖PowerSeries.coeff k (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand p (Fact.out : p.Prime).ne_zero (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((k : ℝ)*(p-1 : ℝ)^2/(p*p)))
+    [Algebra (ZMod p) 𝓀[K]] (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (hθ : ∀u : 𝓀[K]ˣ, (∑'k, PowerSeries.coeff k
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^k)=(grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one) u)
+
+    (n l m : ℕ) (hn : 0<n) (hln : l*n=p-1) (hm : m<n)
+    (y : ℤ_[p]) (hy : (n : ℤ_[p])*y=m)
+     :
+    ι ((fun z => (moritaGamma p z : ℤ_[p])) y : ℚ_[p])∈IntermediateField.adjoin ℚ (insert (π^l) {z : K | z^(n*p)=1}) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+end DirichletPadic
+
+namespace DirichletPadic
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K]
+  [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K]
+
+lemma robert_rationalGamma_integer_mem (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (hcard : Nat.card 𝓀[K]=p)
+    (hA : ∀k, ‖PowerSeries.coeff k (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand p (Fact.out : p.Prime).ne_zero (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((k : ℝ)*(p-1 : ℝ)^2/(p*p)))
+    [Algebra (ZMod p) 𝓀[K]] (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (hθ : ∀u : 𝓀[K]ˣ, (∑'k, PowerSeries.coeff k
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^k)=(grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one) u)
+
+    (n l : ℕ) (hn : 0<n) (hln : l*n=p-1) (m : ℤ)
+    (x : ℤ_[p]) (hx : (n : ℤ_[p])*x=m)  :
+    ι ((fun z => (moritaGamma p z : ℤ_[p])) x : ℚ_[p])∈IntermediateField.adjoin ℚ (insert (π^l) {z : K | z^(n*p)=1}) := by
+  sorry
+
+lemma robert_rationalGamma_algebraic (ι : ℚ_[p] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+    (π : K) (hπ : π^(p-1)=-(p : K)) (hcard : Nat.card 𝓀[K]=p)
+    (hA : ∀k, ‖PowerSeries.coeff k (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand p (Fact.out : p.Prime).ne_zero (PowerSeries.rescale (-π) (PowerSeries.exp K)))‖≤
+        ‖π‖^((k : ℝ)*(p-1 : ℝ)^2/(p*p)))
+    [Algebra (ZMod p) 𝓀[K]] (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (hθ : ∀u : 𝓀[K]ˣ, (∑'k, PowerSeries.coeff k
+      (PowerSeries.rescale π (PowerSeries.exp K)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*
+      (((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^k)=(grossKoblitzTraceChar p 𝓀[K] K ζ hζ.pow_eq_one) u)
+
+    (n l : ℕ) (hn : 0<n) (hln : l*n=p-1) (m : ℤ)
+    (x : ℤ_[p]) (hx : (n : ℤ_[p])*x=m)  :
+    IsAlgebraic ℚ ((fun z => (moritaGamma p z : ℤ_[p])) x : ℚ_[p]) := by
+  sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertAlgebraicTests
+open IsLocalRing ValuativeRel Finset
+open scoped Classical Topology
+noncomputable section
+section Characters
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] [Fintype 𝓀[K]]
+-- quadratic_character_five
+example (hq : Nat.card 𝓀[K]=5) : (grossKoblitzInverseChar K 2)^2=1 := by sorry
+-- cubic_character_seven
+example (hq : Nat.card 𝓀[K]=7) : (grossKoblitzInverseChar K 2)^3=1 := by sorry
+-- denominator_one
+example : grossKoblitzInverseChar K (Nat.card 𝓀[K]-1)=1 := by sorry
+end Characters
+-- trivial_finite_gauss
+example : -gaussSum (1 : MulChar (ZMod 3) ℚ) (1 : AddChar (ZMod 3) ℚ)=-2 := by sorry
+-- zero_extension_retained
+example : (1 : MulChar (ZMod 3) ℚ) 0=0 ∧ (1 : AddChar (ZMod 3) ℚ) 0=1 := by sorry
+-- gamma_step_over_rational_field
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (hx : (x : ℚ_[p])∈(⊥ : IntermediateField ℚ ℚ_[p])) : ((moritaGamma p (x+1) : ℤ_[p]) : ℚ_[p])∈(⊥ : IntermediateField ℚ ℚ_[p]) ↔ ((moritaGamma p x : ℤ_[p]) : ℚ_[p])∈(⊥ : IntermediateField ℚ ℚ_[p]) := by sorry
+-- gamma_negative_shift
+example (p : ℕ) [Fact p.Prime] (L : IntermediateField ℚ ℚ_[p]) (x : ℤ_[p]) (hx : (x : ℚ_[p])∈L) : ((moritaGamma p (x-4) : ℤ_[p]) : ℚ_[p])∈L ↔ ((moritaGamma p x : ℤ_[p]) : ℚ_[p])∈L := by sorry
+-- gamma_zero_nonunit_step
+example (p : ℕ) [Fact p.Prime] : (moritaGamma p 1 : ℤ_[p])=-1 := by sorry
+-- quadratic_radical_choice
+example {K : Type*} [Field K] [CharZero K] (ρ : K) (hρ : ρ≠0) : (IntermediateField.adjoin ℚ (insert (ρ) {z : K | z^(2*3)=1}))=(IntermediateField.adjoin ℚ (insert (-ρ) {z : K | z^(2*3)=1})) := by sorry
+-- linear_radical_rational_field
+example {K : Type*} [Field K] [CharZero K] : (IntermediateField.adjoin ℚ (insert ((-2 : K)) {z : K | z^(1*2)=1}))=(⊥ : IntermediateField ℚ K) := by sorry
+section Ternary
+variable {K : Type*} [NormedField K] [CharZero K] [ValuativeRel K] [IsNonarchimedeanLocalField K]
+  [Fintype 𝓀[K]] [CompleteSpace K] [IsUltrametricDist K] [Algebra (ZMod 3) 𝓀[K]]
+variable (ι : ℚ_[3] →+* K) (hι : ∀z, ‖ι z‖=‖z‖) (hcι : Continuous ι)
+variable (π ζ : K) (hπ : π^2=-3) (hζ : IsPrimitiveRoot ζ 3) (hq : Nat.card 𝓀[K]=3)
+variable (hA : ∀n, ‖(PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))‖≤‖π‖^((n : ℝ)*4/9))
+variable (hθ : ∀u : 𝓀[K]ˣ, (∑'n, (PowerSeries.coeff (n) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))*(((TauCeti.teichmuller K u : 𝒪[K]ˣ) : 𝒪[K]) : K)^n)=(grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one) u)
+include hι hcι hπ hq hA hθ
+-- ternary_half_gauss
+example (y : ℤ_[3]) (hy : 2*y=1) : (-gaussSum (grossKoblitzInverseChar K 1) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one))=π*ι (moritaGamma 3 y : ℤ_[3]) := by sorry
+-- zero_rational_gauss
+example : -gaussSum (grossKoblitzInverseChar K 0) (grossKoblitzTraceChar 3 𝓀[K] K ζ hζ.pow_eq_one)=1 := by sorry
+-- half_precise_field
+example (y : ℤ_[3]) (hy : 2*y=1) : ι (moritaGamma 3 y : ℤ_[3])∈(IntermediateField.adjoin ℚ (insert (π) {z : K | z^(2*3)=1})) := by sorry
+-- zero_precise_field
+example : ι (moritaGamma 3 0 : ℤ_[3])∈(IntermediateField.adjoin ℚ (insert (π) {z : K | z^(2*3)=1})) := by sorry
+-- negative_half_field
+example (x : ℤ_[3]) (hx : 2*x=-1) : ι (moritaGamma 3 x : ℤ_[3])∈(IntermediateField.adjoin ℚ (insert (π) {z : K | z^(2*3)=1})) := by sorry
+-- five_halves_field
+example (x : ℤ_[3]) (hx : 2*x=5) : ι (moritaGamma 3 x : ℤ_[3])∈(IntermediateField.adjoin ℚ (insert (π) {z : K | z^(2*3)=1})) := by sorry
+-- negative_half_algebraic
+example (x : ℤ_[3]) (hx : 2*x=-1) : IsAlgebraic ℚ ((moritaGamma 3 x : ℤ_[3]) : ℚ_[3]) := by sorry
+-- half_algebraic
+example (y : ℤ_[3]) (hy : 2*y=1) : IsAlgebraic ℚ ((moritaGamma 3 y : ℤ_[3]) : ℚ_[3]) := by sorry
+end Ternary
+-- excluded_p_denominator
+example : ¬∃x : ℤ_[3], 3*x=1 := by sorry
+-- euclidean_negative_numerator
+example : (-5 : ℤ)%3=1 ∧ (-5 : ℤ)/3=-2 := by sorry
+end
+end DirichletPadic.SuggestedRobertAlgebraicTests

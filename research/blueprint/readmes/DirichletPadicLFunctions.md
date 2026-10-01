@@ -36243,3 +36243,239 @@ Exact finite controls evaluate276 prime-field Gauss sums modulo p^5, check their
 All73 captured inputs remain unchanged from5357; predecessor outputs and the whole issue text are preserved. The owner, policies, source versions and library audit remain at the reviewed blobs.
 
 The separate partial signature file also compiled with zero errors and 3,696 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8f80270847e1d17befdf7f6e995af34c95d3d7f4a1c2a7b382e6af4f9a106402.
+
+
+## Robert’s rational Gamma values in the precise algebraic field
+
+Eight L3 nodes prove the exact cyclotomic-radical field for rational Gamma values with denominator dividingp−1, extend to every integer numerator and transport algebraicity toQ_p. All1,140 predecessor nodes,879 baseline records,20 findings and six source versions remain whole.
+
+Rereads Robert2001 p.168 Corollary2 and its entire proof onp.169, together with Theorem4 and the Appendix2 character convention. Reads the complete pinned adjoin, finite field-closure, algebraicity-of-powers, relative algebraic closure, ring-homomorphism transport, digit and character-power proofs. Reads the matching core integer division/remainder proofs. Searches native Kummer APIs; their irreducibility/splitting hypotheses do not supply this elementary generated-field equality. Seventeen complete new native lemmas establish the consumer route without a new private mathematical definition.
+
+### The character power for a rational denominator
+
+`DirichletPadicLFunctions:L3/gross-koblitz-denominator-character-power` — `DirichletPadic.grossKoblitzInverseChar_denominator_power`
+
+If l*n=q−1, then the actual inverse Teichmuller character chi_(l*m) has nth power1 for every natural m.
+
+**Hypotheses:** Use the existing native inverse Teichmuller character on the residue field F=k[K] of a nonarchimedean local field K; it is extended byzero at0 even for the trivial exponent. No replacement character or roots-of-unity carrier is introduced. The finite Gauss membership lemma works for any finite field F and characteristic-zero field K. Positive n, a multiplicative character chi with chi^n=1, and an additive character psi satisfying psi(z)^p=1 for every z are explicit inputs. The radical rho is an arbitrary element in this finite-sum lemma; its defining power equation is needed only for the later algebraicity conclusion.
+
+**Proof:**
+
+1. Use the preceding character addition law to write chi_(l*m) as the (l*m)-th power ofchi_1; the already complete inverseChar_pow helper supplies this equality.
+2. Raise to n and rearrange l*m*n=(q−1)*m. The actual character at exponentq−1 is the trivial character.
+3. The complete inverseChar_torsion proof reduces the nth power to1 in the native character group. This is an order-divisibility statement; it does not falsely assert exact ordern whenm andn are not coprime.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-character`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-order`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.quadratic_character_five` (computation): For residue cardinality5, exponent2 gives a character whose square is1.
+- `SuggestedRobertAlgebraicTests.cubic_character_seven` (computation): For residue cardinality7, exponent2 gives a character whose cube is1.
+- `SuggestedRobertAlgebraicTests.denominator_one` (degenerate): The denominator1 gives the trivial multiplicative character.
+
+**Acceptance:** At q=5 exponent2 has square1; at q=7 exponent2 has cube1; denominator1 gives the trivial character.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### The Gauss sum belongs to the cyclotomic field
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gauss-cyclotomic-membership` — `DirichletPadic.grossKoblitzGauss_mem_cyclotomic_radical`
+
+For chi^n=1, n>0 and psi(z)^p=1 for all z, the source-negative Gauss sum lies in Q(mu_(np),rho), realized by the native intermediate-field adjoin.
+
+**Hypotheses:** Use the existing native inverse Teichmuller character on the residue field F=k[K] of a nonarchimedean local field K; it is extended byzero at0 even for the trivial exponent. No replacement character or roots-of-unity carrier is introduced. The finite Gauss membership lemma works for any finite field F and characteristic-zero field K. Positive n, a multiplicative character chi with chi^n=1, and an additive character psi satisfying psi(z)^p=1 for every z are explicit inputs. The radical rho is an arbitrary element in this finite-sum lemma; its defining power equation is needed only for the later algebraicity conclusion.
+
+**Proof:**
+
+1. Atz=0 the zero-extended multiplicative character vanishes, so the summand is0 and belongs to the target field. Do not apply the unit-character value1 formula atzero.
+2. At nonzeroz use the native positive character-power evaluation and trivial-character unit evaluation to obtain chi(z)^n=1. Consequently chi(z)^(np)=1.
+3. The explicit additive torsion gives psi(z)^(np)=1 by commuting the natural factors n andp. Both values are generators of the adjoin, so their product belongs to it.
+4. Sum over the finite field and negate, using native intermediate-field closure. The complete gauss_mem_cyclotomic_radical proof uses the actual gaussSum definition and needs no analytic or valuation theorem.
+
+**Prerequisites:** `mathlib:MulChar.pow_apply'`, `mathlib:MulChar.one_apply`, `mathlib:IntermediateField.subset_adjoin`, `mathlib:IntermediateField.sum_mem`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.trivial_finite_gauss` (computation): Two trivial characters onF3 have source-negative Gauss sum−2, lying inQ.
+- `SuggestedRobertAlgebraicTests.zero_extension_retained` (non-example): The trivial multiplicative character contributes0 atzero; the additive character contributes1.
+
+**Acceptance:** For two trivial characters onF3 the value is−2. The multiplicative and additive characters still have respective values0 and1 atzero.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### The prime-field Gauss formula at a proper rational argument
+
+`DirichletPadicLFunctions:L3/robert-rational-gamma-gauss` — `DirichletPadic.robert_rationalGamma_gauss`
+
+For n*y=m,0≤m<n and p−1=l*n, the source-negative Gauss sum at exponentl*m equals pi^(l*m) iota(Gamma_p(y)).
+
+**Hypotheses:** p is prime, n>0 and p−1=l*n. In particular p does not divide n. For a proper fraction the numerator m is natural with0≤m<n and y in Z_p satisfies n*y=m. For the full theorem the numerator m is an arbitrary integer and x in Z_p satisfies n*x=m. K is a complete characteristic-zero ultrametric normed nonarchimedean local field with residue cardinalityp, native Teichmuller lift, an Algebra (ZMod p) F structure, and a continuous norm-preserving embedding iota:Q_p→K. The chosen pi satisfies pi^(p−1)=−p. The additive character is the existing trace character for a chosen primitive p-th root zeta. The two precise Dwork inputs remain explicit: the actual formal splitting-product coefficients have the preceding bound, and their Teichmuller sums equal that exact trace character. These are the existing RD.6 requests, not newly assumed untyped packages. Write rho=pi^l. The target field is the existing IntermediateField.adjoin Q of the set consisting of rho and every z in K with z^(np)=1. This is the precise ambient realization of Q(mu_(np), nth-root(−p)); no new field structure is defined. Its equality for different nonzero choices of the nth root is checked separately. Gamma is the existing unit-valued moritaGamma. Field membership refers to its embedded value in K. The final IsAlgebraic conclusion refers to the Gamma value itself in Q_p, and the proof transports algebraicity back through the injective embedding with rational coefficients checked. The Gauss convention is source-negative. The proper-fraction exponent is a=l*m<p−1, so the source endpoint exception is never used. The proof extends to all integer numerators by exact Euclidean division and the two-branch Gamma recurrence; denominators divisible byp are excluded.
+
+**Proof:**
+
+1. The prime and factorization hypotheses imply l>0. Thus a=l*m<p−1, and the actual base-p digit sum ofa isa, including the separate a=0 case. The native digits_of_lt proof supplies the one-digit case.
+2. Multiply n*y=m by l to get(p−1)y=l*m. The Robert fixed point is−y since(1−p)(−y)=a.
+3. Set f=1 in the preceding actual Robert comparison. Its sole rotated rational numerator isa; the complete gamma_rational_gauss proof checks the natural quotient, remainder, subtraction casts and singleton finite product.
+4. The preceding theorem’s actual trace character and both Dwork interfaces are retained. This statement does not use the forbidden endpoint a=p−1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `mathlib:Nat.digits_of_lt`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.ternary_half_gauss` (compatibility): For denominator2 atp=3, the Gauss sum ispi Gamma_3(1/2).
+- `SuggestedRobertAlgebraicTests.zero_rational_gauss` (degenerate): The rational value0 gives Gamma(0)=1 and the negative trivial Gauss sum1.
+
+**Acceptance:** At p=3,n=2,m=1 this is negativeGauss=pi Gamma_3(1/2). Atm=0 the Gamma value and negative trivial Gauss value are1.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### The exact field for a proper rational Gamma value
+
+`DirichletPadicLFunctions:L3/robert-proper-rational-gamma-field` — `DirichletPadic.robert_rationalGamma_mem`
+
+For n*y=m with0≤m<n andp−1=l*n, iota(Gamma_p(y)) belongs to Q(mu_(np),pi^l), and (pi^l)^n=−p.
+
+**Hypotheses:** p is prime, n>0 and p−1=l*n. In particular p does not divide n. For a proper fraction the numerator m is natural with0≤m<n and y in Z_p satisfies n*y=m. For the full theorem the numerator m is an arbitrary integer and x in Z_p satisfies n*x=m. K is a complete characteristic-zero ultrametric normed nonarchimedean local field with residue cardinalityp, native Teichmuller lift, an Algebra (ZMod p) F structure, and a continuous norm-preserving embedding iota:Q_p→K. The chosen pi satisfies pi^(p−1)=−p. The additive character is the existing trace character for a chosen primitive p-th root zeta. The two precise Dwork inputs remain explicit: the actual formal splitting-product coefficients have the preceding bound, and their Teichmuller sums equal that exact trace character. These are the existing RD.6 requests, not newly assumed untyped packages. Write rho=pi^l. The target field is the existing IntermediateField.adjoin Q of the set consisting of rho and every z in K with z^(np)=1. This is the precise ambient realization of Q(mu_(np), nth-root(−p)); no new field structure is defined. Its equality for different nonzero choices of the nth root is checked separately. Gamma is the existing unit-valued moritaGamma. Field membership refers to its embedded value in K. The final IsAlgebraic conclusion refers to the Gamma value itself in Q_p, and the proof transports algebraicity back through the injective embedding with rational coefficients checked. The Gauss convention is source-negative. The proper-fraction exponent is a=l*m<p−1, so the source endpoint exception is never used. The proof extends to all integer numerators by exact Euclidean division and the two-branch Gamma recurrence; denominators divisible byp are excluded.
+
+**Proof:**
+
+1. The preceding denominator-character theorem gives chi_(l*m)^n=1. The existing chosen-root trace-character evaluation writes each additive value as a power ofzeta, so its p-th power is1; complete traceChar_torsion checks this directly.
+2. Apply the finite Gauss membership theorem with rho=pi^l. The complete root_quotient_power helper verifies rho^n=−p by ordinary power associativity.
+3. The proper-fraction Gauss formula gives Gamma as negativeGauss divided by(pi^l)^m. The root equation and characteristic zero imply pi≠0, so this cancellation is valid.
+4. The denominator is a power of the displayed adjoin generator. Native intermediate-field closure under powers and division gives the exact membership. Complete gamma_mem_cyclotomic_radical and gamma_rational_mem proofs retain the field rather than weakening the conclusion to algebraicity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-denominator-character-power`, `DirichletPadicLFunctions:L3/gross-koblitz-gauss-cyclotomic-membership`, `DirichletPadicLFunctions:L3/robert-rational-gamma-gauss`, `DirichletPadicLFunctions:L3/gross-koblitz-trace-character`, `DirichletPadicLFunctions:L3/robert-coefficient-series-term-bound`, `mathlib:IntermediateField.div_mem`, `mathlib:IntermediateField.subset_adjoin`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.half_precise_field` (compatibility): Gamma_3(1/2) lies inQ(mu6,pi) wherepi²=−3.
+- `SuggestedRobertAlgebraicTests.zero_precise_field` (degenerate): The zero rational Gamma value belongs to the same field.
+
+**Acceptance:** The ternary half value lies inQ(mu6,pi) withpi²=−3. The value atzero belongs to the same field.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### Integer shifts preserve the Gamma value field
+
+`DirichletPadicLFunctions:L3/morita-gamma-integer-shift-field` — `DirichletPadic.moritaGamma_intShift_mem_iff`
+
+If iota(x) lies in a native intermediate field L overQ, then iota(Gamma_p(x+k)) lies in L exactly when iota(Gamma_p(x)) does, for every integer k.
+
+**Hypotheses:** p is prime. Gamma is the existing moritaGamma on Z_p, with its exact two-branch recurrence: Gamma(x+1)=−x Gamma(x) on units and −Gamma(x) on nonunits. K is a characteristic-zero field with an explicit ring embedding iota:Q_p→K, L is a native IntermediateField Q K, and iota(x) belongs to L. No continuity or Gauss theorem is required for the integer-shift statement. An integer shift k may be positive, zero or negative. The recurrence factor on a unit argument is nonzero; on a nonunit argument it is−1, including atx=0. The proof never divides by a nonunit argument that might vanish.
+
+**Proof:**
+
+1. Map the exact Gamma recurrence intoK. Its coefficient is−iota(x) on units and−1 on nonunits, hence lies inL and is nonzero in both branches. The complete gamma_step_mem proof handles the zero argument without dividing by it.
+2. Multiplication by that coefficient preserves field membership in both directions; the reverse direction divides by the nonzero coefficient.
+3. Induct over a nonnegative shift. The intermediate arguments lie inL because every rational intermediate field contains the natural integers. The complete gamma_nat_shift_mem proof checks all casts.
+4. For a negative integer shift, apply the positive-shift equivalence starting at the shifted argument, then cancel the integer shift inZ_p. The complete gamma_int_shift_mem proof covers all integers and uses no Gauss or Dwork input.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:IntermediateField.div_mem`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.gamma_step_over_rational_field` (compatibility): An integer shift preserves membership in the rational subfield, for a rational argument.
+- `SuggestedRobertAlgebraicTests.gamma_negative_shift` (compatibility): The recurrence supports negative as well as positive shifts.
+- `SuggestedRobertAlgebraicTests.gamma_zero_nonunit_step` (degenerate): At the zero argument the recurrence multiplies by−1, so Gamma(1)=−1 rather than0.
+
+**Acceptance:** A shift by−4 is allowed. Atzero the next Gamma value is−1, not0. Membership in the rational subfield is preserved.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### The exact field for every rational Gamma value
+
+`DirichletPadicLFunctions:L3/robert-rational-gamma-field` — `DirichletPadic.robert_rationalGamma_integer_mem`
+
+For every integer m and x inZ_p with n*x=m, where n>0 andp−1=l*n, iota(Gamma_p(x)) lies in Q(mu_(np),pi^l).
+
+**Hypotheses:** p is prime, n>0 and p−1=l*n. In particular p does not divide n. For a proper fraction the numerator m is natural with0≤m<n and y in Z_p satisfies n*y=m. For the full theorem the numerator m is an arbitrary integer and x in Z_p satisfies n*x=m. K is a complete characteristic-zero ultrametric normed nonarchimedean local field with residue cardinalityp, native Teichmuller lift, an Algebra (ZMod p) F structure, and a continuous norm-preserving embedding iota:Q_p→K. The chosen pi satisfies pi^(p−1)=−p. The additive character is the existing trace character for a chosen primitive p-th root zeta. The two precise Dwork inputs remain explicit: the actual formal splitting-product coefficients have the preceding bound, and their Teichmuller sums equal that exact trace character. These are the existing RD.6 requests, not newly assumed untyped packages. Write rho=pi^l. The target field is the existing IntermediateField.adjoin Q of the set consisting of rho and every z in K with z^(np)=1. This is the precise ambient realization of Q(mu_(np), nth-root(−p)); no new field structure is defined. Its equality for different nonzero choices of the nth root is checked separately. Gamma is the existing unit-valued moritaGamma. Field membership refers to its embedded value in K. The final IsAlgebraic conclusion refers to the Gamma value itself in Q_p, and the proof transports algebraicity back through the injective embedding with rational coefficients checked. The Gauss convention is source-negative. The proper-fraction exponent is a=l*m<p−1, so the source endpoint exception is never used. The proof extends to all integer numerators by exact Euclidean division and the two-branch Gamma recurrence; denominators divisible byp are excluded.
+
+**Proof:**
+
+1. Use integer Euclidean division m=n*k+r with0≤r<n, retaining a possibly negative quotientk. The complete rational_integer_decomposition proof sets y=x−k and proves n*y=r and x=y+k by mapping the exact integer division identity intoZ_p.
+2. Apply the proper-rational field theorem to y. Its Gauss exponentl*r lies strictly belowp−1.
+3. The complete rational_point_mem helper maps n*y=r intoK and solves iota(y)=r/n. Since n is positive and K has characteristic zero, the division is legitimate and iota(y) belongs to every intermediate field overQ.
+4. Apply the integer-shift Gamma membership equivalence at y andk, then rewrite x=y+k. The complete gamma_rational_integer_mem proof establishes the full source claim for every integer numerator without replacing negative division by natural truncation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-proper-rational-gamma-field`, `DirichletPadicLFunctions:L3/morita-gamma-integer-shift-field`, `mathlib:IntermediateField.div_mem`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.negative_half_field` (compatibility): The same exact field containsGamma_3(−1/2).
+- `SuggestedRobertAlgebraicTests.five_halves_field` (compatibility): The same exact field containsGamma_3(5/2).
+- `SuggestedRobertAlgebraicTests.excluded_p_denominator` (non-example): A reduced denominator divisible byp cannot define a point ofZ_p;1/3 is not an admissible argument inZ3.
+- `SuggestedRobertAlgebraicTests.euclidean_negative_numerator` (computation): The negative numerator−5 at denominator3 is1 plus an integer shift−2 after Euclidean reduction.
+
+**Acceptance:** Both−1/2 and5/2 atp=3 have values inQ(mu6,pi). For−5/3 the Euclidean remainder is1 and quotient−2. There is no x inZ3 with3*x=1.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### Rational Gamma values are algebraic
+
+`DirichletPadicLFunctions:L3/robert-rational-gamma-algebraicity` — `DirichletPadic.robert_rationalGamma_algebraic`
+
+Under the same hypotheses, the native Q_p value Gamma_p(x) is algebraic overQ for every integer numerator m with n*x=m andn dividingp−1.
+
+**Hypotheses:** p is prime, n>0 and p−1=l*n. In particular p does not divide n. For a proper fraction the numerator m is natural with0≤m<n and y in Z_p satisfies n*y=m. For the full theorem the numerator m is an arbitrary integer and x in Z_p satisfies n*x=m. K is a complete characteristic-zero ultrametric normed nonarchimedean local field with residue cardinalityp, native Teichmuller lift, an Algebra (ZMod p) F structure, and a continuous norm-preserving embedding iota:Q_p→K. The chosen pi satisfies pi^(p−1)=−p. The additive character is the existing trace character for a chosen primitive p-th root zeta. The two precise Dwork inputs remain explicit: the actual formal splitting-product coefficients have the preceding bound, and their Teichmuller sums equal that exact trace character. These are the existing RD.6 requests, not newly assumed untyped packages. Write rho=pi^l. The target field is the existing IntermediateField.adjoin Q of the set consisting of rho and every z in K with z^(np)=1. This is the precise ambient realization of Q(mu_(np), nth-root(−p)); no new field structure is defined. Its equality for different nonzero choices of the nth root is checked separately. Gamma is the existing unit-valued moritaGamma. Field membership refers to its embedded value in K. The final IsAlgebraic conclusion refers to the Gamma value itself in Q_p, and the proof transports algebraicity back through the injective embedding with rational coefficients checked. The Gauss convention is source-negative. The proper-fraction exponent is a=l*m<p−1, so the source endpoint exception is never used. The proof extends to all integer numerators by exact Euclidean division and the two-branch Gamma recurrence; denominators divisible byp are excluded.
+
+**Proof:**
+
+1. Every root-of-unity generator z with z^(np)=1 is algebraic overQ: np>0 and the existing IsAlgebraic.of_pow theorem applies to the algebraic value1.
+2. The radical rho=pi^l satisfies rho^n=−p, where n>0. Native algebraicity of natural casts and its negation, followed by of_pow, make rho algebraic.
+3. Use the existing native relative algebraic closure and IntermediateField.adjoin_le_iff to place the whole generated field inside algebraicClosure(Q,K). The complete radical_adjoin_algebraic proof verifies this inclusion generator by generator, rather than introducing a new algebraic closure.
+4. The preceding exact field-membership theorem makes iota(Gamma_p(x)) algebraic. Apply the native IsAlgebraic.of_ringHom_of_comp_eq theorem to the injective embedding, with the identity map onQ. The complete gamma_rational_integer_algebraic proof checks the rational coefficient square by ring-homomorphism extensionality and concludes algebraicity of the Q_p value itself.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-rational-gamma-field`, `mathlib:IsAlgebraic.of_pow`, `mathlib:mem_algebraicClosure_iff`, `mathlib:isAlgebraic_natCast`, `mathlib:isAlgebraic_one`, `mathlib:IsAlgebraic.neg`, `mathlib:IntermediateField.adjoin_le_iff`, `mathlib:IsAlgebraic.of_ringHom_of_comp_eq`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.negative_half_algebraic` (compatibility): The algebraicity conclusion is about the Gamma value inQ3 itself, not only its image inK.
+- `SuggestedRobertAlgebraicTests.half_algebraic` (compatibility): The Gamma half value inQ3 is algebraic overQ.
+
+**Acceptance:** The ternary Gamma values at1/2 and−1/2 are algebraic inQ3 itself. A value merely lying inQ_p is not sufficient for this conclusion.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+### Independence of the chosen radical field
+
+`DirichletPadicLFunctions:L3/gross-koblitz-radical-field-independence` — `DirichletPadic.grossKoblitzRadicalField_eq`
+
+If rho and sigma are nonzero elements ofK with rho^n=sigma^n, then Q(mu_(np),rho)=Q(mu_(np),sigma), using the native adjoin expressions.
+
+**Hypotheses:** K is a characteristic-zero field, n andp are natural numbers, andrho,sigma are explicitly nonzero with equal nth powers. The statement uses the native IntermediateField.adjoin Q and the literal set of(np)-th roots of1. The Robert application hasp prime andn>0, though the elementary equality proof does not require those extra restrictions.
+
+**Proof:**
+
+1. The quotient sigma/rho has nth power1, hence(np)-th power1. It belongs to the roots-of-unity generator set of the field containingrho.
+2. Multiply this quotient by the adjoinedrho to obtainsigma in that field. Both nonzero hypotheses are retained for the symmetric argument.
+3. Apply the native adjoin_le_iff theorem in both directions. The complete radical_field_eq proof establishes equality of the actual intermediate fields.
+4. For Robert Corollary2, any two nth roots of−p are nonzero in characteristic zero and have the required equal powers. Thus the field notation does not depend on choosing pi^l instead of another nth root. This elementary adjoin argument does not require the irreducibility and splitting-field hypotheses of the stronger Kummer-extension baseline APIs.
+
+**Prerequisites:** `mathlib:IntermediateField.adjoin_le_iff`, `mathlib:IntermediateField.subset_adjoin`, `mathlib:IntermediateField.div_mem`.
+
+**Tests:**
+
+- `SuggestedRobertAlgebraicTests.quadratic_radical_choice` (compatibility): Changing a quadratic radical to its negative preserves the field once sixth roots of unity are included.
+- `SuggestedRobertAlgebraicTests.linear_radical_rational_field` (degenerate): Atp=2,n=1 the radical−2 and both square roots of1 are rational, so the generated field is exactlyQ.
+
+**Acceptance:** Replacing the ternary quadratic radical by its negative leavesQ(mu6,radical) unchanged. Atp=2,n=1 the generated field with radical−2 is exactlyQ.
+
+**Source:** Published p.168, Theorem4 and Corollary2; p.169, the complete Corollary2 proof before Appendix1, all reread. The source assumes p congruent1 modulo n, reduces by the Gamma functional equation to0≤m<n, writes p−1=l*n and applies Gross–Koblitz withq=p,a=l*m. The precise field Q(mu_(np), nth-root(−p)) requires checking the multiplicative character’s n-torsion, additive p-torsion, finite Gauss membership, the radical power equation, and nonzero division. The complete consumer proofs supply those details and transport algebraicity to the native Q_p Gamma value, while retaining the actual Dwork dependencies.
+
+**Remaining:** Robert2001 Corollary2 now has an exact native consumer proof: every integer numerator over a positive divisor ofp−1 gives a Gamma value inQ(mu_(np),nth-root(−p)), with root-choice independence and algebraicity of the actualQ_p value. The two exact native RD.6 coefficient and chosen-root splitting-value interfaces remain open, so this is still conditional consumer work. Next inspect the explicit dyadic Gamma reflection formula in Robert2001 Appendix1, separating its two low binary digits from the odd-prime reflection already proved, then resume the Gross–Koblitz multiplication consequences with the previously recorded common-period boundary. The original Katz/Fermat and external Stickelberger proof-source obligations remain explicit alternatives. E18’s distribution repair remains unproved/unused; E19–E20 await independent review. All18 gaps and16 requests remain; zero stages close.
+
+### Robert’s rational Gamma values in the precise algebraic field validation
+
+All 1140 predecessor nodes, 879 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1408 reachable nodes, 6626 edges and 1054 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. The character, finite Gauss field, integer-shift and radical-choice nodes use only preceding local nodes and pinned native facts. The four actual rational-Gamma consumers reach exactly the existing RD.6 requests through the Robert comparison. No stage leaf or request is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5360 verbatim and adds17 complete lemmas with no new private definition. It proves finite Gauss membership, actual Robert specialization, field-preserving recurrence, exact Euclidean reduction, algebraicity transport and root-choice equality. Eight suggested declarations and20 typed tests match the promoted nodes. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact finite controls check623 actual Teichmuller character powers,69 proper-fraction exponents,572 signed Euclidean reductions and Gamma recurrence steps,15 half-value polynomial/sign samples, and six excluded p-denominator cases. Exact finite modular controls using native character conventions and integer Gamma approximants. They test torsion, proper-fraction range, negative Euclidean division, both recurrence branches and the half-value polynomial/sign; they do not prove analytic convergence or replace the conditional Dwork inputs. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs are unchanged from5360; exact predecessor outputs and the whole issue text are preserved. The existing Dwork owner, policy, source versions and library audit remain at the reviewed blobs.
+
+The separate partial signature file also compiled with zero errors and 3,724 expected placeholder warnings across 3,604 pinned source modules. It includes all 8 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: b82c86ad56ce44cd4d518aa488d9669a3de6e58ed0bc19aa17fa983099c6a3b6.
