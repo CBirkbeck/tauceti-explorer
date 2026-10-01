@@ -39639,7 +39639,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5523"
   },
   {
    "id": "RT-PAPER-LI-LIU-22",
@@ -40891,7 +40892,8 @@
     "REV-PAPER-BHARGAVA-GROSS-WANG-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4281"
   },
   {
    "id": "RT-PAPER-GAO-GE-KUHNE-26",
@@ -42289,7 +42291,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5535"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-21",
@@ -45594,8 +45597,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-05.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4393",
+   "finishedAt": "2026-10-01T22:17:17Z"
   },
   {
    "id": "REV-RT-RS-05",
@@ -46084,8 +46088,9 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-11.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5106"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5106",
+   "finishedAt": "2026-10-01T22:17:22Z"
   },
   {
    "id": "RT-RS-12~3",
@@ -47491,8 +47496,9 @@
     "REV-RS-33"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-33.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5121"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5121",
+   "finishedAt": "2026-10-01T22:17:26Z"
   },
   {
    "id": "REV-RT-RS-33",
