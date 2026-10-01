@@ -1,0 +1,35 @@
+{
+ "redteam": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+ "findings": [
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 2.7(a) (published p. 516) takes 'Y … a scheme endowed with the action of an abstract finite group Γ' and identifies equivariant structures on a trivial A-gerbe with central extensions 1 → A → Γ̃ → Γ → 1 'where A, Γ̃, and Γ are viewed as smooth group schemes on Y'. That forgets the action on the base. In the red team's example Y = C_2 with C_2 acting freely and A = μ_2 over k = k̄ of characteristic 0, ordinary central extensions of (C_2)_Y by μ_{2,Y} are chosen pointwise on the two points, which gives four classes. But [Y/Γ] = Spec k and H²([Y/Γ], μ_2) = 0, and with the permutation action Shapiro gives H²(C_2, Map(C_2, F_2)) = 0. Item /9(a) copies the untwisted statement. The fix, the action-groupoid form with γ*-twisted multiplication and the ordinary form for a trivial base action, is right."
+  },
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On the page image of p. 516, (4) ends in a surjection onto Ext¹_{sm. ab. grp. k̄-sch.}(Γ, A_{k̄}), with no Galois invariants. Take k = R, Γ = C_3 acting trivially and A = μ_3. Then H²(R, μ_3) = 0, since Gal(C/R) has order 2. H²([Spec R/C_3], μ_3) = H²(C_3, μ_3)^{Gal(C/R)}, the other terms vanishing because 2 and 3 are coprime. H²(C_3, μ_3) ≅ μ_3, on which complex conjugation acts by inversion, so this group is 0. Ext¹_C(C_3, μ_3) ≅ C_3, so the asserted surjection 0 ↠ C_3 fails. The fix, restricting to constant coefficients (the case the splitting sentence and the cyclic-inertia application use) or adding the Galois-invariant term and its descent obstruction, is right."
+  },
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On the page image of p. 523, Definition 2.14(b) sets #^χ_G(X) = Σ_i (−1)^i Tr[Fr, H^i_{c,ét}(X, Q̄_ℓ)^χ] = Σ_{x ∈ [X/G](F_q)_iso} Tr[Fr_x, (L_χ)_x], with no division by |Aut(x)|. Item /13(b) copies it. For X = Spec F_3 with C_2 acting trivially and χ = 1, the left side is 1. The quotient B C_2 has two F_3-points (the two C_2-torsors), each with automorphism group of order 2, so the unweighted sum is 2 and the weighted sum 1/2 + 1/2 = 1. The fix, weighting by 1/|Aut(x)| as Definition 2.13 and the later trace formulas do, is right."
+  },
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 3.7 (p. 531) asserts that under the decompositions (8) 'The first factors … jointly pair to zero, and analogously for the second factors'. I checked the red team's example with F = Q_3, π = 3 and Γ = C_2 (μ_2 ⊂ Q_3). The Kummer class a = −3 has (−3, 3)_3 = 1, since (b, −b) = 1, so it lies in the second factor. Its Tate self-pairing is (−3, −3)_3 = (−3, −1)_3 = (−1/3) = −1, so the second factors do not pair to zero; the problem is the 2-primary part. Item /23 copies the clause. The fix, removing the second-factor isotropy and keeping the unramified-annihilator and evaluation statements that Lemma 7.25 uses, is right."
+  },
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Theorem 7.23 (p. 589) says that the two complexes are pure and 'It is hence sufficient to establish an equality of point counts' to conclude that the Galois representations are 'abstractly isomorphic'. Purity separates the cohomological degrees by weight, and Chebotarev with Brauer–Nesbitt then gives isomorphic semisimplifications. Purity does not give semisimplicity: Frobenius acting by I_2 or by the Jordan block J_2 on Q_ℓ² gives pure, non-isomorphic representations with equal traces. Item /76 repeats the step. The fix, recording the gap and distinguishing the trace or semisimplification statement from actual isomorphism, is right."
+  },
+  {
+   "finding": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The accepted corrections are not carried into several statement fields, against PROTOCOL §18. I checked two. Item /66 states 'χ^{−1}(a) is naturally Nm^{−1}(L ⊗ det(π_*O)) (as printed)', while E12 corrects the sign to det(π_*O)^{−1}. Item /15(c) still states that 'The relation … is asserted to be independent of s', while E1 shows this fails for q = p^k with k ≥ 2. Labels such as 'as printed' and 'asserted' do not make these usable targets, because a design job builds from the statement field. The fix, rewriting the statements as the corrected targets and keeping the printed text in sourceIssues, is right."
+  }
+ ]
+}
