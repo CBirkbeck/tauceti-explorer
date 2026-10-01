@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.WittVector.Compare
+import Mathlib.RingTheory.WittVector.Teichmuller
 import Mathlib.Algebra.Group.Pi.Units
 import Mathlib.RepresentationTheory.Intertwining
 import Mathlib.RingTheory.WittVector.DiscreteValuationRing
@@ -26214,3 +26216,95 @@ example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (Tru
 example (f : ∀ N : ℕ+, G →* (∀ p : ((N : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((N : ℕ+) : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (hf : ∀ (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)), (kubertCartanProductReduction 1 M N hMN).comp (f N)=f M) : ∃! g : G →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),∀ N : ℕ+,(kubertCartanWittProductProjection 1 N).comp g=f N := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanGroupLimitTests
+
+/- Degree-one actual Cartan comparison with native p-adic integers and finite residues. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanDegreeOnePadicEquiv :
+    (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))) ≃+*
+      (∀ p : Nat.Primes, PadicInt p.val) := by sorry
+
+lemma kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_apply
+    (x : ∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))
+    (p : Nat.Primes) :
+    kubertCartanDegreeOnePadicEquiv x p=WittVector.toPadicInt p.val
+      (WittVector.map (GaloisField.equivZmodP p.val).toRingHom (x p)) := by sorry
+
+lemma kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_residue
+    (x : ∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))
+    (p : Nat.Primes) (n : ℕ) :
+    PadicInt.toZModPow n (kubertCartanDegreeOnePadicEquiv x p)=WittVector.toZModPow p.val n
+      (WittVector.map (GaloisField.equivZmodP p.val).toRingHom (x p)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_finite_eq_iff (N : ℕ+)
+    (x y : ∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))) :
+    kubertCartanWittRingProjection 1 N x=kubertCartanWittRingProjection 1 N y ↔
+      ∀ p : (N : ℕ).primeFactors,
+        PadicInt.toZModPow ((N : ℕ).factorization p.val)
+          (kubertCartanDegreeOnePadicEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=
+        PadicInt.toZModPow ((N : ℕ).factorization p.val)
+          (kubertCartanDegreeOnePadicEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+
+noncomputable def kubertCartanDegreeOnePadicUnitsEquiv :
+    (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) ≃*
+      (∀ p : Nat.Primes, (PadicInt p.val)ˣ) := by sorry
+
+lemma kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_coe
+    (x : ∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)
+    (p : Nat.Primes) :
+    (kubertCartanDegreeOnePadicUnitsEquiv x p).val=kubertCartanDegreeOnePadicEquiv (fun q => (x q).val) p := by sorry
+
+lemma kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_finite_eq_iff (N : ℕ+)
+    (x y : ∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) :
+    kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y ↔
+      ∀ p : (N : ℕ).primeFactors,
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicUnitsEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanPadicComparisonTests
+open scoped Classical
+noncomputable section
+-- actual_padic_comparison_zero
+example : kubertCartanDegreeOnePadicEquiv 0=0 := by sorry
+-- actual_padic_comparison_identity
+example : kubertCartanDegreeOnePadicEquiv 1=1 := by sorry
+-- actual_padic_comparison_integer_cast
+example : kubertCartanDegreeOnePadicEquiv (-3 : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ))))=(-3 : (∀ p : Nat.Primes, PadicInt p.val)) := by sorry
+-- actual_padic_comparison_multiplication
+example (x y : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanDegreeOnePadicEquiv (x*y)=(kubertCartanDegreeOnePadicEquiv x)*(kubertCartanDegreeOnePadicEquiv y) := by sorry
+-- actual_padic_comparison_roundtrip
+example (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanDegreeOnePadicEquiv.symm (kubertCartanDegreeOnePadicEquiv x)=x := by sorry
+-- teichmuller_coordinate_is_not_integer_digit
+example (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) (hx : x (⟨3,Nat.prime_three⟩ : Nat.Primes)=WittVector.teichmuller 3 (2 : GaloisField 3 ((1 : ℕ+) : ℕ))) : kubertCartanDegreeOnePadicEquiv x (⟨3,Nat.prime_three⟩ : Nat.Primes) ≠ (2 : PadicInt 3) := by sorry
+-- original_prime_coordinate_native_comparison
+example (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanDegreeOnePadicEquiv x (⟨2,Nat.prime_two⟩ : Nat.Primes)=WittVector.toPadicInt 2 (WittVector.map (GaloisField.equivZmodP 2).toRingHom (x (⟨2,Nat.prime_two⟩ : Nat.Primes))) := by sorry
+-- native_padic_residue_at_precision_three
+example (x : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : PadicInt.toZModPow 3 (kubertCartanDegreeOnePadicEquiv x (⟨3,Nat.prime_three⟩ : Nat.Primes))=WittVector.toZModPow 3 3 (WittVector.map (GaloisField.equivZmodP 3).toRingHom (x (⟨3,Nat.prime_three⟩ : Nat.Primes))) := by sorry
+-- finite_ring_kernel_matches_original_residues
+example (x y : (∀ p : Nat.Primes, WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))) : kubertCartanWittRingProjection 1 12 x=kubertCartanWittRingProjection 1 12 y ↔ ∀ p : ((12 : ℕ+) : ℕ).primeFactors,PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val) (kubertCartanDegreeOnePadicEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val) (kubertCartanDegreeOnePadicEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+-- actual_unit_comparison_identity
+example : kubertCartanDegreeOnePadicUnitsEquiv 1=1 := by sorry
+-- actual_unit_comparison_multiplication
+example (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOnePadicUnitsEquiv (x*y)=(kubertCartanDegreeOnePadicUnitsEquiv x)*(kubertCartanDegreeOnePadicUnitsEquiv y) := by sorry
+-- actual_unit_comparison_inverse
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOnePadicUnitsEquiv x⁻¹=(kubertCartanDegreeOnePadicUnitsEquiv x)⁻¹ := by sorry
+-- actual_unit_comparison_roundtrip
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOnePadicUnitsEquiv.symm (kubertCartanDegreeOnePadicUnitsEquiv x)=x := by sorry
+-- unit_comparison_retains_actual_ring_values
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : Nat.Primes) : (kubertCartanDegreeOnePadicUnitsEquiv x p).val=kubertCartanDegreeOnePadicEquiv (fun q => (x q).val) p := by sorry
+-- finite_unit_kernel_matches_original_residues
+example (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittProductProjection 1 12 x=kubertCartanWittProductProjection 1 12 y ↔ ∀ p : ((12 : ℕ+) : ℕ).primeFactors,Units.map (PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=Units.map (PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanPadicComparisonTests
