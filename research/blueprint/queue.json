@@ -36895,7 +36895,8 @@
     "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4150"
   },
   {
    "id": "REV-RT-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
@@ -37024,8 +37025,9 @@
     "REV-PAPER-SKOROBOGATOV-SOFOS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4156"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4156",
+   "finishedAt": "2026-10-01T15:10:10Z"
   },
   {
    "id": "REV-RT-PAPER-SKOROBOGATOV-SOFOS-23",
