@@ -33116,8 +33116,9 @@
     "REV-PAPER-CIUBOTARU-HARRIS-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5054"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5054",
+   "finishedAt": "2026-10-01T08:19:34Z"
   },
   {
    "id": "REV-RT-PAPER-CIUBOTARU-HARRIS-26",
@@ -41405,7 +41406,8 @@
     "REV-PAPER-BHATT-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5067"
   },
   {
    "id": "REV-RT-PAPER-BHATT-18",
