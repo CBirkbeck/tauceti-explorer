@@ -37461,8 +37461,9 @@
     "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4169"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4169",
+   "finishedAt": "2026-10-01T14:16:35Z"
   },
   {
    "id": "RT-PAPER-BENOIST-WITTENBERG-20",
@@ -39823,8 +39824,9 @@
     "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4266"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4266",
+   "finishedAt": "2026-10-01T14:16:39Z"
   },
   {
    "id": "REV-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -40192,7 +40194,8 @@
     "REV-PAPER-GAO-GE-KUHNE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4285"
   },
   {
    "id": "REV-RT-PAPER-GAO-GE-KUHNE-26",
