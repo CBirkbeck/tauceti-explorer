@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-BENOIST-WITTENBERG-20",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BENOIST-WITTENBERG-20/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 3.7 (published p. 50) is: 'If B(R) = ∅, the natural map Pic(B)[2∞] → Pic(B_C)^G[2∞] is surjective if and only if B has even genus.' Item /geyer instead states it for Pic(B_C)^G[2∞] → Br(R). By the exact sequence (3.6), 0 → Pic(B) → Pic(B_C)^G → Br(R) → 0, the source's map is surjective on 2-primary torsion exactly when that second arrow vanishes there. So the item's arrow is surjective in odd genus, the opposite of the item. The counterexample is right: the anisotropic conic x² + y² + z² = 0 over ℝ has genus 0, and Pic(B_C)[2∞] = 0 cannot surject onto Br(ℝ) = F₂. This is an extraction error, not a paper erratum. The fix is right, and /phi-genus should be rechecked against the corrected arrow."
+  },
+  {
+   "finding": "RT-PAPER-BENOIST-WITTENBERG-20/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). (1.16) on p. 14 asserts a perfect pairing 'for any locally constant sheaf G of abelian groups of finite exponent on V'; item /semialg-duality copies it. The counterexample is right. On a point, G = ⊕_ℕ F₂ has finite exponent, G^∨ = ∏_ℕ F₂, and the evaluation G → Hom(G^∨, ℚ/ℤ) is not onto, since ∏F₂/⊕F₂ has nonzero functionals. So one adjoint of the pairing is not an isomorphism. The red team reports that the cited supplier, SGA 4 XVIII §3.2.6, assumes constructible coefficients (I did not re-read SGA 4); in any case the paper's uses have finite stalks. The fix is right: finite stalks in the contract, and a sourceIssue for the paper's wording."
+  },
+  {
+   "finding": "RT-PAPER-BENOIST-WITTENBERG-20/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The last sentence of §1.2.6 (published p. 19) prints the push-forward as 'f_*: H^p(X(R), Z/2Z) → H^{p+c}(X(R), Z/2Z)', summed over p ∈ {0, …, i − c}. The domain variety is the misprint E5 records, but the target degree is p + c, as item /real-push-coordinates already says. E5's correction, 'its target remains H^(p−c)(X(R))', introduces a wrong sign. The fix is right: correct E5 and the reader bullet to H^(p+c), and do not record a second source issue."
+  }
+ ]
+}
