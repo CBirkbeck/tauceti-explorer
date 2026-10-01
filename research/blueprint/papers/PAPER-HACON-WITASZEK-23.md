@@ -9,9 +9,31 @@ Issue [#1369](https://github.com/CBirkbeck/tauceti-explorer/issues/1369). Status
 - **Items.** The result has **163 items: 10 library, 5 planned and 148 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
   - The published numbering in the locators is continuous in every section.
   - Theorems 1.1 and 1.2 now name their body items (Theorems 4.1/4.6 and 5.1).
-- **Mistakes.** Eleven are recorded under `sourceIssues`.
+- **Mistakes.** Fourteen are now recorded under `sourceIssues`: the eleven accepted records are unchanged, and E12–E14 record the confirmed red-team proof gap and two proof corrections. No new issue says that the main MMP conclusions are false.
 
-## This continuation (cc-442dc5)
+## Confirmed red-team fixes (Codex, codex-J6LwjP)
+
+Issue [#5522](https://github.com/CBirkbeck/tauceti-explorer/issues/5522), 1 October 2026. The verified subfinding verdict controls this fix: RT/1 and RT/2(a,b) are addressed; RT/2(c) was explicitly rejected by the verifier, despite its inclusion in the generated issue's instructions.
+
+**E12 — Proposition 5.8's proof.** Resolve the rational map `X ⇢ Ȳ` to a projective compactification, then take the inverse image of the open `Y`. The resulting morphism is proper over `Y` by base change; its source is an open in a regular resolved model. Cartier divisor and snc properties restrict to that open, and the compactification boundary disappears from it. This adapter addresses the quasi-projective target. It does not prove that the printed hypothesis, embedded resolution on a fixed `X`, transfers to the later regular ambient `X1`. The item links the new `gap-embedded-transfer`. Its provisional all-relevant-regular-ambient variant is expressly stronger than the printed hypothesis. The fixed-X target remains unclosed.
+
+The regression is `X = P¹`, `Y = A¹`: global functions on the whole projective regular birational curve modification are constants, so it cannot map birationally to `A¹`. Restricting over `A¹` gives the required identity map, so this is a counterexample to the printed intermediate step, not to the proposition's conclusion. The stronger non-snc-blowup construction needed by the main MMP applications remains separate.
+
+**E13 — echoes.** After blowing up the initial codimension-two centre `C`, the next centre is the new exceptional divisor intersected with the strict transform of the unique boundary component. Repeat that intersection construction over the generic point of `C`. The strict transform of the blown-up centre itself is empty. This is the construction in AHK07 Example 1.4; ordinary discrepancies remain `k(1−b)`. The existing discrepancy tests are preserved.
+
+**E14 — Witt pushforwards.** For a contraction `f:Y→Z` over `X` and inclusion `u:S↪Y`, use `f_S = f∘u:S→Z`, and likewise for the normalization. Relative log-Fano vanishing and the direct-image identity are on `Z`. Push forward by `Z→X` and apply Leray afterward. The fourfold Witt-rationality conclusion is retained, with its cited-supplier frontier still explicit.
+
+**Rejected RT/2(c) — Claim 6.8.** No source issue is added. Its old-ambient argument is valid via the effective crepant divisor:
+
+`A_(𝒴,0)(E) ≥ A_(𝒴,Δ_𝒴)(E) = A_(𝒳,0)(E) = A_(𝒳,X)(E) + ord_E(X) > 1`.
+
+Here `E` is exceptional over `𝒴` and vertical, `Δ_𝒴 ≥ 0`, the plt discrepancy is positive and the Cartier central fibre has positive integer order. Generic terminality treats nonvertical divisors. The outline now states this comparison; the direct calculation using `(𝒴,Y)` is an alternative, not a correction to the source.
+
+**Evidence and checks.** Selected published pages 12, 19, 25–26 and 29–30 were read, with images checked at 12, 19, 26 and 30. The new Cambridge hash is recorded in `sourceVersions`; its footer is time-dependent. Selected arXiv v2 and AHK07 passages were compared, without a full collation claim. The author publications page, arXiv history, Crossref metadata and bounded correction searches yielded no matching correction; the article-record renderer hit a content-length limit, while the public published PDF was obtained. Paper and intake checks, identity/status/route preservation and the dependency/gap audit pass. Exact diagnostics test echo recurrence, projective-chart regular functions and discrepancy inequalities; they do not prove geometric resolution. No Lean file was requested or compiled.
+
+## Historical continuation (cc-442dc5)
+
+The earlier continuation below is retained as history. Its eleven-issue and fourteen-gap counts are superseded by the current fourteen source issues and fifteen named gaps, including the new embedded-resolution transfer gap.
 
 **E6 rechecked.** The lemma (Lemma 6.6; Lemma 6.4 in arXiv v2) is proved only by citing [KM92, 12.1.8] and [dFH11, Prop. 3.1]. Both are local statements near the special fibre, so the unrestricted global form is not supported by its proof, and the checkpoint's counterexample stands.
 
