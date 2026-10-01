@@ -1185,6 +1185,13 @@
         "PAPER-HARPAZ-WITTENBERG-20/83"
       ],
       "owner": "HeightsRationalPointsAndObstructions:RP.3"
+    },
+    {
+      "name": "Resolution over F_2 with a simple-normal-crossings compactification (an assumption of Dittmann–Pop)",
+      "items": [
+        "PAPER-DITTMANN-POP-23/resolution-f2"
+      ],
+      "owner": "algebraicgeometry/normal-crossings"
     }
   ],
   "reserve": [
@@ -1401,7 +1408,7 @@
         "PAPER-BRIGHT-NEWTON-23/1",
         "PAPER-BRIGHT-NEWTON-23/58"
       ],
-      "reason": "Criterion 3: Bright-Newton is the only catalogue source for this precise evaluation filtration and its blown-up log-pole residue package. Kato coefficient complexes recur independently and are included; Swan filtrations are not automatically this evaluation filtration."
+      "reason": "Criterion 3: Bright-Newton is the only catalogue source for this precise evaluation filtration and its blown-up log-pole residue package. Kato coefficient complexes recur independently and are included; Swan filtrations are not automatically this evaluation filtration. The Brauer group Br X that the filtration refines is the accepted key definition algebraicgeometry/scheme-brauer, which also cites BN23/1; only the evaluation filtration is reserved here."
     },
     {
       "name": "Enhanced Picard and Brauer groups of a curve",
@@ -1584,7 +1591,6 @@
     "PAPER-HARPAZ-WITTENBERG-20/119",
     "PAPER-HARPAZ-WITTENBERG-20/134",
     "PAPER-HARPAZ-WITTENBERG-20/149",
-    "PAPER-DITTMANN-POP-23/resolution-f2",
     "PAPER-DITTMANN-POP-23/constant-place-fields",
     "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
     "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
