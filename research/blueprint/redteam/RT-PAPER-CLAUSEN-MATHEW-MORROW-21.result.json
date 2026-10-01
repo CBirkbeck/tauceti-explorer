@@ -1,0 +1,79 @@
+{
+  "redteam": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+  "summary": "Four findings: the extracted logarithmic Hodge–Witt quotient has the wrong differential degree (high); the nonunital-algebra item fails to reuse pinned Mathlib (medium); and the source-issue register misses an unbounded-tower counterexample and two coefficient slips (two medium findings). The main rigidity, continuity, pro Geisser–Levine and comparison theorem hypotheses survive this audit. All 102 currently missing items have exactly one route. Findings about the source are explicitly limited to arXiv v2; the JAMS version of record could not be retrieved.",
+  "checked": [
+    "Independence: extraction by Claude Code cc-442dc5 (#1418), review by Claude Code cc-7b31c4 (#1419); neither was performed by Codex session codex-rtOQ9t. Issue #4264 claim 5936994489 was confirmed by the bot before work started.",
+    "Accepted inputs at atlas base 71d8e8ee2035c359b2433494800d2a9645c8e094: all 122 items, all nine routes including the complete briefs, all 13 prerequisite entries, all seven sourceIssues, the reader report, review JSON and review report. Result SHA256 89e9fecb60e812c3207d183613ad706dd9cdb94db12916eeb5a4e735c0a4b5b0. The later Nikolaus–Scholze fix makes the current counts 1 library, 19 planned, 102 missing.",
+    "Read the entire arXiv 1803.10897v2 paper through rigidity_final.tex lines 1–4016, including proofs and conventions, and all 496 lines of its bibliography. Downloaded the matching 59-page PDF and checked page/statement locators; visually inspected the delicate formulas on pp.42 and 55. Read Morrow's published Corollary 4.2(ii)–(iii) and Remark 4.3, p.1567, including the page image, to verify the correction in finding 1. This is not a full audit of Morrow's paper.",
+    "Compared Theorems A–G and §§2–6 against the extraction: connective versus nonconnective K, integral versus finite coefficients, connectivity and boundedness, henselian/local/strictly henselian hypotheses, noetherian and F-finite hypotheses, derived versus ordinary p-adic quotients, pro statements versus statements about individual groups, the d≥1 asymptotic range, and natural splitting of homotopy groups rather than a spectrum splitting.",
+    "Read pinned Mathlib HenselianRing, HenselianLocalRing, HenselianLocalRing.TFAE and IsAdicComplete.henselianRing in Mathlib/RingTheory/Henselian.lean. The positive library claims in item 003 hold. Read NonUnitalAlgHom and Unitization, its commutative-ring instance, algebra structure, augmentation, inclusion and universal property at 082e2d37e8b0463410cdb532e111cd43d5a66174.",
+    "Read the relevant reviewed coverage entries for GeneralAlgebraicKTheory K.5/K.6, RefinedTraceMethods RT.2/RT.3, KTheoryFiniteLocalFields L.2, SchemeAndStackFoundations SF.0 and EnhancedDerivedSheaves E3. No reviewed coverage entry exists under CrystallineCohomology:CR.4 or DerivedDeRhamCohomology:DD.0 at this base; their descriptions are plans, not library evidence.",
+    "Checked the named supplier layer descriptions: RT.2–RT.3, K.2/K.5/K.6, H.3, S.4, L.2, CR.4, DD.0/DD.3, E3, ALS.2, SF.0/SF.2, EDC.0, R03.3, HL.2 and ModularCurves 4D. Cross-checked the shared roadmap identifiers and relevant items/briefs in the Nikolaus–Scholze, BMS19, AMMN22, Bhatt–Mathew and Clausen–Mathew extractions. Clausen–Mathew's current review is revise, so its rejected consumer-ownership proposal is not treated as an accepted duplicate.",
+    "Checked route accounting: 102 distinct routed IDs, each occurring once; no unrouted missing item. The common henselian-pairs Part II is shared with BMS19 and Clausen–Mathew, the p-adic continuity block uses the AMMN Part II, and affine proper base change uses ArcTopologyAndDescent. The report explains the required prefix dependency order rather than alleging a cycle merely from reciprocal roadmap imports.",
+    "Rechecked E1–E7 at their arXiv-v2 source passages. Searched for corrections in the arXiv version history, the title/errata search, Morrow's publication page and Crossref metadata for 10.1090/jams/961 on 2026-10-01. No correction was located. The AMS version-of-record and accepted-manuscript URLs supplied by Crossref both returned HTTP 403; they were not read. No claim is made about whether the typeset JAMS text retains these slips. No Lean file or compilation is required for this red-team job."
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1803.10897v2",
+      "citation": "Clausen–Mathew–Morrow, K-theory and topological cyclic homology of henselian pairs, arXiv v2, 20 July 2020, 59 pages",
+      "read": "2026-10-01",
+      "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/e-print/1803.10897v2",
+      "citation": "Complete rigidity_final.tex and rigidity_final.bbl from the arXiv v2 source archive",
+      "read": "2026-10-01",
+      "sha256": "22f7d57f0cccbcdc8dec3152ffa5be862370ea8e8619e1ac4290401e6491b4f1"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/ASENS_2019__52_6_1537_0.pdf",
+      "citation": "Morrow, K-theory and logarithmic Hodge–Witt sheaves of formal schemes in characteristic p, Ann. Sci. ENS 52 (2019), 1537–1601; selectively read Corollary 4.2 and Remark 4.3, pp.1566–1567",
+      "read": "2026-10-01",
+      "sha256": "54988085dbe216661b2e3e7ff5ddc6479240f424b10a8c83727973f828ded4e2"
+    }
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json: items 099 and 121, sourceIssues, route 1's Proposition 6.12 target; corresponding reader report",
+      "claim": "Items 099 and 121 reproduce W_rΩ_R^m / dV^{r−1}Ω_R^m. The denominator has degree m+1, so this is not the required quotient of degree-m forms. It must be dV^{r−1}Ω_R^{m−1}. The source itself repeatedly prints the wrong degree, but the extraction neither records that slip nor uses the corrected statement as PROTOCOL §18 requires.",
+      "evidence": "CMM arXiv v2 §6.4, p.55, equations (26)–(27), and the continuation on p.56 print the same-degree denominator. The immediately preceding r=1 formula instead has Ω_R^m/dΩ_R^{m−1}. Since V preserves differential degree and d raises it by one, the general denominator must start in degree m−1. The cited source settles the intended formula: Morrow, Ann. Sci. ENS 52 (2019), Corollary 4.2(ii)–(iii), p.1567, explicitly has W_rΩ_A^n/dV^{r−1}Ω_A^{n−1}; Remark 4.3 identifies r=1 with inverse Cartier. Both PDFs and the CMM TeX were checked.",
+      "fix": "Correct both extracted items and every dependent formula to W_rΩ_R^m / dV^{r−1}Ω_R^{m−1}, with Ω_R^{−1}=0 when m=0. Add a version-scoped sourceIssues misprint covering equations (26)–(27) and the proof of Proposition 6.12, citing Morrow Corollary 4.2 for the correction, and update the reader's source-issue count. Require the Part II to use the corrected quotient and to recover Ω^m/dΩ^{m−1} at r=1. Preserve the generality to arbitrary F_p-algebras. The finding is about the extraction and the accessed arXiv v2, not an unexamined JAMS printing."
+    },
+    {
+      "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/2",
+      "kind": "library-claim",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json: item 038 and route 1, block (2) and library imports; corresponding reader library inventory",
+      "claim": "The single missing item for nonunital R-algebras combines an existing carrier and unitization with genuinely missing categorical and henselian work. It supplies no library reuse boundary, and its route asks the new Part II to cover the basic nonunital algebras while importing only the henselian predicates from Mathlib. The pinned library already has the algebraic data, morphisms, R ⋉ I, its augmentation and its universal mapping property.",
+      "evidence": "Mathlib at 082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/Algebra/NonUnitalHom.lean:57 defines NonUnitalAlgHom. Mathlib/Algebra/Algebra/Unitization.lean:68 defines Unitization R A on R × A; instCommRing at line 557 uses NonUnitalCommRing A, Module R A, IsScalarTower R A A and SMulCommClass R A A. The file constructs the algebra structure, fstHom (augmentation, line 660), inrNonUnitalAlgHom (line 675), and lift (line 766), the equivalence (A →ₙₐ[R] C) ≃ (Unitization R A →ₐ[R] C). These actual declarations were read, not inferred from names. The reviewed GeneralAlgebraicKTheory:K.5 coverage entry already explicitly identifies Unitization and its universal property as built, while the K-theoretic layer remains absent.",
+      "fix": "Split item 038 into the existing nonunital algebra/morphism/unitization data (library, with pinned declaration citations) and the residual category, augmented-algebra equivalence, free polynomial ideals and limits/colimits that still require planning. Keep the local and henselian nonunital theory missing. Amend the Part II brief and reader to build those extensions on NonUnitalCommRing, the scalar-action classes, NonUnitalAlgHom and Unitization, and keep only the residual missing item in its route. Do not mark the entire composite item library: the categorical equivalence and henselian reflection are not established by Unitization.lift."
+    },
+    {
+      "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/3",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json: sourceIssues, item 091, route 2's tower definitions; reader statement that no source error was found",
+      "claim": "The source-issue register misses the false equivalence in arXiv-v2 Definition 5.14 between nilpotence of all upper-truncated towers and degreewise nilpotence of homotopy towers without a common lower bound. Item 091 safely retains the truncation definition, but the brief sends the designer back to the unqualified source definition and gives no warning about its false alternate characterization.",
+      "evidence": "CMM arXiv v2 Definition 5.14, pp.42–43, introduces arbitrary towers of spectra and asserts the homotopy-group characterization as equivalent. For a counterexample let X_i = ⊕_{j≥i} Σ^{−j} H F_p, i≥1, with tail inclusions X_{i+1} → X_i. For each fixed j, π_{−j}X_i is F_p for i≤j and zero thereafter, so that homotopy tower is nilpotent with exponent j. Yet τ_{≤0}X_i = X_i and every X_{i+N} → X_i is nonzero, detected on π_{−(i+N)}. Hence the upper-truncated tower is not nilpotent. A common lower bound makes each upper truncation have finitely many relevant homotopy groups, restoring the implication by finite Postnikov dévissage.",
+      "fix": "Add a sourceIssues error scoped to Definition 5.14 in arXiv v2, with the explicit tail-tower counterexample and the common-lower-bound correction. Keep item 091's truncation definition; add a note that the degreewise characterization is only used for uniformly bounded-below towers. Put the same boundary in route 2's design instructions and update the reader. The continuity applications already use connective or uniformly bounded-below spectra, so this does not invalidate Theorems 5.19–5.22. Do not claim that the inaccessible JAMS version contains the same error."
+    },
+    {
+      "id": "RT-PAPER-CLAUSEN-MATHEW-MORROW-21/4",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json: sourceIssues, source notes for items 096 and 106; reader source-issue inventory",
+      "claim": "Two omitted coefficient slips in the accessed source obscure otherwise correct extracted results: the proof of Theorem 5.21 invokes henselian rigidity as an integral equality of K^inv spectra, and the proof of Corollary 5.33 calls the integral-to-mod-p map an isomorphism instead of its quotient by p.",
+      "evidence": "ArXiv v2 p.44, proof of Theorem 5.21, writes K^inv(R) = K^inv(R ⊗_{HZ} HZ/p^i) on invoking Theorem 4.36, whose conclusion is only a mod-p equivalence. The proof needs that mod-p equivalence, combined with Dundas–Goodwillie–McCarthy and Theorem 5.20. On p.49, the final paragraph of the proof of Corollary 5.33 first states surjectivity of {K_n(R/I^s)}_s → {K_n(R/I^s;Z/p)}_s and then calls this an isomorphism. With R=F_p, I=0 and n=0, the displayed map is the constant-tower map Z → Z/p, which is not injective. The Bockstein sequence instead gives an isomorphism after quotienting its source by p, and vanishing of {K_{n−1}(R/I^s)[p]}_s.",
+      "fix": "Record two version-scoped sourceIssues misprints. In the Theorem 5.21 proof use K^inv(R)/p ≃ K^inv(R ⊗_{HZ} HZ/p^i)/p, mentioning DGM for passage to π_0. In Corollary 5.33 replace the asserted isomorphism by {K_n(R/I^s)/p}_s ≃ {K_n(R/I^s;Z/p)}_s. Add source notes and update the reader's inventory; retain the correct theorem statements in items 096 and 106. These repairs affect proof transcription, not the stated derived-continuity or pro p-torsion-freeness theorems."
+    }
+  ]
+}
