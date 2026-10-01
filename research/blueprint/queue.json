@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -39093,7 +39093,8 @@
     "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4235"
   },
   {
    "id": "RT-PAPER-LI-LIU-22",
