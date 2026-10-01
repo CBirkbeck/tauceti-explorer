@@ -36955,8 +36955,9 @@
     "REV-PAPER-GAN-SAVIN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-SAVIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4152"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4152",
+   "finishedAt": "2026-10-01T20:34:35Z"
   },
   {
    "id": "REV-RT-PAPER-GAN-SAVIN-23",
@@ -39004,7 +39005,8 @@
     "REV-PAPER-GAN-SAVIN-23-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-SAVIN-23-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4232"
   },
   {
    "id": "REV-RT-PAPER-GAN-SAVIN-23-B",
