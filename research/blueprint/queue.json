@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -36954,7 +36954,8 @@
     "REV-PAPER-GAN-SAVIN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-SAVIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4152"
   },
   {
    "id": "REV-RT-PAPER-GAN-SAVIN-23",
@@ -36997,8 +36998,9 @@
     "REV-PAPER-QIAN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-QIAN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4154"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4154",
+   "finishedAt": "2026-10-01T20:18:53Z"
   },
   {
    "id": "REV-RT-PAPER-QIAN-23",
@@ -38551,8 +38553,9 @@
     "REV-PAPER-FENG-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FENG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4211"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4211",
+   "finishedAt": "2026-10-01T20:18:59Z"
   },
   {
    "id": "RT-PAPER-IM-KIM-LE-ETAL-24",
