@@ -40304,3 +40304,312 @@ Exact quotient controls: 2496 periodic iff integral rational, 1976 positive repr
 All73 captured inputs remain unchanged from5394. Four predecessor outputs, issue, policies, owners, source versions and reviewed library audit are preserved at captured blobs. Native quotient and periodic-point proof reads support the actual domain comparison and descent.
 
 The separate partial signature file also compiled with zero errors and 4,146 expected placeholder warnings across 3,604 pinned source modules. It includes all 27 new named declarations and 38 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 08375f1e4eb31e1f8e2415689165d3de3ff07182877f357a70b08ae142042c55.
+
+
+## Complete native division fibers for Gamma distributions
+
+Eleven L3 nodes identify the displayed Gamma division points with the complete native integral rational-circle fiber and transfer both corrected distributions to actual fiber sums. All1,289 predecessor nodes,939baseline records,20findings and six source versions remain whole.
+
+Uses the fully read Gross–Koblitz1979 published575–577 and the preceding actual quotient-function proofs. Freshly reads the native AddCircle torsion characterization, its finite-order support, interval representative injectivity, ofBijective/ofEquiv constructions, cardinality transport and both native sum-transfer generation sites. All73 guarded inputs are unchanged. Kubert1979 body remains unread and no universal ordinary-distribution result is used.
+
+### The displayed points solve the circle division equation
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-point` — `DirichletPadic.grossKoblitz_division_point`
+
+For every rational q, positive natural m and natural h, multiplying[(q+h)/m] by m gives[q].
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Use the native coe-natural-scalar law to move scalar multiplication into Q, and cancel the nonzero rational m.
+2. The coe-addition law separates[q+h] into[q]+[h]. The native coe-zero criterion shows the integer class[h] is zero. Complete division_point does not require h<m or a prime.
+
+**Prerequisites:** `mathlib:AddCircle.coe_nsmul`, `mathlib:AddCircle.coe_add`, `mathlib:AddCircle.coe_eq_zero_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.second_halving_point` (computation): The displayed point9/16 doubles to1/8 in the actual rational circle.
+- `SuggestedGrossKoblitzDivisionFibersTests.integer_class_thirds` (degenerate): The third2/3 of the zero circle class satisfies the ambient equation, independently of p.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### Every circle division point has a displayed index
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-surjective` — `DirichletPadic.grossKoblitz_division_surjective`
+
+For positive m and any actual circle point w satisfying m*w=[q], there exists h in Fin m with[(q+h)/m]=w.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Subtract[q/m] from w. Native scalar distributivity and rational cancellation show this difference is killed by m.
+2. Apply the fully read existing AddCircle.nsmul_eq_zero_iff at rational period1. It produces a natural h<m and identifies the difference with[h/m].
+3. Add[q/m] back and use the native coe-addition law and rational addition of fractions. Complete division_surjective constructs the actual bounded index and reuses the generic native torsion theorem rather than planning it again.
+
+**Prerequisites:** `mathlib:AddCircle.nsmul_eq_zero_iff`, `mathlib:AddCircle.coe_nsmul`, `mathlib:AddCircle.coe_add`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.all_halving_points` (characterisation): Every circle root of2w=1/8 is1/16 or9/16.
+- `SuggestedGrossKoblitzDivisionFibersTests.unit_fiber_point` (degenerate): Multiplication by1 has only the original circle point.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### Distinct displayed indices give distinct division points
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-injective` — `DirichletPadic.grossKoblitz_division_injective`
+
+For every rational q and positive m, the map Fin m→Q/Z sending h to[(q+h)/m] is injective.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Expand the rational fractions and cancel the common circle summand[q/m]. This reduces equality to[h/m]=[k/m].
+2. Both h/m and k/m lie in the native interval[0,1), because their indices are strictly less than m. Apply the fully read native coe-equality theorem on that interval.
+3. Cancel the positive rational denominator, use injectivity of natural casting and Fin.ext. Complete division_injective works for signed q and m=1.
+
+**Prerequisites:** `mathlib:AddCircle.coe_add`, `mathlib:AddCircle.coe_eq_coe_iff_of_mem_Ico`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.distinct_halving_points` (non-example): The two displayed halving points are distinct.
+- `SuggestedGrossKoblitzDivisionFibersTests.negative_input_two_points` (computation): The halving preimages of−2/13 remain distinct on Q/Z.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### Every ambient division root lies in the integral domain
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-root-periodic` — `DirichletPadic.grossKoblitz_division_root_periodic`
+
+If q is integral and m is a positive Z_p unit, every ambient circle solution of m*w=[q] belongs to D_p.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. The ambient surjectivity theorem writes w as[(q+h)/m] for an actual h in Fin m.
+2. The previously proved affine-integrality theorem supplies the exact norm certificate for(q+h)/m. The integral-to-periodic theorem then supplies actual membership in D_p.
+3. Complete division_root_periodic includes zero and negative input classes. For a nonunit multiplier the assertion can fail: the root1/p of p*w=0 is not periodic.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-surjective`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.all_unit_roots_integral` (compatibility): Every ambient halving root of1/8 belongs to the actual periodic domain.
+- `SuggestedGrossKoblitzDivisionFibersTests.nonunit_root_exclusion` (non-example): The ambient root1/3 of3w=0 is excluded from the integral domain, showing why the multiplier must be a unit.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The native finite equivalence for a circle division fiber
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv` — `DirichletPadic.grossKoblitzDivisionEquiv`
+
+Construct a native equivalence from Fin m to the actual subtype of w in D_p satisfying m*w=[q], sending h to[(q+h)/m].
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. For each h, affine-integrality and circle_periodic construct the domain point; division_point constructs its fiber equation. Thus the forward map contains actual values and proofs, not assumed data.
+2. Equality in the fiber implies equality of the underlying circle points after two native subtype projections. Apply division_injective to recover equality of indices.
+3. For an arbitrary fiber point, division_surjective constructs its index; two subtype-extensionality steps identify the actual image with that fiber point.
+4. Use native Equiv.ofBijective with this proved map. Complete divisionEquiv is an explicit native equivalence. Its inverse is supplied by the existing equivalence construction, not by a private choice field or quotient model.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-point`, `DirichletPadicLFunctions:L3/gross-koblitz-division-surjective`, `DirichletPadicLFunctions:L3/gross-koblitz-division-injective`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-affine-integrality`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-periodic`, `mathlib:Equiv.ofBijective`.
+
+**Uses:**
+
+- Gross–Koblitz1979 Section3 division-point distribution on(Q/Z)_p: Justifies that the displayed preimages exhaust the full native fiber and gives its finite cardinality.
+- DirichletPadicLFunctions:L3 weighted source and corrected mean fiber sums: Transfers sums from the previously established range-of-indices formulas to all actual native fiber points; supplies a Fintype instance through the native ofEquiv constructor.
+
+**API:**
+
+- `grossKoblitzDivisionEquiv_coe` (coercion): The underlying circle point of the equivalence image of h is exactly[(q+h)/m].
+- `grossKoblitzDivisionEquiv_symm_coe` (coercion): If h is the inverse image of a native fiber point w under the equivalence, then[(q+h)/m]=w as actual circle points.
+- `grossKoblitzDivisionEquiv_card` (relation): The native cardinality Nat.card of the integral m-division fiber over[q] is exactly m.
+- `grossKoblitz_division_finite` (instance): The actual integral m-division fiber over[q] has a native Finite instance.
+- `grossKoblitz_mean_fiber_sum` (relation): For any native finite enumeration of the actual m-division fiber, the sum of Mean_bar(w) over every fiber point w equals Mean_bar([q]).
+- `grossKoblitz_source_fiber_sum` (relation): Let f>0 be a native circle period of[q] and of every actual fiber point w, and write d(w)=minimalPeriod(T_p,w). Then sum over the whole fiber of(f/d(w))*Phi_bar(w) equals(f/d([q]))*Phi_bar([q]).
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.halving_equivalence_zero` (computation): Index0 in the actual halving-fiber equivalence gives1/16.
+- `SuggestedGrossKoblitzDivisionFibersTests.halving_equivalence_last` (computation): The last index1 gives9/16.
+- `SuggestedGrossKoblitzDivisionFibersTests.unit_equivalence` (degenerate): The equivalence at multiplier1 has one point equal to the input class.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The forward equivalence has the literal division-point formula
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-coe` — `DirichletPadic.grossKoblitzDivisionEquiv_coe`
+
+The underlying circle point of the equivalence image of h is exactly[(q+h)/m].
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Unfold the constructed equivalence and the native ofBijective forward map.
+2. Both subtype projections give the displayed native quotient class definitionally. Complete divisionEquiv_coe is the computation API used to transfer period weights and Gamma values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `mathlib:Equiv.ofBijective`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.zero_class_halves` (degenerate): The last halving point of the zero class is1/2.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The inverse index recovers the actual fiber point
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-symm-coe` — `DirichletPadic.grossKoblitzDivisionEquiv_symm_coe`
+
+If h is the inverse image of a native fiber point w under the equivalence, then[(q+h)/m]=w as actual circle points.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. The native equivalence right-inverse law gives equality of the fiber points after applying the inverse and forward maps.
+2. Apply the two subtype projections. The forward computation is the literal division-point expression. Complete divisionEquiv_symm_coe supplies the actual reconstruction equality for arbitrary fiber points.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.recover_last_index` (computation): The inverse equivalence sends the actual9/16 root to index1.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The circle division fiber has exactly m points
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-card` — `DirichletPadic.grossKoblitzDivisionEquiv_card`
+
+The native cardinality Nat.card of the integral m-division fiber over[q] is exactly m.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Apply the existing Nat.card_congr theorem to the actual equivalence with Fin m.
+2. The native cardinality of Fin m is m. Complete divisionEquiv_card includes m=1 and the zero input class, without assuming an enumeration or a cardinality certificate in the input.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.cardinality_two` (computation): The native halving fiber of1/8 has exactly two points.
+- `SuggestedGrossKoblitzDivisionFibersTests.cardinality_one` (degenerate): The native multiplier-one fiber has exactly one point.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The actual circle division fiber is finite
+
+`DirichletPadicLFunctions:L3/gross-koblitz-division-finite` — `DirichletPadic.grossKoblitz_division_finite`
+
+The actual integral m-division fiber over[q] has a native Finite instance.
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Use the existing native Fintype.ofEquiv constructor with Fin m and the proved divisionEquiv.
+2. The native Fintype-to-Finite instance yields the proposition. Complete division_finite demonstrates the finite-type input for the sum theorems is available from an explicit construction; no generic finiteness theory is replanned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `mathlib:Fintype.ofEquiv`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.finite_halving_fiber` (structure): The actual halving fiber is finite, not an assumed finite model.
+- `SuggestedGrossKoblitzDivisionFibersTests.finite_zero_fiber` (degenerate): The zero-class halving fiber is also finite.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The Gamma mean distribution over the complete native fiber
+
+`DirichletPadicLFunctions:L3/gross-koblitz-mean-fiber-sum` — `DirichletPadic.grossKoblitz_mean_fiber_sum`
+
+For any native finite enumeration of the actual m-division fiber, the sum of Mean_bar(w) over every fiber point w equals Mean_bar([q]).
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Native Equiv.sum_comp transfers the full fiber sum to the sum over Fin m through divisionEquiv. This is the additive form of the fully read existing Equiv.prod_comp theorem.
+2. The equivalence’s forward formula turns every summand into the corresponding literal division class. Native Fin.sum_univ_eq_sum_range converts the index sum into the previously used finite range; its multiplicative theorem and to_additive proof were read.
+3. Apply the proved quotient mean distribution. Complete mean_fiber_sum is independent of the chosen Fintype instance and needs no supplied orbit periods; division_finite and native Fintype.ofEquiv provide an actual finite enumeration.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-coe`, `DirichletPadicLFunctions:L3/gross-koblitz-division-finite`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-mean-distribution`, `mathlib:Equiv.prod_comp`, `mathlib:Fin.prod_univ_eq_prod_range`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.negative_full_fiber_mean` (computation): The unweighted mean identity sums over every actual halving root of a negative class.
+- `SuggestedGrossKoblitzDivisionFibersTests.zero_full_fiber_mean` (degenerate): The unweighted mean identity sums over every actual halving root of zero.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+### The weighted source distribution over the complete native fiber
+
+`DirichletPadicLFunctions:L3/gross-koblitz-source-fiber-sum` — `DirichletPadic.grossKoblitz_source_fiber_sum`
+
+Let f>0 be a native circle period of[q] and of every actual fiber point w, and write d(w)=minimalPeriod(T_p,w). Then sum over the whole fiber of(f/d(w))*Phi_bar(w) equals(f/d([q]))*Phi_bar([q]).
+
+**Hypotheses:** The ambient circle is the existing native AddCircle(1:Q)=Q/Z. The first three statements hold for any rational q and positive natural m, independently of a prime. Displayed division points are[(q+h)/m] for h in the native type Fin m; equality means actual quotient equality. For the integral fiber fix a prime p, which may be2, an integral rational q with norm(q in Q_p)≤1, positive m, and the native unit certificate for m in Z_p. The actual domain D_p is the existing subtype Function.periodicPts(T_p) for T_p(z)=p*z, proved in the preceding checkpoint to be precisely the integral rational classes. The fiber is the native subtype of w in D_p satisfying m*w=[q]. Its membership and equation are actual propositions about native circle points, not fields of a replacement carrier. The equivalence constructs all roots and proves every ambient root belongs to D_p under the unit hypothesis. For logarithm sums K is a field, iota:Z_p→K a ring homomorphism, and ell:K→K the supplied Coleman logarithm consumer, multiplicative on nonzero inputs and vanishing on positive-order roots of unity. Gamma is actual Morita Gamma. The mean identity requires characteristic zero. Distribution also records gcd(p,m)=1 explicitly. A fiber sum may use any native Fintype instance on that fiber. Existence is constructive via Fintype.ofEquiv applied to the actual equivalence with Fin m; the finite-type hypothesis is not an assumed missing enumeration. The weighted source identity has a positive f that is a native circle period of the input and every actual fiber point. No such period choice is required for the mean identity. The source Phi_bar is the unnormalized least-period sum; Mean_bar is its corrected average. Even after summing over the full fiber, source values retain their individual period weights. The corrected mean has no general pZ_p-valued or integral-valued claim. Fiber enumeration and descent uniqueness do not establish Kubert universality.
+
+**Proof:**
+
+1. Apply the same native equivalence sum-transfer to the summand that includes each actual point’s native minimal-period weight.
+2. Use the forward formula and the native Fin-to-range sum identity. The supplied all-fiber period hypothesis applies to each concrete equivalence image and becomes exactly the displayed-preimage period hypothesis.
+3. Apply the preceding weighted quotient source distribution. Complete source_fiber_sum retains the period of each actual root; complete fiber enumeration does not justify dropping those weights.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv`, `DirichletPadicLFunctions:L3/gross-koblitz-division-fiber-equiv-coe`, `DirichletPadicLFunctions:L3/gross-koblitz-division-finite`, `DirichletPadicLFunctions:L3/gross-koblitz-circle-phi-distribution`, `mathlib:Equiv.prod_comp`, `mathlib:Fin.prod_univ_eq_prod_range`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzDivisionFibersTests.weighted_full_fiber_certificate` (computation): The varying-period p7 fiber requires its short-orbit weight4.
+- `SuggestedGrossKoblitzDivisionFibersTests.full_fiber_unweighted_failure` (non-example): Exhausting the entire fiber does not justify dropping period weights from source Phi.
+
+**Acceptance:** The typed tests use actual native circle points and fibers. Complete native consumer proofs have zero errors, warnings or holes. Exact finite controls independently enumerate fibers and inverse maps; they do not certify general analytic or integral-valued assertions.
+
+**Source:** Section3, published575–577/PDF7–9: multiplication, least-period logarithm, relation(3.5), and the domain(Q/Z)_p. Complete pages read in the retained scan; E18 is preserved. The displayed division classes in the corrected distribution are now identified with the complete actual native m-division fiber, using the existing native AddCircle torsion theorem. This proves the enumeration required to express the weighted source identity and normalized mean identity as sums over all division points. It does not reinstate the incorrect printed product or remove source period weights.
+
+**Remaining:** The displayed preimages now form an explicit native equivalence with the complete integral m-division fiber, whose cardinality and finiteness are proved. Both corrected logarithm identities are expressed as actual fiber sums, with all source period weights retained. Next read Kubert1979 and audit existing atlas ownership before assessing the universal odd-distribution paragraph; no generic distribution object is yet constructed here. The corrected mean still cannot inherit the source’s p*Z_p codomain because the retained p3,2/13 mean is a unit. No general nonintegrality or new source error is asserted. Continue the original Katz/Fermat, external Stickelberger and remaining Ferrero–Greenberg/L3 routes. Both RD.6 Dwork interfaces and the Coleman/LAD logarithm boundary remain open. All18 gaps and16 requests remain; zero stages close.
+
+### Complete native division fibers for Gamma distributions validation
+
+All 1289 predecessor nodes, 939 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 11 named suggested declarations and 21 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1560 reachable nodes, 7170 edges and 1107 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. The fiber construction ends in the native circle torsion theorem, interval injectivity and actual equivalence/finite/cardinality APIs plus prior local integrality. Logarithm sums reuse the existing Coleman Iwasawa-logarithm node and LocallyAnalyticDistributions:L1 request; no new request or owner construction is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5396 verbatim and adds one definition and10complete lemmas, totaling43definitions and732lemmas. Eleven suggested declarations specialize actual Morita Gamma;21typed tests cover literal roots, exhaustiveness, distinctness, inverse indices, cardinalities, the unit/nonunit boundary and both complete-fiber distributions. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls independently enumerate5,540 complete fibers, verify injectivity, surjectivity, both inverse directions, cardinality and integrality of all ambient roots. They include904 unit-multiplier cases and1,152 integer-class fibers. Canonical odd-prime logarithm controls verify4,788 weighted full-fiber identities and4,788 scaled mean identities, including664 cases with nonunit period denominators. Exact rational controls enumerate every ambient m-division root in a rational grid of denominator m*q.den, compare this complete fiber against h↦[(q+h)/m], check injectivity, surjectivity, both inverse directions and cardinality, and independently check all roots lie in the periodic native domain when m is prime to p. Gamma/logarithm values are summed in the order of the full fiber, independently of the displayed index order. Canonical odd-prime logarithms use the signed factorial recurrence and the established logarithmic tail bound. Mean identities multiply by p^V and increase precision by V before modular reduction, without inverting a nonunit or asserting a general integral mean. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs remain unchanged from5396. Four predecessor outputs, policies, source versions, owner interfaces and reviewed library audit are preserved. Fresh native AddCircle torsion and interval-injectivity declarations, equivalence, cardinality, finite-instance and additive sum-transfer proofs were read at the pins.
+
+The separate partial signature file also compiled with zero errors and 4,178 expected placeholder warnings across 3,604 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c8d70fa798158140eca3d67dba3a66d0051fa38de1fb8283eb3ac5fad5ca7c15.
