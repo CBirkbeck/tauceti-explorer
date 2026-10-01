@@ -34463,7 +34463,8 @@
     "REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4081"
   },
   {
    "id": "REV-RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
