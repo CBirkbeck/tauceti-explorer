@@ -1,3 +1,5 @@
+import Mathlib.RingTheory.PowerSeries.Exp
+import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.NumberTheory.Padics.MahlerBasis
 import Mathlib.NumberTheory.Wilson
 import Mathlib.RingTheory.RootsOfUnity.Lemmas
@@ -19232,3 +19234,149 @@ example (x y₀ y₁ y₂ : ℤ_[2]) (hx : 7*x=-3) (h₀ : 7*y₀=3) (h₁ : 7*y
 example : robertFactorialQuotient 3 2 0 0=1 := by sorry
 end
 end DirichletPadic.SuggestedRobertFactorialTests
+
+/- Robert Mahler coefficients from the actual native exponential product. -/
+namespace DirichletPadic
+noncomputable section
+open Finset
+open scoped fwdDiff Topology Classical
+
+section Coefficients
+variable {R : Type*} [CommRing R]
+
+
+end Coefficients
+
+section Exponentials
+variable {K : Type*} [Field K] [CharZero K]
+
+lemma robert_exp_coefficient (π : K) (q : ℕ) (hq : q≠0) (n : ℕ) :
+    PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q hq (PowerSeries.rescale (-π) (PowerSeries.exp K)))=
+      ∑ j ∈ range (n/q+1),
+        π^(n-q*j)*(-π)^j/((n-q*j).factorial*(j.factorial : K)) := by sorry
+
+lemma robert_exp_coefficient_low (π : K) (q : ℕ) (hq : q≠0) (n : ℕ) (hn : n<q) :
+    PowerSeries.coeff n (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand q hq (PowerSeries.rescale (-π) (PowerSeries.exp K)))=
+      π^n/(n.factorial : K) := by sorry
+
+
+
+end Exponentials
+
+section Quotient
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [Field K] [CharZero K]
+
+
+
+lemma robertFactorialQuotient_coefficient (ι : ℚ_[p] →+* K) (π : K) (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (k : ℕ) :
+    PowerSeries.coeff (a+p^f*k) (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*(k.factorial : K)=
+      π^(a+k)*ι ((fwdDiff 1)^[k] (robertFactorialQuotient p f a) 0) := by sorry
+
+lemma robertFactorialQuotient_mahler_coefficient (ι : ℚ_[p] →+* K) (π : K) (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (k : ℕ) :
+    ι ((fwdDiff 1)^[k] (robertFactorialQuotient p f a) 0)=
+      PowerSeries.coeff (a+p^f*k) (PowerSeries.rescale π (PowerSeries.exp K)*
+        PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+          (PowerSeries.rescale (-π) (PowerSeries.exp K)))*(k.factorial : K)/π^(a+k) := by sorry
+
+local instance : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  .of_norm_smul_le fun r x => by
+    rw [Algebra.smul_def,PadicInt.algebraMap_apply,norm_mul,← PadicInt.norm_def]
+
+lemma robertFactorialQuotient_mahler_hasSum   (f a : ℕ) :
+    HasSum (fun k => PadicInt.mahlerTerm (p:=p)
+      ((fwdDiff 1)^[k] (robertFactorialQuotient p f a) 0) k)
+      (⟨robertFactorialQuotient p f a,
+        robertFactorialQuotient_continuous p f a⟩ : C(ℤ_[p],ℚ_[p])) := by sorry
+
+lemma robertFactorialQuotient_mahler_decay   (f a : ℕ) :
+    Filter.Tendsto (fun k => (fwdDiff 1)^[k] (robertFactorialQuotient p f a) 0)
+      Filter.atTop (𝓝 0) := by sorry
+
+lemma robertFactorialQuotient_expansion [TopologicalSpace K]
+    (ι : ℚ_[p] →+* K) (hι : Continuous ι) (π : K) (hπ : π^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (x : ℤ_[p]) :
+    HasSum (fun k =>
+      (PowerSeries.coeff (a+p^f*k) (PowerSeries.rescale π (PowerSeries.exp K)*
+        PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+          (PowerSeries.rescale (-π) (PowerSeries.exp K)))*(k.factorial : K)/π^(a+k))*
+          ι ((mahler k x : ℤ_[p]) : ℚ_[p]))
+      (ι (robertFactorialQuotient p f a x)) := by sorry
+
+lemma robertFactorialQuotient_coefficient_root_independent (ι : ℚ_[p] →+* K)
+    (π ρ : K) (hπ : π^(p-1)=-(p : K)) (hρ : ρ^(p-1)=-(p : K))
+
+
+    (f a : ℕ) (ha : a<p^f) (k : ℕ) :
+    PowerSeries.coeff (a+p^f*k) (PowerSeries.rescale π (PowerSeries.exp K)*
+      PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+        (PowerSeries.rescale (-π) (PowerSeries.exp K)))*(k.factorial : K)/π^(a+k)=
+    PowerSeries.coeff (a+p^f*k) (PowerSeries.rescale ρ (PowerSeries.exp K)*
+      PowerSeries.expand (p^f) (pow_ne_zero f (Fact.out : p.Prime).ne_zero)
+        (PowerSeries.rescale (-ρ) (PowerSeries.exp K)))*(k.factorial : K)/ρ^(a+k) := by sorry
+
+end Quotient
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedRobertMahlerTests
+open scoped fwdDiff Topology
+noncomputable section
+-- coefficient_zero
+example : (PowerSeries.coeff (0) (PowerSeries.rescale ((1 : ℚ)) (PowerSeries.exp ℚ)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-((1 : ℚ))) (PowerSeries.exp ℚ))))=1 := by sorry
+-- coefficient_first_boundary
+example : (PowerSeries.coeff (3) (PowerSeries.rescale ((1 : ℚ)) (PowerSeries.exp ℚ)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-((1 : ℚ))) (PowerSeries.exp ℚ))))=(-5/6 : ℚ) := by sorry
+-- coefficient_next
+example : (PowerSeries.coeff (4) (PowerSeries.rescale ((1 : ℚ)) (PowerSeries.exp ℚ)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-((1 : ℚ))) (PowerSeries.exp ℚ))))=(-23/24 : ℚ) := by sorry
+-- low_second
+example : (PowerSeries.coeff (2) (PowerSeries.rescale ((1 : ℚ)) (PowerSeries.exp ℚ)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-((1 : ℚ))) (PowerSeries.exp ℚ))))=(1/2 : ℚ) := by sorry
+-- low_bound_failure
+example : (PowerSeries.coeff (2) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))=4 ∧ (PowerSeries.coeff (2) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))≠2 := by sorry
+-- cross_first_difference
+example : (PowerSeries.coeff (2) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))=(-2 : ℚ_[2])*(fwdDiff 1)^[1] (robertFactorialQuotient 2 1 0) 0 := by sorry
+-- cross_zero_difference
+example : (PowerSeries.coeff (0) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))=robertFactorialQuotient 2 1 0 0 := by sorry
+-- mahler_first
+example : (fwdDiff 1)^[1] (robertFactorialQuotient 2 1 0) 0=-2 := by sorry
+-- mahler_second
+example : (fwdDiff 1)^[2] (robertFactorialQuotient 2 1 0) 0=(10/3 : ℚ_[2]) := by sorry
+-- mahler_zero
+example : (fwdDiff 1)^[0] (robertFactorialQuotient 3 2 5) 0=(120 : ℚ_[3])⁻¹ := by sorry
+-- range_boundary
+example : (PowerSeries.coeff (3) (PowerSeries.rescale ((1 : ℚ)) (PowerSeries.exp ℚ)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-((1 : ℚ))) (PowerSeries.exp ℚ))))≠(1/6 : ℚ) := by sorry
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  .of_norm_smul_le fun r x => by
+    rw [Algebra.smul_def,PadicInt.algebraMap_apply,norm_mul,← PadicInt.norm_def]
+-- mahler_sum_2
+example : HasSum (fun k => PadicInt.mahlerTerm (p:=2) ((fwdDiff 1)^[k] (robertFactorialQuotient 2 1 0) 0) k) (⟨robertFactorialQuotient 2 1 0,robertFactorialQuotient_continuous 2 1 0⟩ : C(ℤ_[2],ℚ_[2])) := by sorry
+-- mahler_decay_2
+example : Filter.Tendsto (fun k => (fwdDiff 1)^[k] (robertFactorialQuotient 2 1 0) 0) Filter.atTop (𝓝 0) := by sorry
+-- mahler_sum_3
+example : HasSum (fun k => PadicInt.mahlerTerm (p:=3) ((fwdDiff 1)^[k] (robertFactorialQuotient 3 2 5) 0) k) (⟨robertFactorialQuotient 3 2 5,robertFactorialQuotient_continuous 3 2 5⟩ : C(ℤ_[3],ℚ_[3])) := by sorry
+-- mahler_decay_3
+example : Filter.Tendsto (fun k => (fwdDiff 1)^[k] (robertFactorialQuotient 3 2 5) 0) Filter.atTop (𝓝 0) := by sorry
+-- expansion_at_0
+example : HasSum (fun k => (PowerSeries.coeff (2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))*(k.factorial : ℚ_[2])/(-2 : ℚ_[2])^k*((mahler k (0 : ℤ_[2]) : ℤ_[2]) : ℚ_[2])) (robertFactorialQuotient 2 1 0 0) := by sorry
+-- expansion_at_1
+example : HasSum (fun k => (PowerSeries.coeff (2*k) (PowerSeries.rescale ((-2 : ℚ_[2])) (PowerSeries.exp ℚ_[2])*PowerSeries.expand 2 (by norm_num) (PowerSeries.rescale (-((-2 : ℚ_[2]))) (PowerSeries.exp ℚ_[2]))))*(k.factorial : ℚ_[2])/(-2 : ℚ_[2])^k*((mahler k (1 : ℤ_[2]) : ℤ_[2]) : ℚ_[2])) (robertFactorialQuotient 2 1 0 1) := by sorry
+section Roots
+variable {K : Type*} [Field K] [CharZero K]
+-- root_independent_0
+example (ι : ℚ_[3] →+* K) (π ρ : K) (hπ : π^2=-3) (hρ : ρ^2=-3) : (PowerSeries.coeff (1+3*0) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))*((0 : ℕ).factorial : K)/(π)^(1+0)=(PowerSeries.coeff (1+3*0) (PowerSeries.rescale (ρ) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(ρ)) (PowerSeries.exp K))))*((0 : ℕ).factorial : K)/(ρ)^(1+0) := by sorry
+-- root_independent_2
+example (ι : ℚ_[3] →+* K) (π ρ : K) (hπ : π^2=-3) (hρ : ρ^2=-3) : (PowerSeries.coeff (1+3*2) (PowerSeries.rescale (π) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(π)) (PowerSeries.exp K))))*((2 : ℕ).factorial : K)/(π)^(1+2)=(PowerSeries.coeff (1+3*2) (PowerSeries.rescale (ρ) (PowerSeries.exp K)*PowerSeries.expand 3 (by norm_num) (PowerSeries.rescale (-(ρ)) (PowerSeries.exp K))))*((2 : ℕ).factorial : K)/(ρ)^(1+2) := by sorry
+end Roots
+end
+end DirichletPadic.SuggestedRobertMahlerTests
