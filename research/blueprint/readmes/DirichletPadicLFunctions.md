@@ -34505,3 +34505,151 @@ Exact cyclotomic quotient controls cover16 prime/precision pairs, the opposite-r
 Capture at d0d3b4f921ac65dd24100723078f958710dd7ce7 has zero changes among72 guarded inputs after merged5345; whole issue body unchanged. No policy, supplier, source finding or review verdict changed.
 
 The separate partial signature file also compiled with zero errors and 3,479 expected placeholder warnings across 3,604 pinned source modules. It includes all 23 new named declarations and 31 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ca14c04c14ca928eb97aa1f96cded85930f4e86c877afefcf9a19abe5961ca1e.
+
+
+## Robert’s proof route and the Gauss-sum endpoint
+
+Four L3 nodes prove the actual trivial-character Gauss endpoints and a cubic-binomial norm-domain counterexample. All1,083 predecessor nodes,815 baseline records and18 findings remain whole. Full reading of Robert2001 adds a fifth source version and the scoped published-text findings E19–E20.
+
+Robert2001 is now read completely from the published scan, all14 article pages157–170 including proofs, appendices and bibliography. Its elementary route uses continuous factorial quotients, Dwork-series coefficients, Mahler expansion and a telescoping identity. The existing PadicDifferentialEquationsAndRigidCohomology:RD.6/dwork-isocrystal node was read in full: it already owns the splitting function, overconvergence coefficient bound and trace-character values; its Frobenius factor has the inverse sign to Robert’sTheta_q. That theory must be reused rather than duplicated. Four new native baseline declarations and their proofs/definitions were read. Two narrow published-text findings are supported by exact checks and a bounded correction search.
+
+### The source Gauss sum at exponent zero
+
+`DirichletPadicLFunctions:L3/gross-koblitz-negative-gauss-zero` — `DirichletPadic.grossKoblitz_negativeGauss_zero`
+
+The negative Gauss sum of the actual exponent0 inverse Teichmuller character and chosen primitive trace character is1.
+
+**Hypotheses:** The character statements use the actual preceding inverse Teichmuller character and chosen-root trace character in a native nonarchimedean local field K. The residue field has an explicit finite enumeration and an actual Algebra (ZMod p) structure; the chosen root is primitive of prime order p. No Gross–Koblitz formula, Dwork theorem or Gauss norm formula is assumed. At exponent0 or q−1 the native multiplicative character is the trivial character, extended by0 at the zero residue. The negative Gauss convention is retained, so this endpoint value is+1. The binomial statements use native Ring.choose in a characteristic-zero ultrametric normed field K with ‖3‖=1/3 and an elementu satisfyingu²=−1. These are concrete field/norm/root hypotheses, not a bound on the target binomial polynomial. The complete proof derives‖u‖=1 and‖choose(u,3)‖=3. For the published parenthetical, take a root ofX²+1 in the unramified quadratic extension ofQ3, embedded inC3 with its extended norm. Irreducibility modulo3 verifies the unramified model. The native proof applies to any such ultrametric field; it does not construct a new C_p or local-field carrier. The native Mahler theorem concerns functions onZ_p. The norm of its cubic basis function onZ3 is1, whereas the largerC3 unit ball contains the pointu above. Correcting this domain slip leaves the neededZ_p estimate available. The source’s main Gross–Koblitz theorem is not refuted by either finding.
+
+**Proof:**
+
+1. The preceding inverse-character zero-exponent API identifiesχ_0 with the native trivial multiplicative character. Its value at the zero residue remains0.
+2. The preceding constructed trace character is native primitive. Apply primitivity at the nonzero multiplier1 to obtainψ≠1.
+3. Native gaussSum_one_left givesgaussSum(1,ψ)=−1 over the finite residue field. Negate it to obtain the source value+1. The complete negative_gauss_zero proof derives all character hypotheses from the actual constructions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-zero-exponent`, `DirichletPadicLFunctions:L3/gross-koblitz-trace-character-primitive`, `mathlib:gaussSum_one_left`.
+
+**Tests:**
+
+- `SuggestedRobertSourceTests.zero_exponent_value` (degenerate): The actual negative Gauss sum at exponent0 is1.
+- `SuggestedRobertSourceTests.zero_character_still_zero` (non-example): The exponent0 character is trivial as a character, and its value at the zero residue is0.
+
+**Acceptance:** The endpoint at0 is compatible with Robert’s Theorem4 andΓ_p(0)=1. It must not useΓ_p(1) instead.
+
+**Source:** Published pp.164–168: the trivial-character endpoint and its explicit exclusion onp.164, Theorem4 and Corollary1 onp.168, and the Mahler norm parenthetical in the proof onp.167. Full14-page article and appendices read. E19 narrows the printed valuation-corollary range to0≤a<q−1, matching the theorem and the source’s endpoint discussion. E20 corrects the Mahler norm domain toZ_p. These checks use native characters and binomial polynomials, independently of the full Gauss formula.
+
+### The excluded residue-cardinality endpoint
+
+`DirichletPadicLFunctions:L3/gross-koblitz-negative-gauss-card-endpoint` — `DirichletPadic.grossKoblitz_negativeGauss_card_sub_one`
+
+The actual negative Gauss sum at exponentq−1 is also1.
+
+**Hypotheses:** The character statements use the actual preceding inverse Teichmuller character and chosen-root trace character in a native nonarchimedean local field K. The residue field has an explicit finite enumeration and an actual Algebra (ZMod p) structure; the chosen root is primitive of prime order p. No Gross–Koblitz formula, Dwork theorem or Gauss norm formula is assumed. At exponent0 or q−1 the native multiplicative character is the trivial character, extended by0 at the zero residue. The negative Gauss convention is retained, so this endpoint value is+1. The binomial statements use native Ring.choose in a characteristic-zero ultrametric normed field K with ‖3‖=1/3 and an elementu satisfyingu²=−1. These are concrete field/norm/root hypotheses, not a bound on the target binomial polynomial. The complete proof derives‖u‖=1 and‖choose(u,3)‖=3. For the published parenthetical, take a root ofX²+1 in the unramified quadratic extension ofQ3, embedded inC3 with its extended norm. Irreducibility modulo3 verifies the unramified model. The native proof applies to any such ultrametric field; it does not construct a new C_p or local-field carrier. The native Mahler theorem concerns functions onZ_p. The norm of its cubic basis function onZ3 is1, whereas the largerC3 unit ball contains the pointu above. Correcting this domain slip leaves the neededZ_p estimate available. The source’s main Gross–Koblitz theorem is not refuted by either finding.
+
+**Proof:**
+
+1. The existing inverse-character cardinality-exponent API identifiesχ_(q−1) with the trivial character, just as forχ_0.
+2. Apply the preceding exponent0 result after these two character identities. The complete negative_gauss_card_sub_one proof requires no digit-sum or valuation assertion.
+3. Its absolute value is1 under the ordinary multiplicative field norm. However the base-p digits ofq−1=p^f−1 aref copies ofp−1, so the printed endpoint in Robert’s Corollary1 would predict|p|^f=p^(−f). This is the exact endpoint counterexample E19.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-negative-gauss-zero`, `DirichletPadicLFunctions:L3/gross-koblitz-inverse-teich-card-exponent`.
+
+**Tests:**
+
+- `SuggestedRobertSourceTests.ternary_endpoint` (computation): At residue size3, exponent2 has negative Gauss sum1.
+- `SuggestedRobertSourceTests.degree_two_endpoint` (computation): At residue size9, exponent8 again has negative Gauss sum1.
+- `SuggestedRobertSourceTests.endpoint_zero_comparison` (compatibility): Exponentsq−1 and0 have the same actual negative Gauss sum.
+
+**Acceptance:** Atq=3,a=2 the actual norm is1 rather than1/3; atq=9,a=8 it is1 rather than1/9. Correct the range or first reduce the exponent moduloq−1.
+
+**Source:** Published pp.164–168: the trivial-character endpoint and its explicit exclusion onp.164, Theorem4 and Corollary1 onp.168, and the Mahler norm parenthetical in the proof onp.167. Full14-page article and appendices read. E19 narrows the printed valuation-corollary range to0≤a<q−1, matching the theorem and the source’s endpoint discussion. E20 corrects the Mahler norm domain toZ_p. These checks use native characters and binomial polynomials, independently of the full Gauss formula.
+
+### The cubic binomial at a quadratic unit
+
+`DirichletPadicLFunctions:L3/robert-cubic-binomial-extension-norm` — `DirichletPadic.robert_cubicBinomial_extensionNorm`
+
+Ifu²=−1 in the specified ultrametric field with‖3‖=1/3, then‖Ring.choose u3‖=3.
+
+**Hypotheses:** The character statements use the actual preceding inverse Teichmuller character and chosen-root trace character in a native nonarchimedean local field K. The residue field has an explicit finite enumeration and an actual Algebra (ZMod p) structure; the chosen root is primitive of prime order p. No Gross–Koblitz formula, Dwork theorem or Gauss norm formula is assumed. At exponent0 or q−1 the native multiplicative character is the trivial character, extended by0 at the zero residue. The negative Gauss convention is retained, so this endpoint value is+1. The binomial statements use native Ring.choose in a characteristic-zero ultrametric normed field K with ‖3‖=1/3 and an elementu satisfyingu²=−1. These are concrete field/norm/root hypotheses, not a bound on the target binomial polynomial. The complete proof derives‖u‖=1 and‖choose(u,3)‖=3. For the published parenthetical, take a root ofX²+1 in the unramified quadratic extension ofQ3, embedded inC3 with its extended norm. Irreducibility modulo3 verifies the unramified model. The native proof applies to any such ultrametric field; it does not construct a new C_p or local-field carrier. The native Mahler theorem concerns functions onZ_p. The norm of its cubic basis function onZ3 is1, whereas the largerC3 unit ball contains the pointu above. Correcting this domain slip leaves the neededZ_p estimate available. The source’s main Gross–Koblitz theorem is not refuted by either finding.
+
+**Proof:**
+
+1. The native Ring.choose_eq_smul expression is the descending Pochhammer polynomial divided by3!. Its full cubic expansion giveschoose(u,3)=u(u−1)(u−2)/6; the routine choose_three proof checks this identity.
+2. Fromu²=−1 and multiplicativity of the norm, derive‖u‖²=1 and hence‖u‖=1. The ultrametric unequal-norm equality gives‖u+3‖=1. Applying the same native equality to3+(−1) gives‖2‖=1, so‖6‖=1/3.
+3. The relationu²=−1 reducesu(u−1)(u−2) tou+3. Divide the two norms to obtain3. The complete quadratic_binomial_norm proof uses the existing ultrametric norm theorem; its additive form is generated from the indexed multiplicative declaration.
+
+**Prerequisites:** `mathlib:Ring.choose`, `mathlib:Ring.choose_eq_smul`, `mathlib:IsUltrametricDist.norm_mul_eq_max_of_norm_ne_norm`.
+
+**Tests:**
+
+- `SuggestedRobertSourceTests.quadratic_cubic_norm` (computation): In an ultrametric extension with normalized3-adic norm, the cubic binomial at u²=−1 has norm3.
+- `SuggestedRobertSourceTests.negative_quadratic_cubic_norm` (computation): The conjugate root−u has the same cubic binomial norm3.
+
+**Acceptance:** Exact rational arithmetic inQ[u]/(u²+1) giveschoose(u,3)=1/2+u/6. Its3-adic norm in the unramified quadratic extension is3.
+
+**Source:** Published pp.164–168: the trivial-character endpoint and its explicit exclusion onp.164, Theorem4 and Corollary1 onp.168, and the Mahler norm parenthetical in the proof onp.167. Full14-page article and appendices read. E19 narrows the printed valuation-corollary range to0≤a<q−1, matching the theorem and the source’s endpoint discussion. E20 corrects the Mahler norm domain toZ_p. These checks use native characters and binomial polynomials, independently of the full Gauss formula.
+
+### The Mahler norm domain boundary
+
+`DirichletPadicLFunctions:L3/robert-mahler-domain-counterexample` — `DirichletPadic.robert_cubicBinomial_extensionCounterexample`
+
+The pointu above satisfies‖u‖≤1 but not‖Ring.choose u3‖≤1; onZ3 the native cubic Mahler function has uniform norm1.
+
+**Hypotheses:** The character statements use the actual preceding inverse Teichmuller character and chosen-root trace character in a native nonarchimedean local field K. The residue field has an explicit finite enumeration and an actual Algebra (ZMod p) structure; the chosen root is primitive of prime order p. No Gross–Koblitz formula, Dwork theorem or Gauss norm formula is assumed. At exponent0 or q−1 the native multiplicative character is the trivial character, extended by0 at the zero residue. The negative Gauss convention is retained, so this endpoint value is+1. The binomial statements use native Ring.choose in a characteristic-zero ultrametric normed field K with ‖3‖=1/3 and an elementu satisfyingu²=−1. These are concrete field/norm/root hypotheses, not a bound on the target binomial polynomial. The complete proof derives‖u‖=1 and‖choose(u,3)‖=3. For the published parenthetical, take a root ofX²+1 in the unramified quadratic extension ofQ3, embedded inC3 with its extended norm. Irreducibility modulo3 verifies the unramified model. The native proof applies to any such ultrametric field; it does not construct a new C_p or local-field carrier. The native Mahler theorem concerns functions onZ_p. The norm of its cubic basis function onZ3 is1, whereas the largerC3 unit ball contains the pointu above. Correcting this domain slip leaves the neededZ_p estimate available. The source’s main Gross–Koblitz theorem is not refuted by either finding.
+
+**Proof:**
+
+1. Use the preceding proof’s derived‖u‖=1 and cubic-binomial norm3 to obtain the explicit pointwise failure of the unit-ball bound. The complete quadratic_binomial_not_bounded proof checks this conjunction.
+2. The polynomialchoose(x,3) has one Mahler coefficient1 and all others0. Thus the supremum of those coefficients is1, while theC3 unit-ball supremum is at least3.
+3. Native PadicInt.norm_mahler_eq gives uniform norm1 on the correct domainZ3, and the value at the integer3 attains it. This native theorem is reused, not replanned.
+4. Consequently the parenthetical onRobertp.167 cannot identify the Mahler coefficient norm with the supremum on the entireC_p unit ball. Restricting the norm toZ_p is the correction E20 and is sufficient for the source’s evaluation ata*−N∈Z_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/robert-cubic-binomial-extension-norm`, `mathlib:PadicInt.norm_mahler_eq`.
+
+**Tests:**
+
+- `SuggestedRobertSourceTests.unit_point_not_bounded` (non-example): A point of the extension unit ball has a cubic binomial value of norm greater than1.
+- `SuggestedRobertSourceTests.base_integral_norm` (compatibility): On Z3 itself the native cubic Mahler basis function has uniform norm1.
+- `SuggestedRobertSourceTests.base_integral_value` (computation): The norm1 bound on Z3 is attained at the integer3.
+
+**Acceptance:** The counterexample concerns the stated Mahler norm domain, not the Gross–Koblitz formula or the norm-decay lemma onZ_p.
+
+**Source:** Published pp.164–168: the trivial-character endpoint and its explicit exclusion onp.164, Theorem4 and Corollary1 onp.168, and the Mahler norm parenthetical in the proof onp.167. Full14-page article and appendices read. E19 narrows the printed valuation-corollary range to0≤a<q−1, matching the theorem and the source’s endpoint discussion. E20 corrects the Mahler norm domain toZ_p. These checks use native characters and binomial polynomials, independently of the full Gauss formula.
+
+**Remaining:** The full published Robert2001 proof is now an accessible alternate route to the full Gross–Koblitz formula. Next decompose its actual continuous factorial quotientG_a and fixed-point Gamma product (Theorem1, pp.158–161), then its Mahler/Dwork coefficient identity and finite telescoping (Theorems2–3), retaining the exact summability and norm bounds onZ_p. Reuse the existing RD.6/dwork-isocrystal owner for Dwork coefficient overconvergence and primitive trace-character values; compare RobertTheta_q=exp(pi(T−T^q)) with the inverse Frobenius factor in that roadmap, and request any missing precise consumer API rather than replanning Dwork theory. The actual primary proof of those Dwork assertions remains to be read; Robert states them as inputs. The Katz/Fermat and Gauss-side Stickelberger obligations of the original1979 route remain unresolved until an alternate proof is completed, not silently discharged. E19 corrects the valuation-corollary endpoint, E20 the Mahler norm domain; E18’s repair remains unproved/unused. All18 gaps and14 requests remain; no stage closes.
+
+### DirichletPadicLFunctions/E19, awaiting independent review
+
+**Printed:** 0 ≤ a < q; the absolute value is |p|^(S_p(a)/(p−1)).
+
+**Correction:** Use0≤a<q−1, as in Theorem4. At a=q−1 the multiplicative character is trivial and the Gauss sum has absolute value1. A formula for arbitrary integer exponents must first reduce the exponent moduloq−1 before taking its digit sum.
+
+**Reason:** For a=q−1, every nonzero Teichmuller root satisfiesε^(−a)=1. The chosen trace additive character is nontrivial, so native gaussSum_one_left gives the unsigned sum−1 and the source negative sum+1. Thus the actual absolute value is1. Butq−1=p^f−1 hasf digits allp−1, so the printed right side is|p|^f=p^(−f), strictly below1. Alreadyp=q=3,a=2 gives1 versus1/3. The complete native endpoint proof uses the actual previously constructed characters and does not assume the Gross–Koblitz formula. The source explicitly notes the extra coefficient term at this endpoint onp.164.
+
+**Version and search:** Published Numdam scan, all157–170, read1October2026; SHA256 2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581. Full page images167–168 verify the printed claims. Numdam’s complete article record was read and contains no linked correction. The publisher volume105 listing surfaced the article in search. Opening the publisher page timed out, so no complete publisher errata-list inspection is claimed. The full University of Neuchâtel author profile https://www.unine.ch/math/biographie/alain-robert was read; it gives no bibliography or errata link. Bounded title/author searches with errata, erratum, correction, corrigendum, Corollary1,167 andMahler located no directly relevant correction. Unrelated search results were excluded. No author or third party was contacted; this is not a historical novelty claim. All current, older and unchecked rows in the captured data/source-issues.json were screened for Robert2001, the exact title and the Numdam identifier; no matching row was found.
+
+### DirichletPadicLFunctions/E20, awaiting independent review
+
+**Printed:** the sup norm is taken on the unit ball of C_p
+
+**Correction:** The Mahler coefficient norm equals the supremum norm onZ_p, the domain of the source functions. It does not generally equal the supremum on the wholeC_p unit ball. UseZ_p for this norm throughout the argument; a larger-domain estimate needs separate hypotheses.
+
+**Reason:** Takep=3 and the polynomialf(x)=choose(x,3)=x(x−1)(x−2)/6. Its Mahler coefficients consist of one1 and otherwise0, so their supremum is1. Chooseu²=−1 in the unramified quadratic extension ofQ3 insideC3; X²+1 is irreducible modulo3. Then‖u‖=1, andf(u)=(u+3)/6 has norm3 because‖u+3‖=1 and‖6‖=1/3. The complete native proof derives these equalities in any characteristic-zero ultrametric field with‖3‖=1/3. Thus theC3 unit-ball supremum is at least3. In contrast native PadicInt.norm_mahler_eq gives uniform norm1 onZ3, attained at3. This refutes the parenthetical’s claimed Mahler norm domain, not the needed estimate onZ_p or the main Gauss formula.
+
+**Version and search:** Published Numdam scan, all157–170, read1October2026; SHA256 2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581. Full page images167–168 verify the printed claims. Numdam’s complete article record was read and contains no linked correction. The publisher volume105 listing surfaced the article in search. Opening the publisher page timed out, so no complete publisher errata-list inspection is claimed. The full University of Neuchâtel author profile https://www.unine.ch/math/biographie/alain-robert was read; it gives no bibliography or errata link. Bounded title/author searches with errata, erratum, correction, corrigendum, Corollary1,167 andMahler located no directly relevant correction. Unrelated search results were excluded. No author or third party was contacted; this is not a historical novelty claim. All current, older and unchecked rows in the captured data/source-issues.json were screened for Robert2001, the exact title and the Numdam identifier; no matching row was found.
+
+### Robert’s proof route and the Gauss-sum endpoint validation
+
+All 1083 predecessor nodes, 815 baseline records, 18 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1347 reachable nodes, 6385 edges and 988 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. All four new nodes terminate in preceding actual-character nodes and pinned native library facts. No new unresolved stage leaf is used. The alternate proof’s Dwork interfaces remain with the existing RD.6 owner; all14 current supplier requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe preserves5347 verbatim after one added Mathlib import and adds seven complete lemmas, including three routine Gauss-norm, cubic-expansion and quadratic-unit-norm helpers. Both Gauss endpoints derive from the actual source characters; the binomial norm is proved from native ultrametric field axioms. The separate probe compiles against 2927 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native library is built. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies. The full suggested module is NOT COMPILED because pinned TwistedDivisorSum lacks a compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact controls compute15 trivial-character Gauss sums,25 endpoint digit/period comparisons, three quadratic-binomial valuation counterexamples and1,000 integral cubic values. The norm1 bound onZ3 is also a native existing theorem. Exact integer cyclotomic reduction computes15 negative trivial-character Gauss sums. Integer digit expansion checks25 endpoints. Rational arithmetic in Q[u]/(u²+1), with irreducibility modulo3,7,11, computes binomial(u,p) and its valuation in the unramified quadratic extension; native Lean independently checks the cubic norm from the ultrametric axioms. One thousand integer cubic values check the Z3 side, with norm1 attained at3. No floating-point approximation is used. The largest observed discrepancy is 0.
+
+Capture at 64620fae385b7312504aa9bd336a14ba6ba2fb18 has zero changes in the72 predecessor guarded inputs after merged5347; adds the full existing PadicDifferentialEquationsAndRigidCohomology packet as a73rd guarded input after reading its Dwork source interface. The whole issue is unchanged and review390 is unclaimed.
+
+The separate partial signature file also compiled with zero errors and 3,493 expected placeholder warnings across 3,604 pinned source modules. It includes all 4 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: cbdfdabb6ecc4f024b93c3342eaeb86f859338d3367905d8a356e386383de7cc.
