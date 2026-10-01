@@ -46552,3 +46552,393 @@ Independent sparse integer controls cover 18 prime-power levels/dimensions, 1,90
 All 76 captured inputs remain byte-identical after the actual merge of #5431. The issue body and original winning claim, blocked unclaimed review #390, policies, reviewed library audit, ownership interfaces and four predecessor outputs remain guarded. This continuation reuses native subgroup closure, finite sums, factorization and quotient APIs; only source-specific generation is added. No supplier request is added.
 
 The separate partial signature file also compiled with zero errors and 4,714 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a48bbaf5b0bf42b834c348e484b19b646fe5d95aab609d4a6693af2fb0e5e962.
+
+
+## Kubert internal quotient and admissible-level transport
+
+Fourteen L3 nodes identify complete internal fibers under level inclusion, transport weighted relators, construct actual internal quotient maps and their functor laws, and carry source generators and lower-level generation through admissible divisors. All 1,521 predecessor nodes and 1,051 baseline records remain whole.
+
+Kubert 182–185 supplies the exact internal-relation input condition, source union and lower admissible-level induction step. The full 179–202 body was previously read; 184–185 was reread for this continuation. Native quotient-map construction and evaluation, free abelian identity/composition, divisor coprimality and quotient multiplication were read at the pinned sources. The level-map divisibility binder is explicit so it survives replacing proof bodies by suggested placeholders.
+
+### Complete internal fibers are unchanged under level inclusion
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv` — `DirichletPadic.kubertInclusionFiberEquiv`
+
+If m divides M and M divides N, identify the entire internal m-root fiber of m b at level M with the entire internal m-root fiber of the included m b at level N.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. The existing levelFiberEquiv identifies the level-M fiber with all ambient m-roots of the actual ambient point m b.
+2. The same equivalence at level N has the identical ambient fiber because the native level inclusion preserves b.
+3. Compose the first equivalence with the inverse of the second. Every ambient root is killed by M by the established preimage_mem_level argument, which uses m dividing M.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-level-fiber-equiv`, `DirichletPadicLFunctions:L3/kubert-finite-level-preimage-mem-level`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`, `mathlib:Subgroup.inclusion`.
+
+**Uses:**
+
+- Internal relation transport: Identifies the whole root sum before comparing the relators.
+- Actual point compatibility: Both maps keep the root point while changing only native certificates.
+- Finite fiber controls: Provides an exact cardinality and inverse-law specification.
+
+**API:**
+
+- `kubertAdmissibleTransport_inclusionFiberEquiv_coe` (compatibility): The level-N point underlying the forward inclusion-fiber map is exactly the native inclusion of the original level-M root.
+- `kubertAdmissibleTransport_inclusionFiberEquiv_symm_coe` (compatibility): The ambient point of the inverse inclusion-fiber map equals the ambient point of its level-N input root.
+- `kubertAdmissibleTransport_inclusionFiberEquiv_card` (characterisation): For m dividing M dividing N and input m b with b in T_M, the actual internal m-root fibers at M and N have equal native cardinality.
+- `kubertAdmissibleTransport_relation_map_inclusion` (compatibility): The native free abelian map induced by T_M inclusion into T_N sends the complete weight-w degree-m relation at m b exactly to the corresponding relation at the included m b, provided m divides M.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.four_to_twelve_keeps_actual_roots` (compatibility): A two-root over a valid level-four input keeps its ambient point when transported to level twelve.
+- `SuggestedKubertAdmissibleTransportTests.fiber_inverse_recovers_root` (characterisation): The inverse inclusion-fiber equivalence recovers every actual level-four root.
+- `SuggestedKubertAdmissibleTransportTests.unit_degree_fiber` (degenerate): At degree one the actual fiber remains a singleton after increasing the level.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Forward root transport is the native level inclusion
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv-coe` — `DirichletPadic.kubertAdmissibleTransport_inclusionFiberEquiv_coe`
+
+The level-N point underlying the forward inclusion-fiber map is exactly the native inclusion of the original level-M root.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Evaluate the two existing fiber equivalences; they alter only kernel and fiber certificates.
+2. The result is definitionally the native level inclusion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.forward_fiber_is_native_inclusion` (compatibility): The forward fiber map is exactly native level inclusion on its point.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Inverse root transport preserves the ambient point
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv-symm-coe` — `DirichletPadic.kubertAdmissibleTransport_inclusionFiberEquiv_symm_coe`
+
+The ambient point of the inverse inclusion-fiber map equals the ambient point of its level-N input root.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. The inverse uses the established lower-level annihilation certificate for the same root.
+2. Projecting the native subtype certificates leaves the identical ambient point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.inverse_keeps_ambient_root` (compatibility): The inverse fiber map changes only level certificates.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### The complete valid fiber has level-independent cardinality
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv-card` — `DirichletPadic.kubertAdmissibleTransport_inclusionFiberEquiv_card`
+
+For m dividing M dividing N and input m b with b in T_M, the actual internal m-root fibers at M and N have equal native cardinality.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Apply the native cardinality-congruence theorem to inclusionFiberEquiv.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.full_root_fiber_cardinality_unchanged` (characterisation): The entire valid two-root fiber has the same cardinality at levels four and twelve.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Weighted internal relators survive level inclusion
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-relation-map-inclusion` — `DirichletPadic.kubertAdmissibleTransport_relation_map_inclusion`
+
+The native free abelian map induced by T_M inclusion into T_N sends the complete weight-w degree-m relation at m b exactly to the corresponding relation at the included m b, provided m divides M.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Expand the established weighted relator; the native free abelian homomorphism preserves subtraction, natural scalar multiplication and finite sums.
+2. Use the actual inclusionFiberEquiv to transport the complete root sum.
+3. Its forward-value formula identifies every term with the free generator of the included root. The input-label term is preserved by the native map as well.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-inclusion-fiber-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-relation`, `mathlib:Equiv.prod_comp`, `mathlib:FreeAbelianGroup.map`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.weighted_relation_0_transport` (compatibility): The full degree-two internal relation at weight 0 is preserved from level four to twelve.
+- `SuggestedKubertAdmissibleTransportTests.weighted_relation_2_transport` (compatibility): The full degree-two internal relation at weight 2 is preserved from level four to twelve.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### All smaller-level internal relations descend
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-internal-le-inclusion-comap` — `DirichletPadic.kubertAdmissibleTransport_internal_le_inclusion_comap`
+
+For positive M dividing positive N and any natural weight w, the internal relation subgroup at M lies in the comap of the relation subgroup at N under the native free abelian inclusion map.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Apply native closure containment to the defining generators of the internal relation subgroup.
+2. A generator has positive degree m dividing M and certified input m b.
+3. The degree also divides N. relation_map_inclusion identifies its image with that valid internal relation at N, whose membership is already established.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-relation-map-inclusion`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relation-mem`, `mathlib:Subgroup.closure_le`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.all_relations_descend` (characterisation): Every weight-two internal relation at level four maps to an internal relation at level twelve.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### The internal quotient map along a level divisor
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map` — `DirichletPadic.kubertInternalLevelMap`
+
+For positive M dividing N and natural weight w, construct the native additive homomorphism from the actual weight-w internal quotient at M to that at N induced by level inclusion.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Use the existing native free abelian map of the existing level inclusion.
+2. The proved internal_le_inclusion_comap supplies the required relation-subgroup containment.
+3. Apply the native quotient homomorphism construction. Keep the divisibility hypothesis explicit in the suggested declaration even though it is used by the construction body.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-internal-le-inclusion-comap`, `DirichletPadicLFunctions:L3/kubert-generator-product-level-mono`, `mathlib:Subgroup.inclusion`, `mathlib:FreeAbelianGroup.map`, `mathlib:QuotientGroup.map`.
+
+**Uses:**
+
+- Kubert Proposition 1.9 induction: Transports lower admissible-level generation into the larger quotient.
+- Weighted internal distributions: Works with the original natural weight, not only the ordinary specialization.
+- Divisor chains: Identity and composition laws make repeated transport agree with direct transport.
+
+**API:**
+
+- `kubertAdmissibleTransport_levelMap_of` (compatibility): The descended level map sends the quotient label of x in T_M to the quotient label of that same point under the native inclusion into T_N.
+- `kubertAdmissibleTransport_levelMap_self` (compatibility): At every positive level M and natural weight w, the internal quotient map for M dividing itself fixes every quotient element.
+- `kubertAdmissibleTransport_levelMap_comp` (compatibility): For positive L dividing M dividing N, the level-M-to-N map after the level-L-to-M map equals the direct level-L-to-N map on every internal quotient element, at any natural weight.
+- `kubertAdmissibleTransport_source_span_le_comap` (compatibility): For positive M admissible in N, the actual subgroup B(M) lies in the comap of B(N) under the ordinary internal quotient map.
+- `kubertAdmissibleTransport_label_mem_of_lower_span` (compatibility): For M admissible in N, if B(M) is the whole internal ordinary quotient, the label of every actual level-M point included into T_N belongs to B(N).
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.quotient_map_on_actual_label` (compatibility): The descended quotient map sends an actual point label to its actual included label.
+- `SuggestedKubertAdmissibleTransportTests.identity_quotient_map` (degenerate): The same-level quotient map is the identity on every quotient element.
+- `SuggestedKubertAdmissibleTransportTests.quotient_maps_compose` (characterisation): The maps along one dividing four dividing twelve compose to the direct inclusion map.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### The internal quotient map preserves actual point labels
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-of` — `DirichletPadic.kubertAdmissibleTransport_levelMap_of`
+
+The descended level map sends the quotient label of x in T_M to the quotient label of that same point under the native inclusion into T_N.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Evaluate the native quotient map on a represented free generator.
+2. The native free abelian map sends that generator to the generator of the included point; no weight or scalar rescaling occurs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map`, `mathlib:FreeAbelianGroup.map_of_apply`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.positive_weight_label_map` (compatibility): At weight two, the actual quotient point label is still transported without rescaling.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### The same-level quotient map is the identity
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-self` — `DirichletPadic.kubertAdmissibleTransport_levelMap_self`
+
+At every positive level M and natural weight w, the internal quotient map for M dividing itself fixes every quotient element.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Represent the quotient element using native quotient-map surjectivity.
+2. The underlying level inclusion is the identity on actual points.
+3. Use the native free abelian identity-map theorem and the quotient-map evaluation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:FreeAbelianGroup.map_id_apply`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.unit_level_identity` (degenerate): The quotient map at level one fixes its whole quotient.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Internal quotient maps compose along divisibility
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-comp` — `DirichletPadic.kubertAdmissibleTransport_levelMap_comp`
+
+For positive L dividing M dividing N, the level-M-to-N map after the level-L-to-M map equals the direct level-L-to-N map on every internal quotient element, at any natural weight.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Represent the quotient element by a native free abelian element.
+2. Native free abelian map composition identifies the iterated map with the map of the composite actual level inclusions.
+3. Both composite and direct inclusions retain the same ambient point, so their maps and quotient images agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:FreeAbelianGroup.map_comp_apply`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.positive_weight_composition` (compatibility): The weighted quotient maps compose at weight two as well.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Admissibility is transitive through admissible levels
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-admissible-trans` — `DirichletPadic.kubertAdmissibleTransport_admissible_trans`
+
+If E is admissible in nonzero M and M is admissible in nonzero N, then E is admissible in N.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Extract E dividing M and M dividing N and their respective complementary coprimality statements.
+2. Divisibility of E into M gives E coprime to N/M by the native coprimality-divisor theorem.
+3. The native quotient-product identity writes N/E as (N/M)(M/E). Coprimality with both factors gives the required coprimality with N/E.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-admissible-mem-iff`, `mathlib:Nat.Coprime.of_dvd_left`, `mathlib:Nat.div_mul_div`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.nested_full_primary_divisors` (computation): Four is admissible in twelve and twelve in sixty, so four is admissible in sixty.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### The source union embeds along admissible levels
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-generators-admissible-mono` — `DirichletPadic.kubertAdmissibleTransport_generators_admissible_mono`
+
+If M is an admissible divisor of nonzero N, then every actual source point of T(M) is an actual source point of T(N).
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Source membership in T(M) supplies a reduced stratum T*(E) with E admissible in M.
+2. By admissible_trans, E is admissible in N.
+3. The same actual point and reduced-stratum certificate therefore witness membership in the source union T(N). No coordinate rescaling or replacement is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-admissible-trans`, `DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.actual_source_union_inclusion` (compatibility): The actual source set at admissible level four is contained in the source set at twelve.
+- `SuggestedKubertAdmissibleTransportTests.nonadmissible_divisor_counterexample` (characterisation): The point 2/3 belongs to T(3) but not T(9), rejecting source monotonicity under arbitrary divisibility.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Source-generated subgroups transport to the larger level
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-source-span-le-comap` — `DirichletPadic.kubertAdmissibleTransport_source_span_le_comap`
+
+For positive M admissible in N, the actual subgroup B(M) lies in the comap of B(N) under the ordinary internal quotient map.
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. Use native closure containment for the actual source-generator definition of B(M).
+2. The image of each source label is its included point label by levelMap_of.
+3. generators_admissible_mono places that point in T(N); the established source_label_mem supplies membership in B(N).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-of`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-generators-admissible-mono`, `DirichletPadicLFunctions:L3/kubert-prime-power-reduced-generator-span`, `DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem`, `mathlib:Subgroup.closure_le`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.generated_subgroup_transport` (characterisation): The whole source-generated subgroup at four maps into that at twelve.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+### Lower admissible generation supplies larger-level labels
+
+`DirichletPadicLFunctions:L3/kubert-admissible-transport-label-mem-of-lower-span` — `DirichletPadic.kubertAdmissibleTransport_label_mem_of_lower_span`
+
+For M admissible in N, if B(M) is the whole internal ordinary quotient, the label of every actual level-M point included into T_N belongs to B(N).
+
+**Hypotheses:** For actual fiber transport, X is a native additive commutative group, M divides N, the relation degree m divides M, and the input is explicitly m times an actual point b of T_M. Native natural levels and degrees suffice for the fiber equivalence; the internal quotient map uses positive natural levels. The weighted relation carries its original factor m^w for a natural weight w. Finite sums use the existing finite-type structures on the actual level kernels or actual fibers. No ambient root is discarded, and no arbitrary input is substituted for the certified image input. Source-set and source-span transport concern the positive-dimensional rational torus, the existing T(N) and the actual native subgroup B(N) in its internal ordinary quotient. These conclusions require M to be admissible in N, meaning M divides N and is coprime to N/M. The construction is a homomorphism between the actual internal quotients. Injectivity is not assumed or asserted. The induction interface requires the separately proved lower-level generation hypothesis B(M)=top; it does not assume the composite-level generation conclusion.
+
+**Proof:**
+
+1. The lower-level generation hypothesis places the point label in B(M).
+2. Apply source_span_le_comap to transport this membership through the actual quotient map.
+3. Its evaluation on a point label gives the desired larger-level label membership. This is the exact induction interface used before the exceptional-coordinate argument.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-admissible-transport-source-span-le-comap`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-of`.
+
+**Tests:**
+
+- `SuggestedKubertAdmissibleTransportTests.lower_generation_supplies_available_labels` (compatibility): If level-four source generation holds, every level-four point label is available at twelve.
+- `SuggestedKubertAdmissibleTransportTests.prime_power_generation_transports` (computation): The established prime-power generation theorem makes every level-three label available at twelve.
+
+**Acceptance:** Use actual point-preserving native inclusions and complete root fibers. The relation degree must divide the smaller level: the two-root zero fiber grows from level three to level six. Source monotonicity requires admissibility: 2/3 lies in T(3) but not T(9). Retain the original weight and quotient labels. A quotient homomorphism supplies transport without any claim of injectivity, rank or freeness.
+
+**Source:** Published 184, proof of Proposition 1.9 after Lemma 1.10: the passage from a proper admissible divisor M to N, using the internal relations on 182 and source union on 183. Published 185 Lemma 1.12 is the next consumer. The displayed use of lower-level availability is expanded into actual full-fiber equivalence, weighted-relation transport, native quotient descent, admissible-divisor transitivity, source-set inclusion and subgroup transport. This justifies the lower-level step without presupposing injectivity of the internal quotient map.
+
+**Remaining:** The actual full-fiber equivalence and weighted relator identity now construct internal quotient maps along all positive level divisors, with point-label, identity and composition laws. Admissibility is transitive, the actual source sets are monotone along admissible levels, and lower-level generation transports into the larger source span. Next prove Lemma 1.12 through its precise primitive fibers and then induct on exceptional primary coordinates to establish composite-level Proposition 1.9. The separate Cartan or rational-model rank lower bound remains necessary for freeness and internal/global relation equality; no injectivity of the internal level map is asserted. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert internal quotient and admissible-level transport validation
+
+All 1521 predecessor nodes, 1051 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 14 nodes, 14 named suggested declarations and 21 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1795 reachable nodes, 7868 edges and 1218 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in native subgroup, finite-sum, coprimality, free-abelian or quotient APIs and the previously established exact-level interfaces. No new supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe retains #5437 verbatim and adds two concrete constructions and 12 complete lemmas. Totals are 77 definitions and 933 lemmas, with zero placeholders. All 14 suggested declarations and 21 typed tests retain exact internal quotients, whole fibers, weights and divisibility/admissibility assumptions. No quotient injectivity is assumed. The separate probe compiles against 2982 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent exact controls cover 168 level pairs in dimensions one and two through level 24, 25,920 complete fibers, 77,760 weighted-relator identities at weights zero, one and two, 260 admissible chains, 4,808 actual source inclusions, 5,200 pointwise identity maps and 8,050 point-inclusion compositions. Two counterexamples reject dropping the degree-divisibility or admissibility hypotheses. Independent exact rational level enumeration and sparse integer free-abelian relation vectors, for dimensions one and two and levels through 24. Complete fibers and weighted relators at weights zero, one and two are compared before quotienting. Admissible source sets are computed independently from exact point orders and actual CRT primary projections. These controls are not Lean proof certificates and establish no quotient injectivity, rank or freeness. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after actual merge of #5437. The issue body and original winning claim, blocked unclaimed review #390, policies, reviewed library audit, owner interfaces and exact four predecessor outputs remain guarded. The level map uses existing native subgroup inclusions, free abelian maps and quotient descent; no generic quotient or coprimality theory is duplicated and no supplier request is added.
+
+The separate partial signature file also compiled with zero errors and 4,749 expected placeholder warnings across 3,604 pinned source modules. It includes all 14 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2103b63c784289f4b76cdd39168fb424bdef6f8ddc218dc9d7e0b0d427646a80.
