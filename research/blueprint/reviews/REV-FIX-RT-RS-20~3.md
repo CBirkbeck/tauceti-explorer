@@ -41,8 +41,8 @@ object is added; the fix had already moved REV-RS-20~3's acceptance to `reviewHi
   - **What RF2:untilts keeps.** Only the Div¹ moduli definition and its comparisons.
   - **Where FS II.1.21 goes.** It moves to the existing late stage VB3:general-BC, with an owner record and inputs from
     RF2:untilts, C4 (ECD 18.3) and S5 (ECD 24.5). It is exported to HS0 and VS1.
-  - **No cycle.** C4, S5 and VB3:general-BC reach none of the early consumers: RF2:untilts, RF2, RF3, RF4:vector-bundles,
-    VB1, BG0 and GS0:loop-geometry.
+  - **No cycle.** C4, S5 and VB3:general-BC reach none of the early consumers: RF2:untilts, RF2, RF3,
+    RF4:vector-bundles, VB1, BG0 and GS0:loop-geometry.
   - **GS0:loop-geometry needs no link.** Its text uses Div¹ leg divisors and relative properness of bounded Schubert
     diamonds, not FS II.1.21.
   - **The duplicate is resolved.** The unintegrated RF2:div1-properness proposal of RT-AREA-padic-1/17 is explicitly
