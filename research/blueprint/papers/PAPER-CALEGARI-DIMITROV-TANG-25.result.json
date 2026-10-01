@@ -15,7 +15,7 @@
    "arXiv v1–v3 were consulted for the history of the source issues."
   ]
  },
- "summary": "Proves the unbounded denominators conjecture (Theorem 1.0.1). A modular form of integral weight for a finite-index subgroup of SL₂(ℤ), meromorphic at the cusps, with integral Fourier coefficients in q^{1/N}, is modular for a congruence subgroup. The same holds for algebraic-integer coefficients (Remarks 6.3.1–6.3.2). It holds for integral solutions of linear ODEs on ℙ¹∖{0, 1/16, ∞} with finite local monodromy at 0 (Theorem 7.2.1), and for components of vector-valued modular forms (Theorem 7.3.3), which gives Mason's conjecture (Corollary 7.3.4).\n\nThe proof has four parts:\n- an arithmetic holonomicity bound (Theorem 2.0.1, Corollary 2.0.5), a quantitative André criterion with an integrated growth term;\n- the exact conformal radius of ℂ∖μ_N (Theorem 5.1.4), via Hempel's Schwarzian method and hypergeometric functions;\n- a uniform Nevanlinna mean-growth bound for its uniformization (Theorem 6.0.1);\n- a group-theoretic leveraging argument (§4): the Wohlfahrt level, a nonabelian Ihara lemma from the congruence subgroup property of SL₂(ℤ[1/p]), and invariant vectors in completed cohomology.\n\nThe libraries have congruence subgroups, q-expansions, Δ, η, E₂, Jensen's and Poisson's formulas, Nevanlinna theory on ℂ, Siegel's lemma, Chebyshev's bounds, Goursat's lemma, the Riemann mapping theorem, the Cayley transform and topological universal covers. The atlas plans cusp widths, theta functions, continuous Hochschild–Serre and G-functions. It lacks the λ-function and the λ-covering, noncongruence subgroups and the Wohlfahrt level, arithmetic algebraization, uniformization of multiply connected plane domains, Nevanlinna theory on the disc, and the paper's results.",
+ "summary": "Proves the unbounded denominators conjecture (Theorem 1.0.1). A modular form of integral weight for a finite-index subgroup of SL₂(ℤ), meromorphic at the cusps, with integral Fourier coefficients in q^{1/N}, is modular for a congruence subgroup. The same holds for algebraic-integer coefficients (Remarks 6.3.1–6.3.2). It holds for integral solutions of linear ODEs on ℙ¹∖{0, 1/16, ∞} with finite local monodromy at 0 (Theorem 7.2.1), and for components of vector-valued modular forms (Theorem 7.3.3), which gives the effective-span version of Mason's conjecture (Corollary 7.3.4), with a spanning hypothesis for the ambient representation. The §7.3 differential-module/arithmetic bridge remains an explicit missing proof input.\n\nThe proof has four parts:\n- an arithmetic holonomicity bound (Theorem 2.0.1, Corollary 2.0.5), a quantitative André criterion with an integrated growth term;\n- the exact conformal radius of ℂ∖μ_N (Theorem 5.1.4), via Hempel's Schwarzian method and hypergeometric functions;\n- a uniform Nevanlinna mean-growth bound for its uniformization (Theorem 6.0.1);\n- a group-theoretic leveraging argument (§4): the Wohlfahrt level, a nonabelian Ihara lemma from the congruence subgroup property of SL₂(ℤ[1/p]), and invariant vectors in completed cohomology.\n\nThe libraries have congruence subgroups, q-expansions, Δ, η, E₂, Jensen's and Poisson's formulas, Nevanlinna theory on ℂ, Siegel's lemma, Chebyshev's bounds, Goursat's lemma, the Riemann mapping theorem, the Cayley transform and topological universal covers. The atlas plans cusp widths, theta functions, continuous Hochschild–Serre and G-functions. It lacks the λ-function and the λ-covering, noncongruence subgroups and the Wohlfahrt level, arithmetic algebraization, uniformization of multiply connected plane domains, Nevanlinna theory on the disc, and the paper's results.\n\nFix #5529: Eisenstein’s general statement retains a scalar denominator; Wohlfahrt’s Γ(N) containment retains E⊆G (using the verifier’s H′ counterexample). Theta squared uses χ_{−4}(d). The vector-valued construction distinguishes a rank-n complex local system from a selected component system and explicitly routes the missing regular-singular/arithmetic proof bridges. The ambient Mason corollary requires the values to span; otherwise it holds on their invariant span. E12–E16 record the source character/rank/spanning defects and two local quotient-proof slips, with actual published version and bounded correction checks. All 148 IDs, classifications and nine route memberships remain unchanged; previous source verdicts are preserved.",
  "items": [
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/thm-1.0.1",
@@ -55,7 +55,7 @@
     "mathlib:ModularForm",
     "mathlib:SlashInvariantForm"
    ],
-   "note": "Near miss: Mathlib's `ModularForm Γ k` (Mathlib/NumberTheory/ModularForms/Basic.lean:74) is holomorphic and bounded at every cusp of a subgroup Γ of GL(2,ℝ); forms meromorphic at the cusps (weakly holomorphic) and modular functions with poles at cusps are absent. Routed to NoncongruenceModularForms."
+   "note": "Near miss: Mathlib's `ModularForm Γ k` (Mathlib/NumberTheory/ModularForms/Basic.lean:74) is holomorphic and bounded at every cusp of a subgroup Γ of GL(2,ℝ); forms meromorphic at the cusps (weakly holomorphic) and modular functions with poles at cusps are absent. Routed to NoncongruenceModularForms. Fix #5529: this remains the trivial-character definition. The theta example uses the imported character eigenspace/transformation convention, or its restriction to the character kernel H′; do not place θ₃² in this weight-one Γ(2) space. Preserve the upstream ModularForms Layer 0 character API rather than defining a competing modular-form carrier."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/congruence-subgroups",
@@ -168,14 +168,14 @@
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/jacobi-hypergeometric-theta",
    "kind": "theorem",
    "name": "Jacobi's formula ₂F₁(½,½;1;λ) = ϑ₃² (the transcendental boundary case)",
-   "statement": "F(x) := ₂F₁(½, ½; 1; 16x) = Σ_{n≥0} C(2n,n)² xⁿ ∈ ℤ[[x]], and with x = λ(τ)/16, F = (Σ_{n∈ℤ} q^{n²})², a weight-one modular form for Γ(2); F is holonomic on ℂ∖{0, 1/16} with infinite local monodromy at x = 0 (continuation around x = 1/16 produces a log x term), so it is transcendental.",
+   "statement": "F(x):=₂F₁(½,½;1;16x)=Σ_{n≥0} C(2n,n)²xⁿ ∈ Z[[x]]. With x=λ(τ)/16 and q=e^{πiτ}, Jacobi’s formula gives F(x(τ))=θ₃(τ)²=(Σ_{n∈Z}q^{n²})². This is weight one on Γ(2) with character χ(γ)=χ_{−4}(d_γ), where χ_{−4}(d)=1 for d≡1 mod4 and −1 for d≡3 mod4: f|₁γ=χ(γ)f. Equivalently it has trivial character on H′={γ∈Γ(2):d_γ≡1 mod4}, the character kernel. F is holonomic on C∖{0,1/16}, with infinite monodromy (continuation around 1/16 produces a logarithmic branch at 0), and is transcendental.",
    "locator": "(1.1.4)–(1.1.5), p.631; Remark 7.2.3 and (7.2.4), p.688 (JAMS 38 (2025))",
    "status": "missing",
    "library": [
     "mathlib:ordinaryHypergeometric",
     "mathlib:jacobiTheta"
    ],
-   "note": "Mathlib has ₂F₁ (SpecialFunctions/OrdinaryHypergeometric.lean:81) and ϑ₃; the identity is absent. Checked here to q¹³. Routed to NoncongruenceModularForms."
+   "note": "Mathlib has ₂F₁ (SpecialFunctions/OrdinaryHypergeometric.lean:81) and ϑ₃; the identity is absent. Checked here to q¹³. Routed to NoncongruenceModularForms. Fix #5529/E12: import multiplier conventions from QSeriesPartitionsAndMockModularForms QM.1 and the existing character/parity convention of Tau Ceti ModularForms Layer 0. At Mathlib 082e2d3, jacobiTheta_T_sq_smul and jacobiTheta_S_smul give the generator laws; squaring gives multipliers 1 on T² and U₂=ST^{−2}S^{−1}, and −1 on −I. The trivial-character weight-one space on Γ(2) is zero, whereas θ₃² has constant coefficient 1. No new bundled character/slash carrier is introduced."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/example-j-cube-root",
@@ -295,16 +295,20 @@
    "statement": "If p ∈ ℚ(x)∖ℚ has no pole at 0 and x(t) ∈ t + t²ℚ[[t]] with p(x(t)) ∈ ℤ[[t]], then x(t) ∈ t + (t²/M)ℤ[[t/M]] for some M ∈ ℕ_{>0} bounded in terms of the degree and height of p (explicitly M = c²N⁴M₁², from Eisenstein's theorem and (1 + u)^{1/N} ∈ ℤ[[u/N²]]); then t(x) ∈ x + (x²/M)ℤ[[x/M]] and each f_i ∈ ℤ[[x/M]].",
    "locator": "proof of Lemma 2.1.2, pp.637–638 (JAMS 38 (2025))",
    "status": "missing",
-   "note": "Routed to ArithmeticAlgebraizationAndHolonomyBounds."
+   "note": "Routed to ArithmeticAlgebraizationAndHolonomyBounds. Fix #5529: retain this normalized zero-constant specialization. The inverse Puiseux branch on p.637 has constant term zero, so the corrected Eisenstein theorem gives the required variable-only denominator bound."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/eisenstein-theorem",
    "kind": "theorem",
    "name": "Eisenstein's theorem on algebraic power series",
-   "statement": "A Puiseux branch y ∈ ℚ̄[[x^{1/N}]] algebraic over ℚ(x) has y ∈ ℤ̄[[x^{1/N}/M₁]] for some M₁ ∈ ℕ_{>0} ([BG06, §11.4]).",
+   "statement": "Put t=x^{1/N}. If y ∈ Q̄[[t]] is algebraic over Q(x), there exist positive integers c,M such that c·y ∈ Z̄[[t/M]], equivalently c·y(Mt) has algebraic-integer coefficients. If y(0) is an algebraic integer, variable scaling alone suffices: y ∈ Z̄[[t/M′]] for some M′>0. In particular this applies when y(0)=0, as in the normalized inverse branch used in inverse-series-denominators ([BG06, §11.4]).",
    "locator": "proof of Lemma 2.1.2, p.637; §7.4.8, p.695 (JAMS 38 (2025))",
    "status": "missing",
-   "note": "Not in Mathlib. Routed to ArithmeticAlgebraizationAndHolonomyBounds."
+   "note": "Fix #5529: the scalar c clears the constant coefficient, which variable scaling cannot alter (y=1/2 is a negative test). If y(0) is integral, replace M by cM: for every positive exponent n, a_n(cM)^n=c^{n−1}(c a_n M^n) is integral. The source’s p.637 application has zero constant term and is unchanged. The overgeneralization was in the extraction, not the published argument. Status and ArithmeticAlgebraizationAndHolonomyBounds owner retained.",
+   "acceptance": [
+    "y=1/2 requires a scalar divisible by 2; no variable-only scale works.",
+    "y(0)=0 or algebraic-integral constant term permits variable-only scaling by the coefficient argument in the note."
+   ]
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/siegel-lemma",
@@ -337,7 +341,7 @@
    "statement": "For ε > 0 and g holomorphic on a neighbourhood of D̄(0,1), there is h holomorphic on a neighbourhood of D̄(0,1) with h(0) = 1 and max{sup_𝕋 log|h|, sup_𝕋 log|hg|} ≤ ∫_𝕋 log⁺|g| dμ_Haar + ε. Conversely (Remark 2.3.3) every h with h(0) = 1 has max{sup_𝕋 log|h|, sup_𝕋 log|hg|} ≥ ∫_𝕋 log⁺|g| dμ_Haar.",
    "locator": "Lemma 2.3.1, pp.639–641; Remark 2.3.3, p.641 (JAMS 38 (2025)); [Nev70, §VII.1.4], [Gol69, §VII.5]",
    "status": "missing",
-   "note": "Proof: divide by the Blaschke product of the zeros, write log|G| by the Poisson kernel on |z| ≤ r, let r → 1, then rescale to a slightly larger disc. Routed to PuncturedPlaneUniformizationAndValueDistribution."
+   "note": "Proof: divide by the Blaschke product of the zeros, write log|G| by the Poisson kernel on |z| ≤ r, let r → 1, then rescale to a slightly larger disc. Routed to PuncturedPlaneUniformizationAndValueDistribution. Fix #5529/E15–E16: retain the theorem statement. In its source proof multiply the quotient reconstruction of zero-free G, both at radius r and in (2.3.2), by G(0)/|G(0)|, or use equality of absolute values. On p.641 replace sup_D|h| by sup_D log|h|. These changes preserve the normalized quotient and logarithmic bounds. The normalized herglotz-log statement with g(0)=1 remains unchanged."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/blaschke-product",
@@ -549,10 +553,10 @@
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/wohlfahrt-theorem",
    "kind": "theorem",
    "name": "Wohlfahrt's theorem",
-   "statement": "A congruence subgroup of SL₂(ℤ) of Wohlfahrt level N contains Γ(N); hence the smallest congruence subgroup of level N containing E is ⟨E, Γ(N)⟩ ([Woh64, Theorem 2]).",
+   "statement": "Let G be a finite-index congruence subgroup of SL₂(Z) containing E={±I}, and let N be its geometric Wohlfahrt level (least common multiple of cusp widths defined with ±). Then Γ(N)⊆G. For a congruence G without the E hypothesis the projective conclusion is Γ(N)⊆⟨G,−I⟩. In particular the smallest congruence subgroup of level N containing E is ⟨E,Γ(N)⟩ ([Woh64, Theorem 2]), as used in the paper.",
    "locator": "proof of Lemma 4.4.1, p.659; used in the proof of Lemma 4.4.4 (JAMS 38 (2025))",
    "status": "missing",
-   "note": "FuchsianOrbifolds leaves congruence-subgroup arithmetic to the modular-forms roadmap, which does not state it. Routed to NoncongruenceModularForms."
+   "note": "FuchsianOrbifolds leaves congruence-subgroup arithmetic to the modular-forms roadmap, which does not state it. Routed to NoncongruenceModularForms. Fix #5529: the first clause now contains the central-sign hypothesis used by the source on p.659. Use the verifier’s corrected negative example H′={γ∈Γ(2):a≡1 mod4}: H′ contains Γ(4), excludes −I and has ±H′=Γ(2), so its geometric level is 2 but Γ(2) is not contained in H′. The original red-team H=Γ(2)∩Γ₁(4) is not this counterexample and is not used. This is an extraction correction, not a source erratum."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/def-4.2.1-m2n",
@@ -1362,7 +1366,7 @@
    "statement": "A vector-valued modular form of weight k ∈ ℤ and dimension n is a pair (F, ρ) with F = (F₁,…,F_n) : ℍ → ℂⁿ holomorphic and ρ : PSL₂(ℤ) → GL_n(ℂ) such that F^t|_kγ = ρ(γ)F^t for all γ, ρ((1 1; 0 1)) is semisimple, and each F_j has moderate growth in vertical strips (|F_j(τ)| ≤ Ae^{B Im τ} for a ≤ Re τ ≤ b, Im τ ≥ C).",
    "locator": "Definition 7.3.1, pp.688–689 (JAMS 38 (2025)); [FM16a, §2]",
    "status": "missing",
-   "note": "Routed to NoncongruenceModularForms."
+   "note": "Routed to NoncongruenceModularForms. Fix #5529: preserve this broad definition, which allows zero/dependent components and invisible invariant summands. The full-representation corollary separately requires span_C{F(τ):τ∈H}=C^n; no spanning condition is silently inserted here."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/remark-7.3.2",
@@ -1377,10 +1381,36 @@
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/vvmf-connection",
    "kind": "construction",
    "name": "The flat bundle on Y(2) attached to a vector-valued modular form",
-   "statement": "For a weight-0 vector-valued form (F, ρ) the ℤ[x, 1/x, 1/(1 − 16x)]-module spanned by the F_j|γ over the six cosets γ of Γ(2) in SL₂(ℤ), with ∇ = d/dx for x = λ/16, is a rank-6n vector bundle with integrable connection (𝓔, ∇) on Y(2), with monodromy ρ|_{Γ(2)} and regular singularities with semisimple local monodromies at the three cusps.",
+   "statement": "For a weight-zero pair (F,ρ) with ρ:PSL₂(Z)→GL_n(C), restrict ρ to Γ(2)/{±I}=π₁(Y(2),x₀), where Y(2)_C≅P¹_C∖{0,1/16,∞} via x=λ/16. The quotient of H×C^n by the corresponding deck action gives the rank-n complex analytic flat bundle and its locally constant horizontal sheaf L_ρ. Separately, for a chosen component germ f_j(x), let W_j be the C-span of its analytic continuations around loops of Y(2). The weight-zero transformation law identifies these branches with linear combinations of the n component germs, so 0≤dim W_j≤n; when f_j≠0 its dimension is positive. W_j has its own induced continuation local system and dual/quotient conventions, distinct from the ambient L_ρ. No free integral algebraic module is asserted. A regular-singular algebraic differential-module realization and an arithmetic differential-equation realization for f_j are separate required inputs specified in proofObligations.",
    "locator": "§7.3, pp.689–690 (JAMS 38 (2025)); [BG07], [Gan14]",
    "status": "missing",
-   "note": "Routed to NoncongruenceModularForms."
+   "note": "Fix #5529/E13: replacing 6n by n alone would not establish differentiation-stability or arithmetic descent. The analytic flat bundle is formed from locally constant transition matrices of ρ; the selected scalar-component continuation space may have smaller rank. For ρ=1 and F=1, the component system is rank one and has equation df/dx=0. For a zero component its continuation space is zero. Source p.690’s integral free-module construction and automatic irreducible reduction are removed. The missing bridge is retained in this item’s NoncongruenceModularForms owner, importing complex ODE/local-system foundations from PuncturedPlaneUniformizationAndValueDistribution and the correctly scoped G-function inputs from DT.5. No arithmetic model follows merely from an arbitrary complex ρ.",
+   "sourceTarget": "For a weight-0 vector-valued form (F, ρ) the ℤ[x, 1/x, 1/(1 − 16x)]-module spanned by the F_j|γ over the six cosets γ of Γ(2) in SL₂(ℤ), with ∇ = d/dx for x = λ/16, is a rank-6n vector bundle with integrable connection (𝓔, ∇) on Y(2), with monodromy ρ|_{Γ(2)} and regular singularities with semisimple local monodromies at the three cusps.",
+   "proofObligations": [
+    {
+     "name": "Regular-singular realization for the actual component system",
+     "owner": "NoncongruenceModularForms, importing the complex ODE/local-system foundation of PuncturedPlaneUniformizationAndValueDistribution",
+     "statement": "Realize W_j as the solution local system of an algebraic differential module over C(x), regular singular at 0,1/16,∞, with no extra genuine singularities. Relate the moderate-growth/Puiseux hypothesis and semisimple cusp action to this system and prove compatibility with the actual scalar germ f_j. An analytic flat bundle realization of ρ alone does not identify F as a horizontal section.",
+     "status": "missing proof input; the paper points to BG07/Gan14 but this fix does not claim those references prove this exact component contract"
+    },
+    {
+     "name": "Arithmetic differential equation for the integral component",
+     "owner": "NoncongruenceModularForms, importing the denominator/ODE API and DT.5 G-function supplier",
+     "statement": "After the justified weight normalization, use Z[[q]]=Z[[x]] (or the stated Puiseux normalization) to obtain the component’s arithmetic series. Prove it satisfies a nonzero homogeneous equation over Q̄(x) (Q(x) for a rational coefficient germ), with its minimal differential module matched to W_j, correct singular locus/regularity and the growth and denominator hypotheses needed for a G-function. Prove any descent from C(x) explicitly.",
+     "status": "missing proof input; no exact fresh supplier theorem established by this bounded fix"
+    },
+    {
+     "name": "Apply G-function theorems to the component module",
+     "owner": "NoncongruenceModularForms importing DiophantineApproximationAndTranscendence:DT.5 through route 4",
+     "statement": "Match a selected Chudnovsky/Bombieri–André/Katz statement to the arithmetic minimal operator or give a proved reduction through subquotients that retains f_j. Obtain quasi-unipotent local monodromy of its actual solution local system. Its inherited semisimple cusp monodromy then has finite order, giving the precise Theorem 7.2.1 component input. Do not assume an arbitrary cyclic component system is irreducible or conclude finite monodromy of invisible ambient summands.",
+     "status": "explicit supplier compatibility/proof obligation; existing route 4 must supply the exact form"
+    }
+   ],
+   "acceptance": [
+    "F=1,ρ=1 produces rank-one ambient/component systems and df/dx=0, independent of the six coset representatives.",
+    "Dependent components can give component rank smaller than n; zero components give rank zero.",
+    "Integral/arithmetic descent is a separate theorem with a selected proof, not a freeness assertion for scalar translates."
+   ]
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/g-functions",
@@ -1425,16 +1455,17 @@
    "statement": "Let (F, ρ) be a vector-valued modular form for PSL₂(ℤ) of dimension n and weight k. If some component F_j has Fourier expansion at i∞ in ℤ[[q]] = ℤ[[e^{πiτ}]], then F_j is a classical modular form of weight k on a congruence subgroup of SL₂(ℤ).",
    "locator": "Theorem 7.3.3 and proof, pp.690–691 (JAMS 38 (2025))",
    "status": "missing",
-   "note": "Reduce to weight 0 by F·g·(λ/16Δ(τ/2))^{(k+k′)/12}, restrict to Γ(2), pass to an irreducible local system; the G-function theorems make the local monodromies quasi-unipotent and semisimplicity makes them finite; then Theorem 7.2.1. Routed to NoncongruenceModularForms."
+   "note": "Published componentwise theorem retained. Fix #5529/E13 removes the rank-6n integral-free construction and unproved irreducible reduction from the proof plan. Justify the weight-zero normalization and denominator preservation, construct the actual component-continuation system, and discharge vvmf-connection’s regular-singular and arithmetic differential-equation inputs before applying the exact DT.5 G-function theorems. Quasi-unipotence plus the component system’s inherited semisimple cusp monodromy gives finite local monodromy for that system and the Theorem 7.2.1 input. No claim that the ambient ρ(T) has finite order follows from a single component. This fix does not assert the theorem or the scalar main theorem is false; its source proof bridge remains an explicit missing input in route 1."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/cor-7.3.4",
    "kind": "theorem",
    "name": "Corollary 7.3.4 (Mason's conjecture)",
-   "statement": "If all components of a vector-valued modular form (F, ρ) for PSL₂(ℤ) have Fourier expansions with bounded denominators, then ρ has finite image, and ker ρ ⊇ Γ(N) for some N ∈ ℕ_{>0}.",
+   "statement": "Let (F,ρ) be a vector-valued modular form for PSL₂(Z), all of whose components have Fourier expansions with bounded denominators in the paper’s sense. Put V_F=span_C{F(τ):τ∈H}, a ρ-invariant subspace. The componentwise congruence conclusions imply ker(ρ|_{V_F})⊇Γ(N) for some N>0 (for the pullback from PSL₂ to SL₂), hence the restricted representation has finite image. If additionally V_F=C^n, equivalently the component functions are C-linearly independent, then ker ρ⊇Γ(N) and the whole ρ has finite image. No conclusion is made for an unused invariant summand.",
    "locator": "Corollary 7.3.4, p.691; §7.4.1, pp.691–692 (JAMS 38 (2025)); [Mas12], [KM08]",
    "status": "missing",
-   "note": "Recovers the congruence property of rational conformal field theories [DLN15], [DR18]. Routed to NoncongruenceModularForms."
+   "note": "Fix #5529/E14: after applying the componentwise theorem with its bounded-denominator normalizations, intersect the finitely many congruence groups. Every element of this intersection fixes every F(τ), so fixes V_F, and fixes the entire ambient space exactly when V_F=C^n. Preserve the broad Definition 7.3.1 and componentwise Theorem 7.3.3. Nonzero counterexample to the unqualified ambient conclusion: σ(S)=diag(1,−1), σ(R)=(2,1;−7,−3), with S²=R³=I in PSL₂(Z), and σ(T)=(2,1;7,3) of trace 5 and determinant −1. Its distinct eigenvalues (5±√29)/2 make T semisimple of infinite order. For ρ=1⊕σ, F=(1,0,0) of weight zero satisfies the definition and has integral coefficients, but ρ has infinite image. The effective span is the trivial one-dimensional summand.",
+   "sourceTarget": "If all components of a vector-valued modular form (F, ρ) for PSL₂(ℤ) have Fourier expansions with bounded denominators, then ρ has finite image, and ker ρ ⊇ Γ(N) for some N ∈ ℕ_{>0}."
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/def-7.4.3",
@@ -1545,7 +1576,7 @@
   {
    "citation": "K. Wohlfahrt, An extension of F. Klein's level concept, Illinois J. Math. 8 (1964), 529–535",
    "link": "https://mathscinet.ams.org/mathscinet-getitem?mr=167533",
-   "why": "The Wohlfahrt level and Theorem 2 (congruence subgroups of level N contain Γ(N))."
+   "why": "Geometric Wohlfahrt level and Theorem 2: a finite-index congruence subgroup G of level N containing E={±I} contains Γ(N); without E, use Γ(N)⊆⟨G,−I⟩. The source application has E⊆G."
   },
   {
    "citation": "F. Calegari, M. Emerton, Mod-p cohomology growth in p-adic analytic towers of 3-manifolds, Groups Geom. Dyn. 5 (2011), 355–366",
@@ -1692,7 +1723,7 @@
     "PAPER-CALEGARI-DIMITROV-TANG-25/deficient-places-theorem",
     "PAPER-CALEGARI-DIMITROV-TANG-25/thm-7.4.10"
    ],
-   "brief": "Tau Ceti's ModularForms roadmap builds Hecke theory, newforms and L-functions for congruence subgroups and states the valence formula for every finite-index Γ. It has no layer on noncongruence subgroups, the modular λ-function, or the integrality of Fourier coefficients on arbitrary finite-index subgroups. This Part II starts there and ends at the unbounded denominators theorem of Calegari–Dimitrov–Tang (J. Amer. Math. Soc. 38 (2025), 627–702).\n\nFinal theorems, as in the paper:\n- Theorem 1.0.1: if f ∈ ℤ[[q^{1/N}]] (q = e^{πiτ}) is holomorphic on ℍ, satisfies f|_kγ = f for all γ in a finite-index Γ ⊂ SL₂(ℤ) (k ∈ ℤ), and is meromorphic at the cusps, then f is modular for a congruence subgroup; also with algebraic-integer coefficients (Remarks 6.3.1–6.3.2).\n- Theorem 7.2.1: an integral power-series solution of a linear ODE on ℙ¹∖{0, 1/16, ∞} with finite local monodromy at 0 is algebraic, and f(λ/16) is automorphic for some Γ(M).\n- Theorem 7.3.3 and Corollary 7.3.4 (Mason's conjecture) for vector-valued modular forms for PSL₂(ℤ).\n- Theorem 7.4.10: π₁ of the connected Néron model of X(N) over O_K equals π₁(Spec O_K).\n\nLayers:\n1. Weakly holomorphic modular forms and modular functions on finite-index subgroups; cusp widths at every cusp; the Wohlfahrt level (Definition 4.1.2), Lemmas 4.1.3, 4.1.4, 4.1.7 and Wohlfahrt's theorem.\n2. The λ-function (1.0.2), the covering ℍ → ℂ∖{0,1} with deck group Γ(2)/{±1}, ℤ[[q]] = ℤ[[λ/16]], the Kummer integrality (3.0.2), Jacobi's formula ₂F₁(½,½;1;λ) = ϑ₃², and the examples (1.0.3) and (1.0.4).\n3. The fields M_{2N} ⊂ R_{2N} (Definition 4.2.1, Lemmas 4.2.2–4.2.3 with the correction of sourceIssues E7), R_{2N} ⊂ V(ℂ∖16^{−1/N}μ_N, (λ/16)^{1/N}, ℤ), and Proposition 3.0.1.\n4. The leveraging argument: Lemma 4.4.1 (the nonabelian Ihara lemma), Lemma 4.4.4 and (4.4.9) with the correction of E6, Theorems 4.3.1–4.3.2, the degree formula (4.3.3), and Proposition 4.3.5, where Chebyshev's bounds replace the prime number theorem.\n5. Invariant vectors: congruence classes, completed cohomology over all levels, Lemmas 4.5.4–4.5.12, Theorem 4.5.2, Corollary 4.5.3 and Lemma 4.6.3. Lemma 4.5.11 at N = 5 is over 𝔽₅ (E1). The machine computations at N = 8, 16 become certified finite computations.\n6. Theorem 1.0.1, assembled as in §6.3.\n7. The applications: Theorems 7.2.1 and 7.3.3, Corollary 7.3.4, weakly holomorphic quasi-modular forms (Definition 7.4.3, Lemma 7.4.4) with the §7.4.2 identities as tests (the E–K relation with the sign of E10), deficient places (§7.4.8), and Theorem 7.4.10.\n\nImports:\n- modular forms, q-expansions, Δ, η and E₂ from Mathlib and tauceti:TauCetiRoadmap/ModularForms;\n- cusp data and ramification (Layers 3–4) and free presentations of torsion-free groups (Layer 2) from tauceti:TauCetiRoadmap/FuchsianOrbifolds;\n- universal covers from tauceti:TauCetiRoadmap/UniversalCovers, and reflection and the monodromy theorem from tauceti:TauCetiRoadmap/ConformalMapping, for the λ-covering; three-point covers from tauceti:TauCetiRoadmap/BelyiMaps;\n- Corollary 2.0.5 from ArithmeticAlgebraizationAndHolonomyBounds;\n- Theorems 5.1.4 and 6.0.1 on the uniformization of ℂ∖μ_N from PuncturedPlaneUniformizationAndValueDistribution;\n- Shimura's bounded-denominators theorem from AlgebraicModularFormsAndSerreWeights R15.2, and the model of Y(2N) over ℚ from ModularCurvesPartII R12.4 with AlgebraicModularFormsAndSerreWeights R15.1;\n- Ihara's lemma, the amalgam presentation of the level-N subgroup of SL₂(ℤ[1/p]) and its congruence subgroup property from ModularCurvesPartII R14.4;\n- Hochschild–Serre and Künneth from ArithmeticGaloisDuality R02.2/D7; Lazard's theorem from NoncommutativeAndEquivariantIwasawa NE.0; H¹(SL₂(𝔽_p), ad⁰) from ArithmeticGaloisRepresentations G7;\n- theta and eta functions from QSeriesPartitionsAndMockModularForms QM.0–QM.1; the G-function theorems from DiophantineApproximationAndTranscendence DT.5;\n- étale fundamental groups from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1 and regular models from ModularCurvesPartII R13.5.\n\nAcceptance: Example 5.1.22 (F₂ = 2λ∘Cayley − 1, |F₂′(0)| = Γ(1/4)⁴/4π²); j^{1/3} is congruence of level 3; h^{1/n} is congruence iff n | 24; (1 − x)^{1/n} ∉ ℤ[[x/16]] ⊗ ℂ for n ∉ {1, 2, 4, 8}.",
+   "brief": "Tau Ceti's ModularForms roadmap builds Hecke theory, newforms and L-functions for congruence subgroups and states the valence formula for every finite-index Γ. It has no layer on noncongruence subgroups, the modular λ-function, or the integrality of Fourier coefficients on arbitrary finite-index subgroups. This Part II starts there and ends at the unbounded denominators theorem of Calegari–Dimitrov–Tang (J. Amer. Math. Soc. 38 (2025), 627–702).\n\nFinal theorems, as in the paper:\n- Theorem 1.0.1: if f ∈ ℤ[[q^{1/N}]] (q = e^{πiτ}) is holomorphic on ℍ, satisfies f|_kγ = f for all γ in a finite-index Γ ⊂ SL₂(ℤ) (k ∈ ℤ), and is meromorphic at the cusps, then f is modular for a congruence subgroup; also with algebraic-integer coefficients (Remarks 6.3.1–6.3.2).\n- Theorem 7.2.1: an integral power-series solution of a linear ODE on ℙ¹∖{0, 1/16, ∞} with finite local monodromy at 0 is algebraic, and f(λ/16) is automorphic for some Γ(M).\n- The published componentwise Theorem 7.3.3 for vector-valued modular forms for PSL₂(ℤ), with the explicit proof inputs below. Corrected Corollary 7.3.4: congruence kernel on V_F=span_C{F(τ)}; the whole ambient representation has congruence kernel only when V_F=C^n (linearly independent component functions).\n- Theorem 7.4.10: π₁ of the connected Néron model of X(N) over O_K equals π₁(Spec O_K).\n\nLayers:\n1. Weakly holomorphic modular forms and modular functions on finite-index subgroups; cusp widths at every cusp; the Wohlfahrt level (Definition 4.1.2), Lemmas 4.1.3, 4.1.4, 4.1.7 and Wohlfahrt’s theorem with E={±I}⊆G for Γ(N)⊆G; without E use only Γ(N)⊆⟨G,−I⟩. Test the verifier’s H′={γ∈Γ(2):a≡1 mod4}, whose geometric level is 2 but which excludes −I. The originally proposed Γ(2)∩Γ₁(4) is not that negative example.\n2. The λ-function (1.0.2), the covering ℍ → ℂ∖{0,1} with deck group Γ(2)/{±1}, ℤ[[q]] = ℤ[[λ/16]], the Kummer integrality (3.0.2), Jacobi’s formula ₂F₁(½,½;1;λ)=ϑ₃², weight one on Γ(2) with χ(γ)=χ_{−4}(d), equivalently trivial character on H′={γ∈Γ(2):d≡1 mod4}, and the examples (1.0.3) and (1.0.4).\n3. The fields M_{2N} ⊂ R_{2N} (Definition 4.2.1, Lemmas 4.2.2–4.2.3 with the correction of sourceIssues E7), R_{2N} ⊂ V(ℂ∖16^{−1/N}μ_N, (λ/16)^{1/N}, ℤ), and Proposition 3.0.1.\n4. The leveraging argument: Lemma 4.4.1 (the nonabelian Ihara lemma), Lemma 4.4.4 and (4.4.9) with the correction of E6, Theorems 4.3.1–4.3.2, the degree formula (4.3.3), and Proposition 4.3.5, where Chebyshev's bounds replace the prime number theorem.\n5. Invariant vectors: congruence classes, completed cohomology over all levels, Lemmas 4.5.4–4.5.12, Theorem 4.5.2, Corollary 4.5.3 and Lemma 4.6.3. Lemma 4.5.11 at N = 5 is over 𝔽₅ (E1). The machine computations at N = 8, 16 become certified finite computations.\n6. Theorem 1.0.1, assembled as in §6.3.\n7. The applications: Theorems 7.2.1 and 7.3.3, Corollary 7.3.4, weakly holomorphic quasi-modular forms (Definition 7.4.3, Lemma 7.4.4) with the §7.4.2 identities as tests (the E–K relation with the sign of E10), deficient places (§7.4.8), and Theorem 7.4.10.\n\nImports:\n- modular forms, q-expansions, Δ, η and E₂ from Mathlib and tauceti:TauCetiRoadmap/ModularForms;\n- cusp data and ramification (Layers 3–4) and free presentations of torsion-free groups (Layer 2) from tauceti:TauCetiRoadmap/FuchsianOrbifolds;\n- universal covers from tauceti:TauCetiRoadmap/UniversalCovers, and reflection and the monodromy theorem from tauceti:TauCetiRoadmap/ConformalMapping, for the λ-covering; three-point covers from tauceti:TauCetiRoadmap/BelyiMaps;\n- Corollary 2.0.5 from ArithmeticAlgebraizationAndHolonomyBounds;\n- Theorems 5.1.4 and 6.0.1 on the uniformization of ℂ∖μ_N from PuncturedPlaneUniformizationAndValueDistribution;\n- Shimura's bounded-denominators theorem from AlgebraicModularFormsAndSerreWeights R15.2, and the model of Y(2N) over ℚ from ModularCurvesPartII R12.4 with AlgebraicModularFormsAndSerreWeights R15.1;\n- Ihara's lemma, the amalgam presentation of the level-N subgroup of SL₂(ℤ[1/p]) and its congruence subgroup property from ModularCurvesPartII R14.4;\n- Hochschild–Serre and Künneth from ArithmeticGaloisDuality R02.2/D7; Lazard's theorem from NoncommutativeAndEquivariantIwasawa NE.0; H¹(SL₂(𝔽_p), ad⁰) from ArithmeticGaloisRepresentations G7;\n- theta and eta functions from QSeriesPartitionsAndMockModularForms QM.0–QM.1; the G-function theorems from DiophantineApproximationAndTranscendence DT.5;\n- étale fundamental groups from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1 and regular models from ModularCurvesPartII R13.5.\n\nAcceptance: Example 5.1.22 (F₂ = 2λ∘Cayley − 1, |F₂′(0)| = Γ(1/4)⁴/4π²); j^{1/3} is congruence of level 3; h^{1/n} is congruence iff n | 24; (1 − x)^{1/n} ∉ ℤ[[x/16]] ⊗ ℂ for n ∉ {1, 2, 4, 8}.\n\nRequired §7.3 proof inputs (vvmf-connection/E13): construct rank-n complex L_ρ from ρ|Γ(2)/{±I}; distinguish W_j, the span of the selected component’s continuations, of rank at most n. Prove its regular-singular algebraic differential-module realization with the actual scalar germ, then its arithmetic equation/descent and minimal-operator compatibility before invoking the exact DT.5 G-function statements. These are explicit missing inputs in this owner, not an asserted free Z-module construction or an automatic irreducible reduction. Import the complex ODE foundation from PuncturedPlaneUniformizationAndValueDistribution and the existing G-function theorem owner DT.5; do not build a second generic G-function theory. Validate weight reduction, its denominator normalization and any apparent singularities. F=1,ρ=1 must yield a rank-one component system with df/dx=0. The component theorem makes no assertion about invisible summands. For E14 test the nonzero F=(1,0,0),ρ=1⊕σ with σ(S)=diag(1,−1),σ(R)=(2,1;−7,−3),σ(T)=(2,1;7,3): integral coefficients do not force the ambient infinite-image summand to be congruence. Import QM.1’s theta multiplier and Tau Ceti ModularForms Layer 0’s character/parity API; keep the trivial-character scalar definition separate from the theta-character example. No upstream carrier is redefined.",
    "reason": "Noncongruence modular forms, and the integrality criterion that singles out the congruence ones, extend the modular forms on finite-index subgroups of tauceti:TauCetiRoadmap/ModularForms, which no roadmap develops further. ModularForms is Tau Ceti work, so the extension is a Part II. The λ-covering ℍ/Γ(2) ≅ ℂ∖{0,1}, which ConformalMapping and BelyiMaps assign to the modular-forms family, is planned here because no layer plans it."
   },
   {
@@ -1723,7 +1754,7 @@
     "PAPER-CALEGARI-DIMITROV-TANG-25/circle-equilibrium-measure",
     "PAPER-CALEGARI-DIMITROV-TANG-25/potential-generalization-2.5.27"
    ],
-   "brief": "DiophantineApproximationAndTranscendence plans heights, Liouville and Roth, the subspace theorem, transcendence and (DT.5) E- and G-functions. It has no layer on arithmetic algebraization: criteria forcing an integral power series with a large simultaneous analytic uniformization to be algebraic, with quantitative bounds. This Part II starts from Siegel's lemma (Mathlib Int.Matrix.exists_ne_zero_int_vec_norm_le) and the heights of DT.0.\n\nFinal theorems, as in Calegari–Dimitrov–Tang (J. Amer. Math. Soc. 38 (2025)):\n- Theorem 2.0.1. Let p ∈ ℚ(x)∖ℚ have no pole at 0, x(t) ∈ t + t²ℚ[[t]] with p(x(t)) ∈ ℤ[[t]], and φ holomorphic near the closed unit disc with φ(0) = 0, |φ′(0)| > 1 and φ*p holomorphic there. Then ℚ(p(x))-independent f₁,…,f_m ∈ ℚ[[x]] with x*f_i ∈ ℤ[[t]] and φ*f_i holomorphic near the closed disc are algebraic, and m ≤ e·∫_𝕋 log⁺|p∘φ| dμ_Haar / log|φ′(0)|.\n- Corollary 2.0.5: the same bound for dim_{ℚ(p(x))} V(U, x(t), ℤ), for the ring H(U, x(t), ℤ) of Definition 2.0.4 and φ : D̄(0,1) → U; V(U, ℤ) is finite-dimensional when the uniformization radius of (U, 0) exceeds 1.\n\nLayers:\n1. Lemma 1.1.2, Eisenstein's theorem, the inverse-series denominator lemma, and André's criterion [And04, Thm 5.4.3].\n2. The auxiliary construction (Lemma 2.1.2) and the extrapolation proving Lemma 2.0.8 (§2.2).\n3. Theorem 2.0.1 via Nevanlinna's quotient representation (§2.3); the plurisubharmonic route (Lemma 2.4.2, §2.4.6) as a second proof.\n4. The equidistribution route of §2.5: Fekete's Lemma 2.5.3 with Hadamard's inequality, discrepancy, Koksma and Erdős–Turán, Lemma 2.5.9, and the equilibrium measure of the circle.\n5. Definition 2.0.4, trivial local monodromy, Corollary 2.0.5, and the potential-theoretic form (2.5.28) of §2.5.27. That form imports capacity and equilibrium measures of compact sets from the owner of logarithmic potential theory.\n\nImports: Nevanlinna's quotient representation (Lemma 2.3.1), the uniformization radius, and linear ODEs in the complex domain from PuncturedPlaneUniformizationAndValueDistribution. Jensen's formula, Stirling's formula, Vandermonde determinants, eVariationOn, sequential Banach–Alaoglu and Riesz–Markov–Kakutani come from Mathlib.\n\nExports: Corollary 2.0.5 to NoncongruenceModularForms.\n\nAcceptance: (1 − m²x)^{1/m} ∈ ℤ[[x]] with φ(z) = (1 − e^{Mz})/m² shows the criterion; ₂F₁(½,½;1;16x) ∈ ℤ[[x]], transcendental with a unit-radius uniformization, shows |φ′(0)| > 1 cannot be weakened.",
+   "brief": "DiophantineApproximationAndTranscendence plans heights, Liouville and Roth, the subspace theorem, transcendence and (DT.5) E- and G-functions. It has no layer on arithmetic algebraization: criteria forcing an integral power series with a large simultaneous analytic uniformization to be algebraic, with quantitative bounds. This Part II starts from Siegel's lemma (Mathlib Int.Matrix.exists_ne_zero_int_vec_norm_le) and the heights of DT.0.\n\nFinal theorems, as in Calegari–Dimitrov–Tang (J. Amer. Math. Soc. 38 (2025)):\n- Theorem 2.0.1. Let p ∈ ℚ(x)∖ℚ have no pole at 0, x(t) ∈ t + t²ℚ[[t]] with p(x(t)) ∈ ℤ[[t]], and φ holomorphic near the closed unit disc with φ(0) = 0, |φ′(0)| > 1 and φ*p holomorphic there. Then ℚ(p(x))-independent f₁,…,f_m ∈ ℚ[[x]] with x*f_i ∈ ℤ[[t]] and φ*f_i holomorphic near the closed disc are algebraic, and m ≤ e·∫_𝕋 log⁺|p∘φ| dμ_Haar / log|φ′(0)|.\n- Corollary 2.0.5: the same bound for dim_{ℚ(p(x))} V(U, x(t), ℤ), for the ring H(U, x(t), ℤ) of Definition 2.0.4 and φ : D̄(0,1) → U; V(U, ℤ) is finite-dimensional when the uniformization radius of (U, 0) exceeds 1.\n\nLayers:\n1. Lemma 1.1.2, Eisenstein’s theorem with c,M>0 and c·y∈Z̄[[x^{1/N}/M]], with variable-only scaling under an algebraic-integral constant term (in particular the normalized zero-constant inverse branch), the inverse-series denominator lemma, and André's criterion [And04, Thm 5.4.3].\n2. The auxiliary construction (Lemma 2.1.2) and the extrapolation proving Lemma 2.0.8 (§2.2).\n3. Theorem 2.0.1 via Nevanlinna's quotient representation (§2.3); the plurisubharmonic route (Lemma 2.4.2, §2.4.6) as a second proof.\n4. The equidistribution route of §2.5: Fekete's Lemma 2.5.3 with Hadamard's inequality, discrepancy, Koksma and Erdős–Turán, Lemma 2.5.9, and the equilibrium measure of the circle.\n5. Definition 2.0.4, trivial local monodromy, Corollary 2.0.5, and the potential-theoretic form (2.5.28) of §2.5.27. That form imports capacity and equilibrium measures of compact sets from the owner of logarithmic potential theory.\n\nImports: Nevanlinna's quotient representation (Lemma 2.3.1), the uniformization radius, and linear ODEs in the complex domain from PuncturedPlaneUniformizationAndValueDistribution. Jensen's formula, Stirling's formula, Vandermonde determinants, eVariationOn, sequential Banach–Alaoglu and Riesz–Markov–Kakutani come from Mathlib.\n\nExports: Corollary 2.0.5 to NoncongruenceModularForms.\n\nAcceptance: (1 − m²x)^{1/m} ∈ ℤ[[x]] with φ(z) = (1 − e^{Mz})/m² shows the criterion; ₂F₁(½,½;1;16x) ∈ ℤ[[x]], transcendental with a unit-radius uniformization, shows |φ′(0)| > 1 cannot be weakened.\n\nIn the §2.3 proof import Lemma 2.3.1 with the source corrections E15–E16: reconstruct G with its unimodular constant G(0)/|G(0)|, or take absolute values, and use sup_D log|h| on p.641. The lemma and normalized g(0)=1 Herglotz statement remain unchanged.",
    "reason": "Arithmetic algebraization (Borel, Pólya–Carlson, André, Bost, Chambert-Loir) is a direction of Diophantine approximation and transcendence that DT.0–DT.5 do not cover: DT.5 has G-functions, but no algebraicity criteria or holonomy rank bounds."
   },
   {
@@ -1771,7 +1802,7 @@
     "PAPER-CALEGARI-DIMITROV-TANG-25/cor-6.2.11",
     "PAPER-CALEGARI-DIMITROV-TANG-25/pivot-identity"
    ],
-   "brief": "Tau Ceti's ConformalMapping roadmap proves the Riemann mapping theorem, Schwarz–Pick, reflection, the monodromy theorem and Carathéodory's theorem for simply connected domains. It has no uniformization of multiply connected plane domains and no value distribution theory. Mathlib has Nevanlinna theory only for functions meromorphic on ℂ (ValueDistribution.characteristic, logCounting, the first main theorem), with Jensen's and Poisson's formulas on discs. This Part II starts there.\n\nFinal theorems, as in Calegari–Dimitrov–Tang §§5–6 and Kraus–Roth [KR16]:\n- Theorem 5.1.4: the universal covering F_N : D(0,1) → ℂ∖μ_N with F_N(0) = 0 has |F_N′(0)| = 16^{1/N}Γ(1+1/2N)²Γ(1−1/N)/(Γ(1−1/2N)²Γ(1+1/N)) = 16^{1/N}(1 + ζ(3)/2N³ + 3ζ(5)/8N⁵ + O(N⁻⁶)).\n- Lemma 5.2.18: sup_{|z|=r} log|F_N| ≪ N/(1−r).\n- Theorem 6.0.1: ∫_{|z|=r} log⁺|p∘F_N| dμ_Haar ≪ log(N/(1−r)) uniformly in N ≥ 2 and r ∈ (0,1), for p ∈ {x^N, x^N/(x^N−1), 1/(x^N−1)}.\n\nLayers:\n1. Linear ODEs in the complex domain: existence and continuation along paths, singular points, local monodromy, trivial local monodromy; the Schwarzian derivative and Poincaré's equation y″ + ½{w,x}y = 0.\n2. Holomorphic universal coverings of ℂ∖{a₁,…,a_n} (n ≥ 2), the uniformization radius of a pointed domain and its Schwarz-lemma monotonicity, and Hempel's accessory-parameter theorem [Hem88].\n3. ℂ∖μ_N: Definition 5.1.1, Lemma 5.1.2, Lemma 5.1.8, the hypergeometric inverse (Lemma 5.1.16) with [AS92, 15.3.10] and the log-Γ series, and Theorem 5.1.4.\n4. Its Fuchsian group: Proposition 5.2.1, Φ̃_N and the (N, ∞, ∞) triangle group (Corollary 5.2.4, Lemma 5.2.6, Remark 5.2.8), Lemmas 5.2.9 (sign of γ as in sourceIssues E2), 5.2.12 and 5.2.16, Shimizu's lemma for discrete subgroups of PSL₂(ℝ), and Lemma 5.2.18.\n5. Value distribution on the disc: m, N and T for functions meromorphic on D(0,1), Lemma 6.1.2, Blaschke products, the Herglotz representation of log g, Nevanlinna's quotient representation (Lemma 2.3.1), and the logarithmic derivative lemma for zero-free functions (Lemma 6.1.7).\n6. Theorem 6.0.1 via the pivot identity (6.2.4) and Corollaries 6.2.9 and 6.2.11.\n\nImports: triangle groups, cusps and Dirichlet polygons from tauceti:TauCetiRoadmap/FuchsianOrbifolds; universal covers from tauceti:TauCetiRoadmap/UniversalCovers; the Cayley transform and the hyperbolic metric from Tau Ceti; ₂F₁, Γ, the digamma function, the Schwarz lemma, and Jensen's and Poisson's formulas from Mathlib.\n\nExports: Theorems 5.1.4 and 6.0.1 to NoncongruenceModularForms; Lemma 2.3.1, the uniformization radius and the linear ODE layer to ArithmeticAlgebraizationAndHolonomyBounds.\n\nAcceptance: |F₂′(0)| = Γ(1/4)⁴/(4π²) and |F₃′(0)| = Γ(1/6)³/(12π^{3/2}); the construction of F_N by Schwarz reflection of the symmetric circular 2N-gon with zero angles ([Gol69, §III.1]) agrees with the hypergeometric inverse.",
+   "brief": "Tau Ceti's ConformalMapping roadmap proves the Riemann mapping theorem, Schwarz–Pick, reflection, the monodromy theorem and Carathéodory's theorem for simply connected domains. It has no uniformization of multiply connected plane domains and no value distribution theory. Mathlib has Nevanlinna theory only for functions meromorphic on ℂ (ValueDistribution.characteristic, logCounting, the first main theorem), with Jensen's and Poisson's formulas on discs. This Part II starts there.\n\nFinal theorems, as in Calegari–Dimitrov–Tang §§5–6 and Kraus–Roth [KR16]:\n- Theorem 5.1.4: the universal covering F_N : D(0,1) → ℂ∖μ_N with F_N(0) = 0 has |F_N′(0)| = 16^{1/N}Γ(1+1/2N)²Γ(1−1/N)/(Γ(1−1/2N)²Γ(1+1/N)) = 16^{1/N}(1 + ζ(3)/2N³ + 3ζ(5)/8N⁵ + O(N⁻⁶)).\n- Lemma 5.2.18: sup_{|z|=r} log|F_N| ≪ N/(1−r).\n- Theorem 6.0.1: ∫_{|z|=r} log⁺|p∘F_N| dμ_Haar ≪ log(N/(1−r)) uniformly in N ≥ 2 and r ∈ (0,1), for p ∈ {x^N, x^N/(x^N−1), 1/(x^N−1)}.\n\nLayers:\n1. Linear ODEs in the complex domain: existence and continuation along paths, singular points, local monodromy, trivial local monodromy; the Schwarzian derivative and Poincaré's equation y″ + ½{w,x}y = 0.\n2. Holomorphic universal coverings of ℂ∖{a₁,…,a_n} (n ≥ 2), the uniformization radius of a pointed domain and its Schwarz-lemma monotonicity, and Hempel's accessory-parameter theorem [Hem88].\n3. ℂ∖μ_N: Definition 5.1.1, Lemma 5.1.2, Lemma 5.1.8, the hypergeometric inverse (Lemma 5.1.16) with [AS92, 15.3.10] and the log-Γ series, and Theorem 5.1.4.\n4. Its Fuchsian group: Proposition 5.2.1, Φ̃_N and the (N, ∞, ∞) triangle group (Corollary 5.2.4, Lemma 5.2.6, Remark 5.2.8), Lemmas 5.2.9 (sign of γ as in sourceIssues E2), 5.2.12 and 5.2.16, Shimizu's lemma for discrete subgroups of PSL₂(ℝ), and Lemma 5.2.18.\n5. Value distribution on the disc: m, N and T for functions meromorphic on D(0,1), Lemma 6.1.2, Blaschke products, the Herglotz representation of log g, Nevanlinna's quotient representation (Lemma 2.3.1), and the logarithmic derivative lemma for zero-free functions (Lemma 6.1.7).\n6. Theorem 6.0.1 via the pivot identity (6.2.4) and Corollaries 6.2.9 and 6.2.11.\n\nImports: triangle groups, cusps and Dirichlet polygons from tauceti:TauCetiRoadmap/FuchsianOrbifolds; universal covers from tauceti:TauCetiRoadmap/UniversalCovers; the Cayley transform and the hyperbolic metric from Tau Ceti; ₂F₁, Γ, the digamma function, the Schwarz lemma, and Jensen's and Poisson's formulas from Mathlib.\n\nExports: Theorems 5.1.4 and 6.0.1 to NoncongruenceModularForms; Lemma 2.3.1, the uniformization radius and the linear ODE layer to ArithmeticAlgebraizationAndHolonomyBounds.\n\nAcceptance: |F₂′(0)| = Γ(1/4)⁴/(4π²) and |F₃′(0)| = Γ(1/6)³/(12π^{3/2}); the construction of F_N by Schwarz reflection of the symmetric circular 2N-gon with zero angles ([Gol69, §III.1]) agrees with the hypergeometric inverse.\n\nSource proof contract for Lemma 2.3.1 (E15–E16): include G(0)/|G(0)| in the radius-r and (2.3.2) complex quotient identities (or use only absolute values); bound sup_D log|h|, not sup_D|h|. Tests G=i and g=h=1 detect the two slips. The normalized herglotz-log theorem with g(0)=1 is unchanged.",
    "reason": "The uniformization of punctured planes, the explicit uniformization of ℂ∖μ_N, and Nevanlinna theory on the disc continue the geometric function theory of tauceti:TauCetiRoadmap/ConformalMapping beyond simply connected domains. That roadmap is Tau Ceti work, so the additions form a Part II."
   },
   {
@@ -2079,6 +2110,118 @@
     "reason": "Confirmed as a gap. Lemma 4.5.6 on p.662 asserts H¹(SL₂(Z_p), F_ℓ) = F_ℓ for p = ℓ ∈ {2,3}, and its proof disposes of ℓ ≠ p, then writes 'Thus we may assume that ℓ = p. Assume that p > 2', after which the argument uses p-powerful groups, which needs p odd. The case p = ℓ = 2 is therefore claimed and not argued. The recorded repair is right: H₁(SL₂(Z_p), Z) ≅ Z/12 ⊗ Z_p gives SL₂(Z₂)^{ab} ≅ Z/4, so H¹(SL₂(Z₂), F₂) = Hom(Z/4, F₂) = F₂.",
     "by": "REV-PAPER-CALEGARI-DIMITROV-TANG-25"
    }
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E12",
+   "kind": "error",
+   "locator": "(1.1.5), p.631, and (7.2.4), p.688 (published JAMS 38 (2025), version read)",
+   "printed": "The source describes it as a modular form of weight one on the congruence group Γ(2).",
+   "correction": "Qualify θ₃² with character χ_{−4}(d) on Γ(2), or restrict to its character kernel H′={γ∈Γ(2):d≡1 mod4}.",
+   "reason": "Trivial-character weight-one slash invariance under −I forces f=−f, hence f=0; θ₃² has constant term 1. The generator laws match χ_{−4}(d). The identity and transcendence claim are preserved.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
+    "2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
+    "2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
+    "2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+   ],
+   "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/3; the new source record awaits independent fix review."
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E13",
+   "kind": "error",
+   "locator": "§7.3 construction and proof of Theorem 7.3.3, p.690 (published JAMS 38 (2025), version read)",
+   "printed": "The source asserts freeness with rank 6n.",
+   "correction": "Construct the rank-n complex local system from ρ and distinguish the component-continuation system of rank at most n. Supply the regular-singular and arithmetic differential-equation bridges in vvmf-connection.proofObligations; do not assume an integral free module or an irreducible reduction.",
+   "reason": "For F=1,n=1,ρ=1, all six translates equal 1 and generate a rank-one base-ring module, not rank six. Scalar translates need not form the asserted differentiation-stable arithmetic bundle; n-dimensional monodromy cannot be the monodromy of a rank-6n bundle. This invalidates the displayed construction/proof step, not a demonstrated counterexample to Theorem 7.3.3 or the scalar main theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
+    "2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
+    "2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
+    "2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+   ],
+   "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/4; the new source record awaits independent fix review."
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E14",
+   "kind": "error",
+   "locator": "Corollary 7.3.4, p.691; Definition 7.3.1, pp.688–689 (published JAMS 38 (2025), version read)",
+   "printed": "The source asserts that the image of ρ is finite.",
+   "correction": "Require V_F=span_C{F(τ)}=C^n for the ambient conclusion; without it conclude congruence kernel only on the invariant span. Keep Definition 7.3.1 broad.",
+   "reason": "For σ(S)=diag(1,−1),σ(R)=(2,1;−7,−3), S²=R³=I and σ(T)=(2,1;7,3) is semisimple of infinite order (trace 5, determinant −1). The nonzero weight-zero pair ρ=1⊕σ,F=(1,0,0) has integral coefficients and meets the definition but has ambient infinite image. The values span only the trivial summand.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
+    "2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
+    "2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
+    "2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+   ],
+   "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/5; the new source record awaits independent fix review."
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E15",
+   "kind": "misprint",
+   "locator": "radius-r quotient reconstruction and (2.3.2), p.640 (published JAMS 38 (2025), version read)",
+   "printed": "The source gives (2.3.2) as G(z) = exp(−∫_T log⁺(1/|G(w)|)·(w+z)/(w−z) dμ_Haar(w)) / exp(−∫_T log⁺|G(w)|·(w+z)/(w−z) dμ_Haar(w)).",
+   "correction": "Multiply the exponential quotient by G(0)/|G(0)|, or state equality only of absolute values. Apply this to both the radius-r reconstruction and (2.3.2).",
+   "reason": "The boundary log|G| determines the zero-free function only up to a constant phase. For G=g=i,B=1, both exponentials equal 1. The unimodular factor repairs the complex identity without changing subsequent norm bounds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
+    "2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
+    "2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
+    "2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+   ],
+   "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/6; the new source record awaits independent fix review."
+  },
+  {
+   "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E16",
+   "kind": "misprint",
+   "locator": "first line of p.641, proof of Lemma 2.3.1 (published JAMS 38 (2025), version read)",
+   "printed": "sup_D |h|",
+   "correction": "Use sup_D log|h| on the left of the displayed mean-logarithm bound.",
+   "reason": "For g=h=1, the printed claim reads 1≤0; the corrected logarithmic left side is 0. Lemma 2.3.1’s statement already uses logarithms and is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-01: actual published JAMS author offprint, unchanged SHA-256 867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e; affected published loci and page images checked.",
+    "2026-10-01: arXiv version listing still ends at v4, 16 September 2024. The earlier red-team comparison of selected v4 passages is historical; this fix does not claim a new v4 PDF reading.",
+    "2026-10-01: first author’s research page and its current linked published PDF; no applicable correction was found.",
+    "2026-10-01: Crossref DOI 10.1090/jams/1053 metadata has no update-to entry and an empty relation object; bounded title/author correction/erratum search found none applicable. These checks do not establish absence of a correction."
+   ],
+   "evidenceReview": "Confirmed RT-PAPER-CALEGARI-DIMITROV-TANG-25/6; the new source record awaits independent fix review."
   }
- ]
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/UDC.pdf",
+   "read": "2026-10-01",
+   "sha256": "867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e",
+   "version": "Actual 76-page JAMS 38 (2025) author offprint, pp.627–702. Bounded fix rereading pp.630–631,637–641,652–653,659,688–691,695; images 640,641,690,691. Earlier full extraction/red-team readings and v4 comparisons remain provenance."
+  }
+ ],
+ "fixes": {
+  "job": "FIX-RT-PAPER-CALEGARI-DIMITROV-TANG-25",
+  "issue": 5529,
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-10-01",
+  "status": "complete",
+  "report": "research/blueprint/redteam/RT-PAPER-CALEGARI-DIMITROV-TANG-25.fixes.md",
+  "findings": [
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/1",
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/2",
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/3",
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/4",
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/5",
+   "RT-PAPER-CALEGARI-DIMITROV-TANG-25/6"
+  ],
+  "scope": "All confirmed extraction/source repairs applied. The component differential-module/arithmetic bridge is explicitly routed as missing proof input, as permitted by finding /4; no new proof of the published component theorem is claimed. Independent fix review pending."
+ }
 }
