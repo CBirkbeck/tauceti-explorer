@@ -1,0 +1,48 @@
+{
+  "redteam": "RT-PAPER-STEVENS-08",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-STEVENS-08",
+  "summary": "Three findings: two high-severity mathematical contract errors (relative Clifford obstruction versus absolute projective linearization, and the scalar ring of skew lattices), plus one medium-severity duplicate definition. The accepted exhaustion correction, broad source coverage, six library-status items and current stage DAG survive the bounded checks described in the report.",
+  "checked": [
+    "Independence: neither PAPER-STEVENS-08 nor REV-PAPER-STEVENS-08 was written or reviewed by Codex session codex-rtOQ9t. Read the accepted extraction, reader, review result/report and all 303 item objects at atlas base 716c33c5ffa866e7a203944b23e43b7fc5acff96.",
+    "Reread all of the accepted arXiv math/0607622v2 TeX, including §§1–7 and bibliography; checked PDF images at pp. 8, 15 and 20. Compared v1 and v2 specifically at the skew-lattice sentence and the Theorem 4.1 cocycle passage. The published 64-page Inventiones version was not independently read.",
+    "Read Miyauchi–Stevens’s published UEA copy at §2.2, §4 (especially Definition 4.3 and Proposition 4.4), §5.1’s exact-subordination correction and Appendix A/A.1; checked the extraction’s corrected compact-centre/maximal-parahoric target and exhaustion repair. Read Kurinczuk–Stevens’s introduction as a later-work scope check; did not reread that entire paper.",
+    "Bounded correction/version search on 2026-10-01: arXiv main-paper history, Crossref DOI metadata, UEA records, title/erratum searches, and later-paper leads including Skodlerack–Ye 2607.01074 (abstract only). No universal no-erratum claim. Read the mathematical fields of all 54 existing sourceIssues and the full E16 review.",
+    "Checked all three route briefs and eight prerequisites, the 281/2/6 missing-item partition, and the RG2.1–4/SR.2–3 stage contracts. Compared finite-Weil and finite-Harish-Chandra ownership with relevant accepted paper routes; read the reviewed MP.0/MP.1 and ProfiniteCohomology layer-6 audit rows. SR.2/SR.3 have no entries under those IDs in the reviewed audit.",
+    "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, read the actual declarations supporting all six library-status items (1,64,198,199,249,305), and the Tits-system, projective-linearization and degree-two corestriction declarations used by planned/missing items. The report records their scope limits.",
+    "Read the InductionRestriction layer-7 Clifford-obstruction contract, which already uses T/N; the first finding concerns the extraction, not an upstream roadmap defect.",
+    "Assembled the atlas locally and topologically sorted 2907 registered stages and 8246 edges with both endpoints registered. Excluded and counted the 76 upstream proxy edges; no claim about an expanded upstream graph. All 289 missing items have exactly one route and all route IDs resolve.",
+    "Exhaustive arithmetic over U₃(F₃): all 19683 associativity triples, centre/commutator equality, the inflated coboundary formula, and all 729 quotient cocycle identities; checked non-symmetry and the F₉ skew-subspace scalar-closure failure. Mathematical proofs are reproduced in the report. No Lean files were changed or elaborated."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-STEVENS-08/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-STEVENS-08.result.json: items 111–114 (especially 112 and 113), route 1, sourceIssues E16; corresponding reader discussion of the Theorem 4.1 obstruction argument",
+      "claim": "Item 112 identifies the obstruction to extending the specified representation η of N with a class on K/ker(η). That criterion is false: the relative Clifford obstruction lives on K/N. The absolute determinant bound in item 113 cannot simply be moved to that quotient, and item 111 currently uses that invalid combination.",
+      "evidence": "Stevens, arXiv:math/0607622v2, §4.1, proof of Theorem 4.1, p. 20, passes from a projective action to a linear extension; E16 repairs only the missing superscript on J. At Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, ProjectiveRepresentation/SchurMultiplier.lean:295–299, IsProjectiveRep.cohomologyClass_eq_zero_iff permits an arbitrary rescaling c:G→kˣ, with no requirement c|N=1. Take K=U₃(F₃), N=Z(K)=[K,K]≅C₃, η(0,0,c)=ζ^c with ζ a primitive cube root, and ρ(a,b,c)=ζ^c. In coordinates (a,b,c)(a′,b′,c′)=(a+a′,b+b′,c+c′+ab′), its factor set is α(g,h)=ζ^(−ab′). On K/ker η=K this is the coboundary δρ, but η cannot extend to a one-dimensional representation of K since such a character kills [K,K]. On K/N≅F₃² the same factor set is asymmetric, hence not a coboundary; its class has order 3 although dim η=1. The report gives the proof and exhaustive finite checks. The existing InductionRestriction layer 7 correctly specifies H²(T/N,kˣ).",
+      "fix": "Rewrite item 112 with a normalized relative factor set on K/N and an extension criterion preserving η, importing the existing InductionRestriction layer-7 owner. Separate the valid absolute determinant statement from the relative claim in item 113. For the pro-p application in item 111, let d=dim η and m=ord(det η); both are p-powers after passage to the finite quotient. Choose ρ(nk)=η(n)ρ(k); det(ρ)^m descends to K/N and its coboundary is α^(dm). Thus the relative obstruction is p-primary; its restriction to S/N vanishes, and transfer kills it because [K:S] is prime to p. Request precisely the missing relative determinant/finite-quotient bridge, retain the carrier comparison already noted in item 114, and update route 1 and E16/proof-gap documentation. Do not claim that the counterexample disproves Stevens’s extension theorem."
+    },
+    {
+      "id": "RT-PAPER-STEVENS-08/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-STEVENS-08.result.json: item 78; route 1 skew-lattice API and sourceIssues; corresponding reader description",
+      "claim": "Item 78 asks for an exact sequence of o_F-lattices inside A₋. In the unitary case A₋ is an F₀-vector space and is not stable under F-scalar multiplication. This is a false scalar-ring contract for the planned construction.",
+      "evidence": "Stevens v2 §2.1 p. 8 defines A₋ by ā=−a but calls its filtration one by o_F-lattices; v1 contains the same text. The proof of Lemma 3.6, §3.2 p. 15, displays exact sequences in A₋, without asserting this o_F-module structure. For F₀=Q₃, F=Q₃(i), i²=−1 and conjugation i↦−i, take V=F with h(x,y)=xȳ. Then A=F, A₋=Q₃i, a₀(Λ)=o_F for the normalized self-dual chain Λ(k)=3^ceil(k/2)o_F, and a₀(Λ)₋=Z₃i. Multiplication by i∈o_F sends i to −1, which is not skew. For any scalar skew simple stratum on this chain B=A, so b₀(Λ)₋ has the same failure. The 54 existing sourceIssues do not repair this scalar-ring statement.",
+      "fix": "Use o_F₀-lattices in the F₀-vector space A₋ for the minus-part exact sequence and its API. Keep o_F-lattices and F-linearity for the ambient objects before taking the skew part. State the restricted maps as F₀-linear and the integral maps as o_F₀-linear. Add a sourceIssue scoped to the verified arXiv v1/v2 §2.1 scalar slip and propagate the correction to item 78 and the route brief. Add the unramified unitary-line example as a scalar-closure check, alongside the F=F₀ case. Do not replace the coefficient ring of the underlying lattice sequence in V."
+    },
+    {
+      "id": "RT-PAPER-STEVENS-08/3",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-STEVENS-08.result.json: items 246 and 306, route 1 item list; connected predicate in item 10 and PAPER-FINTZEN-21/33",
+      "claim": "Items 246 and 306 independently plan the same disconnected finite-quotient cuspidality predicate. Both are missing definition items routed to the same Part II, with the same source convention. Their different consumers do not require two definitions.",
+      "evidence": "Both locators point to Stevens v2 §6.4, p. 43, the paragraph before Definition 6.17. Its convention is that restriction to the identity component contains a cuspidal irreducible constituent. Item 246 gives that convention for the maximal-order quotient; item 306 gives the same convention for the general quotient and also repeats the connected predicate. Both notes already identify PAPER-FINTZEN-21/33 as the shared connected predicate. The accepted route lists both IDs as separate missing items.",
+      "fix": "Keep one general disconnected-quotient definition (for example, retain 246 and broaden its setting to that of 306), record both the maximal-order specialization and §§7.2–7.3 consumers there, and merge 306 into it. Reuse the connected predicate already identified by item 10 and PAPER-FINTZEN-21/33. Remove the redundant route entry and update incoming references, counts, reader tables and merge notes, preserving source provenance. This finding does not request another finite-reductive roadmap or a second copy of Fintzen’s predicate."
+    }
+  ],
+  "upstreamNotes": []
+}
