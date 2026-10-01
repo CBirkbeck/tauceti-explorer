@@ -46195,3 +46195,360 @@ Independent exact controls over 72 levels/dimensions enumerate 5,672 primitive r
 All 76 captured inputs remain byte-identical after the actual merge of #5429. The original issue and winning claim, unclaimed review #390, policies, reviewed library audit, ownership interfaces and four predecessor outputs are guarded. This continuation imports native factorization, root surjectivity, finite-type transport, group closure and quotient APIs, and adds only the source-specific primitive-root and spanning arguments. No general quotient, divisibility or factorization theory is replanned, and no supplier request is added.
 
 The separate partial signature file also compiled with zero errors and 4,681 expected placeholder warnings across 3,604 pinned source modules. It includes all 26 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 03dfb57db21df89b3490465dfd9d7f5d898d925c9e59dac44b417dc7a1509325.
+
+
+## Kubert prime-power source generation
+
+Thirteen L3 nodes define the actual source-generator subgroup, prove the prime-power primitive-label sum zero, recover the distinguished label by integral subtraction, and establish source generation at prime powers and level one. All 1,508 predecessor nodes and 1,047 baseline records remain whole.
+
+Kubert 184–185 and the complete page 185 image were reread. The prime-power proof retains complete zero fibers, exact-order primitive points and the actual reduced source set. The native finite-sum partition and erase identities, prime-power factorization and prime-factor set formulas, order-one characterization and closure containment were read at the pinned sources. Integral finite relations recover the missing label without a rank assumption.
+
+### Primitive prime-power points form the lower-kernel complement
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-iff` — `DirichletPadic.kubertPrimePower_prime_power_primitive_iff`
+
+For x in the actual kernel T_(p^(n+1)), exact additive order p^(n+1) is equivalent to p^n x being nonzero.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Full order rules out annihilation by the strictly smaller power, since point order divides every annihilating scalar.
+2. Conversely the native order divides p^(n+1), so native prime-power divisor classification writes it as p^j with j at most n+1.
+3. If j is at most n, the lower power kills x. The nonvanishing hypothesis therefore forces j=n+1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generators-level-order-dvd`, `mathlib:Nat.dvd_prime_pow`, `mathlib:orderOf_dvd_of_pow_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.full_order_eight_detected_by_four` (characterisation): A point killed by eight has exact order eight precisely when four does not kill it.
+- `SuggestedKubertPrimePowerTests.prime_level_excludes_only_zero` (degenerate): At the prime level three, every nonzero point is primitive.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### A complete zero fiber has the zero-point label sum
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-zero-fiber-relation` — `DirichletPadic.kubertPrimePower_zero_fiber_relation`
+
+For positive m dividing positive N, the sum of quotient labels of all internal m-roots of zero equals the zero-point label.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Zero has the explicit internal preimage zero under multiplication by m.
+2. Apply the established ordinary internal relation at this valid input.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-primitive-lifts-internal-ordinary-relation`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.four_root_zero_relation` (compatibility): The complete four-root fiber of zero inside level eight has label sum equal to the zero-point label.
+- `SuggestedKubertPrimePowerTests.degree_one_zero_relation` (degenerate): The degree-one root fiber yields the identity zero-point label relation.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### All level labels sum to the zero-point label
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-level-label-sum` — `DirichletPadic.kubertPrimePower_level_label_sum`
+
+In the internal ordinary quotient at N, the sum of all actual T_N point labels equals the zero-point label.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Every level point is annihilated by N, so the complete internal N-root fiber of zero is equivalent to T_N by forgetting or adding the existing annihilation certificate.
+2. Transport the finite sum through this actual point-preserving equivalence.
+3. Apply zero_fiber_relation with degree N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-zero-fiber-relation`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.all_level_labels_sum` (characterisation): The sum of all level-eight labels equals the zero-point label in the internal quotient.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### The prime-power primitive-label sum vanishes
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-label-sum` — `DirichletPadic.kubertPrimePower_prime_power_primitive_label_sum`
+
+For N=p^(n+1), the sum of quotient labels over all actual primitive order-N points is zero.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The primitive-point characterization identifies that subtype with the complement of the p^n-kernel inside T_N.
+2. Use native finite-sum partition into that lower kernel and its complement.
+3. The lower-kernel sum equals the zero-point label by zero_fiber_relation; the sum over all T_N equals the same label by level_label_sum.
+4. Cancel the common label and transport the complement sum back through the actual subtype equivalence. The argument uses integer sums and cancellation, with no division.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-iff`, `DirichletPadicLFunctions:L3/kubert-prime-power-zero-fiber-relation`, `DirichletPadicLFunctions:L3/kubert-prime-power-level-label-sum`, `mathlib:Fintype.prod_subtype_mul_prod_subtype`, `mathlib:Equiv.subtypeEquivRight`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.primitive_order_eight_sum_zero` (characterisation): The sum of primitive order-eight labels is zero, with integer coefficients and no division.
+- `SuggestedKubertPrimePowerTests.prime_level_nonzero_sum_zero` (computation): At level three the sum over all nonzero labels is zero.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### The source-generator subgroup in the internal quotient
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-reduced-generator-span` — `DirichletPadic.kubertReducedGeneratorSpan`
+
+For positive N and the rational torus of dimension k+1, define B(N) as the native additive subgroup closure of actual quotient labels of points in the existing source union T(N).
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Take the certified native level-N points whose ambient points belong to the previously defined admissible union T(N).
+2. Apply the actual quotient map to their native free abelian generators.
+3. Use the existing native additive subgroup closure. No new quotient or availability predicate is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-generator-product-admissible-generators`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `mathlib:Subgroup.closure`, `mathlib:FreeAbelianGroup`, `mathlib:QuotientGroup.mk'`.
+
+**Uses:**
+
+- Kubert Proposition 1.9: Defines the exact subgroup whose equality with the internal quotient is the generation claim.
+- Prime-power elimination: Records membership of every nonexceptional primitive label and closure under the integral expression for the distinguished label.
+- Composite-level induction: Supplies the target subgroup for transport from proper admissible levels and elimination of exceptional primary coordinates.
+
+**API:**
+
+- `kubertPrimePower_source_label_mem` (compatibility): The quotient label of every actual level-N point whose ambient point lies in T(N) belongs to B(N).
+- `kubertPrimePower_zero_label_mem` (compatibility): The quotient label of the zero point belongs to B(N) for every positive N.
+- `kubertPrimePower_prime_power_primitive_label_mem` (compatibility): For N=p^(n+1), the quotient label of every primitive order-N point, including e(N), lies in B(N).
+- `kubertPrimePower_prime_power_span_eq_top` (characterisation): For every positive-dimensional rational torus and positive prime-power level N, B(N) is the entire internal ordinary quotient.
+- `kubertPrimePower_unit_level_span_eq_top` (characterisation): For the positive-dimensional rational torus and level N=1, B(N) is the whole internal ordinary quotient.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.source_generator_label_included` (compatibility): A point of the actual source set supplies a generator of B(8).
+- `SuggestedKubertPrimePowerTests.zero_point_label_included` (degenerate): B(8) contains the zero-point label, without asserting that this label is zero.
+- `SuggestedKubertPrimePowerTests.all_internal_elements_generated` (characterisation): The source subgroup B(8) is the whole internal ordinary quotient.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Each source point supplies a subgroup generator
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem` — `DirichletPadic.kubertPrimePower_source_label_mem`
+
+The quotient label of every actual level-N point whose ambient point lies in T(N) belongs to B(N).
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The point with its source-membership certificate belongs to the defining generating set.
+2. Apply the native subset-of-closure theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-reduced-generator-span`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.source_point_at_prime_level` (compatibility): At level three every actual source point label belongs to the source subgroup.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### The zero-point label is always available
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-zero-label-mem` — `DirichletPadic.kubertPrimePower_zero_label_mem`
+
+The quotient label of the zero point belongs to B(N) for every positive N.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The source set T(N) contains zero through its unit-level stratum.
+2. Apply source_label_mem. This does not assert that the zero-point label equals zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem`, `DirichletPadicLFunctions:L3/kubert-generator-product-generators-zero`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.unit_label_generator` (degenerate): At level one the only point label belongs to the source subgroup.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Every primary factor of a prime power is the entire level
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-primary-power-at-prime-power` — `DirichletPadic.kubertPrimePower_primary_power_at_prime_power`
+
+For a prime-power level N=p^(n+1) and a native prime-factor index r of N, its full primary power r^(v_r(N)) equals N.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The native prime-factor formula for a nontrivial prime power identifies the prime-factor set with the singleton containing p.
+2. Thus r=p; the native factorization formula gives exponent n+1.
+3. Substitute these equalities in the full primary power without changing the underlying dependent prime index.
+
+**Prerequisites:** `mathlib:Nat.primeFactors_prime_pow`, `mathlib:Nat.Prime.factorization_pow`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.sole_primary_factor_is_eight` (computation): Every primary index of eight has full primary power eight.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Every nonexceptional primitive prime-power point is reduced
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-reduced` — `DirichletPadic.kubertPrimePower_prime_power_reduced`
+
+For positive-dimensional rational torus and N=p^(n+1), every primitive order-N point except the distinguished point e(N) lies in the actual reduced set T*(N).
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Every full primary factor equals N by primary_power_at_prime_power.
+2. For each native primary index, the existing primary-coordinate evaluation on a point killed by that factor identifies the component with the original point.
+3. The assumed inequality from e(N) therefore supplies every required exceptional-coordinate exclusion in reduced_mem_iff.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-primary-power-at-prime-power`, `DirichletPadicLFunctions:L3/kubert-primary-primary-coordinates-same`, `DirichletPadicLFunctions:L3/kubert-generator-product-reduced-mem-iff`, `DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.only_distinguished_primitive_removed` (characterisation): Every primitive order-eight point except e(8) belongs to T*(8).
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Nonexceptional primitive points belong to the source union
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-source` — `DirichletPadic.kubertPrimePower_prime_power_source`
+
+For N=p^(n+1), a primitive order-N point different from e(N) lies in the existing source set T(N).
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The point lies in T*(N) by prime_power_reduced.
+2. The divisor N is admissible in itself, so this reduced stratum is one of the actual strata defining T(N).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-reduced`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-self`, `DirichletPadicLFunctions:L3/kubert-generator-product-generators-mem-iff`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.nonexceptional_primitive_in_actual_union` (compatibility): Every primitive order-eight point except e(8) belongs to the original admissible source union.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Recover the omitted distinguished primitive label
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-label-mem` — `DirichletPadic.kubertPrimePower_prime_power_primitive_label_mem`
+
+For N=p^(n+1), the quotient label of every primitive order-N point, including e(N), lies in B(N).
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. A point different from e(N) belongs to the actual source set and hence supplies a generator.
+2. For the distinguished point, erase it from the finite primitive subtype. Every remaining primitive point is different from e(N), so every remaining label belongs to B(N).
+3. The native finite-sum erase identity and the established total primitive-label sum zero express the distinguished label as the negative sum of all remaining labels.
+4. Apply native additive-subgroup sum and negation closure. No independence, rank formula or invertible scalar is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-label-sum`, `DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-source`, `DirichletPadicLFunctions:L3/kubert-prime-power-source-label-mem`, `mathlib:Finset.mul_prod_erase`, `mathlib:Subgroup.prod_mem`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.omitted_distinguished_label_recovered` (characterisation): Although e(8) is removed from the source set, its label lies in the subgroup generated by that set.
+- `SuggestedKubertPrimePowerTests.all_primitive_labels_recovered` (characterisation): Every primitive order-eight label belongs to B(8), including the distinguished exception.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### Kubert prime-power source generation
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-span-eq-top` — `DirichletPadic.kubertPrimePower_prime_power_span_eq_top`
+
+For every positive-dimensional rational torus and positive prime-power level N, B(N) is the entire internal ordinary quotient.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. Use the native integer-divisibility structure of the rational torus and the established admissible-primitive spanning theorem.
+2. The only admissible divisors of a prime power are one and the whole prime power.
+3. A point of order one is zero, whose label belongs to B(N). A point of order N has its label in B(N) by prime_power_primitive_label_mem.
+4. Native closure containment therefore puts the whole admissible-primitive span, already the top subgroup, inside B(N).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-prime-power-primitive-label-mem`, `DirichletPadicLFunctions:L3/kubert-prime-power-zero-label-mem`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span-eq-top`, `DirichletPadicLFunctions:L3/kubert-generators-admissible-prime-power`, `mathlib:orderOf_eq_one_iff`, `mathlib:Subgroup.closure_le`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.prime_power_generation` (characterisation): Every element of the level-eight internal quotient lies in B(8).
+- `SuggestedKubertPrimePowerTests.prime_level_generation` (computation): The source subgroup at the prime level three is the full internal quotient.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+### The unit-level source set generates the quotient
+
+`DirichletPadicLFunctions:L3/kubert-prime-power-unit-level-span-eq-top` — `DirichletPadic.kubertPrimePower_unit_level_span_eq_top`
+
+For the positive-dimensional rational torus and level N=1, B(N) is the whole internal ordinary quotient.
+
+**Hypotheses:** Prime-power statements have a native natural prime p and positive level N=p^(n+1), with n natural. The primitive predicate is exact native additive order. Generic order and zero-fiber statements apply to a native additive commutative group X; finite sums assume the existing finite-type structure on its level kernel. The quotient is the existing native free abelian group on T_N modulo the internal ordinary relation subgroup at weight zero. Every relation degree divides N and every input is certified to be in its multiplication image. The zero-point label is not identified with the additive zero of this quotient. The reduced-generator subgroup and spanning conclusions concern the positive-dimensional rational torus (Q/Z)^(k+1), with the existing source sets T*(M) and T(N). The native integer-divisibility structure of this actual torus supplies the earlier admissible-order spanning theorem. Only prime-power levels and the unit level are proved to be generated here. The composite-level induction, a rank lower bound, independence, freeness and internal/global relation equality remain separate obligations. No field division or inversion of an integer is used to recover an omitted label.
+
+**Proof:**
+
+1. The level-one annihilation certificate forces every actual level point to be zero.
+2. Its label lies in B(N) by zero_label_mem.
+3. Apply the established admissible-primitive spanning theorem and native closure containment. The sole generator remains the zero-point label.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-prime-power-zero-label-mem`, `DirichletPadicLFunctions:L3/kubert-primitive-lifts-admissible-primitive-span-eq-top`, `mathlib:Subgroup.closure_le`.
+
+**Tests:**
+
+- `SuggestedKubertPrimePowerTests.unit_level_generation` (degenerate): The singleton source set at level one generates the whole internal quotient.
+
+**Acceptance:** Use the actual source union T(N) and native internal quotient. Recover the distinguished label by an integral finite-sum identity. Preserve the zero-point label as a generator rather than setting it to zero. Check the prime, higher prime-power and unit-level cases separately; conclude generation only.
+
+**Source:** Published 183 definitions (1.5)–(1.7), and 184 proof of Proposition 1.9 at prime-power levels, followed by Lemma 1.10. The full 179–202 body was read; 184–185 and the full page 185 image were reread. The complete level sum and the lower zero-fiber sum have the same zero-point label, so their difference is the primitive-label sum zero. All primitive points except the distinguished point lie in the actual source set at a prime power. Subtraction recovers the omitted label, and the established admissible-order spanning lemma supplies all remaining labels.
+
+**Remaining:** The actual source-generator subgroup B(N), prime-power primitive-label sum and integral recovery of the distinguished label now give Proposition 1.9 at every prime-power level and at level one. For composite N, next transport valid internal relations and source generators along proper admissible divisors, then prove Lemma 1.12 with its actual fibers and induct on the number of exceptional primary coordinates. The independent Cartan or rational-model rank lower bound remains necessary for freeness and internal/global relation equality. The existing cardinality theorem and generation results supply no independence claim. Preserve finite parity ranks and Tate conventions; all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries remain, including the p=3, 2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.
+
+### Kubert prime-power source generation validation
+
+All 1508 predecessor nodes, 1047 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 13 nodes, 13 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1781 reachable nodes, 7826 edges and 1214 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in native order, factorization, finite-sum, subgroup, free-abelian or quotient APIs and the previously established actual-level interfaces. No new supplier-stage leaf or duplicated owner is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe retains #5431 verbatim and adds one concrete definition and 12 complete lemmas. Totals are 75 definitions and 921 lemmas, with zero placeholders. All 13 suggested declarations and 20 typed tests preserve the actual source set, internal quotient and complete fibers. Native subgroup closure proves generation, without assuming rank or freeness. The separate probe compiles against 2982 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Independent sparse integer controls cover 18 prime-power levels/dimensions, 1,908 primitive-point classifications, 18 primitive-sum relations, 18 distinguished-point eliminations, 1,908 actual point-generation identities and three unit-level cases. Exact sparse integer vectors in the actual finite-level free abelian group. Subtract the two complete zero-fiber relation vectors, eliminate the distinguished primitive label, then use every full primitive root relation to express each point label as an integer combination of actual source generators plus valid internal relation vectors. Every identity is checked before quotienting. These finite controls are not Lean proof certificates and assert no rank or freeness. The largest observed discrepancy is 0.
+
+All 76 captured inputs remain byte-identical after the actual merge of #5431. The issue body and original winning claim, blocked unclaimed review #390, policies, reviewed library audit, ownership interfaces and four predecessor outputs remain guarded. This continuation reuses native subgroup closure, finite sums, factorization and quotient APIs; only source-specific generation is added. No supplier request is added.
+
+The separate partial signature file also compiled with zero errors and 4,714 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: a48bbaf5b0bf42b834c348e484b19b646fe5d95aab609d4a6693af2fb0e5e962.
