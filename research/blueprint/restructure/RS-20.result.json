@@ -755,7 +755,7 @@
     "session": "codex-5ebb6f",
     "date": "2026-10-01",
     "inputCommit": "fdc982e164f26979db865bb853d491a541107083",
-    "review": "Awaiting REV-FIX-RT-RS-20~3; reviewHistory records acceptance of the earlier proposal, not this revision.",
+    "review": "Accepted by REV-FIX-RT-RS-20~3 (top-level review); reviewHistory records acceptance of the earlier proposal.",
     "scope": "The four authorized restructuring/fix/handoff deliverables. Partial RF0/RF4 and future VB3 blueprints receive the node reconciliation below through their authorized workflow; reviewed base files are not edited."
   },
   "nodeReconciliation": [
@@ -836,5 +836,11 @@
       "sha256": "73dded06286031066e9d98b638e065d650688f1e36e877f4d711331a3508dee3",
       "scope": "November 3, 2012 author version, pp. 35–36: definitions, Lemma 6.3 with proof and Corollary 6.4 with proof. The supplier scope already includes arbitrary characteristic-zero perfectoid K."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-RS-20~3",
+    "date": "2026-10-01",
+    "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-RS-20~3 (Codex codex-5ebb6f, PR #5593) for the three confirmed findings of RT-RS-20~3 (verified by this session in REV-RT-RS-20~3, PR #5367, disclosed); it follows REV-RS-20~3 (accepted 2026-09-29, kept verbatim in reviewHistory). /1: the RF0:integral-Y reason and nodeReconciliation[0] now replace proofSteps[2] of chart-cover-perfectoidness-and-sheafiness by FS II.1.1's A+_0 = (W_OE(R+) ⊗ O_E∞)[(π/[ϖ])^(1/p^m)]^∧ with s_m = π_m/v_m (s_m^p = s_(m−1), |s_m| = 1 on the boundary) together with the reciprocal t_1♯ = π/[ϖ]. /2: RF2:untilts keeps only the Div^1 moduli definition; FS II.1.21 moves to the existing late stage VectorBundlesAndIsocrystals:VB3:general-BC (owner record, keep entry, links RF2:untilts/C4/S5 -> VB3:general-BC and VB3:general-BC -> HS0/VS1); VB3:general-BC appears in RF2:untilts' suppliedBy as the owner of what the layer lost (PROTOCOL section 15), which restructure.py records without an edge, the pattern REV-RS-20~2 accepted for VB1. C4, S5 and VB3:general-BC reach none of RF2:untilts, RF2, RF3, RF4:vector-bundles, VB1, BG0 or GS0:loop-geometry; GS0:loop-geometry uses Div^1 leg divisors and relative properness of Schubert diamonds, not FS II.1.21, so it needs no link. /3: R06.1 is in suppliedBy with an owner record and the link R06.1 -> RF2:untilts plus six access links; R06.1 is not downstream of RF2:untilts. Applying every accepted restructuring with this file to data/atlas.json lands all 51 new RS-20 edges, skips none, and stays acyclic. check_restructure.py: ok. Node payload moves remain with the RF0 and VB3 blueprint jobs (handoff/RS-20~3.md). Correction: fixRevision.review updated to point here."
+  }
 }
