@@ -6,9 +6,9 @@ Blueprint for the roadmap `ArithmeticKTheory`, stages **N.7** and **N.8**, job `
 `research/blueprint/handoff/BP-ArithmeticKTheory--N.7.md`.
 
 **N.7 is `source_decomposed`; N.8 is `partial`** (two certificate upper bounds are recorded
-gaps). 14 nodes (3 definitions, 1 construction, 4 theorems, 1 comparison, 5 applications), 24
-API items, 18 unit tests, 6 planets; 30 pinned declarations cited, 4 gaps, 9 requests, 3
-structural proposals. No layer is `closed`: closure means Lean, and nothing here is formalised.
+gaps). 15 nodes (3 definitions, 1 construction, 1 lemma, 4 theorems, 1 comparison, 5 applications), 24
+API items, 18 unit tests, 6 planets; 37 pinned declarations cited, 4 gaps, 10 requests, 3
+structural proposals. No layer is `closed`: source gaps and supplier requests remain. Planning closure is not Lean formalisation; nothing here is formalised.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
@@ -58,9 +58,9 @@ N.8's real-quadratic certificate and must not supply its order bound.
 
 ## N.7 — Regular primes and Bernoulli numbers
 
-**Coverage: source_decomposed.** 8 nodes.
+**Coverage: source_decomposed.** 9 nodes.
 
-Eight nodes. The arithmetic Bernoulli convention with the conversion from the other numbering,
+Nine nodes (including the separate residue-unit lemma). The arithmetic Bernoulli convention with the conversion from the other numbering,
 which Mathlib pins on both sides; the invariant w_i with its value over the rationals in both
 parities, which is where the Bernoulli numbers enter K-theory; regular and irregular primes
 with Iwasawa's equivalent form and the data the source gives; Kummer's criterion converting the
@@ -367,7 +367,8 @@ which is cyclic of order l-1, and P the Picard group of the ring of integers wit
 inverted, modulo l. Since l-1 is invertible modulo l, the group algebra of G over the field
 with l elements splits into the eigenspaces of the powers of the cyclotomic character, and P
 decomposes accordingly. The Herbrand-Ribet theorem identifies the eigenspaces that can be non-
-zero: l divides B_k exactly when the eigenspace of index l-2k is non-zero. Among irregular
+zero: for 1 ≤ k ≤ (l−3)/2, l divides the numerator of the arithmetic B_{2k}
+exactly when the eigenspace of index l−2k is non-zero. Among irregular
 primes below four thousand this happens for at most three values of k. The projectors are the
 usual idempotents of the group algebra, and their denominators are exactly the factor l-1,
 which is invertible; a statement that uses them must say so, since over the integers they do
@@ -389,7 +390,7 @@ not exist.
    character, and record the denominator l-1 and its invertibility modulo l.
 1. Decompose the modulo-l Picard group into eigenspaces and prove that the decomposition is
    natural in the module.
-1. State the Herbrand-Ribet theorem in the form the source gives: divisibility of B_k by l is
+1. State the Herbrand-Ribet theorem in the converted arithmetic convention: divisibility of the numerator of B_{2k} by l is
    equivalent to non-vanishing of the eigenspace of index l-2k.
 1. Record the numerical statement: among irregular primes below four thousand at most three
    values of k occur.
@@ -400,7 +401,7 @@ not exist.
 
 - For a regular prime every eigenspace vanishes, which is the class-number condition of the
   definition.
-- For l = 37 exactly one eigenspace is non-zero, at the index attached to k = 16, which the
+- For l = 37 exactly one eigenspace is non-zero, at index 37−32=5 attached to k=16, which the
   source records.
 - The projectors are not available over the integers, so an integral statement that used them
   would be wrong; the restriction is part of the statement.
@@ -417,6 +418,42 @@ Z/l occurs only when i is congruent to 0 modulo l-1, corresponding to the i-th t
 roots of unity. If i is odd, exactly one term is Z/l; the invariants are Z/l on an explicit
 generator, where i is congruent to 1 + 2j modulo l-1.” — The shape of the eigenspace
 bookkeeping the source uses, verbatim; the indices are what the theorem is stated with.
+
+### `residue-field-units-prime-to-l` — The actual residue field and its unit order
+
+*lemma* · added by `FIX-RT-BP-ArithmeticKTheory--N.7`
+
+For **any prime l**, let F = ℚ(μ_l), and let P be a maximal ideal of 𝓞_F lying over
+(l) in ℤ. The genuine quotient field k(P) = 𝓞_F/P has l elements. Therefore its
+unit group has l−1 elements, and l does not divide that order. Neither oddness
+nor regularity is required; this is the arithmetic input of the subsequent
+tame-kernel argument, not a consequence of K-theoretic vanishing.
+
+The pinned uniqueness theorem identifies P with (ζ_l−1). The norm theorem
+`IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one` is stated for the
+p^(k+1)-th cyclotomic field; use k=0 and rewrite p¹=p. It gives norm l.
+`Ideal.absNorm_apply` and `Submodule.cardQuot_apply` identify the norm with the
+quotient cardinality. Install `Ideal.Quotient.field P` locally (it is an
+abbreviation, not an automatic instance) and apply `Nat.card_units`. Finally
+0<l−1<l excludes divisibility by l. The inertia-degree-one theorem agrees with
+this computation; no regular-prime theorem is used.
+
+**Acceptance.** At l=2 the quotient has two elements and its unit group is
+trivial, of order one. At l=5 the unit order is four. The suggested file states
+this result and these examples on the actual ideal-quotient carrier, not on a
+postulated finite field.
+
+**Depends on.** `mathlib:CyclotomicField`, `mathlib:NumberField.RingOfIntegers`,
+`mathlib:Nat.Prime`, the already cited cyclotomic prime-uniqueness and inertia
+degree declarations, `mathlib:IsCyclotomicExtension.Rat.absNorm_span_zeta_sub_one`,
+`mathlib:Ideal.absNorm_apply`, `mathlib:Submodule.cardQuot_apply`,
+`mathlib:Ideal.Quotient.field` and `mathlib:Nat.card_units`.
+
+**Source.** Weibel VI.8.3.2, printed p. 514 (PDF p. 522), uses the single-prime
+localisation. The residue cardinality and unit order are derived from the
+pinned Mathlib arithmetic declarations, not claimed to be a separately stated
+theorem of the book. The same downloaded K-book hash was checked on 1 October
+2026; VI.8.3.2, VI.10.5–10.8 and the paragraph before Table 10.1.1 were reread.
 
 ### `tame-kernel-vanishing-at-a-regular-prime` — For an odd regular prime the l-primary tame kernel of the cyclotomic field vanishes ★
 
@@ -453,7 +490,7 @@ to l.
 1. Use the local Brauer calculation of the source's Classical Data to control the remaining
    contribution from the finite places.
 1. Conclude the vanishing of the l-primary part.
-1. For the S-integer version, compute the residue field at the unique prime above l: the prime
+1. For the S-integer version, use the separate `residue-field-units-prime-to-l` lemma to compute the residue field at the unique prime above l: the prime
    is totally ramified with inertia degree one, so the residue field is the field with l
    elements and its unit group has order l-1, which is prime to l, so the residue term
    contributes nothing l-primary; this is the question the layer's text asks to be explained
@@ -468,7 +505,7 @@ to l.
 - For an irregular prime the argument breaks at the class-group step, which is exactly where
   the eigenspace analysis of the previous node takes over.
 
-**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`; **other roadmaps** `K2SymbolsBrauer:T.5`, `K2SymbolsBrauer:T.7`, `MotivicEtaleKTheory:M.3`; **libraries** `mathlib:Ideal.ramificationIdx`, `mathlib:Ideal.inertiaDeg`, `mathlib:IsCyclotomicExtension`.
+**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `residue-field-units-prime-to-l`; **other roadmaps** `K2SymbolsBrauer:T.5`, `K2SymbolsBrauer:T.7`, `MotivicEtaleKTheory:M.3`; **libraries** `mathlib:Ideal.ramificationIdx`, `mathlib:Ideal.inertiaDeg`, `mathlib:IsCyclotomicExtension`.
 
 **Source.** Kbook.2013, VI.8.1, Classical Data, the Brauer sequence (PDF p. 507): “The Brauer
 group of O_S is determined by the sequence 0 -> Br(O_S) -> (Z/2)^{r_1} + the sum over the
@@ -543,15 +580,19 @@ y_1 in K_5 (x_1 is the golden mean) and v in K_7.” — The example, verbatim.
 
 *comparison*
 
+The **single owner of the predicate Vandiver(l) is IntegralIwasawaTheory L3**. Import its defining condition l ∤ h(ℚ(μ_l)^+) and its transport to Mathlib's intrinsic maximal real subfield; do not define another predicate here. The exact pinned carrier is `NumberField.maximalRealSubfield (CyclotomicField l ℚ)`, and `NumberField.of_subfield` supplies its number-field instance, so its class number is well-defined. The L3 stage has no published Lean predicate/module yet: the suggested file records this exact import contract rather than inventing a module or a second definition. N.7 owns only the comparison to odd-character class-group components, the conditional K-theory consequences and the separation discipline.
+
 Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of
 integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion;
 equivalently, that the representation of the Galois group on the modulo-l Picard group of the
 full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex
 conjugation acts as minus one on the l-torsion. It has been verified for all primes up to a
 hundred and sixty-three million and is open. Under it, the K-groups of the integers are given
-by an explicit table, and in particular the groups in degrees divisible by four vanish;
-unconditionally those groups are known only to have order a product of irregular primes greater
-than ten to the eighth, and their vanishing is equivalent to Vandiver's conjecture. Every
+by an explicit table, and in particular K_{4i}(ℤ) vanishes for i≥2; K₄(ℤ)=0 is
+an unconditional imported theorem. Unconditionally those higher groups are known only
+to have order a product of irregular primes greater than ten to the eighth, a historical
+bound from this source. Their joint vanishing is equivalent to the GLOBAL conjecture
+at every odd prime, not to a hypothesis at a single irregular prime. Every
 statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition
 of regularity contains it.
 
@@ -564,14 +605,13 @@ of regularity contains it.
 
 **Construction and proof.**
 
-1. State the conjecture in both forms and record the equivalence and its reason.
+1. Import L3's predicate and prove its comparison with the odd-character form; keep the definition in L3.
 1. Record the verification bound and the historical remark that the statement was discussed by
    Kummer and Kronecker long before Vandiver.
 1. State the conditional theorem: under the conjecture the K-groups of the integers are given
    by the explicit table.
-1. State the unconditional fact about the groups in degrees divisible by four: their order is a
-   product of irregular primes greater than ten to the eighth, and their vanishing is
-   equivalent to the conjecture.
+1. State the unconditional order restriction for K_{4i}(ℤ), i≥2, and its joint-vanishing
+   equivalence with global Vandiver at every odd prime; distinguish the unconditional K₄ result.
 1. State the discipline: a theorem conditional on the conjecture is labelled conditional, and
    the definition of a regular prime does not mention it.
 
@@ -584,7 +624,7 @@ of regularity contains it.
 - The unconditional statement about the groups in degrees divisible by four is weaker and is
   what may be used without the conjecture.
 
-**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `regular-prime-torsion-consequences`.
+**Depends on.** **inside this packet** `regular-prime`, `eigenspaces-and-herbrand-ribet`, `regular-prime-torsion-consequences`; **supplier** `IntegralIwasawaTheory:L3`; **libraries** `mathlib:NumberField.maximalRealSubfield`, `mathlib:NumberField.of_subfield`.
 
 **Source.** Kbook.2013, VI.10.8 (PDF p. 533): “Vandiver's Conjecture 10.8. If l is an irregular
 prime then Pic(Z[zeta_l + zeta_l^{-1}]) has no l-torsion. Equivalently, the natural
@@ -1036,6 +1076,7 @@ may therefore not supply its bounds.
 
 ## Requests to other roadmaps
 
+- `IntegralIwasawaTheory:L3` — The single predicate Vandiver(l), its defining class-number condition for ℚ(μ_l)^+, and transport to the pinned intrinsic maximal real cyclotomic subfield. No L3 Lean module/declaration is published yet; the suggested file records the exact import contract. Needed by `ArithmeticKTheory:N.7/vandiver-separation`. N.7 retains the odd-character comparison and conditional K-theory consequences.
 - `K2SymbolsBrauer:T.5` — The tame kernel and its exact sequences (T.5/unramified-subgroup,
   T.5/tame-kernel-sequence, T.5/relative-s-integer-sequence), the real sign symbol
   (T.5/real-sign-symbol), and the computations K₂(ℤ) ≅ ℤ/2 with generator {−1, −1}
@@ -1101,11 +1142,37 @@ may therefore not supply its bounds.
 
 *kind: `ownership`.* RT-AREA-ktheory-1/11 (confirmed): N.8 and B.3 both planned the certified real-quadratic tame kernel, and no edge made N.8 available to B.3, while N.8 imported B.3. N.8/real-quadratic-example-and-birch-tate now owns the certificate for ℚ(√5) (with N.6's engine) and no longer imports B.3; N.8/birch-tate-status, which imported B.3, is deleted. Proposal: add the atlas edge ArithmeticKTheory:N.8 → SpecialValuesBirchTate:B.3 (acyclic once N.8's imports of B.3 are gone, checked against the current packets) and let B.3/sqrt-five-birch-tate-check import the N.8 node instead of requesting the certificate from K2SymbolsBrauer T.5. B.3 keeps the w₂ computation, the L-function factorisation and the check, and must not supply the order bound.
 
-## Checks
+## Suggested signatures and checks
 
-    python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticKTheory--N.7.json --index $TAUCETI_BASELINE/declarations.tsv
+FIX-RT-BP-ArithmeticKTheory--N.7 removes all remaining vacuous theorem declarations,
+the arbitrary eigenspace Type stub and the condition replaced by an unstated
+proposition. The residue-unit lemma has a genuine Lean signature at the pin.
+Herbrand–Ribet awaits the canonical cyclotomic class-group action and its
+ZMod l-module/eigenspace interface owned by N.7: its exact odd-prime, finite
+Bernoulli range and character index are recorded in mathematical comments,
+not asserted for an unrelated carrier. Higher K-group and Bott statements
+likewise name the missing carriers, suppliers, hypotheses and full conclusions.
+For Vandiver the imported condition is explicit; no second predicate is
+defined. The global conjecture at all odd primes, not a condition at one
+prime, is equivalent to joint vanishing of K_{4i}(ℤ) for i≥2. K₄(ℤ)=0 stays
+unconditional.
 
-reports **0 errors and 0 warnings** with the pinned declaration index in place (fix of
-RT-AREA-ktheory-1, 2026-09-30). The suggested Lean file was **not compiled** for this revision;
-its changes are comments and commented signatures only. Nothing here is claimed to be
-formalised; every `implementationStatus` is `unchecked`.
+The N.8 suggested comments, N.6 OrderCertificate ownership, all six N.8 nodes,
+the four source/certificate gaps and the independent needs_changes review
+are preserved. This signature fix does not certify the incomplete Gaussian
+or real-quadratic examples.
+
+The packet is checked by the repository's actual `scripts/check_blueprint.py`
+at the immutable audit tree, with the shared pinned declaration index. The
+result is **0 errors, 0 warnings**. Regression checks preserve all six N.8
+nodes and the N.8 suggested section byte-for-byte, as well as the gaps and review.
+The actual assembler, comparing hypothetical promotion of the current research
+packet before and after this fix, retains every old dependency pair and adds
+only L3 → N.7 (8624 → 8625 pairs), with no return path or skipped route.
+These are checks of the proposed dependency, not promotion or acceptance.
+The
+suggested Lean file is **not compiled**: the available Tau Ceti checkout is
+at another commit and has no existing pinned library build. No Lake setup,
+cache download, library build or language server is run. Every
+implementationStatus remains unchecked. Independent REV-FIX review is
+required before these changes may go live.
