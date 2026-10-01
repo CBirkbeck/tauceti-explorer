@@ -1,0 +1,59 @@
+{
+  "redteam": "RT-PAPER-FENG-24",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-FENG-24",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "summary": "Four high-severity findings: ramified fixed-locus descent fails at the permitted level; the admissible-family axioms do not imply excursion linearity; creation/annihilation maps are outside the stated L-group functor domain; and review-added rev-6 gives a false relative-dimension bound for Rj_*.",
+  "checked": [
+    "Independence: read extraction #1354 and accepted review #1355 histories, including the rejected self-review and accepted cc-39fac3 review PR #3314. Neither accepted input was written or reviewed by this session. Claimed #4212 as Codex — codex-rtOQ9t and reread the bot-confirmed issue.",
+    "Target snapshot origin/main 30c3dd7. Read the current statements/classifications/notes for all 142 items (3 library, 11 planned, 128 missing), all 57 sourceIssues, all four complete route briefs/reasons, nine prerequisites, the extraction report and accepted review JSON/report. Historical originalStatement copies were consulted where relevant and are not treated as current contracts.",
+    "Freshly downloaded and read all 66 pages of the published Cambridge PDF, including both appendices and references, on 2026-10-01. SHA-256 d0abda98ec3077894814ee06bcd6689c1dd0939ff96a17320ddeecddc7307584. Inspected published page images 33 and 37. Downloaded the 68-page author PDF and checked its Lemma 5.7 at p.38; no claim of a fresh full reading of that second version or the arXiv TeX.",
+    "Checked version/correction metadata on the publisher page, arXiv abstract/version page, author publications page and Crossref DOI record. Bounded title/author/erratum/ramified-descent searches located no author-issued correction to these points. This is a bounded search, not a claim that no correction exists.",
+    "Read pinned declaration statements for the three library items: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 Tate cohomology, norm, connecting map and exactness, Witt DVR/completeness/residue field, finite invariants, integral finite-type finiteness, Artin–Tate and Nakayama; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 low-degree Tate identifications and finite-cyclic periodicIso. The already recorded naturality/six-term adapter caveat in item 105 is not a new finding.",
+    "Assembled the current atlas and checked all 13 distinct existing planned-stage identifiers, reading the relevant stage descriptions, restructured scopes and available library-coverage records. Compared global characteristic-zero shtukas with the proposed modular extension, equal-characteristic geometry with the Fargues–Scholze Satake stages, and the local Hecke/centre and dual-group owners. The three proposed roadmaps and SmithTheoryAndModPFunctoriality are not installed atlas owners at this snapshot.",
+    "Checked item/route membership mechanically: every one of the 128 missing items is routed exactly once (63 Smith, 33 global, 32 local); the source route has six items. Existing review corrections and conditional ownership imports were considered before looking for new errors. No finding is based on a demand for recursive proof closure of every supplier paper.",
+    "Checked the GF(7) frame/cocycle arithmetic, constant-functor zero-morphism countermodel, and F_3 quadratic-character obstruction with exact arithmetic; the arbitrary-depth and non-descent proofs are in the report. Freshly read Stacks tags 0F10 and 03PK for the Rj_* counterexample. No full fresh audit of external supplier papers is claimed.",
+    "No Lean source changes, compilation, library build, cache download or language-server invocation. Only the two authorized red-team deliverables are changed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-FENG-24/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-24.result.json: item 60 (Lemma 5.7), items 62–64, E41.correction and route ShtukaTateCohomologyAndGlobalBaseChange",
+      "claim": "Lemma 5.7 identifies the whole fixed scheme with descended H-shtukas even for ramified X′/X. Killing automorphisms makes the equivariance cocycle unique but does not make it effective descent along a ramified cover. The current extraction and the accepted component repair still rely on this false identification.",
+      "evidence": "Published version, §5.1.7 pp.32–33 permits arbitrary cyclic degree-p extensions, and Lemma 5.7 p.37 concludes that a cocycle is “equivalent to a descent datum”. Take p=3, X=P¹_t over F_7, X′=P¹_u with t=u³ and σ(u)=2u, H=G_m and G=Res_{X′/X}G_m. Choose no legs, D empty and x_0=(t=1). The trivial line bundle on X′ with Frobenius identity and level frame u modulo (u³−1)^n is fixed for every n: the frame changes to 2u, and multiplication by 4 identifies it with the original frame, with 4³=1. Its framed automorphisms are trivial. It lies in the degree-zero HN piece. It is not pulled back from a framed line bundle on X: pullback degree forces that line bundle to be trivial, and its level frame would be invariant, whereas no constant multiple of u is invariant even at n=1. The unique linearization acts nontrivially at u=0. This counterexample persists at all depths at x_0. The author PDF, p.38, has the same argument. The report gives the complete construction and precise scope.",
+      "fix": "Add a source issue for ramified descent and replace item 60 by a correctly qualified statement: either an étale-cover theorem or the locus with effective descent/trivial inertia, with the descent criterion proved. If ramified covers must be handled by adding level at branch places, specify sufficient level at every branch place and prove that it enforces effective descent. Revisit the whole-fixed-locus localization and E41 component repair, propagating the corrected hypotheses through route 2 and the local applications in route 3. Do not claim that the main existence-of-base-change theorem is disproved; the counterexample concerns the asserted fixed-locus identification at the stated level."
+    },
+    {
+      "id": "RT-PAPER-FENG-24/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-24.result.json: item 56, Definition 5.1/Construction 5.2 and route ShtukaTateCohomologyAndGlobalBaseChange",
+      "claim": "Fusion isomorphisms and their composition compatibility alone do not imply the excursion relations. Item 56 quantifies over arbitrary ordinary functors and omits even preservation of zero morphisms, so its claimed construction of an excursion action is false under its written axioms.",
+      "evidence": "Published p.33 states precisely two admissibility conditions and allows A to be any ring. Even after correcting E35, take A=k and for every finite I take the constant functor H_I with value k, trivial Γ^I-action, and every morphism sent to id_k. Identity fusion maps satisfy both stated conditions, including empty I. The Construction 5.2 composite is then id_k even when x=0. But §2.4.2(iii), pp.11–12, and item 13 require linearity in x, hence S_{I,W,0,ξ,(γ_i)}=0. Choose W=1 so every map is an L-group morphism; this obstruction is independent of finding 3.",
+      "fix": "Specify a coefficient-compatible additive/k-linear functor contract (with the corresponding k-action on the target category), then state and prove the additional normalization, inflation and coherence conditions needed for all six excursion relations. In particular test zero creation, scalar multiples and sums. If using an existing geometric construction, formulate the abstraction around its actual operations and prove their relations; do not infer them solely from fusion. Record the missing hypotheses as a source issue distinct from the already repaired index swap E35."
+    },
+    {
+      "id": "RT-PAPER-FENG-24/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-24.result.json: item 56 creation/annihilation arrows; item 13 input convention; route ShtukaTateCohomologyAndGlobalBaseChange",
+      "claim": "The creation and annihilation maps in item 56 need only be invariant under the diagonal dual group, but the functor to which they are applied is defined on representations of the full L-group. Such maps need not be morphisms in that domain, even if the missing linearity in finding 2 is added.",
+      "evidence": "Construction 5.2, published p.33, applies H_{ {0} }(x) while its parenthesis identifies x only as a G-hat-equivariant map. Let p=3, G=G_m split and Γ the Weil group of a function field with a nontrivial unramified quadratic character χ (degree modulo 2). Put W=k(χ), trivial under G-hat, and I={0}. The vector x=1 and dual vector ξ=1 satisfy the stated diagonal-G-hat invariance. But x:1→W is not an L G=G-hat×Γ morphism: a γ with χ(γ)=−1 sends x to −x. Thus H_{ {0} }(x) is undefined. The same defect is present for ξ. Proposition 5.12(i), p.39, instead works with functors on geometric representations, pointing to the distinction that the abstract contract must preserve.",
+      "fix": "Separate the geometric Rep_k(G-hat^I) functors and their Galois-equivariant/descent structure, so creation and annihilation are defined before requiring arithmetic equivariance, and explicitly construct the excursion action for the full L-group presentation. Alternatively give a valid induction/auxiliary-representation construction for the non-Galois-invariant vectors and prove independence and the relations. Do not simply require full L-group invariance of x and ξ: that would discard allowed generators of item 13. Add the one-dimensional quadratic-character example as a domain/type test, and record the source-level typing defect."
+    },
+    {
+      "id": "RT-PAPER-FENG-24/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-FENG-24.result.json: review-added item rev-6; route SheafTheoreticSmithTheory",
+      "claim": "The review-added tor-amplitude statement assigns Rj_* a bound of twice the relative dimension. For an open immersion this bound is zero, yet Rj_* need not be t-exact. This is a new false strengthening introduced by the extraction review.",
+      "evidence": "Item rev-6 asserts that both Rf_! and Rj_* take tor-amplitude [a,b] into [a,b+c] with c bounded by twice the relative dimension. Take j:G_m→A¹ over an algebraic closure of F_7 and A=k[C_3], k=Fbar_3. The constant free A-sheaf has tor-amplitude [0,0], and j has relative dimension zero. Nevertheless (R¹j_*A)_0 is nonzero: on the punctured strict henselian trait, z³=t is a nontrivial Kummer torsor because the valuation of t is 1, not divisible by 3. The class persists for k and for its free A-summand. Therefore Rj_*A cannot have tor-amplitude [0,0]. Feng p.16 only invokes preservation of finite tor-amplitude; Stacks tag 0F10 states finiteness of cohomological dimension, not this relative-dimension estimate.",
+      "fix": "Separate the Rf_! and Rj_* statements. Retain the appropriate relative-dimension bound for compactly supported pushforward with its hypotheses, but give Rj_* a valid finite cohomological/tor-amplitude bound depending on the ambient geometry, or retain only preservation of finiteness if that is all the consumer needs. Add the punctured-line stalk test. Attribute the false numeric bound to rev-6, not to Feng or Stacks; retain the useful preservation theorem and its existing owner."
+    }
+  ],
+  "upstreamNotes": []
+}
