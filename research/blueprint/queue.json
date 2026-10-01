@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -45529,7 +45529,8 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-20~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5111"
   },
   {
    "id": "RT-RS-21",
