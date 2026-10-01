@@ -33990,7 +33990,8 @@
     "REV-PAPER-ALLEN-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ALLEN-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4065"
   },
   {
    "id": "REV-RT-PAPER-ALLEN-ETAL-23",
