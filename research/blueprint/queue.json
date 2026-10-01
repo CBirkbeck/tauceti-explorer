@@ -33141,8 +33141,9 @@
     "REV-PAPER-CIUBOTARU-HARRIS-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5053"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5053",
+   "finishedAt": "2026-10-01T09:01:48Z"
   },
   {
    "id": "RT-PAPER-LESLIE-25",
