@@ -32849,8 +32849,9 @@
    ],
    "avoidAccountOf": "KEYDEF-algebraicgeometry",
    "prompt": "research/blueprint/prompts/REV-KEYDEF-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5272"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5272",
+   "finishedAt": "2026-10-01T00:16:10Z"
   },
   {
    "id": "KEYDEF-algebraicnt",
@@ -39167,7 +39168,8 @@
     "REV-PAPER-ATOBE-KONDO-YASUDA-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4243"
   },
   {
    "id": "RT-PAPER-HE-21",
@@ -40906,8 +40908,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
