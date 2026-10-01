@@ -53009,3 +53009,804 @@ Independent exact finite Teichmuller-coordinate controls cover four primes, 16 l
 After actual merge of #5482, all 77 guarded inputs and four predecessor outputs remain unchanged, including exact FF.4 packet/suggested interfaces, policy/audit/source registers and owner boundaries. The issue body, original winning claim and blocked unclaimed review #390 are unchanged. No new source finding, independent owner review or supplier request is introduced.
 
 The separate partial signature file also compiled with zero errors and 5,296 expected placeholder warnings across 3,630 pinned source modules. It includes all 7 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1.
+
+
+## The actual Cartan profinite topology
+
+Twenty-eight L3 nodes construct the native profinite limit of the actual finite Cartan groups, identify its points with the original full-Witt unit product and equip that product with its compact Hausdorff totally disconnected topology. All1,748 predecessor nodes and1,148 baseline records remain whole.
+
+Kubert186–187 was reread for the actual finite Cartan projective system, product of local units and common finite actions. Pinned native finite/profinite group constructions and complete compatible-family limit were read, together with native preorder categories, factorial divisibility/cofinality, inducing homeomorphisms, induced topological groups, compactness, total disconnectedness, Hausdorff transport and product/subtype continuity. The native profinite limit is reused directly; no generic limit theory or FF.4-owned finite Galois-ring theory is replanned. The full local-field and primitive-point source identifications remain open.
+
+### The actual finite Cartan group as a native finite group
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group` — `DirichletPadic.kubertCartanFiniteGroup`
+
+Bundle U(k,N), with its existing pointwise group law and finite coefficient fields, as native FiniteGrp. The underlying group is the original finite unit product, including the empty product at N=1.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Obtain the existing finite Galois-field instances at the positive degree.
+2. Use existing finite truncated-Witt, unit and finite-product instances.
+3. Apply native FiniteGrp.of to the original product carrier.
+
+**Prerequisites:** `FiniteFieldsAndCharacterSums:FF.4/galois-ring`, `mathlib:FiniteGrp.of`, `mathlib:Fintype.ofFinite`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanFactorialDiagram_map_apply` (compatibility): For an actual arrow m→n and x in U(k,F(m)), D(k) applied to that arrow evaluates at x as the original Cartan reduction from F(m) to F(n).
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.finite_group_original_carrier` (compatibility): The bundled group has exactly the original product of actual finite Witt unit groups.
+- `SuggestedKubertCartanProfiniteTests.finite_group_unit_level` (degenerate): Every element at level1 is the identity, because its original prime index set is empty.
+- `SuggestedKubertCartanProfiniteTests.finite_group_original_inverse` (compatibility): The bundled inverse at level12 is the inverse of the same actual prime-coordinate unit.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The cofinal factorial diagram of actual Cartan groups
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram` — `DirichletPadic.kubertCartanFactorialDiagram`
+
+Construct the native functor D(k) from the opposite natural-number preorder to finite groups. Its object at n is U(k,(n+1)!), and an arrow m→n is the original reduction from (m+1)! to (n+1)! determined by n≤m.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use native positive factorials for the actual modulus at each index.
+2. Extract n≤m from the opposite-category arrow and use native factorial divisibility.
+3. Bundle the original Cartan reduction as a native finite-group morphism.
+4. The already proved reduction identity and composition establish the functor laws in the reversed index direction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-finite-group`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-self`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-comp`, `mathlib:CategoryTheory.leOfHom`, `mathlib:Nat.factorial_pos`, `mathlib:Nat.factorial_dvd_factorial`, `mathlib:CategoryTheory.ConcreteCategory.ext_apply`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanFactorialDiagram_map_apply` (compatibility): For an actual arrow m→n and x in U(k,F(m)), D(k) applied to that arrow evaluates at x as the original Cartan reduction from F(m) to F(n).
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.factorial_diagram_zero_is_level_one` (degenerate): Index0 is level1, retaining the empty finite unit product.
+- `SuggestedKubertCartanProfiniteTests.factorial_diagram_three_to_one` (computation): The arrow from index3 to index1 is the original reduction from modulus24 to modulus2, in the contravariant direction.
+- `SuggestedKubertCartanProfiniteTests.factorial_diagram_composition` (characterisation): Functorial composition retains the original reduction order.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Factorial diagram arrows are the original finite reductions
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram-map-apply` — `DirichletPadic.kubertCartanFactorialDiagram_map_apply`
+
+For an actual arrow m→n and x in U(k,F(m)), D(k) applied to that arrow evaluates at x as the original Cartan reduction from F(m) to F(n).
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Evaluate the native bundled morphism and its original monoid homomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanFactorialDiagram_map_apply_typed_api` (compatibility): For an actual arrow m→n and x in U(k,F(m)), D(k) applied to that arrow evaluates at x as the original Cartan reduction from F(m) to F(n).
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The native profinite limit of the actual Cartan diagram
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-limit` — `DirichletPadic.kubertCartanProfiniteLimit`
+
+Define L(k) to be native ProfiniteGrp.limit of D(k) followed by the existing finite-group-to-profinite-group functor. Thus a point is exactly a native compatible family of original finite Cartan tuples; its topology and group law are the native limit structures.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Give each actual finite group the native discrete profinite structure.
+2. Apply the existing native ProfiniteGrp.limit to this concrete functor.
+3. Reuse the native compatible-family subgroup and native compact, Hausdorff, totally disconnected topological-group structure; do not reconstruct a generic inverse limit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-factorial-diagram`, `mathlib:ProfiniteGrp.ofFiniteGrp`, `mathlib:ProfiniteGrp.ofFiniteGrpHom`, `mathlib:ProfiniteGrp.limit`, `mathlib:ProfiniteGrp.limitConePtAux`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanLimitProjection_apply` (compatibility): For an actual compatible family x and positive N, q_N(x) is its original coordinate at index N reduced from (N+1)! to N.
+- `kubertCartanLimitProjection_reduction` (compatibility): If M divides N, the original Cartan reduction U(k,N)→U(k,M) composed with q_N equals q_M as actual group homomorphisms.
+- `kubertCartanLimitProjection_factorial` (compatibility): For every natural n and actual x in L(k), projection q_F(n)(x) equals x at index n, despite its definition using the larger index F(n).
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.native_profinite_limit_is_used` (compatibility): The Cartan limit is the existing native profinite limit of the actual finite diagram.
+- `SuggestedKubertCartanProfiniteTests.native_limit_unit_coordinate` (degenerate): Every compatible family has identity at the original unit modulus.
+- `SuggestedKubertCartanProfiniteTests.native_limit_actual_compatibility` (characterisation): Every actual limit point reduces from its modulus24 coordinate to its modulus2 coordinate.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Original full-Witt tuples give native Cartan limit points
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit` — `DirichletPadic.kubertCartanToProfiniteLimit`
+
+Construct a monoid homomorphism T:V(k)→L(k) whose n-th coordinate is the original full-Witt Cartan projection at F(n).
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the original full-Witt finite projection at every factorial modulus.
+2. Its proved compatibility with actual finite reductions verifies the native limit membership condition.
+3. Pointwise native homomorphism laws give the group homomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-limit`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanToProfiniteLimit_apply` (compatibility): For x in V(k), the n-th original finite tuple of T(x) is precisely the established full-Witt projection of x at (n+1)!.
+- `kubertCartanLimitProjection_toProfiniteLimit` (compatibility): For every positive N, q_N composed with T is the original full-Witt Cartan projection at N.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanToProfiniteLimit_identity` (degenerate): The actual comparison map preserves the identity.
+- `SuggestedKubertCartanProfiniteTests.cartanToProfiniteLimit_multiplication` (compatibility): The actual comparison map preserves multiplication of original points.
+- `SuggestedKubertCartanProfiniteTests.full_witt_to_actual_modulus24` (computation): The third limit coordinate is the original full-Witt projection at modulus24.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The forward limit map retains each original factorial projection
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-apply` — `DirichletPadic.kubertCartanToProfiniteLimit_apply`
+
+For x in V(k), the n-th original finite tuple of T(x) is precisely the established full-Witt projection of x at (n+1)!.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Evaluate the native compatible family at the original index.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanToProfiniteLimit_apply_typed_api` (compatibility): For x in V(k), the n-th original finite tuple of T(x) is precisely the established full-Witt projection of x at (n+1)!.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Projection of the native limit at every positive modulus
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection` — `DirichletPadic.kubertCartanLimitProjection`
+
+For each positive N construct q_N:L(k)→U(k,N): evaluate the actual compatible family at index N, whose modulus is (N+1)!, then apply the original reduction to N.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Native dvd_factorial shows N divides (N+1)! using positivity of N.
+2. Evaluate the native limit family at index N.
+3. Compose this group homomorphism with the established actual reduction from (N+1)! to N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-limit`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `mathlib:Nat.dvd_factorial`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanLimitProjection_apply` (compatibility): For an actual compatible family x and positive N, q_N(x) is its original coordinate at index N reduced from (N+1)! to N.
+- `kubertCartanLimitProjection_reduction` (compatibility): If M divides N, the original Cartan reduction U(k,N)→U(k,M) composed with q_N equals q_M as actual group homomorphisms.
+- `kubertCartanLimitProjection_factorial` (compatibility): For every natural n and actual x in L(k), projection q_F(n)(x) equals x at index n, despite its definition using the larger index F(n).
+- `kubertCartanLimitProjection_continuous` (compatibility): For every positive N, q_N is continuous from L(k) to the original finite Cartan group U(k,N) with its native discrete topology.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.all_level_projection_at_unit` (degenerate): The all-level limit projection at1 is the identity tuple.
+- `SuggestedKubertCartanProfiniteTests.all_level_projection_uses_factorial_upper` (computation): The actual projection at modulus6 reduces the coordinate at index6, whose modulus is7!, to6.
+- `SuggestedKubertCartanProfiniteTests.new_prime_is_removed_by_original_reduction` (compatibility): Reduction from6 to3 removes the actual prime2 coordinate and preserves the original prime3 coordinate.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### All-level projection is the specified original reduction
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-apply` — `DirichletPadic.kubertCartanLimitProjection_apply`
+
+For an actual compatible family x and positive N, q_N(x) is its original coordinate at index N reduced from (N+1)! to N.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Unfold only the concrete projection and evaluate its composition.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanLimitProjection_apply_typed_api` (compatibility): For an actual compatible family x and positive N, q_N(x) is its original coordinate at index N reduced from (N+1)! to N.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Every original divisibility transition preserves the limit projections
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-reduction` — `DirichletPadic.kubertCartanLimitProjection_reduction`
+
+If M divides N, the original Cartan reduction U(k,N)→U(k,M) composed with q_N equals q_M as actual group homomorphisms.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Positive divisibility gives M≤N, hence the native opposite-category arrow from index N to M.
+2. Use the original compatible-family condition on this arrow.
+3. Apply the already proved actual reduction-composition law on both paths from (N+1)! to M.
+4. Their divisibility witnesses are proof irrelevant, giving equality on the same original points.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-apply`, `mathlib:CategoryTheory.homOfLE`, `mathlib:Nat.factorial_dvd_factorial`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-comp`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanLimitProjection_reduction_typed_api` (compatibility): If M divides N, the original Cartan reduction U(k,N)→U(k,M) composed with q_N equals q_M as actual group homomorphisms.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The native limit comparison preserves every original finite projection
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-to-profinite-limit` — `DirichletPadic.kubertCartanLimitProjection_toProfiniteLimit`
+
+For every positive N, q_N composed with T is the original full-Witt Cartan projection at N.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Evaluate T at index N.
+2. Use the established full-Witt projection compatibility for the original reduction from (N+1)! to N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-apply`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanLimitProjection_toProfiniteLimit_typed_api` (compatibility): For every positive N, q_N composed with T is the original full-Witt Cartan projection at N.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### All-level projection recovers the original factorial coordinate
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-factorial` — `DirichletPadic.kubertCartanLimitProjection_factorial`
+
+For every natural n and actual x in L(k), projection q_F(n)(x) equals x at index n, despite its definition using the larger index F(n).
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Native self_le_factorial implies n≤(n+1)!.
+2. Apply the native compatible-family condition to the corresponding original opposite-category arrow.
+3. Both sides use the same actual reduction from (F(n)+1)! to F(n).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-apply`, `mathlib:Nat.self_le_factorial`, `mathlib:CategoryTheory.homOfLE`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanLimitProjection_factorial_typed_api` (compatibility): For every natural n and actual x in L(k), projection q_F(n)(x) equals x at index n, despite its definition using the larger index F(n).
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Reconstruction of the original full-Witt tuple from the native limit
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit` — `DirichletPadic.kubertCartanFromProfiniteLimit`
+
+Construct S:L(k)→V(k) by applying the established actual Cartan group lift to the family of all q_N and its proved divisibility compatibility.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use q_N as the actual finite Cartan homomorphisms from the native limit group.
+2. Their proved compatibility satisfies exactly the hypotheses of the existing consumer Cartan group-lift construction.
+3. Apply that lift without an assumed inverse-limit equivalence, torsor or local-field identification.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-reduction`, `DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanFromProfiniteLimit_projection` (compatibility): For every positive N, the original full-Witt projection composed with S equals q_N.
+- `kubertCartanFromProfiniteLimit_toProfiniteLimit` (compatibility): For every x in V(k), S(T(x))=x.
+- `kubertCartanToProfiniteLimit_fromProfiniteLimit` (compatibility): For every actual x in L(k), T(S(x))=x.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanFromProfiniteLimit_identity` (degenerate): The actual comparison map preserves the identity.
+- `SuggestedKubertCartanProfiniteTests.cartanFromProfiniteLimit_multiplication` (compatibility): The actual comparison map preserves multiplication of original points.
+- `SuggestedKubertCartanProfiniteTests.actual_limit_lift_at_modulus12` (characterisation): The reconstructed full-Witt tuple recovers the original modulus12 projection of the compatible family.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The reconstructed full-Witt tuple has the original finite projections
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-projection` — `DirichletPadic.kubertCartanFromProfiniteLimit_projection`
+
+For every positive N, the original full-Witt projection composed with S equals q_N.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Apply the established projection law of the actual Cartan group lift to this concrete compatible family.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit`, `DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-group-lift-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanFromProfiniteLimit_projection_typed_api` (compatibility): For every positive N, the original full-Witt projection composed with S equals q_N.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Reconstruction recovers every original full-Witt unit tuple
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-to-profinite-limit` — `DirichletPadic.kubertCartanFromProfiniteLimit_toProfiniteLimit`
+
+For every x in V(k), S(T(x))=x.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Compare every original finite Cartan projection.
+2. Use the inverse reconstruction projection law and the forward finite-projection equality.
+3. Apply joint injectivity of the original full-Witt finite projections.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-projection`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-to-profinite-limit`, `DirichletPadicLFunctions:L3/kubert-cartan-group-limit-cartan-witt-product-projection-jointly-injective`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanFromProfiniteLimit_toProfiniteLimit_typed_api` (compatibility): For every x in V(k), S(T(x))=x.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The reconstructed tuple recovers every original compatible family
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-from-profinite-limit` — `DirichletPadic.kubertCartanToProfiniteLimit_fromProfiniteLimit`
+
+For every actual x in L(k), T(S(x))=x.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use native limit point extensionality at each original factorial index.
+2. The reconstruction projection law reduces the coordinate to q_F(n)(x).
+3. The proved factorial-coordinate recovery identifies this with the original coordinate x_n.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-apply`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-projection`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-factorial`, `mathlib:ProfiniteGrp.limit_ext`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanToProfiniteLimit_fromProfiniteLimit_typed_api` (compatibility): For every actual x in L(k), T(S(x))=x.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual full-Witt Cartan group is the native profinite limit
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv` — `DirichletPadic.kubertCartanProfiniteEquiv`
+
+Package T and S as an actual multiplicative equivalence E:V(k)≃L(k), with the proved two-sided pointwise inverse identities.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the actual forward and inverse homomorphisms.
+2. Use their two established inverse identities.
+3. Retain the original forward map and its native multiplication law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-to-profinite-limit`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-from-profinite-limit`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanProfiniteEquiv_apply` (compatibility): For x in V(k), the n-th coordinate of E(x) equals the original finite Cartan projection at F(n).
+- `kubertCartanProfiniteEquiv_projection` (compatibility): For x in V(k) and every positive N, q_N(E(x)) equals the original full-Witt projection at N.
+- `kubertCartanProfiniteEquiv_symm_projection` (compatibility): For x in L(k) and every positive N, the original full-Witt projection of E inverse(x) equals q_N(x).
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.actual_full_witt_roundtrip` (characterisation): The inverse equivalence recovers every original full-Witt unit tuple.
+- `SuggestedKubertCartanProfiniteTests.actual_compatible_family_roundtrip` (characterisation): The forward equivalence recovers every original compatible family.
+- `SuggestedKubertCartanProfiniteTests.equivalence_original_finite_projection` (compatibility): The equivalence preserves the original finite Cartan projection at modulus12.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The limit equivalence has the original factorial coordinates
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv-apply` — `DirichletPadic.kubertCartanProfiniteEquiv_apply`
+
+For x in V(k), the n-th coordinate of E(x) equals the original finite Cartan projection at F(n).
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Evaluate the equivalence and its original forward homomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-to-profinite-limit-apply`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanProfiniteEquiv_apply_typed_api` (compatibility): For x in V(k), the n-th coordinate of E(x) equals the original finite Cartan projection at F(n).
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The limit equivalence preserves every positive finite level
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv-projection` — `DirichletPadic.kubertCartanProfiniteEquiv_projection`
+
+For x in V(k) and every positive N, q_N(E(x)) equals the original full-Witt projection at N.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Apply the forward all-level projection law to the same original x.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-to-profinite-limit`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanProfiniteEquiv_projection_typed_api` (compatibility): For x in V(k) and every positive N, q_N(E(x)) equals the original full-Witt projection at N.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The inverse equivalence preserves every positive finite level
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv-symm-projection` — `DirichletPadic.kubertCartanProfiniteEquiv_symm_projection`
+
+For x in L(k) and every positive N, the original full-Witt projection of E inverse(x) equals q_N(x).
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Apply the reconstruction all-level projection law to the same compatible family.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanProfiniteEquiv_symm_projection_typed_api` (compatibility): For x in L(k) and every positive N, the original full-Witt projection of E inverse(x) equals q_N(x).
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The profinite topology on the actual full-Witt Cartan group
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology` — `DirichletPadic.kubertCartanTopology`
+
+Equip the original group V(k) with the topology induced by E from the existing native profinite limit L(k). Its underlying group and original prime-coordinate unit tuples do not change.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the actual proved group equivalence to the native limit.
+2. Apply the existing native induced-topology construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv`, `mathlib:TopologicalSpace.induced`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanTopology_isTopologicalGroup` (compatibility): The induced topology on V(k), together with its original group law, has continuous multiplication and inversion.
+- `kubertCartanTopology_compactSpace` (compatibility): V(k) with the specified induced topology is compact.
+- `kubertCartanTopology_totallyDisconnectedSpace` (compatibility): V(k) with the specified induced topology is totally disconnected.
+- `kubertCartanTopology_t2Space` (compatibility): V(k) with the specified Cartan topology is Hausdorff, so distinct original full-Witt unit tuples remain distinct topological points.
+- `kubertCartanWittProductProjection_continuous` (compatibility): For every positive N, the original full-Witt Cartan projection V(k)→U(k,N) is continuous for the specified induced topology and the native finite discrete topology.
+- `kubertCartanTopology_continuous_iff` (compatibility): For any topological space X and map f:X→V(k), f is continuous for the specified Cartan topology if and only if its composite with every original finite Cartan projection at positive N is continuous into the original finite discrete group.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.actual_topology_compact` (characterisation): The induced topology on the actual full-Witt unit product is compact.
+- `SuggestedKubertCartanProfiniteTests.actual_topology_hausdorff` (characterisation): The actual topology separates distinct full-Witt unit tuples.
+- `SuggestedKubertCartanProfiniteTests.actual_topology_original_level12_continuity` (compatibility): The original level12 projection is continuous into the actual finite discrete group.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual Cartan limit comparison is a continuous group equivalence
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv` — `DirichletPadic.kubertCartanProfiniteContinuousEquiv`
+
+With the specified induced topology on V(k), E is a native ContinuousMulEquiv to L(k), with the same original forward and inverse values.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. The topology was induced by the actual equivalence, so that equivalence is inducing.
+2. Use native Equiv.toHomeomorphOfIsInducing to obtain continuity in both directions.
+3. Retain the established original multiplication law in the native ContinuousMulEquiv structure.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology`, `mathlib:Equiv.toHomeomorphOfIsInducing`, `mathlib:ContinuousMulEquiv`.
+
+**Uses:**
+
+- Kubert186, finite Cartan system and equation(2.5): Keeps the actual finite unit tuples, original reductions and full product in one native profinite construction.
+- Kubert187, common Cartan action on finite group rings: Makes each original finite projection a continuous quotient map from the same concrete common Cartan group.
+- Native continuity and reconstruction API: Checks original points and every positive modulus, rather than assuming an unspecified inverse-limit or torsor identification.
+
+**API:**
+
+- `kubertCartanWittProductProjection_continuous` (compatibility): For every positive N, the original full-Witt Cartan projection V(k)→U(k,N) is continuous for the specified induced topology and the native finite discrete topology.
+- `kubertCartanTopology_continuous_iff` (compatibility): For any topological space X and map f:X→V(k), f is continuous for the specified Cartan topology if and only if its composite with every original finite Cartan projection at positive N is continuous into the original finite discrete group.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.continuous_equivalence_same_actual_map` (compatibility): The continuous equivalence retains the same actual algebraic map.
+- `SuggestedKubertCartanProfiniteTests.continuous_equivalence_same_inverse` (compatibility): The continuous inverse reconstructs the same original full-Witt tuple.
+- `SuggestedKubertCartanProfiniteTests.continuous_equivalence_identity` (degenerate): The continuous equivalence preserves the actual identity point.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual Cartan topology is a topological group
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology-is-topological-group` — `DirichletPadic.kubertCartanTopology_isTopologicalGroup`
+
+The induced topology on V(k), together with its original group law, has continuous multiplication and inversion.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Apply the native isTopologicalGroup_induced theorem to the actual group equivalence into the native profinite limit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology`, `mathlib:isTopologicalGroup_induced`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanTopology_isTopologicalGroup_typed_api` (compatibility): The induced topology on V(k), together with its original group law, has continuous multiplication and inversion.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual Cartan topology is compact
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology-compact-space` — `DirichletPadic.kubertCartanTopology_compactSpace`
+
+V(k) with the specified induced topology is compact.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the native compactness of the profinite limit.
+2. Transport compactness through the inverse of the proved actual homeomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv`, `mathlib:Homeomorph.compactSpace`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanTopology_compactSpace_typed_api` (compatibility): V(k) with the specified induced topology is compact.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual Cartan topology is totally disconnected
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology-totally-disconnected-space` — `DirichletPadic.kubertCartanTopology_totallyDisconnectedSpace`
+
+V(k) with the specified induced topology is totally disconnected.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the native total disconnectedness of the profinite limit.
+2. Transport it through the inverse of the actual homeomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv`, `mathlib:Homeomorph.totallyDisconnectedSpace`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanTopology_totallyDisconnectedSpace_typed_api` (compatibility): V(k) with the specified induced topology is totally disconnected.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### All original finite projections of the native limit are continuous
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-continuous` — `DirichletPadic.kubertCartanLimitProjection_continuous`
+
+For every positive N, q_N is continuous from L(k) to the original finite Cartan group U(k,N) with its native discrete topology.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Use the native continuous limit-cone projection at index N.
+2. Use the native finite-group embedding to make the original reduction from (N+1)! to N a continuous group homomorphism.
+3. Compose these existing native continuous maps; their underlying map is exactly q_N.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection`, `mathlib:ProfiniteGrp.limitCone`, `mathlib:ProfiniteGrp.ofFiniteGrpHom`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanLimitProjection_continuous_typed_api` (compatibility): For every positive N, q_N is continuous from L(k) to the original finite Cartan group U(k,N) with its native discrete topology.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Every original full-Witt finite projection is continuous
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-witt-product-projection-continuous` — `DirichletPadic.kubertCartanWittProductProjection_continuous`
+
+For every positive N, the original full-Witt Cartan projection V(k)→U(k,N) is continuous for the specified induced topology and the native finite discrete topology.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Compose the continuous limit equivalence with the continuous all-level limit projection.
+2. Use the exact equality with the original finite Cartan projection.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-limit-projection-continuous`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-equiv-projection`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanWittProductProjection_continuous_typed_api` (compatibility): For every positive N, the original full-Witt Cartan projection V(k)→U(k,N) is continuous for the specified induced topology and the native finite discrete topology.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### Continuity into the actual Cartan group is detected at all finite levels
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology-continuous-iff` — `DirichletPadic.kubertCartanTopology_continuous_iff`
+
+For any topological space X and map f:X→V(k), f is continuous for the specified Cartan topology if and only if its composite with every original finite Cartan projection at positive N is continuous into the original finite discrete group.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. The forward implication composes with the proved continuous original projections.
+2. For the reverse implication, restrict the given continuity statements to actual factorial levels.
+3. Use native product and subtype continuity to obtain the original compatible-family map T composed with f.
+4. Compose with the inverse actual homeomorphism and use its proved original-point inverse identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-witt-product-projection-continuous`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv`, `DirichletPadicLFunctions:L3/kubert-profinite-cartan-from-profinite-limit-to-profinite-limit`, `mathlib:continuous_pi`, `mathlib:Continuous.subtype_mk`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanTopology_continuous_iff_typed_api` (compatibility): For any topological space X and map f:X→V(k), f is continuous for the specified Cartan topology if and only if its composite with every original finite Cartan projection at positive N is continuous into the original finite discrete group.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+### The actual Cartan topology is Hausdorff
+
+`DirichletPadicLFunctions:L3/kubert-profinite-cartan-topology-t2-space` — `DirichletPadic.kubertCartanTopology_t2Space`
+
+V(k) with the specified Cartan topology is Hausdorff, so distinct original full-Witt unit tuples remain distinct topological points.
+
+**Hypotheses:** The degree k and every finite Cartan modulus N are positive integers. U(k,N) is the actual product, over the original primes p dividing N, of units in TruncatedWittVector p v_p(N) (GaloisField p k). V(k) is the actual product over all native primes of units in WittVector p (GaloisField p k). The existing actual finite reductions and full-Witt projections retain their prime coordinates and native factorization exponents. The diagram has index category the opposite of the native natural-number preorder and modulus F(n)=(n+1)!. Finite groups carry their native discrete profinite topology. The inverse limit, compatible-family subgroup, compactness and generic topological-group machinery are native Mathlib objects, not new generic constructions. No unramified local field, primitive-point torsor or source rank statement is assumed. FF.4 continues to own the finite Galois rings and their generic unit, presentation and locality theory. The topology here is on the actual full-Witt Cartan unit product.
+
+**Proof:**
+
+1. Transport the native limit Hausdorff structure through the inverse of the actual homeomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-profinite-cartan-profinite-continuous-equiv`, `mathlib:Homeomorph.t2Space`.
+
+**Tests:**
+
+- `SuggestedKubertCartanProfiniteTests.cartanTopology_t2Space_typed_api` (compatibility): V(k) with the specified Cartan topology is Hausdorff, so distinct original full-Witt unit tuples remain distinct topological points.
+
+**Acceptance:** Retain the same original unit tuples and finite reduction maps at every positive modulus, including modulus1 and transitions that remove primes. The factorial arrow from index3 to1 reduces modulus24 to2. A powers-of-two tower cannot recover modulus3. The native limit equivalence must recover original points in both directions, and continuity must be characterized by all original finite projections.
+
+**Source:** Published186, the projective system of finite Cartan groups and equation(2.5);187, the common Cartan action on finite group rings. Constructs the profinite topology and actual inverse-limit identification for the full-Witt model of the consumer Cartan groups, using existing native profinite group limits. General-degree unramified integer-ring and primitive-point comparisons remain distinct open bridges.
+
+**Remaining:** The actual full-Witt Cartan unit product now has a compact Hausdorff totally disconnected group topology, an actual continuous multiplicative equivalence with the existing native profinite limit of its finite groups, and continuity detected by all original finite projections. Next compare the degree-one equivalence with the existing p-adic unit product topology and carry the actual finite Cartan model to primitive-torus coordinates through the FF.4-owned finite-ring interface. General-degree unramified integer-ring identification, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns finite Galois rings and their generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.
+
+### The actual Cartan profinite topology validation
+
+All 1748 predecessor nodes, 1148 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 28 nodes, 28 named suggested declarations and 46 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2038 reachable nodes, 8604 edges and 1340 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the already established actual Cartan reductions, projections and group lift, the exact FF.4 finite-ring object or existing native finite groups, profinite limits and topology. No supplier-stage leaf or assumed inverse-limit/torsor bridge is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3648 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5484 verbatim and adds nine concrete constructions and19 complete lemmas. Totals are124 definitions and1,127 lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append has28 named declarations and46 typed tests. Its native carrier expressions and functor object/map fields remain explicit so dependent signatures retain their actual types; all new mathematical proof obligations are placeholders and every implementation status is unchecked. The separate probe compiles against 3030 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact finite degree-one unit controls cover seven factorial moduli through5040, all1,152 units at the upper modulus,32,256 diagram transitions,96,768 compositions,6,912 original projection comparisons and16,128 all-level reductions. The powers-of-two nonexample detects a tower that omits the actual modulus3. These controls do not certify topology or an infinite limit; the complete native Lean proof checks those statements on the actual carriers. Exact Python integer arithmetic on degree-one unit residues at factorial moduli1,2,6,24,120,720,5040, with every unit at the upper modulus. Checks all displayed diagram arrows/compositions and recovery of original reductions at moduli1 through6. These finite controls do not certify an infinite limit, a topology or a general-degree local-field comparison; the complete Lean probe supplies the actual native limit and continuity proofs. The largest observed discrepancy is 0.
+
+After actual merge5484, all77 guarded inputs and four predecessor outputs remain unchanged, including policy, audited library coverage, owner packets and source registers. The issue body, original winning claim and blocked unclaimed review390 remain unchanged. The five-layer reviewed library audit and the new native profinite inputs were read. No new source finding, independent review verdict or supplier request is introduced.
+
+The separate partial signature file also compiled with zero errors and 5,368 expected placeholder warnings across 3,644 pinned source modules. It includes all 28 new named declarations and 46 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 414bb51fa292c56eec42c343da47d1f04272552f35782e3f64cd370feef2ae11.

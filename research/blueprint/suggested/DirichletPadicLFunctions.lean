@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.Category.ProfiniteGrp.Basic
+import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.RingTheory.WittVector.Compare
 import Mathlib.RingTheory.WittVector.Teichmuller
 import Mathlib.Algebra.Group.Pi.Units
@@ -26308,3 +26310,263 @@ example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ
 example (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanWittProductProjection 1 12 x=kubertCartanWittProductProjection 1 12 y ↔ ∀ p : ((12 : ℕ+) : ℕ).primeFactors,Units.map (PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=Units.map (PadicInt.toZModPow (((12 : ℕ+) : ℕ).factorization p.val)).toMonoidHom (kubertCartanDegreeOnePadicUnitsEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanPadicComparisonTests
+
+/- Actual Cartan profinite topology, using the existing native finite-group and limit carriers. The three carrier expressions and functor object/map fields are explicit so dependent signatures retain their original types; all new mathematical proof obligations remain placeholders. -/
+namespace DirichletPadic
+open scoped Classical
+open CategoryTheory Opposite
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanFiniteGroup (k N : ℕ+) : FiniteGrp := by
+  let _ (p : (N : ℕ).primeFactors) : Fintype (GaloisField p.val (k : ℕ)) :=
+    Fintype.ofFinite _
+  exact FiniteGrp.of (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)
+
+noncomputable def kubertCartanFactorialDiagram (k : ℕ+) : ℕᵒᵖ ⥤ FiniteGrp where
+  obj n := kubertCartanFiniteGroup k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+)
+  map {m n} f := InducedCategory.homMk (GrpCat.ofHom
+    (kubertCartanProductReduction k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) (⟨Nat.factorial (m.unop + 1), Nat.factorial_pos _⟩ : ℕ+)
+      (Nat.factorial_dvd_factorial (Nat.succ_le_succ (leOfHom f.unop)))))
+  map_id _ := by sorry
+  map_comp _ _ := by sorry
+
+lemma kubertCartanFactorialDiagram_map_apply (k : ℕ+) {m n : ℕᵒᵖ} (f : m ⟶ n)
+    (x : (kubertCartanFactorialDiagram k).obj m) :
+    (kubertCartanFactorialDiagram k).map f x =
+      kubertCartanProductReduction k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) (⟨Nat.factorial (m.unop + 1), Nat.factorial_pos _⟩ : ℕ+)
+        (Nat.factorial_dvd_factorial (Nat.succ_le_succ (leOfHom f.unop))) x := by sorry
+
+noncomputable def kubertCartanProfiniteLimit (k : ℕ+) : ProfiniteGrp :=
+  ProfiniteGrp.limit (kubertCartanFactorialDiagram k ⋙ forget₂ FiniteGrp ProfiniteGrp)
+
+noncomputable def kubertCartanToProfiniteLimit (k : ℕ+) : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) →* kubertCartanProfiniteLimit k := by sorry
+
+lemma kubertCartanToProfiniteLimit_apply (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (n : ℕᵒᵖ) :
+    (kubertCartanToProfiniteLimit k x).val n =
+      kubertCartanWittProductProjection k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) x := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open CategoryTheory Opposite
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanLimitProjection (k N : ℕ+) : kubertCartanProfiniteLimit k →* (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanLimitProjection_apply (k N : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanLimitProjection k N x = kubertCartanProductReduction k N (⟨Nat.factorial ((N : ℕ) + 1), Nat.factorial_pos _⟩ : ℕ+)
+      (Nat.dvd_factorial N.pos (Nat.le_succ _)) (x.val (op (N : ℕ))) := by sorry
+
+lemma kubertCartanLimitProjection_reduction (k M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductReduction k M N hMN).comp (kubertCartanLimitProjection k N)=
+      kubertCartanLimitProjection k M := by sorry
+
+lemma kubertCartanLimitProjection_toProfiniteLimit (k N : ℕ+) :
+    (kubertCartanLimitProjection k N).comp (kubertCartanToProfiniteLimit k)=
+      kubertCartanWittProductProjection k N := by sorry
+
+lemma kubertCartanLimitProjection_factorial (k : ℕ+) (n : ℕ) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanLimitProjection k (⟨Nat.factorial (n + 1), Nat.factorial_pos _⟩ : ℕ+) x=x.val (op n) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open CategoryTheory Opposite
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertCartanFromProfiniteLimit (k : ℕ+) : kubertCartanProfiniteLimit k →* (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanFromProfiniteLimit_projection (k N : ℕ+) :
+    (kubertCartanWittProductProjection k N).comp (kubertCartanFromProfiniteLimit k)=
+      kubertCartanLimitProjection k N := by sorry
+
+lemma kubertCartanFromProfiniteLimit_toProfiniteLimit (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanFromProfiniteLimit k (kubertCartanToProfiniteLimit k x)=x := by sorry
+
+lemma kubertCartanToProfiniteLimit_fromProfiniteLimit (k : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanToProfiniteLimit k (kubertCartanFromProfiniteLimit k x)=x := by sorry
+
+noncomputable def kubertCartanProfiniteEquiv (k : ℕ+) : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) ≃* kubertCartanProfiniteLimit k := by sorry
+
+lemma kubertCartanProfiniteEquiv_apply (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (n : ℕᵒᵖ) :
+    (kubertCartanProfiniteEquiv k x).val n=kubertCartanWittProductProjection k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) x := by sorry
+
+lemma kubertCartanProfiniteEquiv_projection (k N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitProjection k N (kubertCartanProfiniteEquiv k x)=kubertCartanWittProductProjection k N x := by sorry
+
+lemma kubertCartanProfiniteEquiv_symm_projection (k N : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanWittProductProjection k N ((kubertCartanProfiniteEquiv k).symm x)=
+      kubertCartanLimitProjection k N x := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open CategoryTheory Opposite
+open DirichletPadic DirichletPadic DirichletPadic
+
+@[instance_reducible]
+noncomputable def kubertCartanTopology (k : ℕ+) : TopologicalSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+noncomputable def kubertCartanProfiniteContinuousEquiv (k : ℕ+) :
+    @ContinuousMulEquiv (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) (kubertCartanProfiniteLimit k) inferInstance _ _ := by sorry
+
+lemma kubertCartanTopology_isTopologicalGroup (k : ℕ+) :
+    @IsTopologicalGroup (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) inferInstance := by sorry
+
+lemma kubertCartanTopology_compactSpace (k : ℕ+) :
+    @CompactSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+
+lemma kubertCartanTopology_totallyDisconnectedSpace (k : ℕ+) :
+    @TotallyDisconnectedSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+
+lemma kubertCartanLimitProjection_continuous (k N : ℕ+) :
+    @Continuous (kubertCartanProfiniteLimit k) (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+      inferInstance inferInstance (kubertCartanLimitProjection k N) := by sorry
+
+lemma kubertCartanWittProductProjection_continuous (k N : ℕ+) :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+      (kubertCartanTopology k) inferInstance (kubertCartanWittProductProjection k N) := by sorry
+
+lemma kubertCartanTopology_continuous_iff {X : Type*} [TopologicalSpace X] (k : ℕ+) (f : X → (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    @Continuous X (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) inferInstance (kubertCartanTopology k) f ↔
+      ∀ N : ℕ+, @Continuous X (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+        inferInstance inferInstance (fun x => kubertCartanWittProductProjection k N (f x)) := by sorry
+
+lemma kubertCartanTopology_t2Space (k : ℕ+) :
+    @T2Space (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanProfiniteTests
+open scoped Classical
+open CategoryTheory Opposite
+noncomputable section
+-- finite_group_original_carrier
+example (k N : ℕ+) : (kubertCartanFiniteGroup k N : Type)=(∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+-- finite_group_unit_level
+example (k : ℕ+) (x : kubertCartanFiniteGroup k 1) : x=1 := by sorry
+-- finite_group_original_inverse
+example (k : ℕ+) (x : kubertCartanFiniteGroup k 12) (p : ((12 : ℕ+) : ℕ).primeFactors) : (x⁻¹ p)=(x p)⁻¹ := by sorry
+-- factorial_diagram_zero_is_level_one
+example (k : ℕ+) : (kubertCartanFactorialDiagram k).obj (op 0)=kubertCartanFiniteGroup k 1 := by sorry
+-- factorial_diagram_three_to_one
+example (k : ℕ+) (x : kubertCartanFiniteGroup k 24) : (kubertCartanFactorialDiagram k).map (homOfLE (show (1 : ℕ) ≤ 3 by decide)).op x=kubertCartanProductReduction k 2 24 (by decide) x := by sorry
+-- factorial_diagram_composition
+example (k : ℕ+) {a b c : ℕᵒᵖ} (f : a ⟶ b) (g : b ⟶ c) : (kubertCartanFactorialDiagram k).map (f ≫ g)=(kubertCartanFactorialDiagram k).map f ≫ (kubertCartanFactorialDiagram k).map g := by sorry
+-- native_profinite_limit_is_used
+example (k : ℕ+) : kubertCartanProfiniteLimit k=ProfiniteGrp.limit (kubertCartanFactorialDiagram k ⋙ forget₂ FiniteGrp ProfiniteGrp) := by sorry
+-- native_limit_unit_coordinate
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : x.val (op 0)=1 := by sorry
+-- native_limit_actual_compatibility
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanProductReduction k 2 24 (by decide) (x.val (op 3))=x.val (op 1) := by sorry
+-- cartanToProfiniteLimit_identity
+example (k : ℕ+) : kubertCartanToProfiniteLimit k 1=1 := by sorry
+-- cartanToProfiniteLimit_multiplication
+example (k : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanToProfiniteLimit k (x*y)=(kubertCartanToProfiniteLimit k x)*(kubertCartanToProfiniteLimit k y) := by sorry
+-- full_witt_to_actual_modulus24
+example (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : (kubertCartanToProfiniteLimit k x).val (op 3)=kubertCartanWittProductProjection k 24 x := by sorry
+-- cartanFromProfiniteLimit_identity
+example (k : ℕ+) : kubertCartanFromProfiniteLimit k 1=1 := by sorry
+-- cartanFromProfiniteLimit_multiplication
+example (k : ℕ+) (x y : kubertCartanProfiniteLimit k) : kubertCartanFromProfiniteLimit k (x*y)=(kubertCartanFromProfiniteLimit k x)*(kubertCartanFromProfiniteLimit k y) := by sorry
+-- actual_limit_lift_at_modulus12
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanWittProductProjection k 12 (kubertCartanFromProfiniteLimit k x)=kubertCartanLimitProjection k 12 x := by sorry
+-- all_level_projection_at_unit
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanLimitProjection k 1 x=1 := by sorry
+-- all_level_projection_uses_factorial_upper
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanLimitProjection k 6 x=kubertCartanProductReduction k 6 (⟨Nat.factorial (6 + 1), Nat.factorial_pos _⟩ : ℕ+) (by decide) (x.val (op 6)) := by sorry
+-- new_prime_is_removed_by_original_reduction
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanProductReduction k 3 6 (by decide) (kubertCartanLimitProjection k 6 x)=kubertCartanLimitProjection k 3 x := by sorry
+-- actual_full_witt_roundtrip
+example (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : (kubertCartanProfiniteEquiv k).symm (kubertCartanProfiniteEquiv k x)=x := by sorry
+-- actual_compatible_family_roundtrip
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : kubertCartanProfiniteEquiv k ((kubertCartanProfiniteEquiv k).symm x)=x := by sorry
+-- equivalence_original_finite_projection
+example (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanLimitProjection k 12 (kubertCartanProfiniteEquiv k x)=kubertCartanWittProductProjection k 12 x := by sorry
+-- actual_topology_compact
+example (k : ℕ+) : @CompactSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+-- actual_topology_hausdorff
+example (k : ℕ+) : @T2Space (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+-- actual_topology_original_level12_continuity
+example (k : ℕ+) : @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k 12)) (kubertCartanTopology k) inferInstance (kubertCartanWittProductProjection k 12) := by sorry
+-- continuous_equivalence_same_actual_map
+example (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanProfiniteContinuousEquiv k x=kubertCartanProfiniteEquiv k x := by sorry
+-- continuous_equivalence_same_inverse
+example (k : ℕ+) (x : kubertCartanProfiniteLimit k) : (let _ := kubertCartanTopology k; (kubertCartanProfiniteContinuousEquiv k).symm x)=kubertCartanFromProfiniteLimit k x := by sorry
+-- continuous_equivalence_identity
+example (k : ℕ+) : kubertCartanProfiniteContinuousEquiv k 1=1 := by sorry
+-- cartanFactorialDiagram_map_apply_typed_api
+example  (k : ℕ+) {m n : ℕᵒᵖ} (f : m ⟶ n)
+    (x : (kubertCartanFactorialDiagram k).obj m) :
+    (kubertCartanFactorialDiagram k).map f x =
+      kubertCartanProductReduction k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) (⟨Nat.factorial (m.unop + 1), Nat.factorial_pos _⟩ : ℕ+)
+        (Nat.factorial_dvd_factorial (Nat.succ_le_succ (leOfHom f.unop))) x := by sorry
+-- cartanToProfiniteLimit_apply_typed_api
+example  (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (n : ℕᵒᵖ) :
+    (kubertCartanToProfiniteLimit k x).val n =
+      kubertCartanWittProductProjection k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) x := by sorry
+-- cartanLimitProjection_apply_typed_api
+example  (k N : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanLimitProjection k N x = kubertCartanProductReduction k N (⟨Nat.factorial ((N : ℕ) + 1), Nat.factorial_pos _⟩ : ℕ+)
+      (Nat.dvd_factorial N.pos (Nat.le_succ _)) (x.val (op (N : ℕ))) := by sorry
+-- cartanLimitProjection_reduction_typed_api
+example  (k M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) :
+    (kubertCartanProductReduction k M N hMN).comp (kubertCartanLimitProjection k N)=
+      kubertCartanLimitProjection k M := by sorry
+-- cartanLimitProjection_toProfiniteLimit_typed_api
+example  (k N : ℕ+) :
+    (kubertCartanLimitProjection k N).comp (kubertCartanToProfiniteLimit k)=
+      kubertCartanWittProductProjection k N := by sorry
+-- cartanLimitProjection_factorial_typed_api
+example  (k : ℕ+) (n : ℕ) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanLimitProjection k (⟨Nat.factorial (n + 1), Nat.factorial_pos _⟩ : ℕ+) x=x.val (op n) := by sorry
+-- cartanFromProfiniteLimit_projection_typed_api
+example  (k N : ℕ+) :
+    (kubertCartanWittProductProjection k N).comp (kubertCartanFromProfiniteLimit k)=
+      kubertCartanLimitProjection k N := by sorry
+-- cartanFromProfiniteLimit_toProfiniteLimit_typed_api
+example  (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanFromProfiniteLimit k (kubertCartanToProfiniteLimit k x)=x := by sorry
+-- cartanToProfiniteLimit_fromProfiniteLimit_typed_api
+example  (k : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanToProfiniteLimit k (kubertCartanFromProfiniteLimit k x)=x := by sorry
+-- cartanProfiniteEquiv_apply_typed_api
+example  (k : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) (n : ℕᵒᵖ) :
+    (kubertCartanProfiniteEquiv k x).val n=kubertCartanWittProductProjection k (⟨Nat.factorial (n.unop + 1), Nat.factorial_pos _⟩ : ℕ+) x := by sorry
+-- cartanProfiniteEquiv_projection_typed_api
+example  (k N : ℕ+) (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitProjection k N (kubertCartanProfiniteEquiv k x)=kubertCartanWittProductProjection k N x := by sorry
+-- cartanProfiniteEquiv_symm_projection_typed_api
+example  (k N : ℕ+) (x : kubertCartanProfiniteLimit k) :
+    kubertCartanWittProductProjection k N ((kubertCartanProfiniteEquiv k).symm x)=
+      kubertCartanLimitProjection k N x := by sorry
+-- cartanTopology_isTopologicalGroup_typed_api
+example  (k : ℕ+) :
+    @IsTopologicalGroup (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) inferInstance := by sorry
+-- cartanTopology_compactSpace_typed_api
+example  (k : ℕ+) :
+    @CompactSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+-- cartanTopology_totallyDisconnectedSpace_typed_api
+example  (k : ℕ+) :
+    @TotallyDisconnectedSpace (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+-- cartanLimitProjection_continuous_typed_api
+example  (k N : ℕ+) :
+    @Continuous (kubertCartanProfiniteLimit k) (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+      inferInstance inferInstance (kubertCartanLimitProjection k N) := by sorry
+-- cartanWittProductProjection_continuous_typed_api
+example  (k N : ℕ+) :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+      (kubertCartanTopology k) inferInstance (kubertCartanWittProductProjection k N) := by sorry
+-- cartanTopology_continuous_iff_typed_api
+example  {X : Type*} [TopologicalSpace X] (k : ℕ+) (f : X → (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ)) :
+    @Continuous X (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) inferInstance (kubertCartanTopology k) f ↔
+      ∀ N : ℕ+, @Continuous X (ProfiniteGrp.ofFiniteGrp (kubertCartanFiniteGroup k N))
+        inferInstance inferInstance (fun x => kubertCartanWittProductProjection k N (f x)) := by sorry
+-- cartanTopology_t2Space_typed_api
+example  (k : ℕ+) :
+    @T2Space (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanProfiniteTests
