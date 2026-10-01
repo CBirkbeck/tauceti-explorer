@@ -23657,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -38614,7 +38614,8 @@
     "REV-PAPER-CANNING-LARSON-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4217"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-23",
@@ -38659,7 +38660,8 @@
     "REV-PAPER-BHATT-MATHEW-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4219"
   },
   {
    "id": "RT-PAPER-ANSCHUTZ-LEBRAS-23",
