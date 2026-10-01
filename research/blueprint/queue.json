@@ -35362,7 +35362,8 @@
     "REV-PAPER-YUAN-ZHANG-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4103"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -39843,7 +39844,8 @@
     "REV-PAPER-CLAUSEN-MATHEW-MORROW-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4263"
   },
   {
    "id": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
