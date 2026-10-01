@@ -1,0 +1,82 @@
+{
+  "redteam": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+  "summary": "Six findings: five high and one medium. The published central-extension description loses base action and Galois descent; the character count omits stabilizer weights; the explicit Tate pairing has a quadratic counterexample; the Galois-isomorphism refinement has an unrecorded purity-to-semisimplicity gap; and accepted corrections remain unapplied in active item statements. The report does not disprove the main mirror-symmetry theorem.",
+  "checked": [
+    "Independence: extraction by Claude Code cc-39fac3 (#1292), accepted review by Claude Code cc-d67081 (#1293); neither is this worker Codex codex-rtOQ9t. Read the full claimed issue #4170 and both target deliverables, review JSON and review report.",
+    "Read the complete 92-page version-of-record PDF, journal pp. 505–596, downloaded 2026-10-01. SHA-256 f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07 matches the extraction's recorded PDF. Visually inspected pp. 516, 517, 523, 525, 526, 531, 589; counterexamples concern the published text, not a preprint substitution.",
+    "Read all 78 item objects, five routes, eleven prerequisite records and twenty existing sourceIssues. Compared section-by-section with the published definitions and theorem statements; traced the gerbe/Tate-duality, orbifold-volume, abstract-mirror and Higgs-application chains. Findings are scoped below; this is not a formal proof of all retained source theorems.",
+    "Rebuilt the free C2-action gerbe counterexample, the R/mu_3 descent obstruction, the B C2 and generically free A^1/C2 point-count examples, the Q_3 ramified quadratic self-pairing, and the pure Jordan-block counterexample. Rechecked the distinction between recorded source corrections and active statement fields.",
+    "Opened at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: MeasureTheory.Measure.haarMeasure, haarMeasure_self and haarMeasure_unique (Haar/Basic.lean), and AddCircle.toCircle with its additive law and injectivity (Complex/Circle.lean). Opened TauCeti.subsingleton_brauerGroup_of_finite at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 (BrauerGroup/Trivial.lean). These are genuine reuse inputs; this spot-check does not certify every unstated bridge in the bundled library items.",
+    "Assembled the atlas at base 5f820d9a788211604a7658489d5f3c48dbb48c4a: 2907 stages and 8322 stage edges. Read LD.2, R02.4, R09.4/R09.5, ET.2b, A2, CP.3, R01.5 and DWP.7 and their available reviewed library-coverage records. Compared the coalesced Part II route with GWZ-20-B; counted routes [4,3,4,23,36] and verified all 70 missing items are routed exactly once. Searched assembled descriptions for overlapping stringy/mirror/gerbe targets; no additional duplication finding established.",
+    "Correction search on 2026-10-01: publisher article page and PDF, Crossref DOI record (relation {}, no update-to or updated-by), arXiv history through v3 dated 2019-10-28, and targeted title/lemma searches. No correction resolving findings 1–5 was located. Attempted Groechenig and Wyss author pages were inaccessible; no exhaustive novelty claim is made. An arXiv v3 PDF was acquired but is not the evidentiary text for this report.",
+    "Applied PROTOCOL §16 extraction granularity: no demand for the proof closure of supplier papers or blueprint-level API/unit tests. No Lean file is a deliverable; no Lean compilation, Lake project, cache download or language server was used."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: item /9(a), /11 proof input, route EndoscopicTransferAndUnitaryTraceComparisonPartII; reader gerbe-classification claims",
+      "claim": "Item /9(a) identifies equivariant structures for an arbitrary action on Y with ordinary central extensions of group schemes over Y. This drops the action on the base. The untwisted extension description is false for nontrivial base actions.",
+      "evidence": "Published Lemma 2.7(a), pp. 516–517, says central extensions are taken with all three groups viewed as smooth group schemes on Y; its displayed multiplication is L_gamma1 tensor L_gamma2 -> L_gamma1gamma2. Take k algebraically closed of characteristic zero, Gamma=C2, Y=Gamma with its free transitive action, and A=mu_2,Y. Then [Y/Gamma]=Spec k and H^2([Y/Gamma],mu_2)=0: only one equivariant gerbe class exists. But ordinary central extensions of (C2)_Y by mu_2,Y give two choices at each of the two points (C4 or C2 x C2), hence four classes. Equivalently H^2(C2,Map(C2,F2))=0 for the permutation action, while the mistaken trivial action gives F2^2. The proof of Lemma 2.9 on pp. 520–521 also uses the untwisted description.",
+      "fix": "Record a new published source error and replace /9(a) by the action-groupoid/descent formulation: use L_gamma tensor gamma^*L_delta -> L_gamma delta with a specified equivariant commutative band. State the ordinary central-extension corollary with trivial base and band actions. Propagate the corrected distinction to /11 and the Part II brief; audit the Lemma 2.9 proof under it without declaring its conclusion false. Retain the trivial-base presentation B_k I for the later cyclic-inertia calculation. The accepted review's E20 presentation caveat does not license ordinary extensions over a nontrivially acted-on base."
+    },
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: item /9(c), sourceIssues, Part II gerbe-classification brief",
+      "claim": "The surjection to Ext^1(Gamma,A_kbar) omits descent of geometric extension classes. H^2(k,A)=0 does not make every geometric extension descend.",
+      "evidence": "Published Lemma 2.7(c), equation (4), p. 516, and the final displayed sequence of its proof, p. 517, end in a surjection onto Ext^1(Gamma,A_kbar), with no Galois invariants. Take k=R, Gamma=C3 acting trivially on Spec R, and A=mu_3. This is a smooth commutative finite étale group, and H^2(R,mu_3)=0. Over C, H^2(C3,mu_3)=Ext^1(C3,mu_3)=C3; conjugation acts as inversion, with no nonzero invariants. Higher cohomology of Gal(C/R)=C2 on a 3-primary module vanishes, so H^2(B_R C3,mu_3)=0. The proposed surjection is therefore 0 -> C3, impossible. The paper assumes A constant only in its additional splitting sentence, not in the preceding assertion.",
+      "fix": "Add this independent source error. For the application to cyclic inertia, state the constant finite étale coefficient case, with trivial base action, where constant extensions provide the split sequence. If general smooth coefficients are retained, supply the Galois-invariant geometric extension term and its actual descent obstruction sequence; merely adding invariants is not a proof of surjectivity. Keep this correction separate from the already recorded E20 misquotation."
+    },
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: item /13(b), sourceIssues, TopologicalMirrorSymmetryForHitchinSystems brief",
+      "claim": "The quotient-stack formula for the character point count lacks division by the automorphism group. It disagrees with the cohomological definition even for the trivial character.",
+      "evidence": "Published Definition 2.14(b), p. 523, equates the alternating Frobenius trace with the unweighted sum over [X/G](F_q)_iso. Item /13 copies that sum. For X=Spec F_3, G=C2 acting trivially and chi=1, the cohomological side is 1. There are two C2-torsor classes over F_3, each with two automorphisms and trace 1. The printed sum is 2; the correct groupoid mass is 1/2+1/2=1. Definition 2.13 on p. 522, Corollary 4.9 on p. 540, and the trace formula on p. 574 already use the correct weights. A generically free control is A^1 over F_3 with the sign action: the unweighted sum is 4 and the weighted/cohomological count is 3.",
+      "fix": "Add /|Aut(x)| to every summand in /13(b), record the omission as a published source error, and make the reader and new-roadmap brief use the weighted convention. Retain the existing cohomological definition and the already weighted stringy formulas. Use B C2 and A^1/C2 as distinguishing examples in the later design."
+    },
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: item /23, sourceIssues, Part II explicit Tate-pairing brief; consumer /78",
+      "claim": "Lemma 3.7's assertion that the second factors of the reciprocity/uniformizer decompositions pair trivially is false for even torsion. Unramified orthogonality does not imply that a chosen complementary subgroup is isotropic.",
+      "evidence": "Published Lemma 3.7, p. 531, says the first factors pair to zero \"and analogously for the second factors\". Take F=Q_3, pi=3, Gamma=C2 and identify Gamma^vee=mu_2 with C2. The Kummer class a=-3 has reciprocity character chi_a(3)=(-3,3)_3=1, so its unramified coordinate in (8) is zero and it lies in the second factor. It is nonzero on mu(F)={+1,-1}, since (-3,-1)_3=-1. Its Tate self-pairing has Hilbert symbol (-3,-3)_3=-1, hence invariant 1/2, not zero. The odd-prime Hilbert formula in Andrew Sutherland, MIT 18.782 Lecture 10, Theorem 10.7, independently gives these three values. A direct norm check gives the same result: N(sqrt(-3))=3, whereas the residue of a norm unit in Q_3(sqrt(-3))/Q_3 is a square in F_3, excluding -1. Every hypothesis of Lemma 3.7 holds, including mu_|Gamma| in F.",
+      "fix": "Record the source error and remove the unconditional second-factor isotropy clause from /23 and the Part II brief. Keep Proposition 3.6, the unramified annihilator statement and the correctly normalized unramified-versus-ramified evaluation used by Lemma 7.25. If a full block formula is needed, include the diagonal term or prove it under explicit extra hypotheses eliminating the 2-primary obstruction. Do not claim this counterexample refutes mirror symmetry or the mixed pairing used in /78."
+    },
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/5",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: item /76 (Theorem 7.23 half), sourceIssues, new-roadmap final target (3); reader fibrewise Galois-isomorphism claim",
+      "claim": "The extraction repeats the step from purity and equal point counts to actual isomorphism of fibrewise Galois representations without the missing arithmetic semisimplicity or geometric isomorphism argument. Purity alone does not justify this step.",
+      "evidence": "Published Theorem 7.23 and its proof, p. 589, conclude \"are abstractly isomorphic\" and then assert that an equality of point counts suffices because the direct-image complexes are pure. On Spec F_q, the continuous representations with Frobenius I_2 and J_2=[[1,1],[0,1]] are both pure of weight zero and have trace 2 on every positive Frobenius power, but are not isomorphic: the ranks of Fr-1 are 0 and 1. This is exactly the pure Jordan-block phenomenon in de Cataldo–Haines–Li, Frobenius semisimplicity for convolution morphisms, Math. Z. 289 (2018), Example 5.1.2, p. 157. It is a counterexample to the inference, not to these particular Hitchin fibres. The imported ArithmeticGaloisRepresentations:R01.5 explicitly assumes semisimplicity. Also, equality of alternating traces first gives a virtual class; cohomological-degree separation needs justification and cannot be silently inferred at singular fibres.",
+      "fix": "Record a published proof gap and distinguish the trace/virtual-character consequence established by Theorem 6.12 from the stronger actual representation target. To retain Theorem 7.23 as a completed proof route, cite or supply a precise arithmetic semisimplicity/degree-separation argument or an independent geometric isomorphism. Otherwise mark that strengthening unresolved in /76, the reader and route brief. Do not assert that Theorem 7.23 or the main mirror-symmetry theorem has been disproved, and do not replace it by an unjustified degreewise semisimplification claim."
+    },
+    {
+      "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/6",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json: statements /15, /16, /25, /36, /40, /50, /66 and proof notes /17, /71; reader sentence \"The items use the corrected statements\"",
+      "claim": "The accepted source corrections are often confined to notes, while active statement fields still contain the known false formulas. This violates PROTOCOL §18 and contradicts the reader's assertion that the items use corrected statements.",
+      "evidence": "Direct JSON inspection: /15(c) retains unrestricted root-choice independence despite E1; /16 retains simultaneous Q_l-valued roots for all r despite E2; /25 retains the false Brauer quotient despite E3; /36 still obtains the inertia generator from a primitive |Gamma|-th root through reciprocity despite E14; /40 still lists the universal tame splitting claims despite E13; /50 retains the unconditional short exact sequence despite E4; /66 still has Nm^{-1}(L tensor det(pi_*O)) despite E12. The latter contradicts Nm(L')=det(pi_*L') tensor det(pi_*O)^{-1} on published p. 579. /71's note still uses M^{e-1} and N=M Q^{-n}, and /17's proof note uses the positive fractional Tate twist, despite E12 and E6. The existing sourceIssues already explain these defects; the new finding is the failure to apply those accepted corrections to the planned targets.",
+      "fix": "Rewrite statement fields as the corrected targets, keeping historical printed assertions in sourceIssues. In particular use Nm^{-1}(L tensor M^{-1}) in /66, (P^L)^e=P^{L^e M^{1-e}}, and a degree-zero N=M^{-1} Q^n with deg(Q^n)=deg M in /71. Apply E1/E2's actual hypotheses and coefficient conventions, E3's mu_r-gerbe formulation with image quotients where needed, E14's tame-character generator, E13's explicit unramified enlargement, E4's middle-exact sequence, and E6's negative twist. Carry these through dependent /41–/47 and /52 where used. Check that item statements, notes, routes and reader agree; retain all accepted issue history. This finding does not reopen the old source errors as newly discovered ones."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
+      "citation": "Groechenig–Wyss–Ziegler, Inventiones mathematicae 221 (2020), 505–596, DOI 10.1007/s00222-020-00957-8",
+      "read": "2026-10-01",
+      "sha256": "f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07"
+    }
+  ]
+}
