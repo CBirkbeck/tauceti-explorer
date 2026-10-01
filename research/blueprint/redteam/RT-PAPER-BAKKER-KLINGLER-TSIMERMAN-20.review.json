@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item hodge-locus states 'A Hodge tensor … is of Hodge type (p, p). It is exceptional if it is not fixed by the generic Mumford–Tate group MT(V)'. In the untwisted tensor algebra a class of type (p, p) with p ≠ 0 is not fixed by the Mumford–Tate group, which acts on it through a nontrivial power of the weight character. The Mumford–Tate invariants are exactly the type (0, 0) classes, or the (p, p) classes after a Tate twist. The red team's example is right. For the constant variation Z(−1) over A¹, MT = G_m acting by scalars, and a nonzero u of type (1, 1) is moved by it. The item would therefore declare every point exceptional, while the Mumford–Tate group never drops and the Hodge locus is empty. The fix, using type (0, 0) or twisting by (p) before the invariance test as in Klingler's §2.4–2.6, is right."
+  },
+  {
+   "finding": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item general-period-domain defines D = G(R)^+·F_0 for the derived Mumford–Tate group. Its API BKT.GeneralPeriodDomain.pointEquivalence says 'The analytic domain has the existing PeriodDomain.Point carrier with the fixed lattice/form/type', and its proof step says 'Identify its points with the pinned PeriodDomain.Point carrier'. At Tau Ceti f790474, TauCeti/Geometry/Hodge/PeriodDomain.lean (lines 71–80) gives PeriodDomain.Point only the fields hs, htype_weight, pol and hodge_numbers. It is therefore the full polarized period domain, with no Mumford–Tate or tensor condition. The item's own last sentence concedes that D equals the full domain only when G = Aut(V_Q, Q). The rank-two example is right. Weight-one structures F^1 = C(e_1 + τe_2) with τ = i and τ = 2i are distinct polarized points, but the CM point τ = i has a torus Mumford–Tate group with trivial derived group, so its Mumford–Tate domain is a single point. The fix, Point as the ambient carrier plus an inclusion of the Mumford–Tate subdomain, is right."
+  },
+  {
+   "finding": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item siegel-chart-refinement's note says 'The remaining part of each 𝔖_i has bounded A-coordinate, is relatively compact and needs finitely many small balls'. In SL_3 with the upper triangular Borel subgroup, a(t) = diag(2t, t, 1/(2t²)) has simple-root values a_1/a_2 = 2 and a_2/a_3 = 2t³. So for every t ≥ 2 it lies in A_{P,1} but outside A_{P,3}, which is where the note's large-height region ends, and yet it is unbounded. In rational rank ≥ 2 the partial faces remain, as the red team says. This is an error in the extraction's own repair of E23, not in the paper. The fix, partial-face (parabolic-incidence) charts or leaving the finite atlas as a correctly stated supplier, is right."
+  }
+ ]
+}
