@@ -36966,3 +36966,286 @@ Exact modular controls check2,346 product recurrences and reductions,284 small n
 All73 captured inputs are unchanged from5366; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
 
 The separate partial signature file also compiled with zero errors and 3,788 expected placeholder warnings across 3,604 pinned source modules. It includes all 13 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 005bed32f13163ab250884ad585e705e0e882ad4e2041327300ace3fab9c3882.
+
+
+## Gross–Koblitz rational preimages and the actual Gamma source product
+
+Ten L3 nodes prove the rational preimage permutation and its exact comparison with the literal Gamma source product, including zero formal weight and unique integral representatives. All1,164 predecessor nodes,893 baseline records,20 findings and six source versions remain whole.
+
+Rereads the complete Gross–Koblitz1979 Section3 multiplication proof and Section1 positive-fraction, formal-weight and Galois conventions in the retained published scan. Reads complete pinned modular cancellation, finite bijection/product, interval quotient, subtype inclusion and additive type-tag proofs. Twenty-one new complete native lemmas establish the rational reindexing, zero weight, unique integral preimages and the literal source product of actual Gamma values.
+
+### Positive fractional representatives of affine preimages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage` — `DirichletPadic.grossKoblitz_fractional_preimage`
+
+If a*x=c+y with0<y≤1, then <a*(x+h)/m>=(y+((a*h+c) modm))/m for every naturalh.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. The numerator y+r is positive and at mostm because0<y≤1 andr<m. Thus the displayed quotient lies in the required interval(0,1].
+2. The remainder decomposition a*h+c=m*((a*h+c)/m)+r shows that the original and proposed fractions differ by the integer(a*h+c)/m.
+3. Apply native toIocMod_eq_iff to the interval condition and this integral difference. Complete fractional_preimage checks the natural remainder before casting intoQ; rational remainder is not substituted for natural remainder.
+
+**Prerequisites:** `mathlib:toIocMod_eq_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.shifted_first_preimage` (computation): At a=3,m=2,x=5/8, the first positive fractional preimage is15/16.
+- `SuggestedGrossKoblitzPreimageTests.shifted_second_preimage` (computation): The second preimage wraps to7/16, not15/16.
+- `SuggestedGrossKoblitzPreimageTests.integer_boundary_is_one` (non-example): The positive fractional representative of3 is1, not0.
+
+**Acceptance:** At a=3,m=2,x=5/8 the fractions are15/16 and7/16. At an integer argument the representative is1, not0.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Permutation of the rational preimage product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage-product` — `DirichletPadic.grossKoblitz_fractional_preimage_product`
+
+If gcd(a,m)=1, the product ofPhi(<a*(x+h)/m>) over0≤h<m equals the product ofPhi((y+h)/m) over0≤h<m.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. On native Fin m define the affine map h↦(a*h+c) modm. If two images agree, cancelc in the native modular equality, then cancela using coprimality. The two representatives lie belowm, so they are equal.
+2. Native finiteness turns that injection into a bijection. Complete affine_bijective and affine_product use Finite.injective_iff_bijective, Function.Bijective.prod_comp and Finset.prod_range to reindex the actual finite product.
+3. Substitute the preceding positive-fraction formula in every factor. Complete fractional_product then applies that bijection. There is no new residue type or assumed permutation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage`, `mathlib:Nat.ModEq.add_right_cancel'`, `mathlib:Nat.ModEq.cancel_left_of_coprime`, `mathlib:Finite.injective_iff_bijective`, `mathlib:Function.Bijective.prod_comp`, `mathlib:Finset.prod_range`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.permuted_two_factors` (computation): For a=3,m=2 the two preimages of5/8 are permuted with carry1.
+- `SuggestedGrossKoblitzPreimageTests.single_preimage` (degenerate): For m=1 the finite product is the single positive fractional value.
+- `SuggestedGrossKoblitzPreimageTests.noncoprime_misses_residue` (non-example): Without coprimality, multiplication by2 modulo2 is not a permutation.
+
+**Acceptance:** The carryc=1 permutes the two preimages of5/8 under multiplication by3. Without coprimality, multiplication by2 modulo2 is not a permutation.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Permutation of the nonzero rational normalizer
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-normalizer-product` — `DirichletPadic.grossKoblitz_fractional_normalizer_product`
+
+For a>0 and gcd(a,m)=1, product_(0≤h<m−1) Phi(<a*(h+1)/m>) equals product_(0≤h<m−1) Phi((h+1)/m).
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. Apply the preceding full preimage product atx=y=1 andc=a−1. The relationa=(a−1)+1 follows from positivity.
+2. Split the final factor from both range products using prod_range_succ. That last argument is the integera on the transformed side and1 on the other side.
+3. The complete fractional_nat helper derives <a>=1 directly from the native interval characterization. Cancel the common factorPhi(1) in the cancellative target. Complete normalizer_product retains the empty normalizer atm=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage-product`, `mathlib:Finset.prod_range_succ`, `mathlib:toIocMod_eq_iff`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.normalizer_thirds` (computation): Multiplication by5 interchanges the two nonzero thirds.
+- `SuggestedGrossKoblitzPreimageTests.empty_normalizer` (degenerate): At m=1 the normalizer is the empty product1.
+
+**Acceptance:** Multiplication by5 interchanges the nonzero thirds. The denominator atm=1 is1, notPhi(1).
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Cyclic reindexing of rational preimages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-cyclic-preimage-product` — `DirichletPadic.grossKoblitz_cyclic_preimage_product`
+
+For the proper rational class k/M, product_(h<m) Phi(<p^j*(k/M+h)/m>) equals product_(h<m) Phi((n_j/M+h)/m).
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. The preceding native orbit positivity and bound puty=n_j/M in(0,1). Setc=(p^j*k)/M. The natural quotient/remainder identity gives p^j*(k/M)=c+y inQ.
+2. Coprimality ofp andm implies coprimality ofp^j andm. Apply the preceding affine preimage product witha=p^j.
+3. Complete cyclic_fractional_product checks the rational denominator and power casts. The proper-class bounds are explicit; the point0 is not confused with the source representative1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage-product`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-numerator`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-positive`, `DirichletPadicLFunctions:L3/gross-koblitz-orbit-upper-bound`, `DirichletPadicLFunctions:L3/gross-koblitz-denominator-unit`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.proper_ternary_orbit_preimages` (computation): The j=1 preimages ofk=5 over8 reduce to the preimages of7/8.
+- `SuggestedGrossKoblitzPreimageTests.dyadic_three_preimages` (computation): The binary orbit point1/3 moves to2/3 and permutes its three preimages.
+
+**Acceptance:** Atp=3,f=2,k=5,j=1 the target point is7/8. The binary point1/3 moves to2/3 and permutes its three preimages.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Sum of the rational preimages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-preimage-sum` — `DirichletPadic.grossKoblitz_preimage_sum`
+
+For m>0 and rationalx, sum_(h<m)(x+h)/m=x+sum_(h<m−1)(h+1)/m.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. Distribute the finite sum. The x-term appearsm times and division by the nonzero naturalm leaves exactlyx.
+2. The additive form of the already indexed prod_range_succ' theorem separates the zero term from the sum ofh over0≤h<m. The remaining terms areh+1 over0≤h<m−1.
+3. Complete preimage_sum uses the native generated sum_range_succ' lemma and exact rational arithmetic. The pinned index is unchanged; the baseline reference names its explicit to_additive source.
+
+**Prerequisites:** `mathlib:Finset.prod_range_succ'`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.three_preimage_sum` (computation): The sum of the three preimages of2/5 is7/5.
+- `SuggestedGrossKoblitzPreimageTests.single_preimage_sum` (degenerate): The one-preimage sum is the input itself.
+
+**Acceptance:** The three preimages of2/5 sum to7/5. Atm=1 the sum isx.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Zero formal weight of the multiplication divisor
+
+`DirichletPadicLFunctions:L3/gross-koblitz-fractional-weight-zero` — `DirichletPadic.grossKoblitz_fractional_weight_zero`
+
+The sum of<a*(x+h)/m> overh<m, minusy and the sum of<a*(h+1)/m> overh<m−1, iszero.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. Apply the preimage and normalizer product identities to the actual function Multiplicative.ofAdd onQ. The native toAdd_prod identity converts their products back into rational sums.
+2. The preceding preimage-sum theorem identifies the resulting first sum withy plus the normalizer sum. Subtract these exact two terms.
+3. Complete fractional_weight_zero supplies the source formal weight calculation for every admissible multiplier and carry. This establishes the arithmetic zero-weight input; finite order of the resulting Hecke character is still a separate theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-preimage-product`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-normalizer-product`, `DirichletPadicLFunctions:L3/gross-koblitz-preimage-sum`, `mathlib:toAdd_prod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.ternary_distribution_weight` (computation): The exact formal-divisor weight is15/16+7/16−7/8−1/2=0.
+- `SuggestedGrossKoblitzPreimageTests.boundary_distribution_weight` (degenerate): At x=1 the zero class is represented by1 and the formal weight remainszero.
+
+**Acceptance:** The ternary example gives15/16+7/16−7/8−1/2=0. The same calculation respects the boundaryx=1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Unique integral lifts of positive rational preimages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence` — `DirichletPadic.grossKoblitz_integral_preimage_exists`
+
+If rationalq has an actual liftx inZ_p andm is a unit, then <a*(q+h)/m> has a unique lift inZ_p.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. The complete affine_rational_cast helper proves that b(x+h) maps to(q+h)/m inQ_p, using bm=1 and the native inclusion ring homomorphism. Multiplication bya gives an integral lift of the unreduced rational argument.
+2. For any rationalr with liftz, subtract the integer toIocDiv(1,0,r) insideZ_p. The native toIocMod definition identifies the included result with<r>. Complete fractional_integral checks the integer casts and subtraction exactly.
+3. The inclusion ofZ_p intoQ_p is injective, so any two such lifts agree by PadicInt.ext. Complete affine_fractional_exists combines existence and uniqueness, with no global Q→Z_p map.
+4. The prior rational-point theorem supplies the source starting pointk/M becauseM is a unit. Normalizer arguments use the integral starting pointzero and the indexh+1. Thus the preimage families required by the subsequent Gamma comparisons can actually be constructed.
+
+**Prerequisites:** `mathlib:toIocMod`, `mathlib:toIocDiv`, `mathlib:PadicInt.Coe.ringHom`, `mathlib:PadicInt.ext`, `DirichletPadicLFunctions:L3/gross-koblitz-rational-point`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.unique_ternary_sixteenth` (computation): The representative3/16 exists uniquely inZ3.
+- `SuggestedGrossKoblitzPreimageTests.excluded_nonintegral_third` (non-example): There is no element1/3 inZ3.
+- `SuggestedGrossKoblitzPreimageTests.integer_fractional_lift` (degenerate): The positive fractional representative ofzero has unique integral lift1.
+
+**Acceptance:** The point3/16 exists uniquely inZ3, while1/3 does not. The positive fractional representative ofzero lifts to1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### The actual Gamma product over the source preimages
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-preimage-product` — `DirichletPadic.moritaGamma_cyclic_preimage_product`
+
+IfY_h is the actual integral lift of<p^j*(k/M+h)/m> andMx=n_j, then product_(h<m) Gamma_p(Y_h)=product_(h<m) Gamma_p(b(x+h)) as units ofZ_p.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. The preceding integral-preimage theorem supplies the Y_h. The complete rational_point_cast helper identifies the included pointx withn_j/M from the actual equationMx=n_j.
+2. Inside the proof define an auxiliary function onQ: at integral rational arguments evaluateGamma on the corresponding nativeZ_p subtype; elsewhere use the identity of the target monoid. Complete rational_eval proves that every value used here is the actual Gamma value of its integral lift. No value outside the integral domain is used in the final equality.
+3. Apply the preceding rational preimage-product reindexing to that auxiliary function. Use the unique integral lifts on the left and the exact affine_rational_cast helper on the right. Complete gamma_cyclic_product works for any monoid-valued function onZ_p; its suggested form specializes to the actual unit-valued Morita Gamma.
+4. The complete gamma_product_coe helper uses Units.coeHom and map_prod to identify the scalar projection of the unit product with the predecessor moritaGammaMultiplicationProduct. This is the precise bridge to its residue theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-cyclic-preimage-product`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence`, `DirichletPadicLFunctions:L3/morita-gamma`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product`, `mathlib:Units.coeHom`, `mathlib:map_prod`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.actual_ternary_gamma_preimages` (computation): The actual ternary Gamma factors at15/16 and7/16 equal the finite product at7/8 with denominator2.
+- `SuggestedGrossKoblitzPreimageTests.finite_product_scalar_projection` (compatibility): The unit-valued Gamma product projects to the already defined scalar multiplication product.
+
+**Acceptance:** Atp=3 the Gamma factors at15/16 and7/16 are exactly the denominator2 product at7/8. Scalar projection agrees with the preceding finite multiplication product.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### The actual Gamma normalizer along the orbit
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-normalizer-product` — `DirichletPadic.moritaGamma_cyclic_normalizer_product`
+
+For actual integral liftsZ_h of<p^j*(h+1)/m>, product_(h<m−1) Gamma_p(Z_h)=product_(h<m−1) Gamma_p(b(h+1)) as units ofZ_p.
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. The integral-preimage theorem constructs the normalizer lifts by starting with the rational/integral pointzero and indexh+1.
+2. Use the same auxiliary integral rational evaluation as in the preceding Gamma comparison. The generic normalizer theorem applies witha=p^j; p^j>0 and its coprimality withm follow from primality and the given coprimality.
+3. Complete cyclic_normalizer_product performs the arithmetic specialization. Complete gamma_normalizer_product then transfers both sides back to the actual Gamma values via rational_eval and affine_rational_cast.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-fractional-normalizer-product`, `DirichletPadicLFunctions:L3/gross-koblitz-integral-preimage-existence`, `DirichletPadicLFunctions:L3/morita-gamma`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.actual_half_normalizer` (computation): The ternary transformed half is again the exact Gamma normalizer.
+- `SuggestedGrossKoblitzPreimageTests.actual_empty_normalizer` (degenerate): At m=1 the actual Gamma normalizer is1.
+
+**Acceptance:** The ternary transformed half givesGamma(1/2). The actual normalizer atm=1 is the empty unit product1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+### Identification of the literal Gross–Koblitz Gamma source product
+
+`DirichletPadicLFunctions:L3/gross-koblitz-gamma-source-product` — `DirichletPadic.moritaGamma_source_multiplication_product`
+
+For actual source preimage familiesY_(j,h),Z_(j,h) and cyclic pointsx_j, the product overj<f of (product_(h<m)Gamma(Y_(j,h)))/(Gamma(x_j)product_(h<m−1)Gamma(Z_(j,h))) equals (product_(j<f,h<m)Gamma(b(x_j+h)))/((product_(j<f)Gamma(x_j))*(product_(h<m−1)Gamma(b(h+1)))^f).
+
+**Hypotheses:** Write <q> for the native toIocMod with period1 and left endpoint0 onQ. Its representative lies in(0,1]; every integer represents1, includingzero. This is the published Gross–Koblitz convention, not the ordinary fractional part in[0,1). For the affine arithmetic take naturals a,m,c with m>0 and rational x,y satisfying a*x=c+y and0<y≤1. The single-preimage formula needs no coprimality. Product permutation requires gcd(a,m)=1; the normalizer and weight statements also assume a>0. The map on h inFin m is h↦(a*h+c) modm. Generic product identities use an actual functionPhi:Q→K, with K a commutative monoid. Removing the integer endpoint from the normalizer uses a cancellative commutative monoid. The intermediate normalized product identities use a commutative group. These are arithmetic identities for actual function values, not a replacement Gamma carrier. For cyclic specializations p is prime, f>0, M=p^f−1,0<k<M, m>0 and gcd(p,m)=1. The native numerator n_j=p^j*k modM lies in1..M−1. The chosenf is a common period, not necessarily the least period. The actual Gamma comparisons use the existing unit-valued moritaGamma p. The unit certificate for the cast ofm gives b=m^(-1) inZ_p. Actual cyclic points satisfy M*x_j=n_j. Source preimage familiesY andZ have the displayed equalities after the native inclusion intoQ_p with the positive rational fractional representatives. Their existence and uniqueness follow from the integral-preimage theorem, using the preceding native rational-point construction. No global ring homomorphism Q→Z_p is assumed. The root-of-unity step of Gross–Koblitz Theorem3.1(2) remains open. These reindexing and integral comparisons identify the source product with the exact finite product of the preceding congruence checkpoint; they do not yet prove the full multiplication formula or repair the least-period distribution inE18.
+
+**Proof:**
+
+1. Apply the preceding actual Gamma preimage comparison and normalizer comparison at everyj. The source positive representative ofp^j*k/M is the actual cyclic pointx_j by the existing fractional-orbit theorem and the injective inclusion.
+2. Multiply the resulting exact unit-group equalities. Native product distribution over division and multiplication collects the Gamma(x_j) factors; the same constant normalizer occursf times.
+3. Complete gamma_source_product proves this equality in any commutative-group target, and the suggested declaration specializes to nativeZ_p units. The integral-preimage theorem proves existence of the displayed source families, rather than introducing an unsupported Gamma-domain hypothesis.
+4. Project through the native unit coercion. The preceding scalar multiplication-product definition and its zero-value normalizer identify the right side with exactly the normalized orbit product whose mod-p residue was proved in5371. No reindexing or endpoint convention is left implicit in that comparison.
+5. The remaining step of the full source theorem is to prove that this unit is a root of unity, after which its residue identifies the Teichmuller value. Neither the reindexing nor the already known rational Gamma algebraicity proves that remaining step.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/gross-koblitz-gamma-preimage-product`, `DirichletPadicLFunctions:L3/gross-koblitz-gamma-normalizer-product`, `DirichletPadicLFunctions:L3/gross-koblitz-fractional-orbit`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-product-zero`, `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-orbit-congruence`.
+
+**Tests:**
+
+- `SuggestedGrossKoblitzPreimageTests.source_product_eighths_residue` (computation): The full literal source product forp=3,f=2,k=1,m=2 has residue2, agreeing with the proved multiplication congruence.
+- `SuggestedGrossKoblitzPreimageTests.source_unit_denominators` (compatibility): Every denominator factor in the source normalization is a unit.
+- `SuggestedGrossKoblitzPreimageTests.single_denominator_cancellation` (degenerate): For m=1 the normalized Gamma factor is1.
+
+**Acceptance:** Forp=3,f=2,k=1,m=2, the literal Gamma product at the four sixteenths has residue2. All normalization factors are units; atm=1 the quotient is1.
+
+**Source:** Section3, published575–576/PDF7–8, Theorem3.1(2) and its proof through(3.2); Section1 published570–572/PDF2–4, positive fractional convention, formal weight n(a), Galois action and the separate finite-order conclusion. Complete passages reread in the retained primary scan. The source multiplication divisor consists of the m preimages ofx, minusx and the nonzero m-torsion normalizer. Its proof uses permutation under multiplication by units, constant formal weightzero and the exact orbit Gamma product. The complete native arithmetic and integral proofs here make those reindexings explicit, retain the representative1 at the zero class and connect the source fractions to actual Morita Gamma values. The separate finite-order Hecke-character/root-of-unity inference is not supplied by this checkpoint.
+
+**Remaining:** The source rational preimages, nonzero normalizer, formal weightzero and actual integral Gamma product are now identified explicitly. Together with5371 this establishes the exact literal source product’s mod-p congruence. The next task is the root-of-unity step of Gross–Koblitz Theorem3.1(2), with its hypotheses and proof-source ownership resolved. The source uses a finite-order Hecke-character argument; bare algebraicity is insufficient. A possible direct route via sharp Gamma congruences and finite-field Euler powers is only a candidate and remains unproved. The full multiplication theorem and E18’s least/common-period distribution repair remain unproved and unused. The original Katz/Fermat and external Stickelberger alternatives and both exact RD.6 Dwork interfaces remain open. All18 gaps and16 requests remain; zero stages close.
+
+### Gross–Koblitz rational preimages and the actual Gamma source product validation
+
+All 1164 predecessor nodes, 893 baseline records, 20 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 10 named suggested declarations and 24 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1434 reachable nodes, 6719 edges and 1065 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. All ten new routes terminate in preceding local Gamma/digit/product nodes and pinned native facts. No new route reaches a stage request, and no supplier request is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3608 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete probe preserves5371 verbatim and adds21 complete lemmas, with no new private mathematical definition, totaling35definitions and575lemmas. Ten suggested declarations and24 typed tests match the ten promoted nodes; routine arithmetic and evaluation helpers remain complete in the native evidence. The separate probe compiles against 2981 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls check7,098 affine permutations, rational preimage identities, sums and formal weights;91 normalizer permutations;974 actual integral Gamma preimage products;518 literal source products and their mod-p residues;15,159 integral denominator evaluations; and53 excluded noncoprime multipliers. Exact Fraction and multiset arithmetic checks affine permutations, positive fractional representatives, omitted-zero normalizers and formal weights. Buffered integer Gamma approximants modulo prime powers check the actual integral preimages and literal source products, including their previously proved mod-p residues. These finite controls do not prove the remaining root-of-unity theorem. The largest observed discrepancy is 0 (exact arithmetic).
+
+All73 captured inputs are unchanged from5371; exact predecessor outputs and the whole issue text remain preserved. Policy, owner interfaces, source versions and reviewed library audit remain at the captured blobs.
+
+The separate partial signature file also compiled with zero errors and 3,822 expected placeholder warnings across 3,604 pinned source modules. It includes all 10 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: e93eaa753fbd75b79f5941e529b8086805148c74c6cd9aeb9c8cd39ebd9f38e0.
