@@ -37216,8 +37216,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-QIAN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5505"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5505",
+   "finishedAt": "2026-10-01T22:33:02Z"
   },
   {
    "id": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
@@ -37345,7 +37346,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5507"
   },
   {
    "id": "RT-PAPER-XIE-YUAN-22",
@@ -40567,7 +40569,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5531"
   },
   {
    "id": "RT-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
@@ -46773,8 +46776,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5113"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5113",
+   "finishedAt": "2026-10-01T22:33:06Z"
   },
   {
    "id": "RT-RS-22",
