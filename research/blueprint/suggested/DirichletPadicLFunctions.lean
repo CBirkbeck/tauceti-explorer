@@ -26570,3 +26570,87 @@ example  (k : ℕ+) :
     @T2Space (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val (k : ℕ)))ˣ) (kubertCartanTopology k) := by sorry
 end
 end DirichletPadic.SuggestedKubertCartanProfiniteTests
+
+/- Degree-one Cartan topology compared with the native p-adic unit product topology. -/
+namespace DirichletPadic
+open scoped Classical Topology
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanPadicCoordinate_norm_bound (p : Nat.Primes) (n : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (h : kubertCartanWittProductProjection 1 (⟨p.val ^ (n : ℕ), pow_pos p.prop.pos _⟩ : ℕ+) x=kubertCartanWittProductProjection 1 (⟨p.val ^ (n : ℕ), pow_pos p.prop.pos _⟩ : ℕ+) y) :
+    ‖(kubertCartanDegreeOnePadicUnitsEquiv x p).val-(kubertCartanDegreeOnePadicUnitsEquiv y p).val‖ ≤ (p.val : ℝ)^(-(n : ℕ) : ℤ) := by sorry
+
+lemma kubertCartanPadicCoordinate_continuous (p : Nat.Primes) :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (PadicInt p.val) (kubertCartanTopology 1) inferInstance
+      (fun x => (kubertCartanDegreeOnePadicUnitsEquiv x p).val) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical Topology
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertCartanDegreeOnePadicUnitsEquiv_continuous :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (∀ p : Nat.Primes, (PadicInt p.val)ˣ) (kubertCartanTopology 1) inferInstance kubertCartanDegreeOnePadicUnitsEquiv := by sorry
+
+noncomputable def kubertCartanDegreeOnePadicContinuousEquiv :
+    @ContinuousMulEquiv (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (kubertCartanTopology 1) (∀ p : Nat.Primes, (PadicInt p.val)ˣ) inferInstance _ _ := by sorry
+
+lemma kubertCartanDegreeOnePadicContinuousEquiv_apply (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : Nat.Primes) :
+    kubertCartanDegreeOnePadicContinuousEquiv x p=kubertCartanDegreeOnePadicUnitsEquiv x p := by sorry
+
+lemma kubertCartanDegreeOnePadicContinuousEquiv_finite_eq_iff (N : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y ↔
+      ∀ p : (N : ℕ).primeFactors,
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicContinuousEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicContinuousEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+
+lemma kubertCartanDegreeOneTopology_eq_induced :
+    kubertCartanTopology 1=TopologicalSpace.induced kubertCartanDegreeOnePadicUnitsEquiv inferInstance := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanPadicTopologyTests
+open scoped Classical Topology
+noncomputable section
+-- continuous_padic_equivalence_identity
+example : kubertCartanDegreeOnePadicContinuousEquiv 1=1 := by sorry
+-- continuous_padic_equivalence_multiplication
+example (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : kubertCartanDegreeOnePadicContinuousEquiv (x*y)=(kubertCartanDegreeOnePadicContinuousEquiv x)*(kubertCartanDegreeOnePadicContinuousEquiv y) := by sorry
+-- continuous_padic_equivalence_roundtrip
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (let _ := kubertCartanTopology 1; kubertCartanDegreeOnePadicContinuousEquiv.symm (kubertCartanDegreeOnePadicContinuousEquiv x))=x := by sorry
+-- continuous_inverse_is_original_algebraic_inverse
+example (x : (∀ p : Nat.Primes, (PadicInt p.val)ˣ)) : (let _ := kubertCartanTopology 1; kubertCartanDegreeOnePadicContinuousEquiv.symm x)=kubertCartanDegreeOnePadicUnitsEquiv.symm x := by sorry
+-- continuous_comparison_same_original_prime_value
+example (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanDegreeOnePadicContinuousEquiv x (⟨2,Nat.prime_two⟩ : Nat.Primes)).val=WittVector.toPadicInt 2 (WittVector.map (GaloisField.equivZmodP 2).toRingHom (x (⟨2,Nat.prime_two⟩ : Nat.Primes)).val) := by sorry
+-- finite_precision_bound_is_sharp
+example : ‖(1 : PadicInt 3)-10‖=(3 : ℝ)^(-2 : ℤ) := by sorry
+-- cartanPadicCoordinate_norm_bound_typed_api
+example  (p : Nat.Primes) (n : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (h : kubertCartanWittProductProjection 1 (⟨p.val ^ (n : ℕ), pow_pos p.prop.pos _⟩ : ℕ+) x=kubertCartanWittProductProjection 1 (⟨p.val ^ (n : ℕ), pow_pos p.prop.pos _⟩ : ℕ+) y) :
+    ‖(kubertCartanDegreeOnePadicUnitsEquiv x p).val-(kubertCartanDegreeOnePadicUnitsEquiv y p).val‖ ≤ (p.val : ℝ)^(-(n : ℕ) : ℤ) := by sorry
+-- cartanPadicCoordinate_continuous_typed_api
+example  (p : Nat.Primes) :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (PadicInt p.val) (kubertCartanTopology 1) inferInstance
+      (fun x => (kubertCartanDegreeOnePadicUnitsEquiv x p).val) := by sorry
+-- cartanDegreeOnePadicUnitsEquiv_continuous_typed_api
+example  :
+    @Continuous (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (∀ p : Nat.Primes, (PadicInt p.val)ˣ) (kubertCartanTopology 1) inferInstance kubertCartanDegreeOnePadicUnitsEquiv := by sorry
+-- cartanDegreeOnePadicContinuousEquiv_apply_typed_api
+example  (x : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (p : Nat.Primes) :
+    kubertCartanDegreeOnePadicContinuousEquiv x p=kubertCartanDegreeOnePadicUnitsEquiv x p := by sorry
+-- cartanDegreeOnePadicContinuousEquiv_finite_eq_iff_typed_api
+example  (N : ℕ+) (x y : (∀ p : Nat.Primes, (WittVector p.val (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanWittProductProjection 1 N x=kubertCartanWittProductProjection 1 N y ↔
+      ∀ p : (N : ℕ).primeFactors,
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicContinuousEquiv x (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes))=
+        Units.map (PadicInt.toZModPow ((N : ℕ).factorization p.val)).toMonoidHom
+          (kubertCartanDegreeOnePadicContinuousEquiv y (⟨p.val,Nat.prime_of_mem_primeFactors p.prop⟩ : Nat.Primes)) := by sorry
+-- cartanDegreeOneTopology_eq_induced_typed_api
+example  :
+    kubertCartanTopology 1=TopologicalSpace.induced kubertCartanDegreeOnePadicUnitsEquiv inferInstance := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanPadicTopologyTests
