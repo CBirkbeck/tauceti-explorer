@@ -1,0 +1,30 @@
+{
+ "redteam": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The published article (p. 8, between Lemmas 2.1 and 2.2) says 'Let y = Spec κ be a geometric point of X//G. We may identify the fibre X_y with a closed G-invariant subscheme of X.' Item /001 copies it. The counterexample is right. With G_m acting trivially on X = A¹_k, X//G = X; at the geometric generic point, X_y = Spec of an algebraic closure of k(t), whose image in X is the non-closed generic point. More generally X_y is a κ-scheme, so it is a subscheme of X only when κ = κ(y). What holds is a closed G_κ-invariant immersion X_y → X ×_S Spec κ: the κ-point of (X//G)_κ is a closed immersion, since (X//G)_κ is separated over κ. Lemma 2.2's proof works on X_y as a κ-scheme and is unaffected. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Lemma 3.35 (p. 24) assumes only that the image of 𝔭 lies in P₁R, and its proof says 'Since A is finitely generated over R, κ(𝔭) is a finite extension of κ(𝔭′)'. That is false. Take R = k[[t]], A = R[x] and 𝔭 = (0): the contraction (0) lies in P₁R, but κ(𝔭) = k((t))(x) is transcendental over k((t)). The cotangent argument is right. Over K = κ(𝔭), the k-derivations ∂_t (continuous on k[[t]]) and ∂_x of A into K extend K-linearly to two independent derivations of B_𝔮 into K at the residue map. So 𝔮/𝔮² has dimension at least 2, and the completion cannot be Â_𝔭⟦T⟧ = K⟦T⟧. The applications (Corollary 3.38, Proposition 4.9) are at closed points, where κ(𝔭) is finite over κ(𝔭′). The fix, adding that hypothesis and recording a sourceIssue, is right."
+  },
+  {
+   "finding": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Proposition 3.11 (p. 14, equation (11)) computes dim V_ij by identifying V_ij with the Hochschild 1-cocycles of E_y with values in Hom_κ(ρ_σ(j), ρ_σ(i)). It then uses [15, Proposition IX.4.4.1] and [15, Corollary IX.4.4.4] (Cartan–Eilenberg) for HH¹ = Ext¹_{E_y} and HH⁰ = Hom_{E_y}. Neither 'Hochschild' nor 'Cartan' occurs anywhere in the extraction. Item /026's note gives a different proof outline ('Z¹-type data … via Lemma 3.6'). The Tau Ceti roadmap stage DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality exists in the atlas. The fix, a cited supplier item with the degree-0 and degree-1 comparison, is right."
+  },
+  {
+   "finding": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Page 2, after Theorem 1.1, says the expected dimension 'also implies (see [26, Lemma 7.5]) that the derived deformation ring of ρ̄ as introduced by Galatius and Venkatesh in [26] (see also [12]) is homotopy discrete'. Neither 'Galatius' nor 'homotopy' occurs in the extraction, and no prerequisite lists [26] or [12]. The consequence is stated in the introduction and proved only by citation, so the gap is limited but real under §16. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed; I would grade it low. Remark 6.2 (p. 46) says 'We could additionally require the representations in Σ^cris to be benign … or … fix an inertial type. One could also change the definition of Σ^spcd_k to allow E to be a ramified extension of F; see [25, Section 5.3].' Item /147 cites the remark in its locator but records none of these variants, and 'benign' occurs nowhere in the extraction. The remark only sketches optional strengthenings, without proofs, and nothing in the atlas consumes them. So the omission overstates coverage but changes nothing that gets built. The fix is right, with the variants recorded as remark-level statements bound to [25, Definition 6.8 and §5.3]."
+  }
+ ]
+}
