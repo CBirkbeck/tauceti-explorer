@@ -34283,7 +34283,8 @@
     "REV-PAPER-FINTZEN-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FINTZEN-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4073"
   },
   {
    "id": "REV-RT-PAPER-FINTZEN-21",
