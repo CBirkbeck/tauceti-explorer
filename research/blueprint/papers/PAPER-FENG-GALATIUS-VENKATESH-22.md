@@ -2,13 +2,14 @@
 
 Tony Feng, Soren Galatius and Akshay Venkatesh, *The Galois action on symplectic K-theory*, [Inventiones mathematicae 230 (2022), 225–319](https://doi.org/10.1007/s00222-022-01127-8) (open access, CC BY 4.0); arXiv [2007.15078](https://arxiv.org/abs/2007.15078).
 
-Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1265). Status: **complete**. Every missing item is routed once.
+Extraction by Claude Code, session `cc-39fac3`, 22 September 2026 (issue #1265). Status: **complete**. Every missing item is routed once. Codex, session `codex-rtOQ9t`, applied the three independently confirmed red-team findings for issue #5507 on 2026-10-01; see [the fixes report](../redteam/RT-PAPER-FENG-GALATIUS-VENKATESH-22.fixes.md). These fixes await independent fix review.
 
 The machine-readable extraction is [PAPER-FENG-GALATIUS-VENKATESH-22.result.json](PAPER-FENG-GALATIUS-VENKATESH-22.result.json). It has:
+
 - 57 items: 1 library, 15 planned, 41 missing;
 - 5 routes: 3 source routes, 1 coalesced new roadmap and 1 Part II;
 - 13 prerequisite entries;
-- 17 recorded source issues.
+- 18 recorded source issues: the original 17 confirmed by the extraction review, plus E18 implementing the red-team-confirmed hyperbolic normalization finding.
 
 ## Sources read
 
@@ -76,7 +77,7 @@ The machine-readable extraction is [PAPER-FENG-GALATIUS-VENKATESH-22.result.json
 
 1. **Source → MotivicEtaleKTheory:M.7** (1 item). Thomason's étale descent spectral sequence for Bott-inverted K-theory, with its Adams-operation equivariance and naturality for transfers.
 2. **Source → ArithmeticKTheory:N.6** (1 item). Lemmas 2.11 and 2.14: Bott-inverted K-theory of Z[1/p] and Z[ζ_q, 1/p] in all degrees, via H^0 and H^2 of twists, split by ψ^{−1}.
-3. **Source → GeometryOfNumbersAndQuadraticArithmetic:GN.6** (1 item). Karoubi's splitting of KSp(Z)[1/2] and the fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z).
+3. **Source → GeometryOfNumbersAndQuadraticArithmetic:GN.6** (1 item). Karoubi's splitting of KSp(Z)[1/2] and the fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z). With the standard unscaled hyperbolic first map H, its retraction after inverting 2 is (1/2)c_B; c_B H = 2 id on the positive eigensummand. The positive-projector identification of the homotopy-orbit term fixes this normalization explicitly (E18).
 4. **New (coalesced) → EtaleHomotopyTypes**, "Étale homotopy types and pro-spaces" (2 items; area `etale`).
    - **Contents:** the Betti realization of simplicial complex varieties (Lemma A.7, Definition A.8, Example A.10), and the p-completed étale homotopy type Et_p with its comparison map (A.2.2–A.2.3).
    - **Why here:** PAPER-SCHMIDT-STIX-16 proposed this roadmap as the atlas's home for étale homotopy and asked later arithmetic uses to import it. The brief adds these layers and keeps that route's id, title and area.
@@ -93,9 +94,17 @@ The machine-readable extraction is [PAPER-FENG-GALATIUS-VENKATESH-22.result.json
      - The Γ-space models, the Betti realization of 𝒜_g and the Γ-object in simplicial schemes of Appendix A.3–A.5.
    - **Why a Part II:** ArithmeticKTheory plans the K-theory of number rings and its étale description. Symplectic K-theory of Z and the Galois module structure of its homotopy extend that direction.
 
-## Source issues (`sourceIssues` E1–E17)
+## Corrected construction contracts
 
-All are in the published text. Two reach stated results or proofs.
+**Group completion and multiplication (items /2 and /17).** An arbitrary symmetric monoidal groupoid gives an additive group-completion spectrum and an adjoint map of spectra. It does not thereby give a unital ring spectrum. For commutative-ring projectives, direct sum gives the additive construction and tensor product, with distributivity and coherence, supplies the separate multiplicative input. GeneralAlgebraicKTheory K.7 owns that product input, and SchemeKTheoryOperations S.6 extends it to schemes; item /2 now names K.7 alongside its existing suppliers. The specific Picard-groupoid map is $\Sigma^\infty_+|\mathrm{Pic}(R)|\to K(R)$, multiplicative for tensor product. Its target is not $K(\mathrm{Pic}(R),\otimes)$. The discrete additive groupoid $\mathbf Q/\mathbf Z$ is a negative specification for a generic ring assertion.
+
+**The Segal machine (item /51).** For a special Γ-space, the original structure maps $|X(S^n)|\to\Omega|X(S^{n+1})|$ are weak equivalences for $n\ge1$. Its Ω-spectrum replacement has zeroth space $\Omega|X(S^1)|$; the map from $|X(S^0)|$ is group completion. A level-zero equivalence also needs the group-like condition (very specialness). For $X(S)=\mathbf N^{S\setminus\{*\}}$, the Segal maps are isomorphisms, yet the level-zero map induces $\mathbf N\to\mathbf Z$ and misses $-1$. Item /51 and route 5 pass this acceptance test to the existing H.4/H.5 supplier contracts. This corrects the extraction; the source states the distinction correctly.
+
+**Hyperbolic normalization (item /25 and route 3).** Under the positive-projector identification $p_+=(1+\psi^{-1})/2$ of the homotopy-orbit term after inverting 2, keep the standard unscaled hyperbolic map $H$. Its composite with the forgetful Betti map is $c_BH=1+\psi^{-1}=2\,\mathrm{id}$ on the positive summand. Thus $(1/2)c_B$ retracts $H$; equivalently $c_B$ retracts $(1/2)H$. In degree zero, $c_B(H([\mathbf Z]))=2[\mathbf Z]$. The fibre sequence, splitting existence, Theorem 3.5 and the universal-extension conclusions remain as before.
+
+## Source issues (`sourceIssues` E1–E18)
+
+E1–E17 are the records accepted by the original extraction review. E18 records the published §3.4 map-normalization error confirmed by the red-team review; its implementation awaits independent fix review. The two other red-team findings are extraction errors and create no source issue. The new version record identifies the published PDF reread for these fixes.
 
 - **E10 (gap, Theorem 8.1, p. 296).**
   - **Problem:** "divisible by each prime p ≥ max_j(n_j)". The proof's step "p ≥ n_i implies ch_{n_i} lifts to a Z_(p)-integral class" fails at n = p. ch_p = s_p/p! is not p-integral on 𝒜_g for large g: via Theorem 3.5, the Adams summand Σ²ℓ ⊂ ku^{(−)} is a retract of KSp(Z)^∧_p, giving classes y with ⟨ch_p(ω), y⟩ = 1/p!.
@@ -122,6 +131,8 @@ All are in the published text. Two reach stated results or proofs.
   - **E13:** Remark 8.2's "respectively" is reversed.
   - **E17:** the Rosati involution is defined by ℒ, not φ; "the path component" should be "components".
 
+- **E18 (error in the map-level retraction assertion, §3.4, pp.254–255).** With unscaled hyperbolic $H$, the forgetful map is not itself its retraction: $c_BH=2\,\mathrm{id}$ on the positive summand, as the proof on p.256 and the rank-one example show. Use $(1/2)c_B$ as retraction, or rescale the summand inclusion to $(1/2)H$. The splitting exists and Theorem 3.5 is unchanged.
+
 The items use the corrected statements.
 
 ## Prerequisites not yet covered
@@ -146,7 +157,7 @@ DOIs and arXiv identifiers were checked against Crossref and arXiv.
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json` passes.
 - The generator asserts that every missing item is routed exactly once.
-- No accepted restructure touches the cited stages.
+- The fix rechecked the current H.4, H.5:spectra, K.2:plus, K.7, S.6 and GN.6 descriptions and their reviewed library audits. It imports the existing product owner K.7 without adding a new generic ring construction.
 - The EtaleHomotopyTypes id, title and area match PAPER-SCHMIDT-STIX-16.
 - **Checked by hand:**
   - §2: Lemmas 2.10–2.11, Corollary 2.12, Propositions 2.15 and 2.17 (eigenspaces, orders, coinvariants).
@@ -156,6 +167,7 @@ DOIs and arXiv identifiers were checked against Crossref and arXiv.
   - §7: Lemmas 7.4, 7.6, 7.7, the cocycle computation (7.15)–(7.19), Lemmas 7.12–7.13, and Remark 7.9.
   - §8: the ch_p non-integrality argument of E10.
 - **Checked by computer (background agent):** Example 8.3; Theorem 8.4 for small Eilenberg–MacLane spaces; Lemma 8.5; the Bernoulli-numerator claim for p < 1200.
+- The fixes also pass intake validation, source-issue schema/version checks, route-incidence/classification preservation, and exact normalization/example checks; the detailed scope is in the fixes report.
 - No Lean was written or compiled; this is an extraction.
 
 ## Review (REV-PAPER-FENG-GALATIUS-VENKATESH-22, 23 September 2026)

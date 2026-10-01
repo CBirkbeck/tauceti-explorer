@@ -39,15 +39,28 @@
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/2",
       "kind": "construction",
       "name": "Algebraic K-theory spectra of symmetric monoidal groupoids",
-      "statement": "For a symmetric monoidal groupoid 𝒞 an infinite loop space machine gives a spectrum K(𝒞) and a group completion |𝒞| → Ω^∞K(𝒞), inducing the Grothendieck group on π_0; for a ring R, K(R) := K(𝒫(R)) with K_i(R) = π_i BGL_∞(R)^+ for i > 0, graded-commutative products for commutative R, and the adjoint ring maps Σ^∞_+|𝒞| → K(𝒞).",
+      "statement": "For a symmetric monoidal groupoid 𝒞, an infinite loop space machine gives a connective spectrum K(𝒞) and a group completion |𝒞| → Ω^∞K(𝒞), inducing the Grothendieck group of the monoid of components on π_0. Its adjoint Σ^∞_+|𝒞| → K(𝒞) is a map of spectra. A single symmetric monoidal operation does not supply a unital ring structure on K(𝒞). For a ring R, take 𝒫(R) to be the groupoid of finitely generated projective R-modules with R-linear isomorphisms, using direct sum for additive group completion, and set K(R) = K(𝒫(R)); for i > 0, K_i(R) = π_i BGL_∞(R)^+. For commutative R, tensor product is a second operation, compatible with direct sum through distributivity and coherence, and induces the ring-spectrum product on K(R) and graded-commutative products on K_*(R). Multiplicativity uses this additional tensor structure, not the generic group-completion adjunction. In particular the map Σ^∞_+|Pic(R)| → K(R) of item /17 is multiplicative for tensor product on Pic(R) and on K(R); its target is K(R), not K(Pic(R), ⊗).",
       "locator": "§§2.2–2.3, (2.2), pp. 237–239",
       "status": "planned",
       "planned": [
         "StableHomotopyKTheory:H.4",
         "StableHomotopyKTheory:H.5:spectra",
-        "GeneralAlgebraicKTheory:K.2:plus"
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "GeneralAlgebraicKTheory:K.7"
       ],
-      "note": "StableHomotopyKTheory H.4 plans group completion of symmetric monoidal groupoids (Γ-spaces), H.5 spectra and suspension spectra; GeneralAlgebraicKTheory K.2:plus the ring and plus-construction model."
+      "note": "StableHomotopyKTheory H.4 owns general symmetric-monoidal group completion and H.5:spectra the spectrum and suspension-spectrum foundations; GeneralAlgebraicKTheory K.2:plus supplies the projective-module/plus model. The compatible external/tensor products and their unit, symmetry and associativity coherences belong to GeneralAlgebraicKTheory K.7; SchemeKTheoryOperations S.6 extends those products to schemes and supplies the operations already imported elsewhere. These owners supply distinct inputs; no generic ring structure is requested on K(𝒞) for an arbitrary one-operation groupoid. Corrected for RT-PAPER-FENG-GALATIUS-VENKATESH-22/2; the published source distinguishes these structures correctly.",
+      "unitTests": [
+        {
+          "name": "FGV.item2.oneOperationDoesNotGiveRing",
+          "statement": "For the discrete symmetric monoidal groupoid (Q/Z,+), additive group completion has π_0K(𝒞) = Q/Z. If this were the additive group of a nonzero unital ring and 1 had additive order n, distributivity would give nx = (n1)x = 0 for every x; the element 1/(n+1) modulo Z is not killed by n. Thus the generic construction must not assert a unital ring structure.",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        },
+        {
+          "name": "FGV.item2.tensorProductIsSecondOperation",
+          "statement": "For R = Z, direct sum gives [Z^a]+[Z^b] = a+b in K_0(Z), while tensor product gives [Z^a]·[Z^b] = ab with unit [Z]. A ring-product contract must distinguish these two operations.",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        }
+      ]
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/3",
@@ -227,10 +240,17 @@
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/17",
       "kind": "construction",
       "name": "Picard groupoids and the map to K-theory",
-      "statement": "For commutative R, Pic(R) ⊂ 𝒫(R) is the symmetric monoidal groupoid of rank-1 projectives under ⊗, with π_0 = H^1(R; G_m), π_1 = R^×; π^s_*(BR^×) ⊗ Z[π_0 Pic(R)] ≅ π^s_*(|Pic(R)|) (2.4), and Σ^∞_+|Pic(R)| → K(R) is a map of ring spectra (2.5).",
+      "statement": "For commutative R, Pic(R) ⊂ 𝒫(R) is the symmetric monoidal groupoid of rank-1 projectives under ⊗, with π_0 = H^1(R; G_m), π_1 = R^×; π^s_*(BR^×) ⊗ Z[π_0 Pic(R)] ≅ π^s_*(|Pic(R)|) (2.4), and Σ^∞_+|Pic(R)| → K(R), induced by |Pic(R)| → |𝒫(R)| → Ω^∞K(R), is a map of ring spectra for tensor product on the source and target (§2.4, p. 240). K(R) is constructed by direct-sum group completion with its separate tensor product; K(Pic(R), ⊗) is not the target of this map.",
       "locator": "§2.4, Definition 2.6, (2.3)–(2.4), pp. 239–240",
       "status": "missing",
-      "note": ""
+      "note": "Import the coherent ring/tensor product from GeneralAlgebraicKTheory K.7 (with its scheme extension at SchemeKTheoryOperations S.6). Rank-one projectives enter the already constructed K(R); their tensor product supplies multiplicativity of the displayed map. The general one-operation group-completion construction in item /2 supplies only a spectrum map.",
+      "unitTests": [
+        {
+          "name": "FGV.item17.tensorUnit",
+          "statement": "The tensor unit R ∈ Pic(R) maps to [R] = 1 in K_0(R), rather than to the additive zero obtained by group-completing the tensor unit inside K(Pic(R), ⊗). For R = Z this is the generator 1 of K_0(Z).",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        }
+      ]
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/18",
@@ -299,10 +319,23 @@
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/25",
       "kind": "theorem",
       "name": "Karoubi's splitting of symplectic K-theory after inverting 2",
-      "statement": "KSp_n(Z)[1/2] ≅ K_n(Z)[1/2]^{(+)} ⊕ {}_{−1}W_n(Z)[1/2] with the Witt groups Z[1/2] for n ≡ 2 (mod 4) and 0 otherwise; on spectra there is a fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z) (Hebestreit–Steimle, Cor. 8.3.5), which after inverting 2 becomes K(Z)[1/2]^{(+)} → KSp(Z)[1/2] → τ_{≥0}L^{−s}(Z)[1/2], split by c_B, the first map being the hyperbolic construction.",
+      "statement": "KSp_n(Z)[1/2] ≅ K_n(Z)[1/2]^{(+)} ⊕ {}_{−1}W_n(Z)[1/2], with the Witt groups Z[1/2] for n ≡ 2 (mod 4) and 0 otherwise. On spectra there is a fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z) (Hebestreit–Steimle, Cor. 8.3.5). Let E = K(Z)[1/2], with C_2-involution ψ^{−1}, and identify E_{hC_2} with E^{(+)} by the positive projector p_+ = (1 + ψ^{−1})/2. Under this identification the first arrow is the standard, unscaled hyperbolic map H restricted to E^{(+)}. The resulting fibre sequence E^{(+)} → KSp(Z)[1/2] → τ_{≥0}L^{−s}(Z)[1/2] is split: if c_B is the forgetful Betti map to E^{(+)}, then c_B H = 1 + ψ^{−1} = 2 id on E^{(+)}, so the retraction of H is (1/2)c_B. Equivalently, c_B is a retraction of the rescaled inclusion (1/2)H. These map normalizations, rather than c_B H = id for unscaled H, give the splitting.",
       "locator": "§3.4, (3.4)–(3.5), pp. 254–255",
       "status": "missing",
-      "note": "Karoubi, Théorie de Quillen et homologie du groupe orthogonal (1980); the nine-author Hermitian K-theory papers; Hebestreit–Steimle."
+      "note": "Karoubi, Théorie de Quillen et homologie du groupe orthogonal (1980); the nine-author Hermitian K-theory papers; Hebestreit–Steimle. The normalization in the published §3.4 is corrected as E18, implementing confirmed finding RT-PAPER-FENG-GALATIUS-VENKATESH-22/1. The fibre sequence and splitting existence are retained. GN.6 must keep the chosen hyperbolic map and its factor-of-two retraction explicit.",
+      "proofOutline": "Use the cited Hermitian K-theory fibre sequence, invert 2 and project to the positive eigensummand. Forgetting the form on H(M) = M ⊕ M^∨ gives the endomorphism 1 + ψ^{−1} of K(Z)[1/2]. Its restriction to the positive summand is 2 id; multiply c_B by 1/2 to obtain a retraction of the unscaled first arrow. The Witt-group computation remains Karoubi's. Theorem 3.5 uses invertibility of this composite at odd primes, so its conclusion is unchanged.",
+      "unitTests": [
+        {
+          "name": "FGV.item25.hyperbolicRank",
+          "statement": "In K_0(Z)[1/2] = Z[1/2], H([Z]) is the class of the standard symplectic module Z ⊕ Z^∨; forgetting its form gives c_B(H([Z])) = 2[Z]. The normalized retraction (1/2)c_B sends it back to [Z].",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        },
+        {
+          "name": "FGV.item25.positiveAndNegative",
+          "statement": "For ψ^{−1} = +1 the hyperbolic/forgetful composite is multiplication by 2; for ψ^{−1} = −1 it is zero. Inverting 2 permits a retraction on the positive summand and does not make the unscaled composite the identity.",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        }
+      ]
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/26",
@@ -533,14 +566,26 @@
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/51",
       "kind": "definition",
       "name": "Γ-spaces and Segal's infinite loop space machine",
-      "statement": "A Γ-space is a functor Γ^op → sSets_* (Γ^op a skeleton of finite pointed sets) with X({∗}) contractible; its prolongation to sSets_* gives the connective spectrum B^∞X with spaces |X(S^n)| (A.1)–(A.2); X is special if X(S ∨ T) → X(S) × X(T) is a weak equivalence, and then (Segal) B^∞X is an Ω-spectrum and |X(S^0)| → Ω^∞B^∞X is a group completion (A.3)–(A.4); there is a natural map Σ^∞_+|X(S^0)| → B^∞X (A.5), and S ↦ S ∧ M_+ gives Σ^∞_+M (Example A.3).",
+      "statement": "A Γ-space is a functor Γ^op → sSets_* (Γ^op a skeleton of finite pointed sets) with X({∗}) contractible. Its prolongation to sSets_* gives a prespectrum with spaces |X(S^n)| and structure maps |X(S^n)| → Ω|X(S^(n+1))|, and an associated connective spectrum B^∞X (A.1)–(A.2). X is special if X(S ∨ T) → X(S) × X(T) is a weak equivalence. For special X, Segal's theorem makes the structure maps weak equivalences for n ≥ 1. An equivalent Ω-spectrum has zeroth space Ω|X(S^1)| and nth space |X(S^n)| for n ≥ 1; the map |X(S^0)| → Ω|X(S^1)| ≃ Ω^∞B^∞X is group completion, including the induced Grothendieck-group map on π_0 and the homology localization theorem (A.3)–(A.4). The unmodified level-zero map is a weak equivalence only with the additional group-like condition that π_0X(S^0) is a group (very specialness). There is a natural map of spectra Σ^∞_+|X(S^0)| → B^∞X (A.5), and S ↦ S ∧ M_+ gives Σ^∞_+M (Example A.3).",
       "locator": "Appendix A.1, Definitions A.1–A.2, (A.1)–(A.5), Example A.3, pp. 300–303",
       "status": "planned",
       "planned": [
         "StableHomotopyKTheory:H.4",
         "StableHomotopyKTheory:H.5:spectra"
       ],
-      "note": "StableHomotopyKTheory H.4 plans group completion via Segal Γ-spaces and H.5 spectra. Definition A.1 asks for X({∗}) to be a point, which the paper's own examples do not satisfy (sourceIssues)."
+      "note": "StableHomotopyKTheory H.4 owns the Segal group-completion construction; H.5:spectra supplies the spectrum foundations. Their design contract must distinguish the special Γ-space prespectrum from its Ω-spectrum replacement, restrict the original structure-map equivalences to n ≥ 1 and require the N → Z degree-zero test. Definition A.1's separate point-versus-contractible issue E15 is preserved. The positive-level distinction is already correct in the published source; this repairs RT-PAPER-FENG-GALATIUS-VENKATESH-22/3, an extraction error.",
+      "unitTests": [
+        {
+          "name": "FGV.item51.NToZ",
+          "statement": "Let X(S) = N^(S minus basepoint), as a discrete simplicial set, and let pointed maps act by summation over non-basepoint fibres. Its Segal maps are isomorphisms and X({∗}) is a point, so it is special. But |X(S^0)| = N and π_0 Ω|X(S^1)| = Z; the zero structure map is N → Z and misses −1. Thus the unmodified prespectrum is not an Ω-spectrum at zero.",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        },
+        {
+          "name": "FGV.item51.verySpecialZ",
+          "statement": "Replacing N by the additive group Z in the same construction makes π_0X(S^0) a group. This is the very-special case in which the level-zero group-completion map is also a weak equivalence; specialness alone does not give this conclusion.",
+          "verification": "Mathematical specification, not Lean-elaborated."
+        }
+      ]
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/52",
@@ -696,7 +741,7 @@
       "items": [
         "PAPER-FENG-GALATIUS-VENKATESH-22/25"
       ],
-      "reason": "GN.6 plans higher Hermitian K-theory with its forgetful and hyperbolic maps and source-scoped periodicity. Karoubi's splitting of KSp(Z)[1/2] into K(Z)[1/2]^{(+)} and the Witt part, with the fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z), is the instance the paper uses."
+      "reason": "GN.6 plans higher Hermitian K-theory with its forgetful and hyperbolic maps and source-scoped periodicity. Karoubi's splitting of KSp(Z)[1/2] into K(Z)[1/2]^{(+)} and the Witt part, with the fibre sequence K(Z)_{hC_2} → KSp(Z) → τ_{≥0}L^{−s}(Z), is the instance the paper uses. Design contract: identify K(Z)[1/2]_{hC_2} with the positive eigensummand via p_+ = (1 + ψ^{−1})/2; retain the standard unscaled H as the first map and use (1/2)c_B as its retraction. Require c_B(H([Z])) = 2[Z] in degree zero. Alternatively, using c_B as projection requires the explicitly rescaled inclusion (1/2)H. Do not infer c_B H = id merely because 2 is inverted (E18)."
     },
     {
       "route": "new",
@@ -754,7 +799,7 @@
         "PAPER-FENG-GALATIUS-VENKATESH-22/56",
         "PAPER-FENG-GALATIUS-VENKATESH-22/57"
       ],
-      "brief": "Plan the symplectic K-theory of Z and its Galois action, following Tony Feng, Soren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory, Invent. Math. 230 (2022), 225–319 (arXiv 2007.15078). The final theorems, as the paper states them: (1) Main theorem (Theorem 7.8): for odd p and k ≥ 1, c_H : KSp_{4k−2}(Z; Z_p) → Z_p(2k − 1) is surjective and Aut(C)-equivariant; Ker(c_H) ≅ K_{4k−2}(Z; Z_p) is a finite p-group with trivial action; the action factors through Γ = Gal(H_{p^∞}/Q), and Ker(c_H) → KSp_{4k−2}(Z; Z_p) → Z_p(2k − 1) is initial among extensions of Z_p(2k − 1) by trivial Γ-modules (with or without a ⟨c⟩-equivariant splitting), the kernel of the universal extension being H_1(Γ, ⟨c⟩; Z_p(2k − 1)). (2) Theorem 7.1 (mod q with Gal(H_q/Q)); Theorem 7.10 (the group G of the maximal extension unramified outside p, split over a decomposition group G_𝔭: the étale sheaf of KSp on Z[1/p] is the universal extension of Z_p(2k − 1) by a trivial sheaf split over Q_p); Theorem 7.14 (the same for Bott-inverted KSp^{(β)} and every k ∈ Z); §7.7 (trivial action on KSp_{4k−1}). (3) Theorem 3.5: KSp_i(Z; Z/q) ≅ K_i(Z; Z/q)^{(+)} ⊕ π_i(ku; Z/q)^{(−)} via (c_B, c_H). (4) Proposition 5.1: classes of CM abelian varieties with O_q-multiplication exhaust KSp_{4k−2}(Z; Z/q). (5) Theorem 8.1: for A → X a ppav family over Q with X smooth projective of dimension n = Σn_i (n_i odd), ∫ch_{n_1}(ω)⋯ch_{n_r}(ω) is divisible by every prime p > max n_j dividing the numerator of some B_{n_i+1} (the paper's p ≥ max n_j is unproved at equality; source issue E10). Cover, in layers: the Bott element of π^s_2(BZ/q; Z/q) and Picard groupoids; Bott elements and Bott-inverted K-theory (importing Thomason's spectral sequence from MotivicEtaleKTheory M.7 and the explicit groups of Lemmas 2.11, 2.14 from ArithmeticKTheory N.6); Corollary 2.12 and Propositions 2.15, 2.17 (the transfer as a map of Galois homology of H_q/Q); the Betti and Hodge maps, Theorem 3.5, Proposition 3.8, Bott-inverted KSp and its K(1)-local description; Hermitian and skew-Hermitian Picard groupoids, the functor ST to CM abelian varieties, Proposition 4.7 and Lemma 4.8; the Hodge and Betti maps on CM classes (Proposition 5.2, Corollary 5.4) and Proposition 5.1; Galois conjugation of 𝒜_g(C), Propositions 6.1–6.2, Lemma 6.4 and the groupoid form of the main theorem of CM (Theorem 6.6); categories of extensions with equivariant splittings and their universal objects in relative (profinite) group homology (Lemmas 7.4, 7.6); Theorems 7.1, 7.8, 7.10, 7.14 and §7.7; integral indecomposables, Theorem 8.4 (with the corrections of source issues E11–E12), (8.2) and Theorem 8.1; the Γ-space models of K(R) and KSp(Z), the Betti realization of 𝒜_g, the Γ-object Z in simplicial schemes over Q (Proposition A.13) and the spectrum-level Aut(C)-action (Appendix A.3–A.5). Import: ArithmeticKTheory (N.2, N.6–N.8); MotivicEtaleKTheory (M.5, M.7); GeneralAlgebraicKTheory (K.2:plus, K.3); StableHomotopyKTheory (H.4–H.6); SchemeKTheoryOperations (S.6, Adams operations); KTheoryFiniteLocalFields (L.1); RefinedTraceMethods (RT.4:topological, topological K-theory); GeometryOfNumbersAndQuadraticArithmetic (GN.6, Hermitian K-theory and Karoubi's splitting); AbelianSchemesAndArithmeticModuli (A5); ShimuraVarieties (V5) and ComplexMultiplicationAndExplicitReciprocity (CM.0, CM.2) for CM theory; The class field theory roadmap (tauceti:TauCetiRoadmap/ClassFieldTheory, Layers 11 and 13); The Chebotarev density theorem (tauceti:TauCetiRoadmap/Chebotarev); ArithmeticGaloisDuality (R02.2, R02.4); IntegralIwasawaTheory (I.5, L3); and Étale homotopy types and pro-spaces (EtaleHomotopyTypes) for Et_p and the comparison with Betti realization.",
+      "brief": "Plan the symplectic K-theory of Z and its Galois action, following Tony Feng, Soren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory, Invent. Math. 230 (2022), 225–319 (arXiv 2007.15078). The final theorems, as the paper states them: (1) Main theorem (Theorem 7.8): for odd p and k ≥ 1, c_H : KSp_{4k−2}(Z; Z_p) → Z_p(2k − 1) is surjective and Aut(C)-equivariant; Ker(c_H) ≅ K_{4k−2}(Z; Z_p) is a finite p-group with trivial action; the action factors through Γ = Gal(H_{p^∞}/Q), and Ker(c_H) → KSp_{4k−2}(Z; Z_p) → Z_p(2k − 1) is initial among extensions of Z_p(2k − 1) by trivial Γ-modules (with or without a ⟨c⟩-equivariant splitting), the kernel of the universal extension being H_1(Γ, ⟨c⟩; Z_p(2k − 1)). (2) Theorem 7.1 (mod q with Gal(H_q/Q)); Theorem 7.10 (the group G of the maximal extension unramified outside p, split over a decomposition group G_𝔭: the étale sheaf of KSp on Z[1/p] is the universal extension of Z_p(2k − 1) by a trivial sheaf split over Q_p); Theorem 7.14 (the same for Bott-inverted KSp^{(β)} and every k ∈ Z); §7.7 (trivial action on KSp_{4k−1}). (3) Theorem 3.5: KSp_i(Z; Z/q) ≅ K_i(Z; Z/q)^{(+)} ⊕ π_i(ku; Z/q)^{(−)} via (c_B, c_H). (4) Proposition 5.1: classes of CM abelian varieties with O_q-multiplication exhaust KSp_{4k−2}(Z; Z/q). (5) Theorem 8.1: for A → X a ppav family over Q with X smooth projective of dimension n = Σn_i (n_i odd), ∫ch_{n_1}(ω)⋯ch_{n_r}(ω) is divisible by every prime p > max n_j dividing the numerator of some B_{n_i+1} (the paper's p ≥ max n_j is unproved at equality; source issue E10). Cover, in layers: the Bott element of π^s_2(BZ/q; Z/q) and Picard groupoids; Bott elements and Bott-inverted K-theory (importing Thomason's spectral sequence from MotivicEtaleKTheory M.7 and the explicit groups of Lemmas 2.11, 2.14 from ArithmeticKTheory N.6); Corollary 2.12 and Propositions 2.15, 2.17 (the transfer as a map of Galois homology of H_q/Q); the Betti and Hodge maps, Theorem 3.5, Proposition 3.8, Bott-inverted KSp and its K(1)-local description; Hermitian and skew-Hermitian Picard groupoids, the functor ST to CM abelian varieties, Proposition 4.7 and Lemma 4.8; the Hodge and Betti maps on CM classes (Proposition 5.2, Corollary 5.4) and Proposition 5.1; Galois conjugation of 𝒜_g(C), Propositions 6.1–6.2, Lemma 6.4 and the groupoid form of the main theorem of CM (Theorem 6.6); categories of extensions with equivariant splittings and their universal objects in relative (profinite) group homology (Lemmas 7.4, 7.6); Theorems 7.1, 7.8, 7.10, 7.14 and §7.7; integral indecomposables, Theorem 8.4 (with the corrections of source issues E11–E12), (8.2) and Theorem 8.1; the Γ-space models of K(R) and KSp(Z), the Betti realization of 𝒜_g, the Γ-object Z in simplicial schemes over Q (Proposition A.13) and the spectrum-level Aut(C)-action (Appendix A.3–A.5). Import: ArithmeticKTheory (N.2, N.6–N.8); MotivicEtaleKTheory (M.5, M.7); GeneralAlgebraicKTheory (K.2:plus, K.3, K.7 for coherent tensor/external products); StableHomotopyKTheory (H.4–H.6); SchemeKTheoryOperations (S.6, Adams operations); KTheoryFiniteLocalFields (L.1); RefinedTraceMethods (RT.4:topological, topological K-theory); GeometryOfNumbersAndQuadraticArithmetic (GN.6, Hermitian K-theory and Karoubi's splitting); AbelianSchemesAndArithmeticModuli (A5); ShimuraVarieties (V5) and ComplexMultiplicationAndExplicitReciprocity (CM.0, CM.2) for CM theory; The class field theory roadmap (tauceti:TauCetiRoadmap/ClassFieldTheory, Layers 11 and 13); The Chebotarev density theorem (tauceti:TauCetiRoadmap/Chebotarev); ArithmeticGaloisDuality (R02.2, R02.4); IntegralIwasawaTheory (I.5, L3); and Étale homotopy types and pro-spaces (EtaleHomotopyTypes) for Et_p and the comparison with Betti realization. Supplier contracts for the corrected constructions: H.4 and H.5:spectra give the additive group-completion spectrum and its generic adjoint map of spectra, without a ring assertion for arbitrary one-operation groupoids. For special Γ-spaces they give Ω-equivalences at levels n ≥ 1 and the Ω-spectrum replacement with zeroth space Ω|X(S^1)|; retain N → Z as the degree-zero acceptance test, and use very specialness to claim a level-zero equivalence. Import the compatible tensor-product input from K.7, with its scheme extension at S.6, for commutative-ring K(R) and the multiplicative Picard map Σ∞_+|Pic(R)| → K(R). Import GN.6's splitting with unscaled hyperbolic H and retraction (1/2)c_B (E18); Theorem 3.5 still uses the unscaled Betti–Hodge map and is unchanged.",
       "reason": "ArithmeticKTheory plans K-groups of number rings and their étale-cohomological description but not symplectic K-theory, CM classes, or the Galois action on K-theory of arithmetic groups. The paper's own mathematics extends that roadmap's direction: it computes KSp(Z) in terms of K(Z) and ku, and identifies the Galois module structure with the universal extension controlled by class groups of cyclotomic fields."
     }
   ],
@@ -1098,6 +1143,26 @@
         "reason": "Confirmed, both halves. The Rosati involution is defined by the polarization ℒ, so defining it ‘by φ’ and then requiring the image of φ to be symmetric for it is circular; and |𝒜_g(C)| has continuum many path components, so one restricts to their union, not to a single one. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
         "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
       }
+    },
+    {
+      "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E18",
+      "kind": "error",
+      "locator": "Published Invent. Math. 230 (2022), §3.4, splitting discussion pp. 254–255, especially the paragraph after (3.5); compare §3.5, proof of Theorem 3.5, p. 256",
+      "printed": "“The sequence is canonically split by the spectrum map KSp(Z) → K(Z)[1/2]^{(+)} induced by the inclusion Sp_{2g}(Z) → GL_{2g}(Z).”",
+      "correction": "With the standard unscaled hyperbolic first map H, use (1/2)c_B as retraction after inverting 2. Equivalently, with c_B as projection, take the explicitly rescaled inclusion (1/2)H. Identify the homotopy-orbit summand with the positive eigensummand via p_+ = (1 + ψ^{−1})/2 so the first-map normalization is explicit. The fibre sequence and existence of its splitting, the Witt-group computation and Theorem 3.5 are retained.",
+      "reason": "The underlying module of H(M) is M ⊕ M^∨, so c_B H = 1 + ψ^{−1}. This equals 2 id on K(Z)[1/2]^{(+)}, rather than id. Already in K_0(Z)[1/2] = Z[1/2], c_B(H([Z])) = 2[Z]. Inverting 2 makes 2 invertible, not equal to 1. The proof on p. 256 explicitly computes the hyperbolic/Betti–Hodge composite as (1 + ψ^{−1},0), corroborating the factor. The affected stated assertion is the map-level retraction in §3.4, not the existence of a splitting or the main Galois-action/universal-extension theorems.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "On 2026-10-01, reread the published PDF DOI 10.1007/s00222-022-01127-8 at pp. 237–240,254–256,300–303. Its SHA-256 matches the extraction and the red-team report; page images at 238,255,256,302 were checked.",
+        "On 2026-10-01, arXiv:2007.15078 lists v3 (8 May 2022) as final accepted version. The publisher article page and Tony Feng's public papers page https://math.berkeley.edu/~fengt/papers.html list no applicable normalization correction.",
+        "On 2026-10-01, the Crossref record https://api.crossref.org/works/10.1007/s00222-022-01127-8 has no update-to entry and an empty relation object. A bounded exact-title erratum/correction search found no applicable notice; this does not establish that none exists."
+      ],
+      "redteamEvidence": {
+        "finding": "RT-PAPER-FENG-GALATIUS-VENKATESH-22/1",
+        "verification": "research/blueprint/redteam/RT-PAPER-FENG-GALATIUS-VENKATESH-22.review.json",
+        "verdict": "confirmed"
+      }
     }
   ],
   "verification": {
@@ -1110,5 +1175,32 @@
     "read": "The published open-access text (Invent. math. 230 (2022), 225–319), read at every finding’s locator with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified in this environment and the text was obtained through a rendering proxy. The seven declarations of the single library item were opened at the pinned commits; all twenty-six stage ids cited by the routes and the planned items, including the three Tau Ceti layer anchors, were checked against the atlas; and the Part II title was compared with its parent’s.",
     "changes": "All 17 sourceIssues carry a review verdict and all are confirmed. Nothing else changed: no item, status, route, locator or quotation was altered.",
     "lean": "none"
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
+      "citation": "Feng–Galatius–Venkatesh, The Galois action on symplectic K-theory, Invent. Math. 230 (2022), 225–319",
+      "read": "2026-10-01",
+      "sha256": "5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d",
+      "readSections": [
+        "Fix check: pp. 236–240,254–256,300–303; page images at 238,255,256,302. Earlier complete reading is documented by RT-PAPER-FENG-GALATIUS-VENKATESH-22."
+      ]
+    }
+  ],
+  "fixes": {
+    "job": "FIX-RT-PAPER-FENG-GALATIUS-VENKATESH-22",
+    "issue": 5507,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-01",
+    "status": "complete",
+    "report": "research/blueprint/redteam/RT-PAPER-FENG-GALATIUS-VENKATESH-22.fixes.md",
+    "findings": [
+      "RT-PAPER-FENG-GALATIUS-VENKATESH-22/1",
+      "RT-PAPER-FENG-GALATIUS-VENKATESH-22/2",
+      "RT-PAPER-FENG-GALATIUS-VENKATESH-22/3"
+    ],
+    "scope": "Corrected items /2,/17,/25,/51 and route 3/5 contracts. Added K.7 as the existing product supplier to item /2; all other classifications, item IDs, route memberships and the 17 prior source issues and verdicts are preserved. E18 records the source normalization error. These fixes await independent fix review."
   }
 }
