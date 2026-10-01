@@ -1,0 +1,185 @@
+{
+ "definitions": {
+  "algebraicgeometry/coherent-duality": {
+   "importers": [
+    "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+    "DESIGN-ClassicalAdicEtaleCohomologyPartII",
+    "DESIGN-PadicFamiliesPartII"
+   ],
+   "items": 7,
+   "name": "Coherent dualizing complexes and exceptional inverse image",
+   "owner": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+   "reason": "the most foundational of the 4 queued jobs its items go to",
+   "reserved": "DeformationAndDerivedPatchingAlgebra:key/coherent-duality",
+   "roadmap": "DeformationAndDerivedPatchingAlgebra",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Commutative algebra for deformation theory and patching",
+   "unrouted": 8
+  },
+  "algebraicgeometry/equivariant-sheaf-cohomology": {
+   "importers": [
+    "DESIGN-AlgebraicTopologyPartII"
+   ],
+   "items": 4,
+   "name": "Equivariant sheaves and derived invariant sections",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "most of its items go here, of the 2 queued jobs they go to",
+   "reserved": "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology",
+   "roadmap": "SchemeAndStackFoundations",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "unrouted": 0
+  },
+  "algebraicgeometry/etale-k-pi-1": {
+   "importers": [],
+   "items": 0,
+   "name": "Étale K(π,1) schemes",
+   "owner": null,
+   "reason": "no queued job receives its items",
+   "reserved": null,
+   "roadmap": null,
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": null,
+   "unrouted": 4
+  },
+  "algebraicgeometry/excellent-schemes": {
+   "importers": [
+    "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
+    "DESIGN-SchemeAndStackFoundationsPartII"
+   ],
+   "items": 12,
+   "name": "Excellent rings and schemes (G-rings, J-2, universal catenarity)",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "the most foundational of the 3 queued jobs its items go to",
+   "reserved": "SchemeAndStackFoundations:key/excellent-schemes",
+   "roadmap": "SchemeAndStackFoundations",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "unrouted": 6
+  },
+  "algebraicgeometry/ferrand-pushouts": {
+   "importers": [],
+   "items": 2,
+   "name": "Pushouts of schemes along closed immersions (pinching, conductor squares)",
+   "owner": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
+   "reason": "its items go to this job only",
+   "reserved": "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
+   "roadmap": "NeronModelsAndSemistableAbelianVarietiesPartII",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Néron models and semistable abelian varieties, Part II",
+   "unrouted": 3
+  },
+  "algebraicgeometry/galois-gerbs": {
+   "importers": [
+    "DESIGN-EndoscopicTransferAndUnitaryTraceComparisonPartII",
+    "DESIGN-HeckeStacksAndLocalShtukasPartII",
+    "DESIGN-ReductiveGroupsPartIII"
+   ],
+   "items": 8,
+   "name": "Galois gerbs with algebraic kernels and projective limits",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "the most foundational of the 4 queued jobs its items go to",
+   "reserved": "SchemeAndStackFoundations:key/galois-gerbs",
+   "roadmap": "SchemeAndStackFoundations",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "unrouted": 0
+  },
+  "algebraicgeometry/gerbes": {
+   "importers": [],
+   "items": 2,
+   "name": "Gerbes, abelian bandings and neutralizations",
+   "owner": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+   "reason": "its items go to this job only",
+   "reserved": "AlgebraicModuliForArithmeticGeometry:key/gerbes",
+   "roadmap": "AlgebraicModuliForArithmeticGeometry",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "unrouted": 4
+  },
+  "algebraicgeometry/henselization": {
+   "importers": [
+    "DESIGN-EndoscopicTransferAndUnitaryTraceComparisonPartII"
+   ],
+   "items": 2,
+   "name": "Henselization of pairs and of local rings",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "the most foundational of the 2 queued jobs its items go to",
+   "reserved": "SchemeAndStackFoundations:key/henselization",
+   "roadmap": "SchemeAndStackFoundations",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "unrouted": 2
+  },
+  "algebraicgeometry/higgs-parameter-connections": {
+   "importers": [],
+   "items": 2,
+   "name": "Integrable Higgs bundles and parameter connections",
+   "owner": "DESIGN-HodgeStructuresPartII",
+   "reason": "its items go to this job only",
+   "reserved": "HodgeStructuresPartII:key/higgs-parameter-connections",
+   "roadmap": "HodgeStructuresPartII",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Hodge structures (pure, mixed, and polarized), Part II",
+   "unrouted": 2
+  },
+  "algebraicgeometry/hilbert-samuel-multiplicity": {
+   "importers": [],
+   "items": 0,
+   "name": "Hilbert–Samuel function and multiplicity of a local ring or module",
+   "owner": null,
+   "reason": "no queued job receives its items",
+   "reserved": null,
+   "roadmap": null,
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": null,
+   "unrouted": 2
+  },
+  "algebraicgeometry/moduli-curves": {
+   "importers": [
+    "DESIGN-FunctionFieldArithmeticPartII",
+    "DESIGN-MappingClassGroupsAndCanonicalRepresentations",
+    "DESIGN-MotivicStructuresInModuliOfCurves"
+   ],
+   "items": 7,
+   "name": "Moduli stacks of smooth and stable pointed curves",
+   "owner": "DESIGN-StableReductionPartII",
+   "reason": "most of its items go here, of the 4 queued jobs they go to",
+   "reserved": "StableReductionPartII:key/moduli-curves",
+   "roadmap": "StableReductionPartII",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Stable reduction of curves and stable maps, Part II",
+   "unrouted": 1
+  },
+  "algebraicgeometry/root-stacks": {
+   "importers": [],
+   "items": 4,
+   "name": "Root stacks of line bundles with sections and of Cartier divisors",
+   "owner": "DESIGN-FunctionFieldArithmeticPartII",
+   "reason": "its items go to this job only",
+   "reserved": "FunctionFieldArithmeticPartII:key/root-stacks",
+   "roadmap": "FunctionFieldArithmeticPartII",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Global function fields, reciprocity and automorphic foundations, Part II",
+   "unrouted": 2
+  },
+  "algebraicgeometry/scheme-brauer": {
+   "importers": [
+    "BP-HeightsRationalPointsAndObstructions",
+    "DESIGN-CrystallineCohomologyPartII",
+    "DESIGN-SchemeAndStackFoundationsPartII",
+    "DESIGN-SemisimpleAlgebrasPartII"
+   ],
+   "items": 10,
+   "name": "Azumaya algebras and Brauer groups on schemes",
+   "owner": "BP-SchemeAndStackFoundations",
+   "reason": "the most foundational of the 5 queued jobs its items go to",
+   "reserved": "SchemeAndStackFoundations:key/scheme-brauer",
+   "roadmap": "SchemeAndStackFoundations",
+   "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "unrouted": 4
+  }
+ },
+ "purpose": "Who plans each promoted key definition that no layer plans yet (PROTOCOL.md section 19), as research/blueprint/make_queue.py assigns it: the owner job plans it under the reserved node id, and the importers cite that id."
+}

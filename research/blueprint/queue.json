@@ -32915,8 +32915,8 @@
    ],
    "prompt": "research/blueprint/prompts/KEYDEF-algebraicnt~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5545",
-   "finishedAt": "2026-10-01T21:24:33Z"
+   "finishedAt": "2026-10-01T21:24:33Z",
+   "note": "deliverables arrived from an external worker on issue #5545"
   },
   {
    "id": "REV-KEYDEF-algebraicnt~2",
@@ -35261,8 +35261,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MOK-PILA-TSIMERMAN-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5501",
-   "finishedAt": "2026-10-01T21:15:45Z"
+   "finishedAt": "2026-10-01T21:15:45Z",
+   "note": "deliverables arrived from an external worker on issue #5501"
   },
   {
    "id": "RT-PAPER-GAMBURD-MAGEE-RONAN-19",
@@ -35657,8 +35657,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ZHU-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4110",
-   "finishedAt": "2026-10-01T21:02:56Z"
+   "finishedAt": "2026-10-01T21:02:56Z",
+   "note": "deliverables arrived from an external worker on issue #4110"
   },
   {
    "id": "REV-RT-PAPER-ZHU-17",
@@ -40867,8 +40867,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHARGAVA-GROSS-WANG-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4282",
-   "finishedAt": "2026-10-01T21:03:01Z"
+   "finishedAt": "2026-10-01T21:03:01Z",
+   "note": "deliverables arrived from an external worker on issue #4282"
   },
   {
    "id": "REV-RT-PAPER-BHARGAVA-GROSS-WANG-17",
@@ -43774,8 +43774,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LUST-STEVENS-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5540",
-   "finishedAt": "2026-10-01T21:33:59Z"
+   "finishedAt": "2026-10-01T21:33:59Z",
+   "note": "deliverables arrived from an external worker on issue #5540"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -46887,8 +46887,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5551",
-   "finishedAt": "2026-10-01T21:42:13Z"
+   "finishedAt": "2026-10-01T21:42:13Z",
+   "note": "deliverables arrived from an external worker on issue #5551"
   },
   {
    "id": "REV-FIX-RT-RS-23",

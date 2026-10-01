@@ -46,5 +46,49 @@
  "BorelRegulators:R.3/borel-rank-theorem": {
   "job": "BP-BorelRegulators--R.1",
   "statement": "Borel's theorem: the rank of K_{2n−1}(O_F) is r₁ + r₂ (n odd, n > 1) or r₂ (n even)."
+ },
+ "SchemeAndStackFoundations:key/excellent-schemes": {
+  "job": "BP-SchemeAndStackFoundations",
+  "statement": "Excellent rings and schemes (G-rings, J-2, universal catenarity): the key definition algebraicgeometry/excellent-schemes, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "SchemeAndStackFoundations:key/scheme-brauer": {
+  "job": "BP-SchemeAndStackFoundations",
+  "statement": "Azumaya algebras and Brauer groups on schemes: the key definition algebraicgeometry/scheme-brauer, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "DeformationAndDerivedPatchingAlgebra:key/coherent-duality": {
+  "job": "BP-DeformationAndDerivedPatchingAlgebra--P7",
+  "statement": "Coherent dualizing complexes and exceptional inverse image: the key definition algebraicgeometry/coherent-duality, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "StableReductionPartII:key/moduli-curves": {
+  "job": "DESIGN-StableReductionPartII",
+  "statement": "Moduli stacks of smooth and stable pointed curves: the key definition algebraicgeometry/moduli-curves, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "AlgebraicModuliForArithmeticGeometry:key/gerbes": {
+  "job": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
+  "statement": "Gerbes, abelian bandings and neutralizations: the key definition algebraicgeometry/gerbes, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "SchemeAndStackFoundations:key/henselization": {
+  "job": "BP-SchemeAndStackFoundations",
+  "statement": "Henselization of pairs and of local rings: the key definition algebraicgeometry/henselization, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology": {
+  "job": "BP-SchemeAndStackFoundations",
+  "statement": "Equivariant sheaves and derived invariant sections: the key definition algebraicgeometry/equivariant-sheaf-cohomology, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "SchemeAndStackFoundations:key/galois-gerbs": {
+  "job": "BP-SchemeAndStackFoundations",
+  "statement": "Galois gerbs with algebraic kernels and projective limits: the key definition algebraicgeometry/galois-gerbs, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "HodgeStructuresPartII:key/higgs-parameter-connections": {
+  "job": "DESIGN-HodgeStructuresPartII",
+  "statement": "Integrable Higgs bundles and parameter connections: the key definition algebraicgeometry/higgs-parameter-connections, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "FunctionFieldArithmeticPartII:key/root-stacks": {
+  "job": "DESIGN-FunctionFieldArithmeticPartII",
+  "statement": "Root stacks of line bundles with sections and of Cartier divisors: the key definition algebraicgeometry/root-stacks, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
+ },
+ "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts": {
+  "job": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
+  "statement": "Pushouts of schemes along closed immersions (pinching, conductor squares): the key definition algebraicgeometry/ferrand-pushouts, planned once, as generally as all its uses need (PROTOCOL.md section 19)."
  }
 }
