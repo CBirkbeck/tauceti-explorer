@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-SKOROBOGATOV-SOFOS-23",
+ "findings": [
+  {
+   "finding": "RT-PAPER-SKOROBOGATOV-SOFOS-23/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The standing data on p. 677 fixes Q_i of degree at most d_i before defining Poly(H), and Theorem 1.2 (p. 675) repeats deg Q_i ≤ d_i. Theorem 1.5 works 'in the assumptions of Theorem 1.2'. Theorem 1.9 (p. 680) does not restate the degree condition, but its R(x, H) divides by #Poly(H) as defined on p. 677. Item 9 says no degree condition is required, and item 11 inherits item 9's data, adding only coprimality. The witness is right. Take n = d_1 = 1, M = 2, n_0 = 0 and Q = t² + 1. Then Q(0) = 1 is prime to 2, but no linear P agrees with Q coefficientwise modulo 2, so Poly(H) is empty for every H. Item 11's density-one statement then has an empty denominator, which item 2's own test rejects. The fix, restoring deg Q_i ≤ d_i (or deg(Q_i mod M) ≤ d_i) in item 11 and in route 1's contract, is right."
+  },
+  {
+   "finding": "RT-PAPER-SKOROBOGATOV-SOFOS-23/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Proposition 3.8 (p. 694) assumes H^{δ₁} ≤ z ≤ H, and item l1-bound-truncated-von-mangoldt drops this range. The sum S_F(0) runs over all c ∈ Z with |c| ≤ (d+1)𝓜^d H (p. 691), so it includes c = 0. With Λ_z(r) = −Σ_{d ≤ z, d | r} μ(d) log d (p. 691), every d divides 0. So Λ_p(0) − Λ_{p−1}(0) = −μ(p) log p = log p at each prime p. For fixed H, |Λ_z(0)| is therefore unbounded in z, while the item's bound H(log H)²𝓜^d is fixed. The item's own note, z log z ≤ H log H, uses z ≤ H. The fix, restoring a z-range (1 ≤ z ≤ H suffices for the zero term, or the source range), is right, and Proposition 3.8 itself is not in error."
+  },
+  {
+   "finding": "RT-PAPER-SKOROBOGATOV-SOFOS-23/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). In the atlas, ClassFieldTheory Layer 13 defines narrowHilbertClassField as rayClassField at GlobalNumberFields.narrowModulus, and plans 'the maximal unramified properties, splitting criteria, and the principal ideal theorem'. Layer 12 plans the global correspondence and the ray-class Artin map, with its splitting law for admissible moduli. Item 63 defines K^(+) and its splitting law (p. 720), but its only planned reference is Layer 12, and route 2's brief imports layers 5, 6, 10 and 12 'for … strict ray-class splitting'. The same extraction's global-cyclic-norm-criterion and kronecker-weber items already point to Layer 13. The fix is right: point item 63 to Layer 13 and keep Layer 12 only as a prerequisite."
+  }
+ ]
+}
