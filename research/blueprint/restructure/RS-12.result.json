@@ -14,7 +14,7 @@
   "layers": {
     "AutomorphicGaloisRepresentations:R19.1": {
       "action": "keep",
-      "reason": "Keep the actual classical geometric constructions: weight-two Jacobian components; in higher weight, the eigenspace projectors in parabolic Sym^(k-2) or Kuga-Sato cohomology, built on the finite-level universal-family carrier and symmetric-power local systems with Hecke/level comparison that ModularCurvesPartII R14.3 owns (accepted RS-06 owner record, formerly R19.1, and its link R14.3 -> R19.1); dimension, coefficient fields and stable lattices, arithmetic dual/twist and geometric Eichler-Shimura polynomial. Keep Deligne-Serre weight one separately. Higher-rank regular algebraic existence neither supplies that weight-one case nor replaces these realizations. Generic representation/lattice machinery remains R01.1; prove its geometric application here. During integration preserve the report's required correction to the inherited geometric-construction node: its universal one-subgroup assertion in characteristic p is false for ordinary elliptic curves. Keep finite representability and the Eichler-Shimura construction, but replace that fibre-count subclaim by a sourced ordinary/supersingular distinction; the nonsingular curve y^2=x^3+3x+2 over F_5 already has a reduced subgroup of order 5 distinct from its Frobenius kernel. This review does not mark the inherited partial decomposition complete."
+      "reason": "Keep the actual classical geometric constructions: weight-two Jacobian components; in higher weight, the eigenspace projectors in parabolic Sym^(k-2) or Kuga-Sato cohomology, built on the finite-level universal-family carrier and symmetric-power local systems with Hecke/level comparison that ModularCurvesPartII R14.3 owns (accepted RS-06 owner record, formerly R19.1, and its link R14.3 -> R19.1); dimension, coefficient fields and stable lattices, arithmetic dual/twist and the geometric Frobenius polynomial. Import the weight-two special-fibre Eichler-Shimura relation from ModularCurvesPartII:R14.6 (accepted RS-06), through the new R14.6 -> R19.1 link; R14.3 supplies the carrier, not this relation. R19.1 owns its eigenspace deduction, arithmetic/geometric normalization and the higher Sym^(weight-2)-coefficient congruence (Deligne 355 Proposition 4.8/Theorem 4.9), not a second weight-two special-fibre proof. Coordinate with confirmed RT-AREA-langlands-2/9. The owning R19 packet must preserve its R14.6/special-fibre-eichler-shimura prerequisite and add the explicit R14.6 request specified in handoff/RS-12~3.md; the packet is not a deliverable of this fix. Keep Deligne-Serre weight one separately. Higher-rank regular algebraic existence neither supplies that weight-one case nor replaces these realizations. Generic representation/lattice machinery remains R01.1; prove its geometric application here. During integration preserve the report's required correction to the inherited geometric-construction node: its universal one-subgroup assertion in characteristic p is false for ordinary elliptic curves. Keep finite representability and the Eichler-Shimura construction, but replace that fibre-count subclaim by a sourced ordinary/supersingular distinction; the nonsingular curve y^2=x^3+3x+2 over F_5 already has a reduced subgroup of order 5 distinct from its Frobenius kernel. This review does not mark the inherited partial decomposition complete."
     },
     "AutomorphicGaloisRepresentations:R19.2": {
       "action": "keep",
@@ -43,7 +43,7 @@
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.0": {
       "action": "keep",
-      "reason": "Keep the branch-specific automorphic weight/coefficient-field data, finite realization/descent checks and the early Frobenius/cyclotomic/Satake dictionary. Reuse AF.4 for algebraic/rational structures, R01/G7 for actual representations and polarizations, and IHG.3 for integral spherical normalization. The rec comparison belongs to AG2.5 after ET.6, not to this early raw-cohomology input. The explicit imports are deliberate handoffs, not new versions of their carriers. Round 3: AG2.0 stays early and rec-free, because it precedes ET.6 through AG2.1a. The AG2.0 checkpoint-1 packet places three statements after that frontier, and its next checkpoint must move them. The source-normalization comparison (AG2.0/the-normalization-dictionary-fixed-by-the-sources, stated with rec) goes to AG2.5. The forward requirement of AG2.0/frobenius-polynomial-and-conventions on AG2.5 becomes a consumer link from AG2.0 to AG2.5. The Arthur-Clozel base-change clause of AG2.0/galois-representation-attached-at-good-places, requested from ET.7, which lies downstream of AG2.0 via AG2.1a -> ET.6 -> ET.7a, goes to AG2.2. The rec-free definition by Hecke polynomials stays."
+      "reason": "Keep the branch-specific automorphic weight/coefficient-field data, finite realization/descent checks and the early Frobenius/cyclotomic/Satake dictionary. Reuse AF.4 for algebraic/rational structures, R01/G7 for actual representations and polarizations, and IHG.3 for integral spherical normalization. The rec comparison belongs to AG2.5 after ET.6, not to this early raw-cohomology input. The explicit imports are deliberate handoffs, not new versions of their carriers. Round 3: AG2.0 stays early and rec-free, because it precedes ET.6 through AG2.1a. The AG2.0 checkpoint-1 packet places three statements after that frontier, and its next checkpoint must move them. The source-normalization comparison (AG2.0/the-normalization-dictionary-fixed-by-the-sources, stated with rec) goes to AG2.5 as a post-construction output. This is not a parent-only move: remove its outgoing prerequisite/link to AG2.4/hltt-construction-of-nonselfdual-systems in the owning blueprint. Replace that HLTT input by AG2.0/frobenius-polynomial-and-conventions (the rec-free dictionary) and a requested ET.6 good-prime local-Langlands normalization. AG2.5 then consumes the constructed representation, this early dictionary and ET.6; never feed the late comparison back into AG2.4. Preserve Theorem A's good-prime hypotheses and embeddings. Validate node prerequisites projected to their new parent stages, as well as the stage graph, after every instructed placement change. The exact prerequisite/request obligations are in handoff/RS-12~3.md; promotion follows the owning blueprint's independent review, never a hand edit of data/decompositions. The forward requirement of AG2.0/frobenius-polynomial-and-conventions on AG2.5 becomes a consumer link from AG2.0 to AG2.5. The Arthur-Clozel base-change clause of AG2.0/galois-representation-attached-at-good-places, requested from ET.7, which lies downstream of AG2.0 via AG2.1a -> ET.6 -> ET.7a, goes to AG2.2. The rec-free definition by Hecke polynomials stays."
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.1": {
       "action": "keep",
@@ -71,11 +71,11 @@
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.4": {
       "action": "keep",
-      "reason": "Keep HLTT boundary/Levi realization, ordinary-locus dagger and compact-support logarithmic complex instance, finite-slope comparison, integral weight-changing congruences at every power of p, determinant limits and degree-n factor extraction/descent. Import generic geometry and determinant APIs from their owners, but prove this automorphic application. The resulting nonselfdual characteristic-zero existence theorem has its stated good-prime conclusion only; it does not consume Scholze torsion interpolation."
+      "reason": "Keep HLTT boundary/Levi realization, ordinary-locus dagger and compact-support logarithmic complex instance, finite-slope comparison, integral weight-changing congruences at every power of p, determinant limits and degree-n factor extraction/descent. Import generic geometry from its owners and generic finite-quotient interpolation and inverse-limit compatibility from IntegralHeckeAndGaloisDeterminants:IHG.4, via the new IHG.4 -> AG2.4 link, coordinating with confirmed RT-AREA-langlands-1/26. The owning AG2.4 blueprint must request that interface and list its prerequisite explicitly. AG2.4 proves the actual HLTT congruence bounds at every power of p, finite Hecke-stable module and continuity checks, common finite ramification set, coefficient convention and descent. Match HLTT's trace-pseudorepresentation to the determinant law on the exact coefficient domain; characteristic-zero trace reconstruction with denominators is not an integral law over arbitrary finite quotients, and density alone does not establish integrality. The separate factor-separation obligation from /26 requires its own Laurent-variable and twist hypothesis comparison; this link does not import whole TC.3 or a torsion-concentration endpoint. The resulting nonselfdual characteristic-zero existence theorem has its stated good-prime conclusion only; it does not consume Scholze torsion interpolation."
     },
     "AutomorphicGaloisRepresentationsPartII:AG2.5": {
       "action": "narrow",
-      "keeps": "Keep all good-prime and ramified comparisons outside the exact R19.4 overlap, in arbitrary rank and CM/totally-real branches, including new rank-two cases. Keep the late rec-normalization comparison, monodromy partial order, polarized nearby-cycle/purity upgrades and nonselfdual Varma interpolation/bound. On the classical/Hilbert overlap import R19.4 full Weil-Deligne equality and transport it through the representation comparison. Distinguish underlying semisimplification, full Frobenius-semisimplification retaining N, and a monodromy bound; the weaker branch is never silently strengthened. Correct the acceptance example in the current Part II README: use an irreducible ramified principal series with N=0, and separately a Steinberg twist with nonzero rank-one N. Ramification of the Weil characters is not nilpotent monodromy; retain both tests rather than dropping the ramified example.",
+      "keeps": "Keep all good-prime and ramified comparisons outside the exact R19.4 overlap, in arbitrary rank and CM/totally-real branches, including new rank-two cases. Keep the late rec-normalization comparison as an output after AG2.4, consuming the constructed representation, the rec-free AG2.0 dictionary and ET.6; remove the inherited normalization-node -> HLTT-node input when rehoming that node. Keep monodromy partial order, polarized nearby-cycle/purity upgrades and nonselfdual Varma interpolation/bound. On the classical/Hilbert overlap import R19.4 full Weil-Deligne equality and transport it through the representation comparison. Distinguish underlying semisimplification, full Frobenius-semisimplification retaining N, and a monodromy bound; the weaker branch is never silently strengthened. Correct the acceptance example in the current Part II README: use an irreducible ramified principal series with N=0, and separately a Steinberg twist with nonzero rank-one N. Ramification of the Weil characters is not nilpotent monodromy; retain both tests rather than dropping the ramified example.",
       "suppliedBy": [
         "AutomorphicGaloisRepresentations:R19.4"
       ],
@@ -246,11 +246,21 @@
       "source": "WeightsInEtaleCohomology:R34.6",
       "target": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
       "reason": "Protocol 15 forwarding of the narrowed AutomorphicGaloisRepresentations:R19.3 interface. This is inherited supplier access, not an assertion that this consumer uses every theorem of that supplier; retain the original dependency as well."
+    },
+    {
+      "source": "ModularCurvesPartII:R14.6",
+      "target": "AutomorphicGaloisRepresentations:R19.1",
+      "reason": "Import the already-owned weight-two special-fibre Eichler-Shimura relation, distinct from R14.3's carrier. R19.1 proves the eigenspace/arithmetic-normalization deduction and its higher symmetric-power coefficient congruence. This supplies the remaining accepted-graph route of confirmed RT-AREA-langlands-2/9; no second proof is commissioned."
+    },
+    {
+      "source": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+      "target": "AutomorphicGaloisRepresentationsPartII:AG2.4",
+      "reason": "Apply generic continuous finite-quotient interpolation and passage to inverse limits to AG2.4's proved HLTT congruence data, after coefficient-domain and trace-to-determinant hypothesis matching. Geometry, finite-module bounds, continuity, normalization and descent stay in AG2.4. This is the interpolation part of confirmed RT-AREA-langlands-1/26, not a Scholze torsion or whole-TC.3 import."
     }
   ],
   "owners": [
     {
-      "target": "Classical rank-two geometric eigenform realization and its good Frobenius polynomial, with a separate weight-one Artin branch",
+      "target": "Classical rank-two geometric eigenform realization and its good Frobenius polynomial deduced from R14.6's weight-two relation, with eigenspace/normalization and higher symmetric-power coefficient congruence here, and a separate weight-one Artin branch",
       "owner": "AutomorphicGaloisRepresentations:R19.1",
       "formerly": [
         "AutomorphicGaloisRepresentationsPartII:AG2.7"
@@ -382,6 +392,13 @@
       "target": "Final typed characteristic-zero, polarized, unitary-discrete and residual automorphic exports with the GL2 isomorphism-class comparison",
       "owner": "AutomorphicGaloisRepresentationsPartII:AG2.7",
       "formerly": []
+    },
+    {
+      "target": "Weight-two special-fibre Eichler-Shimura relation on the modular Jacobian; separate from R14.3's universal-family carrier and R19.1's higher-coefficient extension",
+      "owner": "ModularCurvesPartII:R14.6",
+      "formerly": [
+        "AutomorphicGaloisRepresentations:R19.1"
+      ]
     }
   ],
   "review": {
