@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-BHATT-SCHOLZE-17",
+ "findings": [
+  {
+   "finding": "RT-PAPER-BHATT-SCHOLZE-17/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The item states that 'if X_0 is flat and finitely presented over a valuation ring V (here of rank 1), then O_{X_0} is locally a free V-module'. That is false. For a rank-one V with nonzero t in its maximal ideal, Spec V[1/t] = Spec Frac(V) is flat and finitely presented over V, but Frac(V) is not a free V-module: its reduction mod t is 0. The paper uses this only for its proper, flat, reduced model: 'let f₀ : X₀ → Spec(V) be a proper flat reduced model of f' (arXiv v3, p. 26, proof of Theorem 6.13). There it cites [RG71, Corollaire 3.3.13], a pointed statement over a local henselian base. V is henselian here because its fraction field has been made algebraically closed. Properness spreads the closed-fibre neighbourhoods over all of X₀. The fix is right: state the proper, henselian form and keep the route."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-SCHOLZE-17/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item symmetric-monoidal-functor is 'missing' and routed to StableHomotopyKTheory. At the pinned Mathlib, Mathlib/CategoryTheory/Monoidal/Functor.lean has `class Monoidal (F : C ⥤ D) extends F.LaxMonoidal, F.OplaxMonoidal` with εIso and μIso. Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean has `class Functor.Braided (F : C ⥤ D) extends F.Monoidal, F.LaxBraided`, whose `braided` field is compatibility with the braiding. Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean has `class IsMonoidal`, with the unit and tensor equations. Between symmetric categories, Functor.Braided is exactly a symmetric monoidal functor. The fix is right: mark the item library with these citations and remove it from route 12's missing work."
+  },
+  {
+   "finding": "RT-PAPER-BHATT-SCHOLZE-17/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Route 10 sends k-theory-additivity, supported-perfect-complexes-general, tt90-k-equals-g-regular and localization-sequences to KTheoryLowDegrees Z.3, U.3 and U.6. In the atlas those stages plan low-degree determinant work: Z.3 tensor, exterior powers and determinant on K₀; U.3 the stable determinant and SK₁; U.6 the comparison of π₁BGL⁺. The four items belong to the general and scheme K-theory owners. GeneralAlgebraicKTheory:K.4:construction plans 'additivity and the delooping theorem'. SchemeKTheoryOperations:S.3 plans K_Z(X) from complexes acyclic off Z and the fibre sequence K_Z(X) → K(X) → K(U). S.2 plans K, G and the Cartan map K(X) → G(X). The extraction's own routes 9 and 11 already name S.2/S.3 and K.3/K.4. The fix is right: reassign to those stages and keep the determinant consequences in route 10. Disclosure: this session's FIX-RT-AREA-ktheory-1 (PR #5221) edited the GeneralAlgebraicKTheory packets for K.1 and K.6; this verdict cites only the atlas text of K.3 and K.4."
+  }
+ ]
+}
