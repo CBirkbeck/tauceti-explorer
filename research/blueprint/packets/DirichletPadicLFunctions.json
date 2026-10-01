@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Nine L3 nodes construct the unique actual all-prime full-Witt group lift of every compatible finite Cartan cone, by native integral group-ring extension and the preceding concrete ring limit. All 1,732 predecessor nodes and 1,129 baseline records remain whole.",
+  "summary": "Seven L3 nodes identify the actual degree-one full-Witt Cartan ring and group with native products of p-adic integers and units, preserving original coordinates and equality at every finite Cartan level. All 1,741 predecessor nodes and 1,134 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -7952,6 +7952,104 @@
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "A native homomorphism from a group into a monoid lifts to actual units, whose inverse is the image of the actual source inverse.",
         "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact ranges retained in the reading note. Existing group-ring and actual-unit universal constructions are reused directly."
+      },
+      {
+        "ref": "mathlib:GaloisField.equivZmodP",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+        "provides": "The existing native algebra isomorphism from the degree-one GaloisField p 1 to ZMod p.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "The existing native ring map on full Witt vectors induced coefficientwise by a ring homomorphism.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.map_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "Native full-Witt coefficient transport is injective when the original coefficient ring map is injective.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.map_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "Native full-Witt coefficient transport is surjective when the original coefficient ring map is surjective.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.map_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "Each coefficient of native full-Witt transport is the original coefficient acted on by the original ring homomorphism.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.toPadicInt",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Compare.lean",
+        "provides": "The existing native ring map from Witt vectors over ZMod p to p-adic integers, constructed by the native p-adic inverse-limit lift.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.equiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Compare.lean",
+        "provides": "The existing native ring isomorphism between full Witt vectors over ZMod p and native p-adic integers.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.toZModPow",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Compare.lean",
+        "provides": "The existing native full-Witt residue map obtained by truncation and the inverse native ZMod-power/truncated-Witt isomorphism.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector.zmodEquivTrunc",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Compare.lean",
+        "provides": "The existing native ring isomorphism from ZMod(p^n) to length-n Witt vectors over ZMod p.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:RingEquiv.piCongrRight",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "The native ring isomorphism of dependent products induced by a family of ring isomorphisms at the same indices.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:RingEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "The native packaging of a bijective ring homomorphism as a ring isomorphism, retaining its original forward value.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:PadicInt.lift_spec",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "provides": "Native p-adic reduction of the native compatible ring-hom lift recovers the original ring map at every natural exponent.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:Units.mapEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Equiv.lean",
+        "provides": "A native multiplicative equivalence induces an equivalence of actual unit groups with the original underlying values.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
+      },
+      {
+        "ref": "mathlib:WittVector.teichmuller",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+        "provides": "The existing multiplicative Teichmuller map to actual full Witt vectors, with original zeroth coefficient and every higher coefficient zero.",
+        "checked": "Full native declaration, surrounding hypotheses and body read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 1 October 2026. Exact source ranges retained in the reading note. Existing field, Witt, p-adic, product and unit comparisons are reused directly."
       }
     ]
   },
@@ -113965,6 +114063,465 @@
       "acceptance": [
         "Use actual finite Cartan units, native integral group-ring coefficients, and the original all-prime full-Witt unit product. Recover every original finite group map and prove uniqueness of the actual homomorphism. Preserve arbitrary source groups, original basis values, inverse units, empty level 1 and changing prime support. Keep source local-field and topological boundaries explicit."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual degree-one Cartan ring as a product of p-adic integers",
+      "kind": "construction",
+      "statement": "Construct a ring isomorphism E:C(1)→∏_p ℤ_p on the actual all-prime product. At each prime, apply the native degree-one Galois-field isomorphism coefficientwise to full Witt vectors, then the existing native Witt-vector/p-adic-integer isomorphism.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Use native GaloisField.equivZmodP for each original prime.",
+        "Apply the existing native full-Witt ring map; native injectivity and surjectivity of that map produce a ring isomorphism via RingEquiv.ofBijective.",
+        "Compose with the existing WittVector.equiv to the native p-adic integer ring at the same prime.",
+        "Assemble these actual coordinate isomorphisms using native RingEquiv.piCongrRight. No finite Galois-ring equivalence or generic Witt functor is defined again."
+      ],
+      "prerequisites": [
+        "FiniteFieldsAndCharacterSums:FF.4/galois-ring",
+        "mathlib:Nat.Primes",
+        "mathlib:GaloisField.equivZmodP",
+        "mathlib:WittVector.map",
+        "mathlib:WittVector.map_injective",
+        "mathlib:WittVector.map_surjective",
+        "mathlib:RingEquiv.ofBijective",
+        "mathlib:WittVector.equiv",
+        "mathlib:RingEquiv.piCongrRight",
+        "mathlib:WittVector.teichmuller"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOnePadicEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_padic_comparison_zero",
+          "kind": "degenerate",
+          "statement": "The actual degree-one Cartan zero tuple maps to the zero p-adic tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_padic_comparison_identity",
+          "kind": "degenerate",
+          "statement": "The actual degree-one Cartan identity maps to the p-adic identity tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_padic_comparison_integer_cast",
+          "kind": "computation",
+          "statement": "The ordinary integer minus three maps to its ordinary cast in every actual p-adic coordinate."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_padic_comparison_multiplication",
+          "kind": "compatibility",
+          "statement": "The constructed comparison preserves multiplication of actual full-Witt tuples."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_padic_comparison_roundtrip",
+          "kind": "characterisation",
+          "statement": "The inverse native comparison recovers the original actual Cartan tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.teichmuller_coordinate_is_not_integer_digit",
+          "kind": "non-example",
+          "statement": "At prime3, a Teichmuller2 coordinate maps to a p-adic value distinct from the ordinary integer2; the mod27 value is26."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_apply",
+          "role": "compatibility",
+          "statement": "For x in C(1) and actual prime p, E(x)_p is native WittVector.toPadicInt applied to the native coefficientwise image of the original x_p under GaloisField.equivZmodP."
+        },
+        {
+          "name": "kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_residue",
+          "role": "compatibility",
+          "statement": "For x in C(1), actual prime p and natural n, the native residue of E(x)_p modulo p^n equals native WittVector.toZModPow of the coefficientwise Galois-field image of the original x_p."
+        },
+        {
+          "name": "kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_finite_eq_iff",
+          "role": "compatibility",
+          "statement": "For positive N and actual x,y in C(1), their established finite Cartan ring projections at N are equal if and only if, for each original prime p dividing N, E(x)_p and E(y)_p have equal native residues modulo p^v_p(N)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert 186 degree-one local model",
+          "how": "Connects the actual full-Witt Cartan product to native p-adic integers using existing comparisons."
+        },
+        {
+          "where": "Finite Cartan quotients",
+          "how": "Identifies equality of actual finite projections with equality of native residues at unchanged prime coordinates."
+        },
+        {
+          "where": "Coordinate conventions",
+          "how": "Separates Teichmuller coefficients from ordinary integer digits and preserves native integer casts."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-apply",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The p-adic comparison uses the same original prime coordinate",
+      "kind": "lemma",
+      "statement": "For x in C(1) and actual prime p, E(x)_p is native WittVector.toPadicInt applied to the native coefficientwise image of the original x_p under GaloisField.equivZmodP.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the native product isomorphism at the same original prime.",
+        "Native bijective ring-map packaging and composition retain the original map value.",
+        "The underlying native Witt-vector isomorphism has toPadicInt as its forward map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv",
+        "mathlib:WittVector.toPadicInt"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.original_prime_coordinate_native_comparison",
+          "kind": "compatibility",
+          "statement": "The original2-coordinate is mapped by the native degree-one Galois-field map, full-Witt functor and native p-adic comparison."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-residue",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Actual p-adic residues agree with the native Witt residues",
+      "kind": "lemma",
+      "statement": "For x in C(1), actual prime p and natural n, the native residue of E(x)_p modulo p^n equals native WittVector.toZModPow of the coefficientwise Galois-field image of the original x_p.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the actual prime-coordinate comparison.",
+        "The native full-Witt/p-adic map is the existing PadicInt lift of its compatible residue maps.",
+        "Apply native PadicInt.lift_spec at the chosen natural exponent, including zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-apply",
+        "mathlib:WittVector.toZModPow",
+        "mathlib:PadicInt.lift_spec"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.native_padic_residue_at_precision_three",
+          "kind": "compatibility",
+          "statement": "The prime3 residue at precision three agrees with the native Witt-vector residue after the actual finite-field identification."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-finite-eq-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite Cartan ring equality is exactly equality of p-adic residues",
+      "kind": "lemma",
+      "statement": "For positive N and actual x,y in C(1), their established finite Cartan ring projections at N are equal if and only if, for each original prime p dividing N, E(x)_p and E(y)_p have equal native residues modulo p^v_p(N).",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Use the proved residue formula to express each p-adic residue through the existing native truncated-Witt/ZMod comparison.",
+        "In the forward direction, equal original finite Cartan coordinates have equal lower coefficients; apply the native degree-one field map to each coefficient.",
+        "Native truncated-Witt extensionality and the existing zmodEquivTrunc give equality of native residues.",
+        "In the reverse direction, invert the existing native zmod comparison, compare each lower full-Witt coefficient and use injectivity of the existing Galois-field isomorphism.",
+        "Product and truncated-Witt extensionality recover equality of the original finite Cartan projections. This compares concrete consumer fibers without constructing the owner finite Galois-ring isomorphism."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-residue",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-apply",
+        "mathlib:TruncatedWittVector.zmodEquivTrunc",
+        "mathlib:WittVector.coeff_truncate",
+        "mathlib:WittVector.map_coeff",
+        "mathlib:GaloisField.equivZmodP"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPadicComparison_cartanDegreeOnePadicEquiv_finite_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.finite_ring_kernel_matches_original_residues",
+          "kind": "characterisation",
+          "statement": "Equality of actual Cartan ring projections at12 is exactly equality of the native p-adic residues at the original2- and3-coordinates and their actual exponents."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual degree-one Cartan group as a product of p-adic units",
+      "kind": "construction",
+      "statement": "Construct a multiplicative isomorphism E_units:V(1)→∏_p ℤ_pˣ by applying native maps on units to the actual product-ring isomorphism and using the existing native units-of-product equivalences.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Use native piUnits in reverse to view the original tuple as an actual unit of C(1).",
+        "Apply native Units.mapEquiv to the proved actual product-ring isomorphism.",
+        "Use native piUnits to recover the product of actual p-adic unit groups at the original prime indices."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv",
+        "mathlib:MulEquiv.piUnits",
+        "mathlib:Units.mapEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanDegreeOnePadicUnitsEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_unit_comparison_identity",
+          "kind": "degenerate",
+          "statement": "The actual Cartan unit identity tuple maps to the p-adic unit identity tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_unit_comparison_multiplication",
+          "kind": "compatibility",
+          "statement": "The common unit comparison is multiplicative on actual full-Witt unit tuples."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_unit_comparison_inverse",
+          "kind": "compatibility",
+          "statement": "The common comparison preserves the actual inverse tuple."
+        },
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.actual_unit_comparison_roundtrip",
+          "kind": "characterisation",
+          "statement": "The native inverse comparison recovers every original actual common Cartan unit tuple."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_coe",
+          "role": "compatibility",
+          "statement": "At each original prime p, the underlying value of E_units(x)_p equals E applied to the original full-Witt value tuple and evaluated at p."
+        },
+        {
+          "name": "kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_finite_eq_iff",
+          "role": "compatibility",
+          "statement": "For positive N and actual x,y in V(1), their established finite Cartan unit projections are equal if and only if, for every original p dividing N, the native reductions of E_units(x)_p and E_units(y)_p in ZMod(p^v_p(N))ˣ are equal."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert 186 common Cartan group",
+          "how": "Identifies the actual degree-one common unit group with the native product of p-adic unit groups."
+        },
+        {
+          "where": "Finite group actions",
+          "how": "Retains exactly the finite equivalence classes used by the established Cartan actions."
+        },
+        {
+          "where": "Source comparison boundary",
+          "how": "Supplies the concrete degree-one algebraic comparison without asserting a general-degree or topological result."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The p-adic unit comparison preserves the actual ring value",
+      "kind": "lemma",
+      "statement": "At each original prime p, the underlying value of E_units(x)_p equals E applied to the original full-Witt value tuple and evaluated at p.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the existing native units/product maps and their composition.",
+        "Their underlying values are exactly the original ring comparison values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.unit_comparison_retains_actual_ring_values",
+          "kind": "compatibility",
+          "statement": "The underlying p-adic value of each compared unit is exactly the ring comparison of the original underlying full-Witt tuple."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv-finite-eq-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite Cartan unit equality is exactly equality of p-adic unit residues",
+      "kind": "lemma",
+      "statement": "For positive N and actual x,y in V(1), their established finite Cartan unit projections are equal if and only if, for every original p dividing N, the native reductions of E_units(x)_p and E_units(y)_p in ZMod(p^v_p(N))ˣ are equal.",
+      "hypotheses": [
+        "The Cartan degree is exactly one. C(1) is the actual product over native primes p of WittVector p (GaloisField p 1), and V(1) is the product of their actual unit groups. The comparison targets are the native products of p-adic integer rings and their units over the same original prime index.",
+        "Finite levels N are positive integers. The established finite Cartan projections retain each prime p dividing N with its native exponent v_p(N); native p-adic reduction is to ZMod(p^v_p(N)).",
+        "The native GaloisField.equivZmodP, WittVector.map and WittVector.equiv already provide the degree-one field/full-Witt comparisons. FF.4 owns the finite GaloisRing degree-one isomorphism, generic presentations, units and locality; none is reconstructed here.",
+        "The comparisons are algebraic on the actual full product carriers and their finite projection equalities. General-degree unramified integer-ring comparison, topology, continuity, primitive torsor and rank statements remain open."
+      ],
+      "proofSteps": [
+        "Pass from the actual finite unit equality to equality of original underlying finite ring values.",
+        "Use the ring finite-equality criterion and the exact underlying value formula for the unit comparison.",
+        "Native unit extensionality converts residue-value equality to equality of the actual native reduced units.",
+        "Reverse these steps to recover the original actual Cartan unit tuple equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-equiv-finite-eq-iff",
+        "DirichletPadicLFunctions:L3/kubert-cartan-padic-cartan-degree-one-padic-units-equiv-coe",
+        "DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-coe",
+        "DirichletPadicLFunctions:L3/kubert-cartan-inverse-limit-cartan-witt-ring-projection-units",
+        "mathlib:Units.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanPadicComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPadicComparison_cartanDegreeOnePadicUnitsEquiv_finite_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published 186, equation (2.5), the common product of local unit groups and its finite quotients, specialized to degree one; 187, the finite Cartan actions and norms.",
+          "excerpt": "the projective limit",
+          "match": "Identifies the actual degree-one full-Witt Cartan product with the native p-adic integer product using existing library isomorphisms, and compares equality under the original finite Cartan projections with equality of native p-adic residues. The owner finite Galois-ring equivalence and general-degree/topological bridges are not replanned or assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanPadicComparisonTests.finite_unit_kernel_matches_original_residues",
+          "kind": "characterisation",
+          "statement": "Equality of actual finite Cartan unit projections at12 is precisely equality of their native p-adic unit reductions at the original primes and exponents."
+        }
+      ],
+      "acceptance": [
+        "Use the original actual prime coordinates and native factorization exponents. Preserve integer casts, products, units and inverse comparisons. Finite equality must agree in both directions with native p-adic residues. The prime3 Teichmuller2 coordinate is distinct from the ordinary integer2. Keep degree-one algebraic comparisons separate from general-degree and topological assertions."
+      ]
     }
   ],
   "requests": [
@@ -114111,7 +114668,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual full-Witt Cartan unit product now satisfies the concrete algebraic inverse-limit universal property for compatible homomorphisms from every group, including noncommutative source groups. The construction extends each actual finite group map through the native integral group ring, uses the actual ring limit, and recovers every original finite unit projection uniquely. Next connect these concrete algebraic limits with the source unramified local-field rings and their topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. Source integer-ring identification, continuity, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+        "The concrete full-Witt Cartan ring and unit group have their algebraic inverse-limit universal properties. In degree one, their actual full products are now algebraically isomorphic to the native products of p-adic integers and p-adic units, and equality at every original finite Cartan level is equivalent to equality of native p-adic residues at the same primes and factorization exponents. Next construct the topology and continuity of the actual Cartan system, or construct actual primitive-torus coordinates from the FF.4 finite model. General-degree unramified integer-ring identification, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns finite Galois rings, including the finite degree-one equivalence, and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -114143,7 +114700,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual full-Witt Cartan unit product now satisfies the concrete algebraic inverse-limit universal property for compatible homomorphisms from every group, including noncommutative source groups. The construction extends each actual finite group map through the native integral group ring, uses the actual ring limit, and recovers every original finite unit projection uniquely. Next connect these concrete algebraic limits with the source unramified local-field rings and their topology, or construct the actual primitive-torus coordinates from the FF.4 finite model. Source integer-ring identification, continuity, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The concrete full-Witt Cartan ring and unit group have their algebraic inverse-limit universal properties. In degree one, their actual full products are now algebraically isomorphic to the native products of p-adic integers and p-adic units, and equality at every original finite Cartan level is equivalent to equality of native p-adic residues at the same primes and factorization exponents. Next construct the topology and continuity of the actual Cartan system, or construct actual primitive-torus coordinates from the FF.4 finite model. General-degree unramified integer-ring identification, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns finite Galois rings, including the finite degree-one equivalence, and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -114694,36 +115251,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The concrete algebraic Cartan group inverse-limit universal property is supplied. FF.4 ownership, source unramified integer-ring and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+    "sourceIssues": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one algebraic p-adic comparison and original finite-equality criteria are supplied. FF.4 ownership, general-degree unramified-ring and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
     "validation": {
-      "nodes": 1741,
+      "nodes": 1748,
       "kinds": {
         "definition": 22,
-        "lemma": 982,
-        "construction": 171,
+        "lemma": 987,
+        "construction": 173,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1203,
-      "packetTests": 3183,
-      "definitionConstructionTests": 767,
-      "typedExamples": 3186,
+      "api": 1208,
+      "packetTests": 3198,
+      "definitionConstructionTests": 777,
+      "typedExamples": 3201,
       "planets": 24,
-      "baseline": 1134,
-      "preservedWholeNodes": 1732,
-      "preservedBaseline": 1129,
+      "baseline": 1148,
+      "preservedWholeNodes": 1741,
+      "preservedBaseline": 1134,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 9,
-      "newNamedDeclarations": 9,
+      "newNodes": 7,
+      "newNamedDeclarations": 7,
       "newTypedTests": 15,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2003,
-      "dependencyEdges": 8497,
+      "reachableNodes": 2010,
+      "dependencyEdges": 8527,
       "acyclic": true,
-      "baselineLeaves": 1307,
+      "baselineLeaves": 1318,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -114738,7 +115295,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 888295,
+      "readerWords": 892273,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -114758,38 +115315,37 @@
       "currentSupplierNodes": 369,
       "supplierArtifactAvailable": true,
       "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3632,
+      "pinnedMathlibSourceModules": 3634,
       "requiredPinnedTauSourceModules": 29,
       "availablePinnedTauArtifacts": 28,
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 113,
-      "scratchCompleteLemmas": 1103,
-      "scratchMathlibModules": 3008,
+      "scratchCompleteDefinitions": 115,
+      "scratchCompleteLemmas": 1108,
+      "scratchMathlibModules": 3010,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "levels": 48,
-        "sourceGroupElements": 6,
-        "coherentSignFamilies": 16,
-        "groupProducts": 27648,
-        "ringProducts": 76800,
-        "basisValues": 4608,
-        "projectionRecoveries": 4608,
-        "compatibleTransitions": 19008
+        "primes": 4,
+        "localModels": 16,
+        "coefficientTuples": 611,
+        "bijectionValues": 611,
+        "truncations": 2311,
+        "residueEqualityPairs": 545815,
+        "unitValues": 607
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577",
-        "modules": 3628,
-        "warnings": 5274,
+        "sourceSha256": "ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1",
+        "modules": 3630,
+        "warnings": 5296,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,296 expected placeholder warnings across 3,630 pinned source modules. It includes all 7 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -114799,7 +115355,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "4a67f993fe5639363af55636cb4aac3edeb5ffa1abcd2a91c7eba8de39a16d72",
+      "sha256": "a560210660ff12788dbc61ceb053f81c8ed6cb68bc4b4725f6d81176bf6941bc",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -114814,11 +115370,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1103,
+        "completeLemmas": 1108,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "46e6dfe8988445d02b10b72078e3a15162527cc2064fd0c7f05792fd93dfb8d3"
+        "sha256": "fe20425a4f24c80aab5c0356af70b721bd58cc702479f5045212e8f383558c03"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -114833,7 +115389,7 @@
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
         "nativeTauModules": 29,
-        "nativeMathlibModules": 3632,
+        "nativeMathlibModules": 3634,
         "artifactSha256": {
           "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
           "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
@@ -114956,17 +115512,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577",
-        "modules": 3628,
-        "warnings": 5274,
+        "sourceSha256": "ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1",
+        "modules": 3630,
+        "warnings": 5296,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,296 expected placeholder warnings across 3,630 pinned source modules. It includes all 7 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "68a2b517890884d2e41bf347ea01e66c1e8e960a",
+      "base": "2bd63802f923b43c160775971a32441912b8b066",
       "unchangedInputs": 77,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -126426,6 +126982,54 @@
         "warnings": 5274,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,274 expected placeholder warnings across 3,628 pinned source modules. It includes all 9 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: aba49bce1394f2cf14a6d017dec30aec6e236d87c577200b5bd543dd8793f577.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanPadicComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5482,
+      "previousHead": "ad67bf9c9ebd66dd9c298ee8abbfc0ddecec6351",
+      "previousMerge": "bd44be5de37174e3e6e2d2ed175f4856691e56f4",
+      "preservedWholeNodes": 1741,
+      "preservedBaseline": 1134,
+      "preservedFindings": 26,
+      "newNodes": 7,
+      "reading": "Kubert 186 equation (2.5) motivates the common Cartan product and its finite quotients. Native GaloisField.equivZmodP, the complete WittVector/Compare file, full-Witt map/injectivity/surjectivity/coefficient APIs, native product-ring and unit equivalences, p-adic lift projection law and the complete native Witt Teichmuller file were read with hypotheses and bodies. The owner FF.4 already plans the finite degree-one Galois-ring equivalence; this checkpoint constructs only the actual full-product comparison and the consumer finite-equality criteria. Compare and Teichmuller use existing pinned artifacts; no native library is built.",
+      "boundary": "The concrete full-Witt Cartan ring and unit group have their algebraic inverse-limit universal properties. In degree one, their actual full products are now algebraically isomorphic to the native products of p-adic integers and p-adic units, and equality at every original finite Cartan level is equivalent to equality of native p-adic residues at the same primes and factorization exponents. Next construct the topology and continuity of the actual Cartan system, or construct actual primitive-torus coordinates from the FF.4 finite model. General-degree unramified integer-ring identification, the simply transitive primitive torsor and equality with primitive transfer remain open. FF.4 owns finite Galois rings, including the finite degree-one equivalence, and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert 186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external [K-L], unidentified [L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All 18 gaps and 16 requests remain; zero stages close.",
+      "inputBase": "58d7e520e3a509804317f34a91581db0427bd696",
+      "sourceBoundary": "All 26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one algebraic p-adic comparison and original finite-equality criteria are supplied. FF.4 ownership, general-degree unramified-ring and topological identifications, actual primitive torsor, lower rank bound and internal/global equality remain open.",
+      "publication": {
+        "base": "2bd63802f923b43c160775971a32441912b8b066",
+        "unchangedInputs": 77,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "primes": 4,
+        "localModels": 16,
+        "coefficientTuples": 611,
+        "bijectionValues": 611,
+        "truncations": 2311,
+        "residueEqualityPairs": 545815,
+        "unitValues": 607
+      },
+      "numericalMethod": "Exact finite Teichmuller-coordinate calculations in Z/(p^e), for four primes and lengths0–3. Evaluate each coefficient tuple as the sum of p^i times its finite Teichmuller lift. Check bijection, truncation and equivalence between equal coefficient prefixes and equal residues. At p=3, length3, the tuple(2,0,0) evaluates to26 rather than ordinary integer2, detecting a wrong digit convention. These calculations do not certify a native Witt-vector equivalence or any general-degree or topological source bridge.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1",
+        "modules": 3630,
+        "warnings": 5296,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,296 expected placeholder warnings across 3,630 pinned source modules. It includes all 7 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: ad2cf63eb130cf14da3233e06a2aeda1bb15d7f73a622d0befd4e2bba7a5bae1.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
