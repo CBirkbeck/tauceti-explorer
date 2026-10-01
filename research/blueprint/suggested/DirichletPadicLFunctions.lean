@@ -18431,3 +18431,121 @@ example (x : ℤ_[3]) (hx : 8*x=7) : grossKoblitzPositiveResidue 3 x=3-grossKobl
 -- wrap_positive_residue
 example (x : ℤ_[3]) (hx : 8*x=5) : grossKoblitzPositiveResidue 3 x=3-grossKoblitzCarry 3 2 5 1 := by sorry
 end DirichletPadic.SuggestedGrossKoblitzDigitsTests
+
+/- Gamma factorial congruences for the Gross–Koblitz orbit. -/
+
+namespace DirichletPadic
+noncomputable section
+open Finset
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+
+
+lemma moritaGamma_toZMod_congr
+
+    (x y : ℤ_[p]) (hxy : PadicInt.toZMod x=PadicInt.toZMod y) :
+    PadicInt.toZMod ((fun x => (moritaGamma p x : ℤ_[p])) x)=PadicInt.toZMod ((fun x => (moritaGamma p x : ℤ_[p])) y) := by sorry
+
+lemma moritaGamma_neg_factorial
+
+    (d : ℕ) (hd : d<p) : (fun x => (moritaGamma p x : ℤ_[p])) (-(d : ℤ_[p]))*(d.factorial : ℤ_[p])=1 := by sorry
+
+lemma moritaGamma_factorial_toZMod
+
+
+    (x : ℤ_[p]) (d : ℕ) (hd : d<p) (hx : PadicInt.toZMod x=-(d : ZMod p)) :
+    PadicInt.toZMod ((fun x => (moritaGamma p x : ℤ_[p])) x)*(d.factorial : ZMod p)=1 := by sorry
+
+lemma grossKoblitzGamma_rational_toZMod (f : ℕ) (hf : 0<f)
+
+
+
+    (n : ℕ) (x : ℤ_[p]) (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(n : ℤ_[p])) :
+    PadicInt.toZMod ((fun x => (moritaGamma p x : ℤ_[p])) x)*((n%p).factorial : ZMod p)=1 := by sorry
+
+lemma grossKoblitzGamma_next_toZMod (f : ℕ) (hf : 0<f)
+
+
+
+    (k j : ℕ) (x : ℤ_[p])
+    (hx : ((p^f-1 : ℕ) : ℤ_[p])*x=(grossKoblitzOrbitNumerator p f k (j+1) : ℤ_[p])) :
+    PadicInt.toZMod ((fun x => (moritaGamma p x : ℤ_[p])) x)*((grossKoblitzCarry p f k j).factorial : ZMod p)=1 := by sorry
+
+lemma grossKoblitz_rational_period (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+    (j : ℕ) : x (j+f)=x j := by sorry
+
+
+lemma grossKoblitzGamma_product_shift (f : ℕ) (hf : 0<f) (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p]))
+     :
+    (∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x (j+1)))=∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j) := by sorry
+
+lemma grossKoblitzGamma_factorial_product (f : ℕ) (hf : 0<f)
+
+
+
+    (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    PadicInt.toZMod (∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j)) *
+      (∏ j ∈ range f, ((grossKoblitzCarry p f k j).factorial : ZMod p))=1 := by sorry
+
+lemma grossKoblitzGamma_product_inverse (f : ℕ) (hf : 0<f)
+
+
+
+    (k : ℕ) (x : ℕ → ℤ_[p])
+    (hx : ∀ j, ((p^f-1 : ℕ) : ℤ_[p])*x j=(grossKoblitzOrbitNumerator p f k j : ℤ_[p])) :
+    PadicInt.toZMod (∏ j ∈ range f, (fun x => (moritaGamma p x : ℤ_[p])) (x j)) =
+      (∏ j ∈ range f, ((grossKoblitzCarry p f k j).factorial : ZMod p))⁻¹ := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedGrossKoblitzGammaTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- congr_ternary
+example (x y : ℤ_[3]) (h : PadicInt.toZMod x=PadicInt.toZMod y) : PadicInt.toZMod (moritaGamma 3 (x) : ℤ_[3])=PadicInt.toZMod (moritaGamma 3 (y) : ℤ_[3]) := by sorry
+-- congr_dyadic
+example : PadicInt.toZMod (moritaGamma 2 (0) : ℤ_[2])=PadicInt.toZMod (moritaGamma 2 (4) : ℤ_[2]) := by sorry
+-- factorial_negative_three
+example : (moritaGamma 5 (-3) : ℤ_[5])*6=1 := by sorry
+-- factorial_negative_one
+example : (moritaGamma 2 (-1) : ℤ_[2])=1 := by sorry
+-- factorial_zero
+example : (moritaGamma 3 (0) : ℤ_[3])*(Nat.factorial 0 : ℤ_[3])=1 := by sorry
+-- factorial_bound_failure
+example : (moritaGamma 3 (-3) : ℤ_[3])*6=-3 ∧ (moritaGamma 3 (-3) : ℤ_[3])*6≠1 := by sorry
+-- residue_positive_integer
+example : PadicInt.toZMod (moritaGamma 3 (7) : ℤ_[3])*2=1 := by sorry
+-- residue_zero_digit
+example : PadicInt.toZMod (moritaGamma 3 (3) : ℤ_[3])=1 := by sorry
+-- rational_factorial
+example (x : ℤ_[3]) (hx : 8*x=5) : PadicInt.toZMod (moritaGamma 3 (x) : ℤ_[3])*2=1 := by sorry
+-- rational_quinary
+example (x : ℤ_[5]) (hx : 24*x=7) : PadicInt.toZMod (moritaGamma 5 (x) : ℤ_[5])=3 := by sorry
+-- rational_zero_digit
+example (x : ℤ_[3]) (hx : 8*x=3) : PadicInt.toZMod (moritaGamma 3 (x) : ℤ_[3])=1 := by sorry
+-- next_factorial
+example (x : ℤ_[3]) (hx : 8*x=7) : PadicInt.toZMod (moritaGamma 3 (x) : ℤ_[3])=1 := by sorry
+-- wrap_factorial
+example (x : ℤ_[3]) (hx : 8*x=5) : PadicInt.toZMod (moritaGamma 3 (x) : ℤ_[3])=2 := by sorry
+-- rational_period_ternary
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) (j : ℕ) : x (j+2)=x j := by sorry
+-- rational_period_dyadic
+example (x : ℕ → ℤ_[2]) (hx : ∀ j, 7*x j=(grossKoblitzOrbitNumerator 2 3 3 j : ℤ_[2])) (j : ℕ) : x (j+3)=x j := by sorry
+-- gamma_product_shift
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : (∏ j ∈ Finset.range 2, (moritaGamma 3 (x (j+1)) : ℤ_[3]))=(∏ j ∈ Finset.range 2, (moritaGamma 3 (x (j)) : ℤ_[3])) := by sorry
+-- factorial_product_ternary
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : PadicInt.toZMod (∏ j ∈ Finset.range 2, (moritaGamma 3 (x (j)) : ℤ_[3]))*2=1 := by sorry
+-- factorial_product_dyadic
+example (x : ℕ → ℤ_[2]) (hx : ∀ j, 7*x j=(grossKoblitzOrbitNumerator 2 3 3 j : ℤ_[2])) : PadicInt.toZMod (∏ j ∈ Finset.range 3, (moritaGamma 2 (x (j)) : ℤ_[2]))=1 := by sorry
+-- inverse_product_ternary
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 8*x j=(grossKoblitzOrbitNumerator 3 2 5 j : ℤ_[3])) : PadicInt.toZMod (∏ j ∈ Finset.range 2, (moritaGamma 3 (x (j)) : ℤ_[3]))=2 := by sorry
+-- inverse_product_quinary
+example (x : ℕ → ℤ_[5]) (hx : ∀ j, 24*x j=(grossKoblitzOrbitNumerator 5 2 7 j : ℤ_[5])) : PadicInt.toZMod (∏ j ∈ Finset.range 2, (moritaGamma 5 (x (j)) : ℤ_[5]))=3 := by sorry
+-- zero_class_gamma_product
+example (x : ℕ → ℤ_[3]) (hx : ∀ j, 2*x j=(grossKoblitzOrbitNumerator 3 1 0 j : ℤ_[3])) : PadicInt.toZMod (∏ j ∈ Finset.range 1, (moritaGamma 3 (x (j)) : ℤ_[3]))=1 := by sorry
+-- positive_endpoint_failure
+example : PadicInt.toZMod (moritaGamma 3 (0) : ℤ_[3])≠PadicInt.toZMod (moritaGamma 3 (1) : ℤ_[3]) := by sorry
+end DirichletPadic.SuggestedGrossKoblitzGammaTests
