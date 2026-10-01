@@ -1,3 +1,4 @@
+import Mathlib.Analysis.Normed.Algebra.Exponential
 import Mathlib.Analysis.Calculus.Deriv.Mul
 import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Topology.Algebra.InfiniteSum.Ring
@@ -16878,3 +16879,174 @@ example (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
 -- log_disc_zero
 example (ℓ : ℚ_[2] → ℚ_[2]) (hroot : ∀ x : ℚ_[2], ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0) (v : ℕ → ℚ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom v 0=ℓ (-((((moritaGamma 2 1 : ℤ_[2]ˣ) : ℤ_[2]) : ℚ_[2]))) := by sorry
 end DirichletPadic.SuggestedMoritaLogDiscTests
+
+/- Corrected Gamma exponential comparison on the smaller 2q-disc.
+The exp/log inverse is an explicit Coleman-owned input, not assumed on all units. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K]
+
+lemma moritaSmallDisc_radius : ‖((2 * moritaModulus p : ℕ) : ℤ_[p])‖ =
+    (p : ℝ)^(-((if p=2 then 3 else 1 : ℕ) : ℤ)) := by sorry
+
+lemma moritaSmallDisc_subset_shiftDisc (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    ‖z‖≤‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaGamma_smallDisc_principal
+    (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    ‖(moritaGamma p z : ℤ_[p])-1‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖ := by sorry
+
+lemma moritaGamma_shifted_smallDisc_principal (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+
+    (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    ‖-(ι ((moritaGamma p (z+1) : ℤ_[p])))-1‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖ := by sorry
+
+lemma moritaGamma_shifted_exp_log (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (ℓ : K → K)
+    (hexp : ∀ u : K, ‖u-1‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖ → NormedSpace.exp (ℓ u)=u)
+
+    (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    NormedSpace.exp (ℓ (-(ι ((moritaGamma p (z+1) : ℤ_[p])))))=-(ι ((moritaGamma p (z+1) : ℤ_[p]))) := by sorry
+
+lemma moritaLogPrimitive_exp_difference [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] [CompleteSpace K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (ℓ : K → K) (hcℓ : ContinuousOn ℓ {x : K | x≠0})
+    (hmul : ∀ x y : K, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : K, ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[p] → K) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖≤‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : K, ‖u-1‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖ → NormedSpace.exp (ℓ u)=u)
+
+    (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    NormedSpace.exp (moritaTranslatedDifference p ι v z) = -(ι ((moritaGamma p (z+1) : ℤ_[p]))) := by sorry
+
+lemma moritaGamma_eq_exp_difference [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] [CompleteSpace K]
+     (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (ℓ : K → K) (hcℓ : ContinuousOn ℓ {x : K | x≠0})
+    (hmul : ∀ x y : K, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : K, ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[p] → K) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖≤‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι (moritaTorsionCharacterMap p ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : K, ‖u-1‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖ → NormedSpace.exp (ℓ u)=u)
+
+    (z : ℤ_[p]) (hz : ‖z‖≤‖((2*moritaModulus p : ℕ) : ℤ_[p])‖) :
+    ι ((moritaGamma p z : ℤ_[p])) = NormedSpace.exp (moritaTranslatedDifference p ι v z) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaExpTests
+open Filter
+open scoped Topology
+-- radius_dyadic
+example : ‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖=(1/8 : ℝ) := by sorry
+-- radius_ternary
+example : ‖((2*moritaModulus 3 : ℕ) : ℤ_[3])‖=(1/3 : ℝ) := by sorry
+-- small_boundary_eight
+example : ‖(8 : ℤ_[2])‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ ∧ ‖(8 : ℤ_[2])‖≤‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- small_excludes_four
+example : ‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖<‖(4 : ℤ_[2])‖ := by sorry
+-- gamma_principal_odd
+example : ‖(moritaGamma 3 3 : ℤ_[3])-1‖=1/3 := by sorry
+-- gamma_principal_eight
+example : ‖(moritaGamma 2 8 : ℤ_[2])-1‖=1/8 := by sorry
+-- gamma_principal_negative_eight
+example : ‖(moritaGamma 2 (-8) : ℤ_[2])-1‖=1/8 := by sorry
+-- shifted_principal_eight
+example : ‖-(moritaGamma 2 9 : ℤ_[2])-1‖=1/8 := by sorry
+-- printed_sign_at_zero
+example (ℓ : ℚ_[2] → ℚ_[2]) (hℓ : ℓ (-1)=0) : NormedSpace.exp (ℓ ((moritaGamma 2 1 : ℤ_[2]) : ℚ_[2])) ≠ ((moritaGamma 2 1 : ℤ_[2]) : ℚ_[2]) := by sorry
+-- corrected_exp_log_2
+example (ℓ : ℚ_[2] → ℚ_[2]) (hexp : ∀ u : ℚ_[2], ‖u-1‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ → NormedSpace.exp (ℓ u)=u) : NormedSpace.exp (ℓ (105))=(105 : ℚ_[2]) := by sorry
+-- corrected_exp_log_3
+example (ℓ : ℚ_[3] → ℚ_[3]) (hexp : ∀ u : ℚ_[3], ‖u-1‖≤‖((2*moritaModulus 3 : ℕ) : ℤ_[3])‖ → NormedSpace.exp (ℓ u)=u) : NormedSpace.exp (ℓ (-2))=(-2 : ℚ_[3]) := by sorry
+-- exp_difference_eight
+example (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (hcℓ : ContinuousOn ℓ {x : ℚ_[2] | x≠0})
+    (hmul : ∀ x y : ℚ_[2], x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : ℚ_[2], ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[2] → ℚ_[2]) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus 2 : ℤ_[2])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖y-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus 2 : ℤ_[2])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[2], ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → ℚ_[2]) (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : ℚ_[2], ‖u-1‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ → NormedSpace.exp (ℓ u)=u)
+
+: NormedSpace.exp (moritaTranslatedDifference 2 ι v 8)=105 := by sorry
+-- exp_difference_negative_eight
+example (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (hcℓ : ContinuousOn ℓ {x : ℚ_[2] | x≠0})
+    (hmul : ∀ x y : ℚ_[2], x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : ℚ_[2], ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[2] → ℚ_[2]) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus 2 : ℤ_[2])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖y-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus 2 : ℤ_[2])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[2], ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → ℚ_[2]) (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : ℚ_[2], ‖u-1‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ → NormedSpace.exp (ℓ u)=u)
+
+: NormedSpace.exp (moritaTranslatedDifference 2 ι v (-8))=1/105 := by sorry
+-- exp_difference_nonintegral
+example (ι : ℤ_[2] →+* ℚ_[2]) (hι : ∀ x : ℤ_[2], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[2] → ℚ_[2]) (hcℓ : ContinuousOn ℓ {x : ℚ_[2] | x≠0})
+    (hmul : ∀ x y : ℚ_[2], x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : ℚ_[2], ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[2] → ℚ_[2]) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus 2 : ℤ_[2])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖y-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus 2 : ℤ_[2])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[2], ‖x-1‖≤‖(moritaModulus 2 : ℤ_[2])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → ℚ_[2]) (hv : ∀ m, Tendsto (fun n => moritaAngularMean 2 (moritaCharacterTwist 2 ι (moritaTorsionCharacterMap 2 ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : ℚ_[2], ‖u-1‖≤‖((2*moritaModulus 2 : ℕ) : ℤ_[2])‖ → NormedSpace.exp (ℓ u)=u)
+
+(x : ℤ_[2]) (hx : 3*x=1) : NormedSpace.exp (moritaTranslatedDifference 2 ι v (8*x)) = -(ι (moritaGamma 2 (8*x+1) : ℤ_[2])) := by sorry
+-- gamma_exp_zero
+example (v : ℕ → ℚ_[2]) : ((moritaGamma 2 0 : ℤ_[2]) : ℚ_[2])=NormedSpace.exp (moritaTranslatedDifference 2 PadicInt.Coe.ringHom v 0) := by sorry
+-- gamma_exp_three
+example (ι : ℤ_[3] →+* ℚ_[3]) (hι : ∀ x : ℤ_[3], ‖ι x‖=‖x‖)
+    (ℓ : ℚ_[3] → ℚ_[3]) (hcℓ : ContinuousOn ℓ {x : ℚ_[3] | x≠0})
+    (hmul : ∀ x y : ℚ_[3], x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ x : ℚ_[3], ∀ m : ℕ, 0<m → x^m=1 → ℓ x=0)
+    (D : ℕ → ℤ_[3] → ℚ_[3]) (hD : D 0=fun x => ι x*(ℓ (ι x)-1))
+    (hD1 : D 1=fun x => ℓ (ι x))
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus 3 : ℤ_[3])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus 3 : ℤ_[3])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus 3 : ℤ_[3])‖ → ‖y-1‖≤‖(moritaModulus 3 : ℤ_[3])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus 3 : ℤ_[3])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[3], ‖x-1‖≤‖(moritaModulus 3 : ℤ_[3])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (ι (x+h)*(ℓ (ι (x+h))-1)))
+    (v : ℕ → ℚ_[3]) (hv : ∀ m, Tendsto (fun n => moritaAngularMean 3 (moritaCharacterTwist 3 ι (moritaTorsionCharacterMap 3 ι) m) n (D m)) atTop (𝓝 (v m)))
+    (hexp : ∀ u : ℚ_[3], ‖u-1‖≤‖((2*moritaModulus 3 : ℕ) : ℤ_[3])‖ → NormedSpace.exp (ℓ u)=u)
+
+: ι (moritaGamma 3 3 : ℤ_[3])=NormedSpace.exp (moritaTranslatedDifference 3 ι v 3) := by sorry
+end DirichletPadic.SuggestedMoritaExpTests

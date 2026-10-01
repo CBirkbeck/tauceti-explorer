@@ -30407,3 +30407,210 @@ Exact controls pass1479 disc/divisibility identities,1479 scaled-disc bounds,443
 Post-merge capture fd2c558a5a7e1620290b141b35a63f0298a1700d changes only the registry/register among72 tracked inputs. Read the complete new GeneralAlgebraicKTheory/E-relative-S-zero-term row: in the author K-book chapter IV proof8.5.4, S₀(id_C) is equivalent to C, whereas the contractible augmentation target is S₀C=0. It is awaiting review, with novelty expressly not established because the live errata PDF was unavailable. This records the external finding, not an independent source verdict. Registry purpose/older/unchecked fields are unchanged and REGISTER exactly matches its renderer. The issue body, all four predecessor deliverables, policies, own16 findings and analytic suppliers are unchanged.
 
 The separate partial signature file also compiled with zero errors and 2,997 expected placeholder warnings across 3,600 pinned source modules. It includes all 5 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 5d8d83286fa228eaa5ebddfff9796bd1b2eca7cc7ab9262aeea92eb3d44b709b.
+
+
+## The corrected Gamma exponential comparison on the small disc
+
+Seven L3 nodes establish the exact2q radius, actual Gamma principal-unit bounds and corrected exponential-value comparisons. All942 predecessor nodes,728 baseline records and17 findings remain whole. One precise Coleman L0 inverse request keeps the analytic supplier boundary visible.
+
+Retains full Morita1975 and KL1964 readings, especially the corrected p.261 argument recorded as E17. Reads the native exponential definition, zero value and conditional analytic/radius interface and Nat.dvd_prime at the pinned source. Reads the Tau exp/log inverse and its real-algebra hypotheses; it is not a p-adic theorem. Searches current packets and rereads the actual Coleman branch/local-series nodes and L0 ownership before routing the exact missing input.
+
+### The exact radius of the Gamma exponential disc
+
+`DirichletPadicLFunctions:L3/morita-small-disc-radius` — `DirichletPadic.moritaSmallDisc_radius`
+
+ρ=p^(−e), where e=3 at p=2 and e=1 otherwise.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. At p=2,2q=8=2³, so the native p-power norm theorem givesρ=1/8.
+2. At odd p, primality and p≠2 imply p does not divide2. The native p-adic unit/norm criterion gives ‖2‖=1.
+3. Multiplicativity and q=p giveρ=‖p‖=p^(−1). The complete small_radius proof checks both branches using the exact native natural casts.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-modulus`, `mathlib:Nat.dvd_prime`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.norm_p_pow`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.radius_dyadic` (boundary): At p=2 the radius is1/8, not1/4.
+- `SuggestedMoritaExpTests.radius_ternary` (computation): At p=3 the radius is1/3 because2 is a unit.
+
+**Acceptance:** Keep the dyadic exponent3; the sharp Gamma congruence excludes exponent2.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### The exponential disc lies inside the logarithmic shift disc
+
+`DirichletPadicLFunctions:L3/morita-small-disc-inclusion` — `DirichletPadic.moritaSmallDisc_subset_shiftDisc`
+
+If ‖z‖≤ρ, then ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. Multiplicativity givesρ=‖2‖r, and every native p-adic integer has norm at most1.
+2. Thusρ≤r and the stated implication follows by transitivity. The complete small_subdisc proof includes equality on the boundary.
+3. Since r<1 by the earlier modulus-radius theorem, every such z is a nonunit. The native small_nonunit helper records this routine consequence for the shifted recurrence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-modulus`, `DirichletPadicLFunctions:L3/morita-radius-contracting`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.not_isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.small_boundary_eight` (boundary): The dyadic point8 lies on the smaller disc boundary and inside the q-disc.
+- `SuggestedMoritaExpTests.small_excludes_four` (non-example): The dyadic point4 lies outside the smaller disc.
+
+**Acceptance:** An all-point logarithmic comparison on the q-disc does not automatically give an exponential comparison there.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### Gamma takes the small disc into principal units
+
+`DirichletPadicLFunctions:L3/morita-gamma-small-disc-principal` — `DirichletPadic.moritaGamma_smallDisc_principal`
+
+For ‖z‖≤ρ, ‖γ(z)−1‖≤ρ.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. Use the preceding exact radius with e=3 at p=2 and e=1 otherwise. In both cases e>0 and the dyadic exceptional exponent2 is avoided.
+2. Apply the existing sharp Gamma norm congruence to z and0 at this same exponent.
+3. The existing normalization γ(0)=1 gives the desired inequality. The complete gamma_principal proof uses that actual congruence law, not a new Gamma function or an assumed final norm bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-small-disc-radius`, `DirichletPadicLFunctions:L3/morita-gamma-norm-congruence`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.gamma_principal_odd` (computation): γ₃(3)=−2 has distance1/3 from1.
+- `SuggestedMoritaExpTests.gamma_principal_eight` (boundary): γ₂(8)=105 has distance1/8 from1.
+- `SuggestedMoritaExpTests.gamma_principal_negative_eight` (boundary): γ₂(−8)=1/105 also has distance1/8 from1.
+
+**Acceptance:** This is the arithmetic principal-unit input. It does not prove convergence or inversion of exp and log.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### The corrected shifted Gamma lies in the coefficient principal disc
+
+`DirichletPadicLFunctions:L3/morita-gamma-shifted-small-disc-principal` — `DirichletPadic.moritaGamma_shifted_smallDisc_principal`
+
+For ‖z‖≤ρ, ‖−ι(γ(z+1))−1‖≤ρ.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. The small-disc input is a nonunit. Apply the nonunit branch of the existing recurrence to obtain−γ(z+1)=γ(z); the complete gamma_shift helper verifies the sign.
+2. A ring homomorphism preserves negation, subtraction and1, and the specified coefficient map preserves the norm.
+3. Transport the preceding principal-unit bound through ι. The complete shifted_principal proof supplies the exact argument needed by the exp/log inverse.
+4. The opposite sign fails already at z=0: the source’s printed γ(1)=−1 lies outside the principal disc. The native wrong_sign_at_zero proof also shows exp(ℓ(−1))≠−1 when ℓ(−1)=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-small-disc-inclusion`, `DirichletPadicLFunctions:L3/morita-gamma-small-disc-principal`, `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `mathlib:NormedSpace.exp_zero`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.shifted_principal_eight` (boundary): −γ₂(9)=105 gives the same norm1/8 bound.
+- `SuggestedMoritaExpTests.printed_sign_at_zero` (non-example): For a logarithm killing−1, native exp of the logarithm ofγ₂(1) is notγ₂(1).
+
+**Acceptance:** E17 corrects the printed proof sign; earlier sign-independent log identities and the stated analyticity conclusion are unchanged.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### The exp-log inverse recovers the corrected shifted Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-shifted-exp-log` — `DirichletPadic.moritaGamma_shifted_exp_log`
+
+Under the supplied principal-disc inverse law and ‖z‖≤ρ, exp(ℓ(−ι(γ(z+1))))=−ι(γ(z+1)).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. The preceding arithmetic comparison puts the actual argument into the exact domain of the supplied generic inverse.
+2. Apply that inverse to this argument. The complete exp_log_gamma proof uses the native exponential and does not assume the final Gamma equality.
+3. Record the missing generic inverse with Coleman L0. Native Tau Ceti eventually_exp_logOneAdd assumes NormedAlgebra ℝ, so it does not provide the p-adic inverse or the specified closed-domain bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-shifted-small-disc-principal`, `ColemanIntegration:L0`, `mathlib:NormedSpace.exp`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.corrected_exp_log_2` (computation): The supplied dyadic inverse gives exp(ℓ(105))=105.
+- `SuggestedMoritaExpTests.corrected_exp_log_3` (computation): The supplied ternary inverse gives exp(ℓ(−2))=−2.
+
+**Acceptance:** Do not replace the supplied domain by all units or all points of the q-disc. In ℚ₂ the finite series control gives exp(log3)=−3 modulo256.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### Exponentiating the actual difference function recovers shifted Gamma
+
+`DirichletPadicLFunctions:L3/morita-log-primitive-exponential` — `DirichletPadic.moritaLogPrimitive_exp_difference`
+
+With the retained actual primitive and coefficient data and supplied principal-disc inverse, exp(F_v(z))=−ι(γ(z+1)) for every ‖z‖≤ρ.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. The small-disc inclusion allows the preceding actual logarithmic comparison on the full q-disc to be applied at z.
+2. Replace F_v(z) by ℓ(−ι(γ(z+1))) and apply the preceding corrected exp/log comparison.
+3. The complete difference_exp_gamma proof retains the actual Taylor, coefficient-limit and Gamma inputs. It does not assume an arbitrary function already equal to log Gamma.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-small-disc-inclusion`, `DirichletPadicLFunctions:L3/morita-log-primitive-gamma-disc`, `DirichletPadicLFunctions:L3/morita-gamma-shifted-exp-log`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.exp_difference_eight` (computation): For actual dyadic primitive data exp(F_v(8))=105.
+- `SuggestedMoritaExpTests.exp_difference_negative_eight` (computation): For the same actual data exp(F_v(−8))=1/105.
+- `SuggestedMoritaExpTests.exp_difference_nonintegral` (boundary): For x∈ℤ₂ with3x=1, exp(F_v(8x))=−ι(γ₂(8x+1)); every source input is retained.
+
+**Acceptance:** This is an equality of values. Analyticity still requires the owned power-series certificate and verified convergence domain of the native exponential.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+### The existing Gamma equals the exponential on its small disc
+
+`DirichletPadicLFunctions:L3/morita-gamma-exponential-difference` — `DirichletPadic.moritaGamma_eq_exp_difference`
+
+Under the preceding hypotheses, ι(γ(z))=exp(F_v(z)) whenever ‖z‖≤ρ.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. Write r=‖q‖ and ρ=‖2q‖. The existing signed unit-valued continuous Gamma is γ, with γ(0)=1 and γ(1)=−1. The corrected shifted expression from E17 is−γ(z+1). The coefficient map ι:ℤ_p→K is a norm-preserving ring homomorphism into a normed field. The arithmetic principal-unit bounds use the existing sharp Gamma norm congruence, with admissible exponent1 at odd p and3 at p=2, and the existing signed recurrence. Whenever exp/log inversion is used, retain the explicit supplied hypothesis exp(ℓ(u))=u for every u with ‖u−1‖≤ρ. Exp is the existing native NormedSpace.exp, not a new function. The generic p-adic inverse, its convergence radius and compatibility with the actual Coleman branch are an exact new Coleman L0 request. The existing Tau Ceti real-algebra inverse does not supply it. The actual mean comparison retains the complete ultrametric characteristic-zero normalized ℚ_p-algebra, ℓ continuous away from zero with its nonzero multiplicative and torsion-vanishing laws, literal A(x)=ιx(ℓ(ιx)−1), actual D_0=A and D_1=ℓ∘ι, all B/R^m value and B/(R^m r) Lipschitz estimates, B≥0, R>r, actual Taylor HasSum, and every twisted coefficient Tendsto witness v_m. The complete native scratch assumes precisely the earlier Gamma continuity, unit, zero, recurrence and sharp norm-congruence laws. Suggested signatures specialize the existing moritaGamma. No analytic carrier is constructed or Gamma analyticity asserted by this exponential-value comparison.
+
+**Proof:**
+
+1. The preceding exponential comparison gives exp(F_v(z))=−ι(γ(z+1)).
+2. The same nonunit signed recurrence identifies the right side withι(γ(z)). The complete gamma_exp_difference proof makes that coefficient transport explicit.
+3. At z=0, γ(0)=1 and F_v(0)=0 agree with the native exponential normalization. Multiplication by−1 then also recovers the source theorem’s shifted signed function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-primitive-exponential`, `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-small-disc-inclusion`, `mathlib:NormedSpace.exp_zero`.
+
+**Tests:**
+
+- `SuggestedMoritaExpTests.gamma_exp_zero` (degenerate): For arbitrary v,γ₂(0)=exp(F_v(0))=1.
+- `SuggestedMoritaExpTests.gamma_exp_three` (computation): The actual ternary primitive givesγ₃(3)=exp(F_v(3))=−2.
+
+**Acceptance:** No claim of a locally analytic Gamma carrier or closure is made until the analytic and inverse suppliers are instantiated.
+
+**Source:** Published Section3 p.261/PDF7, principal-unit and exponential comparison before Theorem3, corrected by E17; Theorem1 p.256 supplies sharp Gamma congruence. The source uses its smaller principal-unit disc to recover Gamma from the logarithmic analytic function. The printed shifted sign is corrected explicitly by E17. The arithmetic disc bound is supplied here; the generic p-adic exp/log inverse stays with the logarithm owner.
+
+**Supplier request — ColemanIntegration:L0:** For the actual Coleman logarithm branch on a complete finite normed extension K/ℚ_p, with normalized scalar norm, export its principal-unit inverse with the existing native NormedSpace.exp. In the Morita consumer let q=4 at p=2 and q=p otherwise and ρ=‖2q‖: prove exp(ℓ(u))=u for every ‖u−1‖≤ρ, including the closed boundary, compatible with the actual branch and coefficient embedding. Supply the sharper log norm estimate ‖ℓ(u)‖≤‖u−1‖ and certified membership of ℓ(u) in the native expSeries convergence ball, so the native analyticAt_exp_of_mem_ball may later be applied. Generic p-adic exp convergence/radius and exp/log inversion belong to the existing analytic/logarithm owner, not Dirichlet. The source application needsρ=1/p for odd p and1/8 at p=2; it does not assert an inverse on all units or all of1+qℤ_p. Pinned Tau eventually_exp_logOneAdd assumes NormedAlgebra ℝ and is inapplicable. Existing Coleman log-one-add-convergence and branch/local-expansion nodes do not state this inverse. Source: Morita1975 publishedp.261, corrected sign E17.
+
+**Consumers:** `DirichletPadicLFunctions:L3/morita-gamma-shifted-exp-log`.
+
+**Remaining:** The corrected small-disc Gamma now equals the native exp of the actual translated difference, conditional on an explicit principal-disc inverse. Next obtain the actual analytic power-series certificate for the translated difference and apply the native exponential’s analytic theorem with its verified convergence-domain input, then transport Gamma to other residue discs by the existing finite shift recurrence. The new Coleman L0 request makes the p-adic exp/log inverse and its domain precise; the earlier LAD analytic/Taylor requests remain whole. Gross–Koblitz and Ferrero–Greenberg keep their reading and normalization tasks. All18 gaps and14 requests remain open, with zero closed stages.
+
+### The corrected Gamma exponential comparison on the small disc validation
+
+All 942 predecessor nodes, 728 baseline records, 17 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 7 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1209 reachable nodes, 5918 edges and 904 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0. The first four new nodes have no unresolved stage leaves. The exp/log specialization requires the new Coleman L0 inverse; the two actual F_v comparisons also inherit LAD L0 and L1. All13 predecessor requests remain whole, with one additional request.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves20definitions224lemmas from PR5324 verbatim after one native Exponential import and proves10newlemmas:7 planned arithmetic comparisons,2 routine nonunit/shift helpers and1 opposite-sign regression at zero. Gamma sharp congruence and the generic exp/log inverse remain precise supplied laws; suggested signatures specialize the existing Gamma API. The native opposite-sign regression uses the existing native exponential at zero. The separate probe compiles against 2887 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The generic inverse and analytic carriers are not rebuilt. No native library build occurs. Full suggested file remains NOT COMPILED because the real pinned TwistedDivisorSum artifact is unavailable. General roadmap declarations remain unchecked.
+
+Exact controls pass4 radius identities,196 small-disc bounds,196 Gamma principal-unit bounds,196 signed shift identities,2 negative Gamma values,36 independent log/exp congruences,4 printed-sign counterexamples and1 dyadic larger-disc failure. Exact rational signed Gamma products/recurrences and p-adic norms; independent40-term log/exp modular controls at precisionp^8, with log retained modulo p^16. These finite computations are regressions, not proofs of convergence or the generic inverse. The dyadic point3 has exp(log3)=−3 modulo256, detecting an invalid extension of the inverse to the whole q-disc. The largest observed discrepancy is 0 (exact identities, bounds and modular comparisons).
+
+Captured main5f1fcd69608d44da971c9d41cddfee069ef98347 after actual PR5324 merge. All72 guarded policy, supplier, ownership and source-register inputs are unchanged; the four predecessor outputs match exactly. The new local E17 is preserved whole; no independent review is claimed. Publication refresh to36e7d54be5ff8f32279dbfaa7046a4ae5247a516 changes only the source registry and generated register among72 guarded inputs. The complete semantic delta is exactly the new own E17 row from PR5324, awaiting review, with its published sign, correction, zero-point reason and bounded search unchanged. All older rows, purpose and unchecked fields are unchanged. REGISTER equals the renderer output exactly. Four deliverable bytes were preserved across the checked fast-forward; no review verdict or mathematical supplier changed.
+
+The separate partial signature file also compiled with zero errors and 3,020 expected placeholder warnings across 3,600 pinned source modules. It includes all 7 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 5ca2b62b84540951fe462e5c3d819260fdd8d66dbaf923daceb08f19fa52a411.
