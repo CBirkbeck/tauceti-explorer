@@ -1,0 +1,99 @@
+{
+  "redteam": "RT-PAPER-GAO-GE-KUHNE-26",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-GAO-GE-KUHNE-26",
+  "summary": "Six findings: three high and three medium. Correct the rank-preserving End(A)-stability claim, supply the subgroup for complementary coset representatives, reverse a false Betti-diagonal acceptance example, retract false-positive source issue E8, and record the reversed small-height signs and missing pullback-degree normalization in Proposition 5.2. The uniform Mordell–Lang and Bogomolov theorem statements are not challenged.",
+  "checked": [
+    "Independence: extraction by Claude Code cc-fb70e5, accepted review by Claude Code cc-7b31c4; Codex codex-rtOQ9t authored/reviewed neither. Read confirmed claim on issue #4285. Input base 85988fb91ac844f6d168fa73288f5906a3ebeb32.",
+    "Read the complete published article, printed pp.189–235, §§1–8, Appendix A and references; PDF has one cover page. Reproduced extraction SHA-256 and visually checked published pp.214,215,219,220,224,225 at the disputed formulas.",
+    "Read all 93 extracted items (3 library, 16 planned, 74 missing), all 6 routes/briefs, 17 prerequisites, all 13 sourceIssues, reader document, accepted review JSON and review report. Rechecked the sourceIssues against the source; E8 does not survive the case analysis.",
+    "Read all three library declarations at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: AbelianVariety/Basic.lean:94, LineBundle/Basic.lean:78, AbelianVariety/Isogeny.lean:61. Their notes correctly limit reuse; no claim that the Picard group, arbitrary-dimensional canonical heights, dual varieties or isogeny degrees already exist.",
+    "Read the elliptic neronTatePairing at Tau Ceti f790474, CanonicalHeight.lean:374, and Projectivization.logHeight plus the number-field AdmissibleAbsValues instance at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Retained item /55’s reviewed planned status.",
+    "Assembled the current atlas (2907 stages, 8322 stage edges). Read all 15 distinct stages named by planned items/source routes and their reviewed data/library-coverage.json entries, plus the named analytic/equidistribution suppliers. Every missing item is assigned to exactly one route, and all named planned/source stage ids exist.",
+    "Compared shared Part II ids across the DGH, Gao–Habegger, DeMarco–Krieger–Ye, DeMarco–Mavraki–Ye, Xie–Yuan and Yuan extraction routes. Searched proposed roadmap and packet files for those ids. Reuse of the common Betti/uniformity directions is appropriate; no duplicate replacement roadmap is requested.",
+    "Read Kühne arXiv:2101.10272v4 pp.2–4 (Betti-rank definition and equidistribution statement), and consulted its Lemma 23 and end of §3 to distinguish version-dependent numbering. Read Gao’s two-page Betti-rank erratum: the corrected fibre-generation hypothesis is already retained in item /50; do not treat this as a fresh error in GGK.",
+    "Searched publisher article page, arXiv version history and author publication pages for existing corrections; collated the relevant author-copy passages at pp.31–32 and 43–44. No correction of the four newly identified published proof issues was found in those sources; this is a scoped search, not a claim of priority.",
+    "Ran 135 exact rational checks of the Proposition 6.1 constant case split, the rank-2 diagonal Betti differential calculation, the endomorphism-swap independence witness, and a degree-2 integral comparison diagnostic. These support the arguments in the report; they do not substitute for the geometric proofs.",
+    "Protocol §16 boundary respected: cited supplier theorems are legitimate extraction items; this audit does not require their full proof closures or blueprint-level APIs. No Lean deliverable, build, cache download or language server was needed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json items /4 and /85; route 1 to HeightsRationalPointsAndObstructions:RP.5 and route 6 to HeightsRationalPointsAndObstructionsPartII",
+      "claim": "Item /4 adds a false equivalence to finite rank: a rank-ρ subgroup can be put in the division hull of an End(A)-stable finitely generated subgroup of the same rank ρ. Item /85 repeats this assertion in the finite-rank reduction. This copies an unrecorded error from the published proof.",
+      "evidence": "Published §7.3, p.224, says “we may choose such a Γ₀ satisfying that Γ₀ = End(A) · Γ₀”, after specifying rank ρ. Take A=E×E over C, a nontorsion P∈E(C), and Γ=Z(P,0), of rank 1. If Γ lies in the division hull of a rank-1 Γ₀, then Γ₀ contains (nP,0) for some n>0. End(A)-stability under the factor swap forces (0,nP)∈Γ₀. These two points are Z-linearly independent since P is nontorsion, contradicting rank 1. The same sentence persists in the author copy, p.43.",
+      "fix": "Remove End(A)-stability from /4 and /85, retaining the rank-preserving division-hull construction. Lemma 7.3 is stated for arbitrary finitely generated Γ, so its application to [n]^{-1}Γ₀ needs no End(A)-stability. Use n≥1 (or the cofinal factorial system) and the exact sequence with finite A[n] to retain finite generation and rank ρ. Add a sourceIssues error for published p.224, affecting the proof, with the version and correction-search record in this report. Explain the deletion in the reader and uniformity brief; do not silently replace ρ by the rank of End(A)Γ₀."
+    },
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/2",
+      "kind": "missing",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json item /89 and route 6, Lemma 7.4 proof; item /88 supplies X_B",
+      "claim": "The planned passage from the off-Ueno count to the coset count omits the finite-rank subgroup needed after choosing a complementary abelian subvariety. The published proof claims representatives in X_B°∩Γ, and bounds n_B by that intersection; the representative generally leaves Γ. The sourceIssues list records no repair.",
+      "evidence": "Published Lemma 7.4, p.225 immediately after (7.12), states “each x_{B,j} can be chosen to be in X_B°(F) ∩ Γ”. Counterexample satisfying the preceding generation reduction: let C be a smooth genus-2 curve, J its Jacobian, C′ a translate of its Abel–Jacobi image avoiding 0, A=E×J and X=E×C′. Then X generates A. Take B=E×{0}, B⊥={0}×J, P∈E(C) nontorsion, c∈C′, and Γ=Z(P,c). Here B is the only positive-dimensional maximal coset direction, X_B=X_B°={0}×C′, and Γ∩B⊥={0}, so X_B°∩Γ is empty. Yet (P,c)∈X∩Γ, requiring the coset E×{c}. The same claim occurs in the author copy, p.44.",
+      "fix": "For the addition isogeny f:B×B⊥→A use Γ_B=pr₂(f^{-1}(Γ))⊆B⊥(F), rather than Γ∩B⊥. Its rank is at most ρ: f^{-1}(Γ) has finite kernel over Γ, and projection cannot increase rational rank. Every Γ-point on a B-coset yields a representative in X_B∩Γ_B; maximality places it off the Ueno loci of the components as in the existing geometric argument. Apply Theorem 1.1′ to X_{B,k} and Γ_B and retain the uniform exponent. Add this construction/rank lemma to /89 or a separately routed item in the existing uniformity Part II, update the reader/brief, and record the published proof error under sourceIssues. No new roadmap is needed; this is not a claim that Lemma 7.4 or Theorem 1.1 is false."
+    },
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json route 5, AbelianSchemesBettiMapsPartII brief, Acceptance; items /47–/48",
+      "claim": "The Betti-map Part II requires a false positive acceptance example: “the diagonal of a non-isotrivial elliptic surface over a curve is non-degenerate”. For the relative diagonal Δ(E)⊂E×_S E, non-isotriviality does not overcome the rank obstruction.",
+      "evidence": "Item /48 correctly requires generic real Betti rank 2 dim X. On a simply connected open of a smooth base curve S, write the Betti map of E→S as b:E→(R/Z)^2. On the relative diagonal the product Betti map is (b,b), with differential rank at most 2. But dim_C Δ(E)=2, so non-degeneracy requires rank 4. Equivalently, the restricted product Betti form is 2ω_E and its square vanishes. The supplier definition is explicitly given in Kühne, arXiv:2101.10272v4, p.2; GGK uses the same non-degeneracy in §3.3, p.202. Restricting an elliptic surface to its smooth abelian-scheme locus does not alter the obstruction.",
+      "fix": "Change the relative diagonal to a negative acceptance example and explicitly say total complex dimension, not fibre dimension, enters the rank condition. Keep the valid positive example of a subvariety of a single polarized abelian variety (base a point), and the negative torsion-section example over a positive-dimensional base. If an additional varying positive example is wanted, specify and prove its rank hypotheses rather than using non-isotriviality alone. Update the binding route brief and its reader explanation; this is an extraction error, not a source error."
+    },
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/4",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json sourceIssues /E8, item /70, route 6 final constant instruction; research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.md source slips and review summary",
+      "claim": "E8 is a false positive: the published c₂=max(c₂′,c₂″) in Proposition 6.1 works. The extraction and its review incorrectly say that a sum is necessary because the exceptional locus must be a union.",
+      "evidence": "Published (6.4), p.219, and the two cases on pp.219–220: put H=max(1,h_Fal(A)), B=max(1,2c₃′/c₁′), and c₁=min(c₃″/B,c₁′/2). H is fixed for all points on A. If H≤B, every point of (6.1) has height≤c₃″, hence the whole set lies in the single exceptional locus from (6.3). If H>B, c₁H≤c₁′H/2≤c₁′H−c₃′, so the whole set lies in the single locus from (6.2). Choose that locus in each case; its degree is strictly less than the displayed maximum. Also, the two height-sublevel sets for a fixed A are nested.",
+      "fix": "Retract E8 with a correction note and reconcile the old confirmed-review summary, preserving the historical identifier. Restore /70’s proof explanation to the casewise choice of one exceptional locus and c₂=max(c₂′,c₂″). Remove E8 from the route instruction to apply corrected source constants, and correct the reader’s assertion that a sum is needed. A sum is a permissible weaker bound, but there is no published error to repair here."
+    },
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/5",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json sourceIssues; items /64 and /68; route 6, Proposition 5.2 Step 4",
+      "claim": "The extraction silently repairs two reversed height inequalities in the published equidistribution step. Item /64 correctly gives a small-height condition, but sourceIssues omits the discrepancy, despite explicitly recording neighbouring Step 5 slips.",
+      "evidence": "Published p.215, text immediately after (5.8) and after (5.9), prints respectively ĥ(x)≥δ_{ε,1} and ĥ(x′)≥δ_{ε,2}. The subsequent claim says at least one height is ≥δ=min(δ_{ε,1},δ_{ε,2}). Its contradiction proof assumes both heights are <δ and then applies (5.8) and (5.9); the printed ≥ hypotheses do not permit those applications. Both relation signs were checked on the rendered published page, and the author copy p.32 has the same signs. Item /64 already states ĥ(x)<δ, as required by this proof.",
+      "fix": "Add a sourceIssues misprint entry for both signs on published p.215, recording <δ in the equidistribution hypotheses (or ≤ after shrinking δ). Keep the ≥ alternatives in the subsequent claim unchanged. Cross-reference the record from /64, /68 and the reader. Classify its effect as the proof, not a failure of the main theorems, and use the version/correction-search information in the report."
+    },
+    {
+      "id": "RT-PAPER-GAO-GE-KUHNE-26/6",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json sourceIssues; item /68 and route 6, Proposition 5.2 Steps 2–4",
+      "claim": "The extraction passes over a missing degree normalization when Step 4 compares its two equidistribution integrals with (5.7). For an ordinary pullback of top-degree Betti forms, f₁=f₂∘D does not identify the integral of f₁ against D*μ₂ with the integral of f₂ against μ₂ unless deg D=1.",
+      "evidence": "Published p.213 identifies generic D-fibres with {0}×Stab(X_η)^m-orbits; a finite stabilizer need not be trivial. On the finite étale locus of p.214 set d=deg D. For the supported test functions there, change of variables gives ∫f₁ D*μ₂=d∫f₂ μ₂. Equation (5.7) separates ∫f₁ μ₁ from ∫f₁ D*μ₂, whereas the last display on p.215 only compares ∫f₁ μ₁ with ∫f₂ μ₂. The discrepancy is independent of the preceding reversed signs. For d=2, I₁=I₂=1 and ε=1/4 satisfy |I₁−I₂|≤2ε while |I₁−dI₂|>2ε. Nontrivial finite stabilizers are allowed, e.g. the connected smooth ample divisor [n]^{-1}C on a complex abelian surface for a smooth ample C and n>1; its stabilizer contains A[n].",
+      "fix": "Record the omitted normalization as a sourceIssues proof gap on pp.213–215. Set ν=(1/d)D*μ₂ on each irreducible family component, and use ν throughout the separation argument (5.7). Step 2 proves non-proportionality, so it still separates μ₁ from ν; averaging over the finite stabilizer still preserves this. Then ∫f₁ν=∫f₂μ₂ is exactly the comparison Step 4 needs. Make the degree and normalization explicit in /68’s proof outline and the uniformity brief/reader. Alternatively define a normalized pullback convention explicitly and use it consistently; the published top-form pullback argument does not state such a convention. Do not assume a trivial stabilizer or change the equilibrium measures to arbitrary scalings."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf",
+      "citation": "Gao–Ge–Kühne, Publ. Math. IHÉS 143 (2026), 189–235",
+      "read": "2026-10-01",
+      "sha256": "4ee5a38b327807289885a1d7292bddc3341b7fc3e0aa8a3682d995d13237834f"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ziyangjeremygao.github.io/articles/UML.pdf",
+      "citation": "54-page author copy, selected passages pp.31–32 and 43–44 only",
+      "read": "2026-10-01",
+      "sha256": "4927ac4beac9d250c0f5c09ad2a0ded5abe42567f9f222ed46d66e20978d9c4a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2101.10272v4",
+      "citation": "Kühne, Equidistribution in Families of Abelian Varieties and Uniformity, v4, 23 December 2024; selected passages only",
+      "read": "2026-10-01",
+      "sha256": "06781b5207e714338c29fce0af0117cdb989fe302a30f01d746a18871ecd7257"
+    }
+  ]
+}
