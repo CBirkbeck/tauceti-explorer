@@ -40513,7 +40513,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5530"
   },
   {
    "id": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -46209,7 +46210,9 @@
     "FIX-RT-RS-12~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-12~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5548",
+   "finishedAt": "2026-10-01T22:55:12Z"
   },
   {
    "id": "RT-RS-13",
