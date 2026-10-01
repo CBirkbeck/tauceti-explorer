@@ -35504,7 +35504,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUAN-ZHANG-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5502"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -40515,8 +40516,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5530"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5530",
+   "finishedAt": "2026-10-01T23:06:46Z"
   },
   {
    "id": "RT-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -47866,8 +47868,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5555"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5555",
+   "finishedAt": "2026-10-01T23:06:49Z"
   },
   {
    "id": "REV-FIX-RT-BP-ArithmeticKTheory--N.7",
@@ -48584,7 +48587,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5557"
   },
   {
    "id": "REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
