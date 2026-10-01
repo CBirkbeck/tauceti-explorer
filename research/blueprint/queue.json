@@ -33249,8 +33249,9 @@
     "REV-PAPER-KINGS-SPRANG-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KINGS-SPRANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4037"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4037",
+   "finishedAt": "2026-10-01T04:09:03Z"
   },
   {
    "id": "REV-RT-PAPER-KINGS-SPRANG-25",
