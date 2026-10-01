@@ -16,8 +16,8 @@ None of the findings cites work of mine.
 ## What I read
 
 - **The paper.** arXiv 2007.15078v3 (<https://arxiv.org/pdf/2007.15078v3>), dated 8 May 2022, the final accepted
-  version. The publisher's open-access PDF refused scripted downloads (it returned a JavaScript page). I therefore matched the
-  red team's published locators by section and equation number. I read:
+  version. The publisher's open-access PDF refused scripted downloads (it returned a JavaScript page). I therefore
+  matched the red team's published locators by section and equation number. I read:
   - §2.2–2.4, including (2.2) and the ring map of §2.4;
   - §3.4–3.5, including (3.4), (3.5) and the proof of Theorem 3.5;
   - Appendix A.1, (A.1)–(A.4).
