@@ -37778,7 +37778,8 @@
     "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4180"
   },
   {
    "id": "RT-PAPER-FRESAN-SABBAH-YU-22",
