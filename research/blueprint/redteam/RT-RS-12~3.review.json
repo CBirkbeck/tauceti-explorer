@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-RS-12~3",
+ "findings": [
+  {
+   "finding": "RT-RS-12~3/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RS-12's reason for AutomorphicGaloisRepresentationsPartII:AG2.0 moves 'the source-normalization comparison (AG2.0/the-normalization-dictionary-fixed-by-the-sources, stated with rec)' to AG2.5. The inherited link in data/decompositions/AutomorphicGaloisRepresentationsPartII.json runs from that node to AG2.4/hltt-construction-of-nonselfdual-systems, and RS-12 says nothing about it. In the assembled stage graph (data/atlas.json requires and stageEdges plus the accepted restructuring links), AG2.4 is an ancestor of AG2.5 and not conversely. So, once the node's parent becomes AG2.5, the retained link projects to AG2.5 → AG2.4 and closes a cycle with AG2.4 → AG2.5. Today's stage graph is acyclic; the defect is in the instructed migration, as the finding says. The fix is right: HLTT's Theorem A needs only the rec-free Hecke/Frobenius dictionary of AG2.0 and the local correspondence of ET.6, which precedes AG2.4. The rec comparison is an output after AG2.4."
+  },
+  {
+   "finding": "RT-RS-12~3/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Accepted RS-06 narrows ModularCurvesPartII:R14.6 and keeps 'the special-fibre Eichler–Shimura relation'. RS-12 keeps at AutomorphicGaloisRepresentations:R19.1 the 'geometric Eichler-Shimura polynomial' and names only R14.3 (the universal-family carrier) for the modular-curve handoff. In the assembled graph R14.3 is an ancestor of R19.1 but R14.6 is not, and R19.1 is not an ancestor of R14.6, so adding R14.6 → R19.1 is acyclic. This is the residual of the confirmed RT-AREA-langlands-2/9, whose verdict found the same missing ancestry. The fix is right: R19.1 imports the weight-two special-fibre relation and keeps the eigenspace deduction and the higher-weight Sym^{k−2} congruence."
+  },
+  {
+   "finding": "RT-RS-12~3/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. RS-12's owner record gives 'Generic polynomial-law finite-quotient interpolation with continuity and integral congruence hypotheses' to IntegralHeckeAndGaloisDeterminants:IHG.4, formerly R19.6 and AG2.4. Its only link from IHG.4 goes to R19.6. In the assembled graph IHG.4 is not an ancestor of AG2.4, and AG2.4 is not an ancestor of IHG.4, so the edge IHG.4 → AG2.4 is missing and adding it is acyclic. This is the interpolation part of the confirmed RT-AREA-langlands-1/26, whose verdict asks AG2.4 to apply IHG.4 after an explicit hypothesis comparison. The fix is right, including its insistence on checking the hypotheses on the source's coefficient domain."
+  }
+ ]
+}
