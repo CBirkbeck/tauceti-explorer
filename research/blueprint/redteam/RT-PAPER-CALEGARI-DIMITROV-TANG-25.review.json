@@ -1,0 +1,35 @@
+{
+ "redteam": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Item eisenstein-theorem asserts that every algebraic Puiseux branch y ∈ ℚ̄[[x^{1/N}]] lies in ℤ̄[[x^{1/N}/M₁]]. The constant y = 1/2 refutes this: every series in ℤ̄[[x^{1/N}/M₁]] has an algebraic-integer constant term. On p. 637 the paper applies Eisenstein's theorem [BG06, §11.4] only to the inverse branch x(y) ∈ ζy^{1/N} + y^{1/N}ℚ[[y^{1/N}]], whose constant term is zero. So the overgeneralisation is the extraction's, not the paper's. The fix is right: state the general theorem with a scalar, c·y ∈ ℤ̄[[x^{1/N}/M]], or assume an integral constant term, and keep the zero-constant form used by inverse-series-denominators."
+  },
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high), but the red team's counterexample is wrong and needs replacing. The extraction's cusp-width item (§4.1, pp. 652–653) defines widths with ± (the least m with ±MU^mM⁻¹ ∈ G). With that definition, item wohlfahrt-theorem's first clause, 'a congruence subgroup of Wohlfahrt level N contains Γ(N)', fails for groups without −I. The paper (p. 659) uses Wohlfahrt only in the form 'the smallest congruence subgroup of Wohlfahrt level N containing E is precisely ⟨E, Γ(N)⟩'. The red team's H = Γ(2) ∩ Γ₁(4) is not a counterexample. Neither (1 0; 2 1) ∈ Γ(2) nor its negative has c ≡ 0 mod 4, so ±H ≠ Γ(2). Then ±H has level 4 and H ⊇ Γ(4). A correct example is H′ = {γ ∈ Γ(2) : a ≡ 1 mod 4}. Since (γγ′)₁₁ = aa′ + bc′ ≡ aa′ mod 4 on Γ(2), H′ is the kernel of a character of order 2. It contains Γ(4) but not −I, and ±H′ = Γ(2). So all its widths are 2 and its level is 2, yet Γ(2) ⊄ H′. The fix is right: add E ⊆ G to the first clause, or state Γ(N) ⊆ ⟨G, −I⟩. Use H′ (not H) as the negative example."
+  },
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). The paper calls θ₃² 'a weight one modular form for Γ(2)' (p. 631 and p. 688), and item jacobi-hypergeometric-theta repeats it. Item modular-forms-finite-index requires f|_kγ = f for every γ in the group. Since −I ∈ Γ(2) and f|₁(−I) = −f, a weight-one form without character on Γ(2) is 0, but θ₃² has constant term 1. At Mathlib 082e2d3 the theta transformations are jacobiTheta_T_sq_smul and jacobiTheta_S_smul (JacobiTheta/OneVariable.lean, lines 37 and 43). With them, θ₃² has multiplier 1 on T² and on U₂ = ST⁻²S⁻¹ = (1 0; 2 1), and −1 on −I. Since d mod 4 is a character on Γ(2), this multiplier is χ₋₄(d) on Γ(2) = ⟨T², U₂, −I⟩. The fix is right: state the character, or use Γ(2) ∩ {d ≡ 1 mod 4}, and record a source issue for the omitted character."
+  },
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). On p. 690 the paper defines (𝓔, ∇) as 'the rank-6n free ℤ[x, 1/x, 1/(1 − 16x)]-module spanned by the functions F_j|γ' and gives its monodromy as ρ|_{Γ(2)} : Γ(2) → GL_n(ℂ). The proof of Theorem 7.3.3 repeats both statements. For n = 1, k = 0, trivial ρ and F = 1, all six translates equal 1, so their span is the rank-one base ring, not a free module of rank 6. A rank-6n bundle also cannot have an n-dimensional monodromy representation. Item vvmf-connection copies the construction. Theorem 7.3.3 itself is not disputed; it needs a correctly typed local system of rank n built from ρ restricted to Γ(2)/{±I}, with the differential-module realisation and the arithmetic input stated separately. The fix is right."
+  },
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Corollary 7.3.4 (p. 691) concludes that ρ has finite image from the hypothesis that all components have bounded denominators, and Definition 7.3.1 (pp. 688–689) contains no spanning condition. I checked the red team's example with exact integer arithmetic. σ(S) = diag(1, −1) and σ(R) = (2 1; −7 −3) satisfy σ(S)² = σ(R)³ = I, so σ is a representation of PSL₂(ℤ) = ℤ/2 ∗ ℤ/3. σ(T) = σ(S)σ(R) = (2 1; 7 3) has trace 5 and determinant −1, so it has distinct eigenvalues (5 ± √29)/2: it is semisimple of infinite order. For ρ = 1 ⊕ σ and F = (1, 0, 0), all hypotheses hold and the coefficients are integers, but ρ has infinite image. Mason's conjecture is normally stated for linearly independent components, and the extraction's cor-7.3.4 drops this, as the paper does. The fix is right: add the spanning hypothesis, or conclude only for the subrepresentation spanned by the values of F, and record a source issue."
+  },
+  {
+   "finding": "RT-PAPER-CALEGARI-DIMITROV-TANG-25/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed; filed as medium, I would grade it low. (2.3.2) on p. 640 writes G(z) as a quotient of two exponentials of Poisson integrals of log⁺|G| and log⁺(1/|G|). The quotient equals exp(∫ log|G| (w + z)/(w − z) dμ), which recovers G only up to the unimodular constant G(0)/|G(0)|. For G = i the right side is 1. The first line of p. 641 says sup_D |h| ≤ ∫ log⁺|g| dμ where sup_D log|h| is meant. For g = 1 one has h = 1, and the printed inequality reads 1 ≤ 0. Neither slip is among E1–E11. Both are local slips in the proof: Lemma 2.3.1's statement and the extraction's lemma-2.3.1 are unaffected, so I would grade them low. The fix, two new sourceIssues with the corrected display and inequality, is right. I checked the published version only, not arXiv v4."
+  }
+ ]
+}
