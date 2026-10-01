@@ -1,0 +1,20 @@
+{
+ "redteam": "RT-PAPER-MASSER-ZANNIER-20",
+ "findings": [
+  {
+   "finding": "RT-PAPER-MASSER-ZANNIER-20/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed. The paper (Annals 191 (2020), published PDF, SHA-256 8b76bfac…74b60, the same file the red team read) says on p. 668 'there is an analytic hypersurface W in A_g such that each element of A_g(Q̄) is isogenous to something in W. By Theorems 1.1, 1.3 and 1.5 this W is necessarily transcendental', and constructs W on pp. 669–670 locally: the coordinate functions of t 'are analytically dependent locally at each point of [1, 2]. We then use compactness to reduce to a finite number of analytic equations, and finally we multiply them together'. That produces a hypersurface in a neighbourhood of the curve K, not a closed analytic subset of A_g. A closed one cannot be transcendental for g ≥ 2: the boundary of the Satake compactification has dimension dim A_{g−1} = G − g ≤ G − 2 < G − 1 = dim W, so by Remmert–Stein the closure of W is analytic in the projective Satake compactification, and by Chow it is algebraic. Item 66 states 'a complex analytic hypersurface W ⊂ A_g', which reads as closed in A_g, and copies 'transcendental'; as stated it is false. The fix is right: state W as an analytic hypersurface of an open neighbourhood of K in A_g (closed there), record the paper's imprecision as a new sourceIssue, and keep the main theorems untouched."
+  },
+  {
+   "finding": "RT-PAPER-MASSER-ZANNIER-20/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Theorem 1.1 (p. 637) is stated without torsion; the next sentence, 'Our construction will show that even the points of order 16 are defined over the same extension', and the closing remark of §5.2 (p. 666, 'by the definition of Γ(e, 2e), the extension of Q in the above construction is a field of definition not only for the abelian variety but also its points of order 16') are supplementary claims. They are not justified by what the proof uses: Ã = V_16 is the theta model over Q (F̃ = F_Ψ = Q), and a K-point of it does not make A[16] K-rational. If A is principally polarized over K with A[16] ⊂ A(K), the Galois-equivariant perfect Weil pairing forces μ_16 ⊂ K, so no real field K can occur. The construction does not exclude real fields: for τ = i·I_g the theta quotients θ_{m0}(16τ)/θ_{00}(16τ) are real. Item 58 folds the remark into Theorem 1.1's statement and item 56 asserts it as part of the degree bound. The fix is right. Item 58 should state Theorem 1.1 as printed, with the torsion clause split off as a separate gated item, and a new sourceIssue (gap) should record the unsupported remark."
+  },
+  {
+   "finding": "RT-PAPER-MASSER-ZANNIER-20/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed. LogicAndDefinabilityInNumberTheory:LD.6 builds applications 'from separate Galois-orbit bounds, definability of uniformization and functional-transcendence theorems', and its acceptance requires 'independent orbit and functional-transcendence suppliers'. The extraction nevertheless plans items 19 (definability of the uniformisation) and 21 (Ax–Lindemann for A_g) at LD.6 and routes items 20, 22 and 23 to LD.6 by route 1. The accepted PAPER-MOK-PILA-TSIMERMAN-19 route 1 proposes LogicAndDefinabilityPartII ('functional transcendence and Ax–Schanuel for Shimura varieties'), stating weakly special subvarieties among its theorems; route 1's own reason concedes that this Part II 'also claims weakly special subvarieties; one owner is to be chosen at design time'. That leaves two briefs for the same objects. The fix is right: keep the counting items (16–18, 38) at LD.6 and move 19–23 to the existing Part II, with the genus-one and Siegel adapters, without adding an LD.6 cycle."
+  }
+ ]
+}
