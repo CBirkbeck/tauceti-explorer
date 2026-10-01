@@ -1,0 +1,25 @@
+{
+ "redteam": "RT-PAPER-CASTELLA-ETAL-22",
+ "findings": [
+  {
+   "finding": "RT-PAPER-CASTELLA-ETAL-22/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). §3.1 (arXiv v2, p. 16) identifies 'the p-Sylow subgroups of G_ℓ := Gal(K[ℓ]/K[1]) and k_λ^×/F_ℓ^×' via the Artin symbol and deduces the finite–singular comparison (3.1). The identification omits the quotient by the image of O_K^×. For K = ℚ(√−3), ℓ = 2 (inert) and p = 3, the image of ζ₃ generates (O_K/2)^× = F₄^×, so G₂ = 1, while F₄^×/F₂^× has order 3. So the comparison fails, and item /17 permits this case. §3.2's standing hypotheses (p odd, p ∤ D_K) exclude it, so the paper's theorems are unaffected. The fix, adding p ∤ [O_K^×:O_ℓ^×] (or p ∤ #O_K^×) to /17's comparison and a sourceIssue, is right."
+  },
+  {
+   "finding": "RT-PAPER-CASTELLA-ETAL-22/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed (high). Proposition 3.3.11(i) (pp. 22–23) asserts 'There exists 1 ⩽ i_0 ⩽ 2s such that ⊕_{i≠i_0} M_i ↪ X', and item /22 copies it. For M = M′ = X = 0 (s = 0) the hypotheses (3.11)–(3.13) can hold, and no such i_0 exists. The proof in §3.3.3 treats s = 0 separately, so Theorem 3.2.1 is unaffected, but the exported statement is false in that branch. The fix, splitting off s = 0, is right."
+  },
+  {
+   "finding": "RT-PAPER-CASTELLA-ETAL-22/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). The proof of Theorem 2.1.1 (pp. 12–13, (2.2)–(2.3)) defines the measure μ_{f,a} by its binomial moments, the operator θ, the p-depletion f^♭ and the unit-supported measure. Item /13 mentions them only narratively, and no item records them. At the pinned Mathlib, PadicInt.hasSum_mahler and mahlerEquiv (NumberTheory/Padics/MahlerBasis.lean) give the Mahler basis, but amiceTransformEquiv (NumberTheory/Padics/Measure/AmiceTransform.lean:156) is only for ℤ_p-valued measures, as its own TODO says. So the coefficient-general construction is not already built. The fix, adding the construction items and importing the existing owners, is right."
+  },
+  {
+   "finding": "RT-PAPER-CASTELLA-ETAL-22/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed (medium). Item /11's Proposition 1.2.5 clause sums λ(𝒫_w(θ)) over 'w ∈ Σ, w ∤ p', which includes ∞, where 𝒫_w is undefined. The extraction's own confirmed sourceIssue E18 corrects the index set to S = Σ ∖ {v, v̄, ∞}, and item /16 already uses S. §18 requires the corrected statement in the item. The fix is right."
+  }
+ ]
+}
