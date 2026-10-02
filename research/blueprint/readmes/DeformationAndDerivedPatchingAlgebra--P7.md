@@ -2069,3 +2069,173 @@ The module gap now requires registration of the transported direct-sum grading a
 The Mathlib design screen found open [PR #33220](https://github.com/leanprover-community/mathlib4/pull/33220), with ring/algebra companions [#33218](https://github.com/leanprover-community/mathlib4/pull/33218) and [#33219](https://github.com/leanprover-community/mathlib4/pull/33219). The complete module diff was read at head 70572cd62395e933e8f6476bcedcee366a5b5e82 (file SHA-256 76f51cbee7816a9fd1b0c9a38413e9eb350674593f3a26e854c82fda9492fdd0). Its proposed GradedPiece, hasGSMul and direct-sum action should supply the shape of the outstanding grading registration; the pinned DirectSum.Gmodule is already the native graded-action interface. Do not introduce a competing generic associated-graded carrier. For the decreasing adic family, prove its order-dual natural-index filtration and compare its native denominator with the proposed generic degree quotient. These proofs remain in the explicit gap. The present new declarations are the adic Rees-quotient adapters, not a duplicate generic filtered construction. An open PR is not a pinned declaration or a reason to wait.
 
 The complete [Zulip discussion of associated graded objects](https://leanprover-community.github.io/archive/stream/113489-new-members/topic/Associated.20graded.20objects.20%28modules.2Frings%29.html) was also screened (HTML SHA-256 186583b6e46635cafa31d0bf6d893fdf5dfae0f71be4ed4ba44718302e4633ae). It discusses filtration direction and quotienting by all strictly earlier indices. No consensus or exhaustive absence conclusion is inferred from this discussion. The recorded design source is not an additional mathematical prerequisite for the eleven current nodes.
+
+## Native homogeneous grading continuation
+
+Codex — codex-5ebb6f, 2 October 2026. Partial source-decomposed adic adapters; every implementation remains unchecked. The preceding paragraphs and compilation receipts are historical. All original declarations, paper routes, thirteen planets and the intrinsic/ambient multiplicity boundary remain.
+
+### Homogeneous submodules of the native adic ring
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components` — `TauCeti.HilbertSamuel.adicRingComponents`. For the existing quotient S=Rees(q)/(q Rees(q)), define S_n=range(ι_n) as an A-submodule of S. Identify G_n=q^n/(q·top_(q^n)) with S_n by the existing injectivity of ι_n. Compose the inverse finite expansion S→⊕G_n with the direct sum of these range equivalences to obtain the actual A-linear map d:S→⊕S_n.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Take LinearMap.range of the existing adicPieceInclusion, not a new quotient or abstract component type. LinearEquiv.ofInjective gives e_n:G_n≃range(ι_n), whose underlying value is ι_n.
+2. Define d=(DirectSum.congrLinearEquiv e)∘adicDirectSumEquiv.symm. Both maps use native finitely supported direct sums; no infinite product is allowed. This fixes the candidate decomposition before the native grading is registered.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-piece-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofInjective_apply`, `mathlib:DirectSum.congrLinearEquiv`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicRingComponentEquiv`: The existing degree-n quotient is A-linearly equivalent to the actual image submodule S_n.
+- `TauCeti.HilbertSamuel.adicRingComponentEquiv_coe`: The ambient value of e_n(x) is exactly ι_n(x).
+- `TauCeti.HilbertSamuel.adicRingDecompose`: The A-linear map d is the inverse finite expansion followed by the direct sum of range equivalences.
+
+Tests:
+
+- `HilbertSamuelAdicGradingTest.ring_zero_degree`: For q=0, the ambient value of the degree-zero component equivalence equals the existing degree-zero inclusion.
+- `HilbertSamuelAdicGradingTest.ring_nonzero_positive`: For Z/4,q=(2), S_1 contains a nonzero ambient element.
+- `HilbertSamuelAdicGradingTest.ring_unit_components`: For q=top every S_n is subsingleton.
+
+### The adic ring decomposition on each homogeneous class
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition` — `TauCeti.HilbertSamuel.adicRingDecompose_inclusion`. The actual candidate d sends ι_n(x) to lof_n(e_n(x)) for every native quotient class x∈G_n.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Apply the existing inverse-expansion inclusion formula to ι_n(x).
+2. The native direct-sum congruence is its coordinatewise lmap; DirectSum.lmap_lof evaluates it on the homogeneous inclusion. This is the generator identity needed for the canonical recomposition inverse, not an arbitrary chosen bijection.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-direct-sum`, `mathlib:DirectSum.congrLinearEquiv`, `mathlib:DirectSum.lmap_lof`.
+
+Acceptance: the formula retains the native quotient representative and uses a finitely supported sum.
+
+### The native grading of the adic Rees quotient
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration` — `TauCeti.HilbertSamuel.adicRingGrading`. Register GradedAlgebra(S_n) on the same S. Its native decomposition is exactly d and its canonical inverse is summation of the submodule inclusions. The unit is in S_0 and S_i S_j⊆S_(i+j). Define π_n:S→S using GradedAlgebra.proj; it is A-linear.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. For the decomposition inverse laws, compare the canonical recomposition with adicDirectSumEquiv composed with the inverse direct-sum range equivalences. The preceding generator identity, range equivalence evaluation and finite linear-map extensionality identify the maps; the inverse laws of the existing linear equivalences finish.
+2. Represent 1 by the constant Rees monomial of coefficient 1∈q^0, hence it belongs to S_0. For multiplication, choose representatives of the two native quotient classes, use adic-homogeneous-product, and descend the representative identity through the quotient. Thus the product belongs to the actual range S_(i+j).
+3. Use these four fields to register GradedRing/GradedAlgebra. Reuse GradedAlgebra.proj for projections and its native decomposition formula. The decomposition identity on ι_j fixes π_i(ι_j x) to ι_j x for i=j and zero otherwise. Homogeneous multiplication then gives the displayed projection product law.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-product`, `mathlib:GradedAlgebra`, `mathlib:GradedRing`, `mathlib:DirectSum.Decomposition`, `mathlib:GradedAlgebra.proj`, `mathlib:GradedAlgebra.proj_apply`, `mathlib:DirectSum.decompose_coe`, `mathlib:DirectSum.linearMap_ext`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicRingGrading_decompose`: The native DirectSum.decompose map is precisely adicRingDecompose.
+- `TauCeti.HilbertSamuel.adicRingProjection`: The projection π_n is the native GradedAlgebra.proj of the actual image submodule grading, bundled as an A-linear endomorphism.
+- `TauCeti.HilbertSamuel.adicRingProjection_inclusion`: π_i(ι_j x)=ι_j x if i=j and zero otherwise.
+- `TauCeti.HilbertSamuel.adicRingProjection_mul`: For x∈S_i,y∈S_j, π_(i+j)(xy)=xy in the original Rees quotient.
+
+Tests:
+
+- `HilbertSamuelAdicGradingTest.ring_unit_degree_zero`: π_0(1)=1 for every q.
+- `HilbertSamuelAdicGradingTest.ring_positive_projection`: For Z/4,q=(2), some x has π_1(x)≠0 and π_0(x)=0.
+- `HilbertSamuelAdicGradingTest.ring_degree_one_square`: For Z/4,q=(2), some nonzero x∈S_1 has π_2(x²)=0.
+
+### Homogeneous submodules of the native adic module
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components` — `TauCeti.HilbertSamuel.adicModuleComponents`. For the existing module L=Rq(M)/(q Rq·top), define L_n=range(ι_n^M) as an A-submodule of this same quotient. The native degree quotient G_n(M) is A-linearly equivalent to L_n. Composing inverse finite expansion with direct-sum range equivalences gives d_M:L→⊕L_n.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Use the actual range of the existing adicModulePieceInclusion. Apply LinearEquiv.ofInjective to its inherited injectivity to get e_n^M, with ambient value ι_n^M(x).
+2. Define d_M=(DirectSum.congrLinearEquiv e^M)∘adicModuleDirectSumEquiv.symm. It retains the original A action and finite support. It does not identify L with the graded ring unless M=A.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum`, `mathlib:LinearEquiv.ofInjective`, `mathlib:LinearEquiv.ofInjective_apply`, `mathlib:DirectSum.congrLinearEquiv`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicModuleComponentEquiv`: The existing module degree quotient G_n(M) is A-linearly equivalent to its actual image L_n.
+- `TauCeti.HilbertSamuel.adicModuleComponentEquiv_coe`: The ambient value of e_n^M(x) is exactly the inherited module piece inclusion.
+- `TauCeti.HilbertSamuel.adicModuleDecompose`: The A-linear d_M uses the inverse existing finite expansion followed by the direct sum of range equivalences.
+
+Tests:
+
+- `HilbertSamuelAdicGradingTest.module_zero_degree`: For q=0 the ambient value of e_0^M agrees with the existing piece inclusion.
+- `HilbertSamuelAdicGradingTest.module_regular_positive`: For Z/4,q=(2),M=A, L_1 contains a nonzero ambient element.
+- `HilbertSamuelAdicGradingTest.module_residue_positive_zero`: For Z/4,q=(2),M=A/q, every L_(n+1) is subsingleton.
+
+### The adic module decomposition on each homogeneous class
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition` — `TauCeti.HilbertSamuel.adicModuleDecompose_inclusion`. The actual d_M sends ι_n^M(x) to lof_n(e_n^M(x)) for every native module quotient class.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Use the existing inverse module-expansion formula on the piece inclusion.
+2. Evaluate the coordinatewise direct-sum range equivalences with DirectSum.lmap_lof. This pins the native decomposition to the original quotient representatives.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum`, `mathlib:DirectSum.congrLinearEquiv`, `mathlib:DirectSum.lmap_lof`.
+
+Acceptance: the formula retains the native quotient representative and uses a finitely supported sum.
+
+### The native adic homogeneous scalar action
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action` — `TauCeti.HilbertSamuel.adicModuleGradedSMul`. For the actual image component families of the native Rees quotients, register SetLike.GradedSMul(S_n,L_n): a∈S_i and x∈L_j imply a·x∈L_(i+j) under the inherited quotient action.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Choose representatives in the native degree quotients using range membership. Quotient induction reduces to the inherited adic-homogeneous-module-action identity on Rees monomials; that formula supplies membership in the actual degree-(i+j) range.
+2. Use this membership as the single field of the native SetLike.GradedSMul instance. No new scalar action or shifted-map definition is introduced.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action`, `mathlib:SetLike.GradedSMul`.
+
+Acceptance: the formula retains the native quotient representative and uses a finitely supported sum.
+
+### The native grading and action of the adic Rees module
+
+`DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration` — `TauCeti.HilbertSamuel.adicModuleDecomposition`. Register DirectSum.Decomposition(L_n) using d_M and SetLike.GradedSMul(S_n,L_n) using the existing action of S=gr_q(A) on L=gr_q(M). Thus S_i·L_j⊆L_(i+j) for that same action. With the precise native GradedModule.isModule instance, GradedModule.linearEquiv gives L≃ₗ[S]⊕L_n. Define the A-linear ambient projection π_n^M by native decomposition, DFinsupp.lapply and the image-submodule inclusion.
+
+A is any commutative ring with identity, q any ideal, M any A-module, and degrees natural numbers. No locality, Noetherianity, proper-ideal, domain, finite-generation or free-module premise is required.
+
+Proof outline:
+
+1. Identify the canonical recomposition with the existing module expansion composed with inverse range equivalences. Check on each lof using the previous homogeneous-decomposition identity and ambient range formula; finite linear extensionality and equivalence inverse laws give both inverse identities required by DirectSum.Decomposition.ofLinearMap.
+2. Import the separately registered native homogeneous scalar-action lemma. The existing quotient action, rather than a transported alternative, is the input to the native external graded action.
+3. Use GradedModule.isModule explicitly for the external direct sum. The native GradedModule.linearEquiv is S-linear, whereas d_M and the individual ambient projections are A-linear. Individual degree projections are generally not S-linear: positive-degree scalars shift degree.
+4. Compose DirectSum.decomposeLinearEquiv with DFinsupp.lapply n and the subtype linear map. The homogeneous inclusion identity gives π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero. The graded scalar law gives π_(i+j)^M(a·x)=a·x for homogeneous inputs.
+
+Prerequisites: `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action`, `mathlib:DirectSum.Decomposition.ofLinearMap`, `mathlib:SetLike.GradedSMul`, `mathlib:GradedModule.isModule`, `mathlib:GradedModule.linearEquiv`, `mathlib:DirectSum.decomposeLinearEquiv`, `mathlib:DFinsupp.lapply`, `mathlib:DirectSum.decompose_coe`, `DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action`, `mathlib:DirectSum.linearMap_ext`.
+
+API:
+
+- `TauCeti.HilbertSamuel.adicModuleSumModule`: Use precisely GradedModule.isModule(S_n,L_n) on the external direct sum; the suggested file installs this instance locally to make the scalar choice explicit.
+- `TauCeti.HilbertSamuel.adicModuleGradedEquiv`: The native internally/externally graded comparison is linear over the original graded ring S.
+- `TauCeti.HilbertSamuel.adicModuleGradedEquiv_inclusion`: The S-linear equivalence sends the existing degree-n inclusion to the native direct-sum inclusion of e_n^M(x).
+- `TauCeti.HilbertSamuel.adicModuleProjection`: π_n^M is an A-linear ambient projection using native decomposition, coordinate evaluation and subtype inclusion.
+- `TauCeti.HilbertSamuel.adicModuleProjection_inclusion`: π_i^M(ι_j^M x)=ι_j^M x if i=j, else zero.
+- `TauCeti.HilbertSamuel.adicModuleProjection_smul`: For a∈S_i and x∈L_j, π_(i+j)^M(a·x)=a·x for the original quotient action.
+
+Tests:
+
+- `HilbertSamuelAdicGradingTest.module_zero_higher_projection`: For q=0 every positive-degree ambient module projection is zero.
+- `HilbertSamuelAdicGradingTest.module_regular_positive_projection`: For Z/4,q=(2),M=A, some x has π_1^M(x)≠0 and π_0^M(x)=0.
+- `HilbertSamuelAdicGradingTest.module_residue_action_zero`: For Z/4,q=(2),M=A/q, every a∈S_1 acts as zero on all of L.
+
+The ring grading and module grading now have native declarations on their original quotient carriers. Their instances and compatibility proofs still use admitted proofs in the suggested file. No generic graded ring, generic Rees object, internal grading wrapper or shifted-map theory is newly planned. The individual projections are A-linear; positive-degree scalars prevent them from being linear over the whole graded ring. The external comparison is linear over that ring using the exact native GradedModule.isModule action.
+
+For the chosen length-valued Hilbert–Serre consumer, follow the predecessor kernel/cokernel proof rather than leaving its old largest-power-torsion route as a required extra obligation. Both ker(x) and M/xM must receive actual homogeneous components and the S/(x) action before induction. The signed recurrence includes the kernel term; the induction must provide its anchor constant and threshold. The generator-count bound does not identify polynomial degree with support dimension. The ten subsequent refinement items in the preceding proof receipt remain for canonical integration. All degree/dimension, Artin–Rees, associativity, formal-curve, Nagata, parameter, completion, coefficient and derived/patching obligations remain open.
+
+### Fresh validation and source boundary
+
+The complete suggested file elaborates at the existing exact Mathlib pin with Lean v4.34.0-rc2: zero errors, 225 admitted-proof warnings and no other warnings; 104 native examples, 21.91 seconds. Its SHA-256 is 959ab431e3d44c4eaaa1f206f05834c553ceeb6185ced824789fc9c2c4270427; the full log SHA-256 is 59edb31b332841c9a5145f528245b9ad0c0a75707ed20b0755fb156a3724c782. No mathematical implementation is certified.
+
+The indexed blueprint checker has zero errors and warnings. All 72 original node objects and every original source, baseline prefix, planet, request, coverage row and key-definition boundary are preserved. The 79-node current declaration graph and the normal read-only atlas stage graph, including its existing external supplier endpoints, are acyclic. All 79 declarations are listed by the actual atlas assembly, with no skipped link for this roadmap. This does not check all accepted declaration graphs.
+
+Fresh finite cyclic grading regressions pass 15,171 assertions in eleven actual cyclic ring/module cases, checking quotient representative independence, projection orthogonality, degree sums and the original quotient action. The standalone script and output hashes are 965bb6babe5eaa998561d7de2fe2e1aedd60eb581d129e11ddf26e14575c5ed9 and 737f279a26f532bf4d9652bce40259fac040d18540871cd247c1ae4169451f56. The predecessor Hilbert–Serre reproduction also freshly passes all 24,317 assertions in 151 models with exactly its published hashes. Finite checks support the examples and detect incorrect definitions; they do not prove the unrestricted grading or polynomial induction. The current handoff gives durable reproduction links and the new standalone program.
+
+Fresh primary reading covers complete Stacks 00K1 and 00K4 mathematical statements/proofs, plus the nineteen individual pinned grading/decomposition references in the packet. No new whole-paper erratum audit or completion of the inherited coefficient/patching sources is claimed. The reviewed AUDIT-17 R03.3 record and accepted RS-08 ownership were reread; upstream generic grading and shifted-map APIs are reused.

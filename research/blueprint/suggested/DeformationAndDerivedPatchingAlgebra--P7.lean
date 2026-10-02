@@ -45,6 +45,8 @@ import Mathlib.RingTheory.Filtration
 import Mathlib.Algebra.DirectSum.Module
 import Mathlib.RingTheory.Ideal.Quotient.PowTransition
 import Mathlib.NumberTheory.BernoulliPolynomials
+import Mathlib.Algebra.Module.GradedModule
+import Mathlib.Algebra.Module.Submodule.Equiv
 
 /-!
 # Suggested forms for prime filtrations and characteristic-zero points
@@ -1649,4 +1651,161 @@ example (n : ℕ) : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
         (DirectSum.lof (ZMod 4) ℕ (adicModulePiece q (ZMod 4 ⧸ q)) (n + 1) x) = 0 := by sorry
 
 end AdicModuleTests
+end TauCeti.HilbertSamuel
+
+/-! Native grading on the existing Rees quotients. These are adic adapters,
+not new generic graded carriers. All compatibility proofs remain unchecked.
+The kernel/cokernel induction in the preceding handoff is a subsequent step. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section AdicGrading
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-components
+def adicRingComponents (q : Ideal A) (n : ℕ) : Submodule A (adicGradedRing q) :=
+  LinearMap.range (adicPieceInclusion q n)
+
+def adicRingComponentEquiv (q : Ideal A) (n : ℕ) :
+    adicRingPiece q n ≃ₗ[A] adicRingComponents q n :=
+  LinearEquiv.ofInjective (adicPieceInclusion q n) (adicPieceInclusion_injective q n)
+
+lemma adicRingComponentEquiv_coe (q : Ideal A) (n : ℕ) (x : adicRingPiece q n) :
+    (adicRingComponentEquiv q n x : adicGradedRing q) = adicPieceInclusion q n x := rfl
+
+def adicRingDecompose (q : Ideal A) :
+    adicGradedRing q →ₗ[A] ⨁ n : ℕ, adicRingComponents q n :=
+  (DirectSum.congrLinearEquiv (adicRingComponentEquiv q)).toLinearMap.comp
+    (adicDirectSumEquiv q).symm.toLinearMap
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-homogeneous-decomposition
+lemma adicRingDecompose_inclusion (q : Ideal A) (n : ℕ) (x : adicRingPiece q n) :
+    adicRingDecompose q (adicPieceInclusion q n x) =
+      DirectSum.lof A ℕ (fun n => ↥(adicRingComponents q n)) n (adicRingComponentEquiv q n x) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-ring-grading-registration
+instance adicRingGrading (q : Ideal A) : GradedAlgebra (adicRingComponents q) where
+  decompose' := adicRingDecompose q
+  left_inv := by sorry
+  right_inv := by sorry
+  one_mem := by sorry
+  mul_mem := by sorry
+
+lemma adicRingGrading_decompose (q : Ideal A) (x : adicGradedRing q) :
+    DirectSum.decompose (adicRingComponents q) x = adicRingDecompose q x := rfl
+
+def adicRingProjection (q : Ideal A) (n : ℕ) : adicGradedRing q →ₗ[A] adicGradedRing q :=
+  GradedAlgebra.proj (adicRingComponents q) n
+
+lemma adicRingProjection_inclusion (q : Ideal A) (i j : ℕ) (x : adicRingPiece q j) :
+    adicRingProjection q i (adicPieceInclusion q j x) =
+      if i = j then adicPieceInclusion q j x else 0 := by sorry
+
+lemma adicRingProjection_mul (q : Ideal A) (i j : ℕ)
+    (x : adicRingComponents q i) (y : adicRingComponents q j) :
+    adicRingProjection q (i + j) ((x : adicGradedRing q) * y) =
+      (x : adicGradedRing q) * y := by sorry
+
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-components
+def adicModuleComponents (n : ℕ) : Submodule A (adicGradedModule q M) :=
+  LinearMap.range (adicModulePieceInclusion q M n)
+
+def adicModuleComponentEquiv (n : ℕ) :
+    adicModulePiece q M n ≃ₗ[A] adicModuleComponents q M n :=
+  LinearEquiv.ofInjective (adicModulePieceInclusion q M n)
+    (adicModulePieceInclusion_injective q M n)
+
+lemma adicModuleComponentEquiv_coe (n : ℕ) (x : adicModulePiece q M n) :
+    (adicModuleComponentEquiv q M n x : adicGradedModule q M) =
+      adicModulePieceInclusion q M n x := rfl
+
+def adicModuleDecompose :
+    adicGradedModule q M →ₗ[A] ⨁ n : ℕ, adicModuleComponents q M n :=
+  (DirectSum.congrLinearEquiv (adicModuleComponentEquiv q M)).toLinearMap.comp
+    (adicModuleDirectSumEquiv q M).symm.toLinearMap
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-decomposition
+lemma adicModuleDecompose_inclusion (n : ℕ) (x : adicModulePiece q M n) :
+    adicModuleDecompose q M (adicModulePieceInclusion q M n x) =
+      DirectSum.lof A ℕ (fun n => ↥(adicModuleComponents q M n)) n (adicModuleComponentEquiv q M n x) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-grading-registration
+instance adicModuleDecomposition : DirectSum.Decomposition (adicModuleComponents q M) :=
+  DirectSum.Decomposition.ofLinearMap (adicModuleComponents q M) (adicModuleDecompose q M)
+    (by sorry) (by sorry)
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-homogeneous-scalar-action
+instance adicModuleGradedSMul :
+    SetLike.GradedSMul (adicRingComponents q) (adicModuleComponents q M) where
+  smul_mem := by sorry
+
+-- Native graded action, with its precise module instance made explicit.
+local instance adicModuleSumModule :
+    Module (adicGradedRing q) (⨁ n : ℕ, adicModuleComponents q M n) :=
+  GradedModule.isModule (adicRingComponents q) (adicModuleComponents q M)
+
+def adicModuleGradedEquiv :
+    adicGradedModule q M ≃ₗ[adicGradedRing q] ⨁ n : ℕ, adicModuleComponents q M n :=
+  GradedModule.linearEquiv (adicRingComponents q) (adicModuleComponents q M)
+
+lemma adicModuleGradedEquiv_inclusion (n : ℕ) (x : adicModulePiece q M n) :
+    adicModuleGradedEquiv q M (adicModulePieceInclusion q M n x) =
+      DirectSum.of (fun n => ↥(adicModuleComponents q M n)) n
+        (adicModuleComponentEquiv q M n x) := by sorry
+
+def adicModuleProjection (n : ℕ) : adicGradedModule q M →ₗ[A] adicGradedModule q M :=
+  (adicModuleComponents q M n).subtype.comp
+    ((DFinsupp.lapply n).comp (DirectSum.decomposeLinearEquiv (adicModuleComponents q M)).toLinearMap)
+
+lemma adicModuleProjection_inclusion (i j : ℕ) (x : adicModulePiece q M j) :
+    adicModuleProjection q M i (adicModulePieceInclusion q M j x) =
+      if i = j then adicModulePieceInclusion q M j x else 0 := by sorry
+
+lemma adicModuleProjection_smul (i j : ℕ)
+    (a : adicRingComponents q i) (x : adicModuleComponents q M j) :
+    adicModuleProjection q M (i + j) ((a : adicGradedRing q) • (x : adicGradedModule q M)) =
+      (a : adicGradedRing q) • (x : adicGradedModule q M) := by sorry
+
+-- test: HilbertSamuelAdicGradingTest.ring_zero_degree
+example (a : adicRingPiece (⊥ : Ideal A) 0) :
+    (adicRingComponentEquiv (⊥ : Ideal A) 0 a : adicGradedRing (⊥ : Ideal A)) =
+      adicPieceInclusion (⊥ : Ideal A) 0 a := by sorry
+-- test: HilbertSamuelAdicGradingTest.ring_nonzero_positive
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicRingComponents q 1, (x : adicGradedRing q) ≠ 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.ring_unit_components
+example (n : ℕ) : Subsingleton (adicRingComponents (⊤ : Ideal A) n) := by sorry
+-- test: HilbertSamuelAdicGradingTest.ring_unit_degree_zero
+example : adicRingProjection q 0 1 = 1 := by sorry
+-- test: HilbertSamuelAdicGradingTest.ring_positive_projection
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicGradedRing q, adicRingProjection q 1 x ≠ 0 ∧ adicRingProjection q 0 x = 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.ring_degree_one_square
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicRingComponents q 1, (x : adicGradedRing q) ≠ 0 ∧
+      adicRingProjection q 2 ((x : adicGradedRing q) * x) = 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_zero_degree
+example (x : adicModulePiece (⊥ : Ideal A) M 0) :
+    (adicModuleComponentEquiv (⊥ : Ideal A) M 0 x : adicGradedModule (⊥ : Ideal A) M) =
+      adicModulePieceInclusion (⊥ : Ideal A) M 0 x := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_regular_positive
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicModuleComponents q (ZMod 4) 1, (x : adicGradedModule q (ZMod 4)) ≠ 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_residue_positive_zero
+example (n : ℕ) : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    Subsingleton (adicModuleComponents q (ZMod 4 ⧸ q) (n + 1)) := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_zero_higher_projection
+example (n : ℕ) (x : adicGradedModule (⊥ : Ideal A) M) :
+    adicModuleProjection (⊥ : Ideal A) M (n + 1) x = 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_regular_positive_projection
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicGradedModule q (ZMod 4), adicModuleProjection q (ZMod 4) 1 x ≠ 0 ∧
+      adicModuleProjection q (ZMod 4) 0 x = 0 := by sorry
+-- test: HilbertSamuelAdicGradingTest.module_residue_action_zero
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∀ (a : adicRingComponents q 1) (x : adicGradedModule q (ZMod 4 ⧸ q)),
+      (a : adicGradedRing q) • x = 0 := by sorry
+
+end AdicGrading
 end TauCeti.HilbertSamuel
