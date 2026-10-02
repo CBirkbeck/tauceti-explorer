@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eleven L3 nodes prove the actual all-root containment and Cartan root bijection, then derive the degree-one ordinary root law in the original group ring from an explicit scalar law. All1,825 predecessor nodes and1,185 baseline records remain whole.",
+  "summary": "Fourteen L3 nodes construct the actual module direct limit of original Cartan norms for every positive degree, with faithful all-level maps, finite representatives and the all-level universal property. All1,836 predecessor nodes and1,185 baseline records remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8309,6 +8309,76 @@
         "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
         "provides": "Coercion from the underlying additive group to its native circle quotient commutes with integer scalar multiplication.",
         "checked": "Full statement, surrounding assumptions and complete native file read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Units.smul_def at Algebra/Group/Action/Units.lean35 and AddCircle.coe_zsmul at Topology/Instances/AddCircle/Defs.lean200 are definitional. Their surrounding native hypotheses and bodies were read."
+      },
+      {
+        "ref": "mathlib:ModuleCat",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "provides": "Native bundle of an additive commutative group with an R-module structure over a ring, retaining its actual carrier.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:ModuleCat.of",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+        "provides": "Native constructor packaging an existing module with its original carrier and instances.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "Native module direct limit as the module congruence quotient of the direct sum of an actual family under linear transitions; supplies native additive and module instances.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.of",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "Native R-linear insertion of an actual component into its module direct limit.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.of_f",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "Inserting an element after an actual directed transition equals its original component insertion.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.exists_of",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "Over a nonempty directed index, every native limit element is represented by an element of a component.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.lift",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "The actual native linear extension of a compatible family of component maps.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.lift_of",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "Evaluation of the native lift on a component insertion equals the original component map.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:Module.DirectLimit.exists_eq_of_of_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Colimit/Module.lean",
+        "provides": "For a native directed system over a directed order, equality of two insertions from the same component is witnessed by equality after a later transition.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
+      },
+      {
+        "ref": "mathlib:DirectedSystem",
+        "kind": "class",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "Native class expressing the identity and composition laws for actual maps indexed by a preorder.",
+        "checked": "Complete statement, surrounding hypotheses, native structure fields or body read2October2026 at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Module.lean1–274, ModuleCat/Basic.lean40–100 and DirectedInverseSystem.lean45–90 were read. The actual carrier, module instances, directed-system laws, finite representatives, equality witnesses and native lift are reused directly."
       }
     ]
   },
@@ -120038,6 +120108,874 @@
       "acceptance": [
         "At M=2,N=6 and center1/2, the entire root fiber is1/6,1/2,5/6; unit5 swaps the first and last and fixes the imprimitive middle root. At level1 the zero root survives. Constant integer1 fails the two-root scalar law because2 differs from1. The zero-point indicator satisfies the ordinary law, including in characteristic2,3,5; replacing the three roots of zero by only primitive level3 roots changes its sum from1 to0."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Original Cartan norms along the factorial tower",
+      "kind": "construction",
+      "statement": "For natural i≤j, define the R-linear transition from R[U(k,F(i))] to R[U(k,F(j))] to be exactly the original full-lift norm nu_F(i),F(j), using native factorial divisibility. No factor or normalization is inserted.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Native factorial positivity makes both F(i) and F(j) actual positive moduli.",
+        "Apply native factorial_dvd_factorial to i+1≤j+1.",
+        "Use the already constructed original Cartan norm at exactly these moduli and this divisibility."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm",
+        "mathlib:Nat.factorial_pos",
+        "mathlib:Nat.factorial_dvd_factorial"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanFactorialNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_transition_identity",
+          "kind": "degenerate",
+          "statement": "Every factorial self-transition is the original identity map."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_transition_composition",
+          "kind": "compatibility",
+          "statement": "For i≤j≤l, the two actual factorial norms compose to the direct norm from i to l."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_transition_keeps_both_lifts_mod_two",
+          "kind": "non-example",
+          "statement": "For degree one and coefficients modulo2, the norm from F(0)=1 to F(2)=6 of the identity basis element has coefficient1 at both residue units1 and5. Its second coefficient differs from the identity basis element, so neither unital inclusion nor averaging describes this map."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanFactorialSystem",
+          "role": "compatibility",
+          "statement": "The actual factorial family of original Cartan group rings and original norms satisfies Mathlib DirectedSystem: each self map fixes every element, and successive transitions compose to the direct transition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, following(2.7)",
+          "how": "Realizes the source injective limit of actual finite Cartan group rings under full-lift linear norms, retaining every finite-level element."
+        },
+        {
+          "where": "Kubert188, consistency(2.10) and the distribution construction",
+          "how": "Supplies the actual common module target and unique extension mechanism for compatible finite Cartan data. Subsequent scalar ordinary laws must still be passed to the global distribution quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-system",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original factorial norms form a native directed system",
+      "kind": "lemma",
+      "statement": "The actual factorial family of original Cartan group rings and original norms satisfies Mathlib DirectedSystem: each self map fixes every element, and successive transitions compose to the direct transition.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "The original Cartan norm self identity supplies the native map_self field at F(i).",
+        "The original norm composition theorem supplies map_map at F(i),F(j),F(l). Proof irrelevance identifies the native divisibility witnesses."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-self",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-comp",
+        "mathlib:DirectedSystem"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanFactorialSystem"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanFactorialSystem_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual factorial family of original Cartan group rings and original norms satisfies Mathlib DirectedSystem: each self map fixes every element, and successive transitions compose to the direct transition."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-module",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual Cartan module direct limit",
+      "kind": "construction",
+      "statement": "Construct the Cartan module L_k(R) as the native module direct limit of the original R[U(k,F(n))] under the original factorial norms. Package this existing carrier and its native additive commutative group and R-module instances using ModuleCat.of. This is a module direct limit of full-lift norms; no ring direct limit is asserted.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Apply native Module.DirectLimit to the actual factorial family and actual linear transitions.",
+        "Its existing native instances give the additive commutative group and module structure.",
+        "Use native ModuleCat.of to retain that very carrier and these instances. Generic module-colimit theory is reused, not planned here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-system",
+        "mathlib:Module.DirectLimit",
+        "mathlib:ModuleCat",
+        "mathlib:ModuleCat.of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitModule"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.direct_limit_has_actual_finite_representatives",
+          "kind": "characterisation",
+          "statement": "Every element of the Cartan module direct limit comes from an original positive level."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.direct_limit_integer_identity_survives",
+          "kind": "non-example",
+          "statement": "The native limit over integer coefficients is not the zero module: the image of the identity basis element at level1 is nonzero."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.direct_limit_zero_representation",
+          "kind": "degenerate",
+          "statement": "Zero is represented by the original zero group-ring element at level1."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimit_exists_of",
+          "role": "compatibility",
+          "statement": "For every z in L_k(R), there exists a positive modulus N and an actual f in R[U(k,N)] with I_N(f)=z."
+        },
+        {
+          "name": "kubertCartanLimit_hom_ext",
+          "role": "universal-property",
+          "statement": "If two R-linear maps a,b:L_k(R)→P agree on I_N(f) for every positive N and every original f, then a=b."
+        },
+        {
+          "name": "kubertCartanLimitLift_existsUnique",
+          "role": "universal-property",
+          "statement": "For every actual linear family on the original Cartan group rings compatible with all divisor norms, there exists exactly one R-linear map a:L_k(R)→P whose value on each I_N(f) is g_N(f). Together with faithful finite-level maps and finite representatives, this identifies the constructed module as the source injective limit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, following(2.7)",
+          "how": "Realizes the source injective limit of actual finite Cartan group rings under full-lift linear norms, retaining every finite-level element."
+        },
+        {
+          "where": "Kubert188, consistency(2.10) and the distribution construction",
+          "how": "Supplies the actual common module target and unique extension mechanism for compatible finite Cartan data. Subsequent scalar ordinary laws must still be passed to the global distribution quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Native insertion of a factorial Cartan level",
+      "kind": "construction",
+      "statement": "For natural n, construct J_n:R[U(k,F(n))]→L_k(R) as the native Module.DirectLimit.of at index n, on the actual factorial system. It is an R-linear map into the already constructed module.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Use the existing native component-to-limit linear map for the original factorial family.",
+        "The native ModuleCat bundle retains its exact target carrier and module structure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-module",
+        "mathlib:Module.DirectLimit.of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanFactorialOf"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_zero_representation",
+          "kind": "degenerate",
+          "statement": "The native factorial insertion sends zero to the actual limit zero."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_insertion_agrees_with_all_levels",
+          "kind": "compatibility",
+          "statement": "The factorial insertion agrees with the all-level injection at the same original modulus F(n)."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.factorial_insertion_is_injective",
+          "kind": "characterisation",
+          "statement": "Every factorial insertion is injective, including at the sole group element of F(0)=1."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitOf_factorial",
+          "role": "compatibility",
+          "statement": "For every natural n and original f in R[U(k,F(n))], I_F(n)(f)=J_n(f). Thus the all-level construction agrees with the actual native factorial component map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, following(2.7)",
+          "how": "Realizes the source injective limit of actual finite Cartan group rings under full-lift linear norms, retaining every finite-level element."
+        },
+        {
+          "where": "Kubert188, consistency(2.10) and the distribution construction",
+          "how": "Supplies the actual common module target and unique extension mechanism for compatible finite Cartan data. Subsequent scalar ordinary laws must still be passed to the global distribution quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Faithful all-level Cartan maps into the actual limit",
+      "kind": "construction",
+      "statement": "For each positive modulus N, construct I_N:R[U(k,N)]→L_k(R) as the native factorial insertion J_N after the original norm from N to F(N). Positivity gives N dividing F(N) by the native factorial theorem. The finite group and norm remain the original ones.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Native dvd_factorial gives N dividing (N+1)!.",
+        "Compose the original norm nu_N,F(N) with the native factorial insertion at natural index N.",
+        "Composition of these native linear maps gives the required all-level linear map."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm",
+        "mathlib:Nat.dvd_factorial"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOf"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.all_level_zero_representation",
+          "kind": "degenerate",
+          "statement": "Every original level sends zero to limit zero."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.distinct_level_three_basis_elements_survive",
+          "kind": "non-example",
+          "statement": "For degree one over integers, the level3 basis elements at the actual residue units1 and2 remain distinct after mapping to the limit."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.full_two_lift_sum_survives_mod_two",
+          "kind": "computation",
+          "statement": "In characteristic2, the sum of the two distinct level3 unit basis elements represents the nonzero level1 identity class. Summing their coefficients to zero would destroy this element."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitOf_norm",
+          "role": "compatibility",
+          "statement": "For every positive M dividing positive N and f in R[U(k,M)], I_N(nu_M,N(f))=I_M(f) in the actual module limit."
+        },
+        {
+          "name": "kubertCartanLimitOf_factorial",
+          "role": "compatibility",
+          "statement": "For every natural n and original f in R[U(k,F(n))], I_F(n)(f)=J_n(f). Thus the all-level construction agrees with the actual native factorial component map."
+        },
+        {
+          "name": "kubertCartanLimitOf_injective",
+          "role": "compatibility",
+          "statement": "For every positive N, I_N is injective over any ring R and any positive degree k. Passing to the direct limit kills no original group-ring element."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, following(2.7)",
+          "how": "Realizes the source injective limit of actual finite Cartan group rings under full-lift linear norms, retaining every finite-level element."
+        },
+        {
+          "where": "Kubert188, consistency(2.10) and the distribution construction",
+          "how": "Supplies the actual common module target and unique extension mechanism for compatible finite Cartan data. Subsequent scalar ordinary laws must still be passed to the global distribution quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All-level injections identify original norm transitions",
+      "kind": "lemma",
+      "statement": "For every positive M dividing positive N and f in R[U(k,M)], I_N(nu_M,N(f))=I_M(f) in the actual module limit.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Positivity and divisibility give M≤N, hence F(M) divides F(N).",
+        "Original norm composition rewrites nu_N,F(N)(nu_M,N(f)) as nu_M,F(N)(f).",
+        "Apply original norm composition again to factor this through F(M).",
+        "Native Module.DirectLimit.of_f identifies the factorial transition followed by insertion with the insertion at F(M)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-comp",
+        "mathlib:Nat.factorial_dvd_factorial",
+        "mathlib:Module.DirectLimit.of_f"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOf_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitOf_norm_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive M dividing positive N and f in R[U(k,M)], I_N(nu_M,N(f))=I_M(f) in the actual module limit."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-factorial",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The all-level map recovers each native factorial insertion",
+      "kind": "lemma",
+      "statement": "For every natural n and original f in R[U(k,F(n))], I_F(n)(f)=J_n(f). Thus the all-level construction agrees with the actual native factorial component map.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Native self_le_factorial gives n≤(n+1)!=F(n).",
+        "The all-level map at F(n) is the native insertion at natural index F(n) after the original transition F(n) to F(F(n)).",
+        "Native of_f identifies this value with native insertion at index n."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+        "mathlib:Nat.self_le_factorial",
+        "mathlib:Module.DirectLimit.of_f"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOf_factorial"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitOf_factorial_typed_api",
+          "kind": "compatibility",
+          "statement": "For every natural n and original f in R[U(k,F(n))], I_F(n)(f)=J_n(f). Thus the all-level construction agrees with the actual native factorial component map."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-injective",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every original finite Cartan level embeds in the actual limit",
+      "kind": "lemma",
+      "statement": "For every positive N, I_N is injective over any ring R and any positive degree k. Passing to the direct limit kills no original group-ring element.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Install the already proved native DirectedSystem for the original factorial norms.",
+        "Equality of the two I_N images is equality of native insertions at index N of their original norms into F(N).",
+        "Native exists_eq_of_of_eq supplies a later factorial index where these two images agree after transition.",
+        "Injectivity of the original norm between those factorial levels cancels that transition; injectivity of the original norm N to F(N) then recovers equality of the initial elements."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-system",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm-injective",
+        "mathlib:Module.DirectLimit.exists_eq_of_of_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitOf_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitOf_injective_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive N, I_N is injective over any ring R and any positive degree k. Passing to the direct limit kills no original group-ring element."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-exists-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every actual limit element has a finite Cartan representative",
+      "kind": "lemma",
+      "statement": "For every z in L_k(R), there exists a positive modulus N and an actual f in R[U(k,N)] with I_N(f)=z.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Native exists_of gives an actual representative f at some factorial index n.",
+        "Take the original positive modulus N=F(n).",
+        "The proved factorial comparison identifies the all-level image of f with the native representative of z."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-module",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of-factorial",
+        "mathlib:Module.DirectLimit.exists_of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimit_exists_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimit_exists_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every z in L_k(R), there exists a positive modulus N and an actual f in R[U(k,N)] with I_N(f)=z."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Extension of a compatible family from all original Cartan levels",
+      "kind": "construction",
+      "statement": "For any actual R-linear family g_N:R[U(k,N)]→P compatible with every original divisor norm, construct an R-linear map Lift(g):L_k(R)→P by the native module direct-limit lift restricted to the factorial family g_F(n).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Restrict the given all-level family to the actual factorial levels.",
+        "The given equality for original divisor norms supplies compatibility for every factorial transition, using native factorial divisibility.",
+        "Apply native Module.DirectLimit.lift to this actual compatible family. The result is linear on the original native limit carrier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-module",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-factorial-norm",
+        "mathlib:Module.DirectLimit.lift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitLift"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.zero_family_lifts_to_zero",
+          "kind": "degenerate",
+          "statement": "The compatible family of zero maps extends to the zero linear map on the actual limit."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.canonical_family_lifts_to_identity",
+          "kind": "characterisation",
+          "statement": "The original all-level injections extend to the identity linear map of the actual limit."
+        },
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.postcomposed_family_recovers_linear_map",
+          "kind": "compatibility",
+          "statement": "For any actual linear map h from the limit, lifting its restrictions along every original level recovers h itself."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ],
+      "api": [
+        {
+          "name": "kubertCartanLimitLift_of",
+          "role": "universal-property",
+          "statement": "For every positive N and f in R[U(k,N)], Lift(g)(I_N(f))=g_N(f). The statement applies to every original positive modulus, not only factorial ones."
+        },
+        {
+          "name": "kubertCartanLimitLift_unique",
+          "role": "universal-property",
+          "statement": "If an R-linear map a:L_k(R)→P satisfies a(I_N(f))=g_N(f) for every positive N and original f, then a=Lift(g)."
+        },
+        {
+          "name": "kubertCartanLimitLift_existsUnique",
+          "role": "universal-property",
+          "statement": "For every actual linear family on the original Cartan group rings compatible with all divisor norms, there exists exactly one R-linear map a:L_k(R)→P whose value on each I_N(f) is g_N(f). Together with faithful finite-level maps and finite representatives, this identifies the constructed module as the source injective limit."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert187, following(2.7)",
+          "how": "Realizes the source injective limit of actual finite Cartan group rings under full-lift linear norms, retaining every finite-level element."
+        },
+        {
+          "where": "Kubert188, consistency(2.10) and the distribution construction",
+          "how": "Supplies the actual common module target and unique extension mechanism for compatible finite Cartan data. Subsequent scalar ordinary laws must still be passed to the global distribution quotient."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-of",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The lifted map evaluates by the original finite-level map",
+      "kind": "lemma",
+      "statement": "For every positive N and f in R[U(k,N)], Lift(g)(I_N(f))=g_N(f). The statement applies to every original positive modulus, not only factorial ones.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "The definition of I_N is native insertion at index N after nu_N,F(N).",
+        "Native lift_of evaluates the actual native lift on that component as g_F(N)(nu_N,F(N)(f)).",
+        "The explicit all-level compatibility hypothesis gives g_N(f)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-of",
+        "mathlib:Module.DirectLimit.lift_of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitLift_of"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitLift_of_typed_api",
+          "kind": "compatibility",
+          "statement": "For every positive N and f in R[U(k,N)], Lift(g)(I_N(f))=g_N(f). The statement applies to every original positive modulus, not only factorial ones."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-hom-ext",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All original Cartan levels determine a map out of the limit",
+      "kind": "lemma",
+      "statement": "If two R-linear maps a,b:L_k(R)→P agree on I_N(f) for every positive N and every original f, then a=b.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Use linear-map extensionality at an arbitrary actual limit element z.",
+        "The finite representative theorem writes z=I_N(f).",
+        "Apply the stated agreement at that original finite element."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-exists-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimit_hom_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimit_hom_ext_typed_api",
+          "kind": "compatibility",
+          "statement": "If two R-linear maps a,b:L_k(R)→P agree on I_N(f) for every positive N and every original f, then a=b."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A compatible all-level family has at most one extension",
+      "kind": "lemma",
+      "statement": "If an R-linear map a:L_k(R)→P satisfies a(I_N(f))=g_N(f) for every positive N and original f, then a=Lift(g).",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Apply the proved all-level homomorphism extensionality.",
+        "At each actual I_N(f), the assumed value of a and the proved lift evaluation both equal g_N(f)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-hom-ext",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-of"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitLift_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitLift_unique_typed_api",
+          "kind": "compatibility",
+          "statement": "If an R-linear map a:L_k(R)→P satisfies a(I_N(f))=g_N(f) for every positive N and original f, then a=Lift(g)."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-exists-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual Cartan limit satisfies the all-level universal property",
+      "kind": "lemma",
+      "statement": "For every actual linear family on the original Cartan group rings compatible with all divisor norms, there exists exactly one R-linear map a:L_k(R)→P whose value on each I_N(f) is g_N(f). Together with faithful finite-level maps and finite representatives, this identifies the constructed module as the source injective limit.",
+      "hypotheses": [
+        "The degree k is any positive integer and R is any ring. At every positive modulus N retain the original group U(k,N), the product over primes p dividing N of units in TruncatedWittVector p v_p(N) (GaloisField p k), and its native group ring R[U(k,N)]. All transition maps are the already constructed full-lift linear norms nu_M,N for positive M dividing positive N.",
+        "Set F(n)=(n+1)! for natural n. Native factorial divisibility sends each inequality i≤j to F(i) dividing F(j), and every positive N divides F(N). The usual order on positive naturals is not used as a divisibility relation.",
+        "The actual limit is Mathlib Module.DirectLimit of this factorial system, packaged by native ModuleCat.of with its existing additive group and R-module structure. The native class DirectedSystem is proved for the original norms, not supplied as an assumption. Ring coefficients include the source fields and ensure the additive group needed for the global distribution target.",
+        "Universal maps take values in an arbitrary additive commutative group P with an R-module structure, in any target universe. The input is an actual family of R-linear maps from every original finite group ring, with the explicit equality g_N(nu_M,N(f))=g_M(f) for every divisor pair and every input f. No universal property, injectivity or rank is assumed."
+      ],
+      "proofSteps": [
+        "Use the constructed actual Lift(g) as witness.",
+        "The all-level lift evaluation proves its required values.",
+        "The proved uniqueness theorem identifies every other candidate with this witness."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-of",
+        "DirichletPadicLFunctions:L3/kubert-direct-limit-cartan-limit-lift-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertCartanDirectLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanLimitLift_existsUnique"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published187, injection(2.7) and the following definition of L<C^k>;188, consistency(2.10) interpreted in the injective limit before imposing the ordinary root relations.",
+          "excerpt": "Denote by L < C^ > the injective limit",
+          "match": "Specializes the existing native module direct-limit construction to the original full-lift Cartan norms. Proves a cofinal factorial presentation, faithful injections from every positive level, finite representatives and the unique extension of every compatible all-level linear family. It does not impose a ring-homomorphism structure on the nonunital norms."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertCartanDirectLimitTests.cartanLimitLift_existsUnique_typed_api",
+          "kind": "compatibility",
+          "statement": "For every actual linear family on the original Cartan group rings compatible with all divisor norms, there exists exactly one R-linear map a:L_k(R)→P whose value on each I_N(f) is g_N(f). Together with faithful finite-level maps and finite representatives, this identifies the constructed module as the source injective limit."
+        }
+      ],
+      "acceptance": [
+        "At degree one, the image of the level1 identity basis element is the sum of the two distinct unit basis elements at level3. This is nonzero over integers and over ZMod2, even though the sum of its coefficients is zero in characteristic2. The level3 identity and the basis element at residue2 stay distinct over integers. At factorial levels F(0)=1 and F(2)=6 the norm has coefficient1 at both residue units1 and5. A unital ring inclusion, normalized average, zero carrier or positive-integer order mistaken for divisibility fails these controls."
+      ]
     }
   ],
   "requests": [
@@ -120184,7 +121122,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual degree-one finite Cartan values now satisfy the ordinary root relation from an explicit scalar ordinary law, with all ambient roots included and actual Cartan bijections transporting the sums. Full-lift norm consistency and inverse coefficients are established. Next construct the actual group-ring direct limit of the original norms and pass the compatible finite maps and ordinary law to the source global universal distribution quotient. Use a genuine divisibility index or a proved cofinal factorial tower; the usual order on positive naturals is not divisibility. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
+        "The original Cartan full-lift norms now have an actual native module direct limit for every positive degree and ring of coefficients, with faithful all-level injections, finite representatives and the all-level linear universal property. Degree-one finite values already satisfy original norm consistency and the ordinary root law under an explicit scalar ordinary law. Next pass these finite values to an actual global rational-circle function, prove independence of the chosen finite level using a common multiple, establish its ordinary all-root law in the actual limit and apply the existing global universal distribution quotient. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -120216,7 +121154,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual degree-one finite Cartan values now satisfy the ordinary root relation from an explicit scalar ordinary law, with all ambient roots included and actual Cartan bijections transporting the sums. Full-lift norm consistency and inverse coefficients are established. Next construct the actual group-ring direct limit of the original norms and pass the compatible finite maps and ordinary law to the source global universal distribution quotient. Use a genuine divisibility index or a proved cofinal factorial tower; the usual order on positive naturals is not divisibility. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The original Cartan full-lift norms now have an actual native module direct limit for every positive degree and ring of coefficients, with faithful all-level injections, finite representatives and the all-level linear universal property. Degree-one finite values already satisfy original norm consistency and the ordinary root law under an explicit scalar ordinary law. Next pass these finite values to an actual global rational-circle function, prove independence of the chosen finite level using a common multiple, establish its ordinary all-root law in the actual limit and apply the existing global universal distribution quotient. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -120767,36 +121705,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All26 source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual degree-one ordinary root identity is an established blueprint route under an explicit scalar law. Actual direct-limit and global quotient factorization, general-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open.",
+    "sourceIssues": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual Cartan module direct limit, faithful finite-level maps and all-level universal property are established blueprint routes. Global distribution quotient factorization, general-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open.",
     "validation": {
-      "nodes": 1836,
+      "nodes": 1850,
       "kinds": {
         "definition": 22,
-        "lemma": 1056,
-        "construction": 192,
+        "lemma": 1065,
+        "construction": 197,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1276,
-      "packetTests": 3341,
-      "definitionConstructionTests": 844,
-      "typedExamples": 3344,
+      "api": 1287,
+      "packetTests": 3365,
+      "definitionConstructionTests": 859,
+      "typedExamples": 3368,
       "planets": 24,
-      "baseline": 1185,
-      "preservedWholeNodes": 1825,
+      "baseline": 1195,
+      "preservedWholeNodes": 1836,
       "preservedBaseline": 1185,
       "preservedSourceIssues": 26,
       "newSourceIssues": 0,
-      "newNodes": 11,
-      "newNamedDeclarations": 11,
-      "newTypedTests": 18,
+      "newNodes": 14,
+      "newNamedDeclarations": 14,
+      "newTypedTests": 24,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2098,
-      "dependencyEdges": 8792,
+      "reachableNodes": 2112,
+      "dependencyEdges": 8838,
       "acyclic": true,
-      "baselineLeaves": 1354,
+      "baselineLeaves": 1364,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -120811,7 +121749,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 936569,
+      "readerWords": 944892,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -120831,38 +121769,38 @@
       "currentSupplierNodes": 369,
       "supplierArtifactAvailable": true,
       "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3648,
+      "pinnedMathlibSourceModules": 3667,
       "requiredPinnedTauSourceModules": 29,
       "availablePinnedTauArtifacts": 28,
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 134,
-      "scratchCompleteLemmas": 1177,
-      "scratchMathlibModules": 3030,
+      "scratchCompleteDefinitions": 139,
+      "scratchCompleteLemmas": 1186,
+      "scratchMathlibModules": 3049,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 48,
-        "centers": 1930,
-        "ambientRoots": 5433,
-        "rootImages": 90459,
-        "rootInverseChecks": 90459,
-        "rootSumComparisons": 33494,
-        "ordinaryCoefficientChecks": 66988,
-        "characteristicChecks": 100482
+        "cofinal_divisibility": 48,
+        "factorial_order_to_divisibility": 1176,
+        "full_lift_coefficients": 22963,
+        "injective_basis_images": 1176,
+        "composition_coefficients": 7130,
+        "compatible_evaluation_functionals": 1584,
+        "common_level_linear_controls": 1801096
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a",
-        "modules": 3644,
-        "warnings": 5525,
+        "sourceSha256": "c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b",
+        "modules": 3663,
+        "warnings": 5563,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,525 expected placeholder warnings across 3,644 pinned source modules. It includes all 11 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,563 expected placeholder warnings across 3,663 pinned source modules. It includes all 14 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -120872,7 +121810,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "cd8f0030ea86b0a992154ab1910e89f43998f7803fca8c251cce0afaa9f5739d",
+      "sha256": "9cd29853e7b9ba882ddcdcbfcc79cf7afd0c23afa208c71b24ad670cfd7b526a",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -120887,11 +121825,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1177,
+        "completeLemmas": 1186,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "dc66e8faf0d18ee2f3c1e83ecbaa424df5b49e7f60f455aad197c8a93e5a206d"
+        "sha256": "b80d3075f4e82008e0e51d5316b6e326c940712e5f1449f9917e0acc030e5cdf"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -120906,7 +121844,7 @@
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
         "nativeTauModules": 29,
-        "nativeMathlibModules": 3648,
+        "nativeMathlibModules": 3667,
         "artifactSha256": {
           "TauCeti.NumberTheory.LocalField.Teichmuller": "a74c88f4967df4fe74aeed816517e7a5bf6acc47f0c447ee2ba11d8a02cf5cc0",
           "TauCeti.FieldTheory.Finite.RootsOfUnity": "55425bfffb80e87ce5eb1241deba5c4c68275c4b8850f1f14148fc50908bd3d9",
@@ -121029,17 +121967,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a",
-        "modules": 3644,
-        "warnings": 5525,
+        "sourceSha256": "c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b",
+        "modules": 3663,
+        "warnings": 5563,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 5,525 expected placeholder warnings across 3,644 pinned source modules. It includes all 11 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a.",
+        "scope": "The separate partial signature file also compiled with zero errors and 5,563 expected placeholder warnings across 3,663 pinned source modules. It includes all 14 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "bcf7923c37cae7fac17e1cd59a775ef08b300491",
+      "base": "ea479434eaf700fe00c06f4fc015f0f1a444edd2",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -132881,6 +133819,55 @@
         "warnings": 5525,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 5,525 expected placeholder warnings across 3,644 pinned source modules. It includes all 11 new named declarations and 18 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0a45a4bdfa554f3288f977a22354009cf8a1f1ceb72480b5e1f35c118aeebb3a.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertCartanDirectLimit": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5728,
+      "previousHead": "af1548e66b467f358fa1562cf82d9d202cd1e125",
+      "previousMerge": "d757f4bcac38f67eb4144640510cea9b2f943435",
+      "preservedWholeNodes": 1836,
+      "preservedBaseline": 1185,
+      "preservedFindings": 26,
+      "newNodes": 14,
+      "reading": "Published187 defines the injective limit of the actual linear norms; published188 uses it in equation2.10 before the root relation. These norms are nonunital, so the construction uses native Module.DirectLimit, not Ring.DirectLimit. The factorial tower F(n)=(n+1)! is cofinal by native divisibility; the proof constructs maps from every positive level and proves their universal property, rather than assuming cofinality. Native Module.lean1–274, ModuleCat/Basic.lean40–100, DirectedInverseSystem.lean45–90 and Factorial/Basic.lean66–91,125–140 were read. The native module bundle permits all new public bodies to remain placeholders while preserving correctly typed module structure.",
+      "boundary": "The original Cartan full-lift norms now have an actual native module direct limit for every positive degree and ring of coefficients, with faithful all-level injections, finite representatives and the all-level linear universal property. Degree-one finite values already satisfy original norm consistency and the ordinary root law under an explicit scalar ordinary law. Next pass these finite values to an actual global rational-circle function, prove independence of the chosen finite level using a common multiple, establish its ordinary all-root law in the actual limit and apply the existing global universal distribution quotient. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open. FF.4 owns generic Galois-ring theory. Complete the independent lower rank argument through Kubert186–199 and combine it with actual surjections and upper bounds for independence, freeness and internal/global equality. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.",
+      "inputBase": "ec2353cae6b189ee2f2f8808f4cf6cc68c53f21d",
+      "sourceBoundary": "All26source findings and seven source versions remain whole; no new finding or independent review verdict is added. The actual Cartan module direct limit, faithful finite-level maps and all-level universal property are established blueprint routes. Global distribution quotient factorization, general-degree coordinates and fiber count, unramified-ring identification, lower rank and internal/global equality remain open.",
+      "publication": {
+        "base": "ea479434eaf700fe00c06f4fc015f0f1a444edd2",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 48,
+        "cofinal_divisibility": 48,
+        "factorial_order_to_divisibility": 1176,
+        "full_lift_coefficients": 22963,
+        "injective_basis_images": 1176,
+        "composition_coefficients": 7130,
+        "compatible_evaluation_functionals": 1584,
+        "common_level_linear_controls": 1801096
+      },
+      "numericalMethod": "Exact integer, Fraction and residue arithmetic on actual degree-one residue-unit groups. Original norm coefficients are pullbacks along reduction. Cofinal factorial divisibility is checked independently of enumeration; common-level linear controls use the actual least common multiple. These finite controls are not a proof of the infinite direct limit; the complete native probe proves the arbitrary-degree and arbitrary-ring statements.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b",
+        "modules": 3663,
+        "warnings": 5563,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 5,563 expected placeholder warnings across 3,663 pinned source modules. It includes all 14 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c016dea0cb94a7a61a97fd174b249eaeeffa6f2dbf5821eee5a99cf7d241830b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }

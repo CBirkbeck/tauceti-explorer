@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Colimit.Module
+import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.Topology.Algebra.Category.ProfiniteGrp.Basic
 import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.RingTheory.WittVector.Compare
@@ -27345,3 +27347,177 @@ example  (R : Type*) [Semiring R]
       kubertCartanProductNorm 1 R M N hMN (kubertCartanCircleValue R M x φ) := by sorry
 end
 end DirichletPadic.SuggestedKubertDegreeOneRootDistributionTests
+
+/- Actual Cartan module direct limit and its all-level universal property. -/
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic
+universe u
+
+noncomputable def kubertCartanFactorialNorm (k : ℕ+) (R : Type u) [Ring R]
+    (i j : ℕ) (hij : i≤j) :
+    MonoidAlgebra R (∀ p : ((⟨Nat.factorial (i+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (i+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] MonoidAlgebra R (∀ p : ((⟨Nat.factorial (j+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (j+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanFactorialSystem (k : ℕ+) (R : Type u) [Ring R] :
+    DirectedSystem (fun n : ℕ => MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ))
+      (fun {i j} h => kubertCartanFactorialNorm k R i j h) := by sorry
+
+noncomputable def kubertCartanLimitModule (k : ℕ+) (R : Type u) [Ring R] : ModuleCat.{u} R := by sorry
+
+noncomputable def kubertCartanFactorialOf (k : ℕ+) (R : Type u) [Ring R] (n : ℕ) :
+    MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] kubertCartanLimitModule k R := by sorry
+
+noncomputable def kubertCartanLimitOf (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] kubertCartanLimitModule k R := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic
+universe u
+
+lemma kubertCartanLimitOf_norm (k : ℕ+) (R : Type u) [Ring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOf k R N (kubertCartanProductNorm k R M N hMN f)=kubertCartanLimitOf k R M f := by sorry
+
+lemma kubertCartanLimitOf_factorial (k : ℕ+) (R : Type u) [Ring R] (n : ℕ)
+    (f : MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOf k R (⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) f=kubertCartanFactorialOf k R n f := by sorry
+
+lemma kubertCartanLimitOf_injective (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    Function.Injective (kubertCartanLimitOf k R N) := by sorry
+
+lemma kubertCartanLimit_exists_of (k : ℕ+) (R : Type u) [Ring R] (z : kubertCartanLimitModule k R) :
+    ∃ (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)), kubertCartanLimitOf k R N f=z := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic
+open scoped Classical
+open DirichletPadic
+universe u v
+
+noncomputable def kubertCartanLimitLift (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f) :
+    kubertCartanLimitModule k R →ₗ[R] P := by sorry
+
+lemma kubertCartanLimitLift_of (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitLift k R g hg (kubertCartanLimitOf k R N f)=g N f := by sorry
+
+lemma kubertCartanLimit_hom_ext (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (a b : kubertCartanLimitModule k R →ₗ[R] P)
+    (h : ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=b (kubertCartanLimitOf k R N f)) :
+    a=b := by sorry
+
+lemma kubertCartanLimitLift_unique (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f)
+    (a : kubertCartanLimitModule k R →ₗ[R] P)
+    (ha : ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=g N f) :
+    a=kubertCartanLimitLift k R g hg := by sorry
+
+lemma kubertCartanLimitLift_existsUnique (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f) :
+    ∃! a : kubertCartanLimitModule k R →ₗ[R] P,
+      ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=g N f := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCartanDirectLimitTests
+open scoped Classical BigOperators
+noncomputable section
+universe u v
+-- factorial_transition_identity
+example (k : ℕ+) (R : Type u) [Ring R] (n : ℕ) : kubertCartanFactorialNorm k R n n le_rfl=LinearMap.id := by sorry
+-- factorial_transition_composition
+example (k : ℕ+) (R : Type u) [Ring R] (i j l : ℕ) (hij : i≤j) (hjl : j≤l) : (kubertCartanFactorialNorm k R j l hjl).comp (kubertCartanFactorialNorm k R i j hij)=kubertCartanFactorialNorm k R i l (hij.trans hjl) := by sorry
+-- factorial_transition_keeps_both_lifts_mod_two
+example : ((kubertCartanFactorialNorm 1 (ZMod 2) 0 2 (by decide)) (MonoidAlgebra.single 1 1)).coeff 1=1 ∧ ((kubertCartanFactorialNorm 1 (ZMod 2) 0 2 (by decide)) (MonoidAlgebra.single 1 1)).coeff ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6)))=1 ∧ (MonoidAlgebra.single 1 (1 : ZMod 2) : MonoidAlgebra (ZMod 2) (∀ p : (6 : ℕ).primeFactors, (TruncatedWittVector p.val ((6 : ℕ).factorization p.val) (GaloisField p.val (1 : ℕ)))ˣ)).coeff ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by decide : Nat.Coprime 5 6)))=0 := by sorry
+-- direct_limit_has_actual_finite_representatives
+example (k : ℕ+) (R : Type u) [Ring R] (z : kubertCartanLimitModule k R) : ∃ (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)), kubertCartanLimitOf k R N f=z := by sorry
+-- direct_limit_integer_identity_survives
+example (k : ℕ+) : kubertCartanLimitOf k ℤ 1 (MonoidAlgebra.single 1 1)≠0 := by sorry
+-- direct_limit_zero_representation
+example (k : ℕ+) (R : Type u) [Ring R] : kubertCartanLimitOf k R 1 0=(0 : kubertCartanLimitModule k R) := by sorry
+-- factorial_zero_representation
+example (k : ℕ+) (R : Type u) [Ring R] (n : ℕ) : kubertCartanFactorialOf k R n 0=0 := by sorry
+-- factorial_insertion_agrees_with_all_levels
+example (k : ℕ+) (R : Type u) [Ring R] (n : ℕ) (f : MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) : kubertCartanFactorialOf k R n f=kubertCartanLimitOf k R (⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) f := by sorry
+-- factorial_insertion_is_injective
+example (k : ℕ+) (R : Type u) [Ring R] (n : ℕ) : Function.Injective (kubertCartanFactorialOf k R n) := by sorry
+-- all_level_zero_representation
+example (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) : kubertCartanLimitOf k R N 0=0 := by sorry
+-- distinct_level_three_basis_elements_survive
+example : kubertCartanLimitOf 1 ℤ 3 (MonoidAlgebra.single 1 1)≠kubertCartanLimitOf 1 ℤ 3 (MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1) := by sorry
+-- full_two_lift_sum_survives_mod_two
+example : kubertCartanLimitOf 1 (ZMod 2) 3 (MonoidAlgebra.single 1 1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 3).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 3))) 1)=kubertCartanLimitOf 1 (ZMod 2) 1 (MonoidAlgebra.single 1 1) ∧ kubertCartanLimitOf 1 (ZMod 2) 1 (MonoidAlgebra.single 1 1)≠0 := by sorry
+-- zero_family_lifts_to_zero
+example (k : ℕ+) (R : Type u) [Ring R] {P : Type v} [AddCommGroup P] [Module R P] : kubertCartanLimitLift k R (fun N => (0 : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)) (by sorry)=0 := by sorry
+-- canonical_family_lifts_to_identity
+example (k : ℕ+) (R : Type u) [Ring R] : kubertCartanLimitLift k R (kubertCartanLimitOf k R) (by sorry)=LinearMap.id := by sorry
+-- postcomposed_family_recovers_linear_map
+example (k : ℕ+) (R : Type u) [Ring R] {P : Type v} [AddCommGroup P] [Module R P] (h : kubertCartanLimitModule k R →ₗ[R] P) : kubertCartanLimitLift k R (fun N => h.comp (kubertCartanLimitOf k R N)) (by sorry)=h := by sorry
+-- cartanFactorialSystem_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] :
+    DirectedSystem (fun n : ℕ => MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ))
+      (fun {i j} h => kubertCartanFactorialNorm k R i j h) := by sorry
+-- cartanLimitOf_norm_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ)) (f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOf k R N (kubertCartanProductNorm k R M N hMN f)=kubertCartanLimitOf k R M f := by sorry
+-- cartanLimitOf_factorial_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (n : ℕ)
+    (f : MonoidAlgebra R (∀ p : ((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).primeFactors, (TruncatedWittVector p.val (((⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitOf k R (⟨Nat.factorial (n+1), Nat.factorial_pos _⟩ : ℕ+) f=kubertCartanFactorialOf k R n f := by sorry
+-- cartanLimitOf_injective_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (N : ℕ+) :
+    Function.Injective (kubertCartanLimitOf k R N) := by sorry
+-- cartanLimit_exists_of_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R] (z : kubertCartanLimitModule k R) :
+    ∃ (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)), kubertCartanLimitOf k R N f=z := by sorry
+-- cartanLimitLift_of_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f) (N : ℕ+) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ)) :
+    kubertCartanLimitLift k R g hg (kubertCartanLimitOf k R N f)=g N f := by sorry
+-- cartanLimit_hom_ext_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (a b : kubertCartanLimitModule k R →ₗ[R] P)
+    (h : ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=b (kubertCartanLimitOf k R N f)) :
+    a=b := by sorry
+-- cartanLimitLift_unique_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f)
+    (a : kubertCartanLimitModule k R →ₗ[R] P)
+    (ha : ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=g N f) :
+    a=kubertCartanLimitLift k R g hg := by sorry
+-- cartanLimitLift_existsUnique_typed_api
+example  (k : ℕ+) (R : Type u) [Ring R]
+    {P : Type v} [AddCommGroup P] [Module R P]
+    (g : ∀ N : ℕ+, MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ) →ₗ[R] P)
+    (hg : ∀ M N : ℕ+, ∀ hMN : (M : ℕ) ∣ (N : ℕ), ∀ f : MonoidAlgebra R (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ),
+      g N (kubertCartanProductNorm k R M N hMN f)=g M f) :
+    ∃! a : kubertCartanLimitModule k R →ₗ[R] P,
+      ∀ N : ℕ+, ∀ f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val (k : ℕ)))ˣ), a (kubertCartanLimitOf k R N f)=g N f := by sorry
+end
+end DirichletPadic.SuggestedKubertCartanDirectLimitTests
