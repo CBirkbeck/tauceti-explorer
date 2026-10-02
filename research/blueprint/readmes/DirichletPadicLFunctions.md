@@ -65558,3 +65558,179 @@ Exact controls through36 levels verify188 complementary-order prime fibers with2
 Fresh capture after the actual merge of5820 found all79 canonical inputs unchanged. The whole issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 source findings and eight source versions remain whole; no external review or source conclusion is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,409 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 836da66ead956ccc0c7ebd31ef87d0ee50c1b92019a1f31e0cbb087cfeecdf9b.
+
+
+## The complete original degree-one corrected distribution
+
+Six L3 lemmas complete the actual degree-one corrected distribution for every divisor multiplier and every original level point, including the complete original torus root fiber. All2,199 predecessor nodes and1,282 baseline records remain whole. Quotient descent, rational spanning and image/product remain open.
+
+Published Kubert196–197 Proposition4.10 and its prime-factor reduction were checked against the completed original degree-one values. Existing5825 arbitrary-point prime-target laws and actual multiple-order bounds,5414 full torus root membership and finite kernel interfaces were read. Pinned native finite-fiber products/sums Basic235–277, prime-factor induction Induction77–99, actual order annihilation/divisibility and subtype-sum transport statements were read in full. No new external source, source version or finding is added.
+
+### Every intermediate root satisfies the required inner level bound
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-cartan-level-root-order-mul-dvd` — `DirichletPadic.kubertCartanLevel_root_order_mul_dvd`
+
+For actual level-N points a,b, an equality nb=a and divisibility (mn) times the actual order of a dividing N imply m times the actual order of b divides N.
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Multiplication by n times the actual order of a kills b, using the original root equation.
+2. The native order-divisibility criterion bounds the actual order of b by that integer.
+3. Multiply the divisibility by m, associate the natural products and use the original target-level bound.
+
+**Prerequisites:** `mathlib:orderOf_dvd_of_pow_eq_one`, `mathlib:pow_orderOf_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.cartanLevel_root_order_mul_dvd_typed_api` (compatibility): For actual level-N points a,b, an equality nb=a and divisibility (mn) times the actual order of a dividing N imply m times the actual order of b divides N.
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+### Actual nested root sums are the full product-multiplier sum
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-cartan-level-root-sum-mul` — `DirichletPadic.kubertCartanLevel_root_sum_mul`
+
+For any additive commutative monoid and function f on the original level-N kernel, the sum of f over all points c with (mn)c=a equals the sum over nb=a of the sum over mc=b.
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Replace equality of underlying torus points by equality in the original level subgroup for the inner fiber.
+2. Apply the native finite-fiber sum theorem to the actual multiplication-by-m map of that subgroup.
+3. Its output membership in the outer root set is exactly the actual equality n(mc)=a.
+4. Associate the actual natural scalar multiplication to identify the product multiplier.
+
+**Prerequisites:** `mathlib:Finset.prod_fiberwise_eq_prod_filter`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.cartanLevel_root_sum_mul_typed_api` (compatibility): For any additive commutative monoid and function f on the original level-N kernel, the sum of f over all points c with (mn)c=a equals the sum over nb=a of the sum over mc=b.
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+### The corrected root law extends by one prime factor
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-prime-mul-root-sum` — `DirichletPadic.kubertRationalCartanValue_prime_mul_root_sum`
+
+Assume the exact corrected-root identity for multiplier n at every actual target satisfying its n-times-order level bound. For q prime, the identity holds for multiplier qn at every target satisfying the corresponding qn-times-order bound.
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Reindex the product-multiplier root sum as the actual nested n-root and q-root sums.
+2. For each outer root b, prove q times its actual order divides N using the intermediate-order lemma.
+3. Evaluate the complete inner q-root sum by the proved prime-target law from5825.
+4. The n-times-order bound follows from the original qn-times-order bound, so apply the explicitly stated induction hypothesis to the outer sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-full-distribution-cartan-level-root-sum-mul`, `DirichletPadicLFunctions:L3/kubert-full-distribution-cartan-level-root-order-mul-dvd`, `DirichletPadicLFunctions:L3/kubert-prime-level-reduction-rational-cartan-value-prime-target-sum`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.rationalCartanValue_prime_mul_root_sum_typed_api` (compatibility): Assume the exact corrected-root identity for multiplier n at every actual target satisfying its n-times-order level bound. For q prime, the identity holds for multiplier qn at every target satisfying the corresponding qn-times-order bound.
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+### Every admissible target has the complete corrected root sum
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-target-root-sum` — `DirichletPadic.kubertRationalCartanValue_target_root_sum`
+
+For every natural m and actual level-N target a such that m times its actual order divides N, the sum of r_N(b) over all actual level-N m-roots of a equals r_N(a).
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Induct on the natural multiplier using the native prime-factor induction principle.
+2. The zero case contradicts positivity of N through the target-level divisibility.
+3. The multiplier-one fiber is the actual singleton target and its finite sum is r_N(a).
+4. Use the proved prime-multiplication step, whose intermediate level conditions were established on actual roots.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-prime-mul-root-sum`, `mathlib:induction_on_primes`, `mathlib:Finset.prod_singleton`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.identity_level_single_root_value` (degenerate): At level1 and multiplier1 the full level kernel is the zero point and its corrected sum is1.
+- `SuggestedKubertFullDistributionTests.nondivisor_multiplier_does_not_give_level_distribution` (non-example): At level6, the4-root sum of2/3 inside the level6 kernel differs from its corrected target value;4 times the target order does not divide6.
+- `SuggestedKubertFullDistributionTests.rationalCartanValue_target_root_sum_typed_api` (compatibility): For every natural m and actual level-N target a such that m times its actual order divides N, the sum of r_N(b) over all actual level-N m-roots of a equals r_N(a).
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+### The original corrected values satisfy ordinary distribution
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-divisor-root-sum` — `DirichletPadic.kubertRationalCartanValue_divisor_root_sum`
+
+For every natural m dividing N and every actual point a of the level-N kernel, the sum of r_N(b) over all actual level-N points with mb=ma equals r_N(ma).
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the arbitrary-multiplier target theorem to the actual target ma.
+2. Use the previously proved multiple-order divisibility to establish the exact target-level bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-target-root-sum`, `DirichletPadicLFunctions:L3/kubert-prime-level-reduction-cartan-level-smul-order-mul-dvd`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.composite_four_root_sum_at_twelve` (computation): AtN12, all four actual4-roots of1/3 contribute to the corrected target value, with root orders12,3,12 and6.
+- `SuggestedKubertFullDistributionTests.full_level_multiplier_sums_every_point` (computation): AtN6 and multiplier6 every level point is a root of zero; the complete corrected sum equals the actual corrected zero value.
+- `SuggestedKubertFullDistributionTests.rationalCartanValue_divisor_root_sum_typed_api` (compatibility): For every natural m dividing N and every actual point a of the level-N kernel, the sum of r_N(b) over all actual level-N points with mb=ma equals r_N(ma).
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+### The ordinary distribution identity includes every original torus root
+
+`DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-full-torus-root-sum` — `DirichletPadic.kubertRationalCartanValue_full_torus_root_sum`
+
+For every m dividing N and actual level-N point a, sum r_N over the entire original torus fiber of mb=ma, embedding each actual root into level N by the proved membership theorem. This full sum equals r_N(ma).
+
+**Hypotheses:** The degree is one and N is positive. The original corrected values r_N, actual level-N kernel and full rational-torus points are the existing constructions; their correction products use the preserved sourceE27 product correction. The general target criterion is m times the actual target order dividing N. This records exactly the finite level needed to contain the complete m-root fiber. For a target ma and m dividing N, the preceding multiple-order theorem supplies the criterion. The intermediate-order lemma concerns actual root equations nb=a and actual target orders. It establishes the level condition for each inner root sum without an assumed closure or distribution package. The finite-fiber reindexing is valid for any function from the original level-N kernel into an additive commutative monoid. It uses the native finite-sum theorem and actual scalar multiplication on the original subgroup. The prime-multiplication step states the explicit induction hypothesis for the smaller multiplier n. The final arbitrary-multiplier theorem removes that hypothesis by native induction on prime factors, treating zero as impossible and one as the actual singleton fiber. The resulting degree-one ordinary distribution identity holds for every divisor multiplier m and every actual level point, and for the entire original torus root fiber. Descending these corrected values through the original quotient relations, source4.11 rational spanning,4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. The earlier original root-membership theorem places every actual torus m-root of ma in the level-N kernel.
+2. Use a point-preserving equivalence between the actual full torus root subtype and the corresponding level-kernel root subtype.
+3. Transport the sum by that actual equivalence.
+4. Convert the level-root subtype sum to the complete filtered finite sum and apply the proved divisor-root distribution identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-preimage-mem-level`, `DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-divisor-root-sum`, `mathlib:Equiv.prod_comp`, `mathlib:Finset.prod_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertFullDistributionTests.rationalCartanValue_full_torus_root_sum_typed_api` (compatibility): For every m dividing N and actual level-N point a, sum r_N over the entire original torus fiber of mb=ma, embedding each actual root into level N by the proved membership theorem. This full sum equals r_N(ma).
+
+**Acceptance:** AtN12, multiplier4 and target1/3, the full roots are1/12,1/3,7/12 and5/6, with orders12,3,12 and6; all four corrected values enter the sum. At level1, multiplier1 gives the single zero point and corrected value1. At multiplierN every level point enters the zero-target sum. AtN6, multiplier4 and target2/3 violate the target-level criterion, and the restricted level6 root sum differs from the corrected target.
+
+**Source:** Published196–197 Proposition4.10, including its initial reduction by induction to the prime cases and its corrected ordinary distribution identity. Full coefficient norm compatibility is Proposition4.8 on195–196. Completes the degree-one ordinary distribution identity by proving the exact intermediate target-order condition, reindexing actual nested finite root sums and performing the prime-factor induction. The full original torus fiber is identified with its actual level-kernel fiber, not replaced by an assumed quotient or torsor.
+
+**Remaining:** The complete original degree-one corrected ordinary distribution identity4.10 is now proved for every divisor multiplier and every level point, with the full original torus-root corollary. The proof includes all intermediate level bounds and actual finite-fiber reindexing. Next descend these actual corrected values through the original internal quotient relations and compatible full norm system, then establish source4.11 rational spanning and4.13 image/product. Source freeness, lower rank and internal-to-global injection remain open, as do general-degree primitive coordinates and local-field comparisons.
+
+### The complete original degree-one corrected distribution validation
+
+All 2199 predecessor nodes, 1282 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 6 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2467 reachable nodes, 9905 edges and 1449 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original corrected values and proved prime-target law, actual torus/level root membership and checked native finite-fiber, order and prime-induction interfaces. The explicit induction hypothesis is discharged in the final theorem. No distribution conclusion, quotient map or source-freeness package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5825 verbatim and adds six complete lemmas. Totals are185 definitions and1,495 lemmas without placeholders. The public append has6 named declarations and10 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify1,098 admissible target fibers with14,254 coefficients,2,935 divisor-multiplier fibers at arbitrary points with37,459 coefficients,2,935 full rational-torus root sets,8,145 nested finite-root reindexings and4,245 intermediate order-divisibility checks. Exact original rational-circle and corrected group-ring arithmetic through level36 checks every target satisfying the actual multiplier-order divisibility, every divisor multiplier at every original level point, complete torus root sets as rational numbers, nested finite-root reindexing and the intermediate order criterion needed by induction. Invalid target-level conditions are checked by explicit nonexamples. These controls supplement complete native proofs. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5825 found all79 canonical inputs unchanged. The whole issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 source findings and eight source versions remain whole; no external review or source conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,425 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2de4fe6e158a62cc8ac6b941bb69a4860d35fe36b5e66a0c3e8a59562e531d27.
