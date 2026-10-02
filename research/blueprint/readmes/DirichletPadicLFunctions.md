@@ -63076,3 +63076,530 @@ Exact controls through level36 cover all140 divisor transitions,666 uniform fibe
 Fresh capture after actually merged5787 has no guarded input delta. All79 inputs, four predecessor outputs and the full issue body are unchanged. No external finding or review verdict is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,179 expected placeholder warnings across 3,914 pinned source modules. It includes all 17 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f5c61eb49ba00ba75e4b4bffdbb515655a698481b1b15bbef0755fb5584b3588.
+
+
+## Actual prime-local Cartan transitions and uniform coset fibers
+
+Twenty L3 nodes prove actual degree-one primary-coordinate, translation, local-kernel and source-coset compatibility with Cartan reduction, and construct the surjective restricted homomorphism with its exact uniform fiber cardinalities. All2,107 predecessor nodes and1,266 baseline records remain whole. The final local group-ring norm and corrected-value product identities remain open.
+
+Published Kubert195–196 Proposition4.8 was reread with the actual coset definition4.3 on194 and full norm2.7 on187. The exact local coset ratio is distinguished from the full Cartan kernel ratio already proved in4.9. Native subgroup image, inclusion, codomain restriction and prime-power divisibility statements were read at the pinned source; existing primary CRT, native ZMod uniqueness, factorization, fiber and cardinality statements were reread. No new source finding or version is added.
+
+### Primary coordinates are the original residue casts
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-cast` — `DirichletPadic.kubertCartanPrimaryUnitEquiv_cast`
+
+The q-primary coordinate of C_N(u) is the native cast of the original degree-one residue unit of u from ZMod N to ZMod q^v_q(N).
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Unfold the existing primary equivalence as the original degree-one residue equivalence followed by the native Chinese remainder equivalence.
+2. Compare evaluation of the CRT ring map with the actual prime-power cast.
+3. Native uniqueness of ring homomorphisms from ZMod makes the two maps equal; evaluate at the original residue unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv`, `mathlib:RingHom.ext_zmod`, `mathlib:Nat.ordProj_dvd`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.cartanPrimaryUnitEquiv_cast_typed_api` (compatibility): The q-primary coordinate of C_N(u) is the native cast of the original degree-one residue unit of u from ZMod N to ZMod q^v_q(N).
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Actual primary coordinates commute with level reduction
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-reduction` — `DirichletPadic.kubertCartanPrimaryUnitEquiv_reduction`
+
+For q dividing M, C_M(f(u)) at q is the unit image of C_N(u) at the same actual prime under the prime-power residue cast.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply unit extensionality and the actual-coordinate cast formula.
+2. Use the original finite Cartan residue equivalence compatibility with reduction.
+3. Divisibility gives the factorization inequality and hence the required prime-power divisibility.
+4. The two composite native ZMod casts agree by native uniqueness of ring homomorphisms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-cast`, `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-reduction`, `mathlib:Nat.factorization_le_iff_dvd`, `mathlib:pow_dvd_pow`, `mathlib:RingHom.ext_zmod`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.cartanPrimaryUnitEquiv_reduction_typed_api` (compatibility): For q dividing M, C_M(f(u)) at q is the unit image of C_N(u) at the same actual prime under the prime-power residue cast.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The constructed local translations commute with reduction
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-translation-reduction` — `DirichletPadic.kubertRationalPrimeTranslation_reduction`
+
+The original Cartan reduction sends λ_N,p exactly to λ_M,p.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use injectivity of the actual primary equivalence and compare each coordinate.
+2. At p both translating coordinates are identity.
+3. At every distinct prime the coordinate is the inverse of the native coprime unit represented by p.
+4. Native casts preserve natural-number values and unit inverses, so the two coordinates agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-reduction`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-translation-same`, `mathlib:ZMod.coe_unitOfCoprime`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.actual_translation_reduces_from_twenty_three_to_five` (computation): The constructed2-local translating unit at30 has residue23 and reduces to the translating unit at6 with residue5.
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeTranslation_reduction_typed_api` (compatibility): The original Cartan reduction sends λ_N,p exactly to λ_M,p.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Actual reduction preserves prime-supported kernel membership
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-mem` — `DirichletPadic.kubertRationalPrimeKernel_reduction_mem`
+
+If u lies in K_p(N), then f(u) lies in K_p(M).
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use the original kernel membership characterization by all off-p coordinates.
+2. Each lower off-p coordinate is the cast of the corresponding upper coordinate.
+3. The upper coordinate is identity and native unit maps preserve identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-reduction`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernel_reduction_mem_typed_api` (compatibility): If u lies in K_p(N), then f(u) lies in K_p(M).
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Every original local kernel element has an actual local lift
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-surjective` — `DirichletPadic.kubertRationalPrimeKernel_reduction_surjective`
+
+For every u in K_p(M), there is an original upper unit v in K_p(N) with f(v)=u.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Choose an actual full Cartan lift using the already proved surjectivity of f.
+2. In the upper primary coordinates keep its p-coordinate and replace every other coordinate by identity.
+3. Apply the inverse actual primary equivalence to obtain an original upper Cartan unit.
+4. Its off-p coordinates prove local membership. Coordinate compatibility shows its p-coordinate reduces correctly, and every lower off-p coordinate equals the identity coordinate of u.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-cartan-primary-unit-equiv-reduction`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction-surjective`, `DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernel_reduction_surjective_typed_api` (compatibility): For every u in K_p(M), there is an original upper unit v in K_p(N) with f(v)=u.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The native image of the upper local kernel is exactly the lower one
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-map` — `DirichletPadic.kubertRationalPrimeKernel_map`
+
+The native subgroup image of K_p(N) under f equals K_p(M).
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. For forward containment use preservation of actual local membership.
+2. For reverse containment use the constructed local lift.
+3. Use the native subgroup image membership condition with the actual witness.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-mem`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-surjective`, `mathlib:Subgroup.map`, `mathlib:Subgroup.mem_map`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernel_map_typed_api` (compatibility): The native subgroup image of K_p(N) under f equals K_p(M).
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Original source-coset membership survives reduction
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-reduction-mem` — `DirichletPadic.kubertRationalPrimeCoset_reduction_mem`
+
+If u belongs to X_p(N), then f(u) belongs to X_p(M).
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Translate the original coset condition to membership of λ_N,p inverse times u in K_p(N).
+2. Reduce that actual kernel element.
+3. The original reduction preserves products and inverses, and the constructed translations commute with it.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-mem`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-translation-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_reduction_mem_typed_api` (compatibility): If u belongs to X_p(N), then f(u) belongs to X_p(M).
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Every lower source-coset element has an actual upper coset lift
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-reduction-surjective` — `DirichletPadic.kubertRationalPrimeCoset_reduction_surjective`
+
+For each u in X_p(M), there is an original upper v in X_p(N) with f(v)=u.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Translate u by λ_M,p inverse into the actual lower kernel.
+2. Choose the constructed upper local-kernel lift.
+3. Multiply by λ_N,p to obtain an actual upper coset element.
+4. Reduce the product using translation compatibility and cancel λ_M,p with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-surjective`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-translation-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_reduction_surjective_typed_api` (compatibility): For each u in X_p(M), there is an original upper v in X_p(N) with f(v)=u.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The full upper source coset maps onto the lower one
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-image` — `DirichletPadic.kubertRationalPrimeCoset_image`
+
+The set image f(X_p(N)) equals the actual source coset X_p(M).
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Use the proved preservation of source-coset membership.
+2. Use the proved actual upper coset lift for reverse containment.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-reduction-mem`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-reduction-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.a_source_coset_need_not_contain_identity` (non-example): At level6 and p=2 the source coset is the singleton containing the residue5 unit and excludes identity, so it must not be used as a subgroup.
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_image_typed_api` (compatibility): The set image f(X_p(N)) equals the actual source coset X_p(M).
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The actual translated source coset has local-kernel cardinality
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card` — `DirichletPadic.kubertRationalPrimeCoset_card`
+
+At every positive level, |X_p(N)| equals |K_p(N)|, with both cardinalities taken from the original actual subtypes.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Construct the explicit equivalence sending a coset element u to λ_N,p inverse times u in K_p(N).
+2. Its inverse multiplies an actual kernel element by λ_N,p.
+3. The proved membership criterion and unit cancellation verify both directions and inverse laws.
+4. Transfer native cardinality along that actual equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_card_typed_api` (compatibility): At every positive level, |X_p(N)| equals |K_p(N)|, with both cardinalities taken from the original actual subtypes.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The original Cartan reduction restricted to local kernels
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction` — `DirichletPadic.kubertRationalPrimeKernelReduction`
+
+Construct F:K_p(N)→*K_p(M) by restricting the original full Cartan reduction to the actual upper subgroup and codomain-restricting it using the proved local membership theorem.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Compose the native upper subgroup inclusion homomorphism with the original Cartan reduction.
+2. Use the proved local membership statement to apply native codomain restriction to K_p(M).
+3. Retain the original multiplication and identity laws through native monoid homomorphisms; no new abstract carrier or assumed map is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-mem`, `mathlib:Subgroup.subtype`, `mathlib:MonoidHom.codRestrict`.
+
+**Uses:**
+
+- Kubert195–196, Proposition4.8 local coset-sum transition: Supplies the exact positive local-fiber multiplicity and cardinality ratio required to push the original coset sum and then apply the proved full-norm projection formula.
+- Kubert194 equation4.5, corrected product, and195 Proposition4.8: Supports the remaining proof that the actual local correction factors combine with the original primitive-fiber sum to give the corrected rational value compatible with full norms. That final product identity is not assumed.
+
+**API:**
+
+- `kubertRationalPrimeKernelReduction_apply` (compatibility): The underlying original Cartan unit of F(u) is exactly f applied to the underlying unit of u.
+- `kubertRationalPrimeKernelReduction_surjective` (compatibility): The constructed native homomorphism F:K_p(N)→*K_p(M) is surjective.
+- `kubertRationalPrimeKernelReduction_mem_ker` (characterisation): For u in K_p(N), membership in ker(F) is equivalent to membership of its underlying original unit in ker(f). The existing membership in K_p(N) is essential.
+- `kubertRationalPrimeKernelReduction_kernel_card_pos` (compatibility): The native kernel of F has finite positive cardinality d_p.
+- `kubertRationalPrimeKernelReduction_fiber_card` (compatibility): For every u in K_p(M), the actual subtype of elements of K_p(N) reducing to u has cardinality d_p=|ker(F)|.
+- `kubertRationalPrimeKernelReduction_card_mul` (compatibility): The actual cardinalities satisfy d_p times |K_p(M)| equals |K_p(N)|.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.same_level_local_kernel_is_singleton` (degenerate): Restricting the actual level6 identity reduction to its3-local kernel has kernel cardinality1.
+- `SuggestedKubertFactorTransitionsTests.repeated_prime_local_kernel_counts_three` (computation): The actual3-local reduction18 to6 has kernel cardinality3, retaining all lifts at the repeated prime.
+- `SuggestedKubertFactorTransitionsTests.new_prime_full_kernel_is_larger` (non-example): For30 to6 at p=2 the local restricted kernel has cardinality1, while the full Cartan reduction kernel has cardinality4. New5-primary coordinates do not belong to the2-supported kernel.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Restricted reduction has the original underlying value
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-apply` — `DirichletPadic.kubertRationalPrimeKernelReduction_apply`
+
+The underlying original Cartan unit of F(u) is exactly f applied to the underlying unit of u.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Evaluate the native composition, subgroup inclusion and codomain restriction in the construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_apply_typed_api` (compatibility): The underlying original Cartan unit of F(u) is exactly f applied to the underlying unit of u.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The actual restricted kernel reduction is surjective
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-surjective` — `DirichletPadic.kubertRationalPrimeKernelReduction_surjective`
+
+The constructed native homomorphism F:K_p(N)→*K_p(M) is surjective.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the original local-kernel lift theorem to the underlying lower unit.
+2. Package the constructed lift and its membership proof into the upper subgroup.
+3. Subtype extensionality turns the underlying reduction equality into equality in the lower subgroup.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-kernel-reduction-surjective`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_surjective_typed_api` (compatibility): The constructed native homomorphism F:K_p(N)→*K_p(M) is surjective.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The restricted kernel is the actual intersection condition
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-mem-ker` — `DirichletPadic.kubertRationalPrimeKernelReduction_mem_ker`
+
+For u in K_p(N), membership in ker(F) is equivalent to membership of its underlying original unit in ker(f). The existing membership in K_p(N) is essential.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Unfold native kernel membership as image equal to identity.
+2. Use equality of subgroup elements if and only if their underlying units agree.
+3. The restricted map and original map have the same underlying value.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-apply`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_mem_ker_typed_api` (compatibility): For u in K_p(N), membership in ker(F) is equivalent to membership of its underlying original unit in ker(f). The existing membership in K_p(N) is essential.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The actual restricted reduction kernel has positive cardinality
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-kernel-card-pos` — `DirichletPadic.kubertRationalPrimeKernelReduction_kernel_card_pos`
+
+The native kernel of F has finite positive cardinality d_p.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. The original upper Cartan group is finite by its actual prime factors and finite Galois fields.
+2. Both the local subgroup and the restricted kernel are finite subtypes.
+3. The identity belongs to the restricted kernel, so native finite cardinality is positive.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction`, `mathlib:Nat.card_pos`, `DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.two_primary_repeated_level_kernel_counts_two` (computation): The2-local reduction12 to6 has two kernel elements, including the actual identity.
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_kernel_card_pos_typed_api` (compatibility): The native kernel of F has finite positive cardinality d_p.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Every actual restricted-kernel fiber has cardinality d_p
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-fiber-card` — `DirichletPadic.kubertRationalPrimeKernelReduction_fiber_card`
+
+For every u in K_p(M), the actual subtype of elements of K_p(N) reducing to u has cardinality d_p=|ker(F)|.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the native fiber-to-kernel equivalence for the proved surjective homomorphism F.
+2. Transfer native cardinality across the equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-surjective`, `mathlib:MonoidHom.fiberEquivKerOfSurjective`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_fiber_card_typed_api` (compatibility): For every u in K_p(M), the actual subtype of elements of K_p(N) reducing to u has cardinality d_p=|ker(F)|.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Local subgroup cardinalities satisfy the actual kernel product law
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-card-mul` — `DirichletPadic.kubertRationalPrimeKernelReduction_card_mul`
+
+The actual cardinalities satisfy d_p times |K_p(M)| equals |K_p(N)|.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Apply the native cardinality-times-index formula to ker(F).
+2. The native kernel index equals the cardinality of the actual range.
+3. Surjectivity makes the range the top lower subgroup, whose cardinality is |K_p(M)|.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-surjective`, `mathlib:Subgroup.card_mul_index`, `mathlib:Subgroup.index_ker`, `mathlib:MonoidHom.range_eq_top`, `mathlib:Subgroup.card_top`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeKernelReduction_card_mul_typed_api` (compatibility): The actual cardinalities satisfy d_p times |K_p(M)| equals |K_p(N)|.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Source-coset sizes have the restricted multiplicity
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card-mul` — `DirichletPadic.kubertRationalPrimeCoset_card_mul`
+
+The actual source coset cardinalities satisfy d_p times |X_p(M)| equals |X_p(N)|.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Replace each source-coset cardinality by its proved equal actual local-kernel cardinality.
+2. Apply the restricted subgroup cardinality product formula.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card`, `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-card-mul`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.new_prime_does_not_change_this_local_coset_size` (computation): The2-local source cosets at6 and30 both have cardinality1, despite full reduction multiplicity4.
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_card_mul_typed_api` (compatibility): The actual source coset cardinalities satisfy d_p times |X_p(M)| equals |X_p(N)|.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### Every actual source-coset fiber has the restricted cardinality
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-fiber-card` — `DirichletPadic.kubertRationalPrimeCoset_fiber_card`
+
+For u in X_p(M), the original upper units v satisfying v in X_p(N) and f(v)=u form a subtype of cardinality d_p.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. Translate u into K_p(M) using λ_M,p inverse.
+2. Construct an explicit equivalence from the original upper coset fiber to the actual restricted-kernel fiber over this translated u.
+3. The forward map multiplies by λ_N,p inverse, and the inverse multiplies by λ_N,p. Translation compatibility verifies both fiber equations and cancellation verifies inverse laws.
+4. Use native cardinality invariance and the proved restricted-fiber cardinality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel`, `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-translation-reduction`, `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-fiber-card`, `mathlib:Nat.card_congr`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_fiber_card_typed_api` (compatibility): For u in X_p(M), the original upper units v satisfying v in X_p(N) and f(v)=u form a subtype of cardinality d_p.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+### The source local cardinality ratio is the inverse restricted multiplicity
+
+`DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card-ratio` — `DirichletPadic.kubertRationalPrimeCoset_card_ratio`
+
+Over the rationals, |X_p(M)|/|X_p(N)| equals d_p inverse, with d_p the actual restricted-kernel cardinality.
+
+**Hypotheses:** The degree is one and M,N are positive levels with M dividing N. The prime p is an actual divisor of M, hence of N; its upper prime-factor subtype is the explicit inclusion by divisibility. Every group is the original product of truncated-Witt unit groups over the original finite Galois fields. C_M and C_N are the existing primary residue-unit equivalences, and f is the original Cartan reduction. The q-primary coordinate map is the actual native ZMod cast along q raised to v_q(M) dividing q raised to v_q(N). The factorization inequality is derived from M dividing N. K_p(L) is the actual subgroup supported at p, with identity at every other primary coordinate. X_p(L) is the previously constructed source coset, with off-p coordinates equal to the inverse of p, and λ_L,p is its actual translating unit. X_p(L) is not treated as a subgroup. The new restricted map F sends the actual subgroup K_p(N) to K_p(M) by the original reduction f. Both membership and surjectivity are proved. Its kernel cardinality d_p is the actual native cardinality of ker(F), not the cardinality of ker(f). New prime coordinates can make these different. The maps and cardinality identities are proved on the original carriers. The final group-ring coset-sum transition, corrected-rational-value norm compatibility, general distribution, image/product, source-freeness and lower-rank arguments remain separate obligations. General-degree primitive coordinates and local-field comparisons remain open.
+
+**Proof:**
+
+1. The lower actual coset and the restricted kernel have positive cardinalities.
+2. Cast the actual coset-cardinality product formula into the rationals.
+3. Cancel the nonzero rational cardinalities.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-factor-transition-rational-prime-coset-card-mul`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-card-pos`, `DirichletPadicLFunctions:L3/kubert-factor-transition-restricted-prime-kernel-reduction-kernel-card-pos`.
+
+**Tests:**
+
+- `SuggestedKubertFactorTransitionsTests.repeated_prime_coset_ratio_is_one_third` (computation): For6 dividing18 the3-local source coset cardinality ratio is exactly one third.
+- `SuggestedKubertFactorTransitionsTests.rationalPrimeCoset_card_ratio_typed_api` (compatibility): Over the rationals, |X_p(M)|/|X_p(N)| equals d_p inverse, with d_p the actual restricted-kernel cardinality.
+
+**Acceptance:** For30 reducing to6 at p=2, the actual translating residue23 reduces to5. The full reduction kernel has cardinality4 but the restricted local kernel has cardinality1; both local cosets are singletons. For18 reducing to6 at p=3, every local fiber has three elements and the coset cardinality ratio is1/3. For12 reducing to6 at p=2 the local kernel has two elements. At level6 the2-local coset excludes identity. These controls reject treating cosets as subgroups or replacing the restricted multiplicity by the full-group multiplicity.
+
+**Source:** Published195–196, proof of Proposition4.8: the local coset sum changes by the exact ratio |X_p(M)|/|X_p(N)|. The original local coset is equation4.3 on194 and the full-fiber norm is2.7 on187. Establishes the actual degree-one primary-coordinate, translation, kernel and source-coset transition maps and their uniform restricted-kernel multiplicities. These supply the cardinality input to the source local coset-sum formula; that final group-ring identity and the full corrected-value norm law are not yet claimed.
+
+**Remaining:** Actual degree-one primary coordinates, translating units, prime-supported kernels and source cosets now commute with every divisor-level reduction. The constructed restricted kernel homomorphism is surjective and its positive kernel cardinality counts every local subgroup and source-coset fiber. Complete the local coset-sum pushforward identity using these uniform fibers, then apply the existing full-norm projection law to obtain the source local norm formula and full corrected-rational-value compatibility. The general distribution4.10, image/product4.13, source freeness, lower rank and internal-to-global injection remain open; general-degree primitive coordinates and local-field comparisons remain separate.
+
+### Actual prime-local Cartan transitions and uniform coset fibers validation
+
+All 2107 predecessor nodes, 1266 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 20 nodes, 20 named suggested declarations and 27 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2389 reachable nodes, 9649 edges and 1437 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual Cartan and local-coset constructions, or checked native CRT, factorization, subgroup, finite-fiber and cardinality interfaces. No surjectivity, fiber multiplicity, local norm law, torsor or source-freeness package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5791 verbatim and adds one complete construction and nineteen complete lemmas. Totals are183 definitions and1,419 lemmas without placeholders. The public append has20 named declarations and27 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact degree-one residue controls through60 levels verify273 local prime/divisor transitions,6,707 coordinate reductions,1,604 constructed kernel lifts and1,604 fibers in each of the kernel and source-coset families. All273 cardinality products and rational ratios pass. Explicit new-prime and repeated-prime controls distinguish the local restricted multiplicity from the full Cartan kernel. Exact finite residue-unit arithmetic checks the actual degree-one CRT coordinates, constructed translating units, original prime-supported subgroups and translated source cosets through level60. All divisor transitions and common prime indices are covered. Explicit coordinate-modified lifts, subgroup and coset images, both fiber counts and rational cardinality ratios are checked. These finite controls do not replace the complete native proofs on every positive-level original Cartan carrier. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5791 found all79 canonical inputs unchanged from the predecessor. The whole issue, queue, original winning claim and blocked/unclaimed review390 were reread. All27 source findings and eight source versions remain whole; no external review conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,226 expected placeholder warnings across 3,914 pinned source modules. It includes all 20 new named declarations and 27 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 30f07c2828bf4b2ce22f586ad9fde3d4caa4f7c8023410b2a7d37ea5e2fe1ff5.
