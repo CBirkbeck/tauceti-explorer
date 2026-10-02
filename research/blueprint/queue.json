@@ -47633,8 +47633,9 @@
     "REV-RS-33"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-33.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5120"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5120",
+   "finishedAt": "2026-10-02T03:18:43Z"
   },
   {
    "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
@@ -48453,7 +48454,8 @@
     "REV-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-GlobalGaloisDeformations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4445"
   },
   {
    "id": "RT-BP-HabiroCohomologyFoundations--HQ.1",
