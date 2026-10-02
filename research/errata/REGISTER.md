@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-6668 new mistakes confirmed · 1781 awaiting review · 1243 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
+6668 new mistakes confirmed · 1781 awaiting review · 1244 already corrected in print · 90 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -17044,6 +17044,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Niels Borne and Angelo Vistoli, Fundamental gerbes, Published Algebra & Number Theory 13 (2019), 531–576; DOI10.2140/ant.2019.13.531 (`AlgebraicModuliForArithmeticGeometry`), Proposition3.10 proof, published p.540; same labels in arXiv v3 p.10: corrected in Present in both texts checked. No separate corrigendum has been checked..
 - Michael Groechenig, Dimitri Wyss and Paul Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Inventiones Mathematicae 221 (2020), 505–596 (`AlgebraicModuliForArithmeticGeometry`), Published Lemma4.7 proof, p.540: corrected in No separate correction checked; the issue concerns the test-scheme letters only..
 - The Stacks Project authors, Fpqc descent of quasi-coherent sheaves on spaces, Version accessed 2026-10-02 (`AlgebraicModuliForArithmeticGeometry`), Proposition74.4.1 proof strategy, step4, version accessed2026-10-02: corrected in No correction observed on the accessed tag page; no separate correction claimed..
+- The Stacks Project authors, Faithfully flat descent for modules, Version accessed 2026-10-02 (`AlgebraicModuliForArithmeticGeometry`), Proposition35.3.9 proof, sentence after numbered consequences (1),(2), version accessed2026-10-02: corrected in The adjacent comment thread spells the contraction with y_j. No separate corrigendum checked..
 - Michael A. Bennett and Samir Siksek, A conjecture of Erdős, supersingular primes and short character sums, Annals of Mathematics 191 (2020), no.2, published article (`AnalyticNumberTheory`), Published §8.1 p.378 and its reuse on p.379; known source issue E2.: corrected in Previously recorded and independently confirmed as PAPER-BENNETT-SIKSEK-20/E2; no new finding claimed..
 - Kiran S. Kedlaya, Notes on analytic number theory, Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages (`AnalyticNumberTheory`), Theorems7.5/8.8 and use in Theorem7.7, printed pp.45,50–51: corrected in Inherited integrated-decomposition independent review's high-height and low-zero-gap corrections; no new priority claim..
 - John Milnor (Appendix F with Tan Lei), Geometry and dynamics of quadratic rational maps (arXiv title: Remarks on quadratic rational maps), Experiment. Math. 2 (1993) 37–83; read in arXiv math/9209221v1 (Stony Brook IMS preprint 1992/14), the published version not being accessible to this worker; read 2026-09-24 (`ArithmeticDynamics`), Appendix C, fixed point normal form (22), p. 42 of arXiv math/9209221v1: corrected in none found.
