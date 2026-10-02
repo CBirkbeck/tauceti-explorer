@@ -1,3 +1,116 @@
+# DESIGN-FunctionFieldArithmeticPartII — native coordinate continuation
+
+Codex — session codex-J6LwjP, 2 October 2026. Refs #3403.
+Claim comment 5951692548 was explicitly confirmed by the bot. Continued the
+merged #5742 checkpoint, retaining its handoff below as historical evidence.
+Status is partial: no stage is closed and no implementation is certified.
+
+## What changed
+
+Adds six declaration-sized nodes: one construction, two lemmas, two
+comparisons and one theorem. They specify the canonical trivial-power
+isomorphism, native section-power coordinates, the computed unit coefficient
+of a root identification, the actual root equation and scalar equations for
+root arrows. The sectionPower.mapIso API is promoted to a prerequisite node;
+its existing suggested signature is retained. The affine-chart consumer now
+uses the two root-coordinate outputs explicitly.
+
+The previously omitted RootObject.test_trivialization now has an actual
+native signature: its bundled unit is equal to the computed image-of-one
+coefficient, and it satisfies the actual coordinate power equation. Helpers
+only expose the native freePUnitIsoUnit and freeSection maps. The root object,
+sheaf, module, ring and tensor carriers are unchanged. Three new canonical
+trivial-power API items and three tests accompany the construction, and one
+new planet names the coordinate root equation. The root identification unit
+is proved from an actual inverse; it is not an assumed theorem condition.
+
+Current totals: 91 nodes (16 construction, 8 definition, 8 comparison,
+36 lemma, 22 theorem, 1 application), 79 API entries, 75 planned tests,
+35 planets, 52 inspected baseline references, 7 gap groups and 8 requests.
+The suggested file has 20 native examples, including the root-object
+trivialization example. All implementationStatus values remain unchecked.
+
+All previous 85 node IDs are preserved. Their records are unchanged except
+the affine-chart dependency/proof refinement. The previous 47 baseline
+records, source metadata/version hashes, nine source findings, both complete
+route inventories, sibling restructuring proposal and reserved root-stack
+owner are preserved. No new source erratum or independent verdict is issued.
+JAC-A's existing request now explicitly requires coordinate multiplication
+and unit evaluation for the generic native section tensor map; the six new
+root-specific nodes do not rebuild that supplier theory. LEAN-SECTION-COMP
+now records outstanding proofs and full-file elaboration after completing
+its formerly omitted signature. All other mathematical gap scopes remain.
+
+## Fresh evidence and checks
+
+Read the actual AUDIT-01 SF.1/SF.3 and AUDIT-20 FA.1/FA.2/FA.4 records and
+accepted review metadata, native SF.1/SF.3 and parent FA.2/FA.4 descriptions,
+and all touching blueprint link records (none mention this Part II).
+The existing JAC-A contract matches JacobianChallenge Layer A; read its full
+upstream document and the StableReduction shared native sheaf contract.
+The latter full document was already read in this continuous work loop.
+
+At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369, read the native invertible-sheaf
+carrier, trivial sheaf, tensor products/congruences/unit isomorphisms and
+pinned freePUnitIsoUnit, freeHomEquiv, freeHomEquiv_apply, unitHomEquiv,
+unit/unit-section definitions and Hom.app_smul statements with parameters.
+Five fresh baseline records include source blob hashes. The generic
+sheafified tensor construction was inspected; its section-unit/naturality
+proof contract stays with SF.3/JAC-A rather than being certified present.
+
+Read AGV arXiv:math/0603151v2 Appendix B.1–B.2 pp. 52–54, including the
+trivial-line quotient calculation and nilpotent-section distinction. The
+fresh download has the preserved SHA-256
+c2889c567c21aa5473ba0be75221dbb67ca122210fa4e4973f4727c490bdd5eb.
+This is an inspected preprint source, not a fresh version-of-record collation
+or a reread of the whole 59-page paper. Earlier Yun–Zhang, Talpo–Vistoli,
+Bresciani and AV source receipts remain attributed to preceding workers.
+
+The standard blueprint checker with the pinned declaration index reports
+0 errors and 0 warnings. Intake checks report five files, zero problems;
+whitespace and the exact preserved-node/baseline/source/route checks pass.
+Executable finite checks verify 11,455 scalar-arrow transformations and
+84,015 compositions over Z/m for m=1,…,12 and exponents 1,…,5. Negative
+checks retain nonzero nilpotent roots over Z/4, the power constraint even
+for a zero section, units lacking square roots, and characteristic-two
+dual-number stabilizers. These finite ring checks are not native sheaf proofs.
+
+The suggested file was not compiled. An existing Mathlib build at its pin
+was found; the existing native Tau Ceti builds inspected were at other
+commits and cannot certify this file. No Tau Ceti build at the exact pin
+with the needed native imports was found. No Lake project, library build,
+cache download or language server was started for this job. Native source
+signatures are not claimed elaborated. No process is left running.
+
+## Exact continuation
+
+1. Resolve JAC-A's natural bilinear section tensor map, trivial-line unit
+   coordinate evaluation and tensor-power transport identity/composition
+   coherence on the existing native carriers. Do not create another line
+   bundle or generic section tensor category here.
+2. Implement and elaborate the six comparison nodes and all native examples
+   in an existing build at both exact pins. The earlier missing root-object
+   signature is now present; the work remaining is its proof, not a vacuous
+   replacement by the defining root equation.
+3. Use those equations in SF.1's actual torsor/quotient presentation proof;
+   retain the unit u, root scalar and both arrow equations until generic
+   descent justifies local normalization. Do not set u=1 globally or test
+   only field-valued stabilizers. Finish geometric root-stack/base-change/
+   coarse/infinite-limit signatures through the existing supplier contracts.
+4. Follow the unchanged ST-LISSE, ST-OPS, NORM-2EXACT, FA-APPROX and
+   EXTERIOR-COMP neededBy lists and the previous all-degree/trace worklists.
+   The AV sibling retains its separate coordinated design and published
+   proof-reading obligations.
+
+All durable statements, source/baseline receipts and validation outcomes are
+in the five deliverables. Own scratch is removed after publication; no local
+path is needed to resume.
+
+---
+
+## Preserved predecessor handoff
+
 # DESIGN-FunctionFieldArithmeticPartII handoff
 
 Current worker: Codex — codex-a71f92. Refs [#3403](https://github.com/CBirkbeck/tauceti-explorer/issues/3403). Claim 5950985903 was confirmed by bot 5950987593. This is a partial continuation of the merged codex-rtOQ9t checkpoint, not a complete design or implementation claim.

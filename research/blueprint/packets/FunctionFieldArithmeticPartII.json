@@ -15,7 +15,7 @@
     "FunctionFieldArithmeticPartII:GC.5",
     "FunctionFieldArithmeticPartII:GC.6"
   ],
-  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open.",
+  "summary": "A declaration-level design of finite and infinite root stacks and Yun–Zhang’s ramified geometric class field theory. It owns the reserved root-stack definition, imports the parent’s arithmetic reciprocity and existing geometric suppliers, and records exact stack-sheaf and typed-prototype gaps. All 28 items of the first route are assigned; the independent 38-item symplectic-central-value route is preserved in a split proposal rather than silently absorbed or discarded. The affine invariant-ring step is factored through the native μ_n Hopf coaction, its axioms, root weights and point comparison; geometric carriers remain open. Six native root-trivialization comparison nodes now expose the computed unit coefficient and root-arrow scalar equations; no geometric carrier or generic section tensor operation is duplicated.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -301,6 +301,36 @@
         "module": "TauCeti/Algebra/AlgebraicGroup/RootsOfUnity/Scheme.lean",
         "provides": "Existing roots-of-unity equivalence for scheme points. It is a positive baseline boundary, not a new root-stack node.",
         "checked": "Actual declaration statement read at the recorded pin on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit",
+        "module": "TauCeti/Algebra/Category/ModuleCat/Sheaf/Free.lean",
+        "provides": "Canonical existing isomorphism from the free sheaf on one generator to the native sheaf tensor unit.",
+        "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob 652740483a6352e94a21e1a9dde7063da54dd8bc."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.freeHomEquiv",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Free.lean",
+        "provides": "Maps from a free sheaf identify with families of sections; used to determine maps of the trivial line by its unit section.",
+        "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob 315ab89207010b5c7af2f4ac0c3b3acc336793fd."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.freeHomEquiv_apply",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Free.lean",
+        "provides": "The free-Hom equivalence evaluates the morphism on the existing free generator section.",
+        "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob 315ab89207010b5c7af2f4ac0c3b3acc336793fd."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.unitHomEquiv",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
+        "provides": "Existing bijection between maps from the unit sheaf and sections.",
+        "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob e61222033fe2d3fd5f7ea172dcec08a2a92294a1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.Hom.app_smul",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "provides": "Module morphisms act linearly on native sections over the ring of functions on an open.",
+        "checked": "Statement and required parameters read at the exact pin on 2026-10-02; blob 66714c284c23f2edc7a26e4da06c91512790b4a1."
       }
     ]
   },
@@ -903,9 +933,12 @@
         "SchemeAndStackFoundations:SF.1",
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction-counit",
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction-coassoc",
-        "FunctionFieldArithmeticPartII:RS.0/native-point-action"
+        "FunctionFieldArithmeticPartII:RS.0/native-point-action",
+        "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
+        "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars"
       ],
       "proofSteps": [
+        "Use root-trivialization-equation and root-arrow-scalars on native trivializations: objects have unit u with u zⁿ=f and arrows have z_b=w z_a, u_b wⁿ=u_a. The generic quotient-stack/torsor construction remains SF.1; these scalar equations are its actual root-specific input.",
         "Use the affine coaction with its counit and coassociativity laws and native-point comparison. A trivialization of a root line respecting φ is a μ_n-torsor.",
         "On the torsor the root section is a function t satisfying tⁿ=f.",
         "Conversely descend the trivial root line and function on an equivariant torsor; show the two operations inverse on objects and arrows."
@@ -4864,6 +4897,302 @@
       "planet": {
         "name": "Affine root invariants"
       }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Canonical coordinates for powers of the trivial line",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.tensorPower.trivialIso",
+      "statement": "For any scheme X and n≥0, let O be the native free rank-one invertible sheaf. Construct c_n:Oⁿ≅O with c_0=id and c_{n+1}=(c_n⊗id_O) followed by the native right-unit isomorphism. The parentheses agree with tensorPower; these are canonical coordinates for that recursion, not a new tensor product.",
+      "hypotheses": [
+        "Scheme X arbitrary; n a natural number, including zero."
+      ],
+      "proofSteps": [
+        "Start with the identity at zero.",
+        "At the successor compose native tensorProductCongrLeft(c_n) with tensorTrivialRightIso(O). Their actual domains match the recursive tensor power.",
+        "For the section-unit API use the existing bilinear tensor-section/unit contract JAC-A; no generic section tensor map is constructed here."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "acceptance": [
+        "The exponent-one comparison is the native right-unit map, not an arbitrarily chosen scalar multiple."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_zero",
+          "role": "simp",
+          "statement": "c_0 is the identity of O."
+        },
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_succ",
+          "role": "simp",
+          "statement": "c_{n+1}=(c_n⊗id) followed by the right-unit map, with the native tensor congruence."
+        },
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_unit",
+          "role": "compatibility",
+          "statement": "Under c_n the n-th power of the native unit section has coefficient 1 for every n≥0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AGV B.2, trivial L=O calculation",
+          "how": "Identifies the domain of the root identification with O while retaining its unit coefficient."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
+          "how": "Computes powers in the same parentheses as the native root object."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_test_zero",
+          "kind": "degenerate",
+          "statement": "c_0=id_O."
+        },
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_test_one",
+          "kind": "compatibility",
+          "statement": "c_1 equals the existing right-unit isomorphism O⊗O≅O."
+        },
+        {
+          "name": "TauCeti.RootStack.tensorPower.trivialIso_test_two",
+          "kind": "computation",
+          "statement": "For a section of O with coefficient z, its square transported by c_2 has coefficient z², including nilpotent z."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Section powers in native coordinates",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.sectionPower.in_trivialization",
+      "statement": "For an invertible sheaf M on X, a specified trivialization e:M≅O, a section t and n≥0, transporting tⁿ by eⁿ followed by c_n gives the global function zⁿ, where z is the coefficient of e(t). Coefficients use the existing freePUnitIsoUnit map on global sections.",
+      "hypotheses": [
+        "Scheme X arbitrary; M trivialized by the actual isomorphism e; n≥0; zero sections allowed."
+      ],
+      "proofSteps": [
+        "Use sectionPower.mapIso to transport to the native trivial line.",
+        "At zero use its unit-section API. At the successor use JAC-A’s bilinear section tensor map and the native right-unit map: their coordinate evaluation is multiplication.",
+        "Induct with the same c_n recursion. Neither tensor-power parenthesization nor an unidentified scalar is discarded."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit",
+        "SchemeAndStackFoundations:SF.3",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
+      ],
+      "acceptance": [
+        "At n=0 the result is 1 even for t=0. At positive n zero gives zero. Over Z/4 the coefficient 2 has square zero."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "The unit coefficient of a root identification",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.RootObject.powerIdentification_isUnit",
+      "statement": "For an actual n-th root object a=(M,t,φ) of (L,s), n≥1, and specified trivializations e:M≅O and l:L≅O, form α=c_n⁻¹ followed by (e⁻¹)ⁿ, φ and l, an automorphism of O. Let u be the coefficient of α(1). Then u is a unit in Γ(X,O_X); for every v∈Γ(X,Mⁿ), the coefficient of lφ(v) equals u times the coefficient of c_n eⁿ(v).",
+      "hypotheses": [
+        "Scheme X arbitrary; n≥1; actual native invertible-sheaf isomorphisms φ,e,l."
+      ],
+      "proofSteps": [
+        "Construct α from the stated isomorphisms, so it has an actual inverse.",
+        "Use pinned freeHomEquiv/unitHomEquiv: maps from the free one-generator sheaf are determined by the image of its unit section. On each open, module linearity makes α multiplication by its unit-section coefficient; naturality makes those coefficients restrictions of the global coefficient.",
+        "Apply the inverse map to obtain u v=1=v u in global functions. This proves IsUnit(u), rather than postulating it.",
+        "Apply the scalar evaluation formula to c_n eⁿ(v) and use the inverse/cancellation identities."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit",
+        "mathlib:SheafOfModules.freeHomEquiv",
+        "mathlib:SheafOfModules.freeHomEquiv_apply",
+        "mathlib:SheafOfModules.unitHomEquiv",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.Hom.app_smul"
+      ],
+      "acceptance": [
+        "Multiplication by 2 on O over Spec(Z/4) is not an allowed root identification. Nilpotents in the base do not invalidate multiplication by a unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "The native root equation in coordinates",
+      "kind": "theorem",
+      "declarationName": "TauCeti.RootStack.RootObject.trivializationEquation",
+      "statement": "With the native root object and chosen trivializations above, the computed coefficient u is a unit and u zⁿ=f, where z is the coefficient of the root section under e and f is the coefficient of s under l. The coefficient u is part of the comparison; no choice of an n-th root of u is assumed.",
+      "hypotheses": [
+        "Scheme X arbitrary; n≥1; root object and two specified native trivializations."
+      ],
+      "proofSteps": [
+        "Use root-identification-unit to evaluate φ on the actual section tⁿ and establish that u is a unit.",
+        "Use section-power-in-trivialization to identify the coordinate of tⁿ with zⁿ.",
+        "Transport the defining root equation φ(tⁿ)=s by l; this gives u zⁿ=f. The example quantifies over a bundled unit and asserts equality to the computed coefficient, not just a renamed defining equation."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization"
+      ],
+      "acceptance": [
+        "Over Spec(Z/4), n=2, u=3 and z=2 give f=0 with z nonzero; zero sections and nilpotent roots must remain. Over Q the root object u=2,z=1,f=2 exists without a rational square root of 2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Root objects in coordinates"
+      }
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Scalar equations for arrows of root objects",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RootStack.RootObject.arrow_scalar_equations",
+      "statement": "For root objects a,b of the same (L,s,n), chosen trivializations e_a,e_b of their root lines and l of L, every actual root arrow h:a→b has a unit coefficient w. The section coordinates satisfy z_b=w z_a and the computed root-identification coefficients satisfy u_b wⁿ=u_a. Retain both equations and the unit condition, including when sections vanish.",
+      "hypotheses": [
+        "Scheme X arbitrary; n≥1; h is a native invertible root arrow, not an arbitrary module map."
+      ],
+      "proofSteps": [
+        "Conjugate the underlying line isomorphism by e_a and e_b. The native free-sheaf Hom equivalence and its actual inverse give its unit coefficient w.",
+        "The arrow section equation gives z_b=w z_a.",
+        "Evaluate the tensor-power transport on the native unit section; sectionPower.mapIso and section-power-in-trivialization identify its coefficient with wⁿ.",
+        "Conjugate the arrow power equation φ_b∘hⁿ=φ_a by the chosen trivializations to obtain u_b wⁿ=u_a."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "mathlib:SheafOfModules.freeHomEquiv"
+      ],
+      "acceptance": [
+        "For a=b with zero section and u_a=u_b, the power condition still forces wⁿ=1; forgetting it incorrectly makes every unit an automorphism. Composition multiplies w coefficients."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/section-power-transport",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Isomorphism transport of section powers",
+      "kind": "comparison",
+      "declarationName": "TauCeti.RootStack.sectionPower.mapIso",
+      "statement": "For any scheme X, invertible sheaves M,N, an actual isomorphism e:M≅N, section t of M and n≥0, eⁿ carries tⁿ to (e(t))ⁿ in the fixed recursive tensor powers. The transport at exponent zero is the identity of the native tensor unit; identity and composition use the coherent tensor-power transport.",
+      "hypotheses": [
+        "Scheme X arbitrary; actual native invertible-sheaf isomorphism e; n≥0; t may vanish."
+      ],
+      "proofSteps": [
+        "Use the zero-degree identity transport and the native unit section.",
+        "At the successor use JAC-A’s natural bilinear section tensor map with the native tensor congruences. Apply the induction hypothesis to the first factor and e to the second.",
+        "Keep the recursive tensor parentheses and verify transport identity/composition via the existing tensor functor laws; these generic coherence contracts stay with JAC-A."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/tensor-power",
+        "FunctionFieldArithmeticPartII:RS.0/section-power",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "acceptance": [
+        "For n=0 even the zero section maps to the same unit. For multiplication by a unit w on a trivial line, the transported n-th section power has coefficient wⁿ."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "AGV08",
+          "locator": "Appendix B.1–B.2, pp. 52–54, root triples and trivial-bundle quotient calculation",
+          "excerpt": "(M, φ, τ)",
+          "match": "Root-specific coordinate derivation of the native object equation and its arrows. The source gives the geometric root data; the unit/coordinate proof decomposition here uses the pinned free-sheaf and tensor APIs, not a claimed printed standalone lemma."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -4962,13 +5291,16 @@
     {
       "id": "JAC-A",
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Complete the upstream native invertible-sheaf interface: bilinear global-section tensor map, unit section, coherent n-th tensor powers, pullback preserving invertibility and compatibility of powers and section powers with identity/composition. Use the existing native sheaf and tensor operations; no replacement line-bundle category is acceptable.",
+      "need": "Complete the upstream native invertible-sheaf interface: bilinear global-section tensor map, unit section, coherent n-th tensor powers, pullback preserving invertibility and compatibility of powers and section powers with identity/composition. Use the existing native sheaf and tensor operations; no replacement line-bundle category is acceptable. In trivial-line coordinates, the bilinear tensor-section map followed by the native unit isomorphism must evaluate to multiplication, and the free unit section must have coordinate 1. These are generic native sheaf tensor compatibility lemmas, not new root-specific geometric types.",
       "neededBy": [
         "FunctionFieldArithmeticPartII:RS.0/tensor-power",
         "FunctionFieldArithmeticPartII:RS.0/section-power",
         "FunctionFieldArithmeticPartII:RS.0/root-object",
         "FunctionFieldArithmeticPartII:key/root-stacks",
-        "FunctionFieldArithmeticPartII:RS.2/transition"
+        "FunctionFieldArithmeticPartII:RS.2/transition",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
       ]
     }
   ],
@@ -4977,8 +5309,8 @@
       "stageId": "FunctionFieldArithmeticPartII:RS.0",
       "status": "partial",
       "remaining": [
-        "Resolve supplier contract JAC-A.",
-        "Resolve recorded gap LEAN-SECTION-COMP."
+        "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
+        "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins."
       ]
     },
     {
@@ -5207,10 +5539,16 @@
     },
     {
       "id": "LEAN-SECTION-COMP",
-      "title": "Native root-object affine trivialization test",
-      "detail": "The root-object data, constructor, section transport and two small tests have native signatures. Its test_trivialization still needs the concrete comparison between a trivialized native line-bundle isomorphism and multiplication by its unit coefficient, plus the section-power scalar comparison. The chart theorem states the exact unit/root equation, but those native comparison declarations have no verified supplier signature in this session. Keep that one example in the omission ledger, rather than replacing it by the defining root equation.",
+      "title": "Native root-coordinate proofs after signature completion",
+      "detail": "The previously omitted RootObject.test_trivialization now has a native suggested signature, using actual line isomorphisms, the pinned freePUnitIsoUnit coordinate map and the computed image-of-one coefficient. Six nodes expose the canonical trivial-power comparison, section-power coordinates, unit coefficient, root equation and arrow scalar laws, including the promoted section-power transport API. The generic section-tensor multiplication/unit evaluation contract stays with JAC-A/SF.3. Its proof is not certified by source-only signature inspection, and no Tau Ceti build at the exact pin was found. Complete the actual supplier proofs, tensor-power coherence and full-file elaboration before closing this gap.",
       "neededBy": [
-        "FunctionFieldArithmeticPartII:RS.0/root-object"
+        "FunctionFieldArithmeticPartII:RS.0/root-object",
+        "FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization",
+        "FunctionFieldArithmeticPartII:RS.0/root-identification-unit",
+        "FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation",
+        "FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars",
+        "FunctionFieldArithmeticPartII:RS.0/section-power-transport"
       ]
     }
   ],
@@ -6404,5 +6742,17 @@
       "links": "Read FA.2/FA.4 and SF.1/SF.3 supplier extracts and touching edges; screened blueprint links mentioning this Part II or root stages. No reverse SF.1 dependency or generic group reconstruction.",
       "preserved": "All original node IDs, 28 first-route/38 sibling-route assignments, nine source issues, eight requests and seven gaps retained. No new primary erratum claim."
     }
+  },
+  "continuationBoundary": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "addedNodes": 6,
+    "preservedNodeIds": 85,
+    "scope": "Native root-object trivialization comparison only; mathematical implementation and all ten stages remain unchecked/partial.",
+    "sourceReads": [
+      "AGV08 arXiv v2 Appendix B.1–B.2 pp.52–54; downloaded hash matches the preserved receipt."
+    ],
+    "compiled": false,
+    "reason": "Existing Mathlib build found, but no Tau Ceti build at f790474 with the needed native imports was found. No library build/cache/project was created."
   }
 }

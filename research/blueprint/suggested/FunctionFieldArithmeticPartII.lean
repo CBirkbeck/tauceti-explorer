@@ -152,9 +152,8 @@ example (n : ℕ) [NeZero n] :
       a.line = TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X ∧ a.rootSection = 0 := by
   sorry
 
--- RootObject.test_trivialization needs the actual affine trivialization/chart
--- comparison. Its exact mathematical unit/root equation is in the packet;
--- it is recorded in LEAN-SECTION-COMP and is not represented by an assumed field.
+-- RootObject.test_trivialization is stated in the native coordinate continuation
+-- below. Generic tensor-section compatibility proofs remain JAC-A inputs.
 
 section Affine
 variable {A : Type u} [CommRing A]
@@ -799,6 +798,122 @@ For the geometrically connected double cover, the Frobenius trace of its all-deg
 character sheaf equals η_{F′/F} under the adelic groupoid equivalence, with π_x⁻¹↔O_X(x)^♮ and
 geometric Frobenius. At unramified x the value is +1 for split x and −1 for inert x.
 
-Native fragment example omitted: TauCeti.RootStack.RootObject.test_trivialization.
+Native fragment example TauCeti.RootStack.RootObject.test_trivialization is supplied
+in the coordinate continuation below; its proof remains unchecked.
 See LEAN-SECTION-COMP for its exact affine unit/section comparison.
 -/
+
+
+/-! Root-specific coordinate comparisons. These native signatures are uncompiled.
+The coordinate and unit-section abbreviations below only expose the existing
+freePUnitIsoUnit and freeSection maps; they are not substitute geometric types. -/
+namespace TauCeti.RootStack
+
+variable {X : Scheme.{u}}
+
+private abbrev trivialSectionUnit :
+    Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :=
+  (SheafOfModules.freeSection (R := X.ringCatSheaf) PUnit.unit).val
+    (Opposite.op (⊤ : X.Opens))
+
+private abbrev trivialSectionCoordinate
+    (v : Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)) : Γ(X, ⊤) :=
+  (TauCeti.SheafOfModules.freePUnitIsoUnit X.ringCatSheaf).hom.val.app
+    (Opposite.op (⊤ : X.Opens)) v
+
+def tensorPower.trivialIso (n : ℕ) :
+    tensorPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) n ≅
+      TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X := by sorry
+
+lemma tensorPower.trivialIso_zero :
+    tensorPower.trivialIso (X := X) 0 = Iso.refl _ := by sorry
+
+lemma tensorPower.trivialIso_succ (n : ℕ) :
+    tensorPower.trivialIso (X := X) (n + 1) =
+      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft
+        (tensorPower.trivialIso n) ≪≫
+      TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso
+        (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) := by sorry
+
+lemma tensorPower.trivialIso_unit (n : ℕ) :
+    trivialSectionCoordinate (mapSection (tensorPower.trivialIso n)
+      (sectionPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) n
+        trivialSectionUnit)) = 1 := by sorry
+
+-- tensorPower.trivialIso_test_zero
+example : tensorPower.trivialIso (X := X) 0 = Iso.refl _ := by sorry
+
+-- tensorPower.trivialIso_test_one
+example : tensorPower.trivialIso (X := X) 1 =
+    TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso
+      (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) := by sorry
+
+-- tensorPower.trivialIso_test_two
+example (v : Section (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)) :
+    trivialSectionCoordinate (mapSection (tensorPower.trivialIso 2)
+      (sectionPower (TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) 2 v)) =
+      trivialSectionCoordinate v ^ 2 := by sorry
+
+lemma sectionPower.in_trivialization
+    (M : TauCeti.AlgebraicGeometry.InvertibleSheaf X)
+    (e : M ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (v : Section M) (n : ℕ) :
+    trivialSectionCoordinate (mapSection
+      (tensorPower.mapIso n e ≪≫ tensorPower.trivialIso n) (sectionPower M n v)) =
+      trivialSectionCoordinate (mapSection e v) ^ n := by sorry
+
+-- This coefficient is the image of the native unit section, not an assumption.
+private abbrev rootPowerCoefficient {n : ℕ} [NeZero n]
+    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
+    (a : RootObject n L s)
+    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) : Γ(X, ⊤) :=
+  trivialSectionCoordinate (mapSection
+    ((tensorPower.trivialIso n).symm ≪≫ tensorPower.mapIso n e.symm ≪≫
+      a.powerIso ≪≫ l) trivialSectionUnit)
+
+lemma RootObject.powerIdentification_isUnit {n : ℕ} [NeZero n]
+    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
+    (a : RootObject n L s)
+    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
+    IsUnit (rootPowerCoefficient a e l) ∧
+      ∀ v : Section (tensorPower a.line n),
+        trivialSectionCoordinate (mapSection (a.powerIso ≪≫ l) v) =
+          rootPowerCoefficient a e l *
+            trivialSectionCoordinate (mapSection
+              (tensorPower.mapIso n e ≪≫ tensorPower.trivialIso n) v) := by sorry
+
+theorem RootObject.trivializationEquation {n : ℕ} [NeZero n]
+    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
+    (a : RootObject n L s)
+    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
+    IsUnit (rootPowerCoefficient a e l) ∧
+      rootPowerCoefficient a e l *
+        trivialSectionCoordinate (mapSection e a.rootSection) ^ n =
+          trivialSectionCoordinate (mapSection l s) := by sorry
+
+-- RootObject.test_trivialization: the omitted comparison now has a native signature.
+example {n : ℕ} [NeZero n]
+    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
+    (a : RootObject n L s)
+    (e : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
+    ∃ u : Γ(X, ⊤)ˣ, (u : Γ(X, ⊤)) = rootPowerCoefficient a e l ∧
+      (u : Γ(X, ⊤)) * trivialSectionCoordinate (mapSection e a.rootSection) ^ n =
+        trivialSectionCoordinate (mapSection l s) := by sorry
+
+lemma RootObject.arrow_scalar_equations {n : ℕ} [NeZero n]
+    {L : TauCeti.AlgebraicGeometry.InvertibleSheaf X} {s : Section L}
+    (a b : RootObject n L s) (h : RootObject.iso a b)
+    (ea : a.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (eb : b.line ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X)
+    (l : L ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) :
+    ∃ w : Γ(X, ⊤)ˣ,
+      trivialSectionCoordinate (mapSection eb b.rootSection) =
+        (w : Γ(X, ⊤)) * trivialSectionCoordinate (mapSection ea a.rootSection) ∧
+      rootPowerCoefficient b eb l * (w : Γ(X, ⊤)) ^ n =
+        rootPowerCoefficient a ea l := by sorry
+
+end TauCeti.RootStack
