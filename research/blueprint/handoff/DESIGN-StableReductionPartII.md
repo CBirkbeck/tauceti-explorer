@@ -1,89 +1,38 @@
-# DESIGN-StableReductionPartII — coefficient section splitting checkpoint
+# DESIGN-StableReductionPartII — native coefficient splitting checkpoint
 
-Refs #3342. Codex — codex-rtOQ9t; claim5957456656 confirmed by bot5957459667. Entire issue read before and after confirmation. Partial checkpoint, eight partial stages and every implementationStatus unchecked.
+Refs #3342. Codex — codex-5ebb6f; claim5958635306 confirmed by bot5958637359. Entire issue read before and after confirmation. Base7d980305cb145551de205b667b7300a7b18d99c7 after merged PR5819. Partial checkpoint: all eight stages partial, all implementationStatus unchecked.
 
 ## What changed
 
-Added one construction, MC.2/section-evaluation-split: the actual A-linear equivalence R≃J×A with formula r↦(r−ιev(r),ev(r)), inverse (j,a)↦j+ι(a). Four APIs pin both coordinates, inverse and the coefficient-section law. Three tests cover Z/4 with zero discriminant, Z/1, and failure of R-linearity at the origin of the split node over ℚ.
+Instantiated the inherited canonical sectionSplit on the actual polynomial quotient R, actual coordinate ideal J and inherited coefficient scalar tower. Six added nodes: coefficient-inclusion-action, section-evaluation-scalars, section-evaluation-projection, section-projection-formula, section-projection-retraction and section-projection-coefficients. The last three promote the projection APIs used by the splitting and flatness proof, under PROTOCOL§4. Three projection APIs and four tests supplement the unchanged four splitting APIs and three tests.
 
-The existing section-evaluation-kernel statement is retained. Its proof route now uses the already built Polynomial.mem_span_C_X_sub_C_X_sub_C_iff_eval_eval_eq_zero, the AdjoinRoot representative induction/evaluation laws, and ideal map/span facts. No private generic polynomial division lemma is planned. The coefficient-flatness node now consumes the actual splitting as its retraction. Coefficient splitting does not imply R-flatness, R-projectivity, relative stable reflexivity, or completion descent.
+The coefficient hom equals the native algebra map, evaluation is A-linear and p(r)=r−ιev(r) is the native A-linear ideal retraction. It fixes J and kills the coefficient section. Define e(r)=(p(r),ev(r)), inverse (j,a)↦j+ι(a), and check both inverse identities and coefficient linearity. No separate module action, assumed kernel or opaque ideal carrier is used. The built bivariate evaluation-ideal theorem and actual quotient map prove the original sectionEvaluationKernel statement.
 
-119 nodes: 8 definitions, 34 constructions, 14 lemmas, 62 theorems, one application. 139 APIs, 131 definition/construction tests plus two inherited exactness tests, 35 planets, 70 pinned baseline declarations, 135 requests, 14 gap groups. Every prior mathematical statement/API/test/hypothesis/source/acceptance survives; 116 of 118 old node objects are identical. Consumer/key coverage, source issues/versions, unapproved ownership proposal, upstream import encoding and geometric omission ledger are unchanged. The reserved StableReductionPartII:key/moduli-curves remains planned under its exact ID; no geometric closure is certified.
+The splitting proof route now directly constructs its displayed formulas, replacing an uninstantiated complement-equivalence outline. The coefficient-flatness proof consumes the actual ideal retraction. Both original mathematical statements survive. No generic splitting theorem or upstream stable-family object is replanned. Coefficient splitting does not imply R-flatness, R-projectivity, relative stable reflexivity or completion descent.
 
-Suggested bodies use admitted sketches under PROTOCOL §13. The predecessor's fifteen proved bodies and nine proved examples survive at [immutable cef4c208](https://github.com/CBirkbeck/tauceti-explorer/blob/cef4c2085eddbf723e9050f7d4924924d593a0e3/research/blueprint/suggested/StableReductionPartII.lean). Its receipts remain historical. Condensing existing admitted example bodies changes no test statement.
+125 nodes: eight definitions,35 constructions,19 lemmas,62 theorems and one application;142 APIs,135 definition/construction tests plus two inherited exactness tests,35 planets,73 pinned baseline declarations,135 requests and fourteen gap groups. All119 original statements, hypotheses, APIs, tests, sources and acceptance conditions are preserved;117 full node objects are identical. Only splitting and coefficient-flatness prerequisite/proof routes change. Binding nineteen Yuan and two DGH routes, six key consumers, reserved StableReductionPartII:key/moduli-curves, ownership proposal, source issues/versions and supplier requests/gaps remain unchanged. No geometric closure is claimed.
 
-## Fresh reading
+## Reading boundary
 
-Complete prior handoff, issue and binding Yuan/DGH StableReductionPartII routes; all 905 lines of the upstream StableReduction document and all 202 lines of JacobianChallenge. Reviewed parent layers1/3 fully read with accepted REV-AUDIT-02 metadata; Part II has no dedicated reviewed row. Built generic algebra is reused. Upstream nodal-family and curve theory is imported, not replanned. No new supplier edge is introduced.
+Fresh whole issue before/after claim, complete latest handoff, exact own Yuan/DGH routes and reviewed parent StableReduction layers1/3 with accepted REV-AUDIT-02 metadata. PartII has no dedicated reviewed library-audit row. Upstream StableReduction and JacobianChallenge were read earlier in this continuous worker session; they remain the ownership models, without a claim of fresh whole-document reading in this cycle.
 
-Fresh complete Knudsen2012 §3 Key Example, printed pp.11–12, and Corollary3.2 at [v2 PDF](https://arxiv.org/pdf/1106.1588v2). The section starts with noetherian/unit-discriminant hypotheses; the polynomial kernel and coefficient splitting here are explicit deductions over any commutative coefficient ring. No broader geometric strengthening follows. Eisenbud's cited resolution input, KnudsenII Appendix/Bourbaki III5.4.4 and Proposition7's exercise remain inherited open work.
+Fresh complete Knudsen2012 v2 HTML §3 Key Example through the full Proposition3.1 and Corollary3.2 proofs at [arXiv HTML](https://arxiv.org/html/1106.1588v2). The publication assumes noetherian A and unit discriminant. The native coefficient/kernel/splitting deductions here hold over every commutative ring, including the zero ring. They establish no broader family/sheaf/completion or relative stable-reflexivity theorem. No fresh whole-paper or visual PDF read is claimed. Earlier Appendix, Stacks and whole-paper receipts remain historical; Eisenbud, Bourbaki III5.4.4 and Proposition7's exercise remain exact open inputs.
 
-Full named baseline statements, hypotheses and exact index names read for the two-variable ideal-membership theorem, bivariate evaluation order, AdjoinRoot induction/lift-on-representatives, ideal image membership and span containment, and Submodule.prodEquivOfIsCompl. Selected native ideal-map/span and complementary-submodule inputs inspected at the exact pins.
+Full statements and ambient hypotheses freshly read for AdjoinRoot.algebraMap_eq', Polynomial.algebraMap_eq, AdjoinRoot.mk_ne_zero_of_natDegree_lt, Module.subsingleton, bivariate evaluation/ideal membership, quotient representative induction/lift, ideal image/span and containment. Exact new baseline index entries verified at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. TauCetif790474821cf4256814db967cb154e7af3d0c369 unchanged.
 
-## Checks and reproduction
+## Native verification and reproduction
 
-Complete current Mathlib-only sketch: Lean v4.34.0-rc2, exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; exit0, zero errors,160 admitted warnings only,70 examples. Existing build/artifacts reused, at least69 GB available before checks; one Lean process at a time. No project/cache/update/library build or language server. No matching Tau Ceti compiled import set certified or created.
+Complete final Mathlib-only sketch: Lean4.34.0-rc2 at the exact pin, exit0, zero errors,170 admitted warnings only,74 examples;13.68 seconds, maximum RSS2,926,184 KiB. Existing artifacts reused;66 GiB available before the check. One compiler at a time, no project/setup/cache/update/build or language server. No combined TauCeti geometric import set certified or created.
 
-Separate standalone kernel experiment: actual AdjoinRoot of the bivariate polynomial, actual evaluation and coordinate ideal; constants and kernel equivalence both check with zero errors/warnings. Both axiom audits contain only propext, Classical.choice and Quot.sound. It uses no supplied ideal-generation hypothesis and adds no public assumption. It is not a compiled proof of sectionSplit or a global statement.
+Separate public canonical proof extraction:13 matching declaration signatures,13 axiom audits,seven examples, exit0 with zero errors/warnings in2.91 seconds, maximum RSS2,811,936 KiB. Every printed axiom set is contained in propext, Classical.choice and Quot.sound; no admitted-proof axiom. All13 canonical signatures and all seven example statements match the submitted sketch. Tests include arbitrary ideal membership, the zero base, a nonreduced nonzero section and the native failure of R-linearity; the nonzero root follows from a monic degree bound, not a domain premise.
 
-The exact experiment is archived only in the allowed suggested Lean file at [prototype revision](https://github.com/CBirkbeck/tauceti-explorer/blob/3f2331a296aa232a5eaf419df358db0cfec27553/research/blueprint/suggested/StableReductionPartII.lean), between the BEGIN/END ARCHIVED CHECKED SECTION KERNEL EXPERIMENT markers. Extract only the text between those marker lines, retaining the final newline; check its SHA-256 below. Run a single lake env lean on the absolute scratch filename from an existing exact pinned Mathlib build after checking memory. No Lean code is placed in this handoff.
+These actual proofs survive only in the allowed suggested file at [immutable 637b4515](https://github.com/CBirkbeck/tauceti-explorer/blob/637b45159fc2451aa40ce5b5cf9a31ce755c646f/research/blueprint/suggested/StableReductionPartII.lean). Extract the exact text after the line BEGIN ARCHIVED CHECKED CANONICAL SECTION SPLITTING and before the line END ARCHIVED CHECKED CANONICAL SECTION SPLITTING, retaining its final newline. Save in your own disk scratch; verify the source hash below. After checking memory, run a single lake env lean on that absolute scratch filename from an existing exact pinned Mathlib build. The receipt certifies the extracted archive, not the surrounding intermediate sketch. The final submitted new bodies are admitted under PROTOCOL§13.
 
-The following independent standard-library script checks 2,896 auxiliary finite quotients R/(v³), for all coefficient parameters over moduli1–8 with t³=0. It makes448,551 exact splitting/scalar/evaluation assertions and includes the three hypothesis-boundary fixtures. These finite quotients are regressions, not the full polynomial ring or a general proof. Save in your own disk scratch and run Python3.
+Historical fifteen proved bodies/nine examples remain at [cef4c208](https://github.com/CBirkbeck/tauceti-explorer/blob/cef4c2085eddbf723e9050f7d4924924d593a0e3/research/blueprint/suggested/StableReductionPartII.lean); the preceding kernel experiment remains at [3f2331a2](https://github.com/CBirkbeck/tauceti-explorer/blob/3f2331a296aa232a5eaf419df358db0cfec27553/research/blueprint/suggested/StableReductionPartII.lean). Their checks are historical, not rerun here.
 
-```python
-from itertools import product
-L=3
-assertions=models=0
-def check(b):
- global assertions
- assert b
- assertions+=1
-for n in range(1,9):
- for gamma,delta,s,t in product(range(n),repeat=4):
-  if t**L%n:continue
-  models+=1
-  q=(s*s+gamma*s*t+delta*t*t)%n
-  zero=(0,)*(2*L)
-  one=(1%n,)+(0,)*(2*L-1)
-  u=(0,)*L+(1%n,)+(0,)*(L-1)
-  def add(a,b):return tuple((x+y)%n for x,y in zip(a,b))
-  def scale(c,a):return tuple(c*x%n for x in a)
-  def cp(c):return (c%n,)+(0,)*(2*L-1)
-  def poly_mul(a,b):
-   return tuple(sum(a[j]*b[i-j] for j in range(i+1))%n for i in range(L))
-  def mul(a,b):
-   aa,ab,ba,bb=a[:L],a[L:],b[:L],b[L:]
-   ac=poly_mul(aa,ba);bd=poly_mul(ab,bb)
-   cross=poly_mul(aa,bb);cross2=poly_mul(ab,ba)
-   return tuple((ac[i]+q*bd[i]-(delta*bd[i-2] if i>=2 else 0))%n for i in range(L))+tuple(
-    (cross[i]+cross2[i]-(gamma*bd[i-1] if i else 0))%n for i in range(L))
-  def ev(r):return sum((r[i]+s*r[L+i])*t**i for i in range(L))%n
-  def project(r):return add(r,scale(-1,cp(ev(r))))
-  def split(r):return project(r),ev(r)
-  def unsplit(j,a):return add(j,cp(a))
-  basis=[tuple(int(i==j)%n for i in range(2*L)) for j in range(2*L)]
-  for a in range(n):check(ev(cp(a))==a);check(split(cp(a))==(zero,a))
-  for i,r in enumerate(basis):
-   j,a=split(r);check(ev(j)==0);check(unsplit(j,a)==r);check(project(j)==j)
-   check(ev(r)==sum((r[k]+s*r[L+k])*t**k for k in range(L))%n)
-   for b in range(n):check(split(scale(b,r))==(scale(b,j),b*a%n))
-   for z in basis:
-    check(ev(mul(r,z))==ev(r)*ev(z)%n)
-    check(project(add(r,z))==add(project(r),project(z)))
-  if n==4 and (gamma,delta,s,t)==(0,0,1,0):
-   check(split(u)==(add(u,scale(-1,one)),1));check(project(u)!=zero)
-  if n==1:check(all(split(r)==(zero,0) for r in basis))
-  if n==5 and (gamma,delta,s,t)==(1,0,0,0):
-   check(project(one)==zero);check(project(u)==u);check(u!=zero)
-   check(project(mul(u,one))!=mul(u,project(one)))
-print("finite models R/(v^3), moduli 1–8:",models)
-print("exact splitting, scalar and evaluation assertions:",assertions)
-print("nonreduced, zero-base and non-R-linear fixtures: passed")
-```
+Indexed packet checker: zero errors/warnings. Actual read-only atlas assembler, injecting the packet before replaced-decomposition trimming: stages3,050 vertices/8,750 edges; own125/284; scoped stages/declarations/requests3,140/9,273. All acyclic. All81 computed stage prerequisite pairs reachable; no own skipped links; identical stage edges and unrelated skipped links compared with the original packet overlay. It does not audit every unrelated accepted declaration graph. Five-path intake, preservation, canonical signature/example parity and whitespace checks pass.
 
-Indexed checker: zero errors/warnings. Actual read-only atlas assembler with the normal overlays and replaced-decomposition trimming: stages3050 vertices/8750 edges, own119/264, scoped stages/declarations/requests3134/9247, all acyclic. All81 computed stage prerequisite pairs reachable; no own skipped links; identical stage edges and other-roadmap skips compared with the unchanged packet overlay. Counts differ from historical receipts because the explicit computation and source snapshot are identified. This does not audit every unrelated accepted declaration graph.
-
-Reproduce the projection/preservation check below from the repository, saving it in your own scratch. It only writes its JSON result next to itself and performs no site build.
+Reproduce the scoped graph and preservation check from the repository using the standard-library script below, saved in your own scratch. It writes only its JSON result next to the script and performs no site build.
 
 ```python
 import json,sys,subprocess,hashlib,re
@@ -93,7 +42,7 @@ root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
 rid="StableReductionPartII"
 packetpath="research/blueprint/packets/"+rid+".json"
 roadmappath="research/blueprint/roadmaps/"+rid+".json"
-base="8f4ada63db0b7f081d82ed98518523585770a21e"
+base="7d980305cb145551de205b667b7300a7b18d99c7"
 p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
 old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
 oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
@@ -172,7 +121,7 @@ for req in p["requests"]:
 missing=[(s,t) for s,t in pairs if not reachable(s,t)]
 assert not missing,missing
 ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
-assert ar[rid]["blueprint"]["declarations"]==119
+assert ar[rid]["blueprint"]["declarations"]==125
 assert ar[rid]["blueprint"]["planets"]==35
 assert not ar[rid]["blueprint"]["skippedLinks"]
 assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
@@ -195,7 +144,7 @@ changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True)
 assert changed<=allowed,changed
 for path in changed:
  assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
-result={"actualAssembler":True,"declarations":119,"planets":35,"ownSkippedLinks":[],
+result={"actualAssembler":True,"declarations":125,"planets":35,"ownSkippedLinks":[],
  "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
  "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
  "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
@@ -207,21 +156,17 @@ print(json.dumps(result,indent=2))
 
 SHA-256 receipts:
 
-- Current native: d544f7832817056f8155239d116d0d0fa55f5a1341e1d1ef56433d390c037784
-- native.log: 35106ebb4dcb128e07a96dfe194ced01db341578dde6b68d3dea770799f049cd
-- kernel.lean: 030538ddbfbf97c41743ce4d91d4b20e9a9229826a13c1f13f582dbb968dd11a
-- kernel.log: 93c599da8f82de6a3c493b3e6cb17305b6ed374832beeecd4ff841b7062cba6f
-- finite.py: f2c6ad3df39f5cc81195d3a150b73cc34bedc8178191629a61d520fe78be24bc
-- finite.log: 22a786c2f09185507ed1711c38d7a513bd4fabc402a074d352e0baf4a2b9ce5c
-- projection.py: c249208d9836ee6de726fa9f65c6e94302da2ec5a1a60a6ee329956c8bff99a5
-- Knudsen2012-v2.pdf: de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36
+- canonical proof source: 3d93800d52ffe26a39e1ce5e793b5294fd27d03599472a652adaf0243a4720e9
+- canonical proof log: c3843e9e75665f9cd8306e298ffef6ab12ccffaa00df1f47e7760b2ff32b6093
+- current full sketch: 1742af2721d465f31c49307c9ea6dc0797e20c4bb9e33fa5475c46b7b13a8367
+- current sketch log: 535aafefafa1ced7c72379d89c62d23f4ff188eb734ea9c5ee6e0219297c4172
+- atlas script: 0fbb46fa8cc7053b0276d9cc991fcba19626da329558ef9f61c0c0f490b0989a
+- selected source HTML: 2c89ce4072046d546ff9256a5c64cd488f41026c561f8858f4a78ce14c21d685
 
 ## Continue from here
 
-Instantiate the suggested coefficient splitting against its actual ideal and coefficient-module scalar tower, using the checked quotient-kernel route and built complementary-submodule equivalence. Keep the maps canonical. Then finish the actual cokernel/dual/scalar-correction/tensor comparisons and sheaf descent.
+The concrete coefficient splitting is now established in the immutable native prototype. Finish actual cokernel/dual-generator/normal-equivalence/scalar-correction and tensor comparisons, preserving canonical maps. Then establish sheaf descent.
 
-The unapproved StablePeriodicCurved PartII ownership proposal remains unapproved. Supply the relative S→R stable-reflexivity criterion and arbitrary S-module Hom/Ext comparisons; ordinary flat ambient Hom transport does not replace them. Acquire/prove the two-base completion comparison of Appendix Proposition6 and resolve Proposition7's exercise. Establish the unit-discriminant pointed completed-local hull, its actual nodal-family identification and coefficient-compatible faithful descent.
+The unapproved StablePeriodicCurved PartII ownership proposal remains unapproved. Supply the relative S→R stable-reflexivity criterion and arbitrary S-module Hom/Ext comparisons; ordinary flat ambient Hom transport does not replace them. Acquire/prove Appendix Proposition6's two-base completion comparison and resolve Proposition7's exercise. Establish the unit-discriminant pointed completed-local hull, actual nodal-family identification and coefficient-compatible faithful descent.
 
-All remaining MC.0–MC.7 moduli, positivity, fine-level, determinant/Deligne pairing, Picard/Torelli, arbitrary-base approximation and source-collation gaps remain required. No stage or shared geometric key is closed.
-
-The complete preceding handoff remains at the base commit named in the projection script. Own scratch is removed after opening the PR; referenced source code survives above or in the immutable suggested-file archive, with exact hashes.
+All remaining MC.0–MC.7 moduli, positivity, fine-level, determinant/Deligne-pairing, Picard/Torelli, arbitrary-base approximation and source-collation gaps remain required. No stage or shared geometric key is closed. Complete preceding handoff remains at the recorded base. Scratch is deleted after PR opening; all reproducible proof source survives in the immutable archive and graph recipe above.
