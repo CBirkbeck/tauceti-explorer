@@ -1452,3 +1452,201 @@ example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
 example : Subsingleton (⨁ n : ℕ, adicRingPiece (⊤ : Ideal A) n) := by sorry
 end AdicGraded
 end TauCeti.HilbertSamuel
+
+/-! ## R03.3: ordinary associated graded modules (codex-5ebb6f)
+Aliases below reuse Ideal.stableFiltration and its native polynomial Rees module.
+Only the adic quotient and its comparisons are new. No graded polynomial is assumed.
+-/
+namespace TauCeti.HilbertSamuel
+noncomputable section AdicModule
+set_option backward.isDefEq.respectTransparency.types false
+open scoped Polynomial DirectSum
+variable {A : Type*} [CommRing A]
+variable (q : Ideal A) (M : Type*) [AddCommGroup M] [Module A M]
+
+abbrev adicReesModule := ↥((q.stableFiltration (⊤ : Submodule A M)).submodule)
+abbrev adicModuleDenominator : Submodule (reesAlgebra q) (adicReesModule q M) :=
+  reesCoefficientIdeal q • ⊤
+
+-- Specify the scalar ring to native quotient inference on this Rees subtype.
+local instance adicReesModule_hasQuotient :
+    HasQuotient (adicReesModule q M) (Submodule (reesAlgebra q) (adicReesModule q M)) :=
+  @Submodule.hasQuotient (reesAlgebra q) (adicReesModule q M) _ _ _
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-graded-module
+abbrev adicGradedModule := adicReesModule q M ⧸ adicModuleDenominator q M
+
+instance (priority := 1200) adicGradedModule_quotientModule :
+    Module (adicGradedRing q) (adicGradedModule q M) :=
+  (Module.isTorsionBySet_quotient_ideal_smul
+    (adicReesModule q M) (reesCoefficientIdeal q)).module
+
+instance (priority := 1200) adicGradedModule_quotientSMul :
+    SMul (adicGradedRing q) (adicGradedModule q M) :=
+  (adicGradedModule_quotientModule q M).toSMul
+
+instance (priority := 100) adicGradedModule_residueModule : Module (A ⧸ q) (adicGradedModule q M) :=
+  Module.compHom (adicGradedModule q M) (algebraMap (A ⧸ q) (adicGradedRing q))
+
+instance adicGradedModule_residueTower :
+    IsScalarTower (A ⧸ q) (adicGradedRing q) (adicGradedModule q M) := by sorry
+
+instance adicGradedModule_baseTower :
+    IsScalarTower A (A ⧸ q) (adicGradedModule q M) := by sorry
+
+lemma adicGradedModule_mk_smul (r : reesAlgebra q) (f : adicReesModule q M) :
+    Ideal.Quotient.mk (reesCoefficientIdeal q) r •
+      (Submodule.Quotient.mk f : adicGradedModule q M) =
+      Submodule.Quotient.mk (r • f) := rfl
+lemma adicGradedModule_residue_smul (a : A) (x : adicGradedModule q M) :
+    Ideal.Quotient.mk q a • x = a • x := by sorry
+lemma adicGradedModule_top : Subsingleton (adicGradedModule (⊤ : Ideal A) M) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/rees-module-coefficient-denominator
+lemma mem_adicModuleDenominator_iff (f : adicReesModule q M) :
+    f ∈ adicModuleDenominator q M ↔
+      ∀ n : ℕ, (f : PolynomialModule A M).coeff n ∈
+        q ^ (n + 1) • (⊤ : Submodule A M) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-map
+noncomputable def adicModuleMonomial (n : ℕ) :
+    ↥(q ^ n • (⊤ : Submodule A M)) →ₗ[A] adicGradedModule q M where
+  toFun m := Submodule.Quotient.mk ⟨PolynomialModule.single A n m, by sorry⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+lemma adicModuleMonomial_eq (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    ∃ h : PolynomialModule.single A n (m : M) ∈
+        (q.stableFiltration (⊤ : Submodule A M)).submodule,
+      adicModuleMonomial q M n m = Submodule.Quotient.mk ⟨_, h⟩ := by sorry
+lemma adicModuleMonomial_add (n : ℕ) (m m' : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModuleMonomial q M n (m + m') =
+      adicModuleMonomial q M n m + adicModuleMonomial q M n m' := by sorry
+lemma adicModuleMonomial_smul (n : ℕ) (a : A) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModuleMonomial q M n (a • m) = a • adicModuleMonomial q M n m := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-monomial-kernel
+lemma adicModuleMonomial_ker (n : ℕ) :
+    LinearMap.ker (adicModuleMonomial q M n) =
+      q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))) := by sorry
+
+-- Same quotient carrier as gradedFunction, rather than another filtration structure.
+abbrev adicModulePiece (n : ℕ) :=
+  ↥(q ^ n • (⊤ : Submodule A M)) ⧸
+    (q • (⊤ : Submodule A ↥(q ^ n • (⊤ : Submodule A M))))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-piece-inclusion
+noncomputable def adicModulePieceInclusion (n : ℕ) :
+    adicModulePiece q M n →ₗ[A] adicGradedModule q M :=
+  Submodule.liftQ _ (adicModuleMonomial q M n) (by rw [adicModuleMonomial_ker])
+lemma adicModulePieceInclusion_mk (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    adicModulePieceInclusion q M n (Submodule.Quotient.mk m) =
+      adicModuleMonomial q M n m := rfl
+lemma adicModulePieceInclusion_injective (n : ℕ) :
+    Function.Injective (adicModulePieceInclusion q M n) := by sorry
+lemma adicModulePieceInclusion_residue_smul (n : ℕ) (a : A ⧸ q)
+    (m : adicModulePiece q M n) :
+    adicModulePieceInclusion q M n (a • m) =
+      a • adicModulePieceInclusion q M n m := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-homogeneous-module-action
+lemma adicModuleMonomial_smul_monomial (r n : ℕ) (a : ↥(q ^ r))
+    (m : ↥(q ^ n • (⊤ : Submodule A M))) :
+    ∃ h : (a : A) • (m : M) ∈ q ^ (r + n) • (⊤ : Submodule A M),
+      adicMonomial q r a • adicModuleMonomial q M n m =
+        adicModuleMonomial q M (r + n) ⟨_, h⟩ := by sorry
+
+abbrev adicModuleExpansion : (⨁ n : ℕ, adicModulePiece q M n) →ₗ[A] adicGradedModule q M :=
+  DirectSum.toModule A ℕ (adicGradedModule q M) (adicModulePieceInclusion q M)
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-expansion-bijective
+lemma adicModuleExpansion_bijective : Function.Bijective (adicModuleExpansion q M) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-direct-sum
+noncomputable def adicModuleDirectSumEquiv :
+    (⨁ n : ℕ, adicModulePiece q M n) ≃ₗ[A] adicGradedModule q M :=
+  LinearEquiv.ofBijective (adicModuleExpansion q M) (adicModuleExpansion_bijective q M)
+lemma adicModuleDirectSumEquiv_lof (n : ℕ) (x : adicModulePiece q M n) :
+    adicModuleDirectSumEquiv q M (DirectSum.lof A ℕ (adicModulePiece q M) n x) =
+      adicModulePieceInclusion q M n x := by sorry
+lemma adicModuleDirectSumEquiv_coe :
+    (adicModuleDirectSumEquiv q M).toLinearMap = adicModuleExpansion q M := rfl
+lemma adicModuleDirectSumEquiv_symm_inclusion (n : ℕ) (x : adicModulePiece q M n) :
+    (adicModuleDirectSumEquiv q M).symm (adicModulePieceInclusion q M n x) =
+      DirectSum.lof A ℕ (adicModulePiece q M) n x := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-degree-zero-generation
+lemma adicGradedModule_generated_degree_zero :
+    Submodule.span (adicGradedRing q) (Set.range (adicModuleMonomial q M 0)) = ⊤ := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-module-finite
+lemma adicGradedModule_finite [Module.Finite A M] :
+    Module.Finite (adicGradedRing q) (adicGradedModule q M) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/adic-regular-module-comparison
+lemma adicRegularModuleComparison :
+    ∃ e : adicGradedModule q A ≃ₗ[adicGradedRing q] adicGradedRing q,
+      ∀ (n : ℕ) (m : ↥(q ^ n • (⊤ : Submodule A A))),
+        ∃ h : (m : A) ∈ q ^ n,
+          e (adicModuleMonomial q A n m) = adicMonomial q n ⟨_, h⟩ := by sorry
+
+end AdicModule
+end TauCeti.HilbertSamuel
+
+/-! Native acceptance tests for the four module constructions. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section AdicModuleTests
+open scoped DirectSum
+variable {A : Type*} [CommRing A]
+variable (M : Type*) [AddCommGroup M] [Module A M]
+
+-- test: HilbertSamuelAdicModuleTest.zero_ideal_module
+example : Nonempty (adicGradedModule (⊥ : Ideal A) M ≃ₗ[A] M) := by sorry
+-- test: HilbertSamuelAdicModuleTest.unit_ideal_module
+example : Subsingleton (adicGradedModule (⊤ : Ideal A) M) := by sorry
+-- test: HilbertSamuelAdicModuleTest.residue_module_degree_one_action
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ a : ↥(q ^ 1), adicMonomial q 1 a ≠ 0 ∧
+      ∀ x : adicGradedModule q (ZMod 4 ⧸ q), adicMonomial q 1 a • x = 0 := by sorry
+
+-- test: HilbertSamuelAdicModuleTest.monomial_zero_degree_injective
+example : Function.Injective (adicModuleMonomial (⊥ : Ideal A) M 0) := by sorry
+-- test: HilbertSamuelAdicModuleTest.monomial_regular_two_survives
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ m : ↥(q ^ 1 • (⊤ : Submodule (ZMod 4) (ZMod 4))),
+      adicModuleMonomial q (ZMod 4) 1 m ≠ 0 := by sorry
+-- test: HilbertSamuelAdicModuleTest.monomial_residue_degree_one_zero
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∀ m : ↥(q ^ 1 • (⊤ : Submodule (ZMod 4) (ZMod 4 ⧸ q))),
+      adicModuleMonomial q (ZMod 4 ⧸ q) 1 m = 0 := by sorry
+
+-- test: HilbertSamuelAdicModuleTest.piece_length_same_carrier
+example (q : Ideal A) (n : ℕ) :
+    gradedFunction q (M := M) n = Module.length A (adicModulePiece q M n) := rfl
+-- test: HilbertSamuelAdicModuleTest.piece_regular_two_injective
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    Function.Injective (adicModulePieceInclusion q (ZMod 4) 1) ∧
+      ∃ m : adicModulePiece q (ZMod 4) 1,
+        adicModulePieceInclusion q (ZMod 4) 1 m ≠ 0 := by sorry
+-- test: HilbertSamuelAdicModuleTest.piece_residue_higher_zero
+example (n : ℕ) : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    Subsingleton (adicModulePiece q (ZMod 4 ⧸ q) (n + 1)) := by sorry
+
+-- test: HilbertSamuelAdicModuleTest.expansion_zero_degree
+example (x : adicModulePiece (⊥ : Ideal A) M 0) :
+    adicModuleDirectSumEquiv (⊥ : Ideal A) M
+      (DirectSum.lof A ℕ (adicModulePiece (⊥ : Ideal A) M) 0 x) =
+      adicModulePieceInclusion (⊥ : Ideal A) M 0 x := by sorry
+-- test: HilbertSamuelAdicModuleTest.expansion_regular_degree_one
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∃ x : adicModulePiece q (ZMod 4) 1,
+      adicModuleDirectSumEquiv q (ZMod 4)
+        (DirectSum.lof (ZMod 4) ℕ (adicModulePiece q (ZMod 4)) 1 x) ≠ 0 := by sorry
+-- test: HilbertSamuelAdicModuleTest.expansion_residue_higher_zero
+example (n : ℕ) : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    ∀ x : adicModulePiece q (ZMod 4 ⧸ q) (n + 1),
+      adicModuleDirectSumEquiv q (ZMod 4 ⧸ q)
+        (DirectSum.lof (ZMod 4) ℕ (adicModulePiece q (ZMod 4 ⧸ q)) (n + 1) x) = 0 := by sorry
+
+end AdicModuleTests
+end TauCeti.HilbertSamuel
