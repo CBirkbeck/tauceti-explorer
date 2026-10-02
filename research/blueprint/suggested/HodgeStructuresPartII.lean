@@ -1630,3 +1630,117 @@ example :
 
 end
 end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+-- Arbitrary-coefficient cross-ring ordered coherence (affine only).
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+private def prependEquiv (R Q : Type*) [CommRing R] [AddCommGroup Q] [Module R Q]
+    (n : ℕ) : Q ⊗[R] (⨂[R]^n Q) ≃ₗ[R] (⨂[R]^(n+1) Q) := sorry
+
+/-- Native cross-ring distributor for the left-prepended ordered tensor convention. -/
+def affineTensorPowerBaseChange : (n : ℕ) →
+    S ⊗[R] TensorPower R n Q ≃ₗ[S] TensorPower S n (S ⊗[R] Q) := sorry
+
+lemma affineTensorPowerBaseChange_symm_apply (n : ℕ) (x : S ⊗[R] TensorPower R n Q) :
+    (affineTensorPowerBaseChange S n).symm (affineTensorPowerBaseChange S n x) = x := sorry
+
+lemma affineTensorPowerBaseChange_unit (a : S) :
+    affineTensorPowerBaseChange (Q := Q) S 0
+      (a ⊗ₜ[R] TensorPower.algebraMap₀ (R := R) (M := Q) 1) =
+      TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q) a := sorry
+
+lemma affineTensorPowerBaseChange_prepend (n : ℕ) (a : S) (q : Q)
+    (t : TensorPower R n Q) :
+    affineTensorPowerBaseChange S (n + 1) (a ⊗ₜ[R] prependEquiv R Q n (q ⊗ₜ[R] t)) =
+      prependEquiv S (S ⊗[R] Q) n
+        ((a ⊗ₜ[R] q) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t)) := sorry
+
+def affineOrderedBaseChange (n : ℕ) :
+    S ⊗[R] (E ⊗[R] TensorPower R n Q) ≃ₗ[S]
+      (S ⊗[R] E) ⊗[S] TensorPower S n (S ⊗[R] Q) := sorry
+
+lemma affineOrderedBaseChange_tmul (n : ℕ) (a : S) (e : E) (t : TensorPower R n Q) :
+    affineOrderedBaseChange S n (a ⊗ₜ[R] (e ⊗ₜ[R] t)) =
+      (a ⊗ₜ[R] e) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t) := sorry
+
+lemma affineOrderedBaseChange_step (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (affineOrderedBaseChange S (n + 1)).toLinearMap.comp
+      ((affineOrderedStep θ n).baseChange S) =
+    (affineOrderedStep (affineBaseChange S θ) n).comp
+      (affineOrderedBaseChange S n).toLinearMap := sorry
+
+lemma affineOrderedIterate_baseChange_comparison (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    (affineOrderedBaseChange S n).toLinearMap.comp ((affineOrderedIterate θ n).baseChange S) =
+      affineOrderedIterate (affineBaseChange S θ) n := sorry
+
+lemma affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients
+    (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 := sorry
+
+lemma affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients
+    [Module.FaithfullyFlat R S] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+    affineOrderedIterate (affineBaseChange S θ) n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+noncomputable section
+variable {R E Q : Type*} [CommRing R]
+variable [AddCommGroup E] [Module R E] [AddCommGroup Q] [Module R Q]
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_unit
+example (a : ZMod 4) :
+    affineTensorPowerBaseChange (R := ℤ) (Q := ZMod 2) (ZMod 4) 0
+      (a ⊗ₜ[ℤ] TensorPower.algebraMap₀ (R := ℤ) (M := ZMod 2) 1) =
+      TensorPower.algebraMap₀ (R := ZMod 4) (M := (ZMod 4) ⊗[ℤ] (ZMod 2)) a := sorry
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_prepend
+example (q : ZMod 2) (t : TensorPower ℤ 1 (ZMod 2)) :
+    affineTensorPowerBaseChange ℤ 2
+      ((1 : ℤ) ⊗ₜ[ℤ] prependEquiv ℤ (ZMod 2) 1 (q ⊗ₜ[ℤ] t)) =
+      prependEquiv ℤ (ℤ ⊗[ℤ] (ZMod 2)) 1
+        (((1 : ℤ) ⊗ₜ[ℤ] q) ⊗ₜ[ℤ] affineTensorPowerBaseChange ℤ 1 (1 ⊗ₜ[ℤ] t)) := sorry
+
+-- test: TwistedHiggsBundle.affineTensorPowerBaseChange.test_nonflat_distributor
+example (n : ℕ) (x : (ZMod 2) ⊗[ℤ] TensorPower ℤ n (ZMod 2)) :
+    (affineTensorPowerBaseChange (ZMod 2) n).symm
+      (affineTensorPowerBaseChange (ZMod 2) n x) = x := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_unit
+example (a : S) (e : E) :
+    affineOrderedBaseChange (Q := Q) S 0
+      (a ⊗ₜ[R] (e ⊗ₜ[R] TensorPower.algebraMap₀ (R := R) (M := Q) 1)) =
+      (a ⊗ₜ[R] e) ⊗ₜ[S] TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q) 1 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_torsion_degree_two
+example (θ : ZMod 2 →ₗ[ℤ] (ZMod 2) ⊗[ℤ] (ZMod 2)) :
+    (affineOrderedBaseChange ℤ 2).toLinearMap.comp
+      ((affineOrderedIterate θ 2).baseChange ℤ) =
+      affineOrderedIterate (affineBaseChange ℤ θ) 2 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedBaseChange.test_zero_module
+example (n : ℕ) (x : S ⊗[R] ((Fin 0 → R) ⊗[R] TensorPower R n Q)) :
+    affineOrderedBaseChange S n x = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_preservation
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ)
+    (h : affineOrderedIterate θ n = 0) :
+    affineOrderedIterate (affineBaseChange (ZMod 2) θ) n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_reflection
+example (θ : ZMod 4 →ₗ[ℤ] (ZMod 4) ⊗[ℤ] (ZMod 2)) (n : ℕ) :
+    affineOrderedIterate (affineBaseChange ℤ θ) n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
+
+-- test: TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_degree_zero
+example [Nontrivial R] [Module.FaithfullyFlat R S] (θ : R →ₗ[R] R ⊗[R] Q) :
+    affineOrderedIterate (affineBaseChange S θ) 0 ≠ 0 := sorry
+
+end
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
