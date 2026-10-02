@@ -54585,3 +54585,394 @@ Exact rational controls check48positive moduli,712primitive points,3,560integer 
 Fresh main after the execution interruption changes five guarded inputs. Protocol sections8 and19 clarify independent-session review and assign previously unowned key definitions once; review390 remains blocked and unclaimed. Eleven new reserved key-definition IDs concern other roadmap owners, with no new Dirichlet assignment. Polylogarithms changes only its independent review and archived review history, preserving all mathematical and source data. The source register changes are screened by owner, citation and full-record keyword checks; none concerns Kubert, the Gross–Koblitz/Robert Gamma sources, DirichletPadicLFunctions or the finite-Galois-ring owner. No source finding is adopted, rejected or independently reviewed here. All four predecessor outputs and the issue body remain unchanged.
 
 The separate partial signature file also compiled with zero errors and 5,439 expected placeholder warnings across 3,644 pinned source modules. It includes all 9 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8d5a8b086e316071270cafcea653876e3cebae4d8206a26e3cab35caba457555.
+
+
+## Actual degree-one Cartan action and simple transitivity
+
+Fourteen L3 nodes identify actual degree-one Cartan multiplication with native scalar action on rational-circle torsion, prove simple transitivity on primitive points, and establish primitive reduction and level restriction compatibility. All1,802 predecessor nodes and1,183 baseline records remain whole.
+
+Kubert186–188 identifies the source Cartan action, simple transitivity and restriction used in equation2.10. The actual degree-one specialization uses native residue-unit action on the already established torsion-group ZMod module. The complete native unit-action, additive-equivalence and integer-scalar declarations were read at the pinned baseline. Existing actual primitive transport and integer-coordinate formulas supply simple transitivity without an assumed torsor. Distinguish primitive reduction, which multiplies the point by N/M, from restriction to a smaller kernel, which retains the same ambient point.
+
+### The actual degree-one Cartan action on circle torsion
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv` — `DirichletPadic.kubertCartanCircleLevelEquiv`
+
+For positive N and original Cartan unit u in U(1,N), construct an additive automorphism A_N(u) of the actual kernel of multiplication by N on Q/Z. It is the native scalar action of the actual residue unit e_N(u), using the already established native ZMod N module structure on this torsion kernel. Its inverse is the action of the inverse residue unit.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Use the existing circleLevelModule from the native module structure on groups killed by N.
+2. Apply native DistribMulAction.toAddEquiv to the original finite residue unit e_N(u). The native construction supplies the additive homomorphism, inverse and equivalence laws.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv`, `DirichletPadicLFunctions:L3/kubert-congruence-circle-level-module`, `mathlib:DistribMulAction.toAddEquiv`.
+
+**Uses:**
+
+- Kubert187, Cartan group acting simply transitively on primitive elements: Identifies the original finite Cartan multiplication with a proved actual action on primitive rational-circle points, including its unique transporter.
+- Kubert188, equations(2.9)–(2.10): Provides the actual action on all torsion points and its restriction across divisibility levels for the compatible Cartan-valued distribution formula.
+
+**API:**
+
+- `kubertCartanCircleLevelEquiv_intCast_coe` (compatibility): For positive N, original unit u, actual level-N circle point x and any integer a with class modulo N equal to e_N(u), the ambient point underlying A_N(u)(x) equals a times the ambient point x. This includes negative representatives and points whose order is a proper divisor of N.
+- `kubertCartanCircleLevelEquiv_one` (compatibility): For each positive N, A_N(1) is the identity additive equivalence of the actual level-N rational-circle kernel.
+- `kubertCartanCircleLevelEquiv_mul` (compatibility): For positive N and original units u,v, A_N(uv)=A_N(u) composed with A_N(v). The action of v is applied first, then the action of u.
+- `kubertCartanCircleLevelEquiv_inv` (compatibility): For positive N and original unit u, A_N(u inverse) is the inverse additive equivalence of A_N(u).
+- `kubertCartanCircleLevelEquiv_restriction` (compatibility): For positive M dividing positive N, original u in U(1,N), actual x in the level-M kernel and actual y in the level-N kernel with equal underlying rational-circle points, the ambient points A_M(r_M,N(u))(x) and A_N(u)(y) are equal. This includes every imprimitive level-N point lying in the smaller kernel; it does not multiply the ambient point by N/M.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.level_one_zero_action` (degenerate): At modulus1 the actual Cartan identity acts as the identity on the zero circle point.
+- `SuggestedKubertDegreeOneCartanActionTests.level_five_unit_two` (computation): The original Cartan tuple with residue2 modulo5 sends the actual level point1/5 to2/5.
+- `SuggestedKubertDegreeOneCartanActionTests.imprimitive_level_twelve_point` (compatibility): Unit5 modulo12 fixes the imprimitive level12 point1/4, because its reduction modulo4 is1. The action is defined on every level point, not only primitive points.
+- `SuggestedKubertDegreeOneCartanActionTests.level_action_additivity` (characterisation): The actual level action is additive on every pair of level points.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Integer representatives give the actual scalar action on level points
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-int-cast-coe` — `DirichletPadic.kubertCartanCircleLevelEquiv_intCast_coe`
+
+For positive N, original unit u, actual level-N circle point x and any integer a with class modulo N equal to e_N(u), the ambient point underlying A_N(u)(x) equals a times the ambient point x. This includes negative representatives and points whose order is a proper divisor of N.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Native Units.smul_def identifies the unit action with action by its underlying residue.
+2. Replace that residue by the specified integer cast and apply native Int.cast_smul_eq_zsmul.
+3. Coerce the resulting equality in the actual torsion subgroup to the actual rational circle.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`, `mathlib:Units.smul_def`, `mathlib:Int.cast_smul_eq_zsmul`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCircleLevelEquiv_intCast_coe_typed_api` (compatibility): For positive N, original unit u, actual level-N circle point x and any integer a with class modulo N equal to e_N(u), the ambient point underlying A_N(u)(x) equals a times the ambient point x. This includes negative representatives and points whose order is a proper divisor of N.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The Cartan identity acts identically on the entire torsion subgroup
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-one` — `DirichletPadic.kubertCartanCircleLevelEquiv_one`
+
+For each positive N, A_N(1) is the identity additive equivalence of the actual level-N rational-circle kernel.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The original finite Cartan equivalence preserves the group identity.
+2. The native action of the identity unit fixes every actual torsion point; additive-equivalence extensionality concludes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCircleLevelEquiv_one_typed_api` (compatibility): For each positive N, A_N(1) is the identity additive equivalence of the actual level-N rational-circle kernel.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Cartan multiplication composes the actual level actions
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-mul` — `DirichletPadic.kubertCartanCircleLevelEquiv_mul`
+
+For positive N and original units u,v, A_N(uv)=A_N(u) composed with A_N(v). The action of v is applied first, then the action of u.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The actual finite Cartan equivalence sends uv to the product of the two residue units.
+2. Use the native multiplication law for the unit action on the actual torsion module and additive-equivalence extensionality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCircleLevelEquiv_mul_typed_api` (compatibility): For positive N and original units u,v, A_N(uv)=A_N(u) composed with A_N(v). The action of v is applied first, then the action of u.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The inverse Cartan unit gives the inverse level action
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-inv` — `DirichletPadic.kubertCartanCircleLevelEquiv_inv`
+
+For positive N and original unit u, A_N(u inverse) is the inverse additive equivalence of A_N(u).
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The finite Cartan multiplicative equivalence preserves inverse.
+2. The inverse in native DistribMulAction.toAddEquiv is precisely action by the inverse scalar unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCircleLevelEquiv_inv_typed_api` (compatibility): For positive N and original unit u, A_N(u inverse) is the inverse additive equivalence of A_N(u).
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The actual Cartan permutation of primitive circle points
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv`
+
+For positive N and original unit u, construct a permutation P_N(u) of the actual rational-circle points of additive order N. Transport an ambient primitive point into the actual level-N kernel using primitiveLevelEquiv, apply existing primitiveEquiv for the actual additive automorphism A_N(u), and transport back to the ambient circle.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The existing primitiveLevelEquiv identifies actual ambient primitive points with points of exact order N inside the actual torsion kernel.
+2. The already constructed A_N(u) is an additive equivalence, so existing primitiveEquiv preserves exact additive order.
+3. Compose with the inverse of the original level identification; every underlying point remains in the actual rational circle.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`, `DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv`.
+
+**Uses:**
+
+- Kubert187, Cartan group acting simply transitively on primitive elements: Identifies the original finite Cartan multiplication with a proved actual action on primitive rational-circle points, including its unique transporter.
+- Kubert188, equations(2.9)–(2.10): Provides the actual action on all torsion points and its restriction across divisibility levels for the compatible Cartan-valued distribution formula.
+
+**API:**
+
+- `kubertCartanCirclePrimitiveEquiv_intCast_coe` (compatibility): For positive N, original unit u, actual primitive point x and integer representative a of e_N(u), the actual ambient point P_N(u)(x) equals a times x in Q/Z.
+- `kubertCartanCirclePrimitiveEquiv_one` (compatibility): For every positive N, P_N(1) is the identity permutation of the actual primitive rational-circle points of order N.
+- `kubertCartanCirclePrimitiveEquiv_mul` (compatibility): For positive N and original units u,v, P_N(uv)=P_N(u) composed with P_N(v), with v acting first.
+- `kubertCartanCirclePrimitiveEquiv_inv` (compatibility): For positive N and original unit u, P_N(u inverse) is the inverse of P_N(u).
+- `kubertCartanCirclePrimitiveEquiv_coordinates` (compatibility): For positive N and original units u,v, P_N(u)(c_N(v))=c_N(uv), where c_N is the established actual Cartan-to-primitive-circle equivalence.
+- `kubertCartanCirclePrimitiveEquiv_existsUnique` (compatibility): For every positive N and any two actual primitive rational-circle points x,y of order N, there exists exactly one original Cartan unit u with P_N(u)(x)=y. If x=c_N(v) and y=c_N(w), that unique unit is w times the inverse of v.
+- `kubertCartanCirclePrimitiveEquiv_reduction` (compatibility): For positive M dividing positive N, original u in U(1,N), and actual primitive level-N point x, primitiveReduction_M,N(P_N(u)(x))=P_M(r_M,N(u))(primitiveReduction_M,N(x)).
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.primitive_level_one_action` (degenerate): The sole level1 primitive point is the zero point and the actual primitive action fixes it.
+- `SuggestedKubertDegreeOneCartanActionTests.primitive_unit_two_forward` (computation): Unit2 modulo5 sends the actual distinguished primitive point1/5 to2/5.
+- `SuggestedKubertDegreeOneCartanActionTests.primitive_inverse_is_unit_three` (non-example): The inverse of the action of unit2 modulo5 sends1/5 to3/5, which differs from the forward image2/5. Inverse and forward coefficient conventions cannot be interchanged.
+- `SuggestedKubertDegreeOneCartanActionTests.primitive_negative_integer_action` (compatibility): Unit5 modulo12 acts on every primitive point by the integer-7 as well as5.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The primitive action retains its original integer scalar
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-int-cast-coe` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_intCast_coe`
+
+For positive N, original unit u, actual primitive point x and integer representative a of e_N(u), the actual ambient point P_N(u)(x) equals a times x in Q/Z.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Both directions of primitiveLevelEquiv retain the original ambient point.
+2. The existing primitive transport applies the actual additive equivalence without changing its underlying point map.
+3. Apply the integer-representative formula for A_N(u) on that actual level point.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-int-cast-coe`, `DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-coe`, `DirichletPadicLFunctions:L3/kubert-congruence-primitive-level-equiv-symm-coe`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-coe`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_intCast_coe_typed_api` (compatibility): For positive N, original unit u, actual primitive point x and integer representative a of e_N(u), the actual ambient point P_N(u)(x) equals a times x in Q/Z.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The Cartan identity fixes every actual primitive point
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-one` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_one`
+
+For every positive N, P_N(1) is the identity permutation of the actual primitive rational-circle points of order N.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The corresponding level action is the identity additive equivalence.
+2. Existing primitiveEquiv_refl gives identity primitive transport, and the actual level identification cancels with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-one`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-refl`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_one_typed_api` (compatibility): For every positive N, P_N(1) is the identity permutation of the actual primitive rational-circle points of order N.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Multiplication composes the actual primitive permutations
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-mul` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_mul`
+
+For positive N and original units u,v, P_N(uv)=P_N(u) composed with P_N(v), with v acting first.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Use the established level-action multiplication formula.
+2. Existing primitiveEquiv_trans transports the ordered composition of additive equivalences.
+3. Cancel each intervening level identification with its inverse.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-mul`, `DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv-trans`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_mul_typed_api` (compatibility): For positive N and original units u,v, P_N(uv)=P_N(u) composed with P_N(v), with v acting first.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Inverse units act by inverse primitive permutations
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-inv` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_inv`
+
+For positive N and original unit u, P_N(u inverse) is the inverse of P_N(u).
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Use the level-action inverse formula.
+2. The explicit primitive transport and its two level identifications give the same inverse point map on both sides.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-inv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_inv_typed_api` (compatibility): For positive N and original unit u, P_N(u inverse) is the inverse of P_N(u).
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The actual primitive action is Cartan multiplication in the established coordinates
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_coordinates`
+
+For positive N and original units u,v, P_N(u)(c_N(v))=c_N(uv), where c_N is the established actual Cartan-to-primitive-circle equivalence.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Choose canonical integer representatives a,b of e_N(u),e_N(v); native representative identities show their casts recover the actual residues.
+2. Since e_N preserves multiplication, the integer ab represents e_N(uv).
+3. The primitive action formula and existing arbitrary-integer circle-coordinate formula identify the left side with a times[b/N].
+4. Native circle coercion commutes with integer multiples, giving[ab/N], which is the existing coordinate formula for c_N(uv).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-int-cast-coe`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-int-cast`, `mathlib:ZMod.natCast_zmod_val`, `mathlib:AddCircle.coe_zsmul`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_coordinates_typed_api` (compatibility): For positive N and original units u,v, P_N(u)(c_N(v))=c_N(uv), where c_N is the established actual Cartan-to-primitive-circle equivalence.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### The actual degree-one Cartan action is simply transitive
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-exists-unique` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_existsUnique`
+
+For every positive N and any two actual primitive rational-circle points x,y of order N, there exists exactly one original Cartan unit u with P_N(u)(x)=y. If x=c_N(v) and y=c_N(w), that unique unit is w times the inverse of v.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. The established actual coordinate equivalence writes x=c_N(v) and y=c_N(w), without assuming a torsor.
+2. The proved coordinate-action formula shows that w times inverse(v) carries x to y.
+3. If another unit does so, injectivity of c_N gives uv=w; native group cancellation forces u=w times inverse(v).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_existsUnique_typed_api` (compatibility): For every positive N and any two actual primitive rational-circle points x,y of order N, there exists exactly one original Cartan unit u with P_N(u)(x)=y. If x=c_N(v) and y=c_N(w), that unique unit is w times the inverse of v.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Primitive reduction commutes with the actual Cartan action
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-reduction` — `DirichletPadic.kubertCartanCirclePrimitiveEquiv_reduction`
+
+For positive M dividing positive N, original u in U(1,N), and actual primitive level-N point x, primitiveReduction_M,N(P_N(u)(x))=P_M(r_M,N(u))(primitiveReduction_M,N(x)).
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Write the actual primitive point x as c_N(v) using the existing coordinate equivalence.
+2. Use the coordinate-action formula and the established compatibility of c_N with every original divisor reduction.
+3. The original Cartan reduction is a group homomorphism, so it preserves uv and identifies the resulting level-M coordinates.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-primitive-equiv-coordinates`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv`, `DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-reduction`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCirclePrimitiveEquiv_reduction_typed_api` (compatibility): For positive M dividing positive N, original u in U(1,N), and actual primitive level-N point x, primitiveReduction_M,N(P_N(u)(x))=P_M(r_M,N(u))(primitiveReduction_M,N(x)).
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+### Cartan actions restrict to the same smaller-level ambient point
+
+`DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-restriction` — `DirichletPadic.kubertCartanCircleLevelEquiv_restriction`
+
+For positive M dividing positive N, original u in U(1,N), actual x in the level-M kernel and actual y in the level-N kernel with equal underlying rational-circle points, the ambient points A_M(r_M,N(u))(x) and A_N(u)(y) are equal. This includes every imprimitive level-N point lying in the smaller kernel; it does not multiply the ambient point by N/M.
+
+**Hypotheses:** The Cartan degree is one. N is a positive integer, U(1,N) is the original product over primes p dividing N of the unit groups of TruncatedWittVector p v_p(N) (GaloisField p 1), and e_N is its established multiplicative equivalence with native units modulo N. The level-N circle is the actual kernel of multiplication by N on AddCircle(1:Q). Primitive points form the actual subtype with additive order exactly N. The established circle coordinates c_N map the original Cartan unit u to[a/N], for any integer representative a of e_N(u). Divisibility comparisons use arbitrary positive M dividing N and the original Cartan reduction r_M,N. The primitive-point reduction multiplies actual points by N/M; restriction to a smaller torsion subgroup instead retains the same ambient point. Native unit actions, the established native modular-module structure on torsion points, and existing transport of primitive points by additive equivalences are reused. No generic Galois-ring theory, assumed torsor, general-degree coherent basis or source lower-rank statement is introduced.
+
+**Proof:**
+
+1. Choose the canonical integer representative a of the original residue e_N(u).
+2. The established finite Cartan reduction comparison identifies the underlying residue of e_M(r_M,N(u)) with the native cast of e_N(u), hence also with the cast of a.
+3. Apply the integer-action formula at both levels using the same integer a.
+4. The two underlying input points are equal by hypothesis, so their integer multiples are equal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-int-cast-coe`, `DirichletPadicLFunctions:L3/kubert-degree-one-finite-cartan-degree-one-finite-equiv-reduction`, `mathlib:ZMod.natCast_zmod_val`.
+
+**Tests:**
+
+- `SuggestedKubertDegreeOneCartanActionTests.cartanCircleLevelEquiv_restriction_typed_api` (compatibility): For positive M dividing positive N, original u in U(1,N), actual x in the level-M kernel and actual y in the level-N kernel with equal underlying rational-circle points, the ambient points A_M(r_M,N(u))(x) and A_N(u)(y) are equal. This includes every imprimitive level-N point lying in the smaller kernel; it does not multiply the ambient point by N/M.
+
+**Acceptance:** At N=1 the sole primitive point0 is fixed. Unit2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. Unit5 modulo12 fixes the imprimitive level12 point1/4 and acts by either integer5 or-7 on level12 points. Primitive reduction and restriction to a smaller torsion subgroup are distinct compatible operations.
+
+**Source:** Published186–187, multiplication on the finite Cartan ring and simple transitivity on primitive elements;188 equations(2.9)–(2.10), Cartan action on level points and its restriction to smaller levels. Identifies the actual degree-one Cartan action with the native residue-unit scalar action on the actual rational-circle torsion kernel; proves its point formula, group laws, primitive coordinates, unique transporter and both kinds of level compatibility. This supplies the action needed by the subsequent source distribution formula.
+
+**Remaining:** The actual degree-one finite Cartan group acts by its original residue-unit scalars on the entire rational-circle torsion kernel and simply transitively on the actual primitive points. Both primitive reduction and restriction to a smaller-level ambient point are proved compatible. Its established coefficient equivalence already identifies Cartan norms with primitive transfer. Next identify the associated native permutation representation with original left regular action, and construct the compatible degree-one Cartan-valued distribution maps of Kubert188 with the printed inverse convention. General-degree coherent primitive coordinates, unramified integer-ring identification and the general distribution fiber count remain open. FF.4 owns finite Galois rings and generic unit/presentation/locality theory. Complete the independent lower rank bound through Kubert186–199 and combine it with actual source surjections and native upper bounds to prove independence, freeness and equality of internal/global relations. Preserve finite parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18 gaps and16 requests remain; zero stages close.
+
+### Actual degree-one Cartan action and simple transitivity validation
+
+All 1802 predecessor nodes, 1183 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 14 nodes, 14 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2078 reachable nodes, 8732 edges and 1354 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in actual original finite Cartan coordinates, actual primitive transport, or native unit and torsion-module action theory. No new supplier-stage leaf or assumed torsor/rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3648 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5674 verbatim and adds two actual constructions and twelve complete lemmas. Totals are131 definitions and1,160 lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains14 named declarations and20 typed tests; all new mathematical bodies are placeholders. No native import or library build is added. The separate probe compiles against 3030 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls at48positive moduli check 22963 levelPointActions, 16214 primitivePointActions, 114815 integerRepresentatives, 471850 uniqueTransporterChecks, 52179 primitiveReductions, 33494 levelRestrictions, 471850 compositionChecks, 22963 inverseChecks. Unit2 modulo5 sends1/5 to2/5 but its inverse sends1/5 to3/5; unit5 modulo12 fixes1/4 and agrees with integer-7 on level12 points. Native proofs separately establish arbitrary-level statements on the actual original Cartan carriers. Exact rational arithmetic modulo1 and exhaustive residue-unit controls at48positive moduli. These concrete controls do not certify arbitrary-level proofs; the separate complete native probe checks the actual original Cartan carriers. The largest observed discrepancy is 0.
+
+Three guarded inputs changed during work and were fully assessed before publication. WORKERS.md now prioritizes blueprint/design after restructuring, with owners-key-definitions jobs first for fresh claims; this same-worker713 continuation retains the original claim and does not take another job. PROTOCOL19 gives maintainer assign.json precedence for key-definition ownership. Reserved coherent duality moves to SchemeAndStackFoundations; etale K(pi,1) is assigned to AnabelianGeometryAndNonabelianChabauty and Hilbert-Samuel multiplicity to DeformationAndDerivedPatchingAlgebra. The complete assign.json and owners.json were read and added to the guard, now79 inputs. None assigns a definition to this roadmap or changes its mathematical dependencies. All four predecessor outputs and the issue body remain unchanged; review390 stays blocked and unclaimed.
+
+The separate partial signature file also compiled with zero errors and 5,473 expected placeholder warnings across 3,644 pinned source modules. It includes all 14 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 13e7e1131b572745fa5250a03c8ac189740cdba36b842fd60cfa16dd20cc5ba4.
