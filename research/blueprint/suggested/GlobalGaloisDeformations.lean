@@ -23,7 +23,7 @@ contributors and reviewers converge on names and signatures. Every proof of a ne
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only.
 
-Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX pending.
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 No existing compiled build was available at the pins; no compilation of this revision is claimed.
 R04.5 imports the finite-image classification, invariants, H¹ vanishing and adjoint submodule
 list from R01.4. The missing supplier is not replaced by numerical group-order tests or an axiom.

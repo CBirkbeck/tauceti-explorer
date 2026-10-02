@@ -23,112 +23,112 @@
     "kind": "class",
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "provides": "Formally smooth algebras.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:ContinuousMonoidHom",
     "kind": "structure",
     "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
     "provides": "Continuous group homomorphisms.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:IsAdicComplete",
     "kind": "class",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "I-adically complete and separated modules/rings.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:IsArtinianRing",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Artinian/Defs.lean",
     "provides": "Artinian rings.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:IsLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "provides": "Local rings.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:IsPGroup",
     "kind": "def",
     "module": "Mathlib/GroupTheory/PGroup.lean",
     "provides": "p-groups.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "GL_n(A) as the units of M_n(A).",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup.det",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "The determinant GL_n(A) →* Aˣ.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup.map",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "GL_n(f) for a ring homomorphism f.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:Module.Free",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
     "provides": "Free modules.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:MonoidHom.ker",
     "kind": "def",
     "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
     "provides": "Kernels of group homomorphisms.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:MvPowerSeries",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
     "provides": "Multivariable power series rings.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "mathlib:ProfiniteGrp",
     "kind": "structure",
     "module": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean",
     "provides": "Profinite groups.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "tauceti:TauCeti.ContCohomology.B1",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
-    "provides": "Continuous 1-coboundaries.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "provides": "Algebraic 1-coboundaries, range of d0, as an additive subgroup of G → M. Under the continuous distributive action hypotheses, B1_le_Z1 places them in the continuous cocycles; continuity is not built into B1 itself.",
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "tauceti:TauCeti.ContCohomology.H1",
     "kind": "abbrev",
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
     "provides": "Continuous H¹(G, M) as Z¹/B¹.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    },
    {
     "ref": "tauceti:TauCeti.ContCohomology.Z1",
     "kind": "def",
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
     "provides": "Continuous 1-cocycles G → M.",
-    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+    "checked": "Full declaration and surrounding typeclass hypotheses read at the packet’s pinned commit on 2026-10-02 in REV-FIX-RT-AREA-langlands-2~2; exact scope and limits are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md."
    }
   ]
  },
@@ -4884,10 +4884,10 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-1~2",
-  "date": "2026-09-30",
-  "notes": "Independent review of FIX-RT-AREA-langlands-1~2 (Codex codex-J6LwjP, issue #5140, PR #5267). This session did no part of that fix or of FIX-RT-AREA-langlands-2~2. It follows the qualified verdicts of RT-AREA-langlands-1.review.json and the accepted independent-review-REV-GlobalGaloisDeformations (2026-09-28), which is preserved in reviewHistory and not re-certified here. Scope: findings /21 and /22, the only ones assigned to this packet. The added node R04.5/chebotarev-selmer-selection, the changed nodes R04.5/odd-taylor-wiles-primes, G7/enormous-taylor-wiles-primes and G7/enormous-taylor-wiles-presentation, the two consumerContracts, and the new ACC-PUBLISHED-2023 and CG-PUBLISHED-2018 sources. Read the published ACC+ PDF (SHA-256 c5429e4f…7f02, printed = physical + 896) at pp. 1044–1047 and the published CG PDF (SHA-256 c0ba8de0…25c5) at physical pp. 114–115; both hashes match the packet. Verified the published numbering (Definition 6.2.29, Lemmas 6.2.30 and 6.2.32, Propositions 6.2.25 and 6.2.33), the standing assumption that k contains the residual eigenvalues (p. 1045), the hypotheses F = F⁺F₀, ζ_p ∉ F, enormous image, T = S and g = qn − n²[F⁺:Q] (p. 1047), and CG Proposition 8.5's big image, one-dimensional generalized eigenspace and count q + |T| − 1 − [F:Q]n(n−1)/2 − l₀. The selection lemma's dimension-decrease, density-zero degree-two and padding steps are correct, and the G7 detecting-element argument follows ACC+'s proof. /21 and /22 are carried as the verifier required: one shared selection owner in R04.5, ACC+ Proposition 6.2.33 kept in G7 with CG as a comparison only, and PA.3/PA.4 contracts that leave the arithmetic work to PA, with no L7 → P9 edge. Correction: the three new ACC-PUBLISHED-2023 excerpts (6, 19 and 34 characters) were too short to identify their passages, and are replaced by literal excerpts of at most 300 characters from the same pages. The later FIX-RT-AREA-langlands-2~2 edits to this packet (R04.3/local-to-global-presentation, R04.5/image-hypotheses, the G8 PA.3 exports, gaps, requests, coverage) were checked only for consistency with /21–/22; this review does not accept that job. check_blueprint with the pinned index: 66 nodes, 0 errors, 0 warnings. The packet remains partial, with every node's implementationStatus unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md."
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~2",
+  "date": "2026-10-02",
+  "notes": "Independent review of FIX-RT-AREA-langlands-2~2 (Codex codex-5ebb6f, #5142, PR #5282), following RT-AREA-langlands-2.review.json. The separate accepted independent-review-REV-FIX-RT-AREA-langlands-1~2 is preserved verbatim in reviewHistory; its /21–/22 acceptance is not re-certified or treated as acceptance of this fix. Read KW II author-final pp.37,40–46 for the finite-image input and presentation numbering; read every baseline declaration with its hypotheses at the pins. /15 and /37 are correct locally: R01.4 remains the owner, generators/relations are Lemmas4.4/4.6, and Corollary4.7 is conditional and applied at R24.2. Corrected B1’s baseline description to distinguish algebraic coboundaries from continuity under a continuous action. /22 remains partial: G8’s PA.3 export metadata does not supply the missing L7/L8/G8→PA.3 stage inputs. Whole-stage determinant comparison still induces R04.2→R04.1 against the forward edge. The unchanged reader’s relative-tangent formula still has #T rather than the packet’s #T−1; correcting that reader is outside #5143’s allowlist and remains an exact handoff. Checker passes with zero errors/warnings. Implementation unchecked; suggested Lean not compiled because no existing pinned build. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md"
  },
  "sourceVersions": [
   {
@@ -5236,6 +5236,12 @@
      "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-1~2",
+   "date": "2026-09-30",
+   "notes": "Independent review of FIX-RT-AREA-langlands-1~2 (Codex codex-J6LwjP, issue #5140, PR #5267). This session did no part of that fix or of FIX-RT-AREA-langlands-2~2. It follows the qualified verdicts of RT-AREA-langlands-1.review.json and the accepted independent-review-REV-GlobalGaloisDeformations (2026-09-28), which is preserved in reviewHistory and not re-certified here. Scope: findings /21 and /22, the only ones assigned to this packet. The added node R04.5/chebotarev-selmer-selection, the changed nodes R04.5/odd-taylor-wiles-primes, G7/enormous-taylor-wiles-primes and G7/enormous-taylor-wiles-presentation, the two consumerContracts, and the new ACC-PUBLISHED-2023 and CG-PUBLISHED-2018 sources. Read the published ACC+ PDF (SHA-256 c5429e4f…7f02, printed = physical + 896) at pp. 1044–1047 and the published CG PDF (SHA-256 c0ba8de0…25c5) at physical pp. 114–115; both hashes match the packet. Verified the published numbering (Definition 6.2.29, Lemmas 6.2.30 and 6.2.32, Propositions 6.2.25 and 6.2.33), the standing assumption that k contains the residual eigenvalues (p. 1045), the hypotheses F = F⁺F₀, ζ_p ∉ F, enormous image, T = S and g = qn − n²[F⁺:Q] (p. 1047), and CG Proposition 8.5's big image, one-dimensional generalized eigenspace and count q + |T| − 1 − [F:Q]n(n−1)/2 − l₀. The selection lemma's dimension-decrease, density-zero degree-two and padding steps are correct, and the G7 detecting-element argument follows ACC+'s proof. /21 and /22 are carried as the verifier required: one shared selection owner in R04.5, ACC+ Proposition 6.2.33 kept in G7 with CG as a comparison only, and PA.3/PA.4 contracts that leave the arithmetic work to PA, with no L7 → P9 edge. Correction: the three new ACC-PUBLISHED-2023 excerpts (6, 19 and 34 characters) were too short to identify their passages, and are replaced by literal excerpts of at most 300 characters from the same pages. The later FIX-RT-AREA-langlands-2~2 edits to this packet (R04.3/local-to-global-presentation, R04.5/image-hypotheses, the G8 PA.3 exports, gaps, requests, coverage) were checked only for consistency with /21–/22; this review does not accept that job. check_blueprint with the pinned index: 66 nodes, 0 errors, 0 warnings. The packet remains partial, with every node's implementationStatus unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md."
   }
  ],
  "consumerContracts": [

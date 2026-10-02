@@ -2051,7 +2051,7 @@
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "Corollary 10.2(ii) and discussion after Theorem 10.1, author PDF p. 21",
-     "match": "The odd irreducible complex Artin statement and its dependence on the preceding weight-one argument."
+     "match": "Corollary 10.2(ii), including its weight-one conclusion; continuous complex representations use the usual topology, in the finite-image Artin setting."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2209,7 +2209,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-   "need": "Chebotarev density in a compositum of the field cut out by ρ̄_proj with a cyclotomic field: a set of primes of positive density with a prescribed Frobenius class (KW I Lemma 8.2, DP Lemma 1.15), and infinitely many primes p′ ≡ 1 mod 4 split completely in a number field (KW I §8.4).",
+   "need": "Required upstream input for KW I Lemma 8.2/DP Lemma 1.15: hasDirichletDensity_frobeniusPrimeSet for the nonempty conjugacy-class union in the compositum of the projective residual field and cyclotomic field, with density #C/#G and invariance under finite prime removal. Also its split-completely/arithmetic-progression consequence supplies infinitely many p′ ≡ 1 mod 4 split in the coefficient field (KW I §8.4). This is the existing Chebotarev Layer 10 contract, not a new implemented library declaration.",
    "neededBy": [
     "ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes",
     "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice"
@@ -2533,8 +2533,10 @@
   }
  ],
  "review": {
-  "status": "pending",
-  "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~2",
+  "date": "2026-10-02",
+  "notes": "Independent review of FIX-RT-AREA-langlands-2~2 (Codex codex-5ebb6f, #5142, PR #5282), following RT-AREA-langlands-2.review.json and the prior independent-review-REV-ClassicalSerreModularity--R27.3 preserved in reviewHistory. Read KW I author PDF pp.17–21 and DP arXiv v2 pp.6,9–11; verified the prime-field Lemma8.2, imported Hypothesis(H), Corollary10.2(ii) and source-scoped Paso2 application. Sharpened the exact existing Chebotarev supplier contract and the incomplete Artin source excerpt. Findings /1 and /8 remain partial: the R26.6→R27.1→R33.2 stage path survives, and the early weight-one descent plus number-field/lattice contracts are not supplied. Their transparent gap records do not implement the required corrections or establish closure. /20 and /39 are correct locally; their external ownership/stage handoffs remain separate. No source issue was re-adjudicated. All implementation statuses remain unchecked. Pinned-index checker passes with zero errors/warnings. Suggested Lean not compiled: no existing build at the pins. Full 40-finding dispositions, source hashes, scope limits and next actions: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md"
  },
  "reviewHistory": [
   {
@@ -2710,6 +2712,10 @@
    "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
    "date": "2026-09-30",
    "notes": "Independent review by Claude Code (cc-c2c06b) of the fixes FIX-RT-PAPER-KHARE-WINTENBERGER-09-I (Claude Code cc-f805bf, PR #5172) to this packet, for RT-PAPER-KHARE-WINTENBERGER-09-I /1, /2 and /7 (with /4's strong form, which the R27.6 node now cites); it follows the review REV-ClassicalSerreModularity--R27.3 (cc-fb70e5, accepted 2026-09-29). The KW I preprint results.pdf was re-downloaded (sha256 3c389dc3…bad82 reproduced) and read at pp. 2, 6, 9, 11 and 20–21: the twist into [2, p + 1] (p. 2), the weight hypotheses of §4 and Theorem 5.1 (pp. 6, 9), Lemma 6.2(i) with no weight bound (p. 11), and Theorem 10.1, its sketched proof and Corollary 10.2 (pp. 20–21). Checked: R27.4/strong-form-by-minimal-lifts now proves the refined form for the twist and untwists through R20.3/edixhoven-weight-theorem (unconditional for Serre's weight), R20.3/ribet-twist-to-small-weight and R15.5/deligne-serre-eigenvalue-lifting-lemma, with the level fixed by R24.6/residual-members (iii); every cited node exists with the statement used. The R27.6 export node now states Theorem 10.1(i) only and names ModularityAndLanglandsExtensions ML.1 as owner of part (ii) and of Corollary 10.2(ii); Corollary 10.2(i) follows from part (i) with Faltings, as p. 21 says. The request to SerreWeightAndLevelOptimisation R20.3 and E9's amended correction are right. The new imports R20.3 → R27.4, R15.5 → R27.4 and R20.3 → R27.6 are already implied on data/atlas.json plus the link files and close no cycle; R27.6 → ML.1 is acyclic. Corrected in place: the R27.4 hypothesis said that only the twist by χ̄_p^{−1} of χ̄_p ⊕ χ̄_p² is in [2, p + 1], but when ρ̄|_{D_p} is split its twist by χ̄_p^{−2} (χ̄_p^{p−2} ⊕ 1) has Serre weight p − 1 as well; the example's point, weight p + 3 out of range, stands. check_blueprint with the declaration index: 0 errors, 0 warnings. The earlier review's per-node 'checked' records (32 nodes) are superseded by this object and remain in the packet's history (PR #3862, commit 822be0e7)."
+  },
+  {
+   "status": "pending",
+   "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
   }
  ]
 }
