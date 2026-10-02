@@ -1,3 +1,140 @@
+# BP-DeformationAndDerivedPatchingAlgebra--P7: adic graded-ring continuation
+
+Codex — session `codex-J6LwjP`, 2 October 2026. Refs #551.
+Base `45c222b`. Claim 5953539073 confirmed by bot 5953543825;
+the reread issue body is unchanged. This continues the merged #5763 checkpoint.
+All eight stages remain open and every implementation unchecked.
+
+Nine new R03.3 nodes use the native Rees quotient to plan the ordinary adic
+graded ring, the coefficient-ideal criterion, monomial map and its kernel,
+native piece inclusion, homogeneous multiplication, bijective finite expansion,
+direct-sum comparison and degree-one generation. Totals: 61 nodes (32 lemmas,
+fourteen theorems, eight definitions, seven constructions), 69 API entries,
+55 definition/construction tests plus four inherited lemma acceptance tests,
+80 native examples, thirteen planets, 140 baseline references, fourteen gaps
+and two unchanged requests. R03.3 has six planets. No stage is closed.
+
+All 52 inherited node objects are unchanged as JSON values, as are the 119
+baseline prefix objects, reserved multiplicity boundary, both requests and
+source issues. Earlier source/errata and compilation receipts remain history.
+The intrinsic/ambient dimension distinction and every remaining routed-paper
+and patching obligation are retained. The graded polynomial is still not
+supplied; cumulative polynomiality remains conditional on its tail input.
+
+Use the actual native ring Rees(q)/(q Rees(q)), with its A/q scalar map. The
+coefficient criterion is q^(n+1), not q^n. For arbitrary q, finite polynomial
+expansion and scalar-sum induction identify that ideal; no finite-generation
+premise is hidden. The direct sum has finite support and is compared with this
+same quotient ring, with products in degree n+m. Degree-one generation uses
+all of q; a finite list needs q.FG. For Z/4,q=(2), the degree-one class of 2
+is nonzero and square-zero, distinguishing the graded ring from its residue
+ring. Zero and unit ideals are included.
+
+The native Rees algebra and its generation/Noetherianity already exist and
+are baseline imports. Fresh inspection also confirms the native filtered Rees
+module in Ideal.Filtration.submodule, stable adic filtration, degree-zero
+generation and finiteness. Do not construct these again. The open module gap
+now asks for the coefficient quotient comparison, action of this same graded
+ring, A/q scalar towers and passage of native generation/finiteness to the
+quotient. For M=A, explicitly compare q^n·top_A with the ideal subtype q^n.
+Generic filtered/stable-category Rees theory stays with DD.1; the increasing
+Tau Ceti word-filtration graded ring is not this decreasing adic supplier.
+
+Fresh input inspection covers all eight AUDIT-17 entries, the three applicable
+accepted RS-08 narrowing decisions and 53 touching RS-08 links, the original
+roadmap and atlas extract/touching edges, the current ModularCurves
+coefficient overlap, the full reserved multiplicity brief and the integrated
+depth/Auslander–Buchsbaum supplier. Complete JacobianChallenge and
+Multiquadratic upstream documents were read earlier in this continuous
+worker session. No independent review or fresh full rereading of every
+inherited paper is claimed.
+
+Fresh primary reading: complete mathematical statements/proofs of Stacks
+00K4 (§10.59); complete Definition 10.70.1 in 052P. The quotient comparison
+is an explicit derivation from the two displayed graded/Rees objects, not
+an attributed verbatim theorem. HTML SHA-256 receipts:
+
+- 00K4: `e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932`.
+- 052P: `709ee80c7830e0c429fee54d1df78efaabbd6c6ef4dbdc00220f5a77c80d83bd`.
+
+Twenty-one new Mathlib statements/constructors were read with ambient
+hypotheses at the exact pin. ReesAlgebra was read in full; Filtration was
+read at the recorded carrier/generation/finiteness passages. Selected ideal,
+quotient, direct-sum, monomial and linear-equivalence declarations have
+individual pinned source hashes in the packet. Ownership/name screens found
+no competing ordinary general q-adic construction to import. This is a
+scoped search, not an exhaustive absence claim or expert agreement.
+
+Validation:
+
+- Indexed blueprint checker: zero errors and zero warnings. Intake accepts
+  the four deliverables; whitespace check passes.
+- Exact inherited-node/baseline/request/boundary preservation, new
+  packet/reader/native marker/API/test parity, source hashes, pinned baseline
+  source hashes and the six-planets limit pass.
+- Full Mathlib-only suggested file compiles using Lean v4.34.0-rc2 and the
+  existing exact-pinned Mathlib build: zero errors, 173 admitted-proof warnings,
+  zero other warnings, 80 examples, 4.74 seconds. Source SHA-256:
+  `a786472e8c80e240a6bd845b13cb2c6ffd31faebd827a72da7a8a339065e2229`.
+  Log SHA-256:
+  `ece5900dd8515593608876f0ab545a968768e4b8e9ee36d60c92ab74996f8ee8`.
+  Memory exceeded the WORKERS minimum. No Tau Ceti imports or combined-build
+  claim, project, cache download, dependency build or language server.
+- Exact finite cyclic-ring models: 35 pairs, 7,184 Rees elements and
+  coefficient-ideal checks, 7,345 homogeneous products, 1,113 quotient products
+  and 35 degree-one-generation checks. The nonprincipal ideal (x,y) in
+  F2[x,y]/(x,y)^2 has 100 additional checks, including both surviving degree-one
+  classes and their zero products. These use degree≤2 truncations; homogeneous
+  products are checked only when their degree sum is ≤2. They are not proofs
+  of infinite graded decomposition, Noetherianity, module action or Hilbert–Serre.
+  Result SHA-256:
+  `1f0ee2e8bc5ce6da7b9f23257a13ae52fd21c459ab4c45591fa034c8ab9667e6`.
+- Actual atlas assembly adds only this in-memory partial overlay through
+  normal promoted loading and decomposition trimming, preserving accepted
+  R03.6. The roadmap has 114 declarations and nineteen planets, including
+  this packet's 61/thirteen. Zero pending/skipped links; no new external
+  required edge. The stage graph has 3,003 vertices and 8,623 edges, acyclic.
+  Adding this packet and its reachable declaration closure (62 declarations,
+  including the inherited integrated depth node) gives 3,052 vertices and
+  8,768 edges, also acyclic. This does not certify all unrelated promoted
+  declarations globally. No atlas/shared data was written or promoted.
+
+Resume:
+
+1. Discharge the coefficient-ideal, kernel and finite-expansion proofs and
+   transport the native ring grading/interfaces through the canonical
+   direct-sum comparison. Do not introduce a rival carrier.
+2. Use the native stable adic Rees-module carrier. Prove its q-coefficient
+   denominator, native degree-quotient comparison and action of this same
+   quotient ring, with quotient scalar towers and compatibility for M=A.
+   Descend the already built degree-zero generation and finiteness.
+3. Source-decompose the graded Hilbert–Serre induction: torsion stabilization,
+   nilpotent filtration, shifted degree-one multiplication exact sequences
+   and induction on generators. Supply Q,N to the inherited conditional
+   cumulative-polynomial theorem; do not assume Q exists.
+4. Preserve and continue positivity/integrality, degree/dimension,
+   Artin–Rees, localization, completion/geometric comparisons and the
+   regular-local-domain proof. Keep the reserved general multiplicity ID.
+5. Refine the inherited depth/Auslander–Buchsbaum compound supplier to
+   declarations before complete promotion. It resolves in the source registry
+   and is retained in closure, but the partial layer replacement does not
+   render it as a stage. Retain exact ModularCurves 4D and R02.1 imports.
+6. Continue all P7–P9, coefficient, deformation, point and patching worklists
+   in the dated handoffs below. No omitted paper route is discharged by this
+   affine ring comparison. Independent review must assess mathematical
+   proofs, source adapters and retained source issues.
+
+Durable results are in the four deliverables. Scratch is deleted after
+publication; no private source/log path is needed to resume. Remote checks
+are inspected after publication, not preclaimed here.
+
+---
+
+## Earlier dated handoff receipts
+
+The following reports describe their dated checkpoints. Their counts,
+no-compilation statements and resume directions are historical.
+
 # BP-DeformationAndDerivedPatchingAlgebra--P7: cumulative-length continuation
 
 Codex — session `codex-a71f92`, 2 October 2026. Refs #551.
