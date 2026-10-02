@@ -1,6 +1,6 @@
 # Algebraic moduli for arithmetic geometry: A0 extension
 
-The current packet has 126 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
+The current packet has 135 declarations and ten planets. This is the reader for issue #672 and the packet with part A0-extension. It covers exactly A0-extension and R09.1–R09.7. It is a partial checkpoint: implementations are unchecked, requests are open, and none of the eight stages is closed. The declaration catalogue develops gerbes, arbitrary-module fpqc descent, torsor twisting and relative Picard descent. Full parameter spaces, Picard representability, Artin, algebraization and resolution remain work in this same scope. The full suggested Lean file is uncompiled; its Mathlib-only intrinsic-band extraction has been checked, as recorded in the native checkpoint below. Its exact type and signature omissions are recorded below rather than hidden by unspecified propositions.
 
 ## Preceding continuation: intrinsic band over varying base objects
 
@@ -5937,3 +5937,209 @@ Sheaf packaging now invokes the explicit Hom-descent proof obligation. Evaluatio
 Validation checks a reproducible Mathlib-only extraction: keep the imports except the TauCeti import and the initial namespace through the AbelianBanding structure, close that namespace, then append the final intrinsic-band namespace with its tests and omission ledgers. At the pinned Mathlib commit this extraction elaborates with zero errors, 15 admitted-proof warnings and no other warnings. It includes 13 examples. An axiom audit of 15 foundational carrier/restriction/evaluation/presheaf declarations has no admission dependency. The full suggested file is uncompiled because the existing pinned build lacks the TauCeti cohomology import's compiled artifact; its earlier module-descent and cohomology blocks are outside this extraction.
 
 The new statements are derived elementary consequences of the concrete carrier. [Stacks Lemma8.11.8](https://stacks.math.columbia.edu/tag/06NY) supplies the intrinsic-band motivation and still omits the varying-base compatibility verification. Generic gluing remains the SF1 supplier interface from [Stacks Section7.26](https://stacks.math.columbia.edu/tag/04TP); it is not reconstructed here. Named point-site and root-gerbe fixtures, the local evaluation inverse, sheaf gluing and the actual slice-glued carrier comparison retain their explicit omissions. Every implementation status remains unchecked.
+
+
+## Chosen-band comparison continuation
+
+Codex codex-rtOQ9t continues the 126-node checkpoint with nine declaration-sized leaves. The chosen A-banding is retained throughout. Its coefficient acts at every fibre object; the resulting central units form the compatible section c_b and an actual presheaf morphism. No topology-dependent evaluation inverse or sheaf isomorphism is assumed in these constructions. The earlier broader source receipts remain historical.
+
+### A band coefficient is natural on every fibre arrow
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-naturality (lemma).
+
+For U, a in Multiplicative(A(U)) and every fibre arrow f:x→y, f composed with b(U,y)(a) equals b(U,x)(a) composed with f. This quantifies over every arrow, with no selected representative object or selected connecting isomorphism.
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, AlgebraicModuliForArithmeticGeometry:key/gerbes, mathlib:CategoryTheory.Aut.autMulEquivOfIso.
+
+Proof outline:
+
+1. Every fibre arrow is invertible by the gerbe groupoid hypothesis. Apply the band conjugation equation to the existing isomorphism associated with f.
+2. Take the hom component of the conjugation equality. Compose on the left with f and cancel f followed by its inverse; the order agrees with the pinned conjugation convention.
+
+Acceptance: Retain the groupoid-fibre hypothesis: a Cat-valued stack alone does not imply that every arrow is invertible.
+
+Mathematical tests (with corresponding native examples):
+
+- BandNaturalityTests.allArrows (compatibility): For any actual b, every fibre arrow f and coefficient a satisfy the displayed naturality equation; no object-equivalence choices occur.
+
+### Coefficients act through units of the categorical center
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-center (construction).
+
+For every U define the group homomorphism z_b(U):Multiplicative(A(U))→units(CatCenter(F(U))) whose natural-automorphism component at x is b(U,x)(a). Its inverse component is the inverse of that actual automorphism. Multiplication uses the inherited reversed composition convention.
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-naturality, mathlib:CategoryTheory.NatIso.ofComponents, mathlib:CategoryTheory.Aut.unitsEndEquivAut, mathlib:CategoryTheory.CatCenter.ext.
+
+Proof outline:
+
+1. Package the actual b(U,x)(a) with the preceding full naturality equation using the existing componentwise natural-isomorphism constructor. Its inverse is supplied by that constructor.
+2. Apply the inverse of the existing units-of-endomorphisms equivalence at the identity functor. No new center or automorphism carrier is defined.
+3. Identity and multiplication are proved by unit and component extensionality, then the band multiplicative equivalence laws. The hom component of a product is the second component followed by the first.
+
+Acceptance: Recover the specified coefficient rather than only its class modulo automorphisms of A. Inversion must act by a↦−a on additive coefficients.
+
+API:
+
+- IntrinsicBandSections.coefficientCenter (compatibility): The group homomorphism z_b into existing central units.
+- IntrinsicBandSections.coefficientCenter_app (projection): Its evaluated natural-isomorphism component at x is exactly b(U,x)(a).
+- IntrinsicBandSections.coefficientCenter_inv (functoriality): z_b(U)(a inverse) is z_b(U)(a) inverse.
+
+Mathematical tests (with corresponding native examples):
+
+- BandCoefficientTests.generator (computation): Given x, a and a fixed Aut(x)≃C3 coordinate sending b(U,x)(a) to1, evaluation of z_b(U)(a) has coordinate1.
+- BandCoefficientTests.zero (degenerate): At every U, the zero additive coefficient maps to the identity central unit.
+- BandCoefficientTests.inversion (non-example): In the same calibrated C3 coordinate, evaluation of z_b(U)(a inverse) is2. Sending it to1 would erase the inverse.
+
+### A central band component recovers the specified automorphism
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-center-evaluation (lemma).
+
+For every U, x and coefficient a, applying the existing unitsEndEquivAut at the identity functor to z_b(U)(a), then evaluating at x, gives precisely b(U,x)(a).
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-center.
+
+Proof outline:
+
+1. Unfold the component construction and the existing units/automorphism equivalence; equality of iso hom components is definitional.
+
+Acceptance: The statement compares actual automorphisms, not merely endomorphism homs or isomorphism classes.
+
+### Central coefficient actions commute with actual pullback
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-restriction (lemma).
+
+For f:V→U and x over U, applying F(f) to the hom component of z_b(U)(a) at x equals the hom component of z_b(V)(a restricted to V) at the actual object F(f)(x).
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/abelian-banding, mathlib:CategoryTheory.Functor.mapAut.
+
+Proof outline:
+
+1. Take hom components of the band pullback equation. Recover both central-unit components with the preceding evaluation formula.
+
+Acceptance: No strict identification of F(f)(x) with a separately chosen pullback object is allowed.
+
+Mathematical tests (with corresponding native examples):
+
+- BandCoefficientRestrictionTests.mappedObject (compatibility): For an actual band coefficient, the mapped automorphism equals b(V,F(f)x)(a restricted to V), at the actual functor-image object.
+
+### The band comparison has its prescribed evaluations
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation (lemma).
+
+For every f:V→U, x over V and a in Multiplicative(A(U)), evaluation of c_b(U)(a) at (f,x) is b(V,x)(a restricted to V).
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-coefficient-center-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-evaluation.
+
+Proof outline:
+
+1. Unfold the compatible-family construction at (V,f). Its component is the coefficient central unit for a restricted to V.
+2. Apply the central-unit evaluation leaf to recover the chosen band automorphism.
+
+Acceptance: The exact restriction f is retained, including nonidentity f.
+
+### The band comparison commutes with coefficient restrictions
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-restriction (lemma).
+
+For f:V→U and a in Multiplicative(A(U)), reindexing c_b(U)(a) along f equals c_b(V)(a restricted to V).
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict.
+
+Proof outline:
+
+1. Compare central components at every W and g:W→V. One side uses the coefficient restriction along g followed by f; the other applies the two coefficient restrictions.
+2. The coefficient presheaf composition law equates these sections. Unit and natural-transformation extensionality conclude equality.
+
+Acceptance: Use only the coefficient functor composition law and actual composite g followed by f; no strict fibre-pseudofunctor composition assumption is needed.
+
+### Prescribed evaluations determine the comparison section
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-ext (lemma).
+
+For fixed U and coefficient a, any s in ZF(U) whose evaluation at every V→U and every x over V equals b(V,x)(a restricted to V) is c_b(U)(a).
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext.
+
+Proof outline:
+
+1. Use the evaluation formula to compare the hom components of s with c_b(U)(a) at every family index.
+2. Apply the inherited section extensionality. No chosen object over U, evaluation injectivity or sheafness is used.
+
+Acceptance: This characterizes each existing section; it does not assert a coefficient preimage for an arbitrary central section.
+
+### The chosen band comparison is a morphism of presheaves
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-presheaf (construction).
+
+The maps c_b(U), with the existing additive and multiplicative type conversions, form an actual natural transformation from the coefficient presheaf A to U↦Additive(ZF(U)). Each component is an additive-group homomorphism. This construction does not yet assert it is an isomorphism.
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-restriction, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-id, AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-comp.
+
+Proof outline:
+
+1. Turn each coefficient-to-section group homomorphism into the corresponding additive homomorphism, retaining its actual underlying map.
+2. Naturality at f is exactly the preceding restriction law; the target is the inherited reindexing presheaf.
+
+Acceptance: No sheaf-gluing proof, evaluation bijectivity or local inverse is required to construct this natural transformation.
+
+API:
+
+- IntrinsicBandSections.fromBandingPresheaf (functoriality): The natural transformation from A to the central-section additive presheaf.
+- IntrinsicBandSections.fromBandingPresheaf_app (simp): Its component sends a to Additive(c_b(U)(Multiplicative(a))).
+- IntrinsicBandSections.fromBandingPresheaf_naturality (functoriality): Its components commute with the actual coefficient restriction and central-section reindexing maps.
+
+Mathematical tests (with corresponding native examples):
+
+- BandComparisonPresheafTests.zero (degenerate): Every actual natural-transformation component sends zero to zero.
+- BandComparisonPresheafTests.add (compatibility): The component at a+a′, read as a central section, is the product of the sections c_b(U)(a) and c_b(U)(a′).
+- BandComparisonPresheafTests.restriction (characterisation): Restricting the component at a along the displayed f:V→U is the component at the actual coefficient restriction along f.
+
+### Different chosen band actions give different comparison sections
+
+AlgebraicModuliForArithmeticGeometry:R09.4/band-center-fixed-band-distinction (lemma).
+
+For two A-bandings b and b′, if their automorphisms at one fixed (U,x,a) differ, then c_b(U)(a) and c_b′(U)(a) differ. In particular, canonical and inverted C3 coefficient identifications remain distinct.
+
+Hypotheses: A fixed small category C with topology J, the existing Cat-valued pseudofunctor F, and a gerbe structure on F. A fixed abelian-group sheaf A and an actual AbelianBanding b with both pullback and conjugation equations; coefficient and family universes are fixed large enough for ZF.
+
+Inputs: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-evaluation.
+
+Proof outline:
+
+1. If the sections were equal, their evaluations at (identity U,x) would be equal.
+2. Use the comparison evaluation formula and the coefficient functor identity law to recover equality of the specified band actions, contradicting the hypothesis.
+
+Acceptance: The inherited BandComparisonTests.inversion coordinate fixture is now proved natively: a fixed C3 generator maps to1 versus2. This is compatible with unique band-preserving isomorphisms; it does not identify arbitrary coefficient symmetries.
+
+These are derived consequences of the chosen band and existing central-section carrier, motivated by [Stacks Lemma8.11.8](https://stacks.math.columbia.edu/tag/06NY). They do not claim to supply the omitted varying-base argument printed there. [Stacks Section7.26](https://stacks.math.columbia.edu/tag/04TP) still supplies the general gluing boundary through SF1.
+
+
+Validation for this continuation: the packet checker with the exact pinned declaration index reports zero errors and zero warnings. There are135 unchecked nodes (16definitions,31constructions,57lemmas,27theorems,4comparisons),153 required API items and142 required tests; including lemma API/tests gives155 API items and146 tests. Ten planets,75 baseline declarations,21 supplier requests and9 gaps remain. Four stages are partial and four remain not_read; none is closed. All126 inherited statements and IDs are preserved;125 inherited node objects are identical. Only the existing forward comparison construction gains its two exact prerequisites. All68 source routes,21 requests, prior baseline/source receipts and confirmed source findings are preserved.
+
+The reproducible extraction keeps imports except the TauCeti import, retains the initial namespace through the AbelianBanding structure, closes it explicitly, then appends the final intrinsic-band namespace and its test/omission ledgers. It elaborates at the exact Mathlib pin with zero errors,11 admitted-proof warnings, no other warnings and21 examples. The supplied band remains an explicit parameter. An axiom audit of13 coefficient-center/comparison/presheaf declarations has no admission dependency. The full file remains uncompiled because an exact TauCeti build for its cohomology import is unavailable; no earlier module/cohomology block is certified by the extraction.
+
+Native extraction SHA256: c366e27436f5026228e116be6042714d3c3b8c297cf21e938fd3b0b92903f47e; full suggested file SHA256: 3defddfe366eef45c4df54b0dce50c97b4f2e2efc9bf499b9d59f51218161e5a; elaboration log SHA256: 858df283784a84336d59db7ab6b738136ac8b6c0a930178fbdd08d77481d1b42; axiom-audit log SHA256: 85b75a8c1768641c354e2bf0ff4b56208110be5c8acaef8387d1e30a14d7607b.
+
+Independent finite regression:12723 assertions on every cyclic order1–12, all unit band scalings and coherent reduction chains, connected two-object cyclic groupoids and actual S3 permutations. The C6→C3→C3 witness has6 compatible families versus54 independent tuples; canonical/inverted C3 generator coordinates are1 and2. These checks support coordinate/sign conventions; they do not prove topology-dependent descent. Script SHA256:7712c9ee06d3a738644019ec780a35217c7c250a252b64c23c60cb2f6e4fdc61; log SHA256:fe46fe49d941ac92be8b8eb2ddcc02a07c7df316164cb95b94d6dea94fb44421.
+
+Projection uses the actual in-memory build.assemble with the existing promoted baseline plus this packet and reader, including normal retirement, accepted restructuring, links and decomposition trimming. It exposes135 declarations and10 planets with no own skipped or pending links. The full stage graph is acyclic on3017 vertices (including51 existing virtual upstream references) and8655 edges; the own declaration graph is135/251, and stage plus138 reachable declarations is3145/8965, acyclic with no unresolved external reference. Seven unrelated skipped links exactly match the control assembler. This is a scoped declaration audit, not an audit of every unrelated declaration graph. Projection receipt SHA256:1ca483ee2624ccf51f0a35a0787b267befcb41b0b6422188bc41a89f978bfcba.
+
+Fresh readings are the full mathematical Stacks8.11 and7.26, with downloaded HTML hashes784df742e6d6c147f90645bfef73a6ad9fa60cb34e9b2d3006401857ed88a32e andc3c5a59e827966472207a0152288814a8a761853b36a8e55445dc90e39a8f10e; accessed2026-10-02. Pinned center/Aut/NatIso constructor statements and relevant proofs were read. All eight reviewed audit rows, RS27 scope/owner decisions and applicable links, nine confirmed finding claims/fixes and the gerbe key contract were checked. SF1's current packet has no SF.1 declaration matching slice-group-sheaf descent, so the exact inherited supplier request remains; D0's stackification interface is imported. The broader inherited paper bibliography is preserved, without claiming fresh rereading.
+
+Resume the general prestack Hom-gluing proof (including inverse maps and mapId/mapComp comparisons), gerbe evaluation injectivity, abelian-inertia local extension, then a locally glued inverse to the actual forward presheaf comparison. Only after those proofs and SF1's descended-slice interface can the global sheaf isomorphism and varying-slice comparison close. The point/root-gerbe site fixtures still require their inherited carriers; coordinate examples retain explicit banding and automorphism coordinates. General parameter spaces, Picard representability, Artin/algebraization and resolution remain in the unchanged scope.
