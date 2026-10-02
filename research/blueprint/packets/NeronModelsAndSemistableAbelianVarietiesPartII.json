@@ -16829,6 +16829,43 @@
       },
       "publicValidatorSha256": "d355638abe58147a3b0ee36413233f4b68429a1992621ff3a435f38a1ad7c550",
       "publicGraphSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+    },
+    "publicationPreflight": {
+      "base": "bcc37efa667a1f3c521b0d8e2407b9eda3fa87e6",
+      "ownDeliverablesBindingInstructionsLibraryAuditKeySurveyAndSupplierSourceContracts": "unchanged from the mathematical read base; exact path diff screened before merging current main into the own branch",
+      "graph": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3043,
+          "edges": 8727,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 224,
+          "edges": 519,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3238,
+          "edges": 9426,
+          "acyclic": true
+        },
+        "reachableDeclarations": 224,
+        "externalDeclarations": [],
+        "reachableBaselineReferences": 175,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 68,
+        "requiredStagePairsReachable": 68,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 207,
+        "partDeclarations": 224,
+        "partPlanets": 29,
+        "roadmapDeclarations": 224,
+        "scriptSha256": "9c259f46e82f6c246ad606c8ab22a85e0d8c7219aec506dafdf2b329b4289ced"
+      }
     }
   }
 }
