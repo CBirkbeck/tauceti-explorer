@@ -5,6 +5,9 @@ import Mathlib.Data.Matrix.Mul
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Quotient.Defs
 import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.Data.ZMod.Basic
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -15,8 +18,8 @@ CHECKPOINT: the explicit ring and matrix interfaces below are supplemented by
 native polynomial-quotient/module candidates in NodeSectionFactorization.PolynomialModel.
 Those candidates still need integration into the packet's prototypeCoverage and
 baseline ledgers; they are not counted as completed canonical exports. See the
-2026-10-02 continuation in handoff/DESIGN-StableReductionPartII.md for the full
-proof, source/pin receipts, counterexamples and exact remaining integration work.
+2026-10-02 continuations in handoff/DESIGN-StableReductionPartII.md for the full
+proofs, source/pin receipts, counterexamples and exact remaining integration work.
 This file was not compiled: no existing built Lake environment at both pinned
 commits was available. No project or cache was created. Comments are omissions,
 not declarations or proofs.
@@ -188,6 +191,134 @@ theorem cokernels [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
             (j : R₀)) := by
   sorry
 
+/-!
+Local dual-quotient continuation for MC.2/dual-section-ideal. The polynomial
+model remains the actual AdjoinRoot above. These are candidate local forms,
+not the global sheaf theorem and not additions to the packet's canonical
+prototype counts. No Noetherian or discriminant hypothesis is needed for
+these algebraic statements; the handoff gives the monic-polynomial proof.
+No completed-local or arbitrary-family descent is inferred from them.
+-/
+
+open scoped TensorProduct
+
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "a₀" => ι₀ δ * v₀ + ι₀ δ * ι₀ t + ι₀ γ * u₀
+local notation "D₀" => (J₀ →ₗ[R₀] R₀)
+
+/-- A denominator-free characterization of the actual R-linear dual generator. -/
+theorem dualGenerator_existsUnique :
+    ∃! ε : D₀, ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀) := by
+  sorry
+
+/-- Normal form in the actual dual, with coefficients in R and in A respectively. -/
+theorem dualNormalForm (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (h : D₀) :
+    ∃! p : R₀ × A, ∀ j : J₀,
+      h j = p.1 * (j : R₀) + ι₀ p.2 * ε j := by
+  sorry
+
+/-- This is A-linear, not R-linear for the componentwise scalar action. -/
+theorem dualNormalEquiv (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    ∃ e : D₀ ≃ₗ[A] (R₀ × A), ∀ (p : R₀ × A) (j : J₀),
+      e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j := by
+  sorry
+
+/-- The residue presents D/R as A, where R acts on A by the actual section
+R→A. The kernel is the image of multiplication, not an unidentified submodule. -/
+theorem dualResidue (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    let ev : R₀ →+* A :=
+      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+    ∃ ρ : D₀ →ₗ[A] A,
+      Function.Surjective ρ ∧ ρ ε = 1 ∧
+      (∀ (r : R₀) (h : D₀), ρ (r • h) = ev r * ρ h) ∧
+      (∀ h : D₀, ρ h = 0 ↔ ∃ r : R₀, ∀ j : J₀, h j = r * (j : R₀)) := by
+  sorry
+
+/-- The correction term determines the non-diagonal R-action on R⊕A.
+Its twisted product law is forced by regularity of d; no localization type
+or chosen inverse of d is needed in the statement. -/
+theorem dualScalarCorrection :
+    let ev : R₀ →+* A :=
+      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+    ∃ K : R₀ →ₗ[A] R₀,
+      (∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (ev r))) ∧
+      (∀ r z : R₀, K (r * z) = r * K z + ι₀ (ev z) * K r) ∧
+      K c₀ = -a₀ ∧ K d₀ = b₀ := by
+  sorry
+
+/-- Flatness is over the coefficient ring A, not a claim that J is R-flat. -/
+theorem sectionIdeal_flat : Module.Flat A J₀ := by
+  sorry
+
+theorem sectionDual_flat : Module.Flat A D₀ := by
+  sorry
+
+/-- The natural coefficient-base-change comparison in the polynomial model.
+The displayed formula fixes it on pure tensors and on the images of J,
+whose two generators generate J' over R'. No flatness of f is assumed.
+The native signature records an A'-linear equivalence; the formula identifies
+it with the natural comparison, not an unrelated isomorphism of modules. -/
+theorem sectionDual_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    let w' := w₀.map (Polynomial.mapRingHom f)
+    let R' := AdjoinRoot w'
+    let ι' : A' →+* R' :=
+      (AdjoinRoot.of w').comp (Polynomial.C : A' →+* Polynomial A')
+    let φ : R₀ →+* R' :=
+      AdjoinRoot.map (Polynomial.mapRingHom f) w₀ w' (by sorry)
+    let J' : Ideal R' := Ideal.span
+      {AdjoinRoot.root w' - ι' (f s), AdjoinRoot.of w' Polynomial.X - ι' (f t)}
+    ∃ e : (A' ⊗[A] D₀) ≃ₗ[A'] (J' →ₗ[R'] R'),
+      ∀ (a' : A') (h : D₀) (j : J₀),
+        e (a' ⊗ₜ[A] h) ⟨φ (j : R₀), by sorry⟩ = ι' a' * φ (h j) := by
+  sorry
+
+/-- Test: over the zero base both coordinates and the dual have one element. -/
+example [Subsingleton A] : Subsingleton D₀ ∧ Subsingleton (R₀ × A) := by
+  sorry
+
+/-- Test: the two generator values retain the minus sign in characteristic three. -/
+example :
+    let w : Polynomial (Polynomial (ZMod 3)) :=
+      Polynomial.X ^ 2 + Polynomial.C Polynomial.X * Polynomial.X
+    let B := AdjoinRoot w
+    let u : B := AdjoinRoot.root w
+    let v : B := AdjoinRoot.of w Polynomial.X
+    let J : Ideal B := Ideal.span {u, v}
+    ∃ ε : J →ₗ[B] B,
+      ε ⟨u, by sorry⟩ = -u ∧ ε ⟨v, by sorry⟩ = u ∧ u ≠ -u := by
+  sorry
+
+/-- Non-example: a residue surjection has no R-linear splitting over a nonzero
+base, although it does have the A-linear splitting supplied by ε. The R-linearity
+condition below uses the actual section evaluation, not an arbitrary predicate. -/
+example [Nontrivial A] (ρ : D₀ →ₗ[A] A) :
+    let ev : R₀ →+* A :=
+      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+    ¬ ∃ σ : A →ₗ[A] D₀,
+      (∀ (r : R₀) (z : A), σ (ev r * z) = r • σ z) ∧
+      Function.RightInverse σ ρ := by
+  sorry
+
+/-- Test: the dual comparison survives the nonflat coefficient map Z→F₂.
+The rings below are untruncated polynomial quotients, not Artinian substitutes. -/
+example :
+    let w : Polynomial (Polynomial ℤ) :=
+      Polynomial.X ^ 2 + Polynomial.C Polynomial.X * Polynomial.X
+    let w' := w.map (Polynomial.mapRingHom (Int.castRingHom (ZMod 2)))
+    let B := AdjoinRoot w
+    let B' := AdjoinRoot w'
+    let J : Ideal B := Ideal.span {AdjoinRoot.root w, AdjoinRoot.of w Polynomial.X}
+    let J' : Ideal B' := Ideal.span {AdjoinRoot.root w', AdjoinRoot.of w' Polynomial.X}
+    (¬ Module.Flat ℤ (ZMod 2)) ∧
+      Nonempty (((ZMod 2) ⊗[ℤ] (J →ₗ[B] B)) ≃ₗ[ZMod 2] (J' →ₗ[B'] B')) := by
+  sorry
+
 /-- A characteristic-two test on the quotient, not just on the polynomial products. -/
 example (h2 : (2 : A) = 0) :
     let f : Polynomial (Polynomial A) :=
@@ -235,9 +366,10 @@ end TauCeti.ModuliCurves
 /- CHECKPOINT OMISSIONS
 Each name below is deliberately only a comment, not a Lean declaration.
 The corresponding canonical signature/example remains required by the packet gap
-Suggested Lean type interfaces. The two local algebra entries now have candidates
-above, but their final export/packet integration remains open. This ledger does
-not count candidate signatures as completed exports.
+Suggested Lean type interfaces. Local algebra entries have candidates above,
+but their final export/packet integration remains open. The dual-section entry
+has polynomial-model residue/base-change forms only, not a global sheaf theorem.
+This ledger does not count candidate signatures as completed exports.
 node: StableReductionPartII:key/moduli-curves
   Requires supplier types and the precise statement in the reader.
 API: CurvesModuli.obj
@@ -321,7 +453,7 @@ API: NodeSectionFactorization.cokernels
 node: StableReductionPartII:MC.2/node-factorization-exact
   PolynomialModel.quotientExact supplies a candidate for the exactness clause; split/integrate the cokernel clause and proof-helper nodes.
 node: StableReductionPartII:MC.2/dual-section-ideal
-  Requires supplier types and the precise statement in the reader.
+  PolynomialModel has candidate local dual normal form, residue, scalar correction, A-flatness and natural coefficient-base-change signatures. Global sheaf types, completion/descent and canonical packet integration remain missing.
 node: StableReductionPartII:MC.2/expansion
   Requires supplier types and the precise statement in the reader.
 API: PointedExpansion.scheme
