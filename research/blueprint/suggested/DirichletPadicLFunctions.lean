@@ -31970,3 +31970,118 @@ example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : 
     (∑ b : {b : (Fin 1 → AddCircle (1 : ℚ)) // m • b=m • a.val},kubertRationalCartanValue N ⟨b.val,DirichletPadic.kubertLevel_preimage_mem_level (N : ℕ) m hmN a b.val b.property⟩)=kubertRationalCartanValue N (m • a) := by sorry
 
 end DirichletPadic.SuggestedKubertFullDistributionTests
+
+/- Actual corrected quotient values and full-norm compatibility. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalCartanValue_internal_root_sum (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    [Fintype {b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker // m • b=m • a}] :
+    (∑ b : {b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker // m • b=m • a},kubertRationalCartanValue N b.val)=kubertRationalCartanValue N (m • a) := by sorry
+
+lemma kubertRationalCartanValue_relations_le_ker (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0 ≤ (FreeAbelianGroup.lift (fun a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => kubertRationalCartanValue N a)).ker := by sorry
+
+noncomputable def kubertRationalCartanQuotientValue (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) →+ MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalCartanQuotientValue_mk (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (z : FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (z))=FreeAbelianGroup.lift (fun a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => kubertRationalCartanValue N a) z := by sorry
+
+lemma kubertRationalCartanQuotientValue_of (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a := by sorry
+
+lemma kubertRationalCartanQuotientValue_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) M 0)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalCartanQuotientValue M z)=
+      kubertRationalCartanQuotientValue N (kubertInternalLevelMap M N hMN 0 z) := by sorry
+
+lemma kubertRationalCartanQuotientValue_unique (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (f : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) →+ MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (hf : ∀ a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker, f (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a) :
+    f=kubertRationalCartanQuotientValue N := by sorry
+
+lemma kubertRationalCartanQuotientValue_zero_point_ne_zero (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of (0 : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)))≠0 := by sorry
+
+noncomputable def kubertRationalCartanQuotientLinear (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) →ₗ[ℤ] MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertRationalCartanQuotientLinear_apply (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0)) :
+    kubertRationalCartanQuotientLinear N z=kubertRationalCartanQuotientValue N z := by sorry
+
+lemma kubertRationalCartanQuotientLinear_of (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientLinear N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCorrectedQuotientTests
+open scoped Classical BigOperators
+noncomputable section
+-- identity_level_zero_point_class_has_value_one
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker] : kubertRationalCartanQuotientValue 1 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 1 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker)))=1 := by sorry
+-- actual_two_root_relation_at_six_is_annihilated
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] : kubertRationalCartanQuotientValue 6 ((QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker)))+(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker)))-(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker))))=0 := by sorry
+-- half_and_zero_point_classes_have_different_values
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ)).ker] : kubertRationalCartanQuotientValue 2 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 2 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((1/2 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ)).ker)))=0 ∧ kubertRationalCartanQuotientValue 2 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 2 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((2 : ℕ+) : ℕ)).ker)))=1 := by sorry
+-- integer_combination_has_actual_corrected_value
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] : kubertRationalCartanQuotientLinear 6 ((-2 : ℤ) • (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker)))+(QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker))))=(-5/2 : ℚ) • (1-MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- zero_point_class_has_full_unit_sum
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] : kubertRationalCartanQuotientLinear 6 (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0) (FreeAbelianGroup.of (⟨fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)),by sorry⟩ : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker)) )=1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ) := by sorry
+-- integer_linear_quotient_values_commute_with_full_norm
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((30 : ℕ+) : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker ⧸ kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) 6 0)) : kubertCartanProductNorm 1 ℚ 6 30 (by sorry) (kubertRationalCartanQuotientLinear 6 z)=kubertRationalCartanQuotientLinear 30 (kubertInternalLevelMap 6 30 (by sorry) 0 z) := by sorry
+end
+end DirichletPadic.SuggestedKubertCorrectedQuotientTests
+namespace DirichletPadic.SuggestedKubertCorrectedQuotientTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanValue_internal_root_sum_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ)) (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)
+    [Fintype {b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker // m • b=m • a}] :
+    (∑ b : {b : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker // m • b=m • a},kubertRationalCartanValue N b.val)=kubertRationalCartanValue N (m • a) := by sorry
+
+-- rationalCartanValue_relations_le_ker_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0 ≤ (FreeAbelianGroup.lift (fun a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => kubertRationalCartanValue N a)).ker := by sorry
+
+-- rationalCartanQuotientValue_mk_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (z : FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (z))=FreeAbelianGroup.lift (fun a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker => kubertRationalCartanValue N a) z := by sorry
+
+-- rationalCartanQuotientValue_of_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a := by sorry
+
+-- rationalCartanQuotientValue_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (M : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) M 0)) :
+    kubertCartanProductNorm 1 ℚ M N hMN (kubertRationalCartanQuotientValue M z)=
+      kubertRationalCartanQuotientValue N (kubertInternalLevelMap M N hMN 0 z) := by sorry
+
+-- rationalCartanQuotientValue_unique_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker]
+    (f : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) →+ MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (hf : ∀ a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker, f (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a) :
+    f=kubertRationalCartanQuotientValue N := by sorry
+
+-- rationalCartanQuotientValue_zero_point_ne_zero_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] :
+    kubertRationalCartanQuotientValue N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of (0 : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker)))≠0 := by sorry
+
+-- rationalCartanQuotientLinear_apply_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0)) :
+    kubertRationalCartanQuotientLinear N z=kubertRationalCartanQuotientValue N z := by sorry
+
+-- rationalCartanQuotientLinear_of_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) (N : ℕ)).ker) :
+    kubertRationalCartanQuotientLinear N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a := by sorry
+
+end DirichletPadic.SuggestedKubertCorrectedQuotientTests

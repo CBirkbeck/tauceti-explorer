@@ -65734,3 +65734,314 @@ Exact controls through36 levels verify1,098 admissible target fibers with14,254 
 Fresh capture after the actual merge of5825 found all79 canonical inputs unchanged. The whole issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 source findings and eight source versions remain whole; no external review or source conclusion is adopted.
 
 The separate partial signature file also compiled with zero errors and 6,425 expected placeholder warnings across 3,914 pinned source modules. It includes all 6 new named declarations and 10 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2de4fe6e158a62cc8ac6b941bb69a4860d35fe36b5e66a0c3e8a59562e531d27.
+
+
+## Actual corrected quotient values and full-norm compatibility
+
+Eleven L3 nodes construct the actual corrected quotient homomorphism and integer-linear map, prove original relation annihilation, point/word evaluation, uniqueness, full-norm compatibility and nonzero zero-point image. All2,205 predecessor nodes and1,283 baseline records remain whole. Global descent, spanning and injectivity remain open.
+
+Published Kubert4.8,4.10 and the opening of4.11 were compared with the original internal relations and newly proved full distribution. Existing5414 relation subgroup and kernel criterion,5440 original quotient transition maps,5403 relation evaluation,5773 raw nonvanishing and5800 full-norm compatibility were read and reused. Pinned native quotient lift, free-abelian lift/evaluation/induction and integer-linear conversion were read in full. No new source, source version, baseline record or finding is added.
+
+### The corrected root sum uses the original internal fiber
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-value-internal-root-sum` — `DirichletPadic.kubertRationalCartanValue_internal_root_sum`
+
+For m dividing N and an actual level-N point a, the sum of r_N over the original subtype of level points b satisfying mb=ma as an equality in the subgroup equals r_N(ma), for any finite enumeration of that same subtype.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Convert the original subgroup-root subtype sum to the finite filtered sum.
+2. Use native subtype extensionality to identify subgroup equality with equality of the actual torus point values.
+3. Apply the already proved complete divisor-root distribution identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-full-distribution-rational-cartan-value-divisor-root-sum`, `mathlib:Finset.prod_subtype`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanValue_internal_root_sum_typed_api` (compatibility): For m dividing N and an actual level-N point a, the sum of r_N over the original subtype of level points b satisfying mb=ma as an equality in the subgroup equals r_N(ma), for any finite enumeration of that same subtype.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### Every original internal relation has zero corrected evaluation
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-value-relations-le-ker` — `DirichletPadic.kubertRationalCartanValue_relations_le_ker`
+
+The existing internal ordinary relation subgroup at level N is contained in the kernel of the original free-abelian evaluation of r_N.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply the existing exact kernel criterion for the original internal relation subgroup.
+2. At ordinary weight zero the scalar factor is1.
+3. Use the proved sum over the original internal-root subtype.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-finite-level-internal-relations`, `DirichletPadicLFunctions:L3/kubert-finite-level-internal-le-ker-iff`, `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-value-internal-root-sum`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanValue_relations_le_ker_typed_api` (compatibility): The existing internal ordinary relation subgroup at level N is contained in the kernel of the original free-abelian evaluation of r_N.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The actual corrected map on the original internal quotient
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value` — `DirichletPadic.kubertRationalCartanQuotientValue`
+
+Construct an additive homomorphism from the original free abelian group on level-N points modulo the existing internal ordinary relations to the original rational Cartan group ring, by descending the original corrected point values.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the native free-abelian lift of the actual corrected function.
+2. The preceding kernel-containment theorem supplies the exact condition for the native quotient lift.
+3. Apply that universal property to the original relation subgroup and original quotient carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-value-relations-le-ker`, `mathlib:FreeAbelianGroup.lift`, `mathlib:QuotientGroup.lift`.
+
+**Uses:**
+
+- Kubert197, corrected map underlying Theorem4.11: Supplies the actual well-defined map from original internal relation classes, before any injectivity or rational-spanning argument.
+- Kubert195–198, full-norm compatibility and integral images: Carries actual integer classes compatibly between existing quotient levels and the original rational Cartan group rings; the integer-linear form gives the correct native carrier for studying its image.
+
+**API:**
+
+- `kubertRationalCartanQuotientValue_mk` (compatibility): On the quotient class of any original free-abelian word, the constructed map equals the original free-abelian evaluation of the corrected values.
+- `kubertRationalCartanQuotientValue_of` (compatibility): The constructed map sends the original quotient class of each actual level-N point a to r_N(a).
+- `kubertRationalCartanQuotientValue_norm` (compatibility): For M dividing N and any class z in the original internal quotient at M, the full coefficient norm of its corrected value equals the corrected value of the existing quotient levelMap applied to z.
+- `kubertRationalCartanQuotientValue_unique` (characterisation): Any additive homomorphism from the same original internal quotient to the same original rational Cartan group ring that takes every original point class to r_N of that point equals the constructed map.
+- `kubertRationalCartanQuotientValue_zero_point_ne_zero` (compatibility): For every positive level N, the quotient class of the actual zero torus point has nonzero image under the constructed corrected map.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.identity_level_zero_point_class_has_value_one` (degenerate): At level1 the original quotient class of the zero torus point has corrected value1, so this class is not the additive zero of the quotient.
+- `SuggestedKubertCorrectedQuotientTests.actual_two_root_relation_at_six_is_annihilated` (compatibility): At level6 the original relation [1/6]+[2/3]−[1/3] has zero image under the constructed corrected quotient map.
+- `SuggestedKubertCorrectedQuotientTests.half_and_zero_point_classes_have_different_values` (non-example): At level2 the half-point class maps to0 whereas the zero-point class maps to1. Distinct point labels must not be confused with the quotient additive identity.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The quotient map evaluates every original free word
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-mk` — `DirichletPadic.kubertRationalCartanQuotientValue_mk`
+
+On the quotient class of any original free-abelian word, the constructed map equals the original free-abelian evaluation of the corrected values.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Evaluate the native quotient lift on an actual quotient representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientValue_mk_typed_api` (compatibility): On the quotient class of any original free-abelian word, the constructed map equals the original free-abelian evaluation of the corrected values.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### Original point classes have the original corrected values
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of` — `DirichletPadic.kubertRationalCartanQuotientValue_of`
+
+The constructed map sends the original quotient class of each actual level-N point a to r_N(a).
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use representative evaluation.
+2. Apply the native free-abelian lift on an original point generator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-mk`, `mathlib:FreeAbelianGroup.lift_apply_of`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientValue_of_typed_api` (compatibility): The constructed map sends the original quotient class of each actual level-N point a to r_N(a).
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The actual quotient maps commute with the original full norms
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-norm` — `DirichletPadic.kubertRationalCartanQuotientValue_norm`
+
+For M dividing N and any class z in the original internal quotient at M, the full coefficient norm of its corrected value equals the corrected value of the existing quotient levelMap applied to z.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Choose an original free-abelian representative of z using native quotient surjectivity.
+2. Induct on the original free-abelian generators, zero, negative generators and sums.
+3. On a point generator, use the existing original quotient levelMap evaluation and full corrected-value norm compatibility.
+4. Native additive homomorphism laws extend the equality to the whole original quotient.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map`, `DirichletPadicLFunctions:L3/kubert-admissible-transport-level-map-of`, `DirichletPadicLFunctions:L3/kubert-factor-norm-rational-cartan-value-norm`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:FreeAbelianGroup.induction_on`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientValue_norm_typed_api` (compatibility): For M dividing N and any class z in the original internal quotient at M, the full coefficient norm of its corrected value equals the corrected value of the existing quotient levelMap applied to z.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The actual point values determine the quotient homomorphism
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-unique` — `DirichletPadic.kubertRationalCartanQuotientValue_unique`
+
+Any additive homomorphism from the same original internal quotient to the same original rational Cartan group ring that takes every original point class to r_N of that point equals the constructed map.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Apply additive-homomorphism extensionality at an actual quotient class.
+2. Choose an original free-abelian representative.
+3. Use the required point values on generators and native additive laws on zero, negatives and sums.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of`, `mathlib:QuotientGroup.mk'_surjective`, `mathlib:FreeAbelianGroup.induction_on`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientValue_unique_typed_api` (compatibility): Any additive homomorphism from the same original internal quotient to the same original rational Cartan group ring that takes every original point class to r_N of that point equals the constructed map.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The original zero-point class has nonzero image
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-zero-point-ne-zero` — `DirichletPadic.kubertRationalCartanQuotientValue_zero_point_ne_zero`
+
+For every positive level N, the quotient class of the actual zero torus point has nonzero image under the constructed corrected map.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Evaluate the original point class.
+2. At the zero point the corrected value equals the original raw primitive sum.
+3. Apply the earlier nonvanishing theorem for the actual raw primitive sum.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of`, `DirichletPadicLFunctions:L3/kubert-rational-factors-rational-cartan-value-zero`, `DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-nonzero`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientValue_zero_point_ne_zero_typed_api` (compatibility): For every positive level N, the quotient class of the actual zero torus point has nonzero image under the constructed corrected map.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The corrected quotient map is integer linear
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear` — `DirichletPadic.kubertRationalCartanQuotientLinear`
+
+Construct the integer-linear map from the original internal quotient to the original rational Cartan group ring whose point function is the proved additive corrected quotient map.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use the native integer-linear conversion of the actual additive homomorphism.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value`, `mathlib:AddMonoidHom.toIntLinearMap`.
+
+**Uses:**
+
+- Kubert197, corrected map underlying Theorem4.11: Supplies the actual well-defined map from original internal relation classes, before any injectivity or rational-spanning argument.
+- Kubert195–198, full-norm compatibility and integral images: Carries actual integer classes compatibly between existing quotient levels and the original rational Cartan group rings; the integer-linear form gives the correct native carrier for studying its image.
+
+**API:**
+
+- `kubertRationalCartanQuotientLinear_apply` (compatibility): The integer-linear corrected quotient map has exactly the same value as the constructed additive map at every original quotient class.
+- `kubertRationalCartanQuotientLinear_of` (compatibility): The integer-linear corrected quotient map sends the original class of any level-N point a to its original corrected value r_N(a).
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.integer_combination_has_actual_corrected_value` (computation): At level6, negative twice the1/6 class plus the2/3 class maps to negative five halves times the actual basis difference[1]−[5].
+- `SuggestedKubertCorrectedQuotientTests.zero_point_class_has_full_unit_sum` (computation): At level6 the integer-linear map sends the original zero-point class to the full unit sum[1]+[5].
+- `SuggestedKubertCorrectedQuotientTests.integer_linear_quotient_values_commute_with_full_norm` (compatibility): The actual integer-linear corrected quotient values commute with the existing level map6→30 and the original full coefficient norm.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### Integer linearity preserves the exact quotient value function
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear-apply` — `DirichletPadic.kubertRationalCartanQuotientLinear_apply`
+
+The integer-linear corrected quotient map has exactly the same value as the constructed additive map at every original quotient class.
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Evaluate the native integer-linear conversion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear`, `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientLinear_apply_typed_api` (compatibility): The integer-linear corrected quotient map has exactly the same value as the constructed additive map at every original quotient class.
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+### The integer-linear map retains every original point value
+
+`DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear-of` — `DirichletPadic.kubertRationalCartanQuotientLinear_of`
+
+The integer-linear corrected quotient map sends the original class of any level-N point a to its original corrected value r_N(a).
+
+**Hypotheses:** The degree is one, N is positive and the point carrier is the original level-N kernel in the one-coordinate rational torus. The finite Cartan group and rational group ring are the original truncated-Witt product and its group ring. The source quotient is exactly the original free abelian group on actual level-N points modulo the existing internal ordinary relation subgroup at weight0. The relation subgroup, generators and transition maps are reused from5414 and5440. The corrected values are the original source4.5 construction with the preservedE27 product correction, now proved to satisfy the full ordinary distribution law4.10. Their original full coefficient norm compatibility4.8 is retained. Every internal generator is proved to have zero evaluation before defining the quotient map. The map on the actual quotient uses the native quotient universal property and the original free-abelian evaluation map. For M dividing N, compatibility uses the existing original quotient levelMap and the existing full coefficient norm. No quotient injectivity or replacement transfer is assumed. The integer-linear construction is the native conversion of this actual additive quotient homomorphism, with the same point function. The class of the zero torus point has nonzero image and is distinct from the quotient additive identity. This constructs and characterizes the corrected map on the original internal quotient. Its injectivity, rational spanning, global quotient descent, source4.13 image/product, source freeness, lower rank and internal-to-global injection remain open.
+
+**Proof:**
+
+1. Use equality of the actual additive and integer-linear point functions.
+2. Apply the original point-class evaluation theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-linear-apply`, `DirichletPadicLFunctions:L3/kubert-corrected-quotient-rational-cartan-quotient-value-of`.
+
+**Tests:**
+
+- `SuggestedKubertCorrectedQuotientTests.rationalCartanQuotientLinear_of_typed_api` (compatibility): The integer-linear corrected quotient map sends the original class of any level-N point a to its original corrected value r_N(a).
+
+**Acceptance:** At level1 the class of the original zero point maps to1. At level2 the half-point class maps to0 while the zero-point class maps to1. At level6 the actual relation[1/6]+[2/3]−[1/3] maps to0, the zero-point class maps to[1]+[5], and negative twice the1/6 class plus the2/3 class maps to negative five halves of[1]−[5]. The existing quotient transition6→30 commutes with the original full norm.
+
+**Source:** Published196–197 Proposition4.10 and the start of Theorem4.11: corrected distribution values define the map on the universal ordinary distribution; Proposition4.8 on195–196 gives the level norm compatibility. Constructs the corrected value map on the actual internal ordinary quotient after proving that every original relation is annihilated. Proves generator evaluation, uniqueness, full-norm compatibility and integer linearity. The subsequent global/injectivity and rational-spanning conclusions are not assumed.
+
+**Remaining:** The actual corrected map on each original internal ordinary quotient is constructed, with complete relation annihilation, representative and point evaluation, uniqueness, full-norm compatibility through the existing quotient level maps, integer linearity and nonzero image of the original zero-point class. Next construct the corrected global value and quotient descent in the original norm direct limit, then prove source4.11 rational spanning and4.13 image/product. No quotient injectivity, source freeness, lower rank or internal-to-global injection is claimed; general-degree primitive coordinates and local-field comparisons remain open.
+
+### Actual corrected quotient values and full-norm compatibility validation
+
+All 2205 predecessor nodes, 1283 baseline records, 27 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 11 named suggested declarations and 15 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2478 reachable nodes, 9934 edges and 1449 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route ends in the original actual internal relation subgroup, corrected point values, existing quotient transition maps and full coefficient norm, or checked native free-abelian/quotient and integer-linear interfaces. No quotient injectivity, global descent, rational spanning or source-freeness package is assumed.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3915 pinned Mathlib modules and 32 pinned Tau Ceti modules. Only 31 Tau module artifacts are available and hash-verified. The 152 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5826 verbatim and adds two complete constructions and nine complete lemmas, plus a private routine descent lemma specializing the existing kernel criterion to weight zero with arbitrary finite fiber enumeration. Totals are187 definitions and1,505 lemmas without placeholders. The public append has11 named declarations and15 typed examples, all new mathematical bodies placeholders. No new native import or library build is added. The separate probe compiles against 3282 pinned Mathlib modules and 10 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses existing pinned native periodicity, low-degree Tate and Teichmuller artifacts, with ten Tau modules in its source closure. It does not import or compile the unavailable TwistedDivisorSum module; the full-file boundary remains unchanged. General roadmap declarations remain unchecked.
+
+Exact controls through36 levels verify2,935 original internal relation rows with37,459 zero coefficients,2,935 word-invariance checks after adding those relations,396 integer-linear coefficients,36 nonzero zero-point values, and140 quotient-word norm comparisons with1,479 coefficients. Exact original integer relation rows and rational group-ring evaluation through level36 check every ordinary internal generator, invariance of explicit integer words after adding those relations, integer linear combinations, the nonzero image of the original zero-point class and full-norm compatibility on original free words across divisor levels. This validates finite instances without assuming quotient injectivity, rational spanning or source freeness. The largest observed discrepancy is 0.
+
+Fresh capture after the actual merge of5826 found all79 canonical inputs unchanged. The whole issue, queue, original winning claim and blocked/unclaimed review390 were checked. All27 source findings and eight source versions remain whole; no external review or source conclusion is adopted.
+
+The separate partial signature file also compiled with zero errors and 6,451 expected placeholder warnings across 3,914 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f7980a0d99bc250db5163556e36c89753abd6c5999cfb1715b5e073b6c77ac5e.
+
+The indexed blueprint checker reports zero errors and 26 advisory short-API warnings, including 25 inherited warnings. The new warning is for the integer-linear conversion's two dedicated APIs (evaluation and point classes); addition, zero and integer scalar laws come from the native linear-map structure, and the actual additive quotient map supplies norm compatibility and uniqueness. No extra wrapper declaration is introduced solely to increase the API count.
