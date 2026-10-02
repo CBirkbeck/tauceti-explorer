@@ -4,7 +4,7 @@ Genus-one fibrations, Ferrand pinching and rational elliptic surfaces
 
 This continuation supplies the genus-one and rational-Jacobian mathematics routed from Schröer’s paper. It begins with reusable finite pinching, passes through regular models and finite-field fiber descent, constructs global Weierstrass equations, and separates the fourteen explicit characteristic-two candidates from their exhaustiveness theorem. Its general definition of Ferrand pushouts is also needed by Witaszek’s conductor and line-bundle descent. The reserved owner is `NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts`.
 
-**Status: partial design.** The packet contains 137 declaration targets in seven stages: 10 definitions, 2 constructions, 95 lemmas, 25 theorems and 5 comparisons, with 51 API contracts, 48 planned unit tests and 28 planets. All 128 inherited IDs, 78 routed items and 21 source findings are preserved. There are 16 explicit gaps and 20 supplier requests. The global Scheme conductor continuation below supplies native ideal-sheaf data, quotient charts, canonical maps, geometric/categorical squares and flat recomputation contracts. All 76 upstream imports are restored as ordinary prerequisites. The generic finite-module annihilator theorem stays at SF.0. The finite F₂ subsection retains its concrete witnesses. No full surface search, all-place resolution, stage closure or formal implementation is claimed.
+**Status: partial design.** Codex `codex-J6LwjP`, Refs #3378. The current packet has 154 declarations: twelve definitions, three constructions, 108 lemmas, 26 theorems and five comparisons; 60 API entries, 57 definition/construction tests, 29 planets, 89 baseline declarations, 17 gaps and 23 requests. All 150 inherited IDs/statements, 78 routed items and 21 source findings remain. Four new quadratic remainder/uniqueness adapters and the inherited residue/conductor API have native proofs in a Mathlib-only extraction. The whole suggested file is uncompiled; all implementation statuses and seven stages remain open. No full surface search, all-place resolution, completeness theorem or formal roadmap implementation is claimed.
 
 ## Conventions and boundaries
 
@@ -3992,3 +3992,131 @@ The inherited `G.1/nonsplit-i1`, `nonsplit-i2`, `count-16` and `count-17` retain
 Indexed packet validation: zero errors and warnings; 150 nodes, 60 API items, 57 tests, 29 planets, 79 baseline entries, 22 sources, 23 requests and 17 gaps. The actual assembler with an in-memory pending-packet overlay includes all 150 declarations and 29 planets, with no pending or skipped links for this roadmap. All named stage prerequisites reach their consumer stages. The stage graph is acyclic (2992 vertices,8651 edges); this packet’s declaration graph is acyclic (150 vertices,397 edges); stages plus this packet are acyclic (3113 vertices,9230 edges). Other roadmaps retain their seven pre-existing skipped links: GeneralAlgebraicKTheory2, K2SymbolsBrauer1, K3BlochGroups4. Their declaration graphs were not audited. Normal retirement, restructuring, links and decomposition trimming ran; no atlas output was written. Overlay SHA256: `bba2a4836bdea5760f7909e25b6c6a0b9dfe95beea2799a233ed6647e79a56fb`. Native file SHA256: `821f66e1c1a43f79a08bc590d1b0307ec09ed3d1b6cc83370703efb910f21b60`.
 
 For reproducing the Frobenius examples, the quadratic fields use t²+t+1 over F₂, t²+1 over F₃ and t²+2 over F₅. Form the P¹ set over each quadratic extension, pinch its two roots (I₁), or glue corresponding roots across two labelled copies (I₂), then count classes fixed by x↦x^p. The tested component swap exchanges the two copy labels as well and gives a different fixed-point count. These set models illustrate the specified geometry; they do not supply scheme descent.
+
+## Current affine proof continuation — codex-J6LwjP
+
+The preceding quadratic-pinching and global conductor sections retain historical counts and receipts. This current section supersedes their compilation boundary. Generic polynomial division, quotient carriers and coefficient maps already exist. Four specific quadratic adapters make the scalar residue and conductor arguments declaration-sized and supply native proofs; no general polynomial or geometric theory is duplicated.
+
+### Constant normal forms survive quadratic division
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder` — lemma; `QuadraticPinch.constant_remainder`.
+
+For c∈k and h∈k[t], the native monic remainder of C(c)+qh modulo q is C(c).
+
+Proof outline:
+
+1. Use the built add_modByMonic and self_mul_modByMonic to remove qh.
+
+2. The degree of C(c) is at most zero, while q has degree two since it is monic and nonzero. Apply the built modByMonic_eq_self_iff. The zero constant is included.
+
+Prerequisites: `mathlib:Polynomial.add_modByMonic`, `mathlib:Polynomial.self_mul_modByMonic`, `mathlib:Polynomial.modByMonic_eq_self_iff`, `mathlib:Polynomial.degree_C_le`, `mathlib:Polynomial.degree_eq_natDegree`.
+
+Acceptance:
+
+- The unit polynomial is excluded by the degree hypothesis: C(1) modulo 1 is zero, so scalar recovery would fail. A typed example proves this failure.
+
+Source: Schröer §3, pp10–11 conductor construction; derived affine polynomial proof adapter using the named pinned library statements.
+
+### Pinching elements have scalar remainders
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar` — lemma; `QuadraticPinch.remainder_scalar`.
+
+For the actual subtype element f∈A_q, f mod q equals C((f mod q).coeff(0)).
+
+Proof outline:
+
+1. Use mem_algebra to write f=C(c)+qh for actual polynomial witnesses.
+
+2. Apply constant_remainder and the constant-coefficient formula. This does not choose an arbitrary identification of the quotient or assume q irreducible.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder`.
+
+Acceptance:
+
+- For any monic quadratic, t is not in A_q: its remainder is t, whose degree-one coefficient contradicts a scalar remainder. The typed generic nonmembership example has a native proof.
+
+Source: Schröer §3, pp10–11 conductor construction; derived affine polynomial proof adapter using the named pinned library statements.
+
+### The scalar in a quadratic normal form is unique
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-scalar-unique` — lemma; `QuadraticPinch.scalar_unique`.
+
+If the same polynomial f is C(c)+qh and C(d)+qj, then c=d.
+
+Proof outline:
+
+1. Apply the native remainder operation to the equality of the two forms.
+
+2. constant_remainder identifies the two remainders; cancel C by the built C_injective. There is no polynomial root-uniqueness assumption.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder`, `mathlib:Polynomial.C_injective`.
+
+Acceptance:
+
+- The q=0 preimage consists only of constants; a typed example excludes t. The asserted scalar uniqueness here still retains the monic quadratic hypotheses rather than silently generalizing the residue construction.
+
+Source: Schröer §3, pp10–11 conductor construction; derived affine polynomial proof adapter using the named pinned library statements.
+
+### Linear terms survive quadratic division
+
+`NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder` — lemma; `QuadraticPinch.linear_remainder`.
+
+For every c∈k, the native remainder of C(c)*t modulo q is C(c)*t.
+
+Proof outline:
+
+1. Separate c=0, whose remainder is zero.
+
+2. For c≠0 the polynomial C(c)*t has degree one by degree_C_mul_X; q has degree two. Apply modByMonic_eq_self_iff. No inversion of two or discriminant computation occurs.
+
+Prerequisites: `mathlib:Polynomial.degree_C_mul_X`, `mathlib:Polynomial.degree_eq_natDegree`, `mathlib:Polynomial.modByMonic_eq_self_iff`.
+
+Acceptance:
+
+- Degree one is a different pinch: t belongs to A_t, witnessed by c=0,h=1. The typed example distinguishes it from the monic quadratic nonmembership result.
+
+Source: Schröer §3, pp10–11 conductor construction; derived affine polynomial proof adapter using the named pinned library statements.
+
+### Current proof for `QuadraticPinch.algebra`
+
+For a field k and q∈k[t], define A_q as the native k-subalgebra preimage of the constants in AdjoinRoot(q)=k[t]/(q). Thus f∈A_q iff there are c∈k and h∈k[t] with f=c+qh. The construction exists for every q; subsequent quadratic claims require q monic of degree2. It does not assert that q is separable or irreducible.
+
+1. Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ. Algebra.mem_bot supplies an actual scalar witness; AdjoinRoot.mk_eq_mk identifies equality modulo q with divisibility by q. Rearranging the multiplicative witness proves mem_algebra for every q, including zero and units.
+
+2. Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier.
+
+Current prerequisites: `mathlib:Subalgebra.comap`, `mathlib:AdjoinRoot.mkₐ`, `mathlib:AdjoinRoot.mk_eq_mk`, `mathlib:Algebra.mem_bot`.
+
+### Current proof for `QuadraticPinch.residue`
+
+For monic q of degree2, the constant c in f=c+qh is unique. Define the k-algebra map ρ_q:A_q→k by that c, concretely the constant coefficient of the remainder modulo q. It is surjective and its kernel is the contraction of (q)⊂k[t]. The output is an actual AlgHom, not a freely chosen residue identification.
+
+1. Apply quadratic-scalar-unique to the actual normal forms; the uniqueness follows from the built remainder and C-injectivity, without a presentation theorem.
+
+2. Define the actual AlgHom by the zeroth coefficient of the remainder. Use quadratic-remainder-scalar with add_modByMonic and mul_modByMonic to prove all ring and scalar-map laws. Native proofs replace all admitted structure fields.
+
+3. Constants split the map by its commutation law. On the actual subtype, zero zeroth coefficient is equivalent to zero scalar remainder, and modByMonic_eq_zero_iff_dvd identifies its kernel with the contraction of (q). The three existing residue tests now have native proofs.
+
+Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-remainder-scalar`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-scalar-unique`, `mathlib:Polynomial.add_modByMonic`, `mathlib:Polynomial.mul_modByMonic`, `mathlib:Polynomial.modByMonic_eq_zero_iff_dvd`.
+
+### Current proof for `QuadraticPinch.conductor`
+
+For monic q of degree2, the conductor of A_q⊂k[t] is exactly the ambient ideal (q). Its contraction m=ker ρ_q satisfies A_q/m≅k, while k[t]/(q)=AdjoinRoot(q). The conductor square is the actual affine chart of the inherited Ferrand square.
+
+1. Every multiple of q remains a multiple after multiplication by any polynomial, giving (q)≤conductor.
+
+2. If f lies in the conductor, multiplication by 1 gives f=C(c)+qh and multiplication by t gives ft=C(d)+qj. quadratic-linear-remainder and quadratic-constant-remainder compare the two remainders of ft; their degree-one coefficients force c=0. This supplies a native proof of the exact ambient conductor equality for every monic quadratic, including repeated-root and inseparable cases.
+
+3. Combine the residue kernel with the inherited ring/cartesian/geometric pushout results.
+
+Current prerequisites: `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-constant-remainder`, `NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-linear-remainder`.
+
+The inherited arbitrary-subring conductor now has native ideal-closure, containment, greatest-ideal, monotonicity and monogenic-baseline proofs. Its top-subring and proper-field-extension tests are proved. QuadraticPinch.mem_algebra and constants are proved for every polynomial q. The relation's substitution, quadratic part and origin laws, and all three relation tests are proved; the characteristic-two cross term and cubic obstruction remain explicit.
+
+The existing residue's AlgHom fields and three API lemmas/tests now have native proofs. Its kernel is the actual contracted ambient principal ideal. The conductor proof checks f and t*f and compares their exact native remainders, without assuming separability or irreducibility. Neither the kernel quotient nor a conductor equality proves normalization, nodality, arithmetic genus or global scheme pinching.
+
+Four additional typed acceptance examples reject t in a monic quadratic pinch and in A_0, exhibit t in A_t, and demonstrate failure of constant recovery modulo the unit polynomial. The thirteen inherited examples in this extracted scope remain; eight of them now have native proofs. Full extraction and axiom-audit receipts are in the current handoff; the full Tau Ceti file is not compiled.
+
+Fresh source reading covers Schröer §3, printed pp9–11, mathematical text and displayed proofs, with PDF SHA-256 ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61. Ten newly named baseline statements and the ZMod prime-field instance source were read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Historical primary-source, finite-model and model-classifier receipts retain their attribution. No finite model script or elliptic/surface certificate was rerun.
+
+All seventeen gap groups and seven open stages remain. The SF.0 quadratic request no longer lists the scalar residue map as an unresolved consumer; presentation/localization and geometric exports are still requested. General normalization/nodal/cohomological theory remains with its existing owners, and the full omission ledger stays binding. No atlas data or supplier packet changes.
