@@ -431,22 +431,22 @@
       "tests": [
         {
           "name": "matrix_identity",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "classIndex of any positive matrix algebra over K is 1, even for M₂(K) of degree2."
         },
         {
           "name": "finite_field",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "Every class over a finite field has index1."
         },
         {
           "name": "division_representative",
-          "kind": "acceptance",
+          "kind": "compatibility",
           "statement": "For a central division algebra D of degree d, classIndex([D])=d; a nonsplit quaternion division example has value2."
         },
         {
           "name": "zero_excluded",
-          "kind": "acceptance",
+          "kind": "non-example",
           "statement": "No Brauer class has index0; the zero-dimensional matrix ring is not a CSA."
         }
       ]
@@ -625,22 +625,22 @@
       "tests": [
         {
           "name": "identity_degree_one",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "1 belongs for the identity class, using K/K."
         },
         {
           "name": "zero_degree",
-          "kind": "acceptance",
+          "kind": "degenerate",
           "statement": "0 is never a member, since extensions are nontrivial fields."
         },
         {
           "name": "nontrivial_no_degree_one",
-          "kind": "acceptance",
+          "kind": "non-example",
           "statement": "For α≠1, degree1 cannot split α."
         },
         {
           "name": "quaternion_degree_two",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "A quaternion division class split by a quadratic extension has degree2 in the set."
         }
       ]
@@ -1062,22 +1062,22 @@
       "tests": [
         {
           "name": "identity_extension",
-          "kind": "acceptance",
+          "kind": "compatibility",
           "statement": "For K/K, cor α=α."
         },
         {
           "name": "trivial_class",
-          "kind": "acceptance",
+          "kind": "degenerate",
           "statement": "For any finite separable extension cor(1)=1."
         },
         {
           "name": "quadratic_restriction",
-          "kind": "acceptance",
+          "kind": "compatibility",
           "statement": "For a separable quadratic extension, cor(res α)=α², which is not generally α."
         },
         {
           "name": "inseparable_boundary",
-          "kind": "acceptance",
+          "kind": "non-example",
           "statement": "An inseparable extension is outside this construction’s input type."
         }
       ]
@@ -1521,22 +1521,22 @@
       "tests": [
         {
           "name": "rank_one",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "For A=O_X,P=O_X, the equivalence is identity."
         },
         {
           "name": "matrix_rank_two",
-          "kind": "acceptance",
+          "kind": "compatibility",
           "statement": "For P=O_X², the forward object is the matrix column module; annihilator agrees with the scalar module."
         },
         {
           "name": "disconnected_rank",
-          "kind": "acceptance",
+          "kind": "characterisation",
           "statement": "On a disconnected base with ranks1 and2, apply local positive rank, not one globally constant rank."
         },
         {
           "name": "nongenerator",
-          "kind": "acceptance",
+          "kind": "non-example",
           "statement": "The zero bundle on a nonempty nontrivial base cannot give an equivalence."
         }
       ]
@@ -1766,22 +1766,22 @@
       "tests": [
         {
           "name": "rank_one_scalar",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "For rank1 inverse module and scalar b, the polynomial is T−b."
         },
         {
           "name": "zero_rank",
-          "kind": "acceptance",
+          "kind": "degenerate",
           "statement": "For M=0 the polynomial is 1, of degree0."
         },
         {
           "name": "nonreduced_scalar",
-          "kind": "acceptance",
+          "kind": "computation",
           "statement": "Over F₂[ε]/ε², rank1 scalar ε has polynomial T−ε, distinct from T although their squares agree."
         },
         {
           "name": "line_twist",
-          "kind": "acceptance",
+          "kind": "compatibility",
           "statement": "Replacing P by P⊗L yields the same polynomial, using the specified transition equivalence."
         }
       ]
@@ -2279,98 +2279,114 @@
   "suggestedFile": {
     "wholeFileCompiled": false,
     "reason": "All four imported Tau Ceti compiled modules are absent from the existing pinned build; no build was started.",
-    "sourceSha256": "63f6c90ec8b28f79b214537e0f371512c0e0ab83534cde7001b8a4aadbf21adf",
+    "sourceSha256": "ede604416dcbb01f5589527004d2dfda3c768eb210387a50a5f5725e89041f9c",
     "coverage": [
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/index-brauer-congr",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.indexBrauerCongr",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/class-index",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/class-index-mk",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex_mk",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/class-index-positive",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex_pos",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/class-index-one",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex_eq_one_iff",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/splitting-degrees",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.splittingDegrees",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/division-module-dimension",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.divisionModuleDimension",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/index-divides-splitting-degree",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.indexDividesSplittingDegree",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/index-basechange-divides",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex_baseChange_dvd",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/index-divides-degree-index",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.indexDividesDegreeIndex",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/class-index-attained",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classIndex_mem_splittingDegrees",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/minimum-splitting-degree",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.minimumSplittingDegree",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/gcd-splitting-degrees",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.gcdSplittingDegrees",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.0/same-cyclic-index",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.sameCyclicIndex",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/comparison-basechange-units",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/brauer-corestriction",
@@ -2387,67 +2403,81 @@
           "trivial_class",
           "quadratic_restriction",
           "inseparable_boundary"
-        ]
+        ],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/corestriction-restriction-degree",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/separable-splitting-annihilates",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.separableSplittingAnnihilates",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/class-power-index",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.classPowerIndex",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/brauer-finite-order",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.brauerFiniteOrder",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/period-divides-index",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.periodDividesIndex",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/prime-to-p-splitting",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.primeToPSplitting",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/index-prime-divides-period",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.indexPrimeDividesPeriod",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.1/same-prime-divisors",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.samePrimeDivisors",
-        "compiled": false
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.2/matrix-support",
         "status": "native-signature",
         "declaration": "SemisimpleAlgebrasPartII.matrixSupport",
-        "compiled": true
+        "compiled": true,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.2/nilpotent-support-boundary",
         "status": "partial-native-examples",
-        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations."
+        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations.",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.2/sheaf-morita",
@@ -2464,35 +2494,45 @@
           "matrix_rank_two",
           "disconnected_rank",
           "nongenerator"
-        ]
+        ],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.2/coherent-morita",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.2/sheaf-support-morita",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.3/splitting-transition-line",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.3/charpoly-line-twist",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.3/morita-characteristic-polynomial",
@@ -2509,45 +2549,68 @@
           "zero_rank",
           "nonreduced_scalar",
           "line_twist"
-        ]
+        ],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.3/frobenius-root-boundary",
         "status": "partial-native-examples",
-        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations."
+        "detail": "The concrete ZMod4 / pure TrivSqZeroExt ring computations are checked; the global support / polynomial conclusions are not separate compiled declarations.",
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.4/cartier-brauer-comparison",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       },
       {
         "node": "SemisimpleAlgebrasPartII:SA.4/relative-brauer-equality",
         "status": "unrepresented",
         "detail": "Requires the actual unresolved supplier carrier or maps; no proposition-valued substitute is introduced.",
         "api": [],
-        "tests": []
+        "tests": [],
+        "compiled": false,
+        "currentBody": "admitted prototype under PROTOCOL13"
       }
     ],
-    "affineReceipt": {
+    "separateProofPrototype": {
+      "commit": "3895cfae9312599fb6dc1546fdee537d5bf14e36",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/3895cfae9312599fb6dc1546fdee537d5bf14e36/research/blueprint/suggested/SemisimpleAlgebrasPartII.lean",
+      "receipt": {
+        "exitCode": 0,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "seconds": 0.9,
+        "examples": 7,
+        "provedDeclaration": "SemisimpleAlgebrasPartII.matrixSupport",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "containsSorryAx": false,
+        "sourceSha256": "b8c7403b0c0a2a218f1358d78e704fcd5a2fccd3dbef4b34c7585f7289991898",
+        "logSha256": "b4148d35bfa2cfbe9ae0953942209716d270322dd477d1711ba6845666e44700",
+        "scope": "Exact marked affine section with Mathlib imports and an axiom print; field and geometric signatures excluded."
+      }
+    },
+    "formatCorrection": "PROTOCOL13: current suggested bodies are admitted. Earlier affine proof bodies and axiom receipt are preserved at the immutable initial commit; their receipt does not certify this sketch.",
+    "admittedAffineReceipt": {
       "exitCode": 0,
+      "seconds": 0.89,
       "errors": 0,
-      "admissionWarnings": 0,
+      "admissionWarnings": 8,
       "otherWarnings": 0,
-      "seconds": 0.9,
       "examples": 7,
-      "provedDeclaration": "SemisimpleAlgebrasPartII.matrixSupport",
-      "axioms": [
-        "propext",
-        "Classical.choice",
-        "Quot.sound"
-      ],
-      "containsSorryAx": false,
-      "sourceSha256": "b8c7403b0c0a2a218f1358d78e704fcd5a2fccd3dbef4b34c7585f7289991898",
-      "logSha256": "b4148d35bfa2cfbe9ae0953942209716d270322dd477d1711ba6845666e44700",
-      "scope": "Exact marked affine section with Mathlib imports and an axiom print; field and geometric signatures excluded."
+      "sourceSha256": "efec63abfe36866b6deb0e22b26297c155f11788d4aff96ae9e29afda0e896fa",
+      "logSha256": "38fc361871c64d1cfc3f6462cfbba1813603adc59c945165d84b81100058e8d5"
     }
   },
   "atlasCheck": {
