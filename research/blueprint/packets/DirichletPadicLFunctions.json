@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twenty-three L3 nodes construct actual primary-unit coordinates, prime-local translating units and cosets, their positive cardinalities and rational sums, normalized correction factors, and the corrected rational-value product on the original degree-one Cartan carrier. All2,039 predecessor nodes and1,239 baseline records remain whole; the general distribution and rational-span proofs remain open.",
+  "summary": "Twenty-eight L3 nodes construct the original degree-one local integral lattices, identify their generators with the actual source primitive fibers and correction factors, and prove their full rational span by decomposing every unit basis vector. All2,062 predecessor nodes and1,250 baseline records remain whole. The image/product comparison and full distribution laws remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -8764,6 +8764,69 @@
         "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
         "provides": "Finite products agree when their indexing finsets and every indexed factor agree.",
         "checked": "Full statement read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 source: Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean, line104, including surrounding hypotheses. Existing primary CRT, units transport, coprime-prime and coefficient-equivalence statements were also reread."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeff_single_mul_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The coefficient of a basis vector times a group-ring element is the basis coefficient times the original coefficient at the inverse-translated index.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/MonoidAlgebra/Defs.lean, line826. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.single_mul_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Multiplication of native monoid-algebra basis elements multiplies their actual labels and coefficients.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/MonoidAlgebra/Defs.lean, line547. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.induction_on",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "A property of all native monoid-algebra elements follows from its values on unit-coefficient basis vectors and closure under addition and coefficient scalar multiplication.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/MonoidAlgebra/Defs.lean, line726. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Submodule.span_induction",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Dependent induction on native span membership using generating-set membership, zero, addition and scalar multiplication.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/LinearAlgebra/Span/Defs.lean, line137. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Submodule.span_le",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Containment of a native span is equivalent to containment of its actual generating set.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/LinearAlgebra/Span/Defs.lean, line80. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Submodule.subset_span",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "Every element of a generating set lies in its native scalar span.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/LinearAlgebra/Span/Defs.lean, line75. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_top_iff'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Submodule/Lattice.lean",
+        "provides": "A native submodule equals the whole module exactly when it contains every actual element.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/Algebra/Module/Submodule/Lattice.lean, line163. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:pow_eq_pow_iff_modEq",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Equality of powers is congruence of exponents modulo the actual element order; the generated additive theorem gives the corresponding natural-multiple criterion.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/GroupTheory/OrderOfElement.lean, line611. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
+      },
+      {
+        "ref": "mathlib:Submodule.span",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+        "provides": "The smallest native submodule containing the specified actual generating set.",
+        "checked": "Full statement and surrounding hypotheses read2October2026 at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174: Mathlib/LinearAlgebra/Span/Defs.lean, line46. Existing order-of-multiple, CRT, coprime unit cancellation, factorization projection and integral coefficient-map statements were reread. Generated additive names are identified explicitly."
       }
     ]
   },
@@ -133677,6 +133740,1633 @@
       "acceptance": [
         "At level6, X₂ is the singleton unit5, while X₃ contains both units1 and5. Thus X₂ is not a subgroup. The corresponding factors are1−[5] and (1−[5])/2; the first is not idempotent. At level2 the local factor vanishes. The full corrected value at level1 is1, and at the primitive point1/6 at level6 it is1−[5]. These cases detect the wrong coset, missing cardinality normalization, assumed nonvanishing, and replacing the required product by a sum."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full rational sum over the actual local kernel",
+      "kind": "construction",
+      "statement": "Construct s(K_p(N)) in A_N with coefficient1 at each element of the actual prime-supported kernel subgroup and coefficient0 elsewhere.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use finiteness of the original Cartan carrier already established for the full-fiber norm construction.",
+        "Take the rational indicator of actual kernel membership.",
+        "Apply the inverse native finite-function and group-ring coefficient equivalences."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel",
+        "DirichletPadicLFunctions:L3/kubert-cartan-products-cartan-product-norm",
+        "mathlib:Finsupp.linearEquivFunOnFinite",
+        "mathlib:MonoidAlgebra.coeffLinearEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.kernel_sum_trivial_at_six",
+          "kind": "computation",
+          "statement": "At level6 the kernel supported at2 is trivial, so its full rational sum is the identity basis vector."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.kernel_sum_full_at_six",
+          "kind": "computation",
+          "statement": "At level6 the kernel supported at3 contains both units1 and5, with coefficient1 at each."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.kernel_sum_prime_power",
+          "kind": "degenerate",
+          "statement": "At the prime-power level9 all units are in the3-local kernel, so every coefficient is1."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.kernel_sum_differs_from_coset",
+          "kind": "non-example",
+          "statement": "At level6 the2-local kernel sum is1 and the source coset sum is the unit5 basis vector. They are related by the constructed translation and are not equal."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalPrimeKernelSum_coeff",
+          "role": "characterisation",
+          "statement": "The coefficient of s(K_p(N)) at u is1 precisely when u belongs to K_p(N), and0 otherwise."
+        },
+        {
+          "name": "kubertRationalPrimeKernelSum_one",
+          "role": "compatibility",
+          "statement": "The coefficient of s(K_p(N)) at the actual identity unit is1."
+        },
+        {
+          "name": "kubertRationalPrimeKernelSum_nonzero",
+          "role": "compatibility",
+          "statement": "The rational group-ring element s(K_p(N)) is nonzero."
+        },
+        {
+          "name": "kubertRationalPrimeCosetSum_translation",
+          "role": "compatibility",
+          "statement": "The actual full source coset sum equals [λ_N,p]s(K_p(N)) in the original rational Cartan group ring."
+        },
+        {
+          "name": "kubertRationalPrimeKernelSum_translation_inverse",
+          "role": "compatibility",
+          "statement": "Multiplying the full source coset sum by [λ_N,p⁻¹] gives s(K_p(N))."
+        },
+        {
+          "name": "kubertRationalPrimeKernelSum_primitive_fiber",
+          "role": "characterisation",
+          "statement": "The actual kernel sum s(K_p(N)) equals the previously constructed original Cartan primitive-fiber sum s(X_N(a_p))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert198, equation4.12 and the local rational-span argument",
+          "how": "Identifies the actual local lattice generators, including the original primitive fiber and constructed coset translation, and expresses every original Cartan basis vector in their rational span."
+        },
+        {
+          "where": "Kubert198–199, Proposition4.13 and Theorem4.11",
+          "how": "Supplies the exact local integral factors for the remaining comparison between their product and the actual rational-distribution image. That comparison and the general distribution laws remain unproved in this checkpoint."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Coefficients of the local kernel sum",
+      "kind": "lemma",
+      "statement": "The coefficient of s(K_p(N)) at u is1 precisely when u belongs to K_p(N), and0 otherwise.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate the native coefficient equivalences in the kernel-sum construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernelSum_coeff_typed_api",
+          "kind": "compatibility",
+          "statement": "The coefficient of s(K_p(N)) at u is1 precisely when u belongs to K_p(N), and0 otherwise."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-one",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The kernel sum has identity coefficient one",
+      "kind": "lemma",
+      "statement": "The coefficient of s(K_p(N)) at the actual identity unit is1.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The identity belongs to the actual subgroup.",
+        "Use the kernel-sum coefficient formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum_one"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernelSum_one_typed_api",
+          "kind": "compatibility",
+          "statement": "The coefficient of s(K_p(N)) at the actual identity unit is1."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-nonzero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual local kernel sum is nonzero",
+      "kind": "lemma",
+      "statement": "The rational group-ring element s(K_p(N)) is nonzero.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "If it were zero, evaluate its identity coefficient.",
+        "The previous formula would give1=0 over the rationals."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum_nonzero"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernelSum_nonzero_typed_api",
+          "kind": "compatibility",
+          "statement": "The rational group-ring element s(K_p(N)) is nonzero."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The coset sum is the constructed translate of the kernel sum",
+      "kind": "lemma",
+      "statement": "The actual full source coset sum equals [λ_N,p]s(K_p(N)) in the original rational Cartan group ring.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate both sides at an arbitrary actual unit u.",
+        "The native coefficient formula for multiplication by a unit basis vector gives the kernel coefficient at λ_N,p⁻¹u.",
+        "Use the previously proved equivalence between membership in X_p(N) and membership of λ_N,p⁻¹u in K_p(N)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-sum-coeff",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-coset-iff-kernel",
+        "mathlib:MonoidAlgebra.coeff_single_mul_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeCosetSum_translation"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeCosetSum_translation_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual full source coset sum equals [λ_N,p]s(K_p(N)) in the original rational Cartan group ring."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-translation-inverse",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse translation recovers the kernel sum",
+      "kind": "lemma",
+      "statement": "Multiplying the full source coset sum by [λ_N,p⁻¹] gives s(K_p(N)).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Replace the coset sum by the proved translated kernel sum.",
+        "Associate the two actual unit basis factors, use native basis multiplication, and cancel the unit with its inverse."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation",
+        "mathlib:MonoidAlgebra.single_mul_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum_translation_inverse"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernelSum_translation_inverse_typed_api",
+          "kind": "compatibility",
+          "statement": "Multiplying the full source coset sum by [λ_N,p⁻¹] gives s(K_p(N))."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual local integral Cartan lattice",
+      "kind": "construction",
+      "statement": "Construct V_p(N) as the integer span in A_N of all elements [u]s(K_p(N)) and [u]ε_p(N), where u ranges over the original Cartan group. This is an integral lattice inside the rational coefficient space; it is not defined to be its rational span.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the actual kernel sum and existing rational correction factor.",
+        "Take the union of their two families of unit-basis translates.",
+        "Apply native integer submodule span inside the original rational group ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor",
+        "mathlib:Submodule.span"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.local_lattice_contains_integral_unit",
+          "kind": "computation",
+          "statement": "The2-local lattice at level6 contains the identity basis vector, since its kernel sum is1."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.local_lattice_is_not_rational_space",
+          "kind": "non-example",
+          "statement": "The2-local lattice at level6 has integral coefficients and does not contain half the identity basis vector. Its rational span being full must not replace the integral lattice itself."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.full_rational_span_need_not_contain_one",
+          "kind": "non-example",
+          "statement": "The3-local lattice at level6 is generated by1+[5] and (1−[5])/2. It contains twice the identity but not the identity, despite having full rational span."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.local_lattice_at_two",
+          "kind": "degenerate",
+          "statement": "At level2 the rational factor is zero and the kernel sum is1, so the identity belongs to the local lattice while half the identity does not."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalPrimeLocalLattice_kernel_basis",
+          "role": "compatibility",
+          "statement": "For each original unit u, the element [u]s(K_p(N)) belongs to V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_factor_basis",
+          "role": "compatibility",
+          "statement": "For each original unit u, the element [u]ε_p(N) belongs to V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_kernel",
+          "role": "compatibility",
+          "statement": "The actual kernel sum s(K_p(N)) belongs to V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_factor",
+          "role": "compatibility",
+          "statement": "The actual correction factor ε_p(N) belongs to V_p(N), even when its coefficients are nonintegral."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_coset",
+          "role": "compatibility",
+          "statement": "The actual unnormalized sum s(X_p(N)) belongs to V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_basis_mul",
+          "role": "compatibility",
+          "statement": "For each original Cartan unit u and each x in V_p(N), the product [u]x lies in V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_le_iff",
+          "role": "characterisation",
+          "statement": "For an integer submodule L of A_N, V_p(N) is contained in L if and only if every [u]s(K_p(N)) and every [u]ε_p(N) belongs to L."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_span_basis",
+          "role": "compatibility",
+          "statement": "For every original Cartan unit u, [u] belongs to the rational span of V_p(N) inside A_N."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_rational_span",
+          "role": "compatibility",
+          "statement": "The rational span of V_p(N) is all of A_N."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_integral_mul",
+          "role": "compatibility",
+          "statement": "For an element r of the actual integral group ring on U(1,N) and x in V_p(N), the product of x with the native rational-coefficient image of r lies in V_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimeLocalLattice_source_membership",
+          "role": "characterisation",
+          "statement": "An element x of A_N lies in V_p(N) if and only if x=ι(r)s(X_N(a_p))+ι(s)ε_p(N) for some actual integral group-ring elements r and s, where ι is the native integer-to-rational coefficient map. The Cartan group is commutative, so this is exactly the two principal integral group-ring multiples in source4.12."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert198, equation4.12 and the local rational-span argument",
+          "how": "Identifies the actual local lattice generators, including the original primitive fiber and constructed coset translation, and expresses every original Cartan basis vector in their rational span."
+        },
+        {
+          "where": "Kubert198–199, Proposition4.13 and Theorem4.11",
+          "how": "Supplies the exact local integral factors for the remaining comparison between their product and the actual rational-distribution image. That comparison and the general distribution laws remain unproved in this checkpoint."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every kernel-basis translate belongs to the local lattice",
+      "kind": "lemma",
+      "statement": "For each original unit u, the element [u]s(K_p(N)) belongs to V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The element is in the first generating family.",
+        "Apply native inclusion of the generating set in its integer span."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+        "mathlib:Submodule.subset_span"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_kernel_basis"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_kernel_basis_typed_api",
+          "kind": "compatibility",
+          "statement": "For each original unit u, the element [u]s(K_p(N)) belongs to V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor-basis",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every correction-factor translate belongs to the local lattice",
+      "kind": "lemma",
+      "statement": "For each original unit u, the element [u]ε_p(N) belongs to V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The element is in the second generating family.",
+        "Apply native inclusion of the generating set in its integer span."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+        "mathlib:Submodule.subset_span"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_factor_basis"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_factor_basis_typed_api",
+          "kind": "compatibility",
+          "statement": "For each original unit u, the element [u]ε_p(N) belongs to V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original kernel sum belongs to the local lattice",
+      "kind": "lemma",
+      "statement": "The actual kernel sum s(K_p(N)) belongs to V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the kernel-basis membership lemma at the identity unit.",
+        "Its basis vector is the group-ring identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_kernel"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_kernel_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual kernel sum s(K_p(N)) belongs to V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The correction factor belongs to the integral local lattice",
+      "kind": "lemma",
+      "statement": "The actual correction factor ε_p(N) belongs to V_p(N), even when its coefficients are nonintegral.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the correction-factor membership lemma at the identity unit.",
+        "Cancel the group-ring identity factor."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor-basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_factor_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual correction factor ε_p(N) belongs to V_p(N), even when its coefficients are nonintegral."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-coset",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The full source coset sum belongs to the integral local lattice",
+      "kind": "lemma",
+      "statement": "The actual unnormalized sum s(X_p(N)) belongs to V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved equality with the kernel sum translated by the constructed λ_N,p.",
+        "This is a member of the first integral generating family."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_coset"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_coset_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual unnormalized sum s(X_p(N)) belongs to V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-basis-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The integral lattice is stable under every actual unit basis action",
+      "kind": "lemma",
+      "statement": "For each original Cartan unit u and each x in V_p(N), the product [u]x lies in V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Induct on membership in the native integer span.",
+        "On each generating family, native basis multiplication replaces the translating index v by uv.",
+        "Multiplication preserves zero and addition and commutes with integer scalar multiplication.",
+        "Apply the corresponding closure properties of the integer submodule."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor-basis",
+        "mathlib:Submodule.span_induction",
+        "mathlib:MonoidAlgebra.single_mul_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_basis_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_basis_mul_typed_api",
+          "kind": "compatibility",
+          "statement": "For each original Cartan unit u and each x in V_p(N), the product [u]x lies in V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-le-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The universal containment criterion for the local lattice",
+      "kind": "lemma",
+      "statement": "For an integer submodule L of A_N, V_p(N) is contained in L if and only if every [u]s(K_p(N)) and every [u]ε_p(N) belongs to L.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the native span-containment characterization.",
+        "Split containment of the generating union into its two ranges."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+        "mathlib:Submodule.span_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_le_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_le_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "For an integer submodule L of A_N, V_p(N) is contained in L if and only if every [u]s(K_p(N)) and every [u]ε_p(N) belongs to L."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-basis-decomposition",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "An explicit rational decomposition of each Cartan basis vector",
+      "kind": "lemma",
+      "statement": "For every original unit u, [u]=[u]ε_p(N)+|X_p(N)|⁻¹[uλ_N,p]s(K_p(N)). Both nonscalar terms on the right belong to the integral local lattice.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use native basis multiplication and the coset translation identity to replace [uλ_N,p]s(K_p(N)) by [u]s(X_p(N)).",
+        "Factor out [u] and use the established identity ε_p(N)+s(X_p(N))/|X_p(N)|=1.",
+        "The two terms are exactly the previously proved integral generating families."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-coset-sum-translation",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-factor-complement",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor-basis",
+        "mathlib:MonoidAlgebra.single_mul_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalBasis_decomposition"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalBasis_decomposition_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original unit u, [u]=[u]ε_p(N)+|X_p(N)|⁻¹[uλ_N,p]s(K_p(N)). Both nonscalar terms on the right belong to the integral local lattice."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-span-basis",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every original unit basis vector lies in the rational span",
+      "kind": "lemma",
+      "statement": "For every original Cartan unit u, [u] belongs to the rational span of V_p(N) inside A_N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the explicit two-term rational basis decomposition.",
+        "Each unscaled term lies in the integral lattice and hence in its rational span.",
+        "Close under rational scalar multiplication and addition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-basis-decomposition",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel-basis",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor-basis",
+        "mathlib:Submodule.subset_span"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_span_basis"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_span_basis_typed_api",
+          "kind": "compatibility",
+          "statement": "For every original Cartan unit u, [u] belongs to the rational span of V_p(N) inside A_N."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-rational-span",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Each actual local integral lattice spans the rational Cartan group ring",
+      "kind": "lemma",
+      "statement": "The rational span of V_p(N) is all of A_N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the native criterion that a submodule equals the whole module exactly when every element belongs to it.",
+        "Apply native monoid-algebra induction on basis elements, addition and coefficient scalar multiplication.",
+        "Every unit basis vector is already in the rational span; its submodule structure supplies the remaining closure steps. This proves all coefficients, not merely membership of the identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-span-basis",
+        "mathlib:Submodule.eq_top_iff'",
+        "mathlib:MonoidAlgebra.induction_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_rational_span"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_rational_span_typed_api",
+          "kind": "compatibility",
+          "statement": "The rational span of V_p(N) is all of A_N."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Original primitive points are the actual residue multiples of the identity point",
+      "kind": "lemma",
+      "statement": "The primitive one-coordinate torus point corresponding to an original Cartan unit u equals the natural residue representative of its actual finite comparison times the primitive point corresponding to the identity unit.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Reduce equality of the one-coordinate functions to the actual circle coordinate.",
+        "Use the established formulas that the primitive point of u is its actual residue representative divided by N and that the identity point is1/N.",
+        "Use the native compatibility of the circle quotient with natural multiplication."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-coe",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-one",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPrimitivePoint_nsmul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.cartanPrimitivePoint_nsmul_typed_api",
+          "kind": "compatibility",
+          "statement": "The primitive one-coordinate torus point corresponding to an original Cartan unit u equals the natural residue representative of its actual finite comparison times the primitive point corresponding to the identity unit."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul-eq-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Primitive-point multiplication is detected in the actual residue ring",
+      "kind": "lemma",
+      "statement": "For every natural t and original unit u, t times its primitive torus point equals t times the identity primitive point if and only if t times the residue value of u equals t modulo N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Write the primitive point as the natural residue multiple of the identity point.",
+        "The actual identity primitive point has order N.",
+        "Use the native additive version of the power-equality criterion modulo the element order.",
+        "Translate the natural congruence to equality in the native residue ring and use its canonical representative identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul",
+        "mathlib:pow_eq_pow_iff_modEq",
+        "mathlib:ZMod.natCast_eq_natCast_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertCartanPrimitivePoint_nsmul_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.cartanPrimitivePoint_nsmul_eq_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "For every natural t and original unit u, t times its primitive torus point equals t times the identity primitive point if and only if t times the residue value of u equals t modulo N."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-smul-iff",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The prime-power primitive fiber condition is actual kernel membership",
+      "kind": "lemma",
+      "statement": "With t=p raised to v_p(N), t times the primitive point corresponding to u equals t times the identity primitive point if and only if u belongs to K_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the preceding actual residue-ring criterion.",
+        "Apply the injective native Chinese remainder ring equivalence.",
+        "At the p-coordinate, t is zero modulo p raised to v_p(N), so the equation is automatic.",
+        "At every other prime q, distinct-prime coprimality makes t an actual residue unit; native unit cancellation makes the equation equivalent to the q-coordinate of u being1.",
+        "These are exactly the existing kernel membership conditions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-cartan-primitive-point-nsmul-eq-iff",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-cartan-primary-unit-equiv",
+        "DirichletPadicLFunctions:L3/kubert-rational-factors-rational-prime-kernel-mem",
+        "mathlib:ZMod.equivPi",
+        "mathlib:Nat.coprime_primes",
+        "mathlib:ZMod.unitOfCoprime",
+        "mathlib:IsUnit.mul_left_cancel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernel_smul_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernel_smul_iff_typed_api",
+          "kind": "compatibility",
+          "statement": "With t=p raised to v_p(N), t times the primitive point corresponding to u equals t times the identity primitive point if and only if u belongs to K_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual source point for a prime-local lattice",
+      "kind": "construction",
+      "statement": "Construct a_p in the original N-torsion subgroup of the one-coordinate rational torus by multiplying the established identity primitive point by t=p raised to v_p(N). This is the source point t/N.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Take the original primitive point corresponding to the identity Cartan unit.",
+        "Its order N makes it an actual member of the original N-torsion subgroup.",
+        "Multiply that subgroup element by the natural prime power t."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv",
+        "DirichletPadicLFunctions:L3/kubert-equivariance-primitive-equiv",
+        "DirichletPadicLFunctions:L3/kubert-generators-primitive-mem-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimePoint"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.prime_point_two_at_six",
+          "kind": "computation",
+          "statement": "The source point for p=2 at N=6 is2/6=1/3 and has actual additive order3."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.prime_point_three_at_six",
+          "kind": "non-example",
+          "statement": "The source point for p=3 at N=6 is3/6=1/2 and has order2. Its order is the complementary divisor, not the prime power removed."
+        },
+        {
+          "name": "SuggestedKubertLocalLatticesTests.prime_point_prime_power_is_zero",
+          "kind": "degenerate",
+          "statement": "For N=9 and p=3 the full prime power is9, so the source point9/9 is zero with additive order1."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ],
+      "api": [
+        {
+          "name": "kubertRationalPrimePoint_coe",
+          "role": "compatibility",
+          "statement": "The underlying torus value of a_p is t times the original identity primitive point."
+        },
+        {
+          "name": "kubertRationalPrimePoint_fraction",
+          "role": "compatibility",
+          "statement": "The one coordinate of a_p is the class of p raised to v_p(N) divided by N in the rational circle."
+        },
+        {
+          "name": "kubertRationalPrimePoint_order",
+          "role": "compatibility",
+          "statement": "The actual additive order of a_p is N divided by p raised to v_p(N)."
+        },
+        {
+          "name": "kubertRationalPrimePoint_fiber",
+          "role": "characterisation",
+          "statement": "An original primitive point corresponding to u belongs to X_N(a_p) if and only if u belongs to K_p(N). The fiber condition uses N divided by the actual order of a_p."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kubert198, equation4.12 and the local rational-span argument",
+          "how": "Identifies the actual local lattice generators, including the original primitive fiber and constructed coset translation, and expresses every original Cartan basis vector in their rational span."
+        },
+        {
+          "where": "Kubert198–199, Proposition4.13 and Theorem4.11",
+          "how": "Supplies the exact local integral factors for the remaining comparison between their product and the actual rational-distribution image. That comparison and the general distribution laws remain unproved in this checkpoint."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-coe",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local source point keeps the original torus value",
+      "kind": "lemma",
+      "statement": "The underlying torus value of a_p is t times the original identity primitive point.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Evaluate scalar multiplication in the actual additive subgroup used by the construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimePoint_coe"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimePoint_coe_typed_api",
+          "kind": "compatibility",
+          "statement": "The underlying torus value of a_p is t times the original identity primitive point."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-fraction",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local source point is the specified rational fraction",
+      "kind": "lemma",
+      "statement": "The one coordinate of a_p is the class of p raised to v_p(N) divided by N in the rational circle.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the underlying-value formula.",
+        "The identity primitive circle point is1/N.",
+        "Use the native quotient map compatibility with natural multiplication and the rational scalar identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-coe",
+        "DirichletPadicLFunctions:L3/kubert-degree-one-primitive-cartan-primitive-circle-equiv-one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimePoint_fraction"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimePoint_fraction_typed_api",
+          "kind": "compatibility",
+          "statement": "The one coordinate of a_p is the class of p raised to v_p(N) divided by N in the rational circle."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-order",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local source point has the complementary additive order",
+      "kind": "lemma",
+      "statement": "The actual additive order of a_p is N divided by p raised to v_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "The original identity primitive point has additive order N.",
+        "The prime power t is nonzero and divides N by the native factorization projection theorem.",
+        "Use the native additive version of the order-of-a-power formula for a divisor of the original order."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-coe",
+        "mathlib:Nat.ordProj_dvd",
+        "mathlib:orderOf_pow_of_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimePoint_order"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimePoint_order_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual additive order of a_p is N divided by p raised to v_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-fiber",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The original primitive fiber at the local source point is the kernel",
+      "kind": "lemma",
+      "statement": "An original primitive point corresponding to u belongs to X_N(a_p) if and only if u belongs to K_p(N). The fiber condition uses N divided by the actual order of a_p.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Use the proved actual order N/t.",
+        "Since t divides the positive N, divide N by N/t to recover t.",
+        "Use the underlying source-point value and the proved prime-power primitive-point condition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-order",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-coe",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-smul-iff",
+        "mathlib:Nat.ordProj_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimePoint_fiber"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimePoint_fiber_typed_api",
+          "kind": "compatibility",
+          "statement": "An original primitive point corresponding to u belongs to X_N(a_p) if and only if u belongs to K_p(N). The fiber condition uses N divided by the actual order of a_p."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-primitive-fiber",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The kernel sum is the source primitive-fiber sum",
+      "kind": "lemma",
+      "statement": "The actual kernel sum s(K_p(N)) equals the previously constructed original Cartan primitive-fiber sum s(X_N(a_p)).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Compare coefficients at each original Cartan unit.",
+        "Use the kernel indicator formula and the existing actual primitive-fiber coefficient formula.",
+        "The preceding fiber criterion makes the two indicators identical."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-coeff",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-point-fiber",
+        "DirichletPadicLFunctions:L3/kubert-rational-fiber-cartan-rational-primitive-sum-coeff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeKernelSum_primitive_fiber"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeKernelSum_primitive_fiber_typed_api",
+          "kind": "compatibility",
+          "statement": "The actual kernel sum s(K_p(N)) equals the previously constructed original Cartan primitive-fiber sum s(X_N(a_p))."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-integral-mul",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The local lattice is stable under the original integral group ring",
+      "kind": "lemma",
+      "statement": "For an element r of the actual integral group ring on U(1,N) and x in V_p(N), the product of x with the native rational-coefficient image of r lies in V_p(N).",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Induct on the actual integral monoid algebra using its basis elements, addition and integer scalar multiplication.",
+        "On a unit basis element, the native coefficient map preserves that basis vector and the existing basis-stability lemma applies.",
+        "The coefficient map preserves sums and integer multiples, and V_p(N) is an integer submodule."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-basis-mul",
+        "mathlib:MonoidAlgebra.induction_on",
+        "mathlib:MonoidAlgebra.mapRingHom",
+        "mathlib:MonoidAlgebra.mapRingHom_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_integral_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_integral_mul_typed_api",
+          "kind": "compatibility",
+          "statement": "For an element r of the actual integral group ring on U(1,N) and x in V_p(N), the product of x with the native rational-coefficient image of r lies in V_p(N)."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-source-membership",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The actual local lattice has the source two-generator description",
+      "kind": "lemma",
+      "statement": "An element x of A_N lies in V_p(N) if and only if x=ι(r)s(X_N(a_p))+ι(s)ε_p(N) for some actual integral group-ring elements r and s, where ι is the native integer-to-rational coefficient map. The Cartan group is commutative, so this is exactly the two principal integral group-ring multiples in source4.12.",
+      "hypotheses": [
+        "The degree is one, N is positive and p is an actual prime divisor of N. Write t=p raised to v_p(N). The carrier U(1,N) is the original finite product of truncated-Witt unit groups, with its previously constructed actual primary residue-unit coordinates C_N.",
+        "K_p(N) is the existing subgroup with identity at every primary coordinate distinct from p. X_p(N) is the existing source coset with off-prime coordinate p⁻¹, and λ_N,p is its already constructed translating unit. These are actual objects, not parameters satisfying assumed comparison laws.",
+        "A_N is the rational group ring on the original Cartan carrier. The existing correction factor is ε_p(N)=1−s(X_p(N))/|X_p(N)|, where the actual coset cardinality is positive. All kernel and coset sums are full sums with coefficient1.",
+        "The new local lattice V_p(N) is an integral submodule of A_N: the integer span of all unit-basis translates of the kernel sum and of ε_p(N). It is closed under multiplication by the actual integral group ring embedded by the native integer-to-rational coefficient map.",
+        "The source point a_p is the actual one-coordinate rational-torus point t/N, killed by N. Its order N/t and the equality between its original primitive-fiber sum and the kernel sum are proved, not assumed.",
+        "Full rational span of this individual local lattice is proved. The product of local lattices has not yet been identified with the image of the full corrected rational value. General distribution and full-norm compatibility, source freeness, lower rank and internal-to-global injection remain open."
+      ],
+      "proofSteps": [
+        "Replace the original primitive-fiber generator by the proved equal kernel sum.",
+        "Induct on membership in the integer span. Each basis translate supplies its own integral basis coefficient; zero, addition and integer scaling combine the two witnesses.",
+        "Conversely, the two generators belong to V_p(N), integral group-ring multiplication preserves it, and their sum remains in it."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-kernel-sum-primitive-fiber",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-integral-mul",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-kernel",
+        "DirichletPadicLFunctions:L3/kubert-local-lattice-rational-prime-local-lattice-factor",
+        "mathlib:Submodule.span_induction",
+        "mathlib:MonoidAlgebra.mapRingHom_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/KubertLocalLattices",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubertRationalPrimeLocalLattice_source_membership"
+      },
+      "sources": [
+        {
+          "sourceId": "Kubert-1979",
+          "locator": "Published198, equation4.12, the assertion that each local lattice spans the rational Cartan group ring, and the translating-unit comparison immediately following it; the primitive fiber is defined in4.1 on193 and the local coset in4.3 on194.",
+          "excerpt": "Then we claim that",
+          "match": "Constructs the actual degree-one local integral lattice, proves that its kernel generator is the original primitive-fiber sum at p raised to v_p(N) divided by N, and proves its rational span by an explicit decomposition of every actual unit basis vector. This supplies the individual-local-lattice step before the separate image/product comparison4.13."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKubertLocalLatticesTests.rationalPrimeLocalLattice_source_membership_typed_api",
+          "kind": "compatibility",
+          "statement": "An element x of A_N lies in V_p(N) if and only if x=ι(r)s(X_N(a_p))+ι(s)ε_p(N) for some actual integral group-ring elements r and s, where ι is the native integer-to-rational coefficient map. The Cartan group is commutative, so this is exactly the two principal integral group-ring multiples in source4.12."
+        }
+      ],
+      "acceptance": [
+        "At level6 the2-local kernel sum is1 and the coset sum is[5], while the3-local kernel sum is1+[5] and its correction factor is(1−[5])/2. The source points are respectively1/3 and1/2. The2-local lattice has integral coefficients; the3-local lattice contains2[1] but not[1], despite full rational span. At a prime-power level the source point is zero. These controls exclude replacing a coset by a subgroup, using the prime power as the point order, or confusing integral membership with rational span."
+      ]
     }
   ],
   "requests": [
@@ -133823,7 +135513,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual degree-one local cosets, constructed translating units, positive cardinalities, rational coset sums and normalized correction factors now define the corrected full product r_N(a), with zero, primitive and unit-level APIs. The general distribution law and compatibility with the original nonunital full-fiber norms are not yet proved. Next construct the integral local lattices from actual kernel sums and these factors, prove their rational span and the source image/product comparison, and complete the distribution and norm proofs. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open.",
+        "The individual degree-one local integral lattices now have their exact source generators: the actual primitive-fiber sum at p raised to v_p(N) divided by N and the actual normalized correction factor. Their integral group-ring stability, two-generator membership characterization and full rational span are proved on the original carriers. The product of these local lattices still must be identified with the image of the corrected rational value. Its general distribution relation and compatibility with the original nonunital full-fiber norms also remain unproved. Complete those arguments before deducing the full rational image, lower rank, source freeness or internal-to-global injection. General-degree Cartan coordinates, unramified-ring identification and character components remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -133855,7 +135545,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual degree-one local cosets, constructed translating units, positive cardinalities, rational coset sums and normalized correction factors now define the corrected full product r_N(a), with zero, primitive and unit-level APIs. The general distribution law and compatibility with the original nonunital full-fiber norms are not yet proved. Next construct the integral local lattices from actual kernel sums and these factors, prove their rational span and the source image/product comparison, and complete the distribution and norm proofs. Source freeness, lower rank, internal-to-global injection, character components, general-degree Cartan coordinates and unramified-ring identification remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The individual degree-one local integral lattices now have their exact source generators: the actual primitive-fiber sum at p raised to v_p(N) divided by N and the actual normalized correction factor. Their integral group-ring stability, two-generator membership characterization and full rational span are proved on the original carriers. The product of these local lattices still must be identified with the image of the corrected rational value. Its general distribution relation and compatibility with the original nonunital full-fiber norms also remain unproved. Complete those arguments before deducing the full rational image, lower rank, source freeness or internal-to-global injection. General-degree Cartan coordinates, unramified-ring identification and character components remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -134422,36 +136112,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All27 earlier source findings and eight source versions remain whole. Source findingE27 remains the recorded sum/product correction. No new finding, independent review verdict or stage closure is added.",
+    "sourceIssues": "All27 source findings and eight source versions remain whole, including the recordedE27 sum/product correction. No new finding, independent review verdict or stage closure is added.",
     "validation": {
-      "nodes": 2062,
+      "nodes": 2090,
       "kinds": {
         "definition": 22,
-        "lemma": 1237,
-        "construction": 237,
+        "lemma": 1262,
+        "construction": 240,
         "theorem": 359,
         "comparison": 207
       },
-      "api": 1457,
-      "packetTests": 3662,
-      "definitionConstructionTests": 984,
-      "typedExamples": 3665,
+      "api": 1478,
+      "packetTests": 3698,
+      "definitionConstructionTests": 995,
+      "typedExamples": 3701,
       "planets": 24,
-      "baseline": 1250,
-      "preservedWholeNodes": 2039,
-      "preservedBaseline": 1239,
+      "baseline": 1259,
+      "preservedWholeNodes": 2062,
+      "preservedBaseline": 1250,
       "preservedSourceIssues": 27,
       "newSourceIssues": 0,
-      "newNodes": 23,
-      "newNamedDeclarations": 23,
-      "newTypedTests": 39,
+      "newNodes": 28,
+      "newNamedDeclarations": 28,
+      "newTypedTests": 36,
       "requests": 16,
       "gaps": 18,
       "closedStages": 0,
-      "reachableNodes": 2324,
-      "dependencyEdges": 9454,
+      "reachableNodes": 2352,
+      "dependencyEdges": 9537,
       "acyclic": true,
-      "baselineLeaves": 1418,
+      "baselineLeaves": 1425,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -134466,7 +136156,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 1047856,
+      "readerWords": 1063247,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -134492,8 +136182,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 179,
-      "scratchCompleteLemmas": 1358,
+      "scratchCompleteDefinitions": 182,
+      "scratchCompleteLemmas": 1383,
       "scratchMathlibModules": 3282,
       "scratchTauModules": 10,
       "scratchErrors": 0,
@@ -134501,27 +136191,24 @@
       "scratchPlaceholders": 0,
       "finiteControls": {
         "levels": 60,
-        "crtCoordinateBijections": 60,
-        "constructedTranslations": 96,
-        "translationCoordinates": 176,
-        "kernelCosetMemberships": 1699,
-        "positiveCosetCards": 96,
-        "cosetSumCoefficients": 1699,
-        "factorNormalizationCoefficients": 1699,
-        "rationalZeroCoefficients": 1102,
-        "rationalPrimitiveValues": 1102,
-        "correctedDistributionChecks": 1196,
-        "correctedNormCoefficients": 4286
+        "localLattices": 96,
+        "kernelCoefficients": 1699,
+        "cosetTranslationCoefficients": 1699,
+        "sourcePointOrders": 96,
+        "sourcePrimitiveFiberCoefficients": 1699,
+        "rationalBasisDecompositionCoefficients": 43469,
+        "integralGeneratorTranslateIdentities": 86938,
+        "integralNonmembershipControls": 3
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc",
+        "sourceSha256": "961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c",
         "modules": 3914,
-        "warnings": 6072,
+        "warnings": 6136,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,072 expected placeholder warnings across 3,914 pinned source modules. It includes all 23 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,136 expected placeholder warnings across 3,914 pinned source modules. It includes all 28 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -134531,7 +136218,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "435a05f5f1cee3b17b4b2b7114a41d4194148c28651e0c94a6d6f5ed8fa95661",
+      "sha256": "8a65c3ce259bb2964cd8f11ee5e1604721cf7bd46d652f7cb7bdf55acb56159b",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -134546,11 +136233,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 1358,
+        "completeLemmas": 1383,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "5d4545a5de7630218c7403d024ed02749f0942de88f4a6ed44d792d44ad149b9"
+        "sha256": "f94b6ac5b62998d0f25f889fa93bc67670489f8b4443d796cc82bfee85fd76d2"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -134770,17 +136457,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc",
+        "sourceSha256": "961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c",
         "modules": 3914,
-        "warnings": 6072,
+        "warnings": 6136,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 6,072 expected placeholder warnings across 3,914 pinned source modules. It includes all 23 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc.",
+        "scope": "The separate partial signature file also compiled with zero errors and 6,136 expected placeholder warnings across 3,914 pinned source modules. It includes all 28 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "e0a781b71f64383ba41eaefe6f137c668e44053d",
+      "base": "f30763a96093a6c0cff1df92693bee9f7bb4e43c",
       "unchangedInputs": 79,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -147305,6 +148992,56 @@
         "warnings": 6072,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 6,072 expected placeholder warnings across 3,914 pinned source modules. It includes all 23 new named declarations and 39 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2c9a40e11f46b6c5e90dbf70bccbe6fb7d2134536e1d97c6187c8977a28802dc.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "kubertLocalLattices": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5782,
+      "previousHead": "20bb24bc3d70c400cbea08375caec52f86a1fed2",
+      "previousMerge": "4d1f77829cb91794f6a40153da03faa522ef29fb",
+      "preservedWholeNodes": 2062,
+      "preservedBaseline": 1250,
+      "preservedFindings": 27,
+      "newNodes": 28,
+      "reading": "Published Kubert198 equation4.12 and its complete translating-unit/rational-span proof were reread against the actual fiber definition4.1 on193 and local coset4.3 on194. The original integral coefficient ring and rational ambient group ring are retained. Native basis multiplication, coefficient translation, monoid-algebra and submodule induction, span, additive-order congruences, factorization prime powers, actual CRT and unit cancellation were read at the pinned source. No new external source, source version or finding is claimed.",
+      "boundary": "The individual degree-one local integral lattices now have their exact source generators: the actual primitive-fiber sum at p raised to v_p(N) divided by N and the actual normalized correction factor. Their integral group-ring stability, two-generator membership characterization and full rational span are proved on the original carriers. The product of these local lattices still must be identified with the image of the corrected rational value. Its general distribution relation and compatibility with the original nonunital full-fiber norms also remain unproved. Complete those arguments before deducing the full rational image, lower rank, source freeness or internal-to-global injection. General-degree Cartan coordinates, unramified-ring identification and character components remain open.",
+      "inputBase": "b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76",
+      "sourceBoundary": "All27 source findings and eight source versions remain whole, including the recordedE27 sum/product correction. No new finding, independent review verdict or stage closure is added.",
+      "publication": {
+        "base": "f30763a96093a6c0cff1df92693bee9f7bb4e43c",
+        "unchangedInputs": 79,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 60,
+        "localLattices": 96,
+        "kernelCoefficients": 1699,
+        "cosetTranslationCoefficients": 1699,
+        "sourcePointOrders": 96,
+        "sourcePrimitiveFiberCoefficients": 1699,
+        "rationalBasisDecompositionCoefficients": 43469,
+        "integralGeneratorTranslateIdentities": 86938,
+        "integralNonmembershipControls": 3
+      },
+      "numericalMethod": "Exact rational arithmetic on the actual cyclic unit carriers through level60 checks every local kernel coefficient, coset translation, source point order and equality with its original primitive fiber. For every unit basis vector it checks the explicit rational linear-combination certificate from the two families of integral lattice generators, and all unit translates preserve those families. Exact two-coordinate membership formulas at level6 distinguish the integral lattices from their full rational spans; level2 checks the vanishing-factor case. No general full rational-distribution or image/product theorem is inferred from these finite controls.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c",
+        "modules": 3914,
+        "warnings": 6136,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 6,136 expected placeholder warnings across 3,914 pinned source modules. It includes all 28 new named declarations and 36 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 961ad030887df5775e3ed9f76cdbd780bd64fd31d1749c88d59c7e97589f1d6c.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
