@@ -3043,7 +3043,8 @@
         "PAPER-ATOBE-KONDO-YASUDA-22/transition",
         "PAPER-ATOBE-KONDO-YASUDA-22/induction",
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical"
-      ]
+      ],
+      "note": "At n=m=2 the primed unipotent character is trivial, the Whittaker blocks have rank one, and F_{x1,x2}(a,b)=q^{−(a−b)/2}x1^a x2^b for all integer a,b. There is no generic GL₂ Whittaker support wall; row symmetry of length one does not identify the two rows."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/spherical-span",
@@ -3052,7 +3053,7 @@
       "statement": "The literal Lemma 8.10 statement for all Satake parameter multisets is false in the n=m=2 specialization with parameters(x,x): spherical-collision supplies two independent eigenfunctions, while the stated family has a single member. A replacement theorem must retain confluent/derivative data at collisions; the generic distinct-parameter statement needs its own proof.",
       "locator": "Lemma 8.10",
       "status": "missing",
-      "note": "Strengthens the earlier proof-multiplicity finding using the explicit derivative eigenfunction. This is a provisional source finding, not an independent-review verdict.",
+      "note": "The E3 collision counterexample is confirmed by REV-RT-PAPER-ATOBE-KONDO-YASUDA-22/1. The generic distinct-parameter spanning theorem and any all-parameter confluent replacement remain missing obligations, not proved by this specialization.",
       "proofOutline": [
         "Use the family F_t(g)=q^(-(a-b)/2)x^(a+b)exp(t(a-b)), exactly the formal W_Ze^0(x exp(t),x exp(-t)) of Section 8.5. Iwasawa torus valuations are well-defined on N\\G/K.",
         "Every compactly supported spherical Hecke operator acts on this family by its symmetric Satake eigenvalue lambda_t. Symmetry gives lambda_t=lambda_-t and lambda_prime(0)=0. Its action is a finite sum on right-K-fixed functions, so differentiate termwise.",
@@ -3907,7 +3908,8 @@
       ],
       "prerequisites": [
         "PAPER-ATOBE-KONDO-YASUDA-22/formal-spherical"
-      ]
+      ],
+      "note": "Confirmed E3 example in the ordinary smooth degenerate induced model. No compact-support-mod-N′, square-integrability or membership in the Hilbert space Π is asserted for H."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/essential-infinite-kernel",
@@ -4306,11 +4308,11 @@
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E3",
       "kind": "error",
       "locator": "Published proof of Lemma 8.10 p47; v4 corresponding proof",
-      "printed": "Lemma 8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
+      "printed": "“is spanned by W⁰_Ze(x) for x = (x_{i,j}) ∈ M_{m,n−1}(ℂ) such that {q^{−s₁}, …, q^{−s_{(n−1)m}}} = {x_{i,j} | 1 ≤ i ≤ m, 1 ≤ j ≤ n−1} as multisets.”",
       "correction": "The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.",
-      "reason": "Differentiate W_Ze^0(x exp(t),x exp(-t)) at t=0. Every spherical Hecke eigenvalue is even in t, so the derivative has the same eigenvalue; Hecke convolution is a finite sum on right-K-fixed functions. H(1)=0 but H(diag(varpi,1))=q^-1/2 x, while W_Ze^0(x,x)(1)=1. This directly disproves the literal span, beyond the earlier geometric-lemma multiplicity defect.",
+      "reason": "In the published §8.1–8.2/8.5 primed model, n=m=2 gives G′=GL₂, P′=B′, L′=GL₁×GL₁, N′=U′ and Ψ|N′=1 (also V′=1). The actual family on all integer Iwasawa valuations is F_{x1,x2}(a,b)=q^{−(a−b)/2}x1^a x2^b, with no a≥b support wall. Right cosets of K′diag(ϖ,1)K′ give Tf(a,b)=qf(a+1,b)+f(a,b+1), with vol(K′)=1. At x1=x2=x≠0, put F=q^{−(a−b)/2}x^{a+b} and H=(a−b)F. Each shift contributes √q x times F; for H the coefficients are a−b+1 and a−b−1, so TF=2√q x F and TH=2√q x H for every a,b∈ℤ. The central operator and its inverse act by x² and x⁻² on both. These generate the GL₂ spherical Hecke algebra, hence the eigencharacter agrees. F(1)=1, H(1)=0 and H(diag(ϖ,1))=q^{−1/2}x≠0, so H is independent of the sole formal assignment F at multiset {x,x}. The opposite-row family is F exp(t(a−b)), whose derivative is H, not zero; only its Hecke eigenvalues are even. The prior rejection substituted the generic GL₂ Whittaker Schur family, which is not this degenerate model. This disproves the printed all-parameter span at collisions, not the main newform theorem or general direct-integral conclusions.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "new within the recorded bounded correction searches; freshly confirmed against the published article and arXiv v4. No applicable correction located on 2 October 2026; this is not proof that none exists.",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
         "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
@@ -4318,17 +4320,30 @@
         "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
         "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
-        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version."
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version.",
+        "2 October 2026: downloaded and read published pp.41–42,46–47,49–50 and v4 pp.50–51; viewed published pp.1,42,47,49. arXiv history still ends at v4 (28 September 2022). Exact-title correction/erratum searches found no applicable AKY correction; the Crossref DOI record has empty relation and no update-to entry. The publisher PDF is accessible and retains the assertion; a separate publisher-webpage read failed, so its correction-link contents are not certified."
       ],
       "items": [
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-span",
         "PAPER-ATOBE-KONDO-YASUDA-22/spherical-collision"
       ],
       "review": {
-        "verdict": "rejected",
-        "reason": "Rejected: the counterexample does not work, and I checked both of the routes the finding offers. (1) The differentiation argument gives nothing. For GL_2 the relevant Whittaker values are W^0(diag(ϖ^k,1)) = q^{−k/2} s_k(x_1,x_2), and with (x_1,x_2) = (xe^t, xe^{−t}) one has s_k = x^k Σ_{j=0}^{k} e^{(2j−k)t}, which is invariant under t ↦ −t (send j ↦ k−j). The family is therefore an EVEN function of t and its derivative at t = 0 is zero, so it produces no second eigenfunction. (2) The explicit function fails the boundary condition. Write h_k for the claimed H at diag(ϖ^a,ϖ^b) with k = a−b, so h_k = k·q^{−k/2}x^k, against the true w_k = (k+1)q^{−k/2}x^k. The spherical Hecke recursion is s_{k+1} = (x_1+x_2)s_k − x_1x_2 s_{k−1}; at x_1 = x_2 = x this reads c_{k+1} = 2c_k − c_{k−1} on the coefficients, and I checked exactly that BOTH (k+1) and k satisfy it for k ≥ 1. They are the two solutions of the same three-term recursion, and what separates them is the boundary: the Whittaker support condition forces w_{−1} = 0, and then k = 0 gives q^{1/2}w_1 = λw_0 − x²w_{−1} = 0 whenever w_0 = 0. The candidate has h_0 = 0 but h_1 = q^{−1/2}x ≠ 0, contradicting this for every λ, so it is not a Hecke eigenfunction. It extends to a solution of the recursion only with h_{−1} = −1/x ≠ 0 — precisely the solution the support condition excludes, which is the standard reason the eigenspace is one-dimensional. So for n = m = 2 with equal parameters the Hecke eigenspace is spanned by the single function W^0_Ze(x,x), exactly as Lemma 8.10 asserts, and the finding's claim that the lemma is 'directly disproved' is wrong. The finding's separate aside about multiplicity in the Geometric Lemma when parameters collide is not assessed here and is not confirmed; if it is to be recorded it needs its own statement and its own evidence, since the counterexample offered for it does not exist. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
-        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
-      }
+        "verdict": "confirmed",
+        "reason": "The independent verifier REV-RT-PAPER-ATOBE-KONDO-YASUDA-22 confirmed RT finding /1 and this E3 counterexample. In the published §8.1–8.2/8.5 primed model, n=m=2 gives G′=GL₂, P′=B′, L′=GL₁×GL₁, N′=U′ and Ψ|N′=1 (also V′=1). The actual family on all integer Iwasawa valuations is F_{x1,x2}(a,b)=q^{−(a−b)/2}x1^a x2^b, with no a≥b support wall. Right cosets of K′diag(ϖ,1)K′ give Tf(a,b)=qf(a+1,b)+f(a,b+1), with vol(K′)=1. At x1=x2=x≠0, put F=q^{−(a−b)/2}x^{a+b} and H=(a−b)F. Each shift contributes √q x times F; for H the coefficients are a−b+1 and a−b−1, so TF=2√q x F and TH=2√q x H for every a,b∈ℤ. The central operator and its inverse act by x² and x⁻² on both. These generate the GL₂ spherical Hecke algebra, hence the eigencharacter agrees. F(1)=1, H(1)=0 and H(diag(ϖ,1))=q^{−1/2}x≠0, so H is independent of the sole formal assignment F at multiset {x,x}. The opposite-row family is F exp(t(a−b)), whose derivative is H, not zero; only its Hecke eigenvalues are even. The prior rejection substituted the generic GL₂ Whittaker Schur family, which is not this degenerate model. This disproves the printed all-parameter span at collisions, not the main newform theorem or general direct-integral conclusions. Codex independently rechecked the published locators and calculation on 2 October 2026; this repair is not a newly authored independent review.",
+        "by": "REV-RT-PAPER-ATOBE-KONDO-YASUDA-22"
+      },
+      "priorReviews": [
+        {
+          "verdict": "rejected",
+          "reason": "Rejected: the counterexample does not work, and I checked both of the routes the finding offers. (1) The differentiation argument gives nothing. For GL_2 the relevant Whittaker values are W^0(diag(ϖ^k,1)) = q^{−k/2} s_k(x_1,x_2), and with (x_1,x_2) = (xe^t, xe^{−t}) one has s_k = x^k Σ_{j=0}^{k} e^{(2j−k)t}, which is invariant under t ↦ −t (send j ↦ k−j). The family is therefore an EVEN function of t and its derivative at t = 0 is zero, so it produces no second eigenfunction. (2) The explicit function fails the boundary condition. Write h_k for the claimed H at diag(ϖ^a,ϖ^b) with k = a−b, so h_k = k·q^{−k/2}x^k, against the true w_k = (k+1)q^{−k/2}x^k. The spherical Hecke recursion is s_{k+1} = (x_1+x_2)s_k − x_1x_2 s_{k−1}; at x_1 = x_2 = x this reads c_{k+1} = 2c_k − c_{k−1} on the coefficients, and I checked exactly that BOTH (k+1) and k satisfy it for k ≥ 1. They are the two solutions of the same three-term recursion, and what separates them is the boundary: the Whittaker support condition forces w_{−1} = 0, and then k = 0 gives q^{1/2}w_1 = λw_0 − x²w_{−1} = 0 whenever w_0 = 0. The candidate has h_0 = 0 but h_1 = q^{−1/2}x ≠ 0, contradicting this for every λ, so it is not a Hecke eigenfunction. It extends to a solution of the recursion only with h_{−1} = −1/x ≠ 0 — precisely the solution the support condition excludes, which is the standard reason the eigenspace is one-dimensional. So for n = m = 2 with equal parameters the Hecke eigenspace is spanned by the single function W^0_Ze(x,x), exactly as Lemma 8.10 asserts, and the finding's claim that the lemma is 'directly disproved' is wrong. The finding's separate aside about multiplicity in the Geometric Lemma when parameters collide is not assessed here and is not confirmed; if it is to be recorded it needs its own statement and its own evidence, since the counterexample offered for it does not exist. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+          "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+        }
+      ],
+      "printedBeforeRepair": {
+        "text": "Lemma 8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
+        "reason": "Editorial paraphrase identified by REV-COL-ATOBE-KONDO-YASUDA-22, preserved as historical input rather than represented as a literal quotation."
+      },
+      "quotationScope": "Literal concluding fragment of the published Lemma 8.10 assertion, p.47, with typeset mathematical symbols serialized. The opening identifies the Hecke eigenspace in Ind_{N′}^{G′}(Ψ)^{K′} at the stated eigenvalues. The original collation batch still needs its input quotation refreshed and an independent literal comparison; this repair does not mark its pending result complete."
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E4",
@@ -4581,7 +4596,7 @@
       "locator": "Published proof of Lemma 9.3 p49; v4 p53",
       "printed": "Pi ≃ ∫^⊕ pi' dmu(pi')",
       "correction": "Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.",
-      "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma 8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
+      "reason": "A direct-integral decomposition does not by itself supply bounded evaluation operators from the whole Hilbert space to almost every fibre; the displayed proof also omits multiplicity fields. Its final spectral-separation step invokes Lemma 8.10 (published pp.49–50), whose unrestricted collision span fails by E3. That additional input needs repair or a justification of the exact spectral locus where it is used. E3 alone does not show failure of this direct-integral separation conclusion: H is a smooth induced-model eigenfunction, and square-integrability/membership in Π or occurrence on the relevant spectral measure is not established. The separate compact-perturbation/membership objection belongs to E1, not to the E3 collision function.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -4598,9 +4613,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Located in the proof of Lemma 9.3 on p. 49, where the direct-integral decomposition Π ≃ ∫^⊕ π′ dμ(π′) is written and evaluation and intertwining maps are used on it. The observation that a direct-integral decomposition does not by itself provide bounded evaluation operators from the whole Hilbert space to almost every fibre, and that multiplicity fields are omitted, is a real gap in the written argument and I confirm it as such; I did not attempt to supply or refute the disintegration, so the assessment of what a repair needs rests on the extraction. ONE CORRECTION TO THIS FINDING'S OWN REASONING: its reason says the proof 'then uses the flawed Lemma 8.10 argument'. This review rejects E3, so Lemma 8.10 is not shown to be flawed, and that clause is withdrawn. The finding stands on the disintegration point alone. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
-        "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
-      }
+        "reason": "The prior independent extraction review confirmed the disintegration/multiplicity proof gap. Its withdrawal of the Lemma 8.10 clause rested on the E3 rejection, now superseded by REV-RT-PAPER-ATOBE-KONDO-YASUDA-22/1. The restored clause has only the exact scope in the current reason: the unrestricted span is invalid and the spectral application needs a justified replacement; no general direct-integral failure is inferred from this collision example. This repair preserves the prior review in priorReviews and does not claim a new independent review of the direct-integral argument.",
+        "by": "REV-RT-PAPER-ATOBE-KONDO-YASUDA-22"
+      },
+      "priorReviews": [
+        {
+          "verdict": "confirmed",
+          "reason": "Located in the proof of Lemma 9.3 on p. 49, where the direct-integral decomposition Π ≃ ∫^⊕ π′ dμ(π′) is written and evaluation and intertwining maps are used on it. The observation that a direct-integral decomposition does not by itself provide bounded evaluation operators from the whole Hilbert space to almost every fibre, and that multiplicity fields are omitted, is a real gap in the written argument and I confirm it as such; I did not attempt to supply or refute the disintegration, so the assessment of what a repair needs rests on the extraction. ONE CORRECTION TO THIS FINDING'S OWN REASONING: its reason says the proof 'then uses the flawed Lemma 8.10 argument'. This review rejects E3, so Lemma 8.10 is not shown to be flawed, and that clause is withdrawn. The finding stands on the disintegration point alone. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages.",
+          "by": "REV-PAPER-ATOBE-KONDO-YASUDA-22"
+        }
+      ]
     },
     {
       "id": "PAPER-ATOBE-KONDO-YASUDA-22/E14",
@@ -10365,7 +10387,72 @@
     "date": "2026-09-23",
     "verdict": "accept",
     "read": "The published open-access text from Cambridge, all 56 pages, and arXiv 2110.09070v4 re-fetched and hashed to 32326ab8…83a6c, matching the record. Every one of the 19 recorded mistakes checked at its locator, with pp. 37, 49, 50 and 53 read on page images.",
-    "changes": "18 of the 19 recorded mistakes are confirmed and one, E3, is rejected: its counterexample to Lemma 8.10 is the second solution of the spherical Hecke recursion, which the Whittaker support condition excludes, and its differentiation route yields zero because the family is even in the deformation parameter. E19's correction was softened where it asserted flatly that the uniqueness of Theorem 9.1 is false, and E13's reason lost its appeal to the now-rejected E3. The source block gained a note that the published PDF's sha256 is not reproducible, because Cambridge stamps each download, together with a reproducible stamp-stripped text hash. Run-together numbering was repaired in 295 places. No item, status or route changed.",
-    "lean": "none"
+    "changes": "Historical review accepted the extraction and confirmed 18 findings, but rejected E3 using a generic Whittaker support wall and even Schur family. That rejection and its consequent E13 withdrawal are superseded by independently confirmed RT finding /1 and the repair recorded here. Current sourceIssues confirms all 19 findings; the new E3/E13 review records cite REV-RT-PAPER-ATOBE-KONDO-YASUDA-22 rather than attributing the reversal to the original reviewer. E19’s careful main-theorem proof-gap qualification remains unchanged. All original item statements, statuses and routes remain. Original review artifacts outside this job’s deliverables require the explicit maintainer synchronization in the fixes report.",
+    "lean": "none",
+    "previousChanges": "18 of the 19 recorded mistakes are confirmed and one, E3, is rejected: its counterexample to Lemma 8.10 is the second solution of the spherical Hecke recursion, which the Whittaker support condition excludes, and its differentiation route yields zero because the family is even in the deformation parameter. E19's correction was softened where it asserted flatly that the uniqueness of Theorem 9.1 is false, and E13's reason lost its appeal to the now-rejected E3. The source block gained a note that the published PDF's sha256 is not reproducible, because Cambridge stamps each download, together with a reproducible stamp-stripped text hash. Run-together numbering was repaired in 295 places. No item, status or route changed."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+      "read": "2026-09-22",
+      "sha256": "d6cda1e641304582c9b665d0025c4c3d32081dc846e8c56c183224d74a3bbc88",
+      "scope": "Historical codex-a71f92 checkpoint: full 56-page reading and visual checks listed in source.previousCheckpoint. Historical hash identifies that stamped download, not a fresh measurement.",
+      "hashNote": "Cambridge per-download stamps change PDF byte hashes."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+      "read": "2026-09-22",
+      "sha256": "4f68b7378496513cd144e9e2ff345535ae93061072ca7717ba0239a07ce13ec7",
+      "scope": "Historical codex-c83e7a continuation: full published article reading, recorded in source.continuationRead. Historical hash identifies that stamped download, not a fresh measurement.",
+      "hashNote": "Cambridge per-download stamps change PDF byte hashes."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+      "read": "2026-09-23",
+      "sha256": null,
+      "normalizedTextSha256": "c8beb4ee6815fcaff9c98e6762037519177fdd2820cddd538df98ce525fa1866",
+      "normalization": "Historical REV-PAPER review: pdftotext -layout with per-download stamp lines removed. This normalized-text hash is distinct from the byte hashes and has not been recomputed with that extractor in this repair.",
+      "scope": "Historical independent review read all 56 pages. Its two byte hashes are recorded only as abbreviated hashes; no full byte hash is invented here."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2110.09070v4",
+      "read": "2026-09-22",
+      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c",
+      "scope": "Historical targeted comparison, not full reading: Lemma 7.1, formal family/Lemma 8.10, Theorem 9.1/proof and coefficient passages as recorded in source.previousCheckpoint and finding searches. REV-PAPER re-fetched the same v4 on 23 September 2026; no fresh whole-preprint reading is inferred."
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33DB9D89FADFD4DA27852DE3C9C61DCD/S2050508622000178a.pdf/div-class-title-local-newforms-for-the-general-linear-groups-over-a-non-archimedean-local-field-div.pdf",
+      "read": "2026-10-02",
+      "sha256": "5e767924eefd311cc092da242b51a2aa3a02cd1f9e259bd6cfe4988c5807c36e",
+      "scope": "This repair: pp.41–42,46–47,49–50 read; pp.1,42,47,49 viewed as page images. Only bounded model, spanning and spectral-application checking, not all 56 pages.",
+      "hashNote": "878765-byte Cambridge PDF, 56 pages; per-download stamped. It is not expected to match historical byte hashes."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2110.09070v4",
+      "read": "2026-10-02",
+      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c",
+      "scope": "This repair: pp.50–51, formal family and Lemma 8.10, targeted comparison only; byte hash matches historical v4."
+    }
+  ],
+  "repair": {
+    "job": "FIX-RT-PAPER-ATOBE-KONDO-YASUDA-22",
+    "issue": 5526,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "findings": [
+      "RT-PAPER-ATOBE-KONDO-YASUDA-22/1",
+      "RT-PAPER-ATOBE-KONDO-YASUDA-22/2"
+    ],
+    "base": "dcdd993439cbdeda92efb804f8fff69b03e37991",
+    "reviewAttribution": "Corrected source-issue review records cite the existing independent RT verifier. Original review evidence is retained in priorReviews; this repair does not impersonate the prior reviewer or serve as its own independent review.",
+    "outsideDeliverables": "Synchronize papers/PAPER-ATOBE-KONDO-YASUDA-22.review.json and reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md, and refresh the separate collation batch. Concrete actions and corrected text are in the fixes report.",
+    "validation": "Exact 13122-assertion quadratic-arithmetic diagnostic; paper, intake, preservation and route checks. No Lean deliverable or compilation."
   }
 }

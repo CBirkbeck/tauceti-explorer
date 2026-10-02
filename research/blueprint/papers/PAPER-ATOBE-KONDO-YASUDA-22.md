@@ -460,7 +460,7 @@ Reason: At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(va
 
 Published proof of Lemma8.10 p47; v4 corresponding proof. Reach: a stated result.
 
-Printed: Lemma8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.
+Printed (literal concluding fragment, typeset symbols serialized): “is spanned by W⁰_Ze(x) for x = (x_{i,j}) ∈ M_{m,n−1}(ℂ) such that {q^{−s₁}, …, q^{−s_{(n−1)m}}} = {x_{i,j} | 1 ≤ i ≤ m, 1 ≤ j ≤ n−1} as multisets.”
 
 Correction or obligation: The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.
 
@@ -564,7 +564,7 @@ Printed: Pi ≃ ∫^⊕ pi' dmu(pi')
 
 Correction or obligation: Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.
 
-Reason: A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.
+Reason: A direct-integral decomposition does not by itself supply bounded evaluation operators from the whole Hilbert space to almost every fibre; the displayed proof also omits multiplicity fields. Its final spectral-separation step invokes Lemma 8.10 (published pp.49–50), whose unrestricted collision span fails by E3. That additional input needs repair or a justification of the exact spectral locus where it is used. E3 alone does not show failure of this direct-integral separation conclusion: H is a smooth induced-model eigenfunction, and square-integrability/membership in Π or occurrence on the relevant spectral measure is not established. The separate compact-perturbation/membership objection belongs to E1, not to the E3 collision function.
 
 #### E14 — misprint
 
@@ -2331,15 +2331,8 @@ An independent review by Claude Code, session cc-d67081, for issue
 [#1396](https://github.com/CBirkbeck/tauceti-explorer/issues/1396). **Verdict: accept.**
 No item, status or route changed.
 
-- **Mistakes: 18 of 19 confirmed, 1 rejected.** E3 is rejected: its claimed second Hecke
-  eigenfunction `h_k = k·q^{−k/2}x^k` satisfies the interior recursion `c_{k+1} = 2c_k −
-  c_{k−1}` but violates the boundary condition `w_{−1} = 0` — it is exactly the solution the
-  Whittaker support condition excludes, which is why the eigenspace is one-dimensional, as
-  Lemma 8.10 says. Its alternative route also fails, the family `W^0(xe^t, xe^{−t})` being
-  even in `t`.
-- **Two findings amended.** E13's appeal to "the flawed Lemma 8.10 argument" is withdrawn.
-  E19's flat assertion that "the uniqueness itself is false" is softened to a statement about
-  the printed proof, matching E19's own reason field.
+- **Current correction: all 19 source findings confirmed.** The original review rejected E3, but independently confirmed RT finding /1 reverses that rejection. In the actual n=m=2 primed model Ψ is trivial on N′. The family is q^{−(a−b)/2}x₁^a x₂^b on all integer pairs, so H=(a−b)F is a nonzero eigenfunction with the same full Hecke eigencharacter as F. The generic Whittaker support wall and even Schur family used by the original rejection do not apply. The historical review remains in E3.priorReviews; the corrected verdict is attributed to REV-RT-PAPER-ATOBE-KONDO-YASUDA-22.
+- **E13 clarified.** Its disintegration/multiplicity gap remains. The Lemma 8.10 input again needs a justified replacement or spectral-scope argument; the collision example alone does not refute a direct-integral conclusion or establish H∈Π. E19's careful qualification about the printed main-theorem proof is retained unchanged.
 - **E1/E19 confirmed at the level of the proof**, on the page image: Corollary 9.4,
   Propositions 9.5–9.6 and the uniqueness of Theorem 9.1 all run through one step on p. 50
   justified only by measure-invariance, and `(1+tE₁₃)(1+bE₃₂)(1−tE₁₃) = 1 + bE₃₂ + tbE₁₂`
@@ -2356,3 +2349,13 @@ No item, status or route changed.
   extensions with free names. Run-together numbering repaired in 295 places.
 
 Full report: `research/blueprint/reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md`.
+
+## Repair after RT-PAPER-ATOBE-KONDO-YASUDA-22 (2 October 2026)
+
+Codex, session codex-rtOQ9t, Refs #5526. Both independently confirmed findings are repaired in the authorized extraction files. E3's rejected verdict and this embedded review are corrected using the published degenerate model and an independent calculation. The collision theorem, corrected spanning target, G4 and Speh-integrals brief remain open in their exact original scope. Every item statement/status, library citation, dependency, API, test and route is preserved; the three affected items gain scope notes. The main newform theorem and the general direct-integral conclusions are not refuted by this example.
+
+The top-level sourceVersions list now separates actual historical readings from this bounded fresh check, preserving dates and hashes. Cambridge stamps make PDF byte hashes download-specific; the prior stamp-stripped layout-text hash is retained as a separately identified historical measurement, not presented as a newly recomputed hash. Fresh reading: published pp.41–42,46–47,49–50 and arXiv v4 pp.50–51; page images 1,42,47,49. No full-paper or transitive-source rereading is claimed.
+
+E3.printed now quotes the literal concluding fragment of the published assertion, rather than the editorial description flagged by the separate collation review. Its former input is preserved. The collation batch still needs refreshing and a new independent literal comparison. The standalone original review JSON/report are outside this fix's three-file edit allowance; the fixes report gives their exact synchronization steps and retains the historical verdict rather than attributing the correction to that reviewer.
+
+Validation: paper and three-file intake validators, exact 13,122-assertion Hecke/central-generator diagnostics including nonsquare residue cardinalities and negative valuation differences, and preservation/routing/acyclicity checks. No Lean compilation required. Details and the all-parameter repair boundary: [RT-PAPER-ATOBE-KONDO-YASUDA-22.fixes.md](../redteam/RT-PAPER-ATOBE-KONDO-YASUDA-22.fixes.md).
