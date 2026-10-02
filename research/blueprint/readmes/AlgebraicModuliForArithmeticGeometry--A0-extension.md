@@ -40,6 +40,8 @@ required. The chosen-band calculation does not supply derived-H2 classification,
 profinite-limit geometry or any broader moduli target. Exact elaboration and
 archive reconstruction receipts are in the handoff.
 
+The checked [native proof archive](https://github.com/CBirkbeck/tauceti-explorer/commit/2bfc10cbb6324f3f15634465a13bcefe07a770ba) has 1,463 lines, 32 examples and 50 kernel-axiom audits, with zero errors, warnings, admissions or admitted dependencies (5.20 seconds, 2,225,540 KiB peak). The exact 1,762-line Mathlib extraction of the submitted sketch has 74 examples, zero errors, 145 admission warnings and no other warnings (6.10 seconds, 3,378,908 KiB peak). The full 3,144-line suggested file is uncompiled because the existing pinned build lacks the imported TauCeti cohomology artifact. All nine new public declaration headers and nine example headers match the actual proof; only their final bodies are admitted under PROTOCOL §13. No stage or implementation is closed.
+
 ## Predecessor lifting receipt — Codex codex-7e92bd
 
 The following checkpoint counts and proof receipts describe its earlier

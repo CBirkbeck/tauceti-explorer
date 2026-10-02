@@ -1306,7 +1306,11 @@
         "Definition 8.4.1 (026F), complete definition"
       ],
       "readingAgent": "Codex — codex-J6LwjP",
-      "accessDate": "2026-10-02"
+      "accessDate": "2026-10-02",
+      "htmlSha256": {
+        "0CJY": "41dd0c0a1e20dfe2fd60212274a30f259ae0875225b1540b069adf3f89f27a9e",
+        "026F": "0024923a8e370df81c72261a9765c15c3e1d3bbb8b59a46ab41605f2f2ae60a0"
+      }
     }
   ],
   "nodes": [
@@ -13891,7 +13895,92 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/band-center-from-banding-equivalence"
       ],
       "preservedStatementContracts": 173,
-      "boundary": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed."
+      "boundary": "The compatible-centre construction retains its previous native cover/gluing/sheaf/evaluation receipts. The fixed-band coefficient comparison now has a native local-to-global inverse: actual local gerbe objects produce matching coefficients, the prescribed sheaf A glues them, and joint covering separatedness proves the section round trip. Both inverse laws, restriction compatibility and independence of chosen local object families are checked without a global object. This resolves the chosen-band sectionwise-inverse sub-obligation only. Package the full compatible sheaf isomorphism and compare with the actual SF1 descended slice sheaf; instantiate the connected/disconnected point sites, restriction-chain site and nonneutral O(1) root gerbe. No complete intrinsic-band, reserved-key or stage closure is claimed.",
+      "proofArchive": "2bfc10cbb6324f3f15634465a13bcefe07a770ba",
+      "proofReceipts": {
+        "Gerbe.lean": {
+          "sha256": "a811521350986092ef1ad65db0556558274c1b330ee94716e9be86f40d9e0284",
+          "lines": 1463,
+          "examples": 32,
+          "audits": 50,
+          "errors": 0,
+          "admissionWarnings": 0,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "df31e983c6f7b02919f79b8b0e39f2de2942562d3af9542e6838c28c6fdca671",
+          "time": "Elapsed 5.20 seconds; peak 2225540 KiB"
+        },
+        "SubmittedMathlib.lean": {
+          "sha256": "c249ff064b0b26cb930783f5acdaccf95cf4d25f79d6b521fadfcd3684bcb02c",
+          "lines": 1762,
+          "examples": 74,
+          "audits": 0,
+          "errors": 0,
+          "admissionWarnings": 145,
+          "otherWarnings": 0,
+          "sorryAx": false,
+          "diagnosticSha256": "ab921f05f453ddeed4195c415df61b46ae03cf9dbd7bb3a01f5663ec13b0ca93",
+          "time": "Elapsed 6.10 seconds; peak 3378908 KiB"
+        },
+        "canonical": {
+          "sha256": "386f58865dd16b19c590bcd6b1c4cd8761d76345d0f3a2e28b4fc73b4c5fdfb2",
+          "lines": 3144,
+          "preservedPrefixLines": 3020,
+          "newPublicHeadersMatch": 9,
+          "newExampleHeadersMatch": 9
+        }
+      },
+      "dependencyReceipts": {
+        "actualAssembler": true,
+        "unresolvedNonlibraryPrerequisites": [],
+        "base": "099cf06f3b3c49aa0cb075268da13d97b3dc300e",
+        "declarations": 179,
+        "ownDeclarations": 179,
+        "kinds": {
+          "definition": 16,
+          "lemma": 87,
+          "construction": 43,
+          "theorem": 28,
+          "comparison": 5
+        },
+        "apiTotal": 220,
+        "testsTotal": 199,
+        "baseline": 103,
+        "planets": 10,
+        "gaps": 9,
+        "requests": 21,
+        "ownSkippedLinks": [],
+        "ownPendingLinks": [],
+        "stageDAG": {
+          "vertices": 3017,
+          "edges": 8655,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 179,
+          "edges": 373,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3189,
+          "edges": 9274,
+          "acyclic": true
+        },
+        "reachableDeclarations": 182,
+        "externalDeclarations": [
+          "DiamondsAndVStacks:D0/cech-to-derived-comparison",
+          "DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products",
+          "DiamondsAndVStacks:D0/stackification"
+        ],
+        "requiredStagePairs": 24,
+        "requiredStagePairsReachable": 24,
+        "stageEdgesUnchanged": true,
+        "otherSkipsMatchOriginal": true,
+        "unchangedNodeObjects": 171,
+        "preservedStatements": 173,
+        "addedNodes": 6,
+        "scriptSha256": "f0fb6b83a591597ba3fd418f941124f125a503254386d372e499f0bb789983d2"
+      }
     }
   ]
 }
