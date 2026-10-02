@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "General ringed-site Higgs and constant-parameter connection plan with 107 declaration nodes. Native affine ordered iterates now reflect a specified bound under horizontal injections into flat F with flat coefficient modules Q,P; the coefficient-only specialization assumes E,Q,P flat and needs no left inverse or basis. The arbitrary-module split criterion, nonflat counterexamples, all 105 inherited mathematical contracts, 149 routed source obligations and global supplier boundaries remain. H.0 is partial, H.1–H.8 not_read; all nodes unchecked and no source route or global sheaf obligation is closed.",
+  "summary": "General ringed-site Higgs/constant-parameter connection plan with 112 nodes. This partial checkpoint adds actual scalar-extension horizontal/coefficient coherence for arbitrary coefficient modules, receiving-ring ordered naturality, and faithful-flat field/degree-one reflection. All 107 inherited contracts, finite-basis all-degree transport, split and flat same-ring reflection, 149 routed obligations and global supplier boundaries remain. Arbitrary-Q cross-ring tensor-power comparison in all degrees and E1 sheaf restriction/gluing remain open. H.0 partial, H.1–H.8 not_read; all nodes unchecked and no source route or reserved key closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1017,6 +1017,42 @@
         "sourceSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
         "provides": "For injective f:E→F and g:A→B, F flat and A flat imply the actual map f⊗g is injective; flatness of E or B is not required by this lemma.",
         "checked": "Complete selected statement, surrounding hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name/line checked in the pinned index. Generic flatness and tensor-product API are imported, not replanned."
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChange_comp",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 689,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "The actual scalar-extension map preserves linear-map composition.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChange_id",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 686,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "The scalar extension of a native identity linear map is the native identity.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+      },
+      {
+        "ref": "mathlib:TensorProduct.toLinearMap_congr",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "sourceLine": 266,
+        "sourceSha256": "7f2acca048b88c66c8107d89cc165d3aeb3e41165e503244cad7f3cebf0c0a06",
+        "provides": "The tensor equivalence has the actual tensor map of the two underlying linear maps.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.self",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "sourceLine": 67,
+        "sourceSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a",
+        "provides": "The native identity module is faithfully flat, including over ℤ; supplies torsion-module boundary tests.",
+        "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
       }
     ]
   },
@@ -1216,6 +1252,19 @@
         "Opening construction/universal-property/functoriality paragraphs; Lemmas17.16.1–5 and displayed proofs"
       ],
       "readingExtent": "Records the affine/sheaf boundary,not a proof of missing global gluing."
+    },
+    {
+      "id": "Heuer-J6LwjP-basechange",
+      "authors": "Ben Heuer",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "edition": "arXiv 2307.01303v3",
+      "url": "https://arxiv.org/html/2307.01303v3",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Definition 1.2(1)–(2) and selected introduction",
+        "Complete Theorem 4.8(1)–(3), Remark 4.9 and its displayed proof, §4.2"
+      ],
+      "readingExtent": "Scoped geometric motivation and actual local scalar-extension formula. Authored arbitrary-ring affine deductions are separated from the analytic correspondence, which is not discharged. No complete-paper or 149-item source collation is claimed."
     }
   ],
   "nodes": [
@@ -7085,6 +7134,26 @@
         {
           "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
           "how": "Supply the affine scalar-extension stage of the global pullback proof; local charts, sheaf coherence and any subsequent coefficient map remain explicit."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-natural",
+          "how": "If ψ∘f=(f⊗u)∘θ for f:E→F and u:Q→P, then ψ_S∘f_S=(f_S⊗u_S)∘θ_S as actual S-linear maps."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-coefficient-map",
+          "how": "For every u:Q→P, scalar extension commutes with the actual coefficient postcomposition: (θ_u)_S=(θ_S)_(u_S). The equality holds even for a zero or noninjective coefficient map."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural",
+          "how": "If ψ∘f=(f⊗u)∘θ, then for each n≥0, I_n(ψ_S)∘f_S=(f_S⊗(u_S)^⊗n)∘I_n(θ_S). Both iterates and the coefficient tensor power are taken over S. This does not identify I_n(θ_S) with scalar extension of I_n(θ)."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-zero-iff",
+          "how": "If S is faithfully flat over R, θ_S=0 if and only if θ=0 for arbitrary E and Q. No basis or flatness of E or Q is needed."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff",
+          "how": "If S is faithfully flat over R, I_1(θ_S)=0 iff I_1(θ)=0 for arbitrary E,Q. This result is restricted to degree one; it asserts no arbitrary-Q cross-ring tensor-power comparison or all-degree reflection."
         }
       ],
       "api": [
@@ -7107,6 +7176,31 @@
           "name": "TwistedHiggsBundle.affineBaseChange_word",
           "role": "compatibility",
           "statement": "Every ordered word of extended coordinate contractions is scalar extension of the corresponding original word, including the empty word."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange_natural",
+          "role": "compatibility",
+          "statement": "If ψ∘f=(f⊗u)∘θ for f:E→F and u:Q→P, then ψ_S∘f_S=(f_S⊗u_S)∘θ_S as actual S-linear maps."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange_coefficientMap",
+          "role": "compatibility",
+          "statement": "For every u:Q→P, scalar extension commutes with the actual coefficient postcomposition: (θ_u)_S=(θ_S)_(u_S). The equality holds even for a zero or noninjective coefficient map."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_natural",
+          "role": "compatibility",
+          "statement": "If ψ∘f=(f⊗u)∘θ, then for each n≥0, I_n(ψ_S)∘f_S=(f_S⊗(u_S)^⊗n)∘I_n(θ_S). Both iterates and the coefficient tensor power are taken over S. This does not identify I_n(θ_S) with scalar extension of I_n(θ)."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange_zero_iff",
+          "role": "characterisation",
+          "statement": "If S is faithfully flat over R, θ_S=0 if and only if θ=0 for arbitrary E and Q. No basis or flatness of E or Q is needed."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_one_zero_iff",
+          "role": "characterisation",
+          "statement": "If S is faithfully flat over R, I_1(θ_S)=0 iff I_1(θ)=0 for arbitrary E,Q. This result is restricted to degree one; it asserts no arbitrary-Q cross-ring tensor-power comparison or all-degree reflection."
         }
       ],
       "tests": [
@@ -7129,6 +7223,41 @@
           "name": "TwistedHiggsBundle.affineBaseChange.test_nonfaithful",
           "kind": "non-example",
           "statement": "Over R=Z with E=Q=Z, θ(e)=2e⊗1 is nonzero; its scalar extension to S=Z/2 is zero. Arbitrary scalar extension cannot reflect vanishing. This example does not assert that Z→Z/2 is flat."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_coefficient_quotient",
+          "kind": "compatibility",
+          "statement": "For E=ℤ, Q=ℤ/2, P=ℤ/3, S=ℤ/2 and u=0, the two coefficient-change/scalar-extension orders agree for every actual θ. Neither coefficient module has a ℤ-basis."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_torsion_coefficients",
+          "kind": "boundary",
+          "statement": "With E=ℤ, Q=ℤ/2 and the faithfully flat identity algebra S=ℤ, θ_S=0 iff θ=0. No coefficient freeness or flatness is assumed."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_torsion_source",
+          "kind": "non-example",
+          "statement": "With E=ℤ/2, Q=ℤ and S=ℤ, the canonical tensor-unit field remains nonzero after scalar extension. E is not flat over ℤ."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_degree_one_no_basis",
+          "kind": "boundary",
+          "statement": "For E=Q=ℤ/2 and S=ℤ, the degree-one source and receiving iterates vanish simultaneously for every θ, without bases or flatness of E,Q."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_horizontal_restriction",
+          "kind": "compatibility",
+          "statement": "For a horizontal pair and any specified n, a vanishing receiving-ring source iterate implies that the receiving-ring target iterate vanishes on the image of f_S. The conclusion is restricted vanishing; it does not assert ambient target vanishing."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_receiving_unit",
+          "kind": "degenerate",
+          "statement": "The degree-zero receiving-ring naturality equation holds for arbitrary θ,ψ,f,u without a horizontal-field hypothesis. The empty tensor power contains the unit, independently of the field."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineBaseChange.test_nonfaithful_erasure",
+          "kind": "non-example",
+          "statement": "Over ℤ, E=Q=ℤ and θ(e)=2e⊗1 is nonzero but θ_(ℤ/2)=0. Arbitrary scalar extension cannot reflect vanishing; no flatness of ℤ/2 is claimed."
         }
       ]
     },
@@ -7686,6 +7815,233 @@
         "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-base-change-natural",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension of horizontal fields",
+      "declaration": "TwistedHiggsBundle.affineBaseChange_natural",
+      "statement": "If ψ∘f=(f⊗u)∘θ for f:E→F and u:Q→P, then ψ_S∘f_S=(f_S⊗u_S)∘θ_S as actual S-linear maps.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings, with a specified R-algebra structure on S. E,F,Q,P are arbitrary native R-modules; E_S=S⊗_R E and Q_S=S⊗_R Q. No basis, finite generation, flatness, integrability, characteristic or reducedness premise is imposed unless separately stated.",
+        "The field θ_S is exactly the native linear-map baseChange followed by distribBaseChange. Ordered iterates are the existing native tensor-power iterates: degree zero is the tensor unit, and a successor prepends its new coefficient on the left. Iterates in the receiving ring S are distinguished from scalar extension of source-ring iterates.",
+        "The specified actual linear maps f:E→F and u:Q→P satisfy ψ.comp f=(TensorProduct.map f u).comp θ; no injectivity, surjectivity or inverse is assumed."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-base-change",
+        "mathlib:LinearMap.baseChange_comp"
+      ],
+      "proofSteps": [
+        "On elementary tensors a⊗e, the native tensor distributor commutes with the scalar extensions of f and u; prove this by tensor extensionality, not by an assumed comparison.",
+        "Apply native baseChange_comp to the horizontal equality and compose with that distributor comparison. No invertibility of f or u is used."
+      ],
+      "acceptance": [
+        "If ψ∘f=(f⊗u)∘θ for f:E→F and u:Q→P, then ψ_S∘f_S=(f_S⊗u_S)∘θ_S as actual S-linear maps."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-basechange",
+          "locator": "Definition 1.2(1)–(2); Theorem 4.8(1)–(3), Remark 4.9 and displayed proof, arXiv v3",
+          "match": "Heuer supplies the geometric motivation and local scalar-extension formula. These five statements are authored affine algebraic deductions using native Mathlib tensor maps; they are not the analytic correspondence or its gluing theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-base-change-coefficient-map",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension of coefficient changes",
+      "declaration": "TwistedHiggsBundle.affineBaseChange_coefficientMap",
+      "statement": "For every u:Q→P, scalar extension commutes with the actual coefficient postcomposition: (θ_u)_S=(θ_S)_(u_S). The equality holds even for a zero or noninjective coefficient map.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings, with a specified R-algebra structure on S. E,F,Q,P are arbitrary native R-modules; E_S=S⊗_R E and Q_S=S⊗_R Q. No basis, finite generation, flatness, integrability, characteristic or reducedness premise is imposed unless separately stated.",
+        "The field θ_S is exactly the native linear-map baseChange followed by distribBaseChange. Ordered iterates are the existing native tensor-power iterates: degree zero is the tensor unit, and a successor prepends its new coefficient on the left. Iterates in the receiving ring S are distinguished from scalar extension of source-ring iterates."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-coefficient-map",
+        "mathlib:LinearMap.baseChange_id"
+      ],
+      "proofSteps": [
+        "Apply the horizontal scalar-extension lemma to f=id_E and ψ=(id_E⊗u)∘θ.",
+        "The existing baseChange_id law identifies f_S with id_(E_S). The conclusion is equality of the existing fields, without a new generic transport carrier."
+      ],
+      "acceptance": [
+        "For every u:Q→P, scalar extension commutes with the actual coefficient postcomposition: (θ_u)_S=(θ_S)_(u_S). The equality holds even for a zero or noninjective coefficient map."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-basechange",
+          "locator": "Definition 1.2(1)–(2); Theorem 4.8(1)–(3), Remark 4.9 and displayed proof, arXiv v3",
+          "match": "Heuer supplies the geometric motivation and local scalar-extension formula. These five statements are authored affine algebraic deductions using native Mathlib tensor maps; they are not the analytic correspondence or its gluing theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Receiving-ring ordered naturality",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_baseChange_natural",
+      "statement": "If ψ∘f=(f⊗u)∘θ, then for each n≥0, I_n(ψ_S)∘f_S=(f_S⊗(u_S)^⊗n)∘I_n(θ_S). Both iterates and the coefficient tensor power are taken over S. This does not identify I_n(θ_S) with scalar extension of I_n(θ).",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings, with a specified R-algebra structure on S. E,F,Q,P are arbitrary native R-modules; E_S=S⊗_R E and Q_S=S⊗_R Q. No basis, finite generation, flatness, integrability, characteristic or reducedness premise is imposed unless separately stated.",
+        "The field θ_S is exactly the native linear-map baseChange followed by distribBaseChange. Ordered iterates are the existing native tensor-power iterates: degree zero is the tensor unit, and a successor prepends its new coefficient on the left. Iterates in the receiving ring S are distinguished from scalar extension of source-ring iterates.",
+        "The specified actual linear maps f:E→F and u:Q→P satisfy ψ.comp f=(TensorProduct.map f u).comp θ; no injectivity, surjectivity or inverse is assumed."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-base-change-natural",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-natural"
+      ],
+      "proofSteps": [
+        "First prove the actual one-step horizontal equality over S using scalar-extension naturality.",
+        "Apply the existing ordered-iterate naturality lemma over S, including its tensor-unit degree-zero case. No cross-ring tensor-power comparison is presumed."
+      ],
+      "acceptance": [
+        "If ψ∘f=(f⊗u)∘θ, then for each n≥0, I_n(ψ_S)∘f_S=(f_S⊗(u_S)^⊗n)∘I_n(θ_S). Both iterates and the coefficient tensor power are taken over S. This does not identify I_n(θ_S) with scalar extension of I_n(θ)."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-basechange",
+          "locator": "Definition 1.2(1)–(2); Theorem 4.8(1)–(3), Remark 4.9 and displayed proof, arXiv v3",
+          "match": "Heuer supplies the geometric motivation and local scalar-extension formula. These five statements are authored affine algebraic deductions using native Mathlib tensor maps; they are not the analytic correspondence or its gluing theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-base-change-zero-iff",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Faithful scalar extension detects a field",
+      "declaration": "TwistedHiggsBundle.affineBaseChange_zero_iff",
+      "statement": "If S is faithfully flat over R, θ_S=0 if and only if θ=0 for arbitrary E and Q. No basis or flatness of E or Q is needed.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings, with a specified R-algebra structure on S. E,F,Q,P are arbitrary native R-modules; E_S=S⊗_R E and Q_S=S⊗_R Q. No basis, finite generation, flatness, integrability, characteristic or reducedness premise is imposed unless separately stated.",
+        "The field θ_S is exactly the native linear-map baseChange followed by distribBaseChange. Ordered iterates are the existing native tensor-power iterates: degree zero is the tensor unit, and a successor prepends its new coefficient on the left. Iterates in the receiving ring S are distinguished from scalar extension of source-ring iterates.",
+        "The specified S is a native Module.FaithfullyFlat R S, retaining its actual flatness and proper-ideal condition. No substitute faithfulness predicate is introduced."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-base-change",
+        "mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff"
+      ],
+      "proofSteps": [
+        "Evaluate θ_S=0 on 1⊗e and use injectivity of the existing tensor-distribution equivalence to obtain 1⊗θ(e)=0.",
+        "The native faithful-flat tensor detection theorem applies to the actual module E⊗_R Q. Extensionality gives θ=0. The converse follows from native baseChange_zero."
+      ],
+      "acceptance": [
+        "If S is faithfully flat over R, θ_S=0 if and only if θ=0 for arbitrary E and Q. No basis or flatness of E or Q is needed."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-basechange",
+          "locator": "Definition 1.2(1)–(2); Theorem 4.8(1)–(3), Remark 4.9 and displayed proof, arXiv v3",
+          "match": "Heuer supplies the geometric motivation and local scalar-extension formula. These five statements are authored affine algebraic deductions using native Mathlib tensor maps; they are not the analytic correspondence or its gluing theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Faithful scalar extension detects degree one",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_baseChange_one_zero_iff",
+      "statement": "If S is faithfully flat over R, I_1(θ_S)=0 iff I_1(θ)=0 for arbitrary E,Q. This result is restricted to degree one; it asserts no arbitrary-Q cross-ring tensor-power comparison or all-degree reflection.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings, with a specified R-algebra structure on S. E,F,Q,P are arbitrary native R-modules; E_S=S⊗_R E and Q_S=S⊗_R Q. No basis, finite generation, flatness, integrability, characteristic or reducedness premise is imposed unless separately stated.",
+        "The field θ_S is exactly the native linear-map baseChange followed by distribBaseChange. Ordered iterates are the existing native tensor-power iterates: degree zero is the tensor unit, and a successor prepends its new coefficient on the left. Iterates in the receiving ring S are distinguished from scalar extension of source-ring iterates.",
+        "The specified S is a native Module.FaithfullyFlat R S, retaining its actual flatness and proper-ideal condition. No substitute faithfulness predicate is introduced."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-base-change-zero-iff",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-one",
+        "mathlib:TensorProduct.congr",
+        "mathlib:TensorProduct.toLinearMap_congr"
+      ],
+      "proofSteps": [
+        "In each ring, the existing degree-one equation is θ followed by the tensor product of identity with the native singleton tensor-power equivalence.",
+        "Injectivity of that actual linear equivalence gives I_1(θ)=0 iff θ=0. Combine the two rings with faithful-flat field detection."
+      ],
+      "acceptance": [
+        "If S is faithfully flat over R, I_1(θ_S)=0 iff I_1(θ)=0 for arbitrary E,Q. This result is restricted to degree one; it asserts no arbitrary-Q cross-ring tensor-power comparison or all-degree reflection."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer-J6LwjP-basechange",
+          "locator": "Definition 1.2(1)–(2); Theorem 4.8(1)–(3), Remark 4.9 and displayed proof, arXiv v3",
+          "match": "Heuer supplies the geometric motivation and local scalar-extension formula. These five statements are authored affine algebraic deductions using native Mathlib tensor maps; they are not the analytic correspondence or its gluing theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/pullback-nilpotence",
+          "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
+        }
+      ]
     }
   ],
   "requests": [
@@ -7782,7 +8138,8 @@
         "Historical affine proofs remain at commit 9a36f4d1d6743c0202f12020c0df603400149faa. The current suggested file uses admitted planning bodies under protocol section 13. The source augmentation-power generator adapter and same-exponent criterion are plans; a separate Mathlib-only conditional span/kernel proof compiles without admissions, but no exact Tau Ceti compiled import set was available. Supply E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank bounds, the unbounded period/Tate adapter and spectral-image consumer routing remain open. The finite-basis reconstruction and arbitrary-N ordered coefficient criterion have separate checked native proof prototypes; native change-of-chart and same-bound module/coefficient transport are now supplied as affine plans with a separate checked proof; supply arbitrary scalar extension, restriction and actual sheaf gluing before claiming the coordinate theorem.",
         "The cross-ring affine field and all-order finite-coefficient-basis bound are now planned with a separately checked native proof. Extend the chart proof to finite-projective coefficients, supply scalar-extension/tensor-power coherence for arbitrary Q and actual E1 restriction/gluing. Global source and supplier obligations retain their status.",
         "Native coefficient postcomposition now has all-degree comparison and exact-bound preservation for arbitrary modules,with reflection through a specified linear left inverse. Combine it with the scalar-extension leg only after actual E1 chart restriction/sheaf tensor-power coherence and equality detection. Exterior-integrability comparisons,finite-projective locality and allglobal source obligations remain open.",
-        "The affine flat-coefficient injection and horizontal-subobject reflection are now explicit plans at each specified exponent. Projectivity supplies flatness without a basis. Still supply arbitrary-Q cross-ring tensor-power coherence, finite-projective chart restriction and actual sheaf equality detection/gluing. Same-ring flatness does not identify a sheaf tensor with a tensor of global sections or discharge exterior integrability."
+        "The affine flat-coefficient injection and horizontal-subobject reflection are now explicit plans at each specified exponent. Projectivity supplies flatness without a basis. Still supply arbitrary-Q cross-ring tensor-power coherence, finite-projective chart restriction and actual sheaf equality detection/gluing. Same-ring flatness does not identify a sheaf tensor with a tensor of global sections or discharge exterior integrability.",
+        "One-step arbitrary-Q scalar-extension field/coefficient coherence and faithful-flat degree-one reflection now have native checked prototypes. Receiving-ring all-degree naturality does not compare an S-iterate with scalar extension of an R-iterate. Still prove the arbitrary-Q cross-ring tensor-power unit/prepend/comparison equations, all-degree bound preservation/reflection, finite-projective restriction and E1 sheaf gluing; do not replace these with a basis or stored oracle."
       ]
     },
     {
@@ -9388,5 +9745,166 @@
     },
     "sourceScope": "Fresh selected Heuer field/horizontal conventions and Stacks flatness criterion only; old wider source receipts remain historical. No new source issue or closed obligation.",
     "proofArchive": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a"
+  },
+  "scalarCoherenceContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "readBase": "9f4ec81d1839ece8d10129830133db03a6d5d430",
+    "claimComment": 5962082384,
+    "winningBotComment": 5962084436,
+    "status": "partial",
+    "lean": "4.34.0-rc2",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathematics": "Five specialized affine field/iterate lemmas: scalar-extension horizontal naturality and coefficient-map coherence for arbitrary modules, receiving-ring all-degree ordered naturality, and faithful-flat field/degree-one zero reflection. Actual native definitions and tensor equivalences; no basis, flatness of E/Q, stored oracle, integrability or all-degree cross-ring comparison is added.",
+    "proofPrototype": {
+      "archiveCommit": "9f179c941d3686eacb96322f20831efef6c2c78c",
+      "beginMarker": "BEGIN ARCHIVED CHECKED HIGGS SCALAR COHERENCE",
+      "endMarker": "END ARCHIVED CHECKED HIGGS SCALAR COHERENCE",
+      "sourceSha256": "6a23f25f4d8709db044e950a9097754d114071dd5d08b9d000cb34a2c3194fb2",
+      "diagnosticsSha256": "04e4ea88b83bf274cf6f8d4b8fba11d1a5f412cc1cd2547499790a49d4c0faec",
+      "lines": 692,
+      "examples": 16,
+      "axiomAudits": 20,
+      "errors": 0,
+      "admissions": 0,
+      "warnings": 0,
+      "allowedAxioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "elapsedSeconds": 3.8,
+      "peakRssKiB": 2470292,
+      "availableGiBBefore": 56,
+      "inheritedProofArchive": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a",
+      "inheritedProofSourceSha256": "b1335d49069b99337ff05089cbfc8658ab2bb0da4e32dd5cedfb64d2d0ad04dc",
+      "inheritedProofByteIdentical": true
+    },
+    "submittedSketch": {
+      "sourceSha256": "f31c12d0f3c4789c298fb9c1616f48aab96d02a659b2a088a28550ec0356c621",
+      "diagnosticsSha256": "6fc6e0157deded986d6fdae3f22d82a634405a121ad1f79014a82860730b0900",
+      "lines": 1632,
+      "examples": 100,
+      "admissionWarnings": 240,
+      "otherWarnings": 0,
+      "errors": 0,
+      "time": "Elapsed 5.20 seconds; peak 2979404 KiB",
+      "compiled": true,
+      "elapsedSeconds": 5.2,
+      "peakRssKiB": 2979404,
+      "availableGiBBefore": 56,
+      "scope": "The entire exact Mathlib-only suggested file; no Tau Ceti import set is certified. Every new planning body is admitted per PROTOCOL §13. The separate native proof has no admissions.",
+      "inheritedPrefixByteIdentical": true,
+      "newHeadersAndExampleTypesMatchActualProof": 12
+    },
+    "projection": {
+      "stage": {
+        "vertices": 3022,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 112,
+        "edges": 207,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3129,
+        "edges": 8908,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 113,
+      "unresolvedReferences": 0,
+      "actualBlueprint": {
+        "declarations": 112,
+        "planets": 6,
+        "kinds": {
+          "comparison": 5,
+          "construction": 24,
+          "definition": 12,
+          "lemma": 57,
+          "theorem": 14
+        },
+        "skippedLinks": []
+      },
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredSupplierStagePairs": {
+        "count": 7,
+        "allPathsPresent": true,
+        "directPairs": 5,
+        "transitivePaths": {
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.3": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3"
+          ],
+          "ShimuraData:D3 -> HodgeStructuresPartII:H.8": [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2",
+            "HodgeStructuresPartII:H.3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        },
+        "pairs": [
+          [
+            "ColemanPowerSeries:L1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "CrystallineCohomology:CR.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "DerivedDeRhamCohomology:DD.1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "EnhancedDerivedSheaves:E1",
+            "HodgeStructuresPartII:H.0"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.2"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.3"
+          ],
+          [
+            "ShimuraData:D3",
+            "HodgeStructuresPartII:H.8"
+          ]
+        ]
+      },
+      "virtualSupplierEndpointsAreStagePlansNotLibraryDeclarations": true
+    },
+    "preservation": {
+      "inheritedContracts": 107,
+      "unchangedWholeNodes": 106,
+      "inheritedApiTestsAndUsesPreserved": true,
+      "routeManifestRequestsGapsFindingsAndHistoricalReceiptsUnchanged": true,
+      "allNineStagesAndDependenciesUnchanged": true
+    },
+    "freshSource": {
+      "url": "https://arxiv.org/html/2307.01303v3",
+      "htmlSha256": "ec7742d917b413a52d05e5eeffbab9fdaab3bed13412dc2c9e426ffb8bcb8081",
+      "scope": "Definition 1.2(1)–(2), selected introduction, complete Theorem 4.8(1)–(3), Remark 4.9 and displayed proof. Authored affine deductions are explicitly distinguished from the geometric theorem."
+    },
+    "checks": [
+      "Indexed check_blueprint: zero errors/warnings",
+      "Five-file intake: zero problems",
+      "Actual read-only candidate/control assembler; all three graphs acyclic; seven required supplier pairs have paths, five direct and two through H.2",
+      "Inherited 107 mathematical contracts and all API/test prefixes preserved",
+      "Exact new signatures/example types and canonical field definition match the admitted sketch",
+      "Full submitted sketch and separate no-admission native proof compiled at the pinned Mathlib build",
+      "Live issue and main-path publication guard; allowed-path and whitespace checks"
+    ],
+    "remaining": [
+      "Arbitrary-Q cross-ring tensor-power unit/prepend/scalar-extension comparison in every degree; all-degree bound preservation and faithful-flat reflection without a finite coefficient basis. Receiving-ring naturality is not this theorem.",
+      "Finite-projective chart restriction, actual E1 sheaf tensor-power comparison/equality detection/gluing, including globally specified versus locally varying exponents.",
+      "All existing CR.1, E1, DD.1 and D3 supplier requests, global determinant/exterior and Tate/period-lattice adapters, source inventories and H.1–H.8 decomposition."
+    ]
   }
 }
