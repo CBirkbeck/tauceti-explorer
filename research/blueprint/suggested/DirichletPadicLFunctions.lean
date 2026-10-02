@@ -32405,3 +32405,114 @@ example [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)), Fintype {b : Fin 1 
       kubertCartanLimitRepresentation 1 ℚ g (kubertRationalCartanGlobalDistribution z) := by sorry
 
 end DirichletPadic.SuggestedKubertCorrectedEquivarianceTests
+
+/- Actual corrected integer images and Cartan-module closure. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+noncomputable def kubertRationalCartanImage (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) := by sorry
+
+lemma kubertRationalCartanImage_mem (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    x ∈ kubertRationalCartanImage N ↔ ∃ z : (FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0),kubertRationalCartanQuotientValue N z=x := by sorry
+
+lemma kubertRationalCartanImage_point (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalCartanValue N a ∈ kubertRationalCartanImage N := by sorry
+
+lemma kubertRationalCartanImage_eq_span (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ (Set.range (kubertRationalCartanValue N)) := by sorry
+
+lemma kubertRationalCartanImage_le_iff (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔ ∀ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker,kubertRationalCartanValue N a ∈ L := by sorry
+
+lemma kubertRationalCartanImage_basis_mul (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage N) :
+    MonoidAlgebra.single u 1*x ∈ kubertRationalCartanImage N := by sorry
+
+lemma kubertRationalCartanImage_integral_mul (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (r : MonoidAlgebra ℤ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage N) :
+    (MonoidAlgebra.mapRingHom (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (Int.castRingHom ℚ)) r*x ∈ kubertRationalCartanImage N := by sorry
+
+lemma kubertRationalCartanImage_ne_bot (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] : kubertRationalCartanImage N≠⊥ := by sorry
+
+lemma kubertRationalCartanImage_norm (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage M) :
+    kubertCartanProductNorm 1 ℚ M N hMN x ∈ kubertRationalCartanImage N := by sorry
+
+lemma kubertRationalCartanImage_global_mem
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)), Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertCartanLimitOf 1 ℚ N x ∈ Set.range (fun z : (FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0) =>
+      kubertRationalCartanGlobalDistribution (kubertLevelToGlobal N 0 z)) ↔ x ∈ kubertRationalCartanImage N := by sorry
+
+lemma kubertRationalCartanImage_fg (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] : (kubertRationalCartanImage N).FG := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCorrectedImageTests
+open scoped Classical BigOperators
+noncomputable section
+-- the_level_one_integer_generator_belongs
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker] : (1 : _) ∈ kubertRationalCartanImage 1 := by sorry
+-- the_level_one_half_coefficient_is_not_integral
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker] : MonoidAlgebra.single 1 (1/2 : ℚ) ∉ kubertRationalCartanImage 1 := by sorry
+-- the_level_six_half_difference_has_an_original_integer_preimage
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] : (MonoidAlgebra.single 1 (1/2 : ℚ)-MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1/2 : ℚ)) ∈ kubertRationalCartanImage 6 := by sorry
+-- the_six_to_thirty_norm_preserves_the_actual_half_difference_image
+example [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((6 : ℕ+) : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) ((30 : ℕ+) : ℕ)).ker] : kubertCartanProductNorm 1 ℚ 6 30 (by sorry) (MonoidAlgebra.single 1 (1/2 : ℚ)-MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1/2 : ℚ)) ∈ kubertRationalCartanImage 30 := by sorry
+end
+end DirichletPadic.SuggestedKubertCorrectedImageTests
+namespace DirichletPadic.SuggestedKubertCorrectedImageTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalCartanImage_mem_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    x ∈ kubertRationalCartanImage N ↔ ∃ z : (FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0),kubertRationalCartanQuotientValue N z=x := by sorry
+
+-- rationalCartanImage_point_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalCartanValue N a ∈ kubertRationalCartanImage N := by sorry
+
+-- rationalCartanImage_eq_span_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] :
+    kubertRationalCartanImage N=Submodule.span ℤ (Set.range (kubertRationalCartanValue N)) := by sorry
+
+-- rationalCartanImage_le_iff_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (L : Submodule ℤ (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertRationalCartanImage N ≤ L ↔ ∀ a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker,kubertRationalCartanValue N a ∈ L := by sorry
+
+-- rationalCartanImage_basis_mul_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage N) :
+    MonoidAlgebra.single u 1*x ∈ kubertRationalCartanImage N := by sorry
+
+-- rationalCartanImage_integral_mul_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (r : MonoidAlgebra ℤ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage N) :
+    (MonoidAlgebra.mapRingHom (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) (Int.castRingHom ℚ)) r*x ∈ kubertRationalCartanImage N := by sorry
+
+-- rationalCartanImage_ne_bot_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] : kubertRationalCartanImage N≠⊥ := by sorry
+
+-- rationalCartanImage_norm_typed_api
+example (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (M : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (M : ℕ).primeFactors, (TruncatedWittVector p.val ((M : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) (hx : x ∈ kubertRationalCartanImage M) :
+    kubertCartanProductNorm 1 ℚ M N hMN x ∈ kubertRationalCartanImage N := by sorry
+
+-- rationalCartanImage_global_mem_typed_api
+example
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)), Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] (x : (MonoidAlgebra ℚ (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))) :
+    kubertCartanLimitOf 1 ℚ N x ∈ Set.range (fun z : (FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸ kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0) =>
+      kubertRationalCartanGlobalDistribution (kubertLevelToGlobal N 0 z)) ↔ x ∈ kubertRationalCartanImage N := by sorry
+
+-- rationalCartanImage_fg_typed_api
+example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker] : (kubertRationalCartanImage N).FG := by sorry
+
+end DirichletPadic.SuggestedKubertCorrectedImageTests
