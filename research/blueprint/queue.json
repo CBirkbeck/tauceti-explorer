@@ -33210,8 +33210,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5498"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5498",
+   "finishedAt": "2026-10-02T01:30:25Z"
   },
   {
    "id": "RT-PAPER-LESLIE-25",
@@ -39244,7 +39245,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MATHEW-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5521"
   },
   {
    "id": "RT-PAPER-ANSCHUTZ-LEBRAS-23",
