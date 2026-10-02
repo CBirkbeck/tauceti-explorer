@@ -2344,3 +2344,95 @@ example :
 example : Module.length ℝ ℂ = 2 ∧ Module.length ℂ ℂ = 1 := by sorry
 
 end TauCeti.HilbertSamuel
+
+/-! Principal-ideal quotient multiplication (codex-5ebb6f).
+General ring and actual ideal quotient adapters; the order-to-variable-ideal
+bridge remains a separate planned input. New bodies are admitted prototypes. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section PrincipalQuotients
+variable {A : Type*} [CommRing A]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-mul-denominator
+lemma pow_mul_denominator (q : Ideal A) (f : A) (d n : ℕ)
+    (hdn : d ≤ n) (hf : f ∈ q ^ d) :
+    (q ^ (n - d) : Submodule A A) ≤
+      Submodule.comap (LinearMap.mulLeft A f) (q ^ n : Submodule A A) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication
+def quotientMulMap (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    (A ⧸ J) →ₗ[A] (A ⧸ K) := by sorry
+
+-- API: TauCeti.HilbertSamuel.quotientMulMap_apply
+lemma quotientMulMap_apply (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) (g : A) :
+    quotientMulMap J K f h (Submodule.mkQ J g) = Submodule.mkQ K (f * g) := by sorry
+
+-- API: TauCeti.HilbertSamuel.principalQuotientProjection
+def principalQuotientProjection (K : Ideal A) (f : A) :
+    (A ⧸ K) →ₗ[A] (A ⧸ (Ideal.span {f} ⊔ K)) := by sorry
+
+-- API: TauCeti.HilbertSamuel.principalQuotientProjection_apply
+lemma principalQuotientProjection_apply (K : Ideal A) (f g : A) :
+    principalQuotientProjection K f (Submodule.mkQ K g) =
+      Submodule.mkQ (Ideal.span {f} ⊔ K) g := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-exact
+lemma quotientMulMap_exact (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    LinearMap.range (quotientMulMap J K f h) =
+      LinearMap.ker (principalQuotientProjection K f) ∧
+      Function.Surjective (principalQuotientProjection K f) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity
+lemma quotientMulMap_injective_iff (J K : Ideal A) (f : A)
+    (h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) K) :
+    Function.Injective (quotientMulMap J K f h) ↔
+      ∀ g : A, f * g ∈ K → g ∈ J := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/principal-projection-in-ideal
+lemma principalQuotientProjection_bijective (K : Ideal A) (f : A) (hf : f ∈ K) :
+    Ideal.span {f} ⊔ K = K ∧ Function.Bijective (principalQuotientProjection K f) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.endpoint_denominator
+example (q : Ideal A) (f : A) (n : ℕ) (hf : f ∈ q ^ n) :
+    (q ^ 0 : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) (q ^ n) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_cutoff
+example (q : Ideal A) (f : A) :
+    (q ^ 0 : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A f) (q ^ 0) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_equation
+example (J K : Ideal A) :
+    ∃ h : (J : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A (0 : A)) K,
+      quotientMulMap J K 0 h = 0 ∧
+      LinearMap.ker (principalQuotientProjection K 0) = ⊥ := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.unit_equation
+example (K : Ideal A) :
+    ∃ h : (K : Submodule A A) ≤ Submodule.comap (LinearMap.mulLeft A (1 : A)) K,
+      quotientMulMap K K 1 h = LinearMap.id ∧
+      LinearMap.ker (principalQuotientProjection K 1) = ⊤ := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.zero_divisor_noninjective
+example :
+    ∃ h : ((⊥ : Ideal (ZMod 4)) : Submodule (ZMod 4) (ZMod 4)) ≤
+        Submodule.comap (LinearMap.mulLeft (ZMod 4) 2) (⊥ : Ideal (ZMod 4)),
+      ¬ Function.Injective (quotientMulMap ⊥ ⊥ (2 : ZMod 4) h) ∧
+      LinearMap.range (quotientMulMap ⊥ ⊥ (2 : ZMod 4) h) =
+        LinearMap.ker (principalQuotientProjection ⊥ (2 : ZMod 4)) ∧
+      Function.Surjective (principalQuotientProjection ⊥ (2 : ZMod 4)) := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.nonzero_shift
+example : let q : Ideal (ZMod 4) := Ideal.span {(2 : ZMod 4)}
+    let h := pow_mul_denominator q 2 1 2 (by decide) (by dsimp [q]; simp)
+    quotientMulMap (q ^ (2 - 1)) (q ^ 2) 2 h (Submodule.mkQ (q ^ 1) 1) =
+      Submodule.mkQ (q ^ 2) 2 ∧ Submodule.mkQ (q ^ 2) 2 ≠ 0 := by sorry
+
+-- test: HilbertSamuelPrincipalJetTest.wrong_source_domain
+example : let K : Ideal ℤ := Ideal.span {(4 : ℤ)}
+    ∃ h : (K : Submodule ℤ ℤ) ≤ Submodule.comap (LinearMap.mulLeft ℤ 2) K,
+      ¬ Function.Injective (quotientMulMap K K 2 h) := by sorry
+
+end PrincipalQuotients
+end TauCeti.HilbertSamuel
