@@ -19,7 +19,7 @@
     "accessed": "2026-09-21",
     "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103"
   },
-  "summary": "Ciubotaru and Harris prove, over global function fields, that a cuspidal representation that is generic unramified at one quasi-split place and tempered at another is tempered at every unramified quasi-split place (Theorem 5.4). Lafforgue's Galois parameters and Deligne's weights force half-integral real Satake parameters, which the Barbasch–Ciubotaru classification of the generic spherical unitary dual excludes, apart from one PSU(2n+1) candidate. In the nongeneric case, under a parametrization hypothesis, they show local components stay in the complementary series of the same nilpotent class (Theorem 1.11), and remove the extraneous points with a discrete-series anchor (Theorem 10.3). This continuation completes the extraction: the remaining results are itemized, Tables 2–4 and exceptional orbit separation are certified by computation, and the reviewed errata are recorded with three new findings.",
+  "summary": "Ciubotaru–Harris v1 asserts generic Ramanujan propagation (Theorem5.4), conditional complementary-series propagation (Theorem1.11) and exclusion of extraneous points with a discrete-series anchor (Theorem10.3). The extraction records their hypotheses and existing proof gaps, not unconditional repaired proofs. Its local classification imports the existing representation foundations and nilpotent-weight theory. This fix restricts the source-derived extraneous lists to real/central-compact parameters: E11’s fully geometric G2 zero-orbit witness also invalidates the unrestricted exceptional endpoint of Theorem8.5/Remark8.7 (linked E18). General compact-part classification and global uses are explicitly gated, separately from the existing stratum-recognition gap. Theorem4.2 is moved to an early arithmetic prefix with FA.6/GS/SR/DWP inputs and a source-gated, pending GHS globalization/purity obligation; ownership does not solve E10. There are 83 items (2 library, 11 planned, 70 missing), four routes with sizes 11, 29, 27, 3, thirteen prerequisites and eighteen source findings. Historical table/orbit certificates and previous reviews are retained without a fresh exhaustive re-audit.",
   "items": [
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/nonzero-sl2-triple",
@@ -234,7 +234,7 @@
       "statement": "A discrete-series representation with geometric central character is geometric. For semisimple G the central-character condition is automatic in the source application.",
       "locator": "arXiv:2311.15300v1, Proposition 3.10, discrete-series assertion",
       "status": "missing",
-      "note": "Requires the actual local-parameter theorem; this is not ordinary smooth representation theory alone. The proof ('point 5 follows from Theorem 4.2') goes through [GHS]'s Weil–Deligne purity of discrete series (item ghs-discrete-series-purity), not through the general step (2) of the §4.1 sketch."
+      "note": "Requires the actual local-parameter theorem; this is not ordinary smooth representation theory alone. The proof ('point 5 follows from Theorem 4.2') goes through [GHS]'s Weil–Deligne purity of discrete series (item ghs-discrete-series-purity), not through the general step (2) of the §4.1 sketch. Coordinate this input with the explicit early arithmetic-prefix/GHS request, retaining the pending supplier and its source hypotheses. It is not supplied by the final Theorem5.4 application or the unproved general geometricity sketch E10."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/iota-tempered",
@@ -251,7 +251,58 @@
       "statement": "For the semisimple local groups in Section 4.1, discrete series admit number-field models and their conjugates remain discrete series. Do not generalize to arbitrary reductive groups with unrestricted transcendental unitary central character.",
       "locator": "arXiv:2311.15300v1, Theorem 4.2",
       "status": "missing",
-      "note": "Attributed to [GHS] (p. 11: 'the following theorem is proved in [GHS]'); v1 gives only a sketch, 'Complete proofs of the two theorems will appear elsewhere'. Step (1) of the sketch uses Beuzart-Plessis's appendix to [GHS] (every discrete series is a local component of a cuspidal automorphic representation); step (2) is the gap E10."
+      "note": "Attributed to [GHS] (p. 11: 'the following theorem is proved in [GHS]'); v1 gives only a sketch, 'Complete proofs of the two theorems will appear elsewhere'. Step (1) invokes Beuzart-Plessis's appendix to [GHS] for globalization; the freshly read Appendix Lemma A.1 and Proposition 3.10 supply same cuspidal support, so a precise isolation/support-descent bridge remains required for a number-field model of the prescribed representation. Step (2)'s general geometricity assertion is the gap E10. Move this item to the early arithmetic prefix of GlobalShtukasPartIIRamanujanArthur, before Theorem5.4 and the nongeneric applications. Import FA.6 coefficient models, GS.5/GS.7 cusp parameters and local–global comparison, and SR.2/SR.3 normalized induction, Jacquet exponents and Casselman’s criterion. Use the exact source-gated GHS supplier request below. This ownership repair does not solve E10 or prove Theorem4.3. No whole global consumer is imported back into the local classification.",
+      "supplierContract": {
+        "owner": "proposed:GlobalShtukasPartIIRamanujanArthur/arithmetic-prefix",
+        "prerequisites": [
+          "FunctionFieldArithmetic:FA.6",
+          "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+          "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+          "SmoothRepresentationsOfLocalGroups:SR.2",
+          "SmoothRepresentationsOfLocalGroups:SR.3",
+          "DeligneWeightsAndPurity:DWP.0",
+          "DeligneWeightsAndPurity:DWP.5",
+          "DeligneWeightsAndPurity:DWP.8"
+        ],
+        "groupScope": "Connected semisimple G over F=k((t)), irreducible complex discrete series; its finite center gives finite-order central character. A reductive-group extension must state an algebraic/geometric central character and its globalization compatibility, not arbitrary transcendental unitary characters.",
+        "gate": "Actual number-field descent and embedding-stable exponents from independently justified discrete-series purity/globalization. Source-version-specific residue bounds remain explicit; the freshly checked GHSv3 Theorem1.2 assumes p>3. Scope outside that range needs a separate source.",
+        "order": "GHS gated input plus FA.6/GS/SR/DWP → arithmetic prefix → global applications (Theorem5.4 etc.). The local classification independently feeds those applications; it does not import this whole global PartII."
+      },
+      "api": [
+        {
+          "name": "DiscreteSeriesArithmetic.numberFieldModel",
+          "role": "construction",
+          "statement": "For the stated semisimple scope and independently established source hypotheses, descend the discrete series to a number field; make local-isolation or finite-length cuspidal-support descent explicit."
+        },
+        {
+          "name": "DiscreteSeriesArithmetic.embeddingStableExponents",
+          "role": "relation",
+          "statement": "Use the independently supplied discrete-series geometricity/purity to make the normalized Jacquet-exponent absolute values independent of complex embedding; apply Casselman with the chosen modulus normalization."
+        },
+        {
+          "name": "DiscreteSeriesArithmetic.conjugate_discrete",
+          "role": "compatibility",
+          "statement": "The conjugated number-field model remains discrete series under every embedding, without using Theorem5.4 or the ungated general step(2) of §4.1."
+        }
+      ],
+      "acceptance": [
+        {
+          "name": "DiscreteSeriesArithmetic.semisimple_center",
+          "kind": "degenerate",
+          "statement": "For semisimple G the finite-center character is of finite order and satisfies the geometric central-character condition; retain all non-central discrete-series inputs."
+        },
+        {
+          "name": "DiscreteSeriesArithmetic.transcendental_center",
+          "kind": "non-example",
+          "statement": "For G_m an arbitrary unitary unramified character can have transcendental Frobenius value, so unitary central character alone cannot imply a number-field model."
+        },
+        {
+          "name": "DiscreteSeriesArithmetic.no_global_circularity",
+          "kind": "non-example",
+          "statement": "The arithmetic-prefix proof must remain independent of the final Theorem5.4 global temperedness endpoint and of local generic spherical exclusion; reject a proof that uses either to establish its own discrete-series anchor."
+        }
+      ],
+      "sourceNoteBeforeArithmeticSupplierRepair": "Attributed to [GHS] (p. 11: 'the following theorem is proved in [GHS]'); v1 gives only a sketch, 'Complete proofs of the two theorems will appear elsewhere'. Step (1) of the sketch uses Beuzart-Plessis's appendix to [GHS] (every discrete series is a local component of a cuspidal automorphic representation); step (2) is the gap E10."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/galois-temperedness",
@@ -488,27 +539,51 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/extraneous-Sp",
       "kind": "theorem",
       "name": "Symplectic-dual extraneous parameters",
-      "statement": "For connected-center G with dual Sp(2n), write the nilpotent partition with multiplicities r_i, sum i*r_i=2n and r_i even for odd i. The additional real parameters are h/2+(1/2) sum over even j with r_j>=3 of epsilon_j*omega^j_floor(r_j/2), with epsilon_j in {0,1}, not all zero.",
+      "statement": "Restrict this classification to s=s_c q^ν with s_c=1 or s_c central in G∨, retaining geometricity in Definition2.5 and the connected-center hypothesis on G. Do not infer the same list for arbitrary noncentral compact parts from the real part alone. For connected-center G with dual Sp(2n), write the nilpotent partition with multiplicities r_i, sum i*r_i=2n and r_i even for odd i. The additional real parameters are h/2+(1/2) sum over even j with r_j>=3 of epsilon_j*omega^j_floor(r_j/2), with epsilon_j in {0,1}, not all zero.",
       "locator": "arXiv:2311.15300v1, Theorem 8.5(1)",
       "status": "missing",
-      "note": "The proof later prints an odd j where the theorem and centralizer decomposition require even j; resolve against the final version. Resolved: the theorem's even j is right; the proof's 'odd' is a misprint (sourceIssues E2, confirmed by review)."
+      "note": "The proof later prints an odd j where the theorem and centralizer decomposition require even j; resolve against the final version. Resolved: the theorem's even j is right; the proof's 'odd' is a misprint (sourceIssues E2, confirmed by review). The partition/parity data are retained as the real/central-compact interface; their arbitrary-compact completeness is not certified by this repair. A noncentral s_c changes the relevant root centralizer and spherical stratum. The requested centralizer analysis must independently test this family; the G₂ example alone neither disproves nor exhaustively repairs its list.",
+      "sourceClaimBeforeCompactScopeRepair": "For connected-center G with dual Sp(2n), write the nilpotent partition with multiplicities r_i, sum i*r_i=2n and r_i even for odd i. The additional real parameters are h/2+(1/2) sum over even j with r_j>=3 of epsilon_j*omega^j_floor(r_j/2), with epsilon_j in {0,1}, not all zero.",
+      "classificationScope": "real or central compact factor; arbitrary compact completeness open"
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/extraneous-Spin",
       "kind": "theorem",
       "name": "Spin-dual extraneous parameters",
-      "statement": "For connected-center G with dual Spin(n), use the nilpotent partition sum i*r_i=n with r_i even for even i. The additional real parameters are h/2+(1/2) sum over odd i with r_i>=3 of epsilon_i*omega^i_floor(r_i/2), not all epsilon zero, and with sum epsilon_i even.",
+      "statement": "Restrict this classification to s=s_c q^ν with s_c=1 or s_c central in G∨, retaining geometricity in Definition2.5 and the connected-center hypothesis on G. Do not infer the same list for arbitrary noncentral compact parts from the real part alone. For connected-center G with dual Spin(n), use the nilpotent partition sum i*r_i=n with r_i even for even i. The additional real parameters are h/2+(1/2) sum over odd i with r_i>=3 of epsilon_i*omega^i_floor(r_i/2), not all epsilon zero, and with sum epsilon_i even.",
       "locator": "arXiv:2311.15300v1, Theorem 8.5(2)",
-      "status": "missing"
+      "status": "missing",
+      "sourceClaimBeforeCompactScopeRepair": "For connected-center G with dual Spin(n), use the nilpotent partition sum i*r_i=n with r_i even for even i. The additional real parameters are h/2+(1/2) sum over odd i with r_i>=3 of epsilon_i*omega^i_floor(r_i/2), not all epsilon zero, and with sum epsilon_i even.",
+      "note": " The partition/parity data are retained as the real/central-compact interface; their arbitrary-compact completeness is not certified by this repair. A noncentral s_c changes the relevant root centralizer and spherical stratum. The requested centralizer analysis must independently test this family; the G₂ example alone neither disproves nor exhaustively repairs its list.",
+      "classificationScope": "real or central compact factor; arbitrary compact completeness open"
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/extraneous-exceptional",
       "kind": "theorem",
       "name": "Exceptional extraneous-orbit list",
-      "statement": "Under Theorem 8.5 geometricity and connected-center hypotheses, the exceptional orbits admitting additional real parameters are B3 and A1+tilde-A1 in F4; D5(a1)+A1 in E7; and D6, A6, A4+A2, A2+2A1 in E8. There are none in G2 or E6.",
+      "statement": "Restrict this classification to s=s_c q^ν with s_c=1 or s_c central in G∨, retaining geometricity in Definition2.5 and the connected-center hypothesis on G. Do not infer the same list for arbitrary noncentral compact parts from the real part alone. In that restricted sector the source-derived exceptional list has B3 and A1+tilde-A1 in F4, D5(a1)+A1 in E7, and D6,A6,A4+A2,A2+2A1 in E8, with the F4 B3 coordinate corrected by E5 to ω₁+½ω₃+½ω₄. The real/central-compact list has no G2 or E6 entry. This is not a complete list for arbitrary compact factors: the geometric G2 parameter (aα₁+bα₂)(s)=(−1)^a q^(b/2), ν=½ω₂, lies in CS(G2,0) with nonzero real part. General compact-part classification requires the centralizer-of-s_c reduction and a new exhaustive proof; adding this one point does not prove exhaustiveness.",
       "locator": "arXiv:2311.15300v1, Theorem 8.5(3)-(5); Remark 8.7",
       "status": "missing",
-      "note": "Exact coweight vectors are recorded in the report. Their computation certificates and separate itemization remain completion work. The F4 B3 coordinate printed as ω₁+ω₂+½ω₃+½ω₄ must be ω₁+½ω₃+½ω₄ (sourceIssues E5, an error confirmed by review against Ciubotaru's F4 classification). The case analysis of Theorem 8.5(4) uses the list of exceptional nilpotent orbits with the types of their reductive centralizers ('see the tables in [Ca]'); it belongs with the nilpotent-orbit Part II."
+      "note": "Exact coweight vectors are recorded in the report. Their computation certificates and separate itemization remain completion work. The F4 B3 coordinate printed as ω₁+ω₂+½ω₃+½ω₄ must be ω₁+½ω₃+½ω₄ (sourceIssues E5, an error confirmed by review against Ciubotaru's F4 classification). The case analysis of Theorem 8.5(4) uses the list of exceptional nilpotent orbits with the types of their reductive centralizers ('see the tables in [Ca]'); it belongs with the nilpotent-orbit Part II. Scope repair of Theorem8.5/Remark8.7: E18 links the already confirmed E11 witness to this additional false endpoint. All weights of dual G2 are integral root combinations, so the witness has Weil eigenvalues of integer weight in every representation, not just a half-integral real part. Ad(s) has no q-eigenvalue; its open nilpotent orbit is0 and central point is1 (real exponent0). Its connected center is trivial. The source proof applies Theorem6.14 to a set of real parts as though they were real unitary parameters; that does not justify arbitrary noncentral s_c.",
+      "sourceClaimBeforeCompactScopeRepair": "Under Theorem 8.5 geometricity and connected-center hypotheses, the exceptional orbits admitting additional real parameters are B3 and A1+tilde-A1 in F4; D5(a1)+A1 in E7; and D6, A6, A4+A2, A2+2A1 in E8. There are none in G2 or E6.",
+      "classificationScope": "real or central compact factor; arbitrary compact completeness open",
+      "acceptance": [
+        {
+          "name": "ExtraneousClassification.g2_geometric_zero_orbit",
+          "kind": "non-example",
+          "statement": "For q>1, (aα₁+bα₂)(s)=(−1)^a q^(b/2) has root values −1,√q,−√q,√q,−√q,−q; no root value is q^±1. Kato’s stabilizer criterion and the irreducible hermitian path give a unitary generic L(s). Every G2 weight gives a Weil eigenvalue of integer weight; Ad(s)_q=0, so s∈CS(G2,0) and Re(s)=½ω₂≠0. Reject the unrestricted no-G2 list."
+        },
+        {
+          "name": "ExtraneousClassification.central_compact_scope",
+          "kind": "compatibility",
+          "statement": "If s_c is central, the root values and associated nilpotent q-eigenspace agree with the real parameter; require an explicit comparison preserving unitarity/geometricity before applying the restricted list."
+        },
+        {
+          "name": "ExtraneousClassification.compact_stratum_required",
+          "kind": "non-example",
+          "statement": "Recognizing ν by all representation-indexed real weights does not recover s_c or the nilpotent stratum. The noncentral G2 witness must not be tested against the real generic region U₀^g merely because ν is half-integral."
+        }
+      ]
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/E8-extra-region",
@@ -516,7 +591,9 @@
       "name": "Exceptional 4A1 region exclusion",
       "statement": "For the extra E8,4A1 unitary region in (8.8), the ordered coordinates cannot all lie in (1/2)Z or all in 1/4+(1/2)Z. Thus the extra region contributes no adjoint-half-integral parameter.",
       "locator": "arXiv:2311.15300v1, Section 8.3",
-      "status": "missing"
+      "status": "missing",
+      "note": " This is only the finite half-lattice exclusion inside the real E8,4A1 region (8.8). It supplies no unrestricted classification for noncentral s_c and no proof that every arbitrary-compact E8 point reduces to this region. Preserve the finite inequality computation separately from the new compact-part analysis.",
+      "classificationScope": "finite real-region inequality, not arbitrary-compact exhaustiveness"
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/discrete-parametrization-hypothesis",
@@ -559,7 +636,8 @@
       "statement": "In the discrete-spectrum setup of Theorem 1.11, assume an actual compatible global parametrization, a split place v with pi_v in CS(G,N), and a geometric local component at u in S. The source asserts that all split unramified components belong to CS(G,N), with the same central or extraneous real parameter class.",
       "locator": "arXiv:2311.15300v1, Theorem 1.11; Section 10.1",
       "status": "missing",
-      "note": "Review the step from real-part recognition to nilpotent-stratum recognition, as well as the nonadjoint parameter-lifting reduction. This checkpoint does not certify that proof step. Its hypothesis is Conjectures 9.1 and 9.5 (sourceIssues E1). The step from Proposition 10.2 to 'the same complementary series' remains open: the stratum of s depends on its compact part, which Proposition 10.2 does not recover."
+      "note": "Review the step from real-part recognition to nilpotent-stratum recognition, as well as the nonadjoint parameter-lifting reduction. This checkpoint does not certify that proof step. Its hypothesis is Conjectures 9.1 and 9.5 (sourceIssues E1). The step from Proposition 10.2 to 'the same complementary series' remains open: the stratum of s depends on its compact part, which Proposition 10.2 does not recover. Additional gate from E18: any use of Theorem8.5/Remark8.7 must either establish the real/central-compact hypothesis at every place of use or import a newly exhaustive arbitrary-compact classification with centralizer-of-s_c and orbit tracking. A geometric parameter with connected center alone is insufficient. Preserve the separate gap from real-part recognition to nilpotent-stratum recognition. The local G2 witness is not asserted to occur in a global cuspidal packet; no global counterexample is claimed.",
+      "proofState": "Unproved target: existing global-parametrization/stratum obligations plus the explicit compact-part classification gate; not solved by this fix."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/weight-array",
@@ -593,7 +671,8 @@
       "statement": "Under Theorem 1.11, suppose pi_u=AZ(sigma) for an irreducible discrete-series sigma whose pure Weil-Deligne nilpotent operator belongs to the same orbit N as the chosen spherical place. The source concludes that every split unramified real Satake parameter is h_N/2.",
       "locator": "arXiv:2311.15300v1, Theorem 10.3",
       "status": "missing",
-      "note": "Retain the chosen compatible global parameter and same-orbit hypothesis. Several printed weight comparisons in the proof have n_v on both sides and need independent checking. Resolved: the rightmost subscripts are n_u (sourceIssues E3); the F4 comparison also needs the corrected B3 coordinate (E5). The review recomputed (n_u, n_v) for the F4, E7 and E8 cases by root enumeration."
+      "note": "Retain the chosen compatible global parameter and same-orbit hypothesis. Several printed weight comparisons in the proof have n_v on both sides and need independent checking. Resolved: the rightmost subscripts are n_u (sourceIssues E3); the F4 comparison also needs the corrected B3 coordinate (E5). The review recomputed (n_u, n_v) for the F4, E7 and E8 cases by root enumeration. Additional gate from E18: any use of Theorem8.5/Remark8.7 must either establish the real/central-compact hypothesis at every place of use or import a newly exhaustive arbitrary-compact classification with centralizer-of-s_c and orbit tracking. A geometric parameter with connected center alone is insufficient. Preserve the separate gap from real-part recognition to nilpotent-stratum recognition. The local G2 witness is not asserted to occur in a global cuspidal packet; no global counterexample is claimed.",
+      "proofState": "Unproved target: existing global-parametrization/stratum obligations plus the explicit compact-part classification gate; not solved by this fix."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/local-parametrization",
@@ -753,10 +832,11 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity",
       "kind": "theorem",
       "name": "Weil–Deligne purity of discrete series ([GHS]) and of tempered representations",
-      "statement": "For π_u in the discrete series of G(K_u), K_u a local function field, and every representation τ of ^L G, τ∘L^ss(π_u) (the Genestier–Lafforgue semisimple parameter) extends uniquely to a pure Weil–Deligne representation (L^ss(π_u), N_{π_u}) of weight 0 in the sense of Definition 2.6 ([GHS, Theorem 1.2]); more generally the same holds for tempered π_u.",
+      "statement": "Source-gated input from the pending GHS owner: under GHSv3 Theorem1.2 hypotheses (connected reductive G over a local function field, p>3 in this version), a discrete series has a unique essentially tempered Weil–Deligne refinement of its Genestier–Lafforgue semisimple parameter. For semisimple G, Ad∘L(π) is pure of weight0 under Corollary3.11, for every embedding by Remark3.12. The geometric-central-character variant and extension to tempered representations require the exact source scope and central normalization; do not identify intrinsic purity with weight0 of every algebraic test representation for arbitrary reductive G.",
       "locator": "arXiv:2311.15300v1, §4.2 after Proposition 4.5, p. 12; proof of Theorem 5.4, p. 14; Theorem 10.3",
       "status": "missing",
-      "note": "The anchor of Theorem 5.4 and the hypothesis of Theorem 10.3. Proved in [GHS]; PAPER-GAN-HARRIS-SAWIN-ETAL-24's items 16 and 21 state it, on a route not yet accepted, so the design should import it from there once that owner is settled."
+      "note": "The anchor of Theorem 5.4 and the hypothesis of Theorem 10.3. Proved in [GHS]; PAPER-GAN-HARRIS-SAWIN-ETAL-24's items 16 and 21 state it, on a route not yet accepted, so the design should import it from there once that owner is settled. Coordinate this input with the explicit early arithmetic-prefix/GHS request, retaining the pending supplier and its source hypotheses. It is not supplied by the final Theorem5.4 application or the unproved general geometricity sketch E10. The historical all-test-representations weight0 formulation is preserved separately as sourceClaimBeforeArithmeticSupplierRepair. The supplier must provide the intrinsic/central normalization needed by CH Definition2.6; the fresh GHSv3 source explicitly proves weight0 for Ad in semisimple scope. No arbitrary reductive central twist is silently normalized to zero.",
+      "sourceClaimBeforeArithmeticSupplierRepair": "For π_u in the discrete series of G(K_u), K_u a local function field, and every representation τ of ^L G, τ∘L^ss(π_u) (the Genestier–Lafforgue semisimple parameter) extends uniquely to a pure Weil–Deligne representation (L^ss(π_u), N_{π_u}) of weight 0 in the sense of Definition 2.6 ([GHS, Theorem 1.2]); more generally the same holds for tempered π_u."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/spherical-tempered-generic",
@@ -865,7 +945,6 @@
       "title": "Smooth representations of local groups, Part II: unitary spherical representations",
       "area": "automorphic",
       "items": [
-        "PAPER-CIUBOTARU-HARRIS-26/galois-discrete-series",
         "PAPER-CIUBOTARU-HARRIS-26/aubert-semisimple",
         "PAPER-CIUBOTARU-HARRIS-26/half-integral-test",
         "PAPER-CIUBOTARU-HARRIS-26/generic-unitary-region",
@@ -897,7 +976,7 @@
         "PAPER-CIUBOTARU-HARRIS-26/spherical-tempered-generic"
       ],
       "reason": "SR.0-4 already own the category, induction, temperedness and Satake. They do not contain the root-by-root unitary complementary-series classification extracted here.",
-      "brief": "Import SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2 for induction and Jacquet functors, SR.3 for admissibility and temperedness, and SR.4 for the relative Satake dictionary. Import SmoothRepresentationsPartIIUnitaryDual (proposed from PAPER-GAN-SAVIN-23-B, accepted) for unitary and unitarizable representations and weak containment; LieHighestWeightPartIINilpotentOrbits for nilpotent orbits, Jacobson–Morozov and the triple centralizers; and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for semisimple local parameters and their compatibility with parabolic induction. Construct Aubert-Zelevinsky and Kazhdan-Lusztig parameter comparisons, generic unitary regions, half-integral tests, centralizer reductions and the exceptional E8 region. Prove the split and nonsplit local temperedness tests with the odd-unitary exclusion, for real Satake parameters: if L(s_ν) is generic and unitary and ν is half-integral for the adjoint and the fundamental representations of Proposition 6.31, then ν = 0 (Corollary 6.32(1)); likewise for the nonsplit groups other than the quasi-split PSU(2n + 1) with the representations of G∨ ⋊ ⟨τ⟩ (Corollary 7.5). As printed for arbitrary s = s_c s_ν these fail (PAPER-CIUBOTARU-HARRIS-26/E11, a G2 counterexample); the case of non-central s_c needs the Barbasch–Moy reduction to the centralizer of s_c. Finish Theorem 8.5, the list of extraneous real parts h/2 + … for Sp(2n), Spin(n) and the exceptional types (items extraneous-Sp, extraneous-Spin, extraneous-exceptional, with E5's corrected F4 point), and the geometric complementary-series list with independently checkable exceptional coordinates and branching data; distinguish geometric Frobenius arithmetic from the real half-lattice condition. Include the genericity and hermitian criteria, Lemmas 6.7–6.8, Theorem 6.9 as the cited classification input, and the ε = 0 reduction (6.11)–(6.13)."
+      "brief": "Import SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2 for induction and Jacquet functors, SR.3 for admissibility and temperedness, and SR.4 for the relative Satake dictionary. Import SmoothRepresentationsPartIIUnitaryDual (proposed from PAPER-GAN-SAVIN-23-B, accepted) for unitary and unitarizable representations and weak containment; LieHighestWeightPartIINilpotentOrbits for nilpotent orbits, Jacobson–Morozov and the triple centralizers; and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for semisimple local parameters and their compatibility with parabolic induction. Construct Aubert-Zelevinsky and Kazhdan-Lusztig parameter comparisons, generic unitary regions, half-integral tests, centralizer reductions and the exceptional E8 region. Prove the split and nonsplit local temperedness tests with the odd-unitary exclusion, for real Satake parameters: if L(s_ν) is generic and unitary and ν is half-integral for the adjoint and the fundamental representations of Proposition 6.31, then ν = 0 (Corollary 6.32(1)); likewise for the nonsplit groups other than the quasi-split PSU(2n + 1) with the representations of G∨ ⋊ ⟨τ⟩ (Corollary 7.5). As printed for arbitrary s = s_c s_ν these fail (PAPER-CIUBOTARU-HARRIS-26/E11, a G2 counterexample); the case of non-central s_c needs the Barbasch–Moy reduction to the centralizer of s_c. State Theorem8.5-derived Sp/Spin/exceptional lists only in the real or central-compact sector, with E5’s corrected F4 point. The unrestricted exceptional endpoint is false by the fully geometric G2 zero-orbit witness (E18 linked to E11). Audit the Sp/Spin interfaces at the same scope boundary and keep the finite E8,4A1 real-region exclusion separate. A general compact-part classification is an explicit new exhaustive target: analyze Z_{G∨}(s_c), its root datum/Hecke parameters, geometric eigenvalues in every representation, nilpotent q-eigenspace, centralizer orbit lifting, and unitarity/branching. Do not patch exhaustiveness by appending one G2 point. Distinguish full geometric Frobenius arithmetic from the real half-lattice condition. Include the genericity and hermitian criteria, Lemmas 6.7–6.8, Theorem 6.9 as the cited classification input, and the ε = 0 reduction (6.11)–(6.13). Theorem4.2 (galois-discrete-series) is moved to the early arithmetic portion of the global PartII; this local route owns no number-field globalization theorem and imports no whole global consumer. Its classification gates are handed to the global application portion, independently of that arithmetic prefix."
     },
     {
       "route": "part-ii",
@@ -931,10 +1010,11 @@
         "PAPER-CIUBOTARU-HARRIS-26/arthur-conjectures",
         "PAPER-CIUBOTARU-HARRIS-26/purity-stacks",
         "PAPER-CIUBOTARU-HARRIS-26/xue-extension",
-        "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity"
+        "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity",
+        "PAPER-CIUBOTARU-HARRIS-26/galois-discrete-series"
       ],
       "reason": "GS.5-7 supply parameters and comparisons; the local-to-global weight restrictions and conditional nongeneric endpoints are additional mathematics, not a rebuild of shtukas.",
-      "brief": "Import FunctionFieldArithmetic (Global function fields, reciprocity and automorphic foundations), FA.6 for the existing cuspidal coefficient and finiteness theory. Import GlobalShtukasAndFunctionFieldLanglands (Global shtukas and Langlands over function fields), GS.5 for cusp parameters, GS.6 for GLn purity and GS.7 for semisimple local-global compatibility. Import DeligneWeightsAndPurity (Deligne weights, purity and the Weil bounds), DWP.0, DWP.5 and DWP.8, SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2-4, and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for the semisimple local parameters that Li-Huerta compares with Genestier–Lafforgue. Use the proposed nilpotent-weight and unitary-spherical extensions as suppliers. Build the local geometricity anchor, constant-field twist removal, finite-extension parameter lifting and weight-pattern propagation. Prove Theorem 5.4 first: for K a global function field, G connected absolutely simple over K and π cuspidal, if π_v is generic at an unramified quasi-split place v (G(K_v) not the quasi-split odd unitary form) and π_u is discrete series (more generally tempered) at some place u, then π_w is tempered at every place w where π is unramified and G is unramified quasi-split. The v1 proof has three holes to fill: Corollary 6.32(1) for non-central compact parts (E11), the sketch of Theorem 4.3 (E10), and the reduction to adjoint G for types A, B and E7 (E12). Then Theorem 1.11 (under Conjectures 9.1 and 9.5, or a parametrization as in [Laf18]: with a split place v where π_v is in the complementary series of the nilpotent class of N and a geometric place u ∈ S, every split unramified π_w is in the same complementary series, with real part the central point or an extraneous point of Theorem 8.5) and Theorem 10.3 (if moreover π_u = AZ(σ) for a discrete series σ with Weil–Deligne parameter (ϕ_σ, N), the real parts are the central point, so no extraneous point occurs). State the discrete-spectrum conclusions only with the actual parametrization hypotheses; construct the finite-array comparison and explicit exclusion tests before Theorem 10.3. Do not assume arbitrary automorphic base change or the Arthur conjectures. Include Proposition 3.10(1)–(4), Li-Huerta's comparison, Xue's extension to finite-codimension Hecke quotients, and the stack-purity alternative (Expectation 5.9, Sketch 5.10). Record Arthur's conjectures only as the conjectural target."
+      "brief": "Import FunctionFieldArithmetic (Global function fields, reciprocity and automorphic foundations), FA.6 for the existing cuspidal coefficient and finiteness theory. Import GlobalShtukasAndFunctionFieldLanglands (Global shtukas and Langlands over function fields), GS.5 for cusp parameters, GS.6 for GLn purity and GS.7 for semisimple local-global compatibility. Import DeligneWeightsAndPurity (Deligne weights, purity and the Weil bounds), DWP.0, DWP.5 and DWP.8, SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2-4, and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for the semisimple local parameters that Li-Huerta compares with Genestier–Lafforgue. Use the proposed nilpotent-weight and unitary-spherical extensions as suppliers to the later application portion only. First build an explicitly early arithmetic prefix containing galois-discrete-series, geometric-discrete-series, ghs-discrete-series-purity and the required embedding-independence interface, using FA.6,GS.5/GS.7,SR.2/SR.3 and DWP.0/5/8. Its GHS globalization/purity input is source-gated and coordinated with the pending SupercuspidalParameters owner (currently held for revision), with semisimple group and finite/geometric central-character scope, precise local isolation/support-descent and residue-characteristic hypotheses. Never derive that input from Theorem5.4 or the general sketch step covered by E10. Then build the local geometricity anchor, constant-field twist removal, finite-extension parameter lifting and weight-pattern propagation, and target Theorem5.4: for K a global function field, G connected absolutely simple over K and π cuspidal, if π_v is generic at an unramified quasi-split place v (G(K_v) not the quasi-split odd unitary form) and π_u is discrete series (more generally tempered) at some place u, then π_w is tempered at every place w where π is unramified and G is unramified quasi-split. The v1 proof has three holes to fill: Corollary 6.32(1) for non-central compact parts (E11), the sketch of Theorem 4.3 (E10), and the reduction to adjoint G for types A, B and E7 (E12). Then Theorem 1.11 (under Conjectures 9.1 and 9.5, or a parametrization as in [Laf18]: with a split place v where π_v is in the complementary series of the nilpotent class of N and a geometric place u ∈ S, every split unramified π_w is in the same complementary series, with real part the central point or an extraneous point of Theorem 8.5) and Theorem 10.3 (if moreover π_u = AZ(σ) for a discrete series σ with Weil–Deligne parameter (ϕ_σ, N), the real parts are the central point, so no extraneous point occurs). State the discrete-spectrum conclusions only with the actual parametrization hypotheses; construct the finite-array comparison and explicit exclusion tests before Theorem 10.3. Do not assume arbitrary automorphic base change or the Arthur conjectures. Include Proposition 3.10(1)–(4), Li-Huerta's comparison, Xue's extension to finite-codimension Hecke quotients, and the stack-purity alternative (Expectation 5.9, Sketch 5.10). Record Arthur's conjectures only as the conjectural target. Every downstream use of Theorem8.5/Remark8.7 has an explicit gate: prove the real/central-compact hypothesis at that place or supply a newly exhaustive arbitrary-compact classification. E18 rejects the ungated exceptional list even with full geometricity and connected center. Keep the existing real-part-to-nilpotent-stratum gap open; no global counterexample or completion of its proof is inferred from the local witness. The design order is base arithmetic plus the gated GHS obligation → arithmetic prefix; local unitary classification and nilpotent recognition proceed separately; those prefixes → global applications. No whole consumer feeds its prerequisite."
     },
     {
       "route": "source",
@@ -1292,6 +1372,28 @@
         "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
         "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
       }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E18",
+      "kind": "error",
+      "locator": "arXiv2311.15300v1, Theorem8.5 pp28–29 and Remark8.7 p30; linked propagation of E11, not a new discovery of its G2 witness",
+      "printed": "“there are no extraneous points for G₂ or E₆”",
+      "correction": "Restrict the source-derived list to real/central-compact parameters. The arbitrary-compact theorem needs a new exhaustive centralizer analysis; do not merely add one G2 entry.",
+      "reason": "E11’s parameter (aα₁+bα₂)(s)=(−1)^a q^(b/2) is unitary and generic by Kato plus its irreducible hermitian path. G2 has trivial connected center; its weight lattice equals its root lattice, so every eigenvalue is an algebraic Weil number of integer weight. Ad(s) has no q-eigenvalue, hence its open nilpotent orbit is0 and s lies in CS(G2,0). Its real part½ω₂ is not0, so it is extraneous under Definition8.4 despite the advertised full geometricity/connected-center hypotheses. The proof treats a set of real parts as real unitary parameters when applying Theorem6.14. This is a local counterexample to the unrestricted list, not a global cuspidal counterexample.",
+      "affects": "a stated result",
+      "known": "Additional consequence of the already confirmed E11 witness, independently confirmed as RT-PAPER-CIUBOTARU-HARRIS-26/1; no new published-version criticism.",
+      "searched": [
+        "2October2026: arXiv history still onlyv1; freshly downloaded matching PDF and read §2.3 p7, §4.1 pp11–12, §§6/8 relevant pp18,27–30. Theorem8.5/Remark8.7 pp28–30 viewed as images.",
+        "2October2026: Annals record confirms revised8Oct2025 and published online13Sep2026 but offers no article PDF; conventional PDF URL returns404. No published collation claimed.",
+        "2October2026: bounded title/author searches for corrections found no relevant corrigendum; not an exhaustive claim about unpublished corrections."
+      ],
+      "items": [
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-exceptional",
+        "PAPER-CIUBOTARU-HARRIS-26/nongeneric-global-theorem",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-elimination"
+      ],
+      "linkedSourceIssue": "PAPER-CIUBOTARU-HARRIS-26/E11",
+      "evidence": "Confirmed RT/1 supplies independent verification of this propagation. The new serialized E18 itself awaits its own source-issue review; no verdict is fabricated."
     }
   ],
   "gaps": [
@@ -1329,6 +1431,30 @@
       "status": "closed",
       "remaining": "Closed 29 Sep 2026: at Mathlib 082e2d3 / Tau Ceti f790474 the only library item remains IsSl2Triple (nonzero triples). Mathlib's LieAlgebra.IsKilling.exists_isSl2Triple_of_weight_isNonZero gives root triples, not Jacobson–Morozov. There are no nilpotent orbits, Satake, Aubert–Zelevinsky or Weil numbers in either library. The planned stages (DWP.0/5/8, GS.5/7, SR.2–4, LieHighestWeight layer 0, ES5, ES7:parabolic) were reread and cover the cited statements.",
       "items": []
+    },
+    {
+      "id": "arbitrary-compact-classification",
+      "title": "Complete classification for noncentral compact Satake parts",
+      "status": "open",
+      "remaining": "An exhaustive geometric complementary-series classification for arbitrary s=s_c q^ν, including noncentral compact factors: centralizer root/Hecke data, geometricity under every embedding, the Ad(s) q-eigenspace and nilpotent orbit lifting, and unitary/branching comparisons. Recheck Sp,Spin and exceptional families. The real/central-compact list is a restricted interface, not this theorem.",
+      "items": [
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-exceptional",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-Sp",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-Spin",
+        "PAPER-CIUBOTARU-HARRIS-26/nongeneric-global-theorem",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-elimination"
+      ]
+    },
+    {
+      "id": "discrete-series-arithmetic-supplier",
+      "title": "Source-gated globalization, purity and coefficient descent",
+      "status": "open",
+      "remaining": "Independent discrete-series globalization/purity and arithmetic coefficient interface for the §4.1 semisimple local groups. GHSv3 Theorem1.2 and §3.3 give essentially tempered/pure refinement under their p>3/good-prime source scope; AppendixLemmaA.1 fixes a global central character ξ on Z0(A)/Z0(K), disjoint prescribed sets S,S′, at least one supercuspidal place, and compatible ξ_v, and gives nonzero pseudo-coefficient trace/same cuspidal support. It does not alone give Π_v≅π_v for arbitrary discrete series. Close a local-isolation or finite-length cuspidal-support descent bridge to the number-field-model claim, plus embedding-stable exponent/Casselman arguments. Keep the exact normalization of intrinsic purity from the pending GHS repair.",
+      "items": [
+        "PAPER-CIUBOTARU-HARRIS-26/galois-discrete-series",
+        "PAPER-CIUBOTARU-HARRIS-26/geometric-discrete-series",
+        "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity"
+      ]
     }
   ],
   "coverageGapsHistory": [
@@ -1344,6 +1470,13 @@
       "read": "2026-09-29",
       "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
       "citation": "arXiv:2311.15300v1, read completely; the Annals revision was not accessible."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2311.15300v1",
+      "read": "2026-10-02",
+      "sha256": "7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103",
+      "scope": "Bounded repair: CHv1 pp7,11–12,18,27–30; pp28–30 also viewed. Published revision remains uncollated; no fresh whole-paper/table audit."
     }
   ],
   "completion": {
@@ -1354,5 +1487,106 @@
     "status": "complete",
     "changes": "Added 17 items. Recorded E1–E5 (reviewed errata) and E6–E8 (new) as sourceIssues. Certified Tables 2–4 and the exceptional orbit separation. Replaced placeholder prerequisite links with verified ones. Converted coverageGaps into gaps with statuses; only published-version stays open.",
     "review": "REV-PAPER-CIUBOTARU-HARRIS-26 (30 September 2026): accept, corrected in place. sl2-integral-spectrum is library (built in Tau Ceti); fourteen statements corrected, notes added to seven items, and two items added; route 1's area set to representations and the three Part II briefs state their final theorems and name their imports; E6–E8 reviewed and E9–E17 added; two prerequisites already in the atlas batch removed."
+  },
+  "requests": [
+    {
+      "supplier": "proposed:SmoothRepresentationsPartIIUnitarySpherical",
+      "need": "An exhaustive geometric complementary-series classification for arbitrary s=s_c q^ν, including noncentral compact factors: centralizer root/Hecke data, geometricity under every embedding, the Ad(s) q-eigenspace and nilpotent orbit lifting, and unitary/branching comparisons. Recheck Sp,Spin and exceptional families. The real/central-compact list is a restricted interface, not this theorem.",
+      "neededBy": [
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-exceptional",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-Sp",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-Spin",
+        "PAPER-CIUBOTARU-HARRIS-26/nongeneric-global-theorem",
+        "PAPER-CIUBOTARU-HARRIS-26/extraneous-elimination"
+      ],
+      "status": "open; required future local PartII design/proof target, not an implemented or exhaustive list",
+      "acceptance": "The fully geometric G2 zero-orbit witness must survive; one added point does not certify completeness. Global applications must track actual compact/stratum information, not infer it from ν alone."
+    },
+    {
+      "supplier": "proposed:GlobalShtukasPartIISupercuspidalParameters/discrete-series-globalization-purity",
+      "need": "Independent discrete-series globalization/purity and arithmetic coefficient interface for the §4.1 semisimple local groups. GHSv3 Theorem1.2 and §3.3 give essentially tempered/pure refinement under their p>3/good-prime source scope; AppendixLemmaA.1 fixes a global central character ξ on Z0(A)/Z0(K), disjoint prescribed sets S,S′, at least one supercuspidal place, and compatible ξ_v, and gives nonzero pseudo-coefficient trace/same cuspidal support. It does not alone give Π_v≅π_v for arbitrary discrete series. Close a local-isolation or finite-length cuspidal-support descent bridge to the number-field-model claim, plus embedding-stable exponent/Casselman arguments. Keep the exact normalization of intrinsic purity from the pending GHS repair.",
+      "neededBy": [
+        "proposed:GlobalShtukasPartIIRamanujanArthur/arithmetic-prefix",
+        "PAPER-CIUBOTARU-HARRIS-26/galois-discrete-series",
+        "PAPER-CIUBOTARU-HARRIS-26/geometric-discrete-series",
+        "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity"
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmetic:FA.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "DeligneWeightsAndPurity:DWP.0",
+        "DeligneWeightsAndPurity:DWP.5",
+        "DeligneWeightsAndPurity:DWP.8"
+      ],
+      "status": "source-gated obligation coordinated with the candidate GHS owner held for revision; not an accepted proof, and no whole candidate roadmap import",
+      "source": "Fresh GHSv3 PDFpp3,9–12,41; CHv1 pp11–12. GHS published copy not freshly collated. v3 Cor3.11/Remark3.12 differ in numbering from the published extraction’s Cor3.12/Remark3.13.",
+      "acceptance": "State the semisimple/finite-center scope or explicit geometric reductive central-character variant, every auxiliary global place and source residue bound. The proof must not use Theorem5.4, Theorem4.3’s ungated sketch, or final Ramanujan/Arthur conclusions."
+    }
+  ],
+  "routingRepair": {
+    "arithmeticPrefix": "proposed:GlobalShtukasPartIIRamanujanArthur/arithmetic-prefix",
+    "arithmeticPrerequisites": [
+      "FunctionFieldArithmetic:FA.6",
+      "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+      "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+      "SmoothRepresentationsOfLocalGroups:SR.2",
+      "SmoothRepresentationsOfLocalGroups:SR.3",
+      "DeligneWeightsAndPurity:DWP.0",
+      "DeligneWeightsAndPurity:DWP.5",
+      "DeligneWeightsAndPurity:DWP.8"
+    ],
+    "arithmeticItems": [
+      "PAPER-CIUBOTARU-HARRIS-26/galois-discrete-series",
+      "PAPER-CIUBOTARU-HARRIS-26/geometric-discrete-series",
+      "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity",
+      "PAPER-CIUBOTARU-HARRIS-26/galois-temperedness"
+    ],
+    "localClassification": "proposed:SmoothRepresentationsPartIIUnitarySpherical",
+    "globalApplications": "proposed:GlobalShtukasPartIIRamanujanArthur/global-applications",
+    "stageOrder": [
+      "proposed:GlobalShtukasPartIISupercuspidalParameters/discrete-series-globalization-purity -> proposed:GlobalShtukasPartIIRamanujanArthur/arithmetic-prefix",
+      "proposed:GlobalShtukasPartIIRamanujanArthur/arithmetic-prefix -> proposed:GlobalShtukasPartIIRamanujanArthur/global-applications",
+      "proposed:SmoothRepresentationsPartIIUnitarySpherical -> proposed:GlobalShtukasPartIIRamanujanArthur/global-applications",
+      "proposed:LieHighestWeightPartIINilpotentOrbits -> proposed:GlobalShtukasPartIIRamanujanArthur/global-applications"
+    ],
+    "registration": "Proposed design interfaces, no stages or node IDs registered/reserved by this paper fix.",
+    "handoff": "The PartII designers implement the prefixes and coordinate the pending GHS owner; no blueprint/campaign/base files are edited here."
+  },
+  "repair": {
+    "job": "FIX-RT-PAPER-CIUBOTARU-HARRIS-26",
+    "issue": 5498,
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "base": "f1e71ee2a6ddb87f6dcff6e3f64bccf54aad3d55",
+    "findings": [
+      "RT-PAPER-CIUBOTARU-HARRIS-26/1",
+      "RT-PAPER-CIUBOTARU-HARRIS-26/2"
+    ],
+    "counts": {
+      "items": 83,
+      "library": 2,
+      "planned": 11,
+      "missing": 70,
+      "routes": 4,
+      "prerequisites": 13,
+      "sourceIssues": 18
+    },
+    "supportingReadings": [
+      {
+        "url": "https://repository.dl.itc.u-tokyo.ac.jp/record/39625/files/jfs280337.pdf",
+        "sha256": "7a1cfa27e2f4f6f289ae0c9e639f56ce6f30d4b177590bc93bae64fd35b3cb28",
+        "scope": "Kato pp930–933,935 images, including Def1.7,§1.13,Thm2.2; proof not freshly completed."
+      },
+      {
+        "url": "https://arxiv.org/pdf/2109.07737v3",
+        "sha256": "7bbd43f1d79d350e7f586b976da926be53bf5eab6877c690d950959b1c5819c1",
+        "scope": "GHSv3 PDFpp3,9–12,41 statement/proof-input boundary reading; no fresh full prerequisite proof or published collation."
+      }
+    ],
+    "lean": "No Lean deliverable or compilation."
   }
 }
