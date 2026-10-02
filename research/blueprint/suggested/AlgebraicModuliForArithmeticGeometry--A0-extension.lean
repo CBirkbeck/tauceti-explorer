@@ -19,6 +19,9 @@ import Mathlib.Algebra.Homology.DerivedCategory.Ext.EnoughInjectives
 import TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence
 import Mathlib.Algebra.Category.ModuleCat.Descent
 import Mathlib.Algebra.Category.ModuleCat.Pseudofunctor
+import Mathlib.CategoryTheory.Sites.Descent.DescentDataPrime
+import Mathlib.Algebra.Category.Ring.Constructions
+import Mathlib.Algebra.Category.ModuleCat.Kernels
 import Mathlib.AlgebraicGeometry.Modules.Tilde
 import Mathlib.RingTheory.Finiteness.Descent
 import Mathlib.Algebra.Module.FinitePresentation
@@ -855,7 +858,7 @@ Omitted QCohPseudoTests.infiniteModule
 The direct sum of countably many copies of R on Spec R is admitted even though it is not finitely generated when R is a field.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.3/module-descent-coaction
-For every commutative ring map R→A, the usual tensor-overlap module descent category is equivalent to the existing coalgebras of (extendRestrictScalarsAdj(R→A)).toComonad, preserving the underlying A-module and all its morphisms. The forward coaction is d(n)=θ(n⊗1); the reverse transition is θ(n⊗a)=Σai⊗a ni if d(n)=Σai⊗ni, with inverse ψ(a⊗n)=Σa ni⊗ai. The tensor-overlap category must additionally be compared with the pinned all-test-object Pseudofunctor.DescentData, through the pushout property of A⊗R A and the actual pseudofunctor constraints; that final comparison remains an explicit gap.
+For every commutative ring map R→A, tensor-overlap module descent is equivalent to the existing scalar-extension comonad coalgebras, preserving the underlying A-module and every morphism. The native all-test-object DescentData category is identified with this presentation through Mathlib’s existing chosen-pullback descent equivalence and the module-specific coordinate comparison. The coaction is d(n)=θ(n⊗1); the reverse transition and its inverse are the inherited coaction-transition maps. No flatness is required for these presentation comparisons.
 
 Omitted ModuleDescentCoalgebra.equivalence
 An equivalence preserving the underlying A-module and its maps.
@@ -876,7 +879,7 @@ Omitted ModuleCoalgebraTests.cocycle
 Arbitrary pairwise invertible maps that fail the triple-overlap equation do not define a coalgebra.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence
-For a faithfully flat commutative ring map R→A, the functor M↦(A⊗R M,canonical datum) is an equivalence from ModuleCat R to module descent data. An inverse is the equalizer M={n∈N | 1⊗n=θ(n⊗1)}, and the comparison A⊗R M→N is an isomorphism.
+For a faithfully flat commutative ring map R→A, the native canonical functor ModuleCat R→affine ModuleCat DescentData for the singleton f.op is an equivalence. Under the tensor-overlap comparison its inverse is M={n∈N | 1⊗n=θ(n⊗1)}. The comparison A⊗R M→N is a↦(m↦a m) and is an isomorphism of the actual descent data, not merely of modules.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.3/affine-fpqc-quasicoherent-descent
 For a finite standard fpqc covering {Ui→S} of an affine scheme S, the canonical functor from QCoh(S) to baseline descent data for the cover is an equivalence.
@@ -1116,7 +1119,7 @@ end TauCeti.AlgebraicGeometry.ModuleDescentBridge
 
 /- BEGIN CONTINUATION SIGNATURE OMISSIONS
 
-The owned tensor-overlap/action/extension carrier and its scalar-extension coherence have not been implemented; the all-test-object DescentData equivalence is an explicit gap. Native coalgebras exist and are not being replaced. No placeholder type or unspecified proposition is introduced.
+The owned tensor-overlap/action/extension carrier and its scalar-extension coherence have not been implemented. The generic chosen/all-test DescentData equivalence is a baseline import; the new module-specific adapters remain unelaborated. Native coalgebras exist and are not being replaced. No placeholder type or unspecified proposition is introduced.
 
 Omitted AlgebraicModuliForArithmeticGeometry:R09.3/module-overlap-datum
 ModuleOverlapDatum(f) has an S-module N and an S⊗R S-linear isomorphism θ:N⊗R S→S⊗R N satisfying θ12∘θ01=θ02 on the triple tensor product. On N⊗R S the two scalar factors act on N and S respectively; on S⊗R N they act on S and N respectively. θij is extension along the insertion map p_ij:S⊗R S→S⊗R S⊗R S, using the tensor associators. Morphisms are all S-linear h:N→N′ satisfying (idS⊗h)∘θ=θ′∘(h⊗idS); componentwise identity and composition make a category. This is a tensor presentation to be compared with the existing DescentData carrier, not a replacement for generic descent or a core of the module category.
@@ -1264,3 +1267,165 @@ The actual natural isomorphism from the unimplemented tensor-overlap functor to 
 
 END CONTINUATION SIGNATURE OMISSIONS -/
 
+
+namespace TauCeti.AlgebraicGeometry.ModuleDescentAllTests
+
+open CategoryTheory Opposite
+
+universe uD
+
+noncomputable section
+
+-- Transport the existing pseudofunctor; this is not a second module category.
+abbrev affineModulePullback :
+    Pseudofunctor (LocallyDiscrete CommRingCat.{uD}ᵒᵖᵒᵖ) Cat :=
+  (CategoryTheory.unopUnop CommRingCat.{uD}).toPseudofunctor.comp
+    CommRingCat.moduleCatExtendScalarsPseudofunctor
+
+variable {R A : Type uD} [CommRing R] [CommRing A]
+
+abbrev NativeData (f : R →+* A) :=
+  affineModulePullback.DescentData
+    (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)
+
+-- The existing native coalgebra carrier is retained.
+abbrev NativeCoalgebra (f : R →+* A) :=
+  (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra
+
+-- Projection helper to state the comparison's underlying-module compatibility.
+def forgetNativeData (f : R →+* A) : NativeData f ⥤ ModuleCat.{uD} A := by
+  sorry
+
+-- AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra
+-- Construct via existing DescentData'.descentDataEquivalence and the
+-- module-specific chosen-overlap adapter; no arbitrary coherence assumption.
+def nativeCoalgebraEquivalence (f : R →+* A) :
+    NativeData f ≌ NativeCoalgebra f := by
+  sorry
+
+def nativeCoalgebraEquivalenceForget (f : R →+* A) :
+    (nativeCoalgebraEquivalence f).functor ⋙
+      Comonad.forget (ModuleCat.extendRestrictScalarsAdj f).toComonad ≅
+    forgetNativeData f := by
+  sorry
+
+-- AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison
+def nativeCanonicalComparison (f : R →+* A) :
+    affineModulePullback.toDescentData
+        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op) ⋙
+      (nativeCoalgebraEquivalence f).functor ≅
+    Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f) := by
+  sorry
+
+-- AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence
+-- This is the exact native canonical-functor equivalence signature.
+-- Its explicit inverse/counit element comparison remains a fine-adapter omission.
+theorem nativeFaithfullyFlatDescent (f : R →+* A) (hf : f.FaithfullyFlat) :
+    (affineModulePullback.toDescentData
+      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).IsEquivalence := by
+  sorry
+
+-- Smoke examples use actual native objects and keep all module morphisms.
+example (f : R →+* A) (M : ModuleCat.{uD} R) :
+    Nonempty (((nativeCoalgebraEquivalence f).functor.obj
+      ((affineModulePullback.toDescentData
+        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).obj M)) ≅
+      (Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M) := by
+  sorry
+
+example (f : R →+* A) (D : NativeData f) :
+    Nonempty ((nativeCoalgebraEquivalence f).inverse.obj
+      ((nativeCoalgebraEquivalence f).functor.obj D) ≅ D) := by
+  sorry
+
+example (f : R →+* A) {M N : ModuleCat.{uD} R} (h : M ⟶ N) :
+    ((affineModulePullback.toDescentData
+      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).map h).hom PUnit.unit =
+      (ModuleCat.extendScalars f).map h := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.ModuleDescentAllTests
+
+/- Exact fine-adapter signature omissions for this continuation.
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-coordinates
+Put B=A⊗R A, with i0(a)=a⊗1 and i1(a)=1⊗a. For an A-module N, define B-linear isomorphisms c0:B⊗_(A,i0)N→N⊗R A and c1:B⊗_(A,i1)N→A⊗R N. Their formulas are c0((a⊗b)⊗n)=a n⊗b and c1((a⊗b)⊗n)=a⊗b n; inverses send n⊗b to (1⊗b)⊗n and a⊗n to (a⊗1)⊗n. Retain the two different B-actions and naturality for every A-linear map.
+
+Omitted OverlapPullbackCoordinates.left
+The first extension module has the displayed c0 and inverse.
+
+Omitted OverlapPullbackCoordinates.right
+The second extension module has the displayed c1 and inverse.
+
+Omitted OverlapPullbackCoordinates.map
+Both isomorphisms commute with every A-linear map N→N′.
+
+Omitted OverlapPullbackTests.identity
+For f=idR, both coordinates reduce to native scalar-extension unitors.
+
+Omitted OverlapPullbackTests.factors
+For R=F3,A=F3×F3,N=A, the left coordinate puts the first idempotent action on N and the right coordinate puts the second there; swapping the actions fails.
+
+Omitted OverlapPullbackTests.zeroRing
+For the zero coefficient ring, both maps are the unique maps of zero modules; no Nontrivial premise is added.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-diagonal
+Transport θ:N⊗R A≅A⊗R N to H=c1^−1 θ c0 between the native pair-overlap extensions. The native DescentData′ pullHom′ of H along the diagonal of f.op is identity on N. Its tensor mediator is multiplication μ:B→A, and this identity is exactly the existing overlap-diagonal lemma after inserting the native unit and composition isomorphisms.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/overlap-pullback-triple
+Choose the native triple overlap by the pullback of the two pair overlaps over their shared middle A-factor. Its coordinate ring identifies with (A⊗R A)⊗R A. Under the displayed extension coordinates and native scalar-extension associators, native pullHom′ along p01,p12,p02 gives θ01,θ12,θ02 respectively. Thus its relation H01≫H12=H02 is exactly θ12∘θ01=θ02, with categorical and function-composition orders distinguished.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/overlap-to-chosen-descent
+An existing ModuleOverlapDatum(f) defines an object of the existing affine module pseudofunctor DescentData′ for the singleton f.op and the chosen tensor pair/triple pullbacks. Its sole object is N, its native overlap map is c1^−1 θ c0, and its two equation fields are the preceding diagonal and triple comparisons. On arrows it retains every A-linear overlap morphism.
+
+Omitted ModuleOverlapDatum.toChosen
+Construct the native DescentData′ object on N.
+
+Omitted ModuleOverlapDatum.toChosen_hom
+The native overlap morphism is c1^−1 θ c0.
+
+Omitted ModuleOverlapDatum.toChosen_map
+Every overlap morphism gives the same underlying A-linear native arrow.
+
+Omitted OverlapChosenTests.identity
+For f=idR and the canonical overlap, the native datum is identity through the existing unitors.
+
+Omitted OverlapChosenTests.nonflat
+The conversion exists for Z→Z/2Z; it makes no claim that ModuleCat Z is equivalent to these data.
+
+Omitted OverlapChosenTests.zeroMap
+The zero module map between canonical data remains a morphism; no groupoid core or invertibility premise is imposed.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/chosen-descent-to-overlap
+From a singleton native DescentData′ object D recover ModuleOverlapDatum(f) on D.obj(*) by θ=c1 D.hom(*,*) c0^−1. The native IsIso instance supplies its inverse. Native diagonal and triple fields, transported by the preceding comparisons, give the exact old overlap cocycle. The construction retains the underlying module and all its morphisms.
+
+Omitted ChosenModuleDescent.toOverlap
+Recover the tensor overlap on the same module.
+
+Omitted ChosenModuleDescent.toOverlap_transition
+The transition is c1 D.hom c0^−1, with its transported inverse.
+
+Omitted ChosenModuleDescent.toOverlap_map
+A native datum arrow gives the same A-linear overlap arrow.
+
+Omitted ChosenOverlapTests.canonical
+A canonical native datum recovers θ((a⊗m)⊗b)=a⊗(b⊗m).
+
+Omitted ChosenOverlapTests.zero
+The zero native datum recovers the zero overlap datum.
+
+Omitted ChosenOverlapTests.noninvertible
+The zero map between nonzero canonical data remains an overlap map and is not made invertible.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-roundtrips
+Converting an overlap datum to chosen descent and back returns its original θ; converting a native chosen datum to overlap and back returns its original hom. The underlying modules stay identical; proof fields agree by proof irrelevance and the specified coordinate isomorphisms.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-morphisms
+For an A-linear h:N→N′, the tensor overlap commuting square holds if and only if the native chosen DescentData′ Hom.comm equation holds after c0,c1 transport. Both conversions retain h and its identity/composition laws, including noninvertible h.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/chosen-overlap-equivalence
+ModuleOverlapDatum(f) is equivalent over ModuleCat A to the native singleton DescentData′ category for the chosen tensor overlaps. The unit and counit are identities on the underlying module, using the proved object round trips. No new generic descent carrier, test-object coherence or quotient of morphisms is defined.
+
+Omitted AlgebraicModuliForArithmeticGeometry:R09.3/descent-equalizer-module-coordinates
+For a native descent datum D with associated coalgebra (N,d), the existing comparison inverse equalizer of U(d) and η_(U N) is the R-submodule M={n∈N | d(n)=1⊗n}. Its inclusion is the ordinary submodule inclusion, its arrow map is the restriction of the underlying module map, and the native comparison counit has element formula a⊗m↦a m. When f is faithfully flat this counit is an isomorphism and agrees with the original datum transitions.
+
+END NATIVE CHOSEN-OVERLAP OMISSIONS -/
