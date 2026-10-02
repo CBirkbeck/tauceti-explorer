@@ -1832,6 +1832,23 @@ variable {σ k : Type*} [Finite σ] [CommRing k]
 local notation "R" => MvPowerSeries σ k
 local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : σ → R)))
 
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/monomial-variable-ideal-power
+omit [Finite σ] in
+lemma monomial_mem_variableIdeal_pow_degree (β : σ →₀ ℕ) :
+    MvPowerSeries.monomial β (1 : k) ∈ v ^ β.degree := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order-bound
+omit [Finite σ] in
+lemma order_lower_bound_of_mem_variableIdeal_pow (g : R) (r : ℕ)
+    (hg : g ∈ v ^ r) : (r : ℕ∞) ≤ g.order := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/finite-degree-monomial-factorization
+lemma exists_degree_monomial_factorization (g : R) (r : ℕ)
+    (hg : (r : ℕ∞) ≤ g.order) :
+    ∃ h : (σ →₀ ℕ) → R,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) r).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β := by sorry
+
 -- node: DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order
 lemma mem_variableIdeal_pow_iff (g : R) (r : ℕ) :
     g ∈ v ^ r ↔ (r : ℕ∞) ≤ g.order := by sorry
@@ -2436,3 +2453,336 @@ example : let K : Ideal ℤ := Ideal.span {(4 : ℤ)}
 
 end PrincipalQuotients
 end TauCeti.HilbertSamuel
+
+/-! ## Codex codex-a71f92: finite algebraic variable-ideal regression tests
+The three auxiliary declarations and the existing iff retain admitted canonical
+bodies. A separate immutable archive holds the exact admission-free proof
+prototype and these eleven tests. It is not a library integration claim. -/
+open scoped BigOperators
+namespace TauCeti.HilbertSamuel
+
+-- Arbitrary, even infinite, variable sets in the forward direction.
+-- test: HilbertSamuelVariableIdealTest.infinite_variables_forward
+example (g : MvPowerSeries ℕ (ZMod 4)) (r : ℕ)
+    (hg : g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      ℕ → MvPowerSeries ℕ (ZMod 4)))) ^ r) : (r : ℕ∞) ≤ g.order :=
+  order_lower_bound_of_mem_variableIdeal_pow g r hg
+
+-- Zero and power zero do not require a nontrivial coefficient ring.
+-- test: HilbertSamuelVariableIdealTest.zero_series
+example {σ k : Type*} [Finite σ] [CommRing k] (r : ℕ) :
+    (0 : MvPowerSeries σ k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ r :=
+  (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- test: HilbertSamuelVariableIdealTest.zero_power
+example {σ k : Type*} [CommRing k] (g : MvPowerSeries σ k) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.zero_degree_factorization
+example {σ k : Type*} [Finite σ] [CommRing k] (g : MvPowerSeries σ k) :
+    ∃ h : (σ →₀ ℕ) → MvPowerSeries σ k,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) 0).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β :=
+  exists_degree_monomial_factorization g 0 (by simp)
+
+-- Empty variable set: positive-order series really are zero.
+-- test: HilbertSamuelVariableIdealTest.empty_variables
+example (g : MvPowerSeries PEmpty ℚ) (r : ℕ) (hr : 0 < r) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      PEmpty → MvPowerSeries PEmpty ℚ))) ^ r ↔ g = 0 := by
+  rw [mem_variableIdeal_pow_iff]
+  constructor
+  · intro hg
+    apply MvPowerSeries.ext
+    intro α
+    have hα : α = 0 := by ext i; exact i.elim
+    subst α
+    simpa using (MvPowerSeries.coeff_of_lt_order
+      ((Nat.cast_pos.mpr hr).trans_le hg) : MvPowerSeries.coeff 0 g = 0)
+  · rintro rfl
+    simp
+
+-- Degree zero and a mixed monomial check the total, not coordinatewise, bound.
+-- test: HilbertSamuelVariableIdealTest.constant_monomial
+example {σ k : Type*} [CommRing k] :
+    MvPowerSeries.monomial (0 : σ →₀ ℕ) (1 : k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.mixed_total_degree
+example :
+    MvPowerSeries.monomial (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3) (1 : ZMod 4) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 5 := by
+  have hd : (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3).degree = 5 := by
+    rw [Finsupp.degree_eq_sum, Fin.sum_univ_two]
+    simp
+  exact hd ▸ monomial_mem_variableIdeal_pow_degree (k := ZMod 4)
+    (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3)
+
+-- A variable is in the ideal but not its square over a ring with zero divisors.
+-- test: HilbertSamuelVariableIdealTest.variable_membership
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∈
+      Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4))) :=
+  Ideal.subset_span (Set.mem_range_self _)
+
+-- test: HilbertSamuelVariableIdealTest.variable_not_square
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∉
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 2 := by
+  rw [mem_variableIdeal_pow_iff, MvPowerSeries.X,
+    MvPowerSeries.order_monomial_of_ne_zero (by decide : (1 : ZMod 4) ≠ 0)]
+  simp
+
+-- The zero coefficient ring is allowed; no order(0).toNat conversion is used.
+-- test: HilbertSamuelVariableIdealTest.zero_coefficient_ring
+example (g : MvPowerSeries (Fin 2) (ZMod 1)) (r : ℕ) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      Fin 2 → MvPowerSeries (Fin 2) (ZMod 1)))) ^ r := by
+  have hg : g = 0 := by
+    apply MvPowerSeries.ext
+    intro α
+    exact Subsingleton.elim _ _
+  rw [hg]
+  exact (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- The finite decomposition applies to the sum, not just individual monomials.
+-- test: HilbertSamuelVariableIdealTest.sum_factorization
+example :
+    ∃ h : (Fin 2 →₀ ℕ) → MvPowerSeries (Fin 2) (ZMod 4),
+      ((MvPowerSeries.X (0 : Fin 2)) ^ 2 + (MvPowerSeries.X 1) ^ 2 :
+        MvPowerSeries (Fin 2) (ZMod 4)) =
+      ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := Fin 2) 2).toFinset,
+        MvPowerSeries.monomial β (1 : ZMod 4) * h β := by
+  apply exists_degree_monomial_factorization
+  apply (mem_variableIdeal_pow_iff _ 2).mp
+  apply Ideal.add_mem
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (0 : Fin 2))) 2
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (1 : Fin 2))) 2
+
+end TauCeti.HilbertSamuel
+
+/- BEGIN ARCHIVED CHECKED VARIABLE IDEAL POWER
+import Mathlib.RingTheory.MvPowerSeries.Order
+import Mathlib.RingTheory.Ideal.Operations
+import Mathlib.Tactic
+
+noncomputable section
+open scoped BigOperators
+namespace TauCeti.HilbertSamuel
+
+variable {σ k : Type*} [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => Ideal.span (Set.range (MvPowerSeries.X : σ → R))
+
+lemma monomial_mem_variableIdeal_pow_degree (β : σ →₀ ℕ) :
+    MvPowerSeries.monomial β (1 : k) ∈ v ^ β.degree := by
+  classical
+  have hp : ∀ s : Finset σ,
+      (∏ i ∈ s, (MvPowerSeries.X i : R) ^ β i) ∈ v ^ (∑ i ∈ s, β i) := by
+    intro s
+    induction s using Finset.induction_on with
+    | empty => simp
+    | @insert i s hi ih =>
+      rw [Finset.prod_insert hi, Finset.sum_insert hi, pow_add]
+      exact Ideal.mul_mem_mul
+        (Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self i)) (β i)) ih
+  rw [MvPowerSeries.monomial_one_eq]
+  exact hp β.support
+
+lemma order_lower_bound_of_mem_variableIdeal_pow (g : R) (r : ℕ)
+    (hg : g ∈ v ^ r) : (r : ℕ∞) ≤ g.order := by
+  have hv : v ≤ RingHom.ker (@MvPowerSeries.constantCoeff σ k _) := by
+    refine Ideal.span_le.mpr ?_
+    rintro _ ⟨i, rfl⟩
+    simp
+  have hvo : ∀ g : R, g ∈ v → (1 : ℕ∞) ≤ g.order := by
+    intro g hg
+    exact MvPowerSeries.one_le_order_iff_constCoeff_eq_zero.mpr (hv hg)
+  induction r generalizing g with
+  | zero => simp
+  | succ r ih =>
+    rw [pow_succ] at hg
+    refine Submodule.mul_induction_on hg ?_ ?_
+    · intro a ha b hb
+      calc
+        ((r + 1 : ℕ) : ℕ∞) = (r : ℕ∞) + 1 := by simp
+        _ ≤ a.order + b.order := add_le_add (ih a ha) (hvo b hb)
+        _ ≤ (a * b).order := MvPowerSeries.le_order_mul
+    · intro a b ha hb
+      exact le_trans (le_min ha hb) MvPowerSeries.min_order_le_add
+
+lemma exists_degree_monomial_factorization [Finite σ] (g : R) (r : ℕ)
+    (hg : (r : ℕ∞) ≤ g.order) :
+    ∃ h : (σ →₀ ℕ) → R,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) r).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β := by
+  classical
+  let pick : (σ →₀ ℕ) → (σ →₀ ℕ) := fun α =>
+    if ha : r ≤ α.degree then Classical.choose (Finsupp.exists_le_degree_eq α r ha) else 0
+  have pick_spec (α : σ →₀ ℕ) (ha : r ≤ α.degree) :
+      pick α ≤ α ∧ (pick α).degree = r := by
+    simpa [pick, ha] using Classical.choose_spec (Finsupp.exists_le_degree_eq α r ha)
+  let h : (σ →₀ ℕ) → R := fun β γ =>
+    if pick (β + γ) = β then MvPowerSeries.coeff (β + γ) g else 0
+  refine ⟨h, MvPowerSeries.ext fun α => ?_⟩
+  rw [map_sum]
+  by_cases ha : r ≤ α.degree
+  · have hs := pick_spec α ha
+    have hmem : pick α ∈ (Finsupp.finite_of_degree_eq (σ := σ) r).toFinset := by
+      simpa using hs.2
+    rw [Finset.sum_eq_single (pick α)]
+    · rw [MvPowerSeries.coeff_monomial_mul, ite_eq_left hs.1, one_mul]
+      change g α = if pick (pick α + (α - pick α)) = pick α then
+        g (pick α + (α - pick α)) else 0
+      rw [add_tsub_cancel_of_le hs.1, ite_eq_left rfl]
+    · intro β hβ hne
+      rw [MvPowerSeries.coeff_monomial_mul]
+      by_cases hle : β ≤ α
+      · rw [ite_eq_left hle, one_mul]
+        change (if pick (β + (α - β)) = β then g (β + (α - β)) else 0) = 0
+        rw [add_tsub_cancel_of_le hle, ite_eq_right (Ne.symm hne)]
+      · rw [ite_eq_right hle]
+    · exact fun hn => False.elim (hn hmem)
+  · have hzero : MvPowerSeries.coeff α g = 0 :=
+      MvPowerSeries.coeff_of_lt_order
+        ((Nat.cast_lt.mpr (Nat.lt_of_not_ge ha)).trans_le hg)
+    rw [hzero]
+    symm
+    apply Finset.sum_eq_zero
+    intro β hβ
+    rw [MvPowerSeries.coeff_monomial_mul, ite_eq_right]
+    intro hle
+    have hd : β.degree = r := by simpa using hβ
+    exact ha (hd ▸ Finsupp.degree_mono hle)
+
+lemma mem_variableIdeal_pow_iff [Finite σ] (g : R) (r : ℕ) :
+    g ∈ v ^ r ↔ (r : ℕ∞) ≤ g.order := by
+  constructor
+  · exact order_lower_bound_of_mem_variableIdeal_pow g r
+  · intro hg
+    obtain ⟨h, rfl⟩ := exists_degree_monomial_factorization g r hg
+    apply Ideal.sum_mem
+    intro β hβ
+    have hd : β.degree = r := by simpa using hβ
+    exact Ideal.mul_mem_right _ _ (hd ▸ monomial_mem_variableIdeal_pow_degree β)
+
+end TauCeti.HilbertSamuel
+
+namespace TauCeti.HilbertSamuel
+
+-- Arbitrary, even infinite, variable sets in the forward direction.
+-- test: HilbertSamuelVariableIdealTest.infinite_variables_forward
+example (g : MvPowerSeries ℕ (ZMod 4)) (r : ℕ)
+    (hg : g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      ℕ → MvPowerSeries ℕ (ZMod 4)))) ^ r) : (r : ℕ∞) ≤ g.order :=
+  order_lower_bound_of_mem_variableIdeal_pow g r hg
+
+-- Zero and power zero do not require a nontrivial coefficient ring.
+-- test: HilbertSamuelVariableIdealTest.zero_series
+example {σ k : Type*} [Finite σ] [CommRing k] (r : ℕ) :
+    (0 : MvPowerSeries σ k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ r :=
+  (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- test: HilbertSamuelVariableIdealTest.zero_power
+example {σ k : Type*} [CommRing k] (g : MvPowerSeries σ k) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.zero_degree_factorization
+example {σ k : Type*} [Finite σ] [CommRing k] (g : MvPowerSeries σ k) :
+    ∃ h : (σ →₀ ℕ) → MvPowerSeries σ k,
+      g = ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := σ) 0).toFinset,
+        MvPowerSeries.monomial β (1 : k) * h β :=
+  exists_degree_monomial_factorization g 0 (by simp)
+
+-- Empty variable set: positive-order series really are zero.
+-- test: HilbertSamuelVariableIdealTest.empty_variables
+example (g : MvPowerSeries PEmpty ℚ) (r : ℕ) (hr : 0 < r) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      PEmpty → MvPowerSeries PEmpty ℚ))) ^ r ↔ g = 0 := by
+  rw [mem_variableIdeal_pow_iff]
+  constructor
+  · intro hg
+    apply MvPowerSeries.ext
+    intro α
+    have hα : α = 0 := by ext i; exact i.elim
+    subst α
+    simpa using (MvPowerSeries.coeff_of_lt_order
+      ((Nat.cast_pos.mpr hr).trans_le hg) : MvPowerSeries.coeff 0 g = 0)
+  · rintro rfl
+    simp
+
+-- Degree zero and a mixed monomial check the total, not coordinatewise, bound.
+-- test: HilbertSamuelVariableIdealTest.constant_monomial
+example {σ k : Type*} [CommRing k] :
+    MvPowerSeries.monomial (0 : σ →₀ ℕ) (1 : k) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X : σ → MvPowerSeries σ k))) ^ 0 := by
+  simp
+
+-- test: HilbertSamuelVariableIdealTest.mixed_total_degree
+example :
+    MvPowerSeries.monomial (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3) (1 : ZMod 4) ∈
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 5 := by
+  have hd : (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3).degree = 5 := by
+    rw [Finsupp.degree_eq_sum, Fin.sum_univ_two]
+    simp
+  exact hd ▸ monomial_mem_variableIdeal_pow_degree (k := ZMod 4)
+    (Finsupp.single (0 : Fin 2) 2 + Finsupp.single 1 3)
+
+-- A variable is in the ideal but not its square over a ring with zero divisors.
+-- test: HilbertSamuelVariableIdealTest.variable_membership
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∈
+      Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4))) :=
+  Ideal.subset_span (Set.mem_range_self _)
+
+-- test: HilbertSamuelVariableIdealTest.variable_not_square
+example :
+    (MvPowerSeries.X (0 : Fin 2) : MvPowerSeries (Fin 2) (ZMod 4)) ∉
+      (Ideal.span (Set.range (MvPowerSeries.X :
+        Fin 2 → MvPowerSeries (Fin 2) (ZMod 4)))) ^ 2 := by
+  rw [mem_variableIdeal_pow_iff, MvPowerSeries.X,
+    MvPowerSeries.order_monomial_of_ne_zero (by decide : (1 : ZMod 4) ≠ 0)]
+  simp
+
+-- The zero coefficient ring is allowed; no order(0).toNat conversion is used.
+-- test: HilbertSamuelVariableIdealTest.zero_coefficient_ring
+example (g : MvPowerSeries (Fin 2) (ZMod 1)) (r : ℕ) :
+    g ∈ (Ideal.span (Set.range (MvPowerSeries.X :
+      Fin 2 → MvPowerSeries (Fin 2) (ZMod 1)))) ^ r := by
+  have hg : g = 0 := by
+    apply MvPowerSeries.ext
+    intro α
+    exact Subsingleton.elim _ _
+  rw [hg]
+  exact (mem_variableIdeal_pow_iff 0 r).mpr (by simp)
+
+-- The finite decomposition applies to the sum, not just individual monomials.
+-- test: HilbertSamuelVariableIdealTest.sum_factorization
+example :
+    ∃ h : (Fin 2 →₀ ℕ) → MvPowerSeries (Fin 2) (ZMod 4),
+      ((MvPowerSeries.X (0 : Fin 2)) ^ 2 + (MvPowerSeries.X 1) ^ 2 :
+        MvPowerSeries (Fin 2) (ZMod 4)) =
+      ∑ β ∈ (Finsupp.finite_of_degree_eq (σ := Fin 2) 2).toFinset,
+        MvPowerSeries.monomial β (1 : ZMod 4) * h β := by
+  apply exists_degree_monomial_factorization
+  apply (mem_variableIdeal_pow_iff _ 2).mp
+  apply Ideal.add_mem
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (0 : Fin 2))) 2
+  · exact Ideal.pow_mem_pow (Ideal.subset_span (Set.mem_range_self (1 : Fin 2))) 2
+
+#print axioms monomial_mem_variableIdeal_pow_degree
+#print axioms order_lower_bound_of_mem_variableIdeal_pow
+#print axioms exists_degree_monomial_factorization
+#print axioms mem_variableIdeal_pow_iff
+end TauCeti.HilbertSamuel
+END ARCHIVED CHECKED VARIABLE IDEAL POWER -/
