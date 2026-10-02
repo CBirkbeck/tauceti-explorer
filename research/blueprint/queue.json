@@ -33596,7 +33596,8 @@
     "REV-PAPER-CARAIANI-SCHOLZE-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CARAIANI-SCHOLZE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4047"
   },
   {
    "id": "RT-PAPER-LANDESMAN-LITT-24",
@@ -35708,8 +35709,9 @@
     "REV-PAPER-ZHU-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4109"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4109",
+   "finishedAt": "2026-10-02T07:31:46Z"
   },
   {
    "id": "RT-PAPER-TEMKIN-17",
