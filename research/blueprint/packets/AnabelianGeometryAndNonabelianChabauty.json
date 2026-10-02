@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -499,6 +499,76 @@
         "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
         "provides": "The native equalizer subgroup used for diagonal finite-group regression fixtures.",
         "checked": "Full statement, ambient hypotheses and definition/proof read in pinned source on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:ConjAct",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/ConjAct.lean",
+        "provides": "The existing type alias of a group equipped with its native action on that group by conjugation; used only in the S₃ boundary fixture.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:ConjAct.toConjAct",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/ConjAct.lean",
+        "provides": "Native multiplicative equivalence from a group to its ConjAct alias.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:ConjAct.toConjAct_smul",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/GroupAction/ConjAct.lean",
+        "provides": "The native conjugation action sends(g,h) to ghg⁻¹.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:Subgroup",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "The native subgroup carrier consists of a subset of an existing group closed under multiplication, identity and inversion; no new group carrier is constructed.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/ClopenNhdofOne.lean",
+        "provides": "For a compact topological group, every clopen set containing1 contains a native OpenNormalSubgroup; no total disconnectedness hypothesis.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:isClopen_discrete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Clopen.lean",
+        "provides": "Every subset of a discrete topological space is clopen.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:IsClopen.preimage",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Clopen.lean",
+        "provides": "The preimage of a clopen set under a continuous map is clopen.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:isClopen_iInter_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Clopen.lean",
+        "provides": "The intersection of a family of clopen sets indexed by a finite type is clopen.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:Subgroup.Normal.conj_mem'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "For normal H and n∈H, g⁻¹ng belongs to H.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
+      },
+      {
+        "ref": "mathlib:FixedPoints.mem_subgroup",
+        "kind": "lemma",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "Membership in the native automorphism-action fixed subgroup is equivalent to every scalar fixing the member.",
+        "checked": "Complete pinned statement and relevant ambient hypotheses read2026-10-02 by Codex codex-J6LwjP; exact native positive reuse, not a whole-library absence assertion."
       }
     ]
   },
@@ -534,7 +604,8 @@
       "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
       "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
       "readSections": [
-        "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154)."
+        "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154).",
+        "Codex codex-J6LwjP,2026-10-02: fresh parsed Definition1.3.14 and opening finite-to-infinite argument of Proposition1.3.15, printedp.11. Complete proof was read earlier; it is not claimed freshly reread here. Same author-hosted PDF hash independently verified. Browser screenshot returned no viewable image; no fresh visual PDF verification is claimed. The present compact/discrete arguments are authored deductions, not printed source lemmas."
       ]
     },
     {
@@ -679,7 +750,7 @@
       ],
       "acceptance": [
         "The order of the factors matters when U is not commutative: the condition c(gh) = (g•c(h))·c(g) of Mathlib's commutative IsMulCocycle₁ defines a different set for nonabelian U (test below).",
-        "Continuity is part of the definition; for a profinite G and discrete U every cocycle factors through a finite quotient of G."
+        "Continuity is part of the definition. For compact G and discrete U, every continuous cocycle is identically1 on some open normal N, is constant on its cosets and takes values in the actual U^N. The quotient is finite. Descent must retain U^N; the action on all U need not factor through G/N. The native quotient-action/descent/inflation interfaces remain separate obligations."
       ],
       "prerequisites": [
         "mathlib:MulDistribMulAction",
@@ -3676,6 +3747,528 @@
         "name": "TauCeti.EtaleKPiOne.product_algebraicallyClosed"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Identity value of a nonabelian cocycle",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_one",
+      "statement": "For every continuous nonabelian cocycle c, c(1)=1. This promotes the already owned continuous-cocycles API without changing its convention.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "Use c(1)=c(1)c(1) from the cocycle identity at(1,1) and cancel the left factor."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "For every continuous nonabelian cocycle c, c(1)=1. This promotes the already owned continuous-cocycles API without changing its convention."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_one"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-inverse",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inverse value of a nonabelian cocycle",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.map_inv",
+      "statement": "For every c and g, c(g⁻¹)=g⁻¹•c(g)⁻¹.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one"
+      ],
+      "proofSteps": [
+        "Evaluate the cocycle identity at(g⁻¹,g). Since c(1)=1, c(g⁻¹) is the inverse of g⁻¹•c(g). The native automorphism action preserves inverses."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "For every c and g, c(g⁻¹)=g⁻¹•c(g)⁻¹."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.map_inv"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "One-fibre subgroup of a nonabelian cocycle",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.oneFibre",
+      "statement": "Construct K_c={g∈G:c(g)=1} as a native Subgroup G. This is a cocycle-specific subgroup on the existing carrier; it is not a kernel of a homomorphism unless a native homomorphism has been identified. No normality is part of the construction.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-inverse",
+        "mathlib:Subgroup",
+        "mathlib:ConjAct",
+        "mathlib:ConjAct.toConjAct",
+        "mathlib:ConjAct.toConjAct_smul"
+      ],
+      "proofSteps": [
+        "The identity belongs by the promoted identity-value lemma.",
+        "If c(g)=c(h)=1, the actual cocycle law gives c(gh)=1. If c(g)=1, the promoted inverse-value formula gives c(g⁻¹)=1. Package these laws in the native subgroup."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "Construct K_c={g∈G:c(g)=1} as a native Subgroup G. This is a cocycle-specific subgroup on the existing carrier; it is not a kernel of a homomorphism unless a native homomorphism has been identified. No normality is part of the construction."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.oneFibre"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.mem_oneFibre",
+          "role": "characterisation",
+          "statement": "g∈K_c iff c(g)=1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre_eq_ker",
+          "role": "compatibility",
+          "statement": "If an actual native homomorphism f:G→U has c(g)=f(g) for all g, K_c=f.ker."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre_eq_top",
+          "role": "characterisation",
+          "statement": "If c is identically1, its one-fibre is all G."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre_isClopen",
+          "role": "compatibility",
+          "statement": "With discrete U, the actual subgroup carrier is clopen in G."
+        }
+      ],
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
+          "how": "The actual one-fibre subgroup gives the clopen neighbourhood on which the continuous discrete cocycle is identically1."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
+          "how": "For a chosen normal N inside the one-fibre, values lie in the imported native N-fixed coefficient subgroup. The one-fibre itself need not be normal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre.test_trivial",
+          "kind": "degenerate",
+          "statement": "The actual trivial cocycle has one-fibre⊤."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre.test_native_kernel",
+          "kind": "compatibility",
+          "statement": "Under a trivial action, the actual continuous homomorphism cocycle has one-fibre its native kernel, using the given continuous f."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.oneFibre.test_nonnormal",
+          "kind": "non-example",
+          "statement": "For S₃ acting on itself by the native ConjAct conjugation action and τ=(01), the cocycle c(g)=τ(g•τ)⁻¹ has one-fibre containingτ but missing its conjugate by(12). Hence its native subgroup is not normal. The actual two permutation values are computed in Lean."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Discrete cocycle one-fibres are clopen",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.oneFibre_isClopen",
+      "statement": "If U has the discrete topology, the actual one-fibre K_c is clopen in G; compactness and finiteness of U are not needed.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre",
+        "mathlib:isClopen_discrete",
+        "mathlib:IsClopen.preimage"
+      ],
+      "proofSteps": [
+        "The singleton{1} is clopen in discrete U. Pull it back through the actual continuous cocycle map; the preimage is the exact native subgroup carrier."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "If U has the discrete topology, the actual one-fibre K_c is clopen in G; compactness and finiteness of U are not needed."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.oneFibre_isClopen"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/discrete-normal-killing",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "An open normal subgroup kills a discrete cocycle",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing",
+      "statement": "If G is compact and U is discrete, there exists a native OpenNormalSubgroup N of G on which c is identically1. Its quotient G/N is finite by the imported native open-subgroup theorem. Neither total disconnectedness of G nor finiteness of U is required.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+        "mathlib:IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one",
+        "mathlib:Subgroup.quotient_finite_of_isOpen"
+      ],
+      "proofSteps": [
+        "Apply the existing compact-group clopen-neighbourhood theorem to K_c and its identity member. It returns an open normal subgroup contained in K_c.",
+        "Membership in K_c is precisely c(n)=1. The existing native compact/open quotient theorem makes G/N finite. No normality of K_c is inferred."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "If G is compact and U is discrete, there exists a native OpenNormalSubgroup N of G on which c is identically1. Its quotient G/N is finite by the imported native open-subgroup theorem. Neither total disconnectedness of G nor finiteness of U is required."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing.test_finite_quotient",
+          "kind": "compatibility",
+          "statement": "For every native open normal subgroup N of compact G, the actual quotient G/N is finite by the existing native theorem; no coefficient cardinality hypothesis is inserted."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Trivial restriction gives right-coset constancy",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.mul_right_eq_of_trivial",
+      "statement": "For any subgroup N on which c is identically1, c(gn)=c(g) for all n∈N. Normality, compactness and discrete U are not needed.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "Use c(gn)=c(g)(g•c(n)) and c(n)=1. This is the right-coset relation, not a homomorphism property."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "For any subgroup N on which c is identically1, c(gn)=c(g) for all n∈N. Normality, compactness and discrete U are not needed."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.mul_right_eq_of_trivial"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-left-cosets",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Normality gives left-coset constancy",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial",
+      "statement": "If N is normal and c|N=1, then c(ng)=c(g) for all n∈N.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-right-cosets",
+        "mathlib:Subgroup.Normal.conj_mem'"
+      ],
+      "proofSteps": [
+        "Normality places g⁻¹ng in N. Rewrite ng=g(g⁻¹ng) and apply right-coset constancy."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "If N is normal and c|N=1, then c(ng)=c(g) for all n∈N."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.mul_left_eq_of_trivial"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Trivial normal restriction fixes each value",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.values_fixed_of_trivial",
+      "statement": "If N is normal and c|N=1, then n•c(g)=c(g) for all g∈G and n∈N. This fixes the coefficient target for quotient descent; it does not say N acts trivially on all U.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-left-cosets",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "The cocycle identity gives c(ng)=n•c(g). Normal left-coset constancy gives c(ng)=c(g). Compare them."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "If N is normal and c|N=1, then n•c(g)=c(g) for all g∈G and n∈N. This fixes the coefficient target for quotient descent; it does not say N acts trivially on all U."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.values_fixed_of_trivial"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-invariants",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Values lie in the native invariant coefficient subgroup",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints",
+      "statement": "If N is normal and c|N=1, every c(g) belongs to the existing native FixedPoints.subgroup N U under the restricted subgroup action. This is U^N, which can be a proper subgroup and can be infinite.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-values-fixed",
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:FixedPoints.mem_subgroup"
+      ],
+      "proofSteps": [
+        "Use the imported fixed-subgroup membership criterion; for each actual n:N, the preceding pointwise invariance theorem gives its scalar action fixing c(g). No parallel fixed-point carrier is introduced."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "If N is normal and c|N=1, every c(g) belongs to the existing native FixedPoints.subgroup N U under the restricted subgroup action. This is U^N, which can be a proper subgroup and can be infinite."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints.test_top_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial cocycle at any g is1 and belongs to the actual U^G even when U^G is proper; the target is not all of U."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/gauge-witness-fixed",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "A same-stage gauge witness is already invariant",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed",
+      "statement": "Let c,d be continuous cocycles both identically1 on N. If d(g)=x c(g)(g•x)⁻¹ for a fixed x∈U and every g, then n•x=x for every n∈N. No refinement of N is needed, and no normality, discreteness or compactness is required for this pointwise assertion. This is the witness lemma for same-stage H¹ inflation injectivity; it does not by itself construct inflation or prove quotient pointed-set injectivity.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles"
+      ],
+      "proofSteps": [
+        "Evaluate the gauge equation at n∈N. It becomes1=x(n•x)⁻¹. Native group cancellation forces n•x=x. The inverse/gauge factor order is retained."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "Let c,d be continuous cocycles both identically1 on N. If d(g)=x c(g)(g•x)⁻¹ for a fixed x∈U and every g, then n•x=x for every n∈N. No refinement of N is needed, and no normality, discreteness or compactness is required for this pointwise assertion. This is the witness lemma for same-stage H¹ inflation injectivity; it does not by itself construct inflation or prove quotient pointed-set injectivity."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed.test_full_subgroup",
+          "kind": "compatibility",
+          "statement": "If1=x(g•x)⁻¹ for every g, then x is an actual member of FixedPoints.subgroup G U, even for nonabelian U."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/finite-family-normal-killing",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Simultaneous killing for finite discrete cocycle families",
+      "kind": "theorem",
+      "declarationName": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family",
+      "statement": "Let G be compact. For a finite index type I, discrete groups U_i with automorphism actions and continuous cocycles c_i∈Z¹(G,U_i), there is one native open normal N with c_i(n)=1 for all i and n∈N. Groups and actions may vary with i, and U_i need not be finite. The empty family is included. Infinite families and nondiscrete coefficients do not satisfy this conclusion in general.",
+      "hypotheses": [
+        "G is a topological group; U is a group with topology and a G-action by group automorphisms. c is the existing continuous nonabelian cocycle with c(gh)=c(g)(g•c(h)). U need not be abelian or finite.",
+        "Only the clopen and normal-open killing assertions assume discrete coefficients; compactness is used only for the normal-open choice/finite quotient. Normality of N is explicitly required for left-coset and invariant-value conclusions. General unipotent coefficient topologies are not replaced by discrete ones."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-one-fibre-clopen",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/cocycle-map-one",
+        "mathlib:isClopen_iInter_of_finite",
+        "mathlib:IsTopologicalGroup.exist_openNormalSubgroup_sub_clopen_nhds_of_one"
+      ],
+      "proofSteps": [
+        "Intersect the finitely many actual clopen one-fibre carriers; native finite-intersection topology gives a clopen set containing1.",
+        "Apply the existing compact-group clopen-neighbourhood theorem once and read each coordinate membership from the actual intersection. No infinite intersection or uniform choice of subgroup for all cocycles is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition1.3.14 and opening proof of Proposition1.3.15, printedp.11",
+          "excerpt": "by taking a direct limit",
+          "match": "Motivates finite-to-infinite nonabelian degree-one descent. The compact/discrete proofs and invariant-target/same-stage witness distinctions are authored deductions, not printed numbered Poonen results."
+        }
+      ],
+      "acceptance": [
+        "Let G be compact. For a finite index type I, discrete groups U_i with automorphism actions and continuous cocycles c_i∈Z¹(G,U_i), there is one native open normal N with c_i(n)=1 for all i and n∈N. Groups and actions may vary with i, and U_i need not be finite. The empty family is included. Infinite families and nondiscrete coefficients do not satisfy this conclusion in general."
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/DiscreteDescent",
+        "namespace": "TauCeti.NonabelianCohomology.Z1",
+        "name": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_empty",
+          "kind": "degenerate",
+          "statement": "For I=Fin0 the class-killing condition is vacuous and a native open normal subgroup exists."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_single",
+          "kind": "computation",
+          "statement": "Specializing the actual varying-coefficient family theorem to Fin1 and one c gives its pointwise normal-open killing conclusion."
+        }
+      ]
     }
   ],
   "requests": [
@@ -3856,7 +4449,8 @@
         "Representability: Kim 2005 Propositions 2–3 (H¹(G, U) and H⁰(G, U(B)/U) represented by affine pro-varieties under finite-dimensionality and H⁰-vanishing hypotheses), with the topologies on U(B ⊗_K R) of Kim §1 Lemmas 1–5; the unipotent-group inputs (lower central series, algebraic splittings of central extensions).",
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
         "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here.",
-        "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed."
+        "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed.",
+        "Complete native quotient G/N-action on imported U^N and actual cocycle descent/uniqueness, quotient H¹ inflation with same-stage injectivity and image=neutral restriction fibre, reverse-inclusion transitions and the discrete compact filtered colimit. The native one-fibre, normal-open killing, invariance and witness/family preliminaries are now separately prototyped. Do not apply discrete killing to the original general unipotent coefficient topologies."
       ]
     },
     {
@@ -3981,7 +4575,7 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]."
+      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle."
     }
   ],
   "sourceIssues": [],
@@ -4849,5 +5443,105 @@
         }
       }
     }
-  ]
+  ],
+  "discreteDescentContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "claim": 5959359411,
+    "botConfirmation": 5959362739,
+    "base": "6627058",
+    "addedNodes": 11,
+    "promotedAPIs": 2,
+    "inheritedStatements": 51,
+    "inheritedWholeObjects": 50,
+    "newBaseline": 10,
+    "fullFileCompiled": false,
+    "checks": "Indexed blueprint checker0 errors/0 warnings; four-file intake0 problems; whitespace, preservation, typed signature/reader parity and read-only actual atlas assembly/acyclicity passed. Handoff reproduction recipe checked before submission. All implementation statuses remain unchecked.",
+    "proofCommit": "7244a1e04a8dd65f6fabb2614cf1070cd1a99d4e",
+    "proofUrl": "https://github.com/CBirkbeck/tauceti-explorer/blob/7244a1e04a8dd65f6fabb2614cf1070cd1a99d4e/research/blueprint/suggested/AnabelianGeometryAndNonabelianChabauty.lean",
+    "proofSourceSha256": "a41f414b999b43eab842fe90129e4035a39ee425d9859226087bbba6dc4cd950",
+    "proofNativeSha256": "fa99c575b9b2e70a5df159db809b4e7901a67e8756c16db8bf7d84f28d44cdbc",
+    "proofAuditSha256": "d663e14afda4cc4202d8c2691634a0ce7f80c2427b535ecc5d876fd0faf22b12",
+    "proofLogSha256": "4798be07a267ca7e509cff53da12d7e313737b5a3702e19d0d67d407fca2324d",
+    "submittedSourceSha256": "9e28aa852cea4e109f5f896d47aef30403015439d661c7efc7a8c44f153e98f6",
+    "submittedNativeSha256": "efa66da9722adcfc74ee0c1ebe47014fa775177919dd67cafe597a38823483fe",
+    "submittedNativeLogSha256": "4373b53985c50e8592c78c5ad014402f39d92ee909b06445e90be1d6f4ef9056",
+    "submittedMathlibSha256": "ed53dad8e0ced42e8e5647cbc763d3fe4287afb216a855eafee3db2131f2a5f5",
+    "submittedMathlibLogSha256": "0e4d4e41f491fdef29202e0211a0eef05fdfe92810ab824dd63550d9947f3ac0",
+    "proofCheck": {
+      "freeGB": 66,
+      "exit": 0,
+      "elapsed": 1.4,
+      "errors": 0,
+      "warnings": 0,
+      "timeSeconds": 1.4,
+      "maximumRSSKiB": 3484740,
+      "examples": 8
+    },
+    "submittedNativeCheck": {
+      "freeGB": 66,
+      "exit": 0,
+      "elapsed": 1.4,
+      "errors": 0,
+      "warnings": 24,
+      "timeSeconds": 1.4,
+      "maximumRSSKiB": 3469980,
+      "examples": 8
+    },
+    "submittedMathlibCheck": {
+      "freeGB": 66,
+      "exit": 0,
+      "elapsed": 4.0,
+      "errors": 0,
+      "warnings": 112,
+      "timeSeconds": 4.0,
+      "maximumRSSKiB": 3512112,
+      "examples": 50
+    },
+    "typedNewExamples": 8,
+    "actualAxiomAudits": 15,
+    "newDeclarations": 12,
+    "newAdmittedBodies": 20,
+    "promotedSignatures": 2,
+    "typeCorrections": "Broader native check repaired inherited discrete-example topology and explicit action bindings, Twist target coercion, torsor variable shadowing/instance fields, and duplicate universe declaration. These do not change their mathematics.",
+    "readingBoundary": "Fresh reviewed NC.0–6 AUDIT08, full campaign README and original7 stages/17 touching edges, all29 mentioning link entries, focused NC.3 and reserved-key packet/supplier screen, full pinned ClopenNhdofOne and ten added native baseline declarations. Fresh parsed Poonen Def1.3.14/opening Prop1.3.15 at printedp.11 and Stacks0A2H definitions; earlier Kim and other source receipts retain attribution. No fresh successful visual PDF, full-source collation or previous finite regression rerun.",
+    "graph": {
+      "stageAndPlanet": {
+        "vertices": 3018,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "packetPrerequisites": {
+        "vertices": 62,
+        "edges": 119,
+        "acyclic": true
+      },
+      "combinedStagePlanetAndReachablePrerequisites": {
+        "vertices": 3069,
+        "edges": 8809,
+        "acyclic": true
+      },
+      "reachableDeclarations": 62,
+      "existingVirtualEndpoints": 51,
+      "unresolved": [],
+      "pending": [],
+      "skipped": [],
+      "stageEdgesUnchanged": true,
+      "skippedUnchanged": true,
+      "deferredUnchanged": true,
+      "touchingEdges": 38
+    },
+    "preservation": {
+      "inheritedStatements": 51,
+      "inheritedWholeObjects": 50,
+      "reservedKeyPreserved": true,
+      "sourceVersionsFindingsCoveragePreserved": true,
+      "requestsPreserved": 16,
+      "planetsPreserved": 11,
+      "newAdmittedSignatureParity": 20,
+      "newReaderNodeParity": 11,
+      "scopePreserved": true,
+      "nativeInheritedTypeCorrections": true
+    }
+  }
 }

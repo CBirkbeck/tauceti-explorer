@@ -1,3 +1,6 @@
+import Mathlib.Topology.Algebra.ClopenNhdofOne
+import Mathlib.Tactic.Group
+import Mathlib.GroupTheory.GroupAction.ConjAct
 import Mathlib.Data.Fintype.Card
 import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.Topology.Algebra.OpenSubgroup
@@ -361,14 +364,19 @@ example (i : A →* B) (hG : ∀ (g : G) (a : A), i (g • a) = g • i a)
 
 -- TauCeti.NonabelianCohomology.tests.invariantCoset_nonnormal
 -- Both actions are specified to be trivial; `K` is the two-element transposition subgroup.
-example (K : Subgroup (Equiv.Perm (Fin 3)))
+example [TopologicalSpace (Multiplicative (ZMod 2))]
+    [DiscreteTopology (Multiplicative (ZMod 2))]
+    [TopologicalSpace (Equiv.Perm (Fin 3))] [DiscreteTopology (Equiv.Perm (Fin 3))]
+    (K : Subgroup (Equiv.Perm (Fin 3)))
     [MulDistribMulAction (Multiplicative (ZMod 2)) K]
     [MulDistribMulAction (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))]
+    [ContinuousSMul (Multiplicative (ZMod 2)) K]
+    [ContinuousSMul (Multiplicative (ZMod 2)) (Equiv.Perm (Fin 3))]
     (hK : ∀ b : Equiv.Perm (Fin 3), b ∈ K ↔ b = 1 ∨ b = Equiv.swap 0 1)
     (hA : ∀ (g : Multiplicative (ZMod 2)) (a : K), g • a = a)
     (hB : ∀ (g : Multiplicative (ZMod 2)) (b : Equiv.Perm (Fin 3)), g • b = b)
     (hG : ∀ (g : Multiplicative (ZMod 2)) (a : K), K.subtype (g • a) = g • K.subtype a) :
-    Nat.card (InvariantCosets K.subtype hG) = 3 := by sorry
+    Nat.card (InvariantCosets (G := Multiplicative (ZMod 2)) K.subtype hG) = 3 := by sorry
 
 -- TauCeti.NonabelianCohomology.tests.connecting_coset_fixed
 example (i : A →* B) (hi : Topology.IsClosedEmbedding i)
@@ -387,20 +395,21 @@ example [TopologicalSpace (Multiplicative (ZMod 2))]
     [DiscreteTopology (Multiplicative (ZMod 2))]
     [TopologicalSpace (Multiplicative (ZMod 4))]
     [DiscreteTopology (Multiplicative (ZMod 4))]
-    [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
+    [actAA : MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
     [MulDistribMulAction (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))]
-    [ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))]
+    [@ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 2))
+      actAA.toMulAction.toSMul _ _]
     [ContinuousSMul (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))]
     (i : Multiplicative (ZMod 2) →* Multiplicative (ZMod 4))
     (hi : Topology.IsClosedEmbedding i)
-    (hG : ∀ (g a : Multiplicative (ZMod 2)), i (g • a) = g • i a)
+    (hG : ∀ (g a : Multiplicative (ZMod 2)), i (actAA.toMulAction.toSMul.smul g a) = g • i a)
     (hi2 : ∀ a : Multiplicative (ZMod 2), (i a).toAdd = 2 * (a.toAdd.val : ZMod 4))
-    (hA : ∀ g a : Multiplicative (ZMod 2), g • a = a)
+    (hA : ∀ g a : Multiplicative (ZMod 2), actAA.toMulAction.toSMul.smul g a = a)
     (hB : ∀ (g : Multiplicative (ZMod 2)) (b : Multiplicative (ZMod 4)),
       (g • b).toAdd = if g.toAdd = 0 then b.toAdd else -b.toAdd)
     (q : InvariantCosets i hG)
     (hq : q.val = (QuotientGroup.mk (Multiplicative.ofAdd (1 : ZMod 4)) :
-      Multiplicative (ZMod 4) ⧸ i.range)) : connecting i hi hG q ≠ 1 := by sorry
+      Multiplicative (ZMod 4) ⧸ i.range)) : connecting (G := Multiplicative (ZMod 2)) i hi hG q ≠ 1 := by sorry
 
 
 /-- NC.3/central-extension (a): a `Z`-valued cocycle acts on `B`-valued ones by pointwise
@@ -444,7 +453,7 @@ instance (c : Z1 G U) : MulDistribMulAction G (Twist c) := sorry
 instance (c : Z1 G U) : ContinuousSMul G (Twist c) := sorry
 
 theorem Twist.smul_def (c : Z1 G U) (g : G) (x : Twist c) :
-    g • x = (c g * (g • (x : U)) * (c g)⁻¹ : U) := by sorry
+    g • x = (show Twist c from c g * (g • (show U from x)) * (c g)⁻¹) := by sorry
 
 /-- NC.3/twisting: `c' ↦ c' · c`. -/
 def Z1.twistEquiv (c : Z1 G U) : Z1 G (Twist c) ≃ Z1 G U := sorry
@@ -473,14 +482,18 @@ structure Torsor where
   compat : ∀ (g : G) (p : carrier) (x : U),
     g • ((MulOpposite.op x) • p) = (MulOpposite.op (g • x)) • (g • p)
 
+attribute [instance] Torsor.top Torsor.nonempty Torsor.rightAction Torsor.leftAction
+
+variable {G U}
+
 /-- The cocycle of a point, `g • p = p · c_p(g)`. -/
-def Torsor.cocycle {G U} (P : Torsor G U) (p : P.carrier) : Z1 G U := sorry
+def Torsor.cocycle (P : Torsor G U) (p : P.carrier) : Z1 G U := sorry
 
 /-- The classification: isomorphism classes of torsors are in bijection with `H¹(G, U)`;
 stated as the class map and its bijectivity on isomorphism classes. -/
-def Torsor.classOf {G U} (P : Torsor G U) : H1 G U := sorry
+def Torsor.classOf (P : Torsor G U) : H1 G U := sorry
 
-theorem Torsor.classOf_eq_one_iff {G U} (P : Torsor G U) :
+theorem Torsor.classOf_eq_one_iff (P : Torsor G U) :
     P.classOf = 1 ↔ ∃ p : P.carrier, ∀ g : G, g • p = p := by sorry
 
 theorem Torsor.classOf_surjective :
@@ -491,7 +504,8 @@ end Torsor
 /-! ## Unit tests -/
 
 -- TauCeti.NonabelianCohomology.tests.trivial_group
-example (U : Type) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+example [TopologicalSpace (Multiplicative (ZMod 1))]
+    (U : Type) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
     [MulDistribMulAction (Multiplicative (ZMod 1)) U]
     [ContinuousSMul (Multiplicative (ZMod 1)) U] :
     Subsingleton (Z1 (Multiplicative (ZMod 1)) U) := by sorry
@@ -503,6 +517,102 @@ example : ∃ c : Equiv.Perm (Fin 3) → Equiv.Perm (Fin 3),
 -- TauCeti.NonabelianCohomology.tests.h1_S3 and .not_coboundary_quotient: with `G = Multiplicative
 --   (ZMod 2)` acting trivially on `Equiv.Perm (Fin 3)` (discrete), `Nat.card (Z1 G U) = 4` and
 --   `Nat.card (H1 G U) = 2`; the trivial action needs a `MulDistribMulAction` instance.
+
+-- Discrete cocycle descent continuation.
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+
+-- node: NC.3/cocycle-one-fibre
+/-- A subgroup, not the kernel of a group homomorphism in general. -/
+def oneFibre (c : Z1 G U) : Subgroup G := by sorry
+
+lemma mem_oneFibre (c : Z1 G U) (g : G) : g ∈ c.oneFibre ↔ c g = 1 := by sorry
+
+lemma oneFibre_eq_ker (c : Z1 G U) (f : G →* U) (hf : ∀ g, c g = f g) :
+    c.oneFibre = f.ker := by sorry
+
+-- node: NC.3/cocycle-one-fibre-clopen
+lemma oneFibre_isClopen [DiscreteTopology U] (c : Z1 G U) :
+    IsClopen (c.oneFibre : Set G) := by sorry
+
+-- node: NC.3/discrete-normal-killing
+lemma exists_openNormal_killing [IsTopologicalGroup G] [CompactSpace G]
+    [DiscreteTopology U] (c : Z1 G U) :
+    ∃ N : OpenNormalSubgroup G, ∀ n ∈ N, c n = 1 := by sorry
+
+-- node: NC.3/cocycle-right-cosets
+lemma mul_right_eq_of_trivial (c : Z1 G U) (N : Subgroup G)
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : c (g * n) = c g := by sorry
+
+-- node: NC.3/cocycle-left-cosets
+lemma mul_left_eq_of_trivial (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : c (n * g) = c g := by sorry
+
+-- node: NC.3/cocycle-values-fixed
+lemma values_fixed_of_trivial (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g n : G) (hn : n ∈ N) : n • c g = c g := by sorry
+
+-- node: NC.3/gauge-witness-fixed
+lemma gauge_witness_fixed (c d : Z1 G U) (N : Subgroup G)
+    (hc : ∀ n ∈ N, c n = 1) (hd : ∀ n ∈ N, d n = 1) (x : U)
+    (h : ∀ g, d g = x * c g * (g • x)⁻¹) :
+    ∀ n ∈ N, n • x = x := by sorry
+
+-- node: NC.3/finite-family-normal-killing
+lemma exists_openNormal_killing_family [IsTopologicalGroup G] [CompactSpace G]
+    {ι : Type w} [Finite ι] (V : ι → Type v) [∀ i, Group (V i)]
+    [∀ i, TopologicalSpace (V i)] [∀ i, DiscreteTopology (V i)]
+    [∀ i, MulDistribMulAction G (V i)] (c : ∀ i, Z1 G (V i)) :
+    ∃ N : OpenNormalSubgroup G, ∀ i n, n ∈ N → c i n = 1 := by sorry
+end Z1
+
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+
+-- node: NC.3/cocycle-values-invariants
+lemma values_mem_fixedPoints (c : Z1 G U) (N : Subgroup G) [N.Normal]
+    (hc : ∀ n ∈ N, c n = 1) (g : G) : c g ∈ FixedPoints.subgroup N U := by sorry
+
+lemma oneFibre_eq_top (c : Z1 G U) (hc : ∀ g, c g = 1) : c.oneFibre = ⊤ := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_trivial
+example : (1 : Z1 G U).oneFibre = ⊤ := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_native_kernel
+example (f : G →* U) (hf : Continuous f) (htriv : ∀ (g : G) (x : U), g • x = x) :
+    oneFibre (⟨f, hf, by intro g h; rw [f.map_mul, htriv]⟩ : Z1 G U) = f.ker := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.oneFibre.test_nonnormal
+example [TopologicalSpace (ConjAct (Equiv.Perm (Fin 3)))]
+    [TopologicalSpace (Equiv.Perm (Fin 3))]
+    (c : Z1 (ConjAct (Equiv.Perm (Fin 3))) (Equiv.Perm (Fin 3)))
+    (hc : ∀ g, c g = Equiv.swap (0 : Fin 3) 1 *
+      (g • Equiv.swap (0 : Fin 3) 1)⁻¹) : ¬ c.oneFibre.Normal := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_empty
+example [IsTopologicalGroup G] [CompactSpace G] :
+    ∃ N : OpenNormalSubgroup G, ∀ _i : Fin 0, ∀ n : G, n ∈ N → True := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.values_mem_fixedPoints.test_top_trivial
+example (g : G) : (1 : Z1 G U) g ∈ FixedPoints.subgroup (⊤ : Subgroup G) U := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.gauge_witness_fixed.test_full_subgroup
+example (x : U) (h : ∀ g : G, (1 : U) = x * (g • x)⁻¹) :
+    x ∈ FixedPoints.subgroup G U := by sorry
+end Z1
+
+namespace Z1
+variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [DiscreteTopology U] [MulDistribMulAction G U]
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing.test_finite_quotient
+example (N : OpenNormalSubgroup G) : Finite (G ⧸ N.toSubgroup) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.exists_openNormal_killing_family.test_single
+example (c : Z1 G U) : ∃ N : OpenNormalSubgroup G, ∀ n ∈ N, c n = 1 := by sorry
+end Z1
 
 end TauCeti.NonabelianCohomology
 
