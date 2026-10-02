@@ -1,3 +1,41 @@
+# BP-SchemeAndStackFoundations: finite-data descent checkpoint
+
+Codex — session `codex-a71f92`, 2 October 2026. Refs #642.
+Base `f0eb35f4cb14da5e8a2f698d1c8ffa2d69deb250`. Claim 5954086353 was confirmed by bot 5954090654; the complete issue was reread after confirmation. This is a partial checkpoint, not completion of the issue.
+
+Four new declaration-sized proof adapters refine the existing henselization strand: extended-ideal membership along one later arrow; monic polynomial descent; quotient-unit descent by an inverse witness; and simultaneous polynomial/simple-root data at one neighbourhood. The 21 inherited IDs are retained. Only the proof plans/prerequisites of residue comparison, Jacobson containment and simple-root realization are refined. Their statements are unchanged. All other inherited node objects, all 62 source routes, twelve unimplemented findings and source issue E1 are preserved. Totals: 25 nodes, 14 API entries, 12 definition/construction tests, four additional typed lemma acceptance checks, three planets, 45 baseline references, eight gap groups and no requests.
+
+The generic filtered-colimit APIs are already built: forgetful preservation is obtained from the CommAlgCat/Under equivalence, connected Under colimits and filtered commutative-ring colimits; representation/equality detection and compatible finite targets are imported. No new generic colimit or henselization carrier, stage, cross-roadmap edge, ownership transfer or private data change is introduced. The existing PerfectoidSpaces overlap remains explicitly unresolved.
+
+The old unnamed finite-data planning gap is replaced by the four typed nodes. Canonical residue preservation now has a direct surjectivity/kernel argument using these adapters, rather than an unverified scalar-extension/quotient-colimit comparison. This closes only that decomposition gap: the signatures are admitted, mathematical implementation remains unchecked, and étale splitting plus source criterion/universal cocone leaves remain open. No stage or paper is closed; five reserved definitions remain unplanned.
+
+Fresh inputs: the seven applicable reviewed AUDIT-01 entries, accepted RS-25 SchemeAndStackFoundations decisions/touching endpoints, atlas extract, full general-pair key brief, the precise overlapping PerfectoidSpaces construction, and full JacobianChallenge/Multiquadratic upstream documents. The predecessor's four touching research-link receipts and other source-route/confirmed-finding reads remain inherited provenance, not fresh source verification of those papers. All sixteen additional baseline statements were read at the exact pin.
+
+Fresh primary evidence: complete mathematical text and displayed proofs of Stacks 0EM7, Lemmas 15.12.1–8; the retrieved HTML has unchanged SHA-256 `4ba42d62e07f39cd049d2d8f3111e27472daf4060685232ac1ea70a2cc3f0e0e`. Other source receipts and E1 remain inherited; no independent review or later-lemma closure is claimed.
+
+## Current validation
+
+- Indexed blueprint checker: zero errors and zero warnings, 25 nodes (one definition, two constructions, eighteen lemmas, four theorems), 14 API entries, twelve definition/construction tests, three planets, 45 baseline references, eight gaps, zero requests, seven open stages.
+- Exact four-deliverable intake/privacy and whitespace rules pass. All 21 inherited IDs remain; eighteen full node objects are unchanged and the other three retain their exact statements. All 62 source routes, twelve findings, source issue E1, requests, restructuring proposal and the six remaining coverage rows are preserved exactly. Packet/reader/signature names agree; no property-valued substitute or new generic carrier is introduced.
+- Full Mathlib-only suggested file elaborates in the already-existing exact-pinned build, with memory availability above the WORKERS threshold: exit zero, 41 admitted-proof warnings, zero errors or other diagnostics, sixteen examples. File SHA-256 `cc339f664a8a5effe1fdae5946e06a32cc8c21d37a40e48be0a49754493c664f`; captured diagnostic-text SHA-256 `bcd1aa1a0c7b73320145f1d8fbdc76f82b58420b8e236cc7fc162cf8ce15ed18`. No Tau Ceti imports or combined-build claim; no Lake setup, cache download, dependency/library build or language server.
+- A separate scratch-only native probe discharges the generic filtered-colimit preservation instance by composing the existing CommAlgCat/Under equivalence and forgetful instances: exit zero, no diagnostics, no admitted declaration. This validates the baseline adapter used by the new proof plans; it is not a new atlas construction.
+- Exact finite regressions: 87,862 checks. Diagrams include the non-injective diamond Z/30 → {Z/15,Z/10} → F5, identity zero-ideal diagrams, the unit-ideal terminal zero ring, and the nonthin category of F5×F3×F3 with a sheet swap killed by projection to F5. All monic polynomials of degree 0–4 over F5 are checked for coefficient lifts, evaluation/derivative naturality and simultaneous root/inverse witnesses. Quotient invertibility versus ring invertibility and the characteristic-two multiple-root failure are distinguished. Result SHA-256 `e6448224bad3cd0ec06be1a3f2e75b0d6570d46589827bb35c462a00e002634b`. These are finite model checks, not proofs of generic étaleness, henselianity or the arbitrary-ring colimit.
+- Actual atlas assembly against the immutable audit base with an in-memory packet overlay: 2,959 stages, 8,642 edges, acyclic actual stage graph; 70 vertices in the scoped reachable declaration-prerequisite graph, also acyclic. No pending/skipped links and no new external stage edge. The check does not certify all promoted declarations globally; the unrelated ArithmeticKTheory/K3BlochGroups cycle reported by the predecessor remains outside scope. No atlas data is written or promoted.
+- Fresh main four-deliverable bytes match the claimed checkpoint before publication. Remote submission status and intake results are checked after publication, not preclaimed.
+
+## Resume
+
+1. Implement the four finite-data adapters using the listed native baseline facts. In particular, transport actual forgetful preservation through the existing equivalence, retain one arrow from each starting stage, and equalize finite parallel-arrow discrepancies. Never assume transition maps are embeddings or that I is finitely generated.
+2. Implement the scalar-tower-sensitive parallel-map coequalizer and source-decompose étale diagonal/residue-section product splitting. Use the same-stage simple-root data to construct the actual standard-étale root neighbourhood.
+3. Read Stacks 15.10.3, 15.10.4 and the Zariski Main inputs of 15.11.5; finish the simple-root versus étale-section comparison, universal cocone and inherited functor laws.
+4. Reconcile the PerfectoidSpaces general-owner overlap and retain its broad API requirements. Complete ideal powers, flatness with appropriate faithful-flatness hypotheses, Noetherianity, completion, radical invariance, filtered pairs and integral base change. General faithful flatness fails for the unit ideal.
+5. Continue the other five exact reserved keys and all stage/source/finding worklists under AUDIT-01/RS-25. Resolve the incompatible alteration-owner recommendations before adding either direction. SF.6 remains a consumer/process layer.
+6. Independent review must assess the proof plans and inherited E1. Elaboration and finite models do not prove the general statements.
+
+All durable mathematical results and receipts are in the four deliverables. Own scratch is removed recoverably after remote publication; no private source download, model script or compile log is required to resume.
+
+## Predecessor handoff (historical provenance, superseded counts and receipts)
+
 # BP-SchemeAndStackFoundations: functorial henselization checkpoint
 
 Codex — session `codex-J6LwjP`, 2 October 2026. Refs #642.
