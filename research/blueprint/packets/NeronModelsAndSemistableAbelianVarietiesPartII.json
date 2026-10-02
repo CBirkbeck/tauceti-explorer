@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial design with 163 declarations. This continuation adds five specialized k-linear coordinate/Basis nodes, eleven API entries and nine distinct typed examples. Every inherited node ID/statement,78 routes,21 source findings,23 requests and29 planets is retained. The actual native basis/representation/degree portion of quadratic-pinch-generation now has signatures and a separate proof prototype. Generic basis and polynomial machinery is imported; complete bivariate presentation, normalization and global geometric/cohomological/model interfaces remain open. All statuses stay unchecked. This checkpoint supplies the complete native affine bivariate presentation:monic V-division,exact substitution range and kernel,and the canonical quotient algebra equivalence,including characteristic2 and repeated roots. Geometric and normalization/cohomology interfaces remain open.",
+  "summary": "Seven-stage partial design with 189 declaration nodes. This continuation preserves all 182 inherited node objects, 78 routes, 21 source findings, 23 requests and 29 planets; it adds seven native quadratic equation-solution parametrization/count nodes, four API entries and six typed examples. The explicit subtype equivalence yields pointCount plus distinct-root count equals field size plus two and the native integer invariant roots minus one, without ellipticity or separability. A separate actual-body prototype checks these declarations. Complete projective normalization, conductor/sheaf/cohomology, every-extension and two-component I₂ interfaces, plus all other inherited source obligations, remain open. All implementation statuses and coverage remain unchecked/partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1143,6 +1143,62 @@
         "provides": "Membership in a native ring-homomorphism kernel is exactly that its image is zero.",
         "checked": "Codex codex-J6LwjP read the complete named statement and relevant construction/proof with ambient hypotheses at exact Mathlib082e2d3 on2026-10-02.",
         "sourceSha256": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.equation_iff",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+        "provides": "Native affine equation in coefficient order a₁,a₂,a₃,a₄,a₆; taking (a,−b,0,0,0) gives y²+axy=x³−bx².",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Nat.card_congr",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "Transport Nat.card along an actual equivalence.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Nat.card_eq_fintype_card",
+        "kind": "theorem",
+        "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+        "provides": "Convert Nat.card to Fintype.card under a concrete Fintype instance.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Fintype.card_option",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Option.lean",
+        "provides": "Cardinality of Option α is card α+1.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Fintype.card_subtype_compl",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "provides": "Cardinality of the complement of a decidable predicate is the ambient cardinality minus its subtype cardinality.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Fintype.card_subtype_le",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "provides": "Subtype cardinality is bounded by the ambient cardinality, enabling exact natural-number subtraction.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.frobeniusTrace",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "For a finite field, the existing integer invariant is Q+1−pointCount, with no ellipticity hypothesis.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.frobeniusTrace_def",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "Restates the native invariant as Nat.card F+1−pointCount in integers.",
+        "checked": "Exact statement and proof freshly read at the recorded pins on 2026-10-02 by Codex codex-J6LwjP."
       }
     ]
   },
@@ -1466,6 +1522,19 @@
         "§3 one/two-component conductor diagrams and accompanying paragraphs; complete displayed Proposition3.1–3.2 statements and proofs."
       ],
       "readingExtent": "Fresh scoped source reading only; algebraic full-kernel proof is an authored deduction,not a printed theorem or a full-paper collation."
+    },
+    {
+      "id": "schroer-J6LwjP-parametrization",
+      "title": "There is no Enriques surface over the integers",
+      "authors": "Stefan Schröer",
+      "edition": "arXiv2004.07025v3, 9 August 2022; HTML read 2 October 2026",
+      "url": "https://arxiv.org/html/2004.07025v3",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "§3 conductor square, Proposition3.1–3.2 statements and complete displayed proofs, adjoining point-count table"
+      ],
+      "readingExtent": "Scoped fresh reading; the point parametrization proof is a deduction, not a new full-paper collation. All other source receipts retain their original attribution.",
+      "sha256": "d14049912dcab6a438ed62363e246d0087c61342c51813ac482f5aba48d92456"
     }
   ],
   "nodes": [
@@ -10331,6 +10400,377 @@
           "how": "Makes the hypersurface/normal-form algebra comparison available to the distinct finite normalization and fraction-field interfaces; it does not prove those interfaces."
         }
       ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-parameter-equation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.parameter_equation",
+      "title": "Parametrized coordinates satisfy the native equation",
+      "kind": "lemma",
+      "statement": "For any field k and a,b,t∈k, put q(t)=t²+at+b and W=(a,−b,0,0,0). Then W.toAffine.Equation(q(t),tq(t)).",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Affine.equation_iff"
+      ],
+      "proofSteps": [
+        "Rewrite the native affine equation; substitute x=q(t),y=tq(t). Ring normalization proves y²+axy=x³−bx² without dividing or assuming q(t)≠0."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For any field k and a,b,t∈k, put q(t)=t²+at+b and W=(a,−b,0,0,0). Then W.toAffine.Equation(q(t),tq(t))."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-zero-x",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.affine_zero_x",
+      "title": "Only the origin lies over x=0",
+      "kind": "lemma",
+      "statement": "For any field k and a,b,y∈k, W.toAffine.Equation(0,y) implies y=0.",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Affine.equation_iff"
+      ],
+      "proofSteps": [
+        "The equation at x=0 reduces to y²=0. A field is reduced, so y=0. The origin is retained as an equation solution even though the model is singular."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For any field k and a,b,y∈k, W.toAffine.Equation(0,y) implies y=0."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-parameter-recovery",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.parameter_recovery",
+      "title": "Recover the parameter from a nonzero x coordinate",
+      "kind": "lemma",
+      "statement": "For any field k and a,b,x,y∈k with W.toAffine.Equation(x,y) and x≠0, q(y/x)=x.",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Affine.equation_iff"
+      ],
+      "proofSteps": [
+        "Rewrite the equation and divide through x², justified by x≠0. Clear denominators explicitly; the remainder is exactly the given equation."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For any field k and a,b,x,y∈k with W.toAffine.Equation(x,y) and x≠0, q(y/x)=x."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-param-equiv",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.affineParamEquiv",
+      "title": "Native affine solutions are an optional nonroot parameter",
+      "kind": "construction",
+      "statement": "For every field k and a,b∈k, construct an equivalence between the native subtype of pairs (x,y) satisfying W.toAffine.Equation(x,y) and Option of the subtype of t∈k with q(t)≠0. The origin maps to none; a solution with x≠0 maps to some(y/x); inverse some(t) is (q(t),tq(t)).",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-parameter-equation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-zero-x",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-parameter-recovery"
+      ],
+      "proofSteps": [
+        "The parametrized pair is a solution by parameter_equation; the inverse at none is the origin.",
+        "Split the forward map on x=0. affine_zero_x proves the entire pair is the origin. For x≠0, parameter_recovery proves q(y/x)=x and certifies the recovered parameter is a nonroot.",
+        "Check both inverse laws using cancellation by x or q(t), respectively. The Option tag replaces an origin/nonroot sum without a new point carrier."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For every field k and a,b∈k, construct an equivalence between the native subtype of pairs (x,y) satisfying W.toAffine.Equation(x,y) and Option of the subtype of t∈k with q(t)≠0. The origin maps to none; a solution with x≠0 maps to some(y/x); inverse some(t) is (q(t),tq(t))."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ],
+      "api": [
+        {
+          "name": "QuadraticPinch.affineParamEquiv_origin",
+          "role": "simp",
+          "statement": "The origin maps to none."
+        },
+        {
+          "name": "QuadraticPinch.affineParamEquiv_symm_none",
+          "role": "characterisation",
+          "statement": "The underlying pair of the inverse at none is (0,0)."
+        },
+        {
+          "name": "QuadraticPinch.affineParamEquiv_symm_some",
+          "role": "characterisation",
+          "statement": "The underlying pair of the inverse at some(t) is exactly (q(t),tq(t))."
+        },
+        {
+          "name": "QuadraticPinch.affineParamEquiv_nonzero",
+          "role": "characterisation",
+          "statement": "For a solution with x≠0, mapping Subtype.val over the Option output gives some(y/x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.affineParamEquiv.test_origin",
+          "kind": "degenerate",
+          "statement": "For arbitrary rational a,b, the native origin maps to none."
+        },
+        {
+          "name": "QuadraticPinch.affineParamEquiv.test_nonsplit",
+          "kind": "computation",
+          "statement": "Over F₂ for q=t²+t+1, inverse some(0) is the actual pair (1,0)."
+        },
+        {
+          "name": "QuadraticPinch.affineParamEquiv.test_cusp",
+          "kind": "boundary",
+          "statement": "Over F₂ for q=t², inverse some(1) is (1,1); the repeated-root origin remains a separate none output."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-card-balance",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.affine_card_balance",
+      "title": "Affine solutions plus distinct roots balance exactly",
+      "kind": "lemma",
+      "statement": "For a finite field k of size Q, Nat.card of the native affine equation-solution subtype plus Nat.card{t∈k:q(t)=0} equals Q+1.",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction.",
+        "k is finite."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-param-equiv",
+        "mathlib:Nat.card_congr",
+        "mathlib:Nat.card_eq_fintype_card",
+        "mathlib:Fintype.card_option",
+        "mathlib:Fintype.card_subtype_compl",
+        "mathlib:Fintype.card_subtype_le"
+      ],
+      "proofSteps": [
+        "Choose a Fintype from the actual finiteness instance. Transport the solution cardinality along affineParamEquiv.",
+        "Option adds one origin; complement cardinality is Q minus the distinct-root subtype cardinality. Use subtype-cardinality≤Q before natural subtraction cancellation. This counts distinct roots, not scheme length."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For a finite field k of size Q, Nat.card of the native affine equation-solution subtype plus Nat.card{t∈k:q(t)=0} equals Q+1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.affine_card_balance.test_distinct_double_root",
+          "kind": "non-example",
+          "statement": "Over F₂ the subtype t²=0 has cardinality one, although the conductor algebra k[t]/t² has length two."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-balance",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.pointCount_balance",
+      "title": "Native projective count plus distinct roots",
+      "kind": "lemma",
+      "statement": "For a finite field k and W=(a,−b,0,0,0), W.pointCount+Nat.card{t∈k:q(t)=0}=Nat.card k+2.",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction.",
+        "k is finite."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-affine-card-balance",
+        "tauceti:WeierstrassCurve.pointCount",
+        "tauceti:WeierstrassCurve.pointCount_def"
+      ],
+      "proofSteps": [
+        "Expand only the native pointCount_def: it is every affine equation solution plus one infinity point, even on a singular model. Add this extra one to affine_card_balance. Neither the nonsingular group carrier nor pointCount_eq_card_point is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For a finite field k and W=(a,−b,0,0,0), W.pointCount+Nat.card{t∈k:q(t)=0}=Nat.card k+2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.pointCount_balance.test_three_forms",
+          "kind": "computation",
+          "statement": "Over F₂, the native models with tuples (1,0,0,0,0),(1,1,0,0,0),(0,0,0,0,0) have pointCount2,4,3 respectively, including the origin and infinity."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-frobenius-trace-roots",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "declarationName": "QuadraticPinch.frobeniusTrace_roots",
+      "title": "Native integer invariant is distinct roots minus one",
+      "kind": "lemma",
+      "statement": "For a finite field k and W=(a,−b,0,0,0), W.frobeniusTrace=(Nat.card{t∈k:q(t)=0}:ℤ)−1.",
+      "hypotheses": [
+        "k is a field; a,b∈k; W is the actual native WeierstrassCurve with coefficient tuple (a,−b,0,0,0); q(t) abbreviates t²+at+b. No separability, perfectness or characteristic restriction.",
+        "k is finite."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-pointcount-balance",
+        "tauceti:WeierstrassCurve.frobeniusTrace",
+        "tauceti:WeierstrassCurve.frobeniusTrace_def"
+      ],
+      "proofSteps": [
+        "Use the native frobeniusTrace_def Q+1−pointCount and the preceding balance. Integer arithmetic gives r−1. On these singular equations this is the numerical invariant; no étale cohomological trace theorem is asserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer-J6LwjP-parametrization",
+          "locator": "§3 conductor square, complete Proposition3.1–3.2 proofs and adjacent point-count table in arXiv2004.07025v3 HTML",
+          "excerpt": "conductor square",
+          "match": "The explicit equation-solution equivalence and count deductions here are authored algebraic consequences of the quadratic chart, not printed source declarations or a scheme normalization/cohomology theorem."
+        }
+      ],
+      "acceptance": [
+        "For a finite field k and W=(a,−b,0,0,0), W.frobeniusTrace=(Nat.card{t∈k:q(t)=0}:ℤ)−1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Supplies the exact one-component native count calculation. The arbitrary finite-extension adapter, geometric fiber comparison and the separate two-component I₂ case still need their own proofs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.frobeniusTrace_roots.test_three_forms",
+          "kind": "computation",
+          "statement": "The same three native F₂ models have frobeniusTrace1,−1,0 respectively."
+        }
+      ]
     }
   ],
   "requests": [
@@ -10698,7 +11138,8 @@
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
         "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
-        "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked."
+        "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
+        "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled."
       ]
     },
     {
@@ -10905,7 +11346,7 @@
     },
     {
       "id": "quadratic-pinching-native-exports",
-      "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked.",
+      "detail": "Native k-linear coordinates, Basis, finitely supported coefficient reconstruction and exact degree family are now stated and separately prototyped. The actual full bivariate range/kernel and canonical quotient algebra equivalence are now stated with a separate checked native prototype. Finite normalization, localization/fraction-field comparison, node/tangent/branch predicates, P¹/cohomology and every-extension count interfaces remain open. A k[q]-module instance/freeness interface is not constructed. The full Tau Ceti-importing file is uncompiled; the exact Mathlib-only extraction is checked. All implementation statuses remain unchecked. The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
       "title": "Exact native quadratic-pinching owner interfaces"
     }
   ],
@@ -13360,5 +13801,84 @@
       "newNodesReaderParity": 19,
       "inheritedSuggestedOutsideInsertionByteEqual": true
     }
+  },
+  "quadraticPointParametrizationContinuation": {
+    "agent": "Codex — codex-J6LwjP",
+    "date": "2026-10-02",
+    "claimComment": 5960692130,
+    "botConfirmation": 5960694672,
+    "readBase": "058d2a2bb164ceb15fe5163ab607fcc70bdc2ec2",
+    "addedNodes": 7,
+    "addedAPI": 4,
+    "addedExamples": 6,
+    "preservedWholeNodeObjects": 182,
+    "fullFileCompiled": false,
+    "proofCheck": {
+      "code": 0,
+      "errors": 0,
+      "admittedWarnings": 0,
+      "otherWarnings": 0,
+      "timeRSS": "2.60 6763548",
+      "availableGiBBefore": 62,
+      "sourceSha256": "c76ff685ef6ce890bc33edacc714a6ba8130bdee89e4a99929c782955d04e48b",
+      "logSha256": "e4556fb263e9c62ee90da544d373fe768d6c7108cc3b0c691ecd8fc407faefc4"
+    },
+    "remaining": "The native affine solution equivalence and native pointCount/frobeniusTrace balance are now explicit. They count distinct rational roots; they do not supply projective normalization, conductor schemes, the structure-sheaf exact sequence, H¹ comparison, arbitrary finite-extension packaging or the separate two-component I₂ construction. The inherited affine algebra/presentation and all global/fibration/classification/model obligations remain planned. Full Tau Ceti-importing suggested file remains uncompiled.",
+    "actualProofCommit": "fd64cf3c4e41133e0f200698fef47c11247ec9dd",
+    "actualProofUrl": "https://github.com/CBirkbeck/tauceti-explorer/blob/fd64cf3c4e41133e0f200698fef47c11247ec9dd/research/blueprint/suggested/NeronModelsAndSemistableAbelianVarietiesPartII.lean",
+    "submittedFragmentCheck": {
+      "code": 0,
+      "errors": 0,
+      "admittedWarnings": 17,
+      "otherWarnings": 0,
+      "timeRSS": "2.40 6738300",
+      "availableGiBBefore": 61,
+      "sourceSha256": "119fe4571604dfb379f752f593c2b255be7a92a96f01a2b69492a5027624632d",
+      "logSha256": "bccd547b2714c1b7d84f7e78738d5856bc1cc45b36d197b7b0264fca867e229c"
+    },
+    "proofAxiomAudits": 11,
+    "admittedAxiomDependencies": 0,
+    "regressionRerun": {
+      "assertions": 132079,
+      "models": 259,
+      "projectiveCandidates": 44089,
+      "normalizationSourcePoints": 3090,
+      "sourceSha256": "c5ca830260f2389c362b635b72ddde749ec21d3d669aaf75ecfebdc76600c938",
+      "credit": "ChatGPT Pro cp-20261002-sr-c72e81, exact predecessor program rerun; finite regression, not scheme or cohomology verification."
+    },
+    "atlasGraph": {
+      "actualAssembler": true,
+      "stageDAG": {
+        "vertices": 3043,
+        "edges": 8727,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 189,
+        "edges": 461,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3203,
+        "edges": 9368,
+        "acyclic": true
+      },
+      "reachableDeclarations": 189,
+      "externalDeclarations": [],
+      "reachableBaselineReferences": 139,
+      "unresolved": [],
+      "ownSkippedLinks": [],
+      "otherSkipsMatchOriginal": true,
+      "stageEdgesUnchanged": true,
+      "requiredStagePairs": 68,
+      "requiredStagePairsReachable": 68,
+      "inheritedMissingStagePairs": [],
+      "unchangedNodeObjects": 182,
+      "partDeclarations": 189,
+      "partPlanets": 29,
+      "roadmapDeclarations": 189,
+      "scriptSha256": "d3b89f4cff68adba943b80830163812214c3b709b7e171c214504faaeaa3b943"
+    },
+    "checks": "Indexed checker:0 errors,0 warnings; actual assembler stage/declaration/combined DAGs acyclic,68/68 touching stage paths preserved; 182 inherited whole node objects unchanged; submitted fragment0 errors,17 admissions,0 other warnings; actual prototype0 errors,0 admissions,0 other warnings and11 axiom audits without admitted axioms."
   }
 }

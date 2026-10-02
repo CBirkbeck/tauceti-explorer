@@ -1690,108 +1690,47 @@ variable {k : Type*} [Field k]
 
 lemma parameter_equation (a b t : k) :
     (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation
-      (t ^ 2 + a * t + b) (t * (t ^ 2 + a * t + b)) := by
-  rw [WeierstrassCurve.Affine.equation_iff]
-  dsimp
-  ring
+      (t ^ 2 + a * t + b) (t * (t ^ 2 + a * t + b)) := by sorry
 
 lemma affine_zero_x (a b y : k)
-    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation 0 y) : y = 0 := by
-  rw [WeierstrassCurve.Affine.equation_iff] at h
-  simp only [mul_zero, zero_mul, zero_pow (by decide : 3 ≠ 0),
-    zero_pow (by decide : 2 ≠ 0), add_zero] at h
-  exact sq_eq_zero_iff.mp h
+    (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation 0 y) : y = 0 := by sorry
 
 lemma parameter_recovery (a b x y : k)
     (h : (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation x y)
-    (hx : x ≠ 0) : (y / x) ^ 2 + a * (y / x) + b = x := by
-  rw [WeierstrassCurve.Affine.equation_iff] at h
-  dsimp at h
-  field_simp
-  linear_combination h
+    (hx : x ≠ 0) : (y / x) ^ 2 + a * (y / x) + b = x := by sorry
 
 def affineParamEquiv (a b : k) :
     {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} ≃
-      Option {t : k // t ^ 2 + a * t + b ≠ 0} := by
-  classical
-  refine
-    { toFun := fun p => if hx : p.1.1 = 0 then none else
-        some ⟨p.1.2 / p.1.1, by rw [parameter_recovery a b _ _ p.2 hx]; exact hx⟩
-      invFun := fun p => match p with
-        | none => ⟨(0,0), by
-            rw [WeierstrassCurve.Affine.equation_iff]; simp⟩
-        | some t => ⟨(t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)),
-            parameter_equation a b t.1⟩
-      left_inv := ?_
-      right_inv := ?_ }
-  · intro p
-    dsimp
-    split_ifs with hx
-    · apply Subtype.ext
-      apply Prod.ext
-      · exact hx.symm
-      · exact (affine_zero_x a b p.1.2 (by simpa [hx] using p.2)).symm
-    · apply Subtype.ext
-      apply Prod.ext
-      · exact parameter_recovery a b _ _ p.2 hx
-      · dsimp
-        rw [parameter_recovery a b _ _ p.2 hx]
-        exact div_mul_cancel₀ _ hx
-  · intro p
-    cases p with
-    | none => simp
-    | some t =>
-      dsimp
-      simp only [t.2, dite_false]
-      congr 2
-      exact mul_div_cancel_right₀ _ t.2
+      Option {t : k // t ^ 2 + a * t + b ≠ 0} := by sorry
 
 lemma affineParamEquiv_origin (a b : k) :
     affineParamEquiv a b ⟨(0,0), by
-      rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by
-  simp [affineParamEquiv]
+      rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by sorry
 
 lemma affineParamEquiv_symm_none (a b : k) :
-    ((affineParamEquiv a b).symm none).1 = (0,0) := by rfl
+    ((affineParamEquiv a b).symm none).1 = (0,0) := by sorry
 
 lemma affineParamEquiv_symm_some (a b : k) (t : {t : k // t ^ 2 + a * t + b ≠ 0}) :
     ((affineParamEquiv a b).symm (some t)).1 =
-      (t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)) := by rfl
+      (t.1 ^ 2 + a * t.1 + b, t.1 * (t.1 ^ 2 + a * t.1 + b)) := by sorry
 
 lemma affineParamEquiv_nonzero (a b : k)
     (p : {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2})
     (hx : p.1.1 ≠ 0) :
-    Option.map Subtype.val (affineParamEquiv a b p) = some (p.1.2 / p.1.1) := by
-  simp [affineParamEquiv, hx]
+    Option.map Subtype.val (affineParamEquiv a b p) = some (p.1.2 / p.1.1) := by sorry
 
 lemma affine_card_balance [Finite k] (a b : k) :
     Nat.card {p : k × k // (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).toAffine.Equation p.1 p.2} +
-      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 1 := by
-  classical
-  let := Fintype.ofFinite k
-  rw [Nat.card_congr (affineParamEquiv a b), Nat.card_eq_fintype_card]
-  simp only [Fintype.card_option]
-  simp only [Nat.card_eq_fintype_card]
-  have h : Fintype.card {t : k // t ^ 2 + a * t + b ≠ 0} =
-      Fintype.card k - Fintype.card {t : k // t ^ 2 + a * t + b = 0} :=
-    Fintype.card_subtype_compl (fun t : k => t ^ 2 + a * t + b = 0)
-  rw [h]
-  have hle := Fintype.card_subtype_le (fun t : k => t ^ 2 + a * t + b = 0)
-  omega
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 1 := by sorry
 
 lemma pointCount_balance [Finite k] (a b : k) :
     (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).pointCount +
-      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 2 := by
-  rw [WeierstrassCurve.pointCount_def]
-  have := affine_card_balance a b
-  omega
+      Nat.card {t : k // t ^ 2 + a * t + b = 0} = Nat.card k + 2 := by sorry
 
 lemma frobeniusTrace_roots [Finite k] (a b : k) :
     (⟨a, -b, 0, 0, 0⟩ : WeierstrassCurve k).frobeniusTrace =
-      (Nat.card {t : k // t ^ 2 + a * t + b = 0} : ℤ) - 1 := by
-  rw [WeierstrassCurve.frobeniusTrace_def]
-  have := pointCount_balance a b
-  omega
+      (Nat.card {t : k // t ^ 2 + a * t + b = 0} : ℤ) - 1 := by sorry
+
 end
 end TauCeti.GenusOne.QuadraticPinch
 
@@ -1799,72 +1738,31 @@ namespace TauCeti.GenusOne.QuadraticPinch
 noncomputable section
 -- test: QuadraticPinch.affineParamEquiv.test_origin
 example (a b : ℚ) : affineParamEquiv a b ⟨(0,0), by
-    rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by
-  exact affineParamEquiv_origin a b
+    rw [WeierstrassCurve.Affine.equation_iff]; simp⟩ = none := by sorry
 
 -- test: QuadraticPinch.affineParamEquiv.test_nonsplit
 example : ((affineParamEquiv (1 : ZMod 2) 1).symm
-    (some ⟨0, by decide⟩)).1 = (1,0) := by
-  rw [affineParamEquiv_symm_some]
-  decide
+    (some ⟨0, by decide⟩)).1 = (1,0) := by sorry
 
 -- test: QuadraticPinch.affineParamEquiv.test_cusp
 example : ((affineParamEquiv (0 : ZMod 2) 0).symm
-    (some ⟨1, by decide⟩)).1 = (1,1) := by
-  rw [affineParamEquiv_symm_some]
-  decide
+    (some ⟨1, by decide⟩)).1 = (1,1) := by sorry
 
 -- test: QuadraticPinch.pointCount_balance.test_three_forms
 example :
     (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 2 ∧
     (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 4 ∧
-    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 3 := by
-  have hsplit := pointCount_balance (1 : ZMod 2) 0
-  have hnonsplit := pointCount_balance (1 : ZMod 2) 1
-  have hcusp := pointCount_balance (0 : ZMod 2) 0
-  have hs : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  have hn : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  have hc : Nat.card {t : ZMod 2 // t ^ 2 + 0 * t + 0 = 0} = 1 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  rw [hs] at hsplit
-  rw [hn] at hnonsplit
-  rw [hc] at hcusp
-  have hneg : (-1 : ZMod 2) = 1 := by decide
-  simp only [hneg] at hnonsplit
-  norm_num only [Nat.card_eq_fintype_card, ZMod.card] at hsplit hnonsplit hcusp
-  constructor
-  · omega
-  constructor <;> omega
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 3 := by sorry
 
 -- test: QuadraticPinch.frobeniusTrace_roots.test_three_forms
 example :
     (⟨1, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 1 ∧
     (⟨1, 1, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = -1 ∧
-    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 0 := by
-  have hsplit := frobeniusTrace_roots (1 : ZMod 2) 0
-  have hnonsplit := frobeniusTrace_roots (1 : ZMod 2) 1
-  have hcusp := frobeniusTrace_roots (0 : ZMod 2) 0
-  have hs : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 0 = 0} = 2 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  have hn : Nat.card {t : ZMod 2 // t ^ 2 + 1 * t + 1 = 0} = 0 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  have hc : Nat.card {t : ZMod 2 // t ^ 2 + 0 * t + 0 = 0} = 1 := by
-    rw [Nat.card_eq_fintype_card]; decide
-  rw [hs] at hsplit
-  rw [hn] at hnonsplit
-  rw [hc] at hcusp
-  have hneg : (-1 : ZMod 2) = 1 := by decide
-  simp only [hneg] at hnonsplit
-  norm_num only [Nat.card_eq_fintype_card, ZMod.card] at hsplit hnonsplit hcusp
-  constructor
-  · omega
-  constructor <;> omega
+    (⟨0, 0, 0, 0, 0⟩ : WeierstrassCurve (ZMod 2)).frobeniusTrace = 0 := by sorry
 
 -- test: QuadraticPinch.affine_card_balance.test_distinct_double_root
-example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by
-  rw [Nat.card_eq_fintype_card]; decide
+example : Nat.card {t : ZMod 2 // t ^ 2 = 0} = 1 := by sorry
+
 end
 end TauCeti.GenusOne.QuadraticPinch
 /- END QUADRATIC POINT PARAMETRIZATION -/
