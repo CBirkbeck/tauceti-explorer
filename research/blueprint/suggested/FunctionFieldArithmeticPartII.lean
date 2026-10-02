@@ -1198,7 +1198,32 @@ lemma affineTorsorComparison.source_coordinates (f : A) (n : ℕ) [NeZero n]
     ∃! c : (Fin n × Fin n) → A,
       z = ∑ p : Fin n × Fin n, c p •
         ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
+  classical
+  by_cases hA : Subsingleton A
+  · let : Subsingleton A := hA
+    have : Subsingleton (AffineRing f n ⊗[A] AffineRing f n) := Module.subsingleton A _
+    exact ⟨0, Subsingleton.elim _ _, fun _ _ => Subsingleton.elim _ _⟩
+  · let : Nontrivial A := not_subsingleton_iff_nontrivial.mp hA
+    have hd : (Polynomial.X ^ n - Polynomial.C f).natDegree = n :=
+      Polynomial.natDegree_X_pow_sub_C
+    let pb := AdjoinRoot.powerBasis' (Polynomial.monic_X_pow_sub_C f (NeZero.ne n))
+    let b := pb.basis.reindex (finCongr hd)
+    have hb (i : Fin n) : b i = AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val := by
+      rw [Module.Basis.reindex_apply, pb.basis_eq_pow]
+      rfl
+    let v := b.tensorProduct b
+    have hv (p : Fin n × Fin n) : v p =
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by
+      rw [Module.Basis.tensorProduct_apply', hb, hb]
+    refine ⟨v.equivFun z, ?_, ?_⟩
+    · simpa only [hv] using (v.sum_equivFun z).symm
+    · intro c hc
+      apply v.equivFun.symm.injective
+      simpa only [Module.Basis.equivFun_symm_apply, hv,
+        LinearEquiv.symm_apply_apply] using hc.symm
+
 
 /-- Character basis in the first factor and monic basis in the second. -/
 lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
@@ -1206,7 +1231,175 @@ lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
     ∃! c : (Fin n × Fin n) → A,
       z = ∑ p : Fin n × Fin n, c p •
         (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
+  classical
+  by_cases hA : Subsingleton A
+  · let : Subsingleton A := hA
+    have : Subsingleton (MuHopf A n ⊗[A] AffineRing f n) := Module.subsingleton A _
+    exact ⟨0, Subsingleton.elim _ _, fun _ _ => Subsingleton.elim _ _⟩
+  · let : Nontrivial A := not_subsingleton_iff_nontrivial.mp hA
+    have hd : (Polynomial.X ^ n - Polynomial.C f).natDegree = n :=
+      Polynomial.natDegree_X_pow_sub_C
+    let pb := AdjoinRoot.powerBasis' (Polynomial.monic_X_pow_sub_C f (NeZero.ne n))
+    let b := pb.basis.reindex (finCongr hd)
+    have hb (i : Fin n) : b i = AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val := by
+      rw [Module.Basis.reindex_apply, pb.basis_eq_pow]
+      rfl
+    let e : Multiplicative (ZMod n) ≃ Fin n :=
+      Multiplicative.toAdd.trans (ZMod.finEquiv n).toEquiv.symm
+    let a := (MonoidAlgebra.basis (Multiplicative (ZMod n)) A).reindex e
+    have hz (i : Fin n) : ZMod.finEquiv n i = (i.val : ZMod n) := by
+      cases n with
+      | zero => exact (NeZero.ne 0 rfl).elim
+      | succ n =>
+        apply Fin.ext
+        change i.val = ((i.val : ZMod (n + 1))).val
+        exact (ZMod.val_natCast_of_lt i.isLt).symm
+    have ha (i : Fin n) : a i =
+        MonoidAlgebra.single (Multiplicative.ofAdd (i.val : ZMod n)) (1 : A) := by
+      rw [Module.Basis.reindex_apply, MonoidAlgebra.basis_apply]
+      change MonoidAlgebra.single (Multiplicative.ofAdd (ZMod.finEquiv n i)) (1 : A) = _
+      rw [hz]
+    let v := a.tensorProduct b
+    have hv (p : Fin n × Fin n) : v p =
+        MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by
+      rw [Module.Basis.tensorProduct_apply', ha, hb]
+    refine ⟨v.equivFun z, ?_, ?_⟩
+    · simpa only [hv] using (v.sum_equivFun z).symm
+    · intro c hc
+      apply v.equivFun.symm.injective
+      simpa only [Module.Basis.equivFun_symm_apply, hv,
+        LinearEquiv.symm_apply_apply] using hc.symm
+
+
+/-- The actual finite coefficient equivalence, fixed by the original tensor
+monomials. This includes the subsingleton coefficient ring. -/
+def affineTorsorComparison.sourceCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    (AffineRing f n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by
+  classical
+  let s : ((Fin n × Fin n) → A) →ₗ[A] (AffineRing f n ⊗[A] AffineRing f n) :=
+    { toFun := fun c => ∑ p, c p •
+        ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))
+      map_add' := by intro c d; simp [add_smul, Finset.sum_add_distrib]
+      map_smul' := by intro a c; simp [Finset.smul_sum, smul_smul] }
+  have hs : Function.Bijective s := by
+    constructor
+    · intro c d h
+      obtain ⟨v, _, hu⟩ := affineTorsorComparison.source_coordinates f n (s c)
+      exact (hu c rfl).trans (hu d h).symm
+    · intro z
+      obtain ⟨c, hc, _⟩ := affineTorsorComparison.source_coordinates f n z
+      exact ⟨c, hc.symm⟩
+  exact (LinearEquiv.ofBijective s hs).symm
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    (affineTorsorComparison.sourceCoordinateEquiv f n).symm c =
+      ∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := rfl
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    affineTorsorComparison.sourceCoordinateEquiv f n
+      (∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c :=
+  (affineTorsorComparison.sourceCoordinateEquiv f n).apply_symm_apply c
+
+lemma affineTorsorComparison.sourceCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    affineTorsorComparison.sourceCoordinateEquiv f n
+      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
+      Pi.single p 1 := by
+  classical
+  have hs : (affineTorsorComparison.sourceCoordinateEquiv f n).symm (Pi.single p 1) =
+      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
+    rw [affineTorsorComparison.sourceCoordinateEquiv_symm_apply]
+    simp [Pi.single_apply]
+  rw [← hs]
+  exact (affineTorsorComparison.sourceCoordinateEquiv f n).apply_symm_apply _
+
+/-- The character tensor coefficient equivalence uses every group-algebra
+character, including in characteristic dividing n. -/
+def affineTorsorComparison.targetCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
+    (MuHopf A n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by
+  classical
+  let s : ((Fin n × Fin n) → A) →ₗ[A] (MuHopf A n ⊗[A] AffineRing f n) :=
+    { toFun := fun c => ∑ p, c p •
+        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))
+      map_add' := by intro c d; simp [add_smul, Finset.sum_add_distrib]
+      map_smul' := by intro a c; simp [Finset.smul_sum, smul_smul] }
+  have hs : Function.Bijective s := by
+    constructor
+    · intro c d h
+      obtain ⟨v, _, hu⟩ := affineTorsorComparison.target_coordinates f n (s c)
+      exact (hu c rfl).trans (hu d h).symm
+    · intro z
+      obtain ⟨c, hc, _⟩ := affineTorsorComparison.target_coordinates f n z
+      exact ⟨c, hc.symm⟩
+  exact (LinearEquiv.ofBijective s hs).symm
+
+lemma affineTorsorComparison.targetCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    (affineTorsorComparison.targetCoordinateEquiv f n).symm c =
+      ∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := rfl
+
+lemma affineTorsorComparison.targetCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    affineTorsorComparison.targetCoordinateEquiv f n
+      (∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c :=
+  (affineTorsorComparison.targetCoordinateEquiv f n).apply_symm_apply c
+
+lemma affineTorsorComparison.targetCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
+    (p : Fin n × Fin n) :
+    affineTorsorComparison.targetCoordinateEquiv f n
+      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
+      Pi.single p 1 := by
+  classical
+  have hs : (affineTorsorComparison.targetCoordinateEquiv f n).symm (Pi.single p 1) =
+      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
+    rw [affineTorsorComparison.targetCoordinateEquiv_symm_apply]
+    simp [Pi.single_apply]
+  rw [← hs]
+  exact (affineTorsorComparison.targetCoordinateEquiv f n).apply_symm_apply _
+
+-- affineTorsorComparison.sourceCoordinateEquiv.test_one
+example (f : A) : affineTorsorComparison.sourceCoordinateEquiv f 1
+    ((1 : AffineRing f 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by
+  simpa using affineTorsorComparison.sourceCoordinateEquiv_monomial f 1 (0, 0)
+-- affineTorsorComparison.sourceCoordinateEquiv.test_zero_ring
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
+    (z : AffineRing f n ⊗[A] AffineRing f n) :
+    affineTorsorComparison.sourceCoordinateEquiv f n z = 0 := Subsingleton.elim _ _
+-- affineTorsorComparison.sourceCoordinateEquiv.test_nonreduced
+example : affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2
+    (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ⊗ₜ[ZMod 4]
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))) (1, 1) = 1 := by
+  simpa using congrFun
+    (affineTorsorComparison.sourceCoordinateEquiv_monomial (2 : ZMod 4) 2 (1, 1)) (1, 1)
+-- affineTorsorComparison.targetCoordinateEquiv.test_one
+example (f : A) : affineTorsorComparison.targetCoordinateEquiv f 1
+    ((1 : MuHopf A 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by
+  simpa [MonoidAlgebra.one_def] using
+    affineTorsorComparison.targetCoordinateEquiv_monomial f 1 (0, 0)
+-- affineTorsorComparison.targetCoordinateEquiv.test_zero_ring
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n) :
+    affineTorsorComparison.targetCoordinateEquiv f n z = 0 := Subsingleton.elim _ _
+-- affineTorsorComparison.targetCoordinateEquiv.test_wild_character
+example : affineTorsorComparison.targetCoordinateEquiv (0 : ZMod 2) 2
+    (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
+      (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by
+  simpa using congrFun
+    (affineTorsorComparison.targetCoordinateEquiv_monomial (0 : ZMod 2) 2 (1, 0)) (1, 0)
 
 /-- The nonwrapping source coefficients vanish; the wrapping coefficients
 lie in the annihilator of f. This also specifies the kernel comparison map. -/
