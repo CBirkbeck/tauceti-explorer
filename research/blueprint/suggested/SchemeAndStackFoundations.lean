@@ -2,7 +2,8 @@
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
 signatures. This is a partial checkpoint; every implementation is unchecked.
-Not compiled. Open source-proof and baseline adapters are listed in the packet and handoff.
+The current elaboration receipt is in the handoff. Open source-proof and baseline adapters
+are listed in the packet; admitted signatures certify no implementation.
 -/
 import Mathlib.Algebra.Category.CommAlgCat.FiniteType
 import Mathlib.CategoryTheory.EssentiallySmall
@@ -80,7 +81,7 @@ noncomputable def diagram (I : Ideal R) :
 
 noncomputable def algebra (I : Ideal R) : CommAlgCat.{u} R := colimit (diagram I)
 
-abbrev extended (I : Ideal R) : Ideal (algebra I) := I.map (algebraMap R (algebra I))
+noncomputable abbrev extended (I : Ideal R) : Ideal (algebra I) := I.map (algebraMap R (algebra I))
 
 noncomputable def stage (I : Ideal R) (B : SmallModel.{u} (Neighbourhood I)) :
     (diagram I).obj B →ₐ[R] algebra I := (colimit.ι (diagram I) B).hom
@@ -140,5 +141,70 @@ example : Nonempty (algebra (⊥ : Ideal (ZMod 5)) ≃ₐ[ZMod 5] ZMod 5) := by 
 -- node: SchemeAndStackFoundations:SF.0/ordinary-local-henselization
 lemma local_henselization [IsLocalRing R] :
     IsLocalRing (algebra (IsLocalRing.maximalIdeal R)) := by sorry
+
+section Functoriality
+variable {S T : Type u} [CommRing S] [CommRing T]
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-map
+/-- The chosen extension of η_S ∘ f by the existing initial-pair theorem. -/
+noncomputable def map (I : Ideal R) (J : Ideal S) (f : R →+* S)
+    (hf : I ≤ J.comap f) : algebra I →+* algebra J :=
+  Classical.choose (existsUnique_lift I (extended J)
+    ((algebraMap S (algebra J)).comp f) (by
+      intro r hr
+      exact Ideal.mem_map_of_mem (algebraMap S (algebra J)) (hf hr))).exists
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-map-unit
+lemma map_comp_unit (I : Ideal R) (J : Ideal S) (f : R →+* S)
+    (hf : I ≤ J.comap f) :
+    (map I J f hf).comp (algebraMap R (algebra I)) =
+      (algebraMap S (algebra J)).comp f := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-map-ideal
+lemma map_extended_le (I : Ideal R) (J : Ideal S) (f : R →+* S)
+    (hf : I ≤ J.comap f) :
+    extended I ≤ (extended J).comap (map I J f hf) := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-map-identity
+lemma map_id (I : Ideal R) :
+    map I I (RingHom.id R) (by intro r hr; exact hr) =
+      RingHom.id (algebra I) := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-map-composition
+lemma map_comp (I : Ideal R) (J : Ideal S) (K : Ideal T)
+    (f : R →+* S) (g : S →+* T)
+    (hf : I ≤ J.comap f) (hg : J ≤ K.comap g) :
+    map I K (g.comp f) (by intro r hr; exact hg (hf hr)) =
+      (map J K g hg).comp (map I J f hf) := by sorry
+
+-- node: SchemeAndStackFoundations:SF.0/henselization-residue-naturality
+lemma quotient_naturality (I : Ideal R) (J : Ideal S) (f : R →+* S)
+    (hf : I ≤ J.comap f) :
+    (Ideal.quotientMap (extended J) (map I J f hf) (map_extended_le I J f hf)).comp
+        (reducedMap I (algebra I)) =
+      (reducedMap J (algebra J)).comp (Ideal.quotientMap J f hf) := by sorry
+
+-- test: TauCeti.Henselization.map_field_identity
+example : map (⊥ : Ideal (ZMod 5)) ⊥ (RingHom.id (ZMod 5))
+    (by intro r hr; exact hr) = RingHom.id (algebra (⊥ : Ideal (ZMod 5))) := by sorry
+
+-- test: TauCeti.Henselization.map_scalar_seven
+example : map (⊥ : Ideal ℤ) (⊥ : Ideal (ZMod 5)) (Int.castRingHom (ZMod 5))
+    (by intro r hr; have hr0 : r = 0 := hr; simp [hr0])
+    (algebraMap ℤ (algebra (⊥ : Ideal ℤ)) 7) =
+      algebraMap (ZMod 5) (algebra (⊥ : Ideal (ZMod 5))) 2 := by sorry
+
+-- test: TauCeti.Henselization.map_quotient_nine
+example : let I : Ideal (ZMod 9) := Ideal.span {(3 : ZMod 9)}
+    map I (⊥ : Ideal (ZMod 9 ⧸ I)) (Ideal.Quotient.mk I)
+      (by intro r hr; exact (Ideal.Quotient.eq_zero_iff_mem).2 hr)
+      (algebraMap (ZMod 9) (algebra I) 3) = 0 := by sorry
+
+-- test: TauCeti.Henselization.map_can_collapse
+example : ¬ Function.Injective
+    (map (⊥ : Ideal (ZMod 5)) (⊤ : Ideal (ZMod 5)) (RingHom.id (ZMod 5))
+      (by intro r hr; trivial)) := by sorry
+
+end Functoriality
 
 end TauCeti.Henselization

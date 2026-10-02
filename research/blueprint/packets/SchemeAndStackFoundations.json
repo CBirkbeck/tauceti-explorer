@@ -12,7 +12,7 @@
     "SchemeAndStackFoundations:SF.6"
   ],
   "status": "partial",
-  "summary": "First fifteen-node checkpoint for the reserved general henselization key in SF.0. It defines the actual filtered-colimit algebra through a full category of residue-preserving etale neighbourhoods, proves the source-level filtering and smallness adapters separately, and outlines canonical residue preservation, Jacobson containment, simple-root lifting, etale lift uniqueness/comparison, the initial pair, fixed pairs and the ordinary local case. All missing proof adapters, five other reserved definitions, seven-stage targets, routed papers and twelve confirmed red-team findings remain explicit unfinished work. All implementations are unchecked.",
+  "summary": "Continuation of the general henselization key in SF.0: fifteen inherited declarations retained exactly, plus six declarations for the actual induced pair map, unit naturality, ideal preservation, identity, composition and canonical residue naturality. The Mathlib-only native file now elaborates after a noncomputability repair. Universal-property proof leaves, every other key and stage, source routes and confirmed findings remain open. A newly found PerfectoidSpaces overlap is recorded for consolidation rather than creating another general henselization carrier. All implementations remain unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -198,6 +198,27 @@
         "module": "Mathlib/RingTheory/Etale/StandardEtale.lean",
         "provides": "Algebra homomorphisms from the standard etale ring correspond to roots of f at which g is a unit.",
         "checked": "Actual statement and ambient parameters read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; source passages 1-200, including the existing etale instance at 191-192; whole-file SHA-256 f691f04c698f4a6506b13ca25d53670d62937f49a78efb0a4157738d59c3d6cb."
+      },
+      {
+        "ref": "mathlib:Ideal.map_le_iff_le_comap",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Adjunction between ideal image and preimage for semiring homomorphisms; used for preservation of generated extended ideals.",
+        "checked": "Complete declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02, lines 35–85; exact name also confirmed in declarations.tsv. File SHA-256 a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Ideal.map_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The ideal image along a composite is the iterated ideal image.",
+        "checked": "Complete declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02, lines 160–180; exact name also confirmed in declarations.tsv. File SHA-256 a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11"
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Evaluation of the canonical quotient map on a quotient representative, with containment and two-sided hypotheses.",
+        "checked": "Complete declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02, lines 589–616; exact name also confirmed in declarations.tsv. File SHA-256 25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
       }
     ]
   },
@@ -210,7 +231,8 @@
       "url": "https://stacks.math.columbia.edu/tag/0EM7",
       "sha256": "4ba42d62e07f39cd049d2d8f3111e27472daf4060685232ac1ea70a2cc3f0e0e",
       "readSections": [
-        "The complete mathematical statements and proofs of Lemmas 15.12.1-15.12.8; the selected proof of 15.12.1 drives the nodes. Later lemmas are read leads, not fully planned results."
+        "The complete mathematical statements and proofs of Lemmas 15.12.1-15.12.8; the selected proof of 15.12.1 drives the nodes. Later lemmas are read leads, not fully planned results.",
+        "Continuation codex-J6LwjP freshly read the entire mathematical text/proofs of 15.12.1–15.12.8 on 2026-10-02; downloaded HTML is byte-identical to the recorded SHA-256. The six new map nodes derive from 15.12.1; the remaining lemmas are leads, not newly closed results."
       ]
     },
     {
@@ -1027,6 +1049,314 @@
       },
       "implementationStatus": "unchecked",
       "leanName": "TauCeti.Henselization.local_henselization"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-map",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Map induced by a morphism of pairs",
+      "kind": "construction",
+      "leanName": "TauCeti.Henselization.map",
+      "statement": "For f:(R,I)→(S,J), define H(f):H(R,I)→H(S,J) to be the unique ring map extending η_S∘f. Use the existing initial-pair theorem and the proved henselian target (H(S,J),JH(S,J)); the chosen witness is a ring homomorphism on the actual colimit algebras. No second henselization carrier or category of pairs is defined.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "The pair condition and generation of JH(S,J) show η_S∘f carries I into JH(S,J).",
+        "Apply initial-henselian-pair to this map, using henselian-pair for the target. Choose its unique witness.",
+        "The unit and extended-ideal statements are separate lemma nodes; identity and composition follow by comparing extensions of the same base map. Proof irrelevance makes the chosen map independent of the proof of the pair condition."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:key/henselization",
+        "SchemeAndStackFoundations:SF.0/initial-henselian-pair",
+        "SchemeAndStackFoundations:SF.0/henselian-pair",
+        "mathlib:Ideal.le_comap_map"
+      ],
+      "acceptance": [
+        "On zero-ideal pairs the maps agree with the original ring homomorphisms under the canonical fixed-pair identifications.",
+        "A pair map may change the ideal and kill nonzero elements; it need not be injective."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Henselization.map_comp_unit",
+          "role": "functoriality",
+          "statement": "For every pair map f, H(f)∘η_R = η_S∘f as actual ring homomorphisms."
+        },
+        {
+          "name": "TauCeti.Henselization.map_extended_le",
+          "role": "compatibility",
+          "statement": "For every f:(R,I)→(S,J), IH(R,I) ⊆ H(f)⁻¹(JH(S,J)). Inclusion, rather than equality of image ideals, is the general assertion."
+        },
+        {
+          "name": "TauCeti.Henselization.map_id",
+          "role": "simp",
+          "statement": "For any (R,I), H(id_R)=id_H(R,I) as ring homomorphisms, independently of the chosen proof of the pair-map condition."
+        },
+        {
+          "name": "TauCeti.Henselization.map_comp",
+          "role": "functoriality",
+          "statement": "For pair maps f:(R,I)→(S,J) and g:(S,J)→(T,K), H(g∘f)=H(g)∘H(f). The composite pair condition is f(I)⊆J and g(J)⊆K, with no reverse containment assumed."
+        },
+        {
+          "name": "TauCeti.Henselization.quotient_naturality",
+          "role": "compatibility",
+          "statement": "For f:(R,I)→(S,J), let q_f:R/I→S/J and q_H:H(R,I)/IH(R,I)→H(S,J)/JH(S,J) be the existing Ideal.quotientMap maps, the latter using map_extended_le. Then q_H∘reducedMap_I = reducedMap_J∘q_f. These are the canonical reduction maps already proved bijective by residue-comparison; naturality does not use an arbitrarily chosen residue-ring isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 15.12.1; KEYDEF-algebraicgeometry/henselization",
+          "how": "The initial construction is a functor on actual maps of pairs; its unit, laws and canonical reductions must be coherent."
+        },
+        {
+          "where": "Stacks 15.12.7 and 15.12.8",
+          "how": "Their natural integral-base-change and product maps are induced by pair maps. Those comparison theorems remain source leads and are not established by these functor laws."
+        },
+        {
+          "where": "PerfectoidSpaces:P3/henselisation-of-pairs and ClassicalAdicEtaleCohomology:H1:henselian/henselian-f-adic-rings-and-henselization",
+          "how": "Existing general-pair and f-adic consumers require one carrier. The separate consolidation proposal records the overlap; topology, continuity and completion remain those consumers’ work."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Henselization.map_field_identity",
+          "kind": "degenerate",
+          "statement": "For (F5,0), the map induced by the identity pair morphism is the identity of its henselization."
+        },
+        {
+          "name": "TauCeti.Henselization.map_scalar_seven",
+          "kind": "computation",
+          "statement": "For f:Z→F5 and zero ideals, H(f)(η_Z(7))=η_F5(2)."
+        },
+        {
+          "name": "TauCeti.Henselization.map_quotient_nine",
+          "kind": "compatibility",
+          "statement": "For R=Z/9, I=(3), the quotient map (R,I)→(R/I,0) induces a map carrying η_R(3) to zero."
+        },
+        {
+          "name": "TauCeti.Henselization.map_can_collapse",
+          "kind": "non-example",
+          "statement": "The map induced by id:F5→F5 from (F5,0) to (F5,F5) is not injective: its target henselization is zero and its source is canonically F5."
+        }
+      ]
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "The henselization unit is natural",
+      "kind": "lemma",
+      "leanName": "TauCeti.Henselization.map_comp_unit",
+      "statement": "For every pair map f, H(f)∘η_R = η_S∘f as actual ring homomorphisms.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "Use the chosen witness property from initial-henselian-pair. This is exactly the property used to define H(f), so no further source theorem is invoked."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/henselization-map",
+        "SchemeAndStackFoundations:SF.0/initial-henselian-pair"
+      ],
+      "acceptance": [
+        "For Z→F5, the image of η_Z(7) is η_F5(2)."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-map-ideal",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Induced maps preserve the extended ideals",
+      "kind": "lemma",
+      "leanName": "TauCeti.Henselization.map_extended_le",
+      "statement": "For every f:(R,I)→(S,J), IH(R,I) ⊆ H(f)⁻¹(JH(S,J)). Inclusion, rather than equality of image ideals, is the general assertion.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "Use Ideal.map_le_iff_le_comap to reduce preservation of the ideal generated by η_R(I) to its generators.",
+        "Apply map_comp_unit on a generator and use f(I)⊆J and generation of JH(S,J). Equivalently use Ideal.map_map to move the two maps through ideal extension."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/henselization-map",
+        "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+        "mathlib:Ideal.map_le_iff_le_comap",
+        "mathlib:Ideal.map_map",
+        "mathlib:Ideal.le_comap_map"
+      ],
+      "acceptance": [
+        "The identity ring map (F5,0)→(F5,F5) is a pair map although its target henselization is zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-map-identity",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Henselization sends identity maps to identities",
+      "kind": "lemma",
+      "leanName": "TauCeti.Henselization.map_id",
+      "statement": "For any (R,I), H(id_R)=id_H(R,I) as ring homomorphisms, independently of the chosen proof of the pair-map condition.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "Both ring maps extend η_R by map_comp_unit and identity composition.",
+        "Apply the uniqueness clause of initial-henselian-pair with target (H(R,I),IH(R,I))."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/henselization-map",
+        "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+        "SchemeAndStackFoundations:SF.0/initial-henselian-pair",
+        "SchemeAndStackFoundations:SF.0/henselian-pair"
+      ],
+      "acceptance": [
+        "This holds also at I=top and the zero-ring colimit."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-map-composition",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Henselization respects composition",
+      "kind": "lemma",
+      "leanName": "TauCeti.Henselization.map_comp",
+      "statement": "For pair maps f:(R,I)→(S,J) and g:(S,J)→(T,K), H(g∘f)=H(g)∘H(f). The composite pair condition is f(I)⊆J and g(J)⊆K, with no reverse containment assumed.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "Compose the two map_comp_unit identities; both sides extend η_T∘g∘f.",
+        "Apply the uniqueness clause of initial-henselian-pair with target (H(T,K),KH(T,K)). Ring-hom composition associativity is routine."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/henselization-map",
+        "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+        "SchemeAndStackFoundations:SF.0/initial-henselian-pair",
+        "SchemeAndStackFoundations:SF.0/henselian-pair"
+      ],
+      "acceptance": [
+        "For Z→Z/9→F3 at zero ideals, both composites send η_Z(5) to η_F3(2).",
+        "A projection of finite product rings retains its order in a subsequent component swap."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SchemeAndStackFoundations:SF.0/henselization-residue-naturality",
+      "parentStageId": "SchemeAndStackFoundations:SF.0",
+      "realises": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "title": "Canonical residue comparisons are natural",
+      "kind": "lemma",
+      "leanName": "TauCeti.Henselization.quotient_naturality",
+      "statement": "For f:(R,I)→(S,J), let q_f:R/I→S/J and q_H:H(R,I)/IH(R,I)→H(S,J)/JH(S,J) be the existing Ideal.quotientMap maps, the latter using map_extended_le. Then q_H∘reducedMap_I = reducedMap_J∘q_f. These are the canonical reduction maps already proved bijective by residue-comparison; naturality does not use an arbitrarily chosen residue-ring isomorphism.",
+      "hypotheses": [
+        "R, S and T are commutative unital rings in a common universe, with arbitrary ideals I, J and K; zero rings are allowed. A map of pairs f satisfies I ⊆ f⁻¹(J). No flatness, locality, completeness or Noetherian assumption is added."
+      ],
+      "proofSteps": [
+        "Construct q_H using henselization-map-ideal and the existing quotientMap.",
+        "Every class in R/I has a representative r. Evaluate both sides on that representative with quotientMap_mk.",
+        "The two evaluations coincide by map_comp_unit. Thus the ring homomorphisms agree; no quotient, reduction equivalence or new carrier is reconstructed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/henselization-map",
+        "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+        "SchemeAndStackFoundations:SF.0/henselization-map-ideal",
+        "SchemeAndStackFoundations:SF.0/residue-comparison",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.quotientMap_mk"
+      ],
+      "acceptance": [
+        "For (Z/9,(3))→(F3,0), the residue map is the specified reduction, not a field automorphism.",
+        "Naturality is meaningful for different ideals and for zero quotients."
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-0EM7",
+          "locator": "Lemma 15.12.1, complete construction and final factorization/uniqueness paragraphs; functorial consequences derived explicitly",
+          "excerpt": "left adjoint",
+          "match": "The initial-pair theorem supplies the map. The listed consequences are algebraic derivations from universality, not separately named source lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Henselization",
+        "namespace": "TauCeti.Henselization"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -1035,7 +1365,7 @@
       "stageId": "SchemeAndStackFoundations:SF.0",
       "status": "partial",
       "remaining": [
-        "Complete the fifteen-node henselization strand, including the explicitly missing finite-data/quotient-colimit and etale-section comparison proof adapters.",
+        "Complete the twenty-one-node henselization strand, including the unchanged finite-data/quotient-colimit and etale-section comparison proof gaps. Functorial maps and canonical residue naturality are now planned, conditional on that universal-property closure.",
         "Plan the reserved excellent-schemes key. Reuse existing schemes/morphisms, smooth/etale/proper/flat predicates, QCoh and local algebra. Source-decompose relative Spec, general Proj/canonical comparison without unrestricted O(1) or properness claims.",
         "Retain all SF.0 routed source obligations listed in sourceWorklist, including perfect geometry, coherent extension, standard coordinates and finite-presentation spreading. Weil restriction uses the confirmed MC0F → RG2.0a → R09.3 import, not a duplicate."
       ]
@@ -1130,7 +1460,7 @@
       "neededBy": [
         "SchemeAndStackFoundations:key/henselization"
       ],
-      "detail": "Plan pair-map functoriality/composition, ind-etale presentation independence/universe transport, ideal-power quotient comparisons, flatness with an existing generic filtered-flat adapter, local faithful flatness, Noetherianity, completion isomorphism (no Noetherian hypothesis for that isomorphism alone), radical invariance, filtered-pair-colimit preservation and integral base change/quotient compatibility. Read the exact baseline completion and integrality statements first. Include a source-verified noncomplete henselian example, a failed unrestricted base change, and the actual local residue/HenselianLocalRing adapters. General faithful flatness is false: I=top gives the zero ring."
+      "detail": "Pair-map functoriality/composition and canonical residue naturality now have explicit nodes. Complete ind-etale presentation independence/universe transport, ideal-power quotient comparisons, flatness with an existing generic filtered-flat adapter, local faithful flatness, Noetherianity, completion isomorphism (no Noetherian hypothesis for that isomorphism alone), radical invariance, filtered-pair-colimit preservation and integral base change/quotient compatibility. Read the exact baseline completion and integrality statements first. Include a source-verified noncomplete henselian example, a failed unrestricted base change, and the actual local residue/HenselianLocalRing adapters. General faithful flatness is false: I=top gives the zero ring."
     },
     {
       "title": "Five reserved definitions are still unplanned",
@@ -1160,6 +1490,14 @@
         "SchemeAndStackFoundations:SF.6"
       ],
       "detail": "Only one affine henselization strand is developed. All stage remaining lists, all sourceWorklist paper routes, the original roadmap references and every other reserved key must be retained. SF.6 is process/handoff work. No stage, paper or mathematical implementation is claimed closed."
+    },
+    {
+      "title": "Consolidate the general-pair henselization owner with the PerfectoidSpaces plan",
+      "neededBy": [
+        "SchemeAndStackFoundations:key/henselization",
+        "SchemeAndStackFoundations:SF.0/henselization-map"
+      ],
+      "detail": "PerfectoidSpaces:P3/henselisation-of-pairs in PerfectoidSpaces--P0.json already plans the same general colimit and universal property, with a broad flatness/power-quotient/completion API. Its current review is needs_changes, but it is an existing plan and cannot be duplicated. This issue reserves the general key here. The rescope proposal assigns the general construction to this key, retains the PerfectoidSpaces ID as a compatibility/import node and requires its consumers to use the same carrier. No other packet is edited, no transfer is preclaimed accepted, and no coarse SF.0↔P3 stage edge is added. Native comparison to the other proposed carrier awaits a source-level signature there; do not substitute a Prop stub or rename these plans into two independent constructions."
     }
   ],
   "sourceIssues": [
@@ -1210,7 +1548,7 @@
       "stageId": "SchemeAndStackFoundations:SF.0",
       "review": "REV-AUDIT-01, accepted 2026-09-16",
       "checked": "Full applicable AUDIT-01 layer entry read on 2026-10-02; no already-built carrier is re-planned.",
-      "boundary": "Complete the fifteen-node henselization strand, including the explicitly missing finite-data/quotient-colimit and etale-section comparison proof adapters."
+      "boundary": "Complete the twenty-one-node henselization strand, including the explicitly missing finite-data/quotient-colimit and etale-section comparison proof adapters."
     },
     {
       "stageId": "SchemeAndStackFoundations:SF.1",
@@ -1251,9 +1589,10 @@
   ],
   "ownershipBoundary": {
     "restructure": "All seven accepted REV-RS-25 SchemeAndStackFoundations layer decisions and their touching exact endpoint links read on 2026-10-02; full RS-25 family report not claimed read.",
-    "upstream": "Full GrothendieckEulerForms and Multiquadratic upstream roadmap documents read during this continuing worker session. Only selected ModularCurves 4D/0E passages and five exact touching AlgebraicCurves/ModularCurves research links were read for this job. Existing upstream mathematics is imported, never re-planned.",
+    "upstream": "Inherited codex-rtOQ9t provenance: Full GrothendieckEulerForms and Multiquadratic upstream roadmap documents read during this continuing worker session. Only selected ModularCurves 4D/0E passages and five exact touching AlgebraicCurves/ModularCurves research links were read for this job. Existing upstream mathematics is imported, never re-planned.",
     "local": "Ordinary henselization for arbitrary pairs is this new key; strict henselization and existing local regularity/completion contracts remain ModularCurves 4D.",
-    "process": "SF.6 is consumer integration according to its accepted audit. It gets no new mathematical nodes in this checkpoint."
+    "process": "SF.6 is consumer integration according to its accepted audit. It gets no new mathematical nodes in this checkpoint.",
+    "continuation": "codex-J6LwjP freshly read all seven accepted RS-25 decisions and touching links, all seven AUDIT-01 entries, current atlas stages/touching edges, all four current touching research links, the complete general-pair key brief, all twelve full confirmed findings/verifications, and full JacobianChallenge and Multiquadratic upstream documents. PerfectoidSpaces:P3/henselisation-of-pairs was read in full as an overlap, not independently reviewed."
   },
   "keyDefinitionBoundary": [
     {
@@ -1274,7 +1613,7 @@
     {
       "id": "SchemeAndStackFoundations:key/henselization",
       "status": "planned_with_gaps",
-      "detail": "Fifteen-node focused strand; sample API comparisons and proof leaves remain open."
+      "detail": "Twenty-one-node strand, including six functorial-map declarations. Universal-property proof leaves and other sample API comparisons remain open; PerfectoidSpaces overlap is explicit."
     },
     {
       "id": "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology",
@@ -1686,11 +2025,23 @@
     }
   ],
   "validationBoundary": {
-    "agent": "Codex — codex-rtOQ9t",
+    "agent": "Codex — codex-J6LwjP",
     "date": "2026-10-02",
     "issue": 642,
-    "elaboration": "Not compiled: no existing combined build at both exact pins found. No Lake project, library/cache build or language server started.",
-    "implementation": "Every node unchecked. Checker success tests packet structure and references, not proofs or Lean elaboration.",
-    "sourceRead": "Stacks selected proofs are fresh; reviewed paper extracts are consumer leads only, not fresh primary-paper reads. The entire issue, all seven applicable library-audit and restructure entries, full key/henselization brief, twelve confirmed findings and five touching research links were read."
-  }
+    "implementation": "Every node unchecked; elaborated admitted signatures do not prove the mathematics.",
+    "sourceRead": "Fresh complete mathematical text/proofs of Stacks 0EM7; byte-identical hash. 09XD and current-master TeX receipts remain inherited, not fresh rereads. All 62 sourceWorklist routes and twelve unimplemented findings preserved. Limited open Mathlib PR and public Zulip searches found no henselization design to adopt; that is not a comprehensive absence claim.",
+    "elaboration": "Full current Mathlib-only suggested file compiled using the existing exact-pinned build; final receipt in the handoff. No Tau Ceti imports or combined-build claim. No Lake setup, cache download, dependency build or language server."
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "PerfectoidSpaces",
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "The full existing PerfectoidSpaces:P3/henselisation-of-pairs node plans the general arbitrary ring/ideal colimit and left-adjoint property, overlapping the exact reserved key assigned by #642. Its API also contains flatness, all ideal-power quotients, Noetherianity, completion and filtered-colimit comparisons. These are requirements to reconcile, not new definitions to copy.",
+      "proposal": "Keep SchemeAndStackFoundations:key/henselization as the single general carrier and refinement owner required by the key survey; retain the fifteen current refinement IDs. Preserve PerfectoidSpaces:P3/henselisation-of-pairs as a compatibility/import node, using the reserved key and its declaration-sized outputs and keeping the flatness, ideal-power, Noetherian, completion and filtered-colimit requirements as imports or source-decomposed outputs owned once. ClassicalAdicEtaleCohomology retains the f-adic topology/continuity/plus-ring specialization using that carrier. Route dependencies at node granularity to avoid dragging adic/Perfectoid theory into SF.0; validate any needed substage split before applying stage links. This proposal is unaccepted and does not modify either supplier packet."
+    }
+  ]
 }
