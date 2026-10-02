@@ -15,7 +15,7 @@
     {
       "key": "RS.0",
       "title": "Root-object and affine-chart interfaces",
-      "description": "Native invertible-sheaf tensor powers and section powers; isomorphisms of root data; the diagonalizable action on the existing quotient R[T]/(Tⁿ−f). Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "description": "Native invertible-sheaf tensor and section powers; isomorphisms of root data; root-specific universal Hopf coaction on A[T]/(Tⁿ−f), its counit/coassociativity, character weights and compatibility with the existing μ_n points. μ_n and monic quotient bases are baseline imports. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
       "requires": [
         "SchemeAndStackFoundations:SF.3"
       ]
@@ -23,7 +23,7 @@
     {
       "key": "RS.1",
       "title": "Finite root stacks",
-      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
+      "description": "The canonical root stack of a line bundle with section, including stack bases, Cartier divisors, affine quotient charts, base change, full fibres and relative coarse space; the invariant-ring calculation via the universal Hopf coaction, valid in arbitrary characteristic; the regular tame DM case. Exact declarations, hypotheses, API and acceptance tests are in the companion packet and reader.",
       "requires": [
         "FunctionFieldArithmeticPartII:RS.0",
         "SchemeAndStackFoundations:SF.1"
