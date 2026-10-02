@@ -34044,7 +34044,8 @@
     "REV-PAPER-YU-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YU-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4061"
   },
   {
    "id": "RT-PAPER-ALLEN-ETAL-23",
@@ -34356,8 +34357,9 @@
     "REV-PAPER-BHATT-SCHOLZE-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-SCHOLZE-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4070"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4070",
+   "finishedAt": "2026-10-02T06:30:10Z"
   },
   {
    "id": "RT-PAPER-FINTZEN-21",
