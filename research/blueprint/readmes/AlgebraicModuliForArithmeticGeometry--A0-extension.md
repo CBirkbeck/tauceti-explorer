@@ -6559,3 +6559,240 @@ The submitted new signatures and four examples have admitted bodies under PROTOC
 The next proof is compatibility under every g:W→V of the centre units obtained on pullback sieves, checked on common covering refinements with native mapId/mapComp transports. Only then assemble a family in ZF(U) and use separatedness for uniqueness. Evaluation surjectivity, the locally glued inverse and SF1 slice comparison, connected/disconnected point-site fixtures, the restriction-chain site and nonneutral O(1) root gerbes remain open. The other eight gaps, all 21 requests, broader papers and all stage closures also remain open.
 
 Actual read-only atlas validation passes: 148 declarations, ten planets, all 24 scope/supplier stage paths reachable, stage/own/combined DAGs acyclic, no roadmap skipped links and unchanged other roadmap skips. All 144 earlier statements and 143 complete node objects are preserved; the central-section sheaf proof outline now imports the new fibre-centre leaves. Indexed packet and intake policy checks pass. Reproducible extraction/projection recipes and hashes are in the current handoff.
+
+
+## Arbitrary-base central-section descent — Codex codex-a71f92
+
+This continuation supplies native composition-constraint transport, the fibre-centre unit on every pullback cover, compatibility under every base arrow, and an actual simultaneous compatible section. Its restrictions recover the local family exactly, and covering separatedness gives uniqueness. The categorical abelian-group sheaf theorem now holds for every prestack, without groupoid fibres, terminal objects or fibre products. The earlier checkpoint receipts remain historical; their open Hom-gluing/base-compatibility boundary is discharged by this continuation, while evaluation surjectivity and the actual slice-band comparison remain open.
+
+### Central endomorphisms through composite restriction
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-composite-transport. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.center_map_comp.
+
+Statement: For g:W→V, h:X→W, x∈F(V), c:x→x and z∈CatCenter(F(X)), if F(h≫g)(c)=z(F(h≫g)(x)), then F(h)(F(g)(c))=z(F(h)(F(g)(x))). The equality is on the actual iterated pullback object; the native composition isomorphism is retained.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- mathlib:CategoryTheory.Pseudofunctor.mapComp'
+- mathlib:CategoryTheory.Cat.Hom.toNatIso
+- mathlib:CategoryTheory.Pseudofunctor.mapComp'_hom_naturality
+- mathlib:CategoryTheory.CatCenter.naturality
+- mathlib:CategoryTheory.cancel_epi
+
+Proof outline:
+
+1. Convert the pinned mapComp′ constraint to the actual natural isomorphism e:F(h≫g)≅F(g) followed by F(h).
+2. Precompose the desired equality with e(x). Naturality of e sends the left side to F(h≫g)(c) followed by e(x). Substitute the given equality.
+3. Naturality of the actual centre z at e(x) supplies the right side; cancel the invertible component. No strictification or equality of the two pullback objects is asserted.
+
+Acceptance: The result does not require that c is invertible. The same argument applies when either arrow is identity; it does not replace the native mapId/mapComp constraints by reflexivity.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Centre units on every pullback cover
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-center. construction. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverCenterAt.
+
+Statement: For a covering sieve R on U, a prestack F and a matching family z_i∈ZF(V_i) on R’s native arrow category, define c_(R,z,a)∈units(CatCenter(F(V))) for every a:V→U. Pull R back along a and assign to h:X→V the original local section z_(h≫a) over X. Matching is induced by the original matching equation and base-category associativity. Descend this family by the existing coverCenter construction.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-comp
+- mathlib:CategoryTheory.Sieve.pullback
+- mathlib:CategoryTheory.GrothendieckTopology.pullback_stable
+
+Proof outline:
+
+1. The routine pullbackArrow index sends the native object h:X→V of R.pullback(a) to the native object h≫a:X→U of R, retaining its actual membership proof.
+2. An arrow between pullback indices induces the same base arrow between their original indices; its triangle equation follows by associativity. The original hz supplies the matching proof.
+3. Use pullback stability to obtain the actual covering proof and apply coverCenter. This constructs actual hom and inverse components for every fibre object.
+
+Acceptance: No covering family is replaced by a selected finite subfamily. This constructs the fibre-centre component over every a; compatibility between different a is the next leaf.
+
+Uses:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-compatible: Compares the units over a and g≫a.
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue: Supplies the component of the simultaneous compatible section.
+
+API:
+
+- IntrinsicBandSections.coverCenterAt_map_hom (projection): For h:X→V in R.pullback(a), F(h) maps c_(R,z,a)(x) to z_(h≫a)(X,id)(F(h)(x)).
+- IntrinsicBandSections.coverCenterAt_one (simp): The identity matching family gives the identity fibre-centre unit over every a.
+- IntrinsicBandSections.coverCenterAt_inv (compatibility): The unit over a of the inverse matching family is the inverse of c_(R,z,a).
+- IntrinsicBandSections.coverCenterAt_existing (compatibility): For the matching restrictions of s∈ZF(U), c_(R,r(s),a)=s(V,a).
+- IntrinsicBandSections.coverCenterAt_compatible (functoriality): For every g:W→V, F(g) maps c_(R,z,a)(x) to c_(R,z,g≫a)(F(g)(x)).
+- IntrinsicBandSections.coverCenterAt_of_mem (compatibility): For i:V_i→U in R and a:V→V_i, c_(R,z,a≫i)=z_i(V,a).
+
+Tests:
+
+- BandCenterPullbackTests.one (degenerate): For every covering sieve and a:V→U, the identity local family gives c_(R,1,a)=1.
+- BandCenterPullbackTests.inverse (compatibility): For every covering sieve and a:V→U, c_(R,z⁻¹,a)=c_(R,z,a)⁻¹, retaining the actual inverse component.
+- BandCenterPullbackTests.existing (compatibility): For an existing s∈ZF(U), descending its restrictions on the pullback cover along a recovers exactly s(V,a), not a conjugacy class.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Arbitrary-base compatibility of descended centres
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-compatible. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverCenterAt_compatible.
+
+Statement: For a covering sieve R on U, prestack F, matching central family z, a:V→U, g:W→V and every x∈F(V), F(g)(c_(R,z,a)(x))=c_(R,z,g≫a)(F(g)(x)). This holds for every base arrow g, whether or not it belongs to R.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-center
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-composite-transport
+- mathlib:CategoryTheory.Pseudofunctor.IsPrestackFor.fullyFaithful
+- mathlib:CategoryTheory.Functor.FullyFaithful.map_injective
+- mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext
+- mathlib:CategoryTheory.GrothendieckTopology.pullback_stable
+
+Proof outline:
+
+1. Detect the two endomorphisms of F(g)(x) through fully faithful canonical descent on R.pullback(g≫a), and then through native hom_ext at an arbitrary h:X→W in that sieve.
+2. The corresponding h≫g lies in R.pullback(a). Both local evaluations use the same original arrow h≫g≫a; the dependent native arrow indices are identified using associativity and proof irrelevance.
+3. The local formula over W computes the right side. Apply the composite-transport lemma to the local formula over V for h≫g to compute the left side on the actual iterated pullback object.
+
+Acceptance: No faithfulness of an arbitrary restriction functor F(g) is assumed. All objects and arbitrary g are quantified; no object connectedness or neutralization is used.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Recovered centre components on covered arrows
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-local. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverCenterAt_of_mem.
+
+Statement: For a covering sieve R of a prestack F and a matching family z, if i:V_i→U belongs to R and a:V→V_i is arbitrary, then c_(R,z,a≫i)=z_i(V,a) as units of the actual CatCenter(F(V)).
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-center
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center-unique
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-compatibility
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-evaluation
+
+Proof outline:
+
+1. Apply existing coverCenter_unique on R.pullback(a≫i), comparing every x over V and every h:X→V in that cover.
+2. The original arrow h≫a≫i has a native arrow-category morphism to i with base arrow h≫a. Matching identifies its local section with restriction of z_i along that arrow.
+3. The stored compatibility of z_i computes its F(h)-pulled component at x; reindexing at identity gives the exact local component required for uniqueness.
+
+Acceptance: Equality is of centre units at every object, not equality at one selected object. This supplies the complete local restriction formula for the assembled global section.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Gluing compatible central sections
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue. construction. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.glue.
+
+Statement: For a covering sieve R on U of a prestack F and a matching family z_i∈ZF(V_i), construct glue(R,z)∈ZF(U) whose component at every a:V→U is c_(R,z,a). Its stored compatibility equation is the arbitrary-base comparison just proved. Restricting the constructed section along every i in R returns z_i.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-center
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-compatible
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-pullback-cover-local
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sections
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-ext
+
+Proof outline:
+
+1. Assemble the actual units c_(R,z,a) in the existing indexed product for all V and a:V→U.
+2. Use the arbitrary-base compatibility leaf as the actual subgroup-membership proof. No existence proposition or a new section carrier replaces this data.
+3. Apply section extensionality and the recovered covered-component formula to prove exact equality of each restriction with z_i.
+4. Pointwise centre identity and inverse laws give identity and inverse gluing, with the same reversed categorical composition convention.
+
+Acceptance: Both hom and inverse are retained over every base arrow. Empty or disconnected fibres are allowed; an empty F(U) does not imply all slice sections vanish.
+
+Uses:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue-unique: Its exact local restrictions give the uniquely specified section.
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-prestack-sheaf: Constructs the unique amalgamations, including Hom(E,-)-valued matching families.
+
+API:
+
+- IntrinsicBandSections.glue_val (projection): At a:V→U the component of glue(R,z) is exactly c_(R,z,a).
+- IntrinsicBandSections.glue_restrict (projection): For every i in R, r_i(glue(R,z))=z_i as actual compatible sections.
+- IntrinsicBandSections.glue_one (simp): Gluing the identity matching family gives the identity section.
+- IntrinsicBandSections.glue_inv (compatibility): Gluing the inverse matching family gives glue(R,z)⁻¹.
+- IntrinsicBandSections.glue_unique (universal-property): Any section s with r_i(s)=z_i for all i in R equals glue(R,z).
+- IntrinsicBandSections.glue_existing (compatibility): Gluing the matching restrictions of an existing s∈ZF(U) gives s exactly.
+
+Tests:
+
+- BandCenterGlueTests.one (degenerate): For every covering sieve of a prestack, glue(R,1)=1 in ZF(U).
+- BandCenterGlueTests.inverse (compatibility): For every matching central family on a covering sieve, glue(R,z⁻¹)=glue(R,z)⁻¹.
+- BandCenterGlueTests.existing (compatibility): For every s∈ZF(U), gluing its matching restrictions along any covering sieve recovers s, with all its slice components retained.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Uniqueness of glued central sections
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue-unique. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.glue_unique.
+
+Statement: For a covering sieve R of a prestack F and a matching family z, any s∈ZF(U) whose restrictions along all i in R are z_i equals glue(R,z).
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated
+
+Proof outline:
+
+1. Use the existing covering-sieve section separatedness lemma.
+2. On each native arrow of R the hypothesized restriction of s and the proved restriction of glue both equal z_i.
+3. This yields uniqueness and recovers an existing section from its restricted matching family.
+
+Acceptance: No gerbe, abelian inertia or chosen global object is required.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Central-section sheaf of a prestack
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-prestack-sheaf. theorem. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.isSheaf_of_prestack.
+
+Statement: For every prestack F on (C,J), the inherited abelian-group-valued presheaf U↦Additive(ZF(U)) is a sheaf for J. Neither groupoid fibres, gerbe locality nor abelian inertia is needed. This strengthens the inherited groupoid-prestack statement without changing its reserved id or statement.
+
+Hypotheses: C is a fixed small category with Grothendieck topology J; F is the pinned Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes. Covering/prestack hypotheses are imposed exactly as stated; there is no terminal-object, fibre-product, groupoid, gerbe or abelian-inertia assumption.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-glue-unique
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-separated
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-restrict-id
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-commute
+- mathlib:CategoryTheory.Presheaf.IsSheaf
+- mathlib:CategoryTheory.Presieve.IsSheafFor
+
+Proof outline:
+
+1. Unfold the pinned categorical sheaf condition. Fix an arbitrary abelian group E and an actual covering-sieve matching family of homomorphisms E→Additive(ZF(V_i)).
+2. For each e∈E evaluate the matching family, convert additive tags to native multiplicative sections, and apply glue. The native compatible-family equation implies matching after evaluation; identity restriction is the proved reindexing law.
+3. Package these pointwise glues as an actual abelian-group homomorphism. Prove preservation of zero and addition by covering separatedness, exact glue restrictions and the local homomorphism laws; no forgotten algebraic law is assumed.
+4. The exact local restriction formula proves amalgamation. Evaluate two possible homomorphisms on every e and use section separatedness to prove uniqueness. This discharges Presieve.IsSheafFor for each E, hence the actual Presheaf.IsSheaf predicate directly, without a universe-changing forgetful-functor shortcut.
+
+Acceptance: The proof supports sites without terminal objects or fibre products. This is sheaf descent only: evaluation surjectivity and comparison with the imported slice-glued automorphism sheaf remain separate obligations.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) motivates the intrinsic band and omits the varying-base conclusion; [Definition 8.4.1(2)](https://stacks.math.columbia.edu/tag/026F) supplies morphism-sheaf descent. These leaves are the derived completion for the existing compatible-centre carrier, not a printed source proof.
+
+### Verified boundary and continuation
+
+The native extraction combines the two predecessor proof archives with the [current immutable proof block](https://github.com/CBirkbeck/tauceti-explorer/blob/7ce3625771acbf90d4fb6e6495cd30bc0d867e4c/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean), using the exact handoff recipe. Its 17 examples and 17 kernel audits pass: zero errors, two unused inherited admission warnings, no other warnings, and no admission dependency in any audited declaration. In particular the actual categorical sheaf predicate, not only elementwise uniqueness, is checked.
+
+The final new signatures and six examples have admitted bodies under PROTOCOL §13. The 1,131-line Mathlib-only submitted extraction has 42 examples, zero errors, 61 admission warnings and no other warnings. Its narrow boundary excludes the inherited module/cohomology blocks and the unavailable exact TauCeti cohomology artifact; the full suggested file remains uncompiled.
+
+The packet has 155 nodes (16 definition, 71 lemma, 36 construction, 28 theorem, 4 comparison), 183 total API items, 167 total tests, 10 planets and 98 baseline declarations. Definition/construction counts are 178 API items and 161 tests. All 148 earlier statements and 147 complete node objects are preserved; only the inherited sheaf theorem's prerequisites/proof outline changes. All source routes, requests, source issues and reserved keys remain unchanged. Four coverage rows are partial and four not_read; all nine broader gaps and 21 requests remain open.
+
+Resume with abelian-inertia evaluation surjectivity using local object isomorphisms, the locally glued inverse to the chosen-band map and the actual SF1 descended-slice comparison. Instantiate the connected/disconnected point sites, the terminal-free restriction-chain site and the nonneutral O(1) root-gerbe fixtures. The new sheaf theorem alone closes none of those obligations or any whole stage.

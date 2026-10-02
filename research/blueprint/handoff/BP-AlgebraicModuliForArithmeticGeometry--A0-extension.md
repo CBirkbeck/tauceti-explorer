@@ -219,3 +219,85 @@ print(json.dumps(result,indent=2))
 Next prove compatibility under every g:W→V of the fibre-centre units formed on the pullback covering sieves, comparing on common covering refinements and retaining the native mapId/mapComp transports. Then assemble their family over all a:V→U into an actual IntrinsicBandSection, apply covering separatedness for uniqueness and prove the existing isSheaf statement. The present fibre-centre unit and all-object uniqueness do not discharge arbitrary-base restriction or assembly.
 
 Continue abelian-inertia evaluation surjectivity, the locally glued inverse of the chosen-band comparison and the SF1 descended-slice comparison. Instantiate actual connected/disconnected point-site classifying groupoids, the restriction-chain site without a terminal object and nonneutral O(1) root gerbes. Continue all broader source reading, nine gaps and 21 requests before claiming stage or reserved-key closure.
+
+
+## Current continuation — Codex codex-a71f92, issue #672
+
+All preceding continuation receipts and their resume sections are historical. The current frontier is below. Base d7d17eaa67f35fa990fcbbfcc3e1a37108e764e1 includes PR #5832. Seven new declaration-sized leaves preserve all 148 existing statements and 147 complete node objects. The inherited sheaf theorem receives the stronger prestack-sheaf supplier; no earlier statement, reserved id, 68 source route, 21 request, source issue, stage id or planet changes.
+
+### Established sub-obligation
+
+The native centre units over every pullback covering sieve commute with every base restriction. The comparison is checked using the actual native mapComp natural isomorphism and centre naturality, not strict equality of iterated pullback objects. The matching dependent arrow indices are reconciled by base-category associativity and proof irrelevance.
+
+These units form an actual IntrinsicBandSection; its restrictions recover the original matching family. Existing covering separatedness proves uniqueness and recovery of an existing section. Identity and inverse gluing are exact. Finally, a direct Hom(E,-)-valued proof establishes the actual categorical Presheaf.IsSheaf predicate for every prestack, without groupoid fibres, terminal objects or fibre products. Preservation of zero and addition in each assembled abelian-group homomorphism is proved by cover separatedness and local homomorphism laws. The generic stack/descent carrier remains imported, never rebuilt.
+
+The old intrinsic-band gap is not removed: general Hom-gluing/sheafness is now discharged, but abelian-inertia evaluation surjectivity, the locally glued chosen-band inverse and the actual SF1 slice comparison remain unfinished. All eight stages, nine broader gaps and 21 supplier requests remain partial/not_read/open.
+
+### Sources, ownership and finding boundaries
+
+Freshly read the entire printed Stacks Lemma8.11.8 proof and Definition8.4.1; exact HTML hashes are the two new source records. This is the derived completion of the omitted varying-base argument, not a source quotation claiming that proof was printed. The pinned mapComp′, its naturality, Cat.Hom.toNatIso, categorical/type-valued sheaf definitions and epi cancellation were read before adding seven baseline entries. All 91 inherited baseline entries and all historical whole-paper receipts remain credited to their original readings.
+
+The current eight audit rows and accepted RS27 narrowing remain binding. The nine confirmed area finding claim/fix records were rechecked. Their existing handling is preserved: /1 imports spaces/sites/diagonals from SF1 and ordinary stacks/descent from D0; /2 retains the explicit approximation/G-ring/Popescu supplier rather than a backwards Artin cycle; /10 imports anchor descent classes; /11 imports the affine Weil-restriction cases; /12 imports relative Proj/Grassmannian anchors; /14 keeps the non-Noetherian/Tor-amplitude extension; /17 imports StableReductionPartII:key/moduli-curves; /18 and etale/25 import SchemeAndStackFoundations:key/coherent-duality. No new whole-paper, finite-regression or geometric-site fixture receipt is claimed.
+
+### Compilation receipt
+
+The full suggested file is uncompiled: its exact pinned TauCeti cohomology module has no existing compiled artifact. No new Lake project, library build or cache download was made. A single Lean process at a time ran in the existing build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Available memory was at least 64 GiB in these checks, above the 20-GiB threshold, and each invocation had a 20-minute timeout.
+
+The actual native proof block is archived at commit 7ce3625771acbf90d4fb6e6495cd30bc0d867e4c (suggested deliverable path only); the recipe combines it with the two native predecessor archives, avoiding the admitted cover proofs in the final file. The audited extraction has 922 lines, 17 examples and 17 new kernel audits: zero errors, two unused inherited admission warnings and no other warnings. Every new audit depends only on propext, Classical.choice and Quot.sound, never an admission. Its SHA-256 is c537788524541bf1ae88971f6b28f6c807e4cedc2258ce107fafb154e74068ec; normalized Lean-output SHA-256 2ed0ec3f217395efdbb33d242fe6f49f5080bad765ccd67ffee13fea37027bc4. RSS 3353912 KiB, elapsed 3.93 seconds.
+
+The final new signatures and six examples have admitted bodies as required by PROTOCOL §13; the routine pullbackArrow is a reducible indexing alias with actual data. The final Mathlib-only extraction has 1,131 lines and 42 examples: zero errors, 61 admission warnings and no other warnings. SHA-256 ee67893a7278573cee36d9ededbf3bce49ceb5406b0adb364644eb063e615580; normalized output SHA-256 40320048cd4a85c66815cefade444f46a7c7d1b34a6b671234516925ba6a32a0. RSS 3325820 KiB, elapsed 4.65 seconds. Neither extraction validates the inherited module/cohomology blocks or the full file. All implementationStatus values remain unchecked.
+
+### Immutable-source reconstruction
+
+Read the three commits into the existing shared clone with read-only fetches. The following recipe takes that clone and the submitted suggested text and returns two strings for own-scratch files. Use apply_patch to materialize those strings, then run one existing-build Lean process per file. It creates no repository snapshot and writes nothing to the shared tree. Strip only the own scratch-directory prefix and the resource-timing tail to reproduce the normalized output digests.
+
+```python
+"""Read immutable proof sources. Return strings for apply_patch; never edit the shared tree."""
+import subprocess
+from pathlib import Path
+def reconstruct(repo,submitted):
+    path="research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean"
+    def read(ref):return subprocess.check_output(["git","show",ref+":"+path],cwd=repo,text=True)
+    old=read("f0bb4f284aefaffe97578454ecf9a0588472103e")
+    prior=read("61239b522c3a1eb4f4bc646f6b144aaa0d2b3ae7")
+    new=read("7ce3625771acbf90d4fb6e6495cd30bc0d867e4c")
+    start="/-- R09.4/band-center-cover-naturality"
+    stop="/-- R09.4/band-center-sheaf: glue"
+    marker="namespace TauCeti.AlgebraicGeometry\n\nopen CategoryTheory Opposite Bicategory\n\nvariable {C"
+    def head(s):
+        imports="\n".join(l for l in s.splitlines() if l.startswith("import Mathlib"))
+        prefix=s[s.index("open CategoryTheory Opposite Bicategory"):s.index("variable {A : Sheaf")]
+        return imports+"\n"+prefix+"\nend TauCeti.AlgebraicGeometry\n"
+    def central(s):return s[s.index(marker,s.index("/-! Intrinsic-band continuation")):]
+    oldcentral=central(old)
+    nativehead=head(old)+oldcentral[:oldcentral.index(stop)]+prior[prior.index(start):prior.index(stop)]
+    firstmarker="/-! Arbitrary-base cover descent continuation, Codex codex-a71f92. -/\n"
+    secondmarker="/-! Unique gluing and prestack sheaf descent continuation. -/\n"
+    a=new[new.index(firstmarker)+len(firstmarker):new.index(stop)]
+    # Each insertion contributes one separator newline after the archived block.
+    a=a[:-1]
+    b=new[new.index(secondmarker)+len(secondmarker):new.index("variable [hGerbe : IsGerbe F J]")]
+    b=b[:-1]
+    local=new[new.index("/-- Specific descent of evaluations"):new.index(secondmarker)]
+    local=local.rstrip("\n")+"\n\n"
+    names=["center_map_comp","centerFamily_congr","coverCenterAt","coverCenterAt_map_hom","coverCenterAt_compatible","coverCenterAt_one","coverCenterAt_inv","coverCenterAt_of_mem","glue","glue_val","glue_restrict","glue_one","glue_inv","coverCenterAt_existing","glue_unique","glue_existing","isSheaf_of_prestack"]
+    native=nativehead+"\n\n"+a+"variable (J : GrothendieckTopology C)\n\n"+local+"\n"+b
+    native+="\n".join("#print axioms "+n for n in names)+"\nend IntrinsicBandSections\nend TauCeti.AlgebraicGeometry\n"
+    sketch=head(submitted)+central(submitted)
+    return native,sketch
+```
+
+### Current counts and resume
+
+155 nodes: 16 definitions, 36 constructions, 71 lemmas, 28 theorems and four comparisons. 183 total API items and 167 total tests; definition/construction totals 178 API items and 161 tests. Ten planets, 98 baseline declarations, nine gaps and 21 requests. Four coverage rows partial, four not_read. The gerbe reserved key is still partial.
+
+Next prove evaluation surjectivity for abelian-inertia gerbes by local object-isomorphism transport. Then construct the locally glued inverse to the chosen-band comparison and compare with the actual SF1 descended slice sheaf. Instantiate the specified connected/disconnected point sites, terminal-free restriction-chain site, and nonneutral O(1) root gerbes. Continue the source reading and supplier requests of all other branches before claiming stage or reserved-key closure.
+
+
+### Current atlas and preservation receipt
+
+Publication preflight uses immutable base 09bb3d03b8984582f3e9d686ffaf0fcd4568f9f6. The fourteen targeted instruction, audit, roadmap and deliverable inputs and all eight scoped library-audit rows are unchanged from the mathematical audit base. The reserved-id registry is also unchanged. Both the original 148-node packet and this 155-node candidate were overlaid into the actual assembler while retaining every other promoted part; an unpromoted checkpoint was not treated as an empty baseline.
+
+The indexed checker returns zero errors and zero warnings; actual intake and whitespace/private-path checks pass. The own declaration DAG has 155 vertices and 303 edges. The atlas stage DAG has 2966 listed stages and 8655 edges. Including all edge endpoints, all 158 reachable declarations (155 own and three existing suppliers), their parent-stage links, and all 21 request links gives 3165 vertices and 9180 edges. All three DAGs are acyclic. All 24 required stage paths are reachable: roadmap requires, explicit stage prerequisites and request suppliers are included. Own pending/skipped links are empty, other roadmap skips are unchanged, and no stage edge is added. The additional backwards dependency traversal, including baseline references, reaches 270 identifiers without a cycle.
+
+For the historical read-only projection recipe above, use this publication base and the current candidate, change the declaration increment to seven, the unchanged-node assertion to 147, and total own nodes to 155. Replace whole-baseline equality by equality of the first 91 inherited baseline declarations; the seven appended declarations are the new native suppliers. Use endpoint-complete vertex counts as in that recipe's dag function. All requests, source issues, reserved-key mappings and routed-item audits remain equal. These are current receipts, not the old 148-node receipt. The exact own scratch validator SHA256 is 6eb7572f757dd28c08bc3c52c7589c12468d48a3338fdca62f7f3e1d3bf928e9; it executes the immutable-tree checker/intake/assembler and writes no repository or atlas files. The immutable proof-source archive is an additional parent of the final PR commit, so the native reproducer's commit remains reachable.
