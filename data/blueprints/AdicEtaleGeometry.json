@@ -12798,22 +12798,20 @@
    "realises": [
     "AdicEtaleGeometry:A3"
    ],
-   "title": "Comparison of the Zariski closed immersions of A3 with ECD Definition 5.7 and Theorem 5.8 (PerfectoidQuotients Q4)",
+   "title": "The Zariski closed immersions of A3 are strongly Zariski closed (ECD Definition 5.7)",
    "kind": "comparison",
-   "statement": "Let (A, A⁺) be a perfectoid Tate pair of characteristic p, X = Spa(A, A⁺), Y = Spa(B, B⁺) affinoid perfectoid étale over X and b ∈ (B⁺)^N as in A3/affinoid-etale-zariski-closed-embedding. Let B^{N,perf}_X := Spa(A⟨T₁^{1/p^∞}, …, T_N^{1/p^∞}⟩, A⁺⟨T^{1/p^∞}⟩) be the perfectoid relative ball and g^perf: Y → B^{N,perf}_X the map T_i^{1/pⁿ} ↦ b_i^{1/pⁿ}. (a) g^perf is strongly Zariski closed in the sense of ECD Definition 5.7(ii): A⟨T^{1/p^∞}⟩ → B is surjective (its image contains the image of A⟨T⟩, which is B) and B⁺ is the integral closure of the image of A⁺⟨T^{1/p^∞}⟩; in particular g^perf is a Zariski closed immersion (ECD 5.7(i)). (b) Conversely, by ECD Theorem 5.8 (PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed), every Zariski closed immersion of an affinoid perfectoid space into an affinoid perfectoid space is strongly Zariski closed; this is the statement relating ECD's notion to Fargues–Scholze's Definition IV.4.20 on perfectoid targets. (c) Boundary: the proof of AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv does not use (b) — the closed immersions it needs are into the sousperfectoid ball B^N_X and are constructed as quotient mappings (A3/affinoid-etale-zariski-closed-embedding), and the transfer between characteristics is done on étale categories (A3/tilting-affinoid-etale-and-limits), not on Zariski closed immersions.",
+   "statement": "Let (A, A⁺) be a perfectoid Tate pair of characteristic p, X = Spa(A, A⁺), Y = Spa(B, B⁺) affinoid perfectoid étale over X and b ∈ (B⁺)^N as in A3/affinoid-etale-zariski-closed-embedding. Let B^{N,perf}_X := Spa(A⟨T₁^{1/p^∞}, …, T_N^{1/p^∞}⟩, A⁺⟨T^{1/p^∞}⟩) be the perfectoid relative ball and g^perf: Y → B^{N,perf}_X the map T_i^{1/pⁿ} ↦ b_i^{1/pⁿ}. (a) g^perf is strongly Zariski closed in the sense of ECD Definition 5.7(ii): A⟨T^{1/p^∞}⟩ → B is surjective (its image contains the image of A⟨T⟩, which is B) and B⁺ is the integral closure of the image of A⁺⟨T^{1/p^∞}⟩; in particular g^perf is a Zariski closed immersion (ECD 5.7(i)). (b) Boundary: the proof of AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv does not use ECD Theorem 5.8 (Zariski closed implies strongly Zariski closed), which PerfectoidQuotients Q4 owns — the closed immersions it needs are into the sousperfectoid ball B^N_X and are constructed as quotient mappings (A3/affinoid-etale-zariski-closed-embedding), and the transfer between characteristics is done on étale categories (A3/tilting-affinoid-etale-and-limits), not on Zariski closed immersions.",
    "hypotheses": [
-    "(A, A⁺) perfectoid of characteristic p for (a); (b) as in ECD Theorem 5.8"
+    "(A, A⁺) perfectoid of characteristic p"
    ],
    "proofSteps": [
-    "(a) A⟨T⟩ → A⟨T^{1/p^∞}⟩ → B: the composite is π_b, surjective; plus rings: int. closure of the image of A⁺⟨T^{1/p^∞}⟩ contains that of A⁺⟨T⟩ (= B⁺) and lies in B⁺ (b_i^{1/pⁿ} ∈ B⁺, B⁺ integrally closed and perfect). The perfectoid ball is affinoid perfectoid: in characteristic p, A⟨T^{1/p^∞}⟩ is the completed perfection of A⟨T⟩, the perfectoid frame used in AdicSpacesPartII:R5/sousperfectoid-rings.",
-    "(b) is the cited Q4 node (ECD 5.8)."
+    "(a) A⟨T⟩ → A⟨T^{1/p^∞}⟩ → B: the composite is π_b, surjective; plus rings: int. closure of the image of A⁺⟨T^{1/p^∞}⟩ contains that of A⁺⟨T⟩ (= B⁺) and lies in B⁺ (b_i^{1/pⁿ} ∈ B⁺, B⁺ integrally closed and perfect). The perfectoid ball is affinoid perfectoid: in characteristic p, A⟨T^{1/p^∞}⟩ is the completed perfection of A⟨T⟩, the perfectoid frame used in AdicSpacesPartII:R5/sousperfectoid-rings."
    ],
    "acceptance": [
     "Y = X(s/t): g^perf identifies Y with the Zariski closed subset V(t^{1/pⁿ}T^{1/pⁿ} − s^{1/pⁿ} : n) of the perfectoid ball, which is strongly Zariski closed."
    ],
    "prerequisites": [
     "AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding",
-    "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
     "AdicSpacesPartII:R5/sousperfectoid-rings",
     "PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras"
    ],
@@ -12826,11 +12824,6 @@
      "sourceId": "Scholze-EtaleCohomologyDiamonds",
      "locator": "§5, Definition 5.7(ii), p. 24",
      "match": "ECD's strongly Zariski closed immersions."
-    },
-    {
-     "sourceId": "Scholze-EtaleCohomologyDiamonds",
-     "locator": "§5, Theorem 5.8, p. 25",
-     "match": "ECD Theorem 5.8: Zariski closed implies strongly Zariski closed."
     }
    ],
    "implementationStatus": "unchecked"
@@ -15049,7 +15042,7 @@
    "stageId": "AdicEtaleGeometry:A3",
    "status": "source_decomposed",
    "remaining": [],
-   "note": "All five tasks of the stage text are realised by 41 nodes: task 1 (pseudocoherent modules and sheaves over sheafy Tate pairs: Kedlaya–Liu II §§1.1–1.2, 2.4–2.5, the required cases only), task 2 (closed embedding into a relative ball, ideal sheaf, conormal description, generation by N equations with unit Jacobian), task 3 (pseudocoherence of the ideal, affine quotient and plus-ring description, characteristic-p/perfectoid-base specialisations of FS IV.4.13, IV.4.15, IV.4.17, IV.4.19 by analytic algebra), task 4 (Newton lemma, tube theorem, perturbation with inverse comparison maps and plus rings), task 5 (finite-stage approximation of equations, inequalities and Jacobian inverse, identification and independence via P5). ECD Proposition 6.4(iv) is AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv; (o)–(iii) are PerfectoidSpaces P5 imports assembled in AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4. No diamond, ECD 11.30, ECD 15.6 or six-functor input is used. PerfectoidQuotients Q4 (ECD 5.8) is not needed by this route; its relation to the A3 closed immersions is recorded in A3/zariski-closed-immersion-ecd-comparison. The characteristic-free parts (tube theorem, perturbation, pseudocoherent gluing, closed embedding, presentation of affinoid étale perfectoid spaces) hold for perfectoid bases of any characteristic; characteristic p is used only for the Jacobian criterion (noetherian approximation via p-finite algebras). A3 also supplies nonnoetherian replacements for the preparatory points (1)–(3) of Huber's proof of 1.7.1 recorded as a gap on AdicSpacesPartII:R0/etale-local-structure (A3/restricted-power-series-newton, A3/perturbation-of-generators, A3/standard-presentation-perturbation); citing them from R0 would reverse the R0 → A3 stage edge. Open inputs, all recorded as requests or gaps (so the stage is source-decomposed, not closed): Requests (anchor carriers and ECD generality): tauceti AdicSpaces Layers 3–5 (structure presheaf, sheafy pairs, adic spaces and O_X-modules); PerfectoidSpaces:P3 and P2 in the generality of perfectoid Tate rings without base field (tilting of étale sites, finite étale preimages, fibre products). In characteristic p a perfectoid base field is constructed (A3/char-p-perfectoid-base-field), so only the tilting transfer to mixed characteristic needs the requested generality. Retained gaps: Fargues–Scholze IV.4.13–IV.4.19 beyond the étale perfectoid-base specialisations (diamond-dependent proofs, not imported); Kedlaya–Liu II Remark 2.4.3's import from [90] (unused); Kedlaya–Liu's acknowledged open points (flatness of rational localisations, Fitting ideals, the T − f argument). Inherited boundaries through cited supplier nodes: Huber 1996 Lemma 2.2.8 and the de Jong–van der Put inputs (AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation, R0/etale-affinoid-finite-etale-embedding) used by A3/jacobian-criterion-char-p; Scholze 2012 Lemma 6.13's BGR inputs (PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids); ECD 6.4(o)–(iii) and the cardinal bound (PerfectoidSpaces:P5)."
+   "note": "All five tasks of the stage text are realised by 41 nodes: task 1 (pseudocoherent modules and sheaves over sheafy Tate pairs: Kedlaya–Liu II §§1.1–1.2, 2.4–2.5, the required cases only), task 2 (closed embedding into a relative ball, ideal sheaf, conormal description, generation by N equations with unit Jacobian), task 3 (pseudocoherence of the ideal, affine quotient and plus-ring description, characteristic-p/perfectoid-base specialisations of FS IV.4.13, IV.4.15, IV.4.17, IV.4.19 by analytic algebra), task 4 (Newton lemma, tube theorem, perturbation with inverse comparison maps and plus rings), task 5 (finite-stage approximation of equations, inequalities and Jacobian inverse, identification and independence via P5). ECD Proposition 6.4(iv) is AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv; (o)–(iii) are PerfectoidSpaces P5 imports assembled in AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4. No diamond, ECD 11.30, ECD 15.6 or six-functor input is used. PerfectoidQuotients Q4 (ECD 5.8) is not needed by this route and is not imported; A3/zariski-closed-immersion-ecd-comparison shows that the A3 closed immersions are strongly Zariski closed directly (RT-AREA-padic-1/6). The characteristic-free parts (tube theorem, perturbation, pseudocoherent gluing, closed embedding, presentation of affinoid étale perfectoid spaces) hold for perfectoid bases of any characteristic; characteristic p is used only for the Jacobian criterion (noetherian approximation via p-finite algebras). A3 also supplies nonnoetherian replacements for the preparatory points (1)–(3) of Huber's proof of 1.7.1 recorded as a gap on AdicSpacesPartII:R0/etale-local-structure (A3/restricted-power-series-newton, A3/perturbation-of-generators, A3/standard-presentation-perturbation); citing them from R0 would reverse the R0 → A3 stage edge. Open inputs, all recorded as requests or gaps (so the stage is source-decomposed, not closed): Requests (anchor carriers and ECD generality): tauceti AdicSpaces Layers 3–5 (structure presheaf, sheafy pairs, adic spaces and O_X-modules); PerfectoidSpaces:P3 and P2 in the generality of perfectoid Tate rings without base field (tilting of étale sites, finite étale preimages, fibre products). In characteristic p a perfectoid base field is constructed (A3/char-p-perfectoid-base-field), so only the tilting transfer to mixed characteristic needs the requested generality. Retained gaps: Fargues–Scholze IV.4.13–IV.4.19 beyond the étale perfectoid-base specialisations (diamond-dependent proofs, not imported); Kedlaya–Liu II Remark 2.4.3's import from [90] (unused); Kedlaya–Liu's acknowledged open points (flatness of rational localisations, Fitting ideals, the T − f argument). Inherited boundaries through cited supplier nodes: Huber 1996 Lemma 2.2.8 and the de Jong–van der Put inputs (AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation, R0/etale-affinoid-finite-etale-embedding) used by A3/jacobian-criterion-char-p; Scholze 2012 Lemma 6.13's BGR inputs (PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids); ECD 6.4(o)–(iii) and the cardinal bound (PerfectoidSpaces:P5)."
   },
   {
    "stageId": "AdicEtaleGeometry:A4",
@@ -15686,775 +15679,783 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-AdicEtaleGeometry",
-  "date": "2026-09-28",
-  "notes": "Independent review by Claude Code (cc-fb70e5), completing the checkpoint review of 2026-09-26 (ChatGPT Pro, PR #2933), whose five findings F1–F5 were checked and applied. Sources: the 15 freely available sources were downloaded and every sha256 reproduced; each of the 501 excerpts from them was compared with the source text by five-word runs (498 match at ≥ 0.5, the other 3 were read), and the pages agree with the locators. The 35 citations to Huber 1996, Huber 1994 and the Stacks Project were not machine-checked; no node rests on them alone. Baseline: all 177 citations are in the pinned declaration index (check_blueprint --index: 0 errors, 0 warnings); the Tau Ceti statements the corrected nodes rely on were read at the pin. Statements and proof steps of all 153 nodes were read; A3 and A4 at the level of the arguments. Corrections (14 nodes): the checkpoint's F1 (inverse substitution), F2 (dilation witness), F3 (linear, not quadratic, convergence) and F5 (no Tor-independent base change in the conormal argument); three further errors found here, namely the tube theorem's hypothesis (integral Taylor coefficients; counterexample), the local-equations tube that relied on it, and natural-topology (d) with its use in the pro-projective lemma; a rank-locus gap in A1/finite-etale-strongly-sheafy; the E7 wording in two A1 nodes; and a grammatical slip in three statements. Source issues: E1–E6 and E8–E20 confirmed; E7 rejected (its argument assumes the closed disc over ℂ_p has no nontrivial finite étale covers; the checkpoint's F4); E21 added (a known misprint in Kedlaya–Liu I, Proposition 8.2.20). The packet's own gaps (Huber §1.8, the strict-localisation shrinking step, the pro-étale fibre conservativity step, the Banach-ring inputs of finite-étale approximation) remain recorded. No Lean was compiled (no pinned build on the shared machine).",
-  "checked": [
-   {
-    "nodeId": "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/uniformization-contract",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/definition-data-and-plus-ring-tracking",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/rational-pullback-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/finite-etale-pullback-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/fibre-product-affinoid-chart-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/fibre-product-associativity-and-unit",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A0/analytic-locus-restriction",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/strongly-sheafy-huber-pair",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-strongly-sheafy",
-    "verdict": "corrected",
-    "note": "Spreading-out step: U is also cut down to the open and closed locus where B has rank r, without which the surjection from the free module of rank r need not be an isomorphism on U."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-rational-descent",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/affinoid-system-approximation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-approximation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-morphism",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-local-to-global",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-morphism",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-base-change",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-composition",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-diagonal",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-cancellation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-open-map",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-site",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-site",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/geometric-point-etale-split",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-enough-points",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-galois-category",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/basis-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-covering-reduction",
-    "verdict": "verified",
-    "note": "Verified; the source's proof of Proposition 8.2.20 carries a known misprint (recorded as E21), which the node's argument already reads correctly."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-structure-sheaf",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/slice-site",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/strict-localisation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/strict-localisation-analytic",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-site-generalized",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-morphism",
-    "verdict": "corrected",
-    "note": "Statement grammar fixed ('Let X is' → 'Let X be')."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/finite-etale-tower-is-pro-etale",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/transfinite-tower-splitting",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/profinite-group-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-base-change",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-etale-composition",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-quasicompact-opens",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-maps-open",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-surjective-etale-descent",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-composition",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-locally-finitely-many-components",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-finite-limits",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-over-tower-swap",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/corrected-covers-pretopology",
-    "verdict": "corrected",
-    "note": "Hypothesis reworded: the X_ét steps make (d) immediate; E7's claim that X_fét steps would not suffice is rejected."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
-    "verdict": "corrected",
-    "note": "Statement grammar fixed ('Let X is' → 'Let X be'); the hypothesis on the reading of the erratum no longer says the countable case would otherwise change, since that argument (E7) is rejected."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-projection-nu",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/nu-pullback-sections-qcqs",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/profinite-g-sets-site",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/open-surjection-profinite-structure",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/free-g-profinite-sections-exact",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/pro-finite-etale-site-corrected",
-    "verdict": "corrected",
-    "note": "Statement grammar fixed ('Let X is' → 'Let X be')."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/profinite-etale-galois-sets",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-profinite-etale-morphism-of-sites",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-coherence",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-quasicompactness-detection",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-fibre-morphism-of-topoi",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-fibre-conservativity",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-topos-enough-points",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-slice",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/etale-descent-along-algebraic-extension",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/proetale-field-extension-slice",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/profinite-set-objects",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/profinite-galois-cover-is-covering",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/huber-pair-rational-site",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/generalized-adic-presentation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-open-immersions",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/maps-from-adic-spaces-to-yoneda-affinoids",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/adic-spaces-in-yoneda-adic-spaces",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-analytic-tate-local",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-fibre-products",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/relative-closed-polydisc",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/relative-torus",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/smooth-morphism-ball-charts",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/smooth-local-ball-charts",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/relative-toric-charts",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/dimension-of-adic-spaces",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/relative-dimension-rank-one-fibres",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/smooth-pure-relative-dimension",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/weakly-finite-type-finite-dimension",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/analytification-relative-polydisc-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/smooth-etale-site-compatibility",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A2/formal-generic-fibre-analytic-locus",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-module",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-two-out-of-three",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/koszul-regular-sequence-fpd",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/natural-topology-strict-exactness",
-    "verdict": "corrected",
-    "note": "(d) corrected: Kedlaya–Liu II Cor. 1.2.11 needs the closure N̂ to be finitely generated, not N (counterexample: the ideal x·C(ℤ_p, ℚ_p) is not closed); acceptance test added; Lean `finite_submodule_isClosed` hypothesis corrected accordingly."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/stably-pseudocoherent-module",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudoflat-module",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/restricted-power-series-pro-projective",
-    "verdict": "corrected",
-    "note": "(b) cited the false form of natural-topology (d) for surjectivity of N ⊗ B → N ⊗̂ B; replaced by strictness of Aᵏ → N and Kedlaya–Liu II Remark 1.2.3, as in the source's proof."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/simple-laurent-strict-multiplication",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/simple-laurent-pseudoflat",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/rational-inclusion-reduction",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/rational-localisation-pseudoflat",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-tate-acyclicity",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/fpd-local-to-global",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-sheaf",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/simple-laurent-pseudocoherent-descent",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-kiehl-gluing",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/restricted-power-series-newton",
-    "verdict": "corrected",
-    "note": "Checkpoint F3: the frozen-Jacobian iteration converges linearly, not quadratically; proof step rewritten with the linear bound, which suffices, and a regression test added (ℚ₃, T² − 4)."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/perturbation-of-generators",
-    "verdict": "corrected",
-    "note": "Checkpoint F1–F2: (c) now uses the inverse substitutes θ_ε^{−1}(Fᵢ) = Fᵢ(X + ε′), with the Jacobian identity for ε′; the dilation witness is replaced by Σ ϖᵐXᵐ; transport-direction test (ℚ₃, X ↦ X + 3) added."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/standard-etale-presentation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/standard-presentation-basic-pieces",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/tubular-neighbourhood",
-    "verdict": "corrected",
-    "note": "Hypothesis corrected from e ∈ O⁺(R)^N to e ∈ A⁺⟨T⟩^N: the Newton step needs integral Taylor coefficients, and for e = (T/p)² on R = {|T| ≤ |p|} (k = 0, m = 2) the tube is nonempty while C = 0; counterexample added as a test. All consumers satisfy the corrected hypothesis (the Lean core already did)."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/standard-presentation-perturbation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/standard-etale-locus-sousperfectoid",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/fs-iv-4-13-regular-sequence",
-    "verdict": "corrected",
-    "note": "Situation restated with e ∈ A⁺⟨T⟩^N, following A3/tubular-neighbourhood."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/char-p-perfectoid-base-field",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/jacobian-criterion-char-p",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/integral-cutoff-graph-presentation",
-    "verdict": "corrected",
-    "note": "Transported presentation corrected to θ_ε^{−1}(F) (F1 downstream); the graph tube is taken over the base O(R'') so that its equations are integral power series; T − G(v) rescaled into A⁺⟨T, v⟩."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/fs-iv-4-19-zariski-closed-char-p",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/etale-standard-piece-cover",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/integral-approximation-of-generators",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/conormal-description",
-    "verdict": "corrected",
-    "note": "Checkpoint F5: the global step no longer invokes Tor-independent base change; finite generation of I/I² comes from right exactness, δ splits, and its kernel vanishes locally via the Kiehl identification I(V'_β) = I ⊗ O(V'_β) and Nakayama; prerequisite A3/pseudocoherent-kiehl-gluing added, A3/fpd-local-to-global no longer needed; test added."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/local-equations-near-closed-subspace",
-    "verdict": "corrected",
-    "note": "Restricted to V' = B^N_X, the only case used (A3/global-standard-etale-presentation): the equations e ∈ A⟨T⟩ are rescaled to ϖᵃe ∈ A⁺⟨T⟩ and W₀ is a tube with exponent k = aN; the printed k = 0 tube in a general rational V' relied on the false generality of the tube theorem."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/global-standard-etale-presentation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/tilting-affinoid-etale-and-limits",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/cofiltered-limit-presentation-approximation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/finite-stage-approximation-char-p",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/independence-of-presentations",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A3/zariski-closed-immersion-ecd-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-split-ring",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-galois-torsor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/henselian-pairs-filtered-colimit",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-algebras-filtered-colimit",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/splitting-torsor-of-finite-etale-algebra",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-torsor-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/uniform-completion-etale-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/completed-tower-pair",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-invariance-along-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/finite-etale-effective-descent-along-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/root-of-monic-in-split-tate-ring",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/pseudouniformizer-dividing-p",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/frobenius-surjective-for-split-tate-ring",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/split-tate-ring-is-perfectoid",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/perfectoid-uniform-completion",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/torsor-spa-orbits",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/spa-of-completed-tower",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/completed-tower-self-product",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/perfectoid-cover-presentation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   }
-  ]
- }
+  "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
+  "date": "2026-10-02",
+  "notes": "Follows independent-review-REV-AdicEtaleGeometry. Scoped independent review of Claude Code cc-c2c06b FIX #5150/PR5269: /6 correctly removes the Q4 premise, converse statement and ECD 5.8 citation from A3; the retained characteristic-p strongly-closed comparison needs only its explicit quotient mapping. Fresh ECD 6.4(iv) and 5.7/5.8 reading confirms the tilting/pseudocoherent route, not a prismatic-perfectoidization import. No Q4 prerequisite remains. Historical full review archived verbatim; its remaining source gaps persist. Atlas edge/requires installation remains a maintainer action, and the live graph is not represented as already fixed. This is a review of the scoped changes, not a new audit of all 153 nodes or 177 baseline citations. No Lean compilation."
+ },
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-AdicEtaleGeometry",
+   "date": "2026-09-28",
+   "notes": "Independent review by Claude Code (cc-fb70e5), completing the checkpoint review of 2026-09-26 (ChatGPT Pro, PR #2933), whose five findings F1–F5 were checked and applied. Sources: the 15 freely available sources were downloaded and every sha256 reproduced; each of the 501 excerpts from them was compared with the source text by five-word runs (498 match at ≥ 0.5, the other 3 were read), and the pages agree with the locators. The 35 citations to Huber 1996, Huber 1994 and the Stacks Project were not machine-checked; no node rests on them alone. Baseline: all 177 citations are in the pinned declaration index (check_blueprint --index: 0 errors, 0 warnings); the Tau Ceti statements the corrected nodes rely on were read at the pin. Statements and proof steps of all 153 nodes were read; A3 and A4 at the level of the arguments. Corrections (14 nodes): the checkpoint's F1 (inverse substitution), F2 (dilation witness), F3 (linear, not quadratic, convergence) and F5 (no Tor-independent base change in the conormal argument); three further errors found here, namely the tube theorem's hypothesis (integral Taylor coefficients; counterexample), the local-equations tube that relied on it, and natural-topology (d) with its use in the pro-projective lemma; a rank-locus gap in A1/finite-etale-strongly-sheafy; the E7 wording in two A1 nodes; and a grammatical slip in three statements. Source issues: E1–E6 and E8–E20 confirmed; E7 rejected (its argument assumes the closed disc over ℂ_p has no nontrivial finite étale covers; the checkpoint's F4); E21 added (a known misprint in Kedlaya–Liu I, Proposition 8.2.20). The packet's own gaps (Huber §1.8, the strict-localisation shrinking step, the pro-étale fibre conservativity step, the Banach-ring inputs of finite-étale approximation) remain recorded. No Lean was compiled (no pinned build on the shared machine).",
+   "checked": [
+    {
+     "nodeId": "AdicEtaleGeometry:A0/supplier-contract-fibre-products",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/uniformization-contract",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/definition-data-and-plus-ring-tracking",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/rational-pullback-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/finite-etale-pullback-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/fibre-product-affinoid-chart-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/fibre-product-associativity-and-unit",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A0/analytic-locus-restriction",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/strongly-sheafy-huber-pair",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-affinoid-algebra",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-strongly-sheafy",
+     "verdict": "corrected",
+     "note": "Spreading-out step: U is also cut down to the open and closed locus where B has rank r, without which the surjection from the free module of rank r need not be an isomorphism on U."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-rational-descent",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/affinoid-system-approximation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-approximation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-morphism",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-local-to-global",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-morphism",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-base-change",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-composition",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-diagonal",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-cancellation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-open-map",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-site",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-site",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/geometric-point-etale-split",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-site-and-geometric-points",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-enough-points",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-galois-category",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/basis-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-covering-reduction",
+     "verdict": "verified",
+     "note": "Verified; the source's proof of Proposition 8.2.20 carries a known misprint (recorded as E21), which the node's argument already reads correctly."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-structure-sheaf",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/slice-site",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/strict-localisation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/strict-localisation-analytic",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-site-generalized",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-morphism",
+     "verdict": "corrected",
+     "note": "Statement grammar fixed ('Let X is' → 'Let X be')."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/finite-etale-tower-is-pro-etale",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/transfinite-tower-splitting",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/profinite-group-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-base-change",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-etale-composition",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-quasicompact-opens",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-maps-open",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-surjective-etale-descent",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-composition",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-locally-finitely-many-components",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-finite-limits",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-over-tower-swap",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/corrected-covers-pretopology",
+     "verdict": "corrected",
+     "note": "Hypothesis reworded: the X_ét steps make (d) immediate; E7's claim that X_fét steps would not suffice is rejected."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-etale-site-corrected",
+     "verdict": "corrected",
+     "note": "Statement grammar fixed ('Let X is' → 'Let X be'); the hypothesis on the reading of the erratum no longer says the countable case would otherwise change, since that argument (E7) is rejected."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-projection-nu",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/nu-pullback-sections-qcqs",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/profinite-g-sets-site",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/open-surjection-profinite-structure",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/free-g-profinite-sections-exact",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/pro-finite-etale-site-corrected",
+     "verdict": "corrected",
+     "note": "Statement grammar fixed ('Let X is' → 'Let X be')."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/profinite-etale-galois-sets",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-profinite-etale-morphism-of-sites",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-coherence",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-quasicompactness-detection",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-fibre-morphism-of-topoi",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-fibre-conservativity",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-topos-enough-points",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-slice",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/etale-descent-along-algebraic-extension",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/proetale-field-extension-slice",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/profinite-set-objects",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/profinite-galois-cover-is-covering",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/huber-pair-rational-site",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/generalized-adic-presentation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-open-immersions",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/maps-from-adic-spaces-to-yoneda-affinoids",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/adic-spaces-in-yoneda-adic-spaces",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-analytic-tate-local",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A1/yoneda-adic-fibre-products",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/relative-closed-polydisc",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/relative-torus",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/smooth-morphism-ball-charts",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/smooth-local-ball-charts",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/relative-toric-charts",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/dimension-of-adic-spaces",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/relative-dimension-rank-one-fibres",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/smooth-pure-relative-dimension",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/weakly-finite-type-finite-dimension",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/analytification-relative-polydisc-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/smooth-etale-site-compatibility",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A2/formal-generic-fibre-analytic-locus",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-module",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-two-out-of-three",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/koszul-regular-sequence-fpd",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/natural-topology-strict-exactness",
+     "verdict": "corrected",
+     "note": "(d) corrected: Kedlaya–Liu II Cor. 1.2.11 needs the closure N̂ to be finitely generated, not N (counterexample: the ideal x·C(ℤ_p, ℚ_p) is not closed); acceptance test added; Lean `finite_submodule_isClosed` hypothesis corrected accordingly."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/stably-pseudocoherent-module",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudoflat-module",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/restricted-power-series-pro-projective",
+     "verdict": "corrected",
+     "note": "(b) cited the false form of natural-topology (d) for surjectivity of N ⊗ B → N ⊗̂ B; replaced by strictness of Aᵏ → N and Kedlaya–Liu II Remark 1.2.3, as in the source's proof."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/simple-laurent-strict-multiplication",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/simple-laurent-pseudoflat",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/rational-inclusion-reduction",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/rational-localisation-pseudoflat",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-tate-acyclicity",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/fpd-local-to-global",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-sheaf",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/simple-laurent-pseudocoherent-descent",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/pseudocoherent-kiehl-gluing",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/restricted-power-series-newton",
+     "verdict": "corrected",
+     "note": "Checkpoint F3: the frozen-Jacobian iteration converges linearly, not quadratically; proof step rewritten with the linear bound, which suffices, and a regression test added (ℚ₃, T² − 4)."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/perturbation-of-generators",
+     "verdict": "corrected",
+     "note": "Checkpoint F1–F2: (c) now uses the inverse substitutes θ_ε^{−1}(Fᵢ) = Fᵢ(X + ε′), with the Jacobian identity for ε′; the dilation witness is replaced by Σ ϖᵐXᵐ; transport-direction test (ℚ₃, X ↦ X + 3) added."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/standard-etale-presentation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/standard-presentation-basic-pieces",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/tubular-neighbourhood",
+     "verdict": "corrected",
+     "note": "Hypothesis corrected from e ∈ O⁺(R)^N to e ∈ A⁺⟨T⟩^N: the Newton step needs integral Taylor coefficients, and for e = (T/p)² on R = {|T| ≤ |p|} (k = 0, m = 2) the tube is nonempty while C = 0; counterexample added as a test. All consumers satisfy the corrected hypothesis (the Lean core already did)."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/standard-presentation-perturbation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/standard-etale-locus-sousperfectoid",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/fs-iv-4-13-regular-sequence",
+     "verdict": "corrected",
+     "note": "Situation restated with e ∈ A⁺⟨T⟩^N, following A3/tubular-neighbourhood."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/char-p-perfectoid-base-field",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/jacobian-criterion-char-p",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/integral-cutoff-graph-presentation",
+     "verdict": "corrected",
+     "note": "Transported presentation corrected to θ_ε^{−1}(F) (F1 downstream); the graph tube is taken over the base O(R'') so that its equations are integral power series; T − G(v) rescaled into A⁺⟨T, v⟩."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/fs-iv-4-19-zariski-closed-char-p",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/etale-standard-piece-cover",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/integral-approximation-of-generators",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/conormal-description",
+     "verdict": "corrected",
+     "note": "Checkpoint F5: the global step no longer invokes Tor-independent base change; finite generation of I/I² comes from right exactness, δ splits, and its kernel vanishes locally via the Kiehl identification I(V'_β) = I ⊗ O(V'_β) and Nakayama; prerequisite A3/pseudocoherent-kiehl-gluing added, A3/fpd-local-to-global no longer needed; test added."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/local-equations-near-closed-subspace",
+     "verdict": "corrected",
+     "note": "Restricted to V' = B^N_X, the only case used (A3/global-standard-etale-presentation): the equations e ∈ A⟨T⟩ are rescaled to ϖᵃe ∈ A⁺⟨T⟩ and W₀ is a tube with exponent k = aN; the printed k = 0 tube in a general rational V' relied on the false generality of the tube theorem."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/global-standard-etale-presentation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/tilting-affinoid-etale-and-limits",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/cofiltered-limit-presentation-approximation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/finite-stage-approximation-char-p",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/independence-of-presentations",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A3/zariski-closed-immersion-ecd-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-split-ring",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-galois-torsor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/henselian-pairs-filtered-colimit",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-algebras-filtered-colimit",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/splitting-torsor-of-finite-etale-algebra",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-torsor-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/uniform-completion-etale-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/completed-tower-pair",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-invariance-along-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/finite-etale-effective-descent-along-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/root-of-monic-in-split-tate-ring",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/pseudouniformizer-dividing-p",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/frobenius-surjective-for-split-tate-ring",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/split-tate-ring-is-perfectoid",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/perfectoid-uniform-completion",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/torsor-spa-orbits",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/spa-of-completed-tower",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/completed-tower-self-product",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/perfectoid-cover-presentation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    },
+    {
+     "nodeId": "AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
+    }
+   ]
+  }
+ ]
 }
