@@ -14,15 +14,12 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 StableReductionPartII.md is definitive. These suggested Lean forms help
 contributors and reviewers converge on names and signatures.
 
-CHECKPOINT: the explicit ring and matrix interfaces below are supplemented by
-native polynomial-quotient/module candidates in NodeSectionFactorization.PolynomialModel.
-Those candidates still need integration into the packet's prototypeCoverage and
-baseline ledgers; they are not counted as completed canonical exports. See the
-2026-10-02 continuations in handoff/DESIGN-StableReductionPartII.md for the full
-proofs, source/pin receipts, counterexamples and exact remaining integration work.
-This file was not compiled: no existing built Lake environment at both pinned
-commits was available. No project or cache was created. Comments are omissions,
-not declarations or proofs.
+CHECKPOINT: the polynomial node ring, its actual ideal and dual, the two
+cokernel maps and arbitrary coefficient tensor comparisons now have canonical
+packet entries and prototype ledgers. The complete file is checked using an
+existing pinned Mathlib build, with admitted proof bodies as its only warnings.
+Elaboration does not certify those proofs or provide geometric supplier types.
+See handoff/DESIGN-StableReductionPartII.md for hashes and precise boundaries.
 
 The algebraic-stack, pointed-family, invertible-sheaf and relative-Picard
 interfaces must come from the suppliers before those signatures can be written.
@@ -122,35 +119,60 @@ example : ¬ NodeForm.Nondegenerate (0 : ℤ) 0 := by
   sorry
 
 /-
-Candidate signatures for the local polynomial-model proof in MC.2.
+Canonical signatures for the local polynomial-model proof in MC.2.
 The polynomial and its quotient are native Mathlib objects, not opaque carriers.
-These candidates are not yet counted in the packet's prototypeCoverage ledger.
+These signatures are counted in the packet's polynomial-model prototype ledger.
 -/
 namespace PolynomialModel
+
+noncomputable section
 
 open Polynomial
 
 variable (A : Type*) [CommRing A] (γ δ s t : A)
 
 -- The inner variable is Y and the outer variable is X.
-local notation "w₀" =>
-  ((Polynomial.X : Polynomial (Polynomial A)) ^ 2 +
+def polynomial : Polynomial (Polynomial A) :=
+  Polynomial.X ^ 2 +
     Polynomial.C (Polynomial.C γ * Polynomial.X) * Polynomial.X +
     Polynomial.C (Polynomial.C δ * Polynomial.X ^ 2 -
-      Polynomial.C (NodeForm γ δ s t)))
-local notation "R₀" => AdjoinRoot w₀
-local notation "ι₀" =>
-  ((AdjoinRoot.of w₀).comp (Polynomial.C : A →+* Polynomial A))
+      Polynomial.C (NodeForm γ δ s t))
+
+abbrev Ring := AdjoinRoot (polynomial A γ δ s t)
+
+def coefficientHom : A →+* Ring A γ δ s t :=
+  RingHom.comp (AdjoinRoot.of (polynomial A γ δ s t)) Polynomial.C
+
+local notation "w₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
 local notation "u₀" => AdjoinRoot.root w₀
 local notation "v₀" => AdjoinRoot.of w₀ (Polynomial.X : Polynomial A)
 local notation "α₀" => left (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
 local notation "β₀" => right (ι₀ γ) (ι₀ δ) u₀ v₀ (ι₀ s) (ι₀ t)
 local notation "J₀" => (Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t} : Ideal R₀)
 
+def sectionEval : R₀ →+* A :=
+  AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+
+def sectionIdeal : Ideal R₀ :=
+  Ideal.span {u₀ - ι₀ s, v₀ - ι₀ t}
+
+abbrev sectionDual := sectionIdeal A γ δ s t →ₗ[R₀] R₀
+
+def coefficientMap {A' : Type*} [CommRing A'] (f : A →+* A') :
+    R₀ →+* Ring A' (f γ) (f δ) (f s) (f t) :=
+  AdjoinRoot.map (Polynomial.mapRingHom f) w₀
+    (polynomial A' (f γ) (f δ) (f s) (f t)) (by sorry)
+
 /-- Monic division gives a unique pair of coefficient polynomials over any base ring. -/
 theorem normalForm (r : R₀) :
     ∃! p : Polynomial A × Polynomial A,
       r = AdjoinRoot.of w₀ p.1 + u₀ * AdjoinRoot.of w₀ p.2 := by
+  sorry
+
+/-- The normal-form monomials give freeness over both coefficient rings. -/
+theorem normalFormFree : Module.Free (Polynomial A) R₀ ∧ Module.Free A R₀ := by
   sorry
 
 /-- The section's Y-coordinate difference is regular; the base need not be a domain. -/
@@ -161,14 +183,14 @@ theorem sectionCoordinateRegular :
 /-- Candidate for the exactness part of
 `StableReductionPartII:MC.2/node-factorization-exact`.
 
-The four equalities explicitly include the dual complex. The source-bound
-hypotheses are retained even though monic lift-and-cancel proves these
-particular equalities over every commutative base ring. -/
-theorem quotientExact [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
-    LinearMap.ker α₀.mulVecLin = LinearMap.range β₀.mulVecLin ∧
-    LinearMap.ker β₀.mulVecLin = LinearMap.range α₀.mulVecLin ∧
-    LinearMap.ker α₀.transpose.mulVecLin = LinearMap.range β₀.transpose.mulVecLin ∧
-    LinearMap.ker β₀.transpose.mulVecLin = LinearMap.range α₀.transpose.mulVecLin := by
+The four equalities explicitly include the dual complex. Monic lift-and-cancel
+proves these particular equalities over every commutative base ring; this is
+a documented strengthening of the published source range. -/
+theorem quotientExact :
+    LinearMap.ker (Matrix.mulVecLin α₀) = LinearMap.range (Matrix.mulVecLin β₀) ∧
+    LinearMap.ker (Matrix.mulVecLin β₀) = LinearMap.range (Matrix.mulVecLin α₀) ∧
+    LinearMap.ker (Matrix.mulVecLin (Matrix.transpose α₀)) = LinearMap.range (Matrix.mulVecLin (Matrix.transpose β₀)) ∧
+    LinearMap.ker (Matrix.mulVecLin (Matrix.transpose β₀)) = LinearMap.range (Matrix.mulVecLin (Matrix.transpose α₀)) := by
   sorry
 
 /-- Candidate for `NodeSectionFactorization.cokernels`.
@@ -178,9 +200,9 @@ LEFT matrix is its actual R-linear dual. The displayed formulas fix the maps,
 not merely the abstract isomorphism classes. Multiplication by `v₀ - ι₀ t`
 avoids division in the statement of the dual map; `sectionCoordinateRegular`
 makes that characterization unambiguous. -/
-theorem cokernels [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
-    ∃ (eJ : ((Fin 2 → R₀) ⧸ LinearMap.range β₀.mulVecLin) ≃ₗ[R₀] J₀)
-      (eD : ((Fin 2 → R₀) ⧸ LinearMap.range α₀.mulVecLin) ≃ₗ[R₀]
+theorem cokernels :
+    ∃ (eJ : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀)
+      (eD : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin α₀)) ≃ₗ[R₀]
         (J₀ →ₗ[R₀] R₀)),
       (∀ z : Fin 2 → R₀,
         (eJ (Submodule.Quotient.mk z) : R₀) =
@@ -193,9 +215,8 @@ theorem cokernels [IsNoetherianRing A] (hΔ : NodeForm.Nondegenerate γ δ) :
 
 /-!
 Local dual-quotient continuation for MC.2/dual-section-ideal. The polynomial
-model remains the actual AdjoinRoot above. These are candidate local forms,
-not the global sheaf theorem and not additions to the packet's canonical
-prototype counts. No Noetherian or discriminant hypothesis is needed for
+model remains the actual AdjoinRoot above. These canonical local forms
+are recorded in the packet; they do not give the global sheaf theorem. No Noetherian or discriminant hypothesis is needed for
 these algebraic statements; the handoff gives the monic-polynomial proof.
 No completed-local or arbitrary-family descent is inferred from them.
 -/
@@ -232,7 +253,7 @@ R→A. The kernel is the image of multiplication, not an unidentified submodule.
 theorem dualResidue (ε : D₀)
     (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
     let ev : R₀ →+* A :=
-      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+      sectionEval A γ δ s t
     ∃ ρ : D₀ →ₗ[A] A,
       Function.Surjective ρ ∧ ρ ε = 1 ∧
       (∀ (r : R₀) (h : D₀), ρ (r • h) = ev r * ρ h) ∧
@@ -244,7 +265,7 @@ Its twisted product law is forced by regularity of d; no localization type
 or chosen inverse of d is needed in the statement. -/
 theorem dualScalarCorrection :
     let ev : R₀ →+* A :=
-      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+      sectionEval A γ δ s t
     ∃ K : R₀ →ₗ[A] R₀,
       (∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (ev r))) ∧
       (∀ r z : R₀, K (r * z) = r * K z + ι₀ (ev z) * K r) ∧
@@ -265,7 +286,7 @@ The native signature records an A'-linear equivalence; the formula identifies
 it with the natural comparison, not an unrelated isomorphism of modules. -/
 theorem sectionDual_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
     letI : Algebra A A' := f.toAlgebra
-    let w' := w₀.map (Polynomial.mapRingHom f)
+    let w' := Polynomial.map (Polynomial.mapRingHom f) w₀
     let R' := AdjoinRoot w'
     let ι' : A' →+* R' :=
       (AdjoinRoot.of w').comp (Polynomial.C : A' →+* Polynomial A')
@@ -278,10 +299,262 @@ theorem sectionDual_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
         e (a' ⊗ₜ[A] h) ⟨φ (j : R₀), by sorry⟩ = ι' a' * φ (h j) := by
   sorry
 
+
+-- StableReductionPartII:MC.2/polynomial-relation-regular
+theorem polynomialRelationRegular :
+    Function.Injective (fun p : Polynomial (Polynomial A) => w₀ * p) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-evaluation-kernel
+theorem sectionEvaluationKernel (r : R₀) :
+    (sectionEval A γ δ s t r = 0 ↔ r ∈ J₀) ∧
+      (∀ z : A, sectionEval A γ δ s t (ι₀ z) = z) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-ideal-cokernel
+theorem cokernelIdeal :
+    ∃ e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀,
+      ∀ z : Fin 2 → R₀, (e (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1 := by
+  sorry
+
+theorem cokernelIdealGenerators
+    (e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀)
+    (he : ∀ z : Fin 2 → R₀, (e (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1) :
+    (e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) : R₀) = c₀ ∧
+    (e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) : R₀) = -d₀ := by
+  sorry
+
+theorem cokernelIdealUnique
+    (e f : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀)
+    (he : ∀ z : Fin 2 → R₀, (e (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1)
+    (hf : ∀ z : Fin 2 → R₀, (f (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1) : e = f := by
+  sorry
+
+theorem dualGeneratorValues (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    ε ⟨c₀, by sorry⟩ = -a₀ ∧ ε ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = b₀ := by
+  sorry
+
+theorem dualGeneratorUnique (ε η : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀))
+    (hη : ∀ j : J₀, d₀ * η j = b₀ * (j : R₀)) : ε = η := by
+  sorry
+
+theorem dualNormalEquivInclusion (ε : D₀)
+    (e : D₀ ≃ₗ[A] (R₀ × A))
+    (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j) :
+    ∀ h : D₀, (∀ j : J₀, h j = (j : R₀)) → e h = (1, 0) := by
+  sorry
+
+theorem dualNormalEquivGenerator (ε : D₀)
+    (e : D₀ ≃ₗ[A] (R₀ × A))
+    (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j) :
+    e ε = (0, 1) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-cokernel
+theorem cokernelDual :
+    ∃ e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin α₀)) ≃ₗ[R₀] D₀,
+      ∀ (z : Fin 2 → R₀) (j : J₀),
+        d₀ * e (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀) := by
+  sorry
+
+theorem cokernelDualGenerators (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀))
+    (e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin α₀)) ≃ₗ[R₀] D₀)
+    (he : ∀ (z : Fin 2 → R₀) (j : J₀),
+      d₀ * e (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀)) :
+    (∀ j : J₀, e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) j = (j : R₀)) ∧
+    e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) = -ε := by
+  sorry
+
+theorem cokernelDualUnique
+    (e f : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin α₀)) ≃ₗ[R₀] D₀)
+    (he : ∀ (z : Fin 2 → R₀) (j : J₀),
+      d₀ * e (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀))
+    (hf : ∀ (z : Fin 2 → R₀) (j : J₀),
+      d₀ * f (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀)) : e = f := by
+  sorry
+
+theorem dualResidueGenerator (ε : D₀) (e : D₀ ≃ₗ[A] (R₀ × A))
+    (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j) :
+    (e ε).2 = 1 := by
+  sorry
+
+theorem dualResidueInclusion (ρ : D₀ →ₗ[A] A)
+    (hker : ∀ h : D₀, ρ h = 0 ↔ ∃ r : R₀, ∀ j : J₀, h j = r * (j : R₀))
+    (r : R₀) (h : D₀) (hh : ∀ j : J₀, h j = r * (j : R₀)) : ρ h = 0 := by
+  sorry
+
+theorem dualScalarCorrectionConstants (K : R₀ →ₗ[A] R₀)
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (z : A) : K (ι₀ z) = 0 := by
+  sorry
+
+theorem dualScalarCorrectionUnique (K L : R₀ →ₗ[A] R₀)
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (hL : ∀ r : R₀, d₀ * L r = b₀ * (r - ι₀ (sectionEval A γ δ s t r))) : K = L := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-scalar-action
+theorem dualScalarAction (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (K : R₀ →ₗ[A] R₀)
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (e : D₀ ≃ₗ[A] (R₀ × A))
+    (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j)
+    (z : R₀) (h : D₀) :
+    e (z • h) = (z * (e h).1 + ι₀ (e h).2 * K z, sectionEval A γ δ s t z * (e h).2) := by
+  sorry
+
+theorem coefficientMapValues {A' : Type*} [CommRing A'] (f : A →+* A') (z : A) :
+    coefficientMap A γ δ s t f u₀ = AdjoinRoot.root (polynomial A' (f γ) (f δ) (f s) (f t)) ∧
+    coefficientMap A γ δ s t f v₀ = AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X ∧
+    coefficientMap A γ δ s t f (ι₀ z) = coefficientHom A' (f γ) (f δ) (f s) (f t) (f z) := by
+  sorry
+
+theorem coefficientMapIdentity : coefficientMap A γ δ s t (RingHom.id A) = RingHom.id R₀ := by
+  sorry
+
+theorem coefficientMapComposition {A' A'' : Type*} [CommRing A'] [CommRing A'']
+    (f : A →+* A') (g : A' →+* A'') :
+    (coefficientMap A' (f γ) (f δ) (f s) (f t) g).comp (coefficientMap A γ δ s t f) =
+      coefficientMap A γ δ s t (g.comp f) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-ring-base-change
+theorem sectionRing_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    let B' := Ring A' (f γ) (f δ) (f s) (f t)
+    ∃ e : (A' ⊗[A] R₀) ≃ₗ[A'] B', ∀ (a' : A') (r : R₀),
+      e (a' ⊗ₜ[A] r) = coefficientHom A' (f γ) (f δ) (f s) (f t) a' *
+        coefficientMap A γ δ s t f r := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-ideal-base-change
+theorem sectionIdeal_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    let J' := sectionIdeal A' (f γ) (f δ) (f s) (f t)
+    ∃ e : (A' ⊗[A] J₀) ≃ₗ[A'] J', ∀ (a' : A') (j : J₀),
+      (e (a' ⊗ₜ[A] j) : Ring A' (f γ) (f δ) (f s) (f t)) =
+        coefficientHom A' (f γ) (f δ) (f s) (f t) a' * coefficientMap A γ δ s t f (j : R₀) := by
+  sorry
+
+
+-- NodeSectionFactorization.PolynomialModel.modelRelation
+example : NodeForm (ι₀ γ) (ι₀ δ) u₀ v₀ = ι₀ (NodeForm γ δ s t) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.modelZero
+example [Subsingleton A] : Subsingleton R₀ ∧ Subsingleton J₀ ∧ Subsingleton D₀ := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.evaluationCoordinates
+example (z : A) : sectionEval A γ δ s t u₀ = s ∧
+    sectionEval A γ δ s t v₀ = t ∧ sectionEval A γ δ s t (ι₀ z) = z := by
+  sorry
+
+section IdealCokernelTests
+variable (e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin β₀)) ≃ₗ[R₀] J₀)
+variable (he : ∀ z : Fin 2 → R₀, (e (Submodule.Quotient.mk z) : R₀) = c₀ * z 0 - d₀ * z 1)
+include he in
+-- NodeSectionFactorization.PolynomialModel.idealCokernelFirst
+example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) : R₀) = c₀ := by
+  sorry
+include he in
+-- NodeSectionFactorization.PolynomialModel.idealCokernelSecond
+example : (e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) : R₀) = -d₀ := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.idealCokernelZero
+example : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) = 0 := by
+  sorry
+end IdealCokernelTests
+
+section DualGeneratorTests
+variable (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀))
+include hε in
+-- NodeSectionFactorization.PolynomialModel.dualGeneratorSecond
+example : ε ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = b₀ := by
+  sorry
+
+section NormalCoordinateTests
+variable (e : D₀ ≃ₗ[A] (R₀ × A))
+variable (he : ∀ (p : R₀ × A) (j : J₀), e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * ε j)
+include he in
+-- NodeSectionFactorization.PolynomialModel.normalInclusion
+example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : e h = (1, 0) := by
+  sorry
+include he in
+-- NodeSectionFactorization.PolynomialModel.normalGenerator
+example : e ε = (0, 1) := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.normalRoundTrip
+example (p : R₀ × A) : e (e.symm p) = p := by
+  sorry
+include he in
+-- NodeSectionFactorization.PolynomialModel.residueGenerator
+example : (e ε).2 = 1 := by
+  sorry
+include he in
+-- NodeSectionFactorization.PolynomialModel.residueInclusion
+example (h : D₀) (hh : ∀ j : J₀, h j = (j : R₀)) : (e h).2 = 0 := by
+  sorry
+end NormalCoordinateTests
+
+section DualCokernelTests
+variable (e : ((Fin 2 → R₀) ⧸ LinearMap.range (Matrix.mulVecLin α₀)) ≃ₗ[R₀] D₀)
+variable (he : ∀ (z : Fin 2 → R₀) (j : J₀),
+  d₀ * e (Submodule.Quotient.mk z) j = (d₀ * z 0 - b₀ * z 1) * (j : R₀))
+include he in
+-- NodeSectionFactorization.PolynomialModel.dualCokernelFirst
+example : e (Submodule.Quotient.mk (fun i => if i = 0 then 1 else 0)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = d₀ := by
+  sorry
+include he in
+-- NodeSectionFactorization.PolynomialModel.dualCokernelSecond
+example : e (Submodule.Quotient.mk (fun i => if i = 0 then 0 else 1)) ⟨d₀, Ideal.subset_span (Set.mem_insert_of_mem _ (Set.mem_singleton d₀))⟩ = -b₀ := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.dualCokernelZero
+example (j : J₀) : e (Submodule.Quotient.mk (0 : Fin 2 → R₀)) j = 0 := by
+  sorry
+end DualCokernelTests
+end DualGeneratorTests
+
+section CorrectionTests
+variable (K : R₀ →ₗ[A] R₀)
+variable (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+include hK in
+-- NodeSectionFactorization.PolynomialModel.correctionFirst
+example : K c₀ = -a₀ := by
+  sorry
+include hK in
+-- NodeSectionFactorization.PolynomialModel.correctionSecond
+example : K d₀ = b₀ := by
+  sorry
+include hK in
+-- NodeSectionFactorization.PolynomialModel.correctionConstants
+example (z : A) : K (ι₀ z) = 0 := by
+  sorry
+end CorrectionTests
+
+-- NodeSectionFactorization.PolynomialModel.mapIdentity
+example : coefficientMap A γ δ s t (RingHom.id A) u₀ = u₀ := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.mapZeroCoefficient
+example {A' : Type*} [CommRing A'] (f : A →+* A') :
+    coefficientMap A γ δ s t f (ι₀ 0) = 0 := by
+  sorry
+-- NodeSectionFactorization.PolynomialModel.mapSectionCoordinates
+example {A' : Type*} [CommRing A'] (f : A →+* A') :
+    let ι' := coefficientHom A' (f γ) (f δ) (f s) (f t)
+    coefficientMap A γ δ s t f c₀ = AdjoinRoot.root (polynomial A' (f γ) (f δ) (f s) (f t)) - ι' (f s) ∧
+    coefficientMap A γ δ s t f d₀ = AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X - ι' (f t) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.dualZeroBase
 /-- Test: over the zero base both coordinates and the dual have one element. -/
 example [Subsingleton A] : Subsingleton D₀ ∧ Subsingleton (R₀ × A) := by
   sorry
 
+-- NodeSectionFactorization.PolynomialModel.dualSignThree
 /-- Test: the two generator values retain the minus sign in characteristic three. -/
 example :
     let w : Polynomial (Polynomial (ZMod 3)) :=
@@ -294,12 +567,13 @@ example :
       ε ⟨u, by sorry⟩ = -u ∧ ε ⟨v, by sorry⟩ = u ∧ u ≠ -u := by
   sorry
 
+-- NodeSectionFactorization.PolynomialModel.residueNoRingSplit
 /-- Non-example: a residue surjection has no R-linear splitting over a nonzero
 base, although it does have the A-linear splitting supplied by ε. The R-linearity
 condition below uses the actual section evaluation, not an arbitrary predicate. -/
 example [Nontrivial A] (ρ : D₀ →ₗ[A] A) :
     let ev : R₀ →+* A :=
-      AdjoinRoot.lift (Polynomial.evalRingHom t) s (by sorry)
+      sectionEval A γ δ s t
     ¬ ∃ σ : A →ₗ[A] D₀,
       (∀ (r : R₀) (z : A), σ (ev r * z) = r • σ z) ∧
       Function.RightInverse σ ρ := by
@@ -319,6 +593,7 @@ example :
       Nonempty (((ZMod 2) ⊗[ℤ] (J →ₗ[B] B)) ≃ₗ[ZMod 2] (J' →ₗ[B'] B')) := by
   sorry
 
+-- NodeSectionFactorization.PolynomialModel.quotientCharacteristicTwo
 /-- A characteristic-two test on the quotient, not just on the polynomial products. -/
 example (h2 : (2 : A) = 0) :
     let f : Polynomial (Polynomial A) :=
@@ -330,8 +605,11 @@ example (h2 : (2 : A) = 0) :
       LinearMap.range (right 1 0 u v 0 0).mulVecLin := by
   sorry
 
+end
+
 end PolynomialModel
 
+-- NodeSectionFactorization.PolynomialModel.receivingRingNotExact
 /-- A non-example: unit discriminant and vanishing products in an arbitrary ring
 are insufficient for exactness. All coordinates are specialized in Z, rather
 than kept in the actual polynomial quotient. -/
@@ -366,10 +644,10 @@ end TauCeti.ModuliCurves
 /- CHECKPOINT OMISSIONS
 Each name below is deliberately only a comment, not a Lean declaration.
 The corresponding canonical signature/example remains required by the packet gap
-Suggested Lean type interfaces. Local algebra entries have candidates above,
+Suggested Lean type interfaces. Local algebra entries have signatures above,
 but their final export/packet integration remains open. The dual-section entry
 has polynomial-model residue/base-change forms only, not a global sheaf theorem.
-This ledger does not count candidate signatures as completed exports.
+These signatures are not implementation proofs or completed geometric exports.
 node: StableReductionPartII:key/moduli-curves
   Requires supplier types and the precise statement in the reader.
 API: CurvesModuli.obj
@@ -448,12 +726,8 @@ node: StableReductionPartII:MC.1/proper-moduli
   Requires supplier types and the precise statement in the reader.
 node: StableReductionPartII:MC.2/pointed-node-normal-form
   Requires supplier types and the precise statement in the reader.
-API: NodeSectionFactorization.cokernels
-  A native candidate is now in PolynomialModel.cokernels; reconcile the final export and packet ledger.
-node: StableReductionPartII:MC.2/node-factorization-exact
-  PolynomialModel.quotientExact supplies a candidate for the exactness clause; split/integrate the cokernel clause and proof-helper nodes.
 node: StableReductionPartII:MC.2/dual-section-ideal
-  PolynomialModel has candidate local dual normal form, residue, scalar correction, A-flatness and natural coefficient-base-change signatures. Global sheaf types, completion/descent and canonical packet integration remain missing.
+  Polynomial local dual, flatness and coefficient-base-change signatures elaborate. The completed-local, stable-reflexivity and arbitrary-family sheaf/descent signatures remain absent.
 node: StableReductionPartII:MC.2/expansion
   Requires supplier types and the precise statement in the reader.
 API: PointedExpansion.scheme
