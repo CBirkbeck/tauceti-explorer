@@ -1,111 +1,127 @@
-# BP-SchemeAndStackFoundations: henselization checkpoint
+# BP-SchemeAndStackFoundations: functorial henselization checkpoint
 
-Codex — session `codex-rtOQ9t`, 2 October 2026. Refs #642.
-Partial first checkpoint from base `716fb6a846bfd34c6a536dbe5de8ab32ec4b4da8`.
-All seven stages remain open; every implementation is unchecked.
+Codex — session `codex-J6LwjP`, 2 October 2026. Refs #642.
+Continuation from base `db3ca082e002ce257f8f12d6e518681b12279872` of the
+`codex-rtOQ9t` checkpoint. Claim comment 5953193597 won, confirmed by bot
+5953195994; the full issue was reread after confirmation.
+This is partial: all seven stages remain open and every implementation unchecked.
 
-The packet plans the exact reserved ID
-`SchemeAndStackFoundations:key/henselization` through fifteen declarations:
-one definition, one construction, nine lemmas and four theorems. There are
-nine API entries, eight labeled typed examples, three SF.0 planets,
-26 source-checked baseline declarations and eight explicit gap groups.
-The other five reserved IDs are unplanned, listed exactly in
-keyDefinitionBoundary. This issue is not complete.
+The fifteen inherited node objects are retained exactly. Six new SF.0 nodes
+plan the actual induced map of arbitrary ring/ideal pairs, unit naturality,
+extended-ideal containment, identity, composition and canonical residue
+naturality. Totals: 21 nodes (one definition, two constructions, fourteen
+lemmas, four theorems), fourteen API items, twelve typed tests, three planets,
+29 baseline references, nine gap groups and no requests. The other five
+reserved keys are still unplanned. All 62 source routes, twelve unimplemented
+confirmed findings and sourceIssues E1 are retained exactly.
 
-The ring is the actual CommAlgCat colimit of a small model of the full
-category of residue-preserving étale neighbourhoods. Filtering includes
-actual parallel-map equalization. The proof outline separates canonical
-residue comparison, Jacobson containment, simple-root realization,
-the existing HenselianRing predicate, étale section lifting/uniqueness,
-universality, fixed pairs and the ordinary local case. No desired properties
-are postulated as record fields. Completion is a future comparison.
-General faithful flatness is false: the unit ideal gives the zero ring.
+The map uses the inherited initial property to choose an actual ring map
+between the existing proposed CommAlgCat colimits. No alternate carrier or
+property-valued substitute is introduced. Ideal preservation is containment,
+not equality. The quotient square uses the actual Ideal.quotientMap and
+canonical reduction maps. Identity and composition depend on uniqueness.
+The native definition is explicit, but its universal-property dependencies
+remain admitted and require mathematical implementation. Four new typed
+examples cover F5 identity, Z → F5 taking 7 to 2, reduction of Z/9 by (3),
+and noninjectivity when mapping a zero ideal to a unit ideal. The inherited
+`extended` abbreviation needed a noncomputability annotation; no inherited
+mathematical statement was changed.
 
-Read the entire issue before claiming and verified the post-confirmation
-body was identical. Freshly read all seven applicable AUDIT-01 entries,
-all seven accepted RS-25 layer decisions and touching exact endpoint links,
-the roadmap document, the full henselization key brief, twelve complete
-confirmed red-team findings and five touching AlgebraicCurves/ModularCurves
-research links. Full GrothendieckEulerForms and Multiquadratic upstream
-documents were read in this continuing worker session. Only selected
-ModularCurves passages were read. Existing upstream mathematics is imported.
+A full read of PerfectoidSpaces:P3/henselisation-of-pairs found that it already
+plans the same general colimit and adjoint property, together with flatness,
+ideal-power quotients, Noetherianity, completion and filtered-colimit APIs.
+Its current packet is partial with a needs_changes review. A proposal and gap
+record consolidation under the exact general key reserved here, preserving
+that PerfectoidSpaces ID as a compatibility/import node and the adic
+specialization with ClassicalAdicEtaleCohomology. This is an unaccepted
+proposal: no supplier packet, ownership transfer or coarse cross-stage link
+was changed. Resolve it before supplying competing carriers or claiming closure.
 
-Primary evidence is the complete mathematical text/proofs of Stacks 0EM7
-and selected 09XD definitions/lemmas through 15.11.12. The remaining 09XD
-section is not claimed fully read. Source URLs, dated passage receipts and
-four downloaded SHA-256 hashes are in the packet. The current-master TeX
-was read only at the product-proof paragraph. Its circular second-factor
-subscript is recorded as sourceIssues E1, with the intended tensor product,
-reason, version scope and correction search. It awaits independent review;
-no product theorem is challenged or planned here. Reviewed CMM21,
-BhattMathew23, Bresciani24 and GroechenigWyssZiegler20-B extracts are
-consumer leads, not fresh primary-paper reads.
+Fresh inputs: the worker/protocol/upstream instructions, all seven applicable
+AUDIT-01 entries, all seven accepted RS-25 decisions and their touching links,
+current atlas stages/edges, all four current touching research links, the full
+henselization brief, and all twelve complete confirmed findings/verifications.
+Full JacobianChallenge and Multiquadratic upstream documents were read in
+this continuation. Earlier GrothendieckEulerForms and selected ModularCurves
+reads are inherited provenance, explicitly identified in the packet/reader.
+No full RS-25 family-report or fresh reading of the 62 routed papers is claimed.
+The SF.4/L5 alteration-supplier conflict remains unresolved; SF.6 remains a
+process/consumer handoff layer. Existing upstream mathematics is imported.
 
-All 62 routed paper briefs from the issue are preserved as unread source
-worklists. No paper or other stage is closed. All twelve confirmed findings
-remain unimplemented, with an ownership matrix and their concrete boundaries.
-In particular algebraicgeometry/16 recommends SF.4 as alteration supplier
-to L5, while etale/21 recommends an L5 alteration supplier to SF.4.
-Resolve that conflict before adding either dependency. SF.6 is a consumer
-handoff/process layer according to the accepted audit, not new theory.
+Fresh primary evidence: complete mathematical statements and proofs of Stacks
+0EM7, Lemmas 15.12.1–8; new nodes derive the initial property in 15.12.1.
+Downloaded HTML SHA-256:
+`4ba42d62e07f39cd049d2d8f3111e27472daf4060685232ac1ea70a2cc3f0e0e`,
+identical to the predecessor receipt. Lemmas 2–8 are future source leads,
+not completed declarations. Earlier 09XD, 0H7Q and current-master TeX
+receipts remain inherited; sourceIssues E1's circular tensor subscript is
+unchanged and awaits independent review. The three new pinned baseline
+statements were read with their ambient hypotheses: Ideal.map_le_iff_le_comap,
+Ideal.map_map and Ideal.quotientMap_mk. Limited source/index, open Mathlib PR
+and public Zulip searches found no general henselization construction to
+adopt; this is not a comprehensive absence or expert-agreement claim.
 
-Validation performed:
+Validation:
 
-- The indexed blueprint checker reports zero errors and zero warnings.
-- The four deliverables pass the intake file rules.
-- Fifteen native node names, nine API names and eight labeled example
-  statements match the packet and reader. All individual import paths
-  exist at the Mathlib pin; no missing condition is replaced by a Prop stub.
-- Four source-download hashes, all source excerpts and the exact circular
-  TeX expression match their receipts.
-- Exhaustive finite arithmetic checks cover all 144 pairs in the
-  12-element Z/6 neighbourhood witness and all 256 pairs in the
-  16-element Jacobson-containment counterexample. They check actual ring
-  maps, scalar compatibility, distinctness, residue equality, ideal cosets
-  and equalization. They do not prove étaleness or the general theorems.
-- The actual atlas assembler with an in-memory promoted overlay and normal
-  decomposition trimming lists all fifteen declarations and three planets,
-  with no skipped links. The stage graph has 3,010 vertices (including
-  51 existing UPSTREAM interface vertices) and 8,642 edges; its union with
-  all declaration prerequisites has 3,022 vertices and 8,668 edges. Both
-  are acyclic. No data or integrated roadmap was edited or promoted.
-- Whitespace checks pass. Remote submission results are reported after
-  publication rather than preclaimed here.
+- Indexed blueprint checker: zero errors and zero warnings. Four deliverables
+  pass intake rules; whitespace check passes.
+- All 21 node markers, fourteen API names and twelve labeled typed examples
+  match packet, reader and native file. The fifteen inherited nodes, 26
+  inherited baseline objects, source worklist, findings and source issues
+  pass exact preservation checks. All three new baseline names occur in
+  the pinned declaration index. The fresh HTML hash matches the source receipt.
+- The full Mathlib-only suggested file elaborates at the existing exact pin
+  using Lean v4.34.0-rc2: zero errors, 33 admitted-proof warnings, no other
+  warnings, twelve examples, 1.23 seconds. Source SHA-256:
+  `df5654a75eff55ce10cde578e200994f332ef189cd591c05ddb489e3ea1056ca`.
+  Compile-log SHA-256:
+  `94451ce5fa6c22dd1ff26d575b0e6ee682c2e600ddfda30495bb2209d59800a6`.
+  Memory exceeded the WORKERS minimum. No Tau Ceti imports or combined-build
+  claim; no Lake setup, cache download, dependency build or language server.
+- Exact finite cyclic-ring models cover 119 pairs, 1,034 pair maps,
+  1,052,886 ring equations and 5,332 compositions. Product F3 models cover
+  fifteen pairs, 1,222 pair maps, 29,272 pointwise checks and 106,481
+  compositions, including projections, diagonals, coordinate permutations,
+  zero rings and a nontrivial composition-order witness. They check unit,
+  ideal and quotient naturality and noninjectivity. They do not prove the
+  general colimit, étaleness, HenselianRing predicates or all-ring results.
+  Result SHA-256:
+  `3e5608906e88433389b38bc6766fb70413d1d8360ea97586db3fbcae8336cb51`.
+- Actual atlas assembly with an in-memory overlay and normal decomposition
+  trimming lists 21 declarations and three planets, no pending/skipped links
+  and no new external required stage edge. The actual stage graph has 3,010
+  vertices and 8,642 edges and is acyclic. Adding this packet's complete
+  declaration prerequisites gives 3,028 vertices and 8,708 edges, also acyclic.
+  This scoped check does not certify every promoted declaration globally:
+  a separate broader check, excluding this packet, already finds the cycle
+  ArithmeticKTheory:N.8 → K3BlochGroups:V.5/k3-Z-and-Q → K3BlochGroups:V.5
+  → ArithmeticKTheory:N.7 → ArithmeticKTheory:N.8. Those unrelated files
+  were not changed. No atlas data was written or promoted.
 
-The suggested Lean file was **not compiled**: no existing combined build
-at both exact library pins was found. No Lake project, cache download,
-library build or language server was started. Source/name checks do not
-certify elaboration or mathematical implementation.
+Resume:
 
-Resume in this order:
+1. Complete finite-coefficient/equality/ideal-sum descent through the chosen
+   filtered colimit and the canonical quotient comparison, reusing pinned
+   filtered-colimit and scalar-extension APIs.
+2. Implement the iterated tensor coequalizer with both f/g scalar structures,
+   scalar towers and residue-map equality. Source-decompose étale
+   diagonal/idempotent splitting and the StandardEtalePair root neighbourhood.
+3. Read Stacks 15.10.3, 15.10.4 and Zariski Main inputs of 15.11.5 directly;
+   bridge the simple-root criterion to the source étale-section criterion and
+   build the actual universal cocone. Then discharge the six new map laws.
+4. Reconcile the general-owner overlap with PerfectoidSpaces while retaining
+   all its broad API requirements. Complete ideal powers, flatness (faithful
+   only under suitable local/proper-ideal hypotheses), Noetherianity,
+   completion, radical invariance, filtered pairs and integral base change.
+   General faithful flatness is false at the unit ideal. Supply explicit
+   noncomplete/strict and negative unrestricted-base-change comparisons.
+5. Read the other five key briefs and every primary source route; continue
+   preserved stage worklists and confirmed fixes under exact RS-25/AUDIT-01
+   ownership. Do not infer global geometry from this affine strand.
+6. Independent review must assess source E1, the native/source criterion
+   adapters, overlap proposal and mathematical proofs. Compilation certifies
+   elaboration of admitted signatures, not formalization.
 
-1. Inspect existing filtered algebra colimit/forgetful APIs. Implement
-   finite coefficient/equality/ideal-sum descent and the canonical quotient
-   comparison by scalar-extension adjunction. Do not construct a rival
-   colimit carrier.
-2. Implement the iterated tensor coequalizer with both algebra structures
-   induced by f and g, all scalar towers and its residue-map equality.
-3. Inspect or source-decompose the étale diagonal/idempotent product
-   splitting. Implement the explicit StandardEtalePair root neighbourhood
-   and localization at the selected residue component.
-4. Directly read Stacks 15.10.3, 15.10.4 and the Zariski Main inputs of
-   15.11.5. Decompose the simple-root-to-Gabber-to-étale-section proof
-   against the pinned baseline; the source criterion is not definitionally
-   Mathlib's class. Then implement the actual universal cocone.
-5. Complete the remaining key sample API: pair functoriality, ind-étale
-   presentation/universe comparison, all ideal-power quotients, flatness,
-   local faithful flatness, Noetherianity, completion comparison, radical
-   invariance, filtered pair colimits and integral base change/quotients.
-   Supply source-verified noncomplete/strict comparisons and negative
-   unrestricted-base-change examples before declaring the key closed.
-6. Read the other five full key briefs and all primary-source routes;
-   continue each stage's preserved worklist under RS-25/AUDIT-01 and the
-   confirmed findings. Keep purity, Weil restriction, NS/Picard number,
-   curve duality, stable models and existing upstream carriers with their
-   exact owners. Do not infer global geometry from the affine key.
-7. Elaborate only in an already existing suitable pinned build, respecting
-   WORKERS memory/time limits. Independent review must assess source E1
-   and the mathematical/prototype choices.
-
-All durable results are in the four deliverables. Job scratch is deleted
-after the PR opens; no private path or surviving download is needed to resume.
+All durable results are in the four deliverables. Scratch is deleted after
+publication; no surviving private download or log is required to resume.
+Remote submission results are checked after publication, not preclaimed here.
