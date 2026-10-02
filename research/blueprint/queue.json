@@ -37663,7 +37663,8 @@
     "REV-PAPER-XU-ZHU-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-XU-ZHU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4165"
   },
   {
    "id": "RT-PAPER-CASTELLA-ETAL-22",
@@ -53268,8 +53269,9 @@
     "FIX-RT-AREA-padic-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5151"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5151",
+   "finishedAt": "2026-10-02T04:47:21Z"
   },
   {
    "id": "RT-AREA-padic-2",
