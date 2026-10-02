@@ -5,12 +5,12 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-CURRENT ACTION CONTINUATION COMPILED: the entire expanded Mathlib-only file
-elaborates at the exact Mathlib pin with Lean v4.34.0-rc2: 0 errors,
-151 admitted-declaration warnings, no other warnings; all 58 native examples.
-This is a signature check, not proof or global sheaf implementation.
+CURRENT AFFINE PROOF CONTINUATION: fifteen named affine declarations and ten
+examples have actual proof bodies. The full Mathlib-only file is checked at the
+exact pin; its durable current receipt is in the packet and handoff. Remaining
+admitted declarations and the global sheaf omission ledger are still open.
 Earlier compilation claims apply only to their recorded exact-file hashes.
-This checks native signatures, not proofs or the omitted global sheaf ledger.
+Remaining admitted signatures and the omitted global sheaf ledger are not proved.
 The preceding version's historical receipt applies only to SHA-256
  df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7.
 All imports are Mathlib modules.
@@ -898,72 +898,130 @@ variable {F : Type z} [AddCommGroup F] [Module R F]
 
 -- node: HodgeStructuresPartII:H.0/affine-contractions
 def affineContractions (θ : E →ₗ[R] E ⊗[R] Q) :
-    Module.Dual R Q →ₗ[R] Module.End R E := sorry
+    Module.Dual R Q →ₗ[R] Module.End R E := {
+  toFun v := (TensorProduct.rid R E).toLinearMap.comp
+    ((TensorProduct.map (LinearMap.id : E →ₗ[R] E) v).comp θ)
+  map_add' v w := by
+    ext e
+    simp [TensorProduct.map_add_right]
+  map_smul' r v := by
+    ext e
+    simp [TensorProduct.map_smul_right]
+}
 theorem affineContractions_apply (θ : E →ₗ[R] E ⊗[R] Q)
     (v : Module.Dual R Q) (e : E) :
     affineContractions θ v e = TensorProduct.rid R E
-      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v (θ e)) := sorry
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v (θ e)) := by rfl
 theorem affineContractions_zero :
-    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) = 0 := sorry
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by ext v e; simp [affineContractions]
 theorem affineContractions_add (θ η : E →ₗ[R] E ⊗[R] Q) :
-    affineContractions (θ + η) = affineContractions θ + affineContractions η := sorry
+    affineContractions (θ + η) = affineContractions θ + affineContractions η := by ext v e; simp [affineContractions]
 -- test: TwistedHiggsBundle.affineContractions.test_zero
 example (v : Module.Dual R Q) (e : E) :
-    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) v e = 0 := sorry
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) v e = 0 := by rw [affineContractions_zero]; rfl
 -- test: TwistedHiggsBundle.affineContractions.test_line
 example (e : R) :
     affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
-      (LinearMap.id : Module.Dual R R) e = e := sorry
+      (LinearMap.id : Module.Dual R R) e = e := by simp [affineContractions, TensorProduct.map_id]
 -- test: TwistedHiggsBundle.affineContractions.test_zero_dual
 example (θ : E →ₗ[R] E ⊗[R] Q) :
-    affineContractions θ (0 : Module.Dual R Q) = 0 := sorry
-
+    affineContractions θ (0 : Module.Dual R Q) = 0 := by simp [affineContractions]
 /-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
 Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
 The affine lift uses existing native TensorAlgebra and RingCon objects. -/
 -- node: HodgeStructuresPartII:H.0/affine-symmetric-action
 def affineSymmetricAction (a : Module.Dual R Q →ₗ[R] Module.End R E)
     (h : ∀ v w, Commute (a v) (a w)) :
-    SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E := sorry
+    SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E := by
+  apply RingCon.liftₐ (TensorAlgebra.symRingCon R (Module.Dual R Q))
+    (TensorAlgebra.lift R a)
+  apply RingCon.ringConGen_le.2
+  intro x y hxy
+  cases hxy with
+  | mul_comm v w =>
+    rw [RingCon.ker_apply]
+    change TensorAlgebra.lift R a (_ * _) = TensorAlgebra.lift R a (_ * _)
+    simpa only [map_mul, TensorAlgebra.lift_ι_apply] using (h v w).eq
 theorem affineSymmetricAction_generator
     (a : Module.Dual R Q →ₗ[R] Module.End R E)
     (h : ∀ v w, Commute (a v) (a w)) (v : Module.Dual R Q) :
-    affineSymmetricAction a h (SymmetricAlgebra.ι R _ v) = a v := sorry
+    affineSymmetricAction a h (SymmetricAlgebra.ι R _ v) = a v := by
+  exact TensorAlgebra.lift_ι_apply a v
 theorem affineSymmetricAction_unique
     (a : Module.Dual R Q →ₗ[R] Module.End R E)
     (h : ∀ v w, Commute (a v) (a w))
     (β : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
     (hβ : ∀ v, β (SymmetricAlgebra.ι R _ v) = a v) :
-    β = affineSymmetricAction a h := sorry
+    β = affineSymmetricAction a h := by
+  apply AlgHom.ext
+  intro s
+  induction s using SymmetricAlgebra.induction with
+  | algebraMap r => simp
+  | ι v => exact (hβ v).trans (affineSymmetricAction_generator a h v).symm
+  | add s t hs ht => simp only [map_add, hs, ht]
+  | mul s t hs ht => simp only [map_mul, hs, ht]
 theorem affineSymmetricAction_zero
     (h : ∀ v w : Module.Dual R Q, Commute
       ((0 : Module.Dual R Q →ₗ[R] Module.End R E) v) ((0 : Module.Dual R Q →ₗ[R] Module.End R E) w))
     (s : SymmetricAlgebra R (Module.Dual R Q)) :
     affineSymmetricAction 0 h s =
-      algebraMap R (Module.End R E) (SymmetricAlgebra.algebraMapInv s) := sorry
+      algebraMap R (Module.End R E) (SymmetricAlgebra.algebraMapInv s) := by
+  have hu := affineSymmetricAction_unique
+    (0 : Module.Dual R Q →ₗ[R] Module.End R E) h
+    ((Algebra.ofId R (Module.End R E)).comp SymmetricAlgebra.algebraMapInv)
+    (by intro v; simp [SymmetricAlgebra.algebraMapInv_ι])
+  exact (congrArg (fun f => f s) hu).symm
 -- test: TwistedHiggsBundle.affineSymmetricAction.test_zero
 example (h : ∀ v w : Module.Dual R Q, Commute
     ((0 : Module.Dual R Q →ₗ[R] Module.End R E) v) ((0 : Module.Dual R Q →ₗ[R] Module.End R E) w))
     (v : Module.Dual R Q) :
-    affineSymmetricAction 0 h (SymmetricAlgebra.ι R _ v) = 0 := sorry
+    affineSymmetricAction 0 h (SymmetricAlgebra.ι R _ v) = 0 := by rw [affineSymmetricAction_generator]; rfl
 -- test: TwistedHiggsBundle.affineSymmetricAction.test_scalar
 example (a : Module.Dual R R →ₗ[R] Module.End R R)
     (h : ∀ v w, Commute (a v) (a w))
     (ha : a (LinearMap.id : Module.Dual R R) = 1) :
     affineSymmetricAction a h
-      (SymmetricAlgebra.ι R _ (LinearMap.id : Module.Dual R R)) = 1 := sorry
+      (SymmetricAlgebra.ι R _ (LinearMap.id : Module.Dual R R)) = 1 := by rw [affineSymmetricAction_generator, ha]
 -- test: TwistedHiggsBundle.affineSymmetricAction.test_rank_zero
 example (a : Module.Dual R Q →ₗ[R] Module.End R (Fin 0 → R))
     (h : ∀ v w, Commute (a v) (a w))
     (s : SymmetricAlgebra R (Module.Dual R Q)) :
-    affineSymmetricAction a h s = 0 := sorry
+    affineSymmetricAction a h s = 0 := by apply Subsingleton.elim
+-- test: TwistedHiggsBundle.affineSymmetricAction.test_noncommuting
+example :
+    let X : Module.End ℚ (Fin 2 → ℚ) :=
+      { toFun := fun e i => if i = 0 then e 1 else 0
+        map_add' := by intro e f; ext i; by_cases h : i = 0 <;> simp [h]
+        map_smul' := by intro r e; ext i; by_cases h : i = 0 <;> simp [h] }
+    let Y : Module.End ℚ (Fin 2 → ℚ) :=
+      { toFun := fun e i => if i = 1 then e 0 else 0
+        map_add' := by intro e f; ext i; by_cases h : i = 1 <;> simp [h]
+        map_smul' := by intro r e; ext i; by_cases h : i = 1 <;> simp [h] }
+    ∀ (α : SymmetricAlgebra ℚ (Module.Dual ℚ (Fin 2 → ℚ)) →ₐ[ℚ]
+        Module.End ℚ (Fin 2 → ℚ)) (v w : Module.Dual ℚ (Fin 2 → ℚ)),
+      α (SymmetricAlgebra.ι ℚ _ v) = X →
+      α (SymmetricAlgebra.ι ℚ _ w) = Y → False := by
+  dsimp only
+  intro α v w hx hy
+  have hc := (Commute.all (SymmetricAlgebra.ι ℚ _ v)
+    (SymmetricAlgebra.ι ℚ _ w)).map α
+  rw [hx, hy] at hc
+  have he := congrArg (fun f : Module.End ℚ (Fin 2 → ℚ) =>
+    f (Pi.single 0 1) 0) hc.eq
+  norm_num [Module.End.mul_apply, Pi.single_apply] at he
 
 -- node: HodgeStructuresPartII:H.0/affine-symmetric-commuting
 theorem affineSymmetricAction_iff_commute
     (a : Module.Dual R Q →ₗ[R] Module.End R E) :
     (∃ α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E,
       ∀ v, α (SymmetricAlgebra.ι R _ v) = a v) ↔
-    ∀ v w, Commute (a v) (a w) := sorry
+    ∀ v w, Commute (a v) (a w) := by
+  constructor
+  · rintro ⟨α, hα⟩ v w
+    rw [← hα v, ← hα w]
+    exact (Commute.all _ _).map α
+  · intro h
+    exact ⟨affineSymmetricAction a h, affineSymmetricAction_generator a h⟩
 
 -- node: HodgeStructuresPartII:H.0/symmetric-action-word
 theorem symmetricAction_word
@@ -971,7 +1029,10 @@ theorem symmetricAction_word
     (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
     (hα : ∀ v, α (SymmetricAlgebra.ι R _ v) = a v)
     (word : List (Module.Dual R Q)) :
-    α ((word.map (SymmetricAlgebra.ι R _)).prod) = (word.map a).prod := sorry
+    α ((word.map (SymmetricAlgebra.ι R _)).prod) = (word.map a).prod := by
+  induction word with
+  | nil => simp
+  | cons v word ih => simp only [List.map_cons, List.prod_cons, map_mul, hα, ih]
 
 -- node: HodgeStructuresPartII:H.0/symmetric-action-morphism
 theorem symmetricAction_morphism
@@ -983,7 +1044,23 @@ theorem symmetricAction_morphism
     (hβ : ∀ v, β (SymmetricAlgebra.ι R _ v) = b v)
     (f : E →ₗ[R] F) :
     (∀ v, f.comp (a v) = (b v).comp f) ↔
-    (∀ s, f.comp (α s) = (β s).comp f) := sorry
+    (∀ s, f.comp (α s) = (β s).comp f) := by
+  constructor
+  · intro hv s
+    induction s using SymmetricAlgebra.induction with
+    | algebraMap r => ext e; simp
+    | ι v => simpa only [hα, hβ] using hv v
+    | add s t hs ht =>
+      ext e
+      simpa only [map_add, LinearMap.comp_apply, LinearMap.add_apply] using
+        congrArg (fun g => g e) (congrArg₂ (· + ·) hs ht)
+    | mul s t hs ht =>
+      ext e
+      simp only [map_mul, LinearMap.comp_apply, Module.End.mul_apply]
+      exact (congrArg (fun g => g (α t e)) hs).trans
+        (congrArg (fun g => β s (g e)) ht)
+  · intro hs v
+    simpa only [hα, hβ] using hs (SymmetricAlgebra.ι R _ v)
 
 -- node: HodgeStructuresPartII:H.0/augmentation-power-words
 theorem augmentation_pow_iff_words
@@ -1002,13 +1079,13 @@ def truncatedSymmetricAction
       (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom) :
     (SymmetricAlgebra R (Module.Dual R Q) ⧸
       (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
-        (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E := sorry
+        (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E := Ideal.Quotient.liftₐ _ α (fun _ hs => h hs)
 theorem truncatedSymmetricAction_mk
     (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
     (N : ℕ) (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
       (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom)
     (s : SymmetricAlgebra R (Module.Dual R Q)) :
-    truncatedSymmetricAction α N h (Ideal.Quotient.mk _ s) = α s := sorry
+    truncatedSymmetricAction α N h (Ideal.Quotient.mk _ s) = α s := by rfl
 theorem truncatedSymmetricAction_unique
     (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
     (N : ℕ) (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
@@ -1017,7 +1094,11 @@ theorem truncatedSymmetricAction_unique
       (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
         (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E)
     (hβ : ∀ s, β (Ideal.Quotient.mk _ s) = α s) :
-    β = truncatedSymmetricAction α N h := sorry
+    β = truncatedSymmetricAction α N h := by
+  apply AlgHom.ext
+  intro s
+  obtain ⟨t, rfl⟩ := Ideal.Quotient.mk_surjective s
+  exact (hβ t).trans (truncatedSymmetricAction_mk α N h t).symm
 theorem truncatedSymmetricAction_exists_iff
     (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E) (N : ℕ) :
     (∃ β : (SymmetricAlgebra R (Module.Dual R Q) ⧸
@@ -1025,26 +1106,49 @@ theorem truncatedSymmetricAction_exists_iff
         (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E,
       ∀ s, β (Ideal.Quotient.mk _ s) = α s) ↔
     (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
-      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := by
+  constructor
+  · rintro ⟨β, hβ⟩ s hs
+    change α s = 0
+    rw [← hβ s, Ideal.Quotient.eq_zero_iff_mem.mpr hs, map_zero]
+  · intro h
+    exact ⟨truncatedSymmetricAction α N h, truncatedSymmetricAction_mk α N h⟩
+
 -- test: TwistedHiggsBundle.truncatedSymmetricAction.test_generator
 example (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
     (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
       (M := Module.Dual R Q)).toRingHom) ^ 1 ≤ RingHom.ker α.toRingHom)
     (v : Module.Dual R Q) :
     truncatedSymmetricAction α 1 h (Ideal.Quotient.mk _
-      (SymmetricAlgebra.ι R _ v)) = 0 := sorry
+      (SymmetricAlgebra.ι R _ v)) = 0 := by
+  rw [truncatedSymmetricAction_mk]
+  apply h
+  simp only [pow_one]
+  change SymmetricAlgebra.algebraMapInv (SymmetricAlgebra.ι R _ v) = 0
+  exact SymmetricAlgebra.algebraMapInv_ι v
 -- test: TwistedHiggsBundle.truncatedSymmetricAction.test_scalar_rejected
 example (α : SymmetricAlgebra ℚ (Module.Dual ℚ ℚ) →ₐ[ℚ] Module.End ℚ ℚ)
     (ha : α (SymmetricAlgebra.ι ℚ _ (LinearMap.id : Module.Dual ℚ ℚ)) = 1)
-    (N : ℕ) (hN : 0 < N) :
+    (N : ℕ) (_hN : 0 < N) :
     ¬ (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := ℚ)
-      (M := Module.Dual ℚ ℚ)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
+      (M := Module.Dual ℚ ℚ)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := by
+  intro h
+  have hg : SymmetricAlgebra.ι ℚ (Module.Dual ℚ ℚ)
+      (LinearMap.id : Module.Dual ℚ ℚ) ∈
+      RingHom.ker (SymmetricAlgebra.algebraMapInv (R := ℚ)
+        (M := Module.Dual ℚ ℚ)).toRingHom :=
+    SymmetricAlgebra.algebraMapInv_ι _
+  have hz : α (SymmetricAlgebra.ι ℚ _ (LinearMap.id : Module.Dual ℚ ℚ) ^ N) = 0 :=
+    h (Ideal.pow_mem_pow hg N)
+  rw [map_pow, ha, one_pow] at hz
+  exact one_ne_zero hz
 -- test: TwistedHiggsBundle.truncatedSymmetricAction.test_rank_zero
 example (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R]
     Module.End R (Fin 0 → R)) (N : ℕ) :
     (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
-      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
-
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := by
+  intro s hs
+  exact Subsingleton.elim _ _
 /-- In F₂, xy+yx survives in the tensor algebra but dies in the symmetric algebra. -/
 -- node: HodgeStructuresPartII:H.0/symmetric-projection-counterexample
 theorem symmetricProjection_charTwo_counterexample :
