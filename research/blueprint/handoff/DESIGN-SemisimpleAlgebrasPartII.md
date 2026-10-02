@@ -24,11 +24,11 @@ The source corrections are explicit: Gille–Szamuely p101 irreducibility (autho
 
 The whole suggested file was NOT compiled. All four required Tau Ceti oleans are absent from the available pinned build, which was checked without starting a build. Its field signatures use native pinned carriers; eleven genuine geometric/H² declarations are explicitly unrepresented, along with their twelve API items and twelve tests. Twenty-two packet declarations have native signatures; two boundary nodes have partial native examples. A coverage ledger is in the packet and as comments in the suggested file. No proxy proposition fields were introduced.
 
-The exact marked affine section was compiled separately using the existing Mathlib build at the pin. Result: exit0, zero errors, zero admission warnings, zero other warnings, 0.90seconds, seven examples. It proves the nonempty product ideal-support lemma and checks nonempty/empty matrix size, nonzero square-zero F₂ extension elements, and Z/4 support computations. The matrixSupport axiom print has only propext, Classical.choice and Quot.sound, with no admission axiom. Its scope is the actual product module and ring computations, not sheaf Morita, polynomial root equality or field arithmetic. Exact-section equality with the suggested file was checked.
+The separate affine proof prototype preserved at immutable commit3895cfa was compiled separately using the existing Mathlib build at the pin. Result: exit0, zero errors, zero admission warnings, zero other warnings, 0.90seconds, seven examples. It proves the nonempty product ideal-support lemma and checks nonempty/empty matrix size, nonzero square-zero F₂ extension elements, and Z/4 support computations. The matrixSupport axiom print has only propext, Classical.choice and Quot.sound, with no admission axiom. Its scope is the actual product module and ring computations, not sheaf Morita, polynomial root equality or field arithmetic. Exact-section equality was checked against the initial3895cfa source, not the current admitted sketch.
 
 Counts: {"nodes": 35, "kinds": {"lemma": 11, "definition": 3, "theorem": 15, "comparison": 3, "construction": 2, "application": 1}, "apiItems": 21, "tests": 20, "planets": 10, "baselineDeclarations": 36, "requests": 8, "gaps": 10}.
 
-Full suggested SHA-256: 63f6c90ec8b28f79b214537e0f371512c0e0ab83534cde7001b8a4aadbf21adf.
+Historical initial proof-bearing suggested SHA-256: 63f6c90ec8b28f79b214537e0f371512c0e0ab83534cde7001b8a4aadbf21adf.
 
 Affine extraction SHA-256: b8c7403b0c0a2a218f1358d78e704fcd5a2fccd3dbef4b34c7585f7289991898.
 
@@ -48,3 +48,13 @@ Two upstream readers were read: RepresentationTheory/SemisimpleAlgebras/README.m
 - EG: https://arxiv.org/pdf/1707.00752v4; SHA-256 bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb; read2026-10-02: arXiv v4, June 1, 2020; Theorem2.17 and Remark2.18, pp13–14; Appendix A.2–A.3, pp40–41.
 
 The book’s printed p101 was visually inspected; the errata correction and selected proof text were read. GS4.5.16’s full proof, OV07 and BB07 remain unread. The EG download footer verifies v4,1Jun2020; accessed latest-PDF URL and canonical v4 URL are separately recorded. Scratch is deleted after submission; all verification hashes, scopes, source URLs, omissions and exact continuation tasks are retained here and in the packet. No background process is left running. All stages remain partial and all implementation statuses unchecked.
+
+## Protocol13 correction on the same submission branch
+
+All current suggested definition/theorem/example bodies are admitted. Mathematical statements, node IDs, graph edges, API/tests and ownership are unchanged; test-kind metadata now uses the exact protocol vocabulary. The actual affine proof prototype remains available at immutable3895cfae9312599fb6dc1546fdee537d5bf14e36; reproduce it by extracting the marked section from that commit, taking its Mathlib imports and adding the matrixSupport axiom print. Current affine signatures compile separately with zero errors, eight admission warnings and zero other warnings, seven examples, 0.89seconds. Full-file compilation is still unavailable.
+
+Current full suggested SHA-256: ede604416dcbb01f5589527004d2dfda3c768eb210387a50a5f5725e89041f9c.
+
+Current admitted affine source SHA-256: efec63abfe36866b6deb0e22b26297c155f11788d4aff96ae9e29afda0e896fa.
+
+Current admitted affine log SHA-256: 38fc361871c64d1cfc3f6462cfbba1813603adc59c945165d84b81100058e8d5.

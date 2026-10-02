@@ -2,7 +2,10 @@
 This file is a blueprint prototype, not a claim of formalisation. The admitted declarations
 state the proposed library interfaces. Names and signatures may change during implementation.
 The whole file has NOT been elaborated: the existing pinned build lacks the Tau Ceti oleans.
-The marked affine section has been checked separately against the pinned Mathlib build.
+The marked affine signatures have been checked separately against the pinned Mathlib build.
+Their earlier proof prototype is preserved at immutable commit3895cfa; its proof receipt
+is distinct from this current admitted sketch. The roadmap document is definitive;
+this nonexhaustive file suggests names and native signatures, not implementation.
 Geometric carriers and the full H² transfer are unresolved supplier inputs; their precise
 unrepresented signatures are listed in the packet and handoff, without proxy carriers.
 -/
@@ -30,13 +33,12 @@ theorem indexBrauerCongr {A B : CSA.{u,u} K} (h : IsBrauerEquivalent A B) :
     TauCeti.Algebra.index K A = TauCeti.Algebra.index K B := by
   sorry
 
-noncomputable def classIndex (α : BrauerGroup.{u,u} K) : ℕ :=
-  Quotient.lift (fun A : CSA.{u,u} K => TauCeti.Algebra.index K A)
-    (fun _ _ h => indexBrauerCongr h) α
+noncomputable def classIndex (α : BrauerGroup.{u,u} K) : ℕ := by
+  sorry
 
 theorem classIndex_mk (A : CSA.{u,u} K) :
     classIndex (TauCeti.BrauerGroup.mk A) = TauCeti.Algebra.index K A := by
-  rfl
+  sorry
 
 theorem classIndex_pos (α : BrauerGroup.{u,u} K) : 0 < classIndex α := by
   sorry
@@ -57,16 +59,14 @@ example (D : Type u) [DivisionRing D] [Algebra K D] [Algebra.IsCentral K D]
 example (α : BrauerGroup.{u,u} K) : classIndex α ≠ 0 := by
   sorry
 
-noncomputable def splittingDegrees (α : BrauerGroup.{u,u} K) : Set ℕ :=
-  {d | ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
-    FiniteDimensional K L ∧ Module.finrank K L = d ∧
-      TauCeti.BrauerGroup.baseChange K L α = 1}
+noncomputable def splittingDegrees (α : BrauerGroup.{u,u} K) : Set ℕ := by
+  sorry
 
 theorem mem_splittingDegrees (α : BrauerGroup.{u,u} K) (d : ℕ) :
     d ∈ splittingDegrees α ↔ ∃ (L : Type u) (_ : Field L) (_ : Algebra K L),
       FiniteDimensional K L ∧ Module.finrank K L = d ∧
         TauCeti.BrauerGroup.baseChange K L α = 1 := by
-  rfl
+  sorry
 
 theorem one_mem_splittingDegrees_iff (α : BrauerGroup.{u,u} K) :
     1 ∈ splittingDegrees α ↔ α = 1 := by
@@ -176,26 +176,28 @@ variable {R : Type*} [CommRing R] {M : Type*} [AddCommGroup M] [Module R M]
 variable {ι : Type*} [Nonempty ι]
 theorem matrixSupport (I : Ideal R) :
     I ≤ Module.annihilator R (ι → M) ↔ I ≤ Module.annihilator R M := by
-  rw [Module.annihilator_pi]
-  simp
+  sorry
+
 example (I : Ideal R) : I ≤ Module.annihilator R (Fin 2 → M) ↔
-    I ≤ Module.annihilator R M := matrixSupport I
+    I ≤ Module.annihilator R M := by
+  sorry
 example : Module.annihilator R (Fin 0 → M) = ⊤ := by
-  ext r
-  simp [Module.mem_annihilator]
+  sorry
+
 example (I : Ideal R) : I ≤ Module.annihilator R (Fin 1 → M) ↔
-    I ≤ Module.annihilator R M := matrixSupport I
+    I ≤ Module.annihilator R M := by
+  sorry
 example : (TrivSqZeroExt.inr (1 : ZMod 2) : TrivSqZeroExt (ZMod 2) (ZMod 2)) ≠ 0 := by
-  intro h
-  have := congrArg TrivSqZeroExt.snd h
-  simp at this
+  sorry
+
 example : (TrivSqZeroExt.inr (1 : ZMod 2) : TrivSqZeroExt (ZMod 2) (ZMod 2)) ^ 2 = 0 := by
-  simp [pow_two, TrivSqZeroExt.inr_mul_inr]
+  sorry
+
 example : ¬(2 : ZMod 4) ∈ Module.annihilator (ZMod 4) (ZMod 4) := by
-  intro h
-  have h2 := (Module.mem_annihilator.mp h) 1
-  exact (by decide : (2 : ZMod 4) ≠ 0) h2
-example : (2 : ZMod 4) ^ 2 = 0 := by decide
+  sorry
+
+example : (2 : ZMod 4) ^ 2 = 0 := by
+  sorry
 -- END AFFINE EXTRACTION
 end SemisimpleAlgebrasPartII
 
