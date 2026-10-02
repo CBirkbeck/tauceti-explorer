@@ -1,0 +1,205 @@
+{
+  "redteam": "RT-PAPER-YUN-ZHANG-19",
+  "findings": [
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed owner conflict. YZ19 pp.404,433–434,441,446,449,452 explicitly reuse YZ17's Eisenstein, cycle-Hecke, horocycle and spectral arguments. YZ17 items 12,16,21–24 assign them to ShtukaSpecialCyclesAndHigherSiegelWeil, whereas YZ19 route 1 assigns their Iwahori generalizations to GS and route 6 imports them from GS. GS.3's generic Hecke-finite sector is not this Eisenstein-support decomposition. Coalesce the specialized constructions in one joint tranche. The bundled fix ranges disagree: item 199 is Atkin–Lehner commutation with the cycle/cohomology Hecke action and should accompany that action; item 178 has the separate DM.7 correction in /9. Preserve generic GS geometry and imports rather than moving every Hecke-related definition indiscriminately."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Section 2.5, p.410, fixes unramified psi_x and the associated self-dual additive measure; p.405 defines d×a=zeta_x(1)da/|a|, with volume(O_x×)=1 under this conductor hypothesis. Items 24–25 omit it while quoting Proposition 2.9's exact constants. Page 413 uses the normalized Iwahori vector and this unit volume in its geometric series. Page 415 shows that character scaling contributes eta_x(c)|c|^(−2s1+1/2) in the spherical case. Restore the local additive character, conductor, measures and psi-dependent epsilon factor; do not extrapolate the spherical scaling formula to Steinberg without its own computation."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing supplier contracts. Theorem 1.2, p.397, places a cuspidal lambda_pi outside the Eisenstein quotient. Pages 511–512 identify the finite automorphic summands with cusp forms before selecting the projector. YZ17/63 separately records the GS.3 Hecke-finite-equals-cuspidal input; YZ17/70 records cuspidal/Eisenstein disjointness using irreducible GL2 parameters and Chebotarev or an appropriate isobaric theorem. Ordinary strong multiplicity one distinguishing two cuspidal representations does not itself establish disjointness from Eisenstein characters. Import these as separate contracts and retain the additional finite excluded set in the repaired comparison."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed insufficient definitions. Item 17 names normalizations but does not define P_chi, the orthogonal-basis global J_pi, lambda_x^natural, theta_x^natural or the local character. Images of pp.405–406 distinguish the conjugated second period/vector, L(pi_x⊗chi,s+1/2), L(pi_x×contragredient pi_x,1), and the factor |omega_X|^(−1)/(2L(pi,Ad,1)). Page 406 also fixes the GL2→PGL2 fibre measure by giving each O_x× orbit volume one. Record these reusable function-field analytic definitions and their basis/measure-independence and consumers, coalescing with YZ17/64 instead of a second period theory."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Definition 3.12, p.429, requires both the congruence class of D_infinity and sum(mu_i)=2deg(D_infinity). Parity alone is not the latter equality for a fixed representative. With empty Sigma_infinity, the supported divisor group is zero and mu=(1,1) at r=2 fails despite even parity. Nonempty Sigma_infinity permits an integral supported adjustment; empty Sigma_infinity requires a balanced representative when defining this PGL2 stack. Its canonical independence uses Lemmas 3.8 and 3.11. Keep the Atkin–Lehner Frobenius square (3.21) and the compatible leg map, and reconcile the torus construction separately with existing E38."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed status overclaim. GS.0–2 plan generic bundles, level, bounded Hecke geometry and ordinary Frobenius shtukas, but their current contracts do not state the periodic Iwahori lattice/fractional-infinity/Atkin–Lehner construction of items 27,34,41, including legs at level points. Item 34 explicitly twists after Frobenius by D_infinity. Keep the existing generic plans as imports and record the missing extension with explicit supplier requests or an assigned continuation; do not infer full planned status solely from GS.2's word 'level'. The extraction's earlier review caveat does not repair the machine-readable status."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted cited inputs. Pages 427–428 use V. Lafforgue Proposition 2.11/Lemma 2.13 for the local Frobenius-equalizer geometry, Varshavsky Proposition 2.16(a) for DM, and the argument after YZ17 Theorem 5.4 for separatedness. Page 433 uses the one-dimensional fibres in YZ17 §6.4.4; p.428 invokes the sign-independence argument of YZ17 Lemma 5.5. These occur in prose prerequisites/gate G3 without individual YZ19 input items. Reuse PAPER-LAFFORGUE-18/10,/12 for their existing ordinary-level contracts and isolate the Iwahori/leg-at-level adaptations, rather than marking all adaptations planned by the original theorem."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed omissions of used definitions. Page 429 defines H_G^Sigma and its effective-divisor basis; p.449 uses Satake(h_y)=1_O(y)+q^dy 1_O(−y); p.434 defines inst(E) through maximal line subbundles; p.441 uses fixed-degree rank-one shtukas in the horocycle map. YZ17/61,/38,/52 already record the Hecke/Satake, bundle/instability and Picard/Lang suppliers. Add explicit imports and the degree/groupoid conventions to YZ19, keeping fractional parabolic instability and the specialized Eisenstein quotient distinct from these generic definitions."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed routing correction. Pages 424–425 give the one-leg comparison with r=1, mu=−1, the specified infinity twist and degree n(g−1)+1 component, citing Blum–Stuhler Theorem 3.1.4. DM.7 explicitly owns elliptic-sheaf equivalence and exports it as a special case to GS.2; GS itself is not its owner. Item 178 already acknowledges that Iwahori level and the Pic_X^0(k) quotient exceed DM.7's stated contract. Import DM.7 and record those comparison extensions as missing requests or continuation work, rather than re-plan the comparison in generic GS."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing constructions. Pages 489–491 define the Frobenius-intersection S_mu,mu' in (5.49), transport it by Xi_S in (5.50), and refine the determinant-D decomposition by the A_D^flat(k)-components before applying (5.52). Items 121 and 216 use their consequence but do not supply these definitions and the compatibility of the determinant map with delta composed with f_d^flat. Add the fibre constructions, transport, finite-base degree factor and component compatibility explicitly; the final trace-sum formula alone does not provide its indexing proof."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed shared-proof conflict with qualification. Pages 463–465 call §5 parallel to YZ17 and identify the empty-ramification/empty-level M_d with YZ17's stronger open M_d^heart, not its entire original M_d. The comparison identities at nonzero determinant and the unramified torus/cycle structures share YZ17 items 17–20. Both briefs should plan the ramified/Iwahori construction once and import its unramified restriction, with the heart-open and mu=mu' hypotheses explicit. Confirmation does not assert that all ambient stacks or all cross-pairings in the two papers are identical."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed inconsistent decomposition of the Lang/bundle inputs. YZ19/82 calls the Lang torsor missing without separating the existing Picard Lang theorem already planned by YZ17/52 at GS.0; /79 and /110 likewise need reconciliation with YZ17/38's bundle/Picard inputs. Pages 454–456 construct Bun_T as a Picard-stack quotient and compare the torus shtuka to YZ17 by base change. Import the generic Picard/Lang theorem once, and isolate the proper quotient, stabilizers, component constraints and ramified application as additional obligations. A scheme Lang isogeny does not by itself turn a finite-groupoid torsor into a representable cover or prove the full quotient construction."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing exact map. Page 457 defines E=nu_*L, split flags as nu_*(L(−mu_x)), and inert flags using the first or second half of the 2d_x Frobenius orbit according to mu_x. Item 85's 'nu*L' is ambiguous and does not specify these divisors. Lemma 4.7 intertwines the torus and PGL2 Atkin–Lehner maps, which is needed when transporting the Hecke-chain map to the Cartesian shtuka squares. Record the direct image, both flag cases, Pic_X quotient, projection compatibility and commuting diagram."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted sufficient smoothness hypothesis. Item 217 quotes only d≥3g−2+N, whereas Proposition 5.5(1), p.467, supplies smooth pure-dimensional M_d under d≥2g'−1+N=4g−3+rho+N; this stronger bound is used in pp.490–491 when fundamental classes induce endomorphisms of the constant sheaf via duality. Retain both smoothness/duality and smallness contracts and proper support. Qualify the finding's numerical aside: the difference is g−1+rho, which equals zero for an unramified cover of a genus-one curve. The defect is the missing general hypothesis, not a universally strict gap or a proof that every smaller-degree M_d is singular."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted explicit arithmetic suppliers. Page 525 identifies eta at unramified uniformizers by split/inert Frobenius and at ramified units by the quadratic residue character. YZ17 p.876 uses function-field Chebotarev to rule out a finite-character spectral support pattern. FA.4 and FA.5 already plan reciprocity and Chebotarev with constant-field degree restrictions, and YZ17/62 records their use. Add input items/edges and normalize Frobenius/uniformizer conventions consistently with /34. These are supplier contracts, not new arithmetic class field theories in the root-Picard continuation."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the pinned declarations. Mathlib provides ObjectProperty.IsSerreClass, isoModSerre with two-out-of-three, and SerreClassLocalization.map_eq_zero_iff, abelian, preservesFiniteLimits/Colimits, isIso_map_iff and the exact-functor universal property. Their statements were read in SerreClass/{Basic,MorphismProperty,Localization}.lean at 082e2d3. Route 8 still instructs a new generic quotient and items 63,64,176 cite no such support, despite the explicit RT-AREA-etale/13 fix record. Separate imported library machinery from the missing Serre-class instance for the Yoneda image, small-skeleton/universe choices, finite length of Perv_c and the mc-action application. Do not label the whole applied item library before these instances exist."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 11 retains planned status for both decomposition and the proper-small-to-IC criterion while its own note admits the latter is missing. EDC.5 supplies intermediate extension and EDC.7 geometric decomposition but neither current stage states this criterion. Page 507 uses it for a smooth source, proper small generically finite map and the normalized shift m; here the target is a DM/root-stack base, so the scheme theorem and the stack descent extension are distinct imports. State dense-open, dimension/support, lisse coefficient and generic-finiteness hypotheses precisely. Do not promote the source's phrase 'any non-empty open' to an unrestricted theorem for arbitrary maps or local systems."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing stack intersection suppliers. YZ19 pp.434,486–488 invoke YZ17 Appendix A.1–A.2: proper-support rational Chow classes and correspondences, finite flat presentations, support-filtered coherent K0 and refined-Gysin compatibility. YZ17 pp.881,885,887–890 state the correspondences and two separate compatibility contracts; its p.893 Octahedron Lemma imports those hypotheses. YZ19 route 4/6 attributes this whole package to SF.5, whose current generic plan does not supply these DM-stack contracts. Record the cited input items and coalesce with YZ17/30,/32,/33,/44; import scheme theory and plan only the missing stack extension."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed inconsistent status and supplier scope. YZ19/196 marks the normalized theta/lambda values planned while YZ17/64 marks that function-field adapter missing. R16.2 names classification/newvectors, not these normalized Petersson/toric functionals; the actual AL.1 unramified-local, epsilon and Gauss-sum packet nodes assume a completion of a number field. F_x here has equal characteristic p. The bundled fix offers incompatible statuses: retain only individually verified generic supplier pieces, and keep the equal-characteristic applications/normalized period values missing until explicit requests extend the supplier contracts. Merely preserving the whole newvector/epsilon part as planned is not justified by the displayed current hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed by direct queue replay. The result has eight routes while its accepted review describes nine old routes. accepted_routes in make_queue.py enumerates the current routes from one and accepts positions listed by that review, without checking identity or repairReviewScope; calling it returns all eight. Thus the new stacks continuation at current position 5 inherits the old SF approval, and the old positional reasons do not approve the rewritten contracts. YZ17 also now has six routes. Associate verdicts with stable route identities and obtain independent review of changed contracts. Re-numbering alone must not convert an old scheme-trace approval into approval of the stacks extension."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed design deferral risk, not literal deletion. paper_designs groups Part II calls by parent, generates DESIGN-EtaleDualityAndPerverseSheavesPartII and tells independent directions to plan the first and restructure the rest. Replaying the accepted registry produces four EDC proposals, with Cesnavicius–Scholze absolute purity first and both YZ19 stacks/ind-constructible branches included in the same brief. The provisional branch IDs do not create separate jobs. Preserve required stacks and categorical suppliers in an explicit coordinated scope/split and consumer dependency list. The queue retains the briefs; the defect is that 'plan the first' can defer necessary consumers, not that the function silently removes their text."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale reader. Current JSON contains 240 items (7 library,9 planned,224 missing), 71 source issues and eight routes. The report's opening still says 190 items (7,10,173), 37 source issues and its historical route table retains removed GZ.5 and scheme EDC.8 assignments. The appended review does not repair contradictory current counts, ownership and the old E20 gate. Regenerate the reader from the corrected extraction, separating historical checkpoint prose from the current accepted/repaired state; derive counts rather than copying this review's numbers after further edits."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed the bundled omitted source slips. Images pp.398–399 show the plus-half elliptic L-shift and the missing (−log q)^(−r), contrary to pp.400–401 and Theorems 7.4–7.5. Page 434 omits h_D in the base-change operand; image p.426 has c_(y_h) instead of c_(y_1); image p.451 leaves the componentwise instability cutoff implicit. Image p.486 repeats M_d where it needs the schematic Hecke source and cites Proposition 3.9/5.17 without the base-changed smoothness supplied by 3.10. Image p.500 normalizes E_2 instead of E'_2 in the final prose and carries a stray j. No sourceIssue records these defects. Add atomic entries and correct consuming proof references; their introductory/citation nature does not license copying the wrong formulas."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed normalization ambiguity. Page 395 defines the two-variable normalized product without an adjoint denominator; p.414 uses the same notation for that product divided by L(pi,Ad,1). Footnote 1 is on p.394 and already explains the YZ17 versus introduction convention. E31 addresses a later consequence but does not independently index the reuse of the symbol. Record the conversion with its two locators and use distinct API names across the joint tranche. This is a convention collision, not a claim that both definitions are individually false."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed invalid unqualified cited-theorem application. YZ17 Theorem B.2, p.904, assumes a nontrivial self-dual cuspidal representation; item 195 applies it directly to pi_F' without proving that base change cuspidal. Dihedral pi can split on this quadratic extension in the allowed unramified situation. Keep the high-rank nonvanishing conclusion: apply B.2 to the cuspidal pi and pi⊗eta over F and then the positive Taylor-series product, or apply Proposition B.1 to the entire normalized base-change function after checking its hypotheses. Preserve nonconstancy and root-number parity; confirmation concerns the proof input, not a counterexample to nonvanishing."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing dependencies in the conjecture-only item. Page 400 specifies Drinfeld's rank-two rho_pi, determinant Qbar_l(−1), the middle-extension H1 space W'_pi and the cohomological L-determinant identity. Item 190 records them but lists only item 154; its own review note already asks for the spectral and cycle inputs 78 and 86. Add the GL2 correspondence and properly normalized curve cohomology/L-function/trace suppliers as well as those internal inputs. The expected tensor identification remains an explicit assumption, and neither the conjecture nor that identification becomes a proved endpoint."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing Iwahori spectral adapter. Page 404's proof of Theorem 2.2 sums Eisenstein kernels over all Hecke characters and kills the nonspherical, ramified characters using Iwahori invariance, before using the Eisenstein ideal on the spherical remainder. YZ17's existing spherical kernel contract alone does not state this vanishing extension. Add the finite-level spectral/kernel and ramified-character vanishing input with its hypotheses, assigning the generic spectral theory to its existing supplier and the exact PGL2 application to the joint tranche."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed wrong cited purpose. Page 427 uses Varshavsky Proposition 2.16(a) to obtain the DM property of the usual shtuka stack and its representable level variant. The following paragraph derives separatedness from the argument after YZ17 Theorem 5.4 and the proper level-forgetting map. Change prerequisites[1].why to the DM input and record separatedness with its actual supplier; this is not a claim that Varshavsky's paper proves no separatedness theorem anywhere."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed duplicate source-issue records. E45 already records both uses of nonexistent Lemma 3.19(3), including the p.436 cutoff occurrence repeated in E71. E55 and E70 both record the repeated f1 in (5.17), and E1/E54 both address r± as sets used as numbers. Consolidate the occurrences and locators without breaking existing references, preserving aliases/redirects if IDs are consumed elsewhere. This is bookkeeping duplication, not three additional mathematical errors."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale conservative-bound claims after the reviewed repair. Page 488's bad-locus count requires one high-degree root-section factor, giving d≥2g+min(N+,N−); the other nonzero-section factor has its symmetric-divisor dimension. Thus dim C_d≤m−1. The printed max(2g'−1+N,2g) implies that weaker threshold: for g≥2 or rho>0 the Hurwitz bound suffices; for (g,rho)=(1,0) or (0,2), either N=0 or max(N+,N−)≥1 supplies the remaining inequality. E20.review.amendedCorrection recognizes this, but E20.correction, /119,/121,/148 and G5 still impose unresolved larger bounds. Synchronize them; Theorem 5.20 itself does not invoke Lemma 5.19."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed backward/missing prerequisite edges. Pages 474–475 define M_d(mu_Sigma,mu'_Sigma) by H_d and the bundle theta maps, then its Hecke fibre product by Hk_H and the two torus Hecke maps, and finally its Frobenius intersection. Item 185's prerequisite 101 reverses the master diagram's construction; /187 incorrectly depends on /186 instead of the bundle-level /185 plus /85; /188 needs the Hecke-level data and /189 needs its projections/twist as well as /188. Reorder the definition-level imports and make the master diagram depend on these constructions, including AL/projection maps, rather than using its aggregate item to supply its own constituents."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed incomplete proof outline, not a paper gap. Pages 482–484 reduce Proposition 5.16 to one leg, prove representative equal/unequal-sign cases and explicitly omit analogous cases. Item 107 only records the first ramified beta identity. Checking the row degrees gives H+ for equal signs and H− for unequal signs, with the incidence point sigma(x') when mu'_1=+1 and x' when mu'_1=−1; opposite signs require retyping one row by a pulled-back downstairs divisor, trivial in Bun_T. Add those four-case choices and retain the equality at ramification and 2 invertible. The theorem statement is already correctly indexed by mu mu'."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed the bundled locator/definition omissions. The trace application is §5.4.4, (5.52), p.491, not nonexistent §5.5. Page 463 supplies canonical root lifts of O_X(D) and its section for divisors away from R, needed by items 91 and 93. Definitions 5.3–5.4 on pp.465–466 retain the degree, Sigma vanishing/nonvanishing, first-order ramification vanishing and nonzero-difference condition in the empty-level/unramified case; /93's equality a|R=b|R is insufficient. Page 475 defines every p_M,i and alpha_M=AL_M,infinity composed with p_M,r, absent from the brief /188 definition. Add the explicit data and maps, preserving the already-recorded root-forgetting repair."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed sign inconsistency by direct trivialization calculation. Lemma A.5, p.518, maps (L,tau_eta,tau_x) to tau_x composed with tau_eta^(−1). For L=O_X(x), the local generator is varpi^(−1), so tau_x relative to the natural generic inclusion is multiplication by varpi: the displayed map sends O_X(x) to varpi, not varpi^(−1). Sections 6.2.3–4 use t→div(t) and O_X(−E), consistent with this calculation and inconsistent with /163's copied normalization. Correct that normalization or invert the entire equivalence consistently. Quadratic eta is inversion invariant, but the divisor/line-bundle API still requires a single sign convention."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed unstated strengthening. Proposition 6.2(3), p.495, states commutativity of (6.4), and item 127 records only that. Proposition 7.3, pp.508–509, additionally uses finiteness of g_d over A_d^diamond and that the square is Cartesian there. Over a,b nonzero the matrix sections are all nonzero, so divisor splittings give a finite root-addition problem and the defining nonvanishing conditions are automatic; properness then yields finiteness. State this open restriction explicitly and do not claim the full diagram Cartesian over the zero-section boundary, where Definition 6.1's degree-dependent condition selects a branch."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing regularization convention. Item 136 presents the weighted sum uniformly for all orbital classes. Pages 502–504 replace the singular orbit by enlarged degree quadrangles without nonnegativity and use Lemma 6.5 to cancel grouped character sums at large degree. YZ17 p.795 likewise expresses the singular n+ orbit as a degree-grouped quadratic L-series; the underlying set of effective D12 is infinite. Specify finite-support groupoid Fubini for regular or truncated pieces and the annulus/degree grouping plus continuation/cancellation for singular orbits. Vanishing grouped tails does not imply absolute finiteness of the ungrouped weighted set."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing all-degree DM contract. Theorem 6.3(2), p.497, imposes no large-degree bound, but item 126 records smooth DM only in the large-degree range. Page 495 separately proves DM for every degree by covering N_d with U_ij and showing a schematic projection to products of root symmetric powers; Lemma A.4 supplies the DM targets without the degree restriction. Record this result with finite type/properness and the constructible local-system trace input /227. The bound remains necessary for the separate smoothness/pure-dimension assertion, not for the all-degree DM step."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed that the asserted four-term Picard-stack exactness needs replacement, with a qualification to the proposed fix. A trivialization of L^(−1)⊗sigma*L belongs to the homotopy kernel of 1−sigma; at L=O it can be rescaled by any unit. Over a geometric base the scalar automorphisms of L cannot remove that factor, whereas descent from Pic_X imposes the norm/cocycle constraint. Thus the sheaf exact sequence on p.524 does not directly give the naive Picard-stack exactness copied by /174 from p.525. Page 481 needs the lift with its specified root-norm trivialization. Factor through torsors under K=ker(root norm), retaining homotopy fibres and descent/obstruction data. Do not replace it by ordinary zero-ended short exact sequences asserting naive injectivity: in an étale double cover the nontrivial quadratic line already pulls back to O."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed incomplete import identifiers/locator. Route 5 uses bare SF.1/SF.5 and EnhancedDerivedSheaves without the complete supplier names/keys; route 6 leaves AL.2/AL.3 and weight/trace suppliers implicit. Name the relevant EnhancedDerivedSheaves descent stages, DeligneWeightsAndPurity weight stages and upstream CohomologicalPointCounting TraceFormula contracts with source-qualified imports. Route 7's multiplicative root-Picard result is Proposition A.11 in YZ19, not Lemma A.11; the latter label belongs to the earlier-paper context. Provisional ST design keys must remain distinguished from implemented or existing atlas stages."
+    },
+    {
+      "finding": "RT-PAPER-YUN-ZHANG-19/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed omitted partial library support, not a built Hurwitz theorem. At Tau Ceti f790474, Different/Divisor.lean:141 defines Divisor.different; Different/Tame.lean:81 and :113 prove the subtraction-free tame coefficient identity under finite separability, residue separability and nonzero ramification index in the residue field. In this odd-characteristic double-cover setting those are the different-coefficient inputs to deg(Diff)=rho, with the place/curve identification still to be supplied. AUDIT-01's reviewed layer 7 likewise marks different/tame value built or partial and Hurwitz absent. Add these precise library imports to /9 and leave the genus formula planned; bounded function-field source searches did not locate it."
+    }
+  ]
+}
