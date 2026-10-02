@@ -9,6 +9,10 @@ import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.TensorProduct.Basic
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Module.FinitePresentation
+import Mathlib.LinearAlgebra.TensorProduct.Quotient
+import Mathlib.RingTheory.AdicCompletion.AsTensorProduct
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -16,7 +20,8 @@ StableReductionPartII.md is definitive. These suggested Lean forms help
 contributors and reviewers converge on names and signatures.
 
 CHECKPOINT: the polynomial node ring, its actual ideal and dual, the two
-cokernel maps and arbitrary coefficient tensor comparisons now have canonical
+cokernel maps, arbitrary coefficient tensor comparisons, flat ambient ideal/Hom/quotient
+transport and actual noetherian module completion now have canonical
 packet entries and prototype ledgers. The complete file is checked using an
 existing pinned Mathlib build, with admitted proof bodies as its only warnings.
 Elaboration does not certify those proofs or provide geometric supplier types.
@@ -871,6 +876,215 @@ example (h2 : (2 : A) = 0) :
 
 end
 
+
+noncomputable section
+open scoped TensorProduct
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+
+/-! Flat ambient extension of this explicit section ideal.
+These are applications of pinned finite-presentation Hom base change.
+They do not define Knudsen relative stable reflexivity or a nodal family. -/
+
+-- StableReductionPartII:MC.2/section-ideal-finite-presentation
+theorem sectionIdealFinitePresentation : Module.FinitePresentation (Ring A γ δ s t) (sectionIdeal A γ δ s t) := by
+  sorry
+
+section AmbientExtension
+variable (B : Type*) [CommRing B] [Algebra (Ring A γ δ s t) B]
+
+abbrev ambientIdeal := (sectionIdeal A γ δ s t).map (algebraMap (Ring A γ δ s t) B)
+abbrev ambientDual := ambientIdeal A γ δ s t B →ₗ[B] B
+
+-- StableReductionPartII:MC.2/section-ideal-ambient-equivalence
+def ambientIdealEquiv [Module.Flat (Ring A γ δ s t) B] :
+    (B ⊗[(Ring A γ δ s t)] sectionIdeal A γ δ s t) ≃ₗ[B] ambientIdeal A γ δ s t B := by
+  sorry
+
+theorem ambientIdealEquivTmul [Module.Flat (Ring A γ δ s t) B] (b : B) (j : sectionIdeal A γ δ s t) :
+    (ambientIdealEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] j) : B) = b * algebraMap (Ring A γ δ s t) B j := by
+  sorry
+
+theorem ambientIdealEquivUnique [Module.Flat (Ring A γ δ s t) B]
+    (e : (B ⊗[(Ring A γ δ s t)] sectionIdeal A γ δ s t) ≃ₗ[B] ambientIdeal A γ δ s t B)
+    (he : ∀ b j, (e (b ⊗ₜ[(Ring A γ δ s t)] j) : B) = b * algebraMap (Ring A γ δ s t) B j) :
+    e = ambientIdealEquiv A γ δ s t B := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-ambient-equivalence
+def ambientDualEquiv [Module.Flat (Ring A γ δ s t) B] :
+    (B ⊗[(Ring A γ δ s t)] sectionDual A γ δ s t) ≃ₗ[B] ambientDual A γ δ s t B := by
+  sorry
+
+theorem ambientDualEquivEvaluation [Module.Flat (Ring A γ δ s t) B]
+    (b b' : B) (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
+    ambientDualEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] h)
+      (ambientIdealEquiv A γ δ s t B (b' ⊗ₜ[(Ring A γ δ s t)] j)) =
+      b * b' * algebraMap (Ring A γ δ s t) B (h j) := by
+  sorry
+
+theorem ambientDualEquivUnique [Module.Flat (Ring A γ δ s t) B]
+    (e : (B ⊗[(Ring A γ δ s t)] sectionDual A γ δ s t) ≃ₗ[B] ambientDual A γ δ s t B)
+    (he : ∀ b b' h j, e (b ⊗ₜ[(Ring A γ δ s t)] h)
+      (ambientIdealEquiv A γ δ s t B (b' ⊗ₜ[(Ring A γ δ s t)] j)) =
+      b * b' * algebraMap (Ring A γ δ s t) B (h j)) : e = ambientDualEquiv A γ δ s t B := by
+  sorry
+
+-- Actual multiplication map; no residue coordinate is used to define it.
+def ambientMultiplication : B →ₗ[B] ambientDual A γ δ s t B := by
+  sorry
+
+theorem ambientMultiplicationApply (b : B) (j : ambientIdeal A γ δ s t B) :
+    ambientMultiplication A γ δ s t B b j = b * (j : B) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-ambient-multiplication
+theorem ambientDualEquivMultiplication [Module.Flat (Ring A γ δ s t) B] (b : B) (r : (Ring A γ δ s t)) :
+    ambientDualEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] dualMultiplication A γ δ s t r) =
+      ambientMultiplication A γ δ s t B (b * algebraMap (Ring A γ δ s t) B r) := by
+  sorry
+
+abbrev ambientDualQuotient :=
+  ambientDual A γ δ s t B ⧸ LinearMap.range (ambientMultiplication A γ δ s t B)
+
+-- StableReductionPartII:MC.2/section-dual-ambient-quotient-equivalence
+def ambientQuotientEquiv [Module.Flat (Ring A γ δ s t) B] :
+    (B ⊗[(Ring A γ δ s t)] sectionDualQuotient A γ δ s t) ≃ₗ[B] ambientDualQuotient A γ δ s t B := by
+  sorry
+
+theorem ambientQuotientEquivTmul [Module.Flat (Ring A γ δ s t) B] (b : B) (h : sectionDual A γ δ s t) :
+    ambientQuotientEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk h) =
+      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] h)) := by
+  sorry
+
+theorem ambientQuotientEquivUnique [Module.Flat (Ring A γ δ s t) B]
+    (e : (B ⊗[(Ring A γ δ s t)] sectionDualQuotient A γ δ s t) ≃ₗ[B] ambientDualQuotient A γ δ s t B)
+    (he : ∀ b h, e (b ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk h) =
+      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t B (b ⊗ₜ[(Ring A γ δ s t)] h))) :
+    e = ambientQuotientEquiv A γ δ s t B := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-ambient-faithful-detection
+-- Faithful flatness is a stated hypothesis, not inferred from flatness alone.
+theorem ambientQuotientFaithfulDetection [Module.FaithfullyFlat (Ring A γ δ s t) B]
+    (f : sectionDualQuotient A γ δ s t →ₗ[(Ring A γ δ s t)] sectionDualQuotient A γ δ s t) :
+    Function.Bijective (f.lTensor B) ↔ Function.Bijective f := by
+  sorry
+
+-- Tests of the ideal comparison: evaluation, identity and a degenerate target.
+-- test: NodeSectionFactorization.PolynomialModel.ambientIdealGenerator
+example [Module.Flat (Ring A γ δ s t) B] (j : sectionIdeal A γ δ s t) :
+    (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j) : B) = algebraMap (Ring A γ δ s t) B j := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientIdealIdentity
+example (r : (Ring A γ δ s t)) (j : sectionIdeal A γ δ s t) :
+    (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (r ⊗ₜ[(Ring A γ δ s t)] j) : (Ring A γ δ s t)) = r * (j : (Ring A γ δ s t)) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientIdealZero
+example [Subsingleton B] : Subsingleton (ambientIdeal A γ δ s t B) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.ambientDualEvaluation
+example [Module.Flat (Ring A γ δ s t) B] (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
+    ambientDualEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] h)
+      (ambientIdealEquiv A γ δ s t B (1 ⊗ₜ[(Ring A γ δ s t)] j)) = algebraMap (Ring A γ δ s t) B (h j) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientDualIdentity
+example (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
+    ambientDualEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] h)
+      (ambientIdealEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] j)) = h j := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientDualZero
+example [Subsingleton B] : Subsingleton (ambientDual A γ δ s t B) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.ambientQuotientMultiplication
+example [Module.Flat (Ring A γ δ s t) B] (b : B) (r : (Ring A γ δ s t)) :
+    ambientQuotientEquiv A γ δ s t B
+      (b ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk (dualMultiplication A γ δ s t r)) = 0 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientQuotientIdentity
+example (h : sectionDual A γ δ s t) :
+    ambientQuotientEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] Submodule.Quotient.mk h) =
+      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t (Ring A γ δ s t) (1 ⊗ₜ[(Ring A γ δ s t)] h)) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ambientQuotientAwayFromSection
+example (hd : IsUnit (algebraMap (Ring A γ δ s t) B ((AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)) - (coefficientHom A γ δ s t) t))) :
+    Subsingleton (ambientDualQuotient A γ δ s t B) := by
+  sorry
+end AmbientExtension
+
+-- StableReductionPartII:MC.2/section-dual-completion-equivalence
+-- Completes the module itself, not only its tensor model.
+def completedDualEquiv [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t)) :
+    AdicCompletion I (sectionDual A γ δ s t) ≃ₗ[AdicCompletion I (Ring A γ δ s t)]
+      ambientDual A γ δ s t (AdicCompletion I (Ring A γ δ s t)) := by
+  sorry
+
+theorem completedDualEquivOf [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
+    (h : sectionDual A γ δ s t) :
+    completedDualEquiv A γ δ s t I (AdicCompletion.of I _ h) =
+      ambientDualEquiv A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (1 ⊗ₜ[(Ring A γ δ s t)] h) := by
+  sorry
+
+theorem completedDualEquivTensor [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
+    (b : AdicCompletion I (Ring A γ δ s t)) (h : sectionDual A γ δ s t) :
+    completedDualEquiv A γ δ s t I (b • AdicCompletion.of I _ h) =
+      ambientDualEquiv A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (b ⊗ₜ[(Ring A γ δ s t)] h) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-quotient-completion-equivalence
+def completedQuotientEquiv [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t)) :
+    AdicCompletion I (sectionDualQuotient A γ δ s t) ≃ₗ[AdicCompletion I (Ring A γ δ s t)]
+      ambientDualQuotient A γ δ s t (AdicCompletion I (Ring A γ δ s t)) := by
+  sorry
+
+theorem completedQuotientEquivOf [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
+    (h : sectionDual A γ δ s t) :
+    completedQuotientEquiv A γ δ s t I
+      (AdicCompletion.of I (sectionDualQuotient A γ δ s t) (Submodule.Quotient.mk h)) =
+      Submodule.Quotient.mk (completedDualEquiv A γ δ s t I (AdicCompletion.of I _ h)) := by
+  sorry
+
+theorem completedQuotientEquivTensor [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
+    (b : AdicCompletion I (Ring A γ δ s t)) (h : sectionDual A γ δ s t) :
+    completedQuotientEquiv A γ δ s t I
+      (b • AdicCompletion.of I (sectionDualQuotient A γ δ s t) (Submodule.Quotient.mk h)) =
+      Submodule.Quotient.mk (ambientDualEquiv A γ δ s t (AdicCompletion I (Ring A γ δ s t))
+        (b ⊗ₜ[(Ring A γ δ s t)] h)) := by
+  sorry
+
+section CompletionTests
+variable [IsNoetherianRing (Ring A γ δ s t)] (I : Ideal (Ring A γ δ s t))
+-- test: NodeSectionFactorization.PolynomialModel.completedDualMultiplication
+example (r : (Ring A γ δ s t)) :
+    completedDualEquiv A γ δ s t I
+      (AdicCompletion.of I _ (dualMultiplication A γ δ s t r)) =
+      ambientMultiplication A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (algebraMap (Ring A γ δ s t) _ r) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.completedDualZero
+example : completedDualEquiv A γ δ s t I 0 = 0 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.completedDualEvaluation
+example (h : sectionDual A γ δ s t) (j : sectionIdeal A γ δ s t) :
+    completedDualEquiv A γ δ s t I (AdicCompletion.of I _ h)
+      (ambientIdealEquiv A γ δ s t (AdicCompletion I (Ring A γ δ s t)) (1 ⊗ₜ[(Ring A γ δ s t)] j)) =
+      algebraMap (Ring A γ δ s t) (AdicCompletion I (Ring A γ δ s t)) (h j) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.completedQuotientMultiplication
+example (r : (Ring A γ δ s t)) :
+    completedQuotientEquiv A γ δ s t I
+      (AdicCompletion.of I _ (Submodule.Quotient.mk (dualMultiplication A γ δ s t r))) = 0 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.completedQuotientZero
+example : completedQuotientEquiv A γ δ s t I 0 = 0 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.completedQuotientAwayFromSection
+example (hd : IsUnit (algebraMap (Ring A γ δ s t) (AdicCompletion I (Ring A γ δ s t)) ((AdjoinRoot.of (polynomial A γ δ s t) (Polynomial.X : Polynomial A)) - (coefficientHom A γ δ s t) t))) :
+    Subsingleton (ambientDualQuotient A γ δ s t (AdicCompletion I (Ring A γ δ s t))) := by
+  sorry
+end CompletionTests
+
+end
 end PolynomialModel
 
 -- NodeSectionFactorization.PolynomialModel.receivingRingNotExact
