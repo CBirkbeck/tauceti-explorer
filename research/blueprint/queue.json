@@ -38669,8 +38669,9 @@
     "REV-PAPER-DEMARCO-MAVRAKI-YE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-MAVRAKI-YE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4202"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4202",
+   "finishedAt": "2026-10-02T01:05:49Z"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -39067,8 +39068,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5519"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5519",
+   "finishedAt": "2026-10-02T01:05:53Z"
   },
   {
    "id": "RT-PAPER-VANHOFTEN-24",
@@ -41314,7 +41316,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NEWTON-THORNE-21-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5533"
   },
   {
    "id": "RT-PAPER-CHENEVIER-TAIBI-20",
