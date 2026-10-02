@@ -238,6 +238,121 @@ Source:
 
 - TV17, §3.1 pp. 14–16, P=N and Corollary 3.13. The stated source passage gives the construction or proof specialized with the hypotheses and conventions above; the decomposition makes its non-routine steps explicit.
 
+### Canonical quotient-root relation
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-root-relation. Lemma.
+
+The distinguished root t of the actual quotient B=A[T]/(Tⁿ−f) satisfies tⁿ=algebraMap(f), including over nonreduced and zero coefficient rings.
+
+Hypotheses:
+
+- A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed.
+
+Construction or proof:
+
+1. Evaluate the defining polynomial at the canonical quotient root using eval₂_root.
+2. Expand evaluation of Xⁿ−C(f) and cancel the subtraction; the existing coefficient algebra map is the native quotient map.
+
+Inputs: mathlib:AdjoinRoot, mathlib:AdjoinRoot.eval₂_root.
+
+Unit tests:
+
+- TauCeti.RootStack.affineRoot.pow_eq.test_wild_branch (computation): Over F₂, the canonical root of T² has square zero.
+- TauCeti.RootStack.affineRoot.pow_eq.test_regular_nonunit (computation): Over Z, the canonical root of T²−2 has fourth power equal to the image of 4.
+
+Acceptance:
+
+- For A=F₂,n=2,f=0, t²=0 without any assertion that t vanishes.
+- For A=Z,n=2,f=2, t⁴=4; f need not be a unit.
+
+Source:
+
+- TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper.
+
+### Powers of the native root character
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-character-power. Lemma.
+
+In H=A[Multiplicative(ZMod n)], the basis element e₁ at the existing roots-of-unity character generator satisfies e₁ⁱ=e_i for every i≥0. In particular e₁ⁿ=1, even when n is zero in A.
+
+Hypotheses:
+
+- A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed.
+
+Construction or proof:
+
+1. Apply the native single_pow identity with coefficient 1.
+2. Expand the existing generator to Multiplicative.ofAdd(1). Its i-th power is the additive multiple i•1, whose image is i modulo n. For i=n, natCast_self gives zero and e₀=1.
+
+Inputs: tauceti:TauCeti.RootsOfUnityGroup.generator, mathlib:MonoidAlgebra.single_pow, mathlib:ofAdd_nsmul, mathlib:ZMod.natCast_self.
+
+Unit tests:
+
+- TauCeti.RootStack.affineCharacter.pow.test_wild_order (compatibility): In F₂[Multiplicative(ZMod 2)], the character basis element e₁ has square one.
+
+Acceptance:
+
+- Over F₂ at exponent two, e₁²=1 although μ₂ is not étale.
+
+Source:
+
+- TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper.
+
+### Euclidean reduction of quotient-root powers
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction. Lemma.
+
+For n≥1 and every k≥0, the actual quotient root satisfies tᵏ=f^⌊k/n⌋ • t^(k mod n), using the native A-module structure on B. No division in A is performed.
+
+Hypotheses:
+
+- A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed.
+
+Construction or proof:
+
+1. Write k=n⌊k/n⌋+(k mod n) in the natural numbers.
+2. Use the power product identities and the canonical root relation tⁿ=f. Rewrite multiplication by the coefficient image as scalar multiplication.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-root-relation.
+
+Unit tests:
+
+- TauCeti.RootStack.affineRoot.pow_reduce.test_nilpotent (computation): In (Z/4)[T]/(T²−2), the canonical root has fourth power zero.
+
+Acceptance:
+
+- For A=Z/4,n=2,f=2, t⁴=0, retaining the nilpotent coefficient.
+- At k<n the quotient coefficient is one; at k=n it is f.
+
+Source:
+
+- TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper.
+
+### Root image of the universal coaction
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction-root. Lemma.
+
+δ(t)=e_1⊗t in the native H⊗_A B.
+
+Hypotheses:
+
+- A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed.
+
+Construction or proof:
+
+1. Evaluate the native quotient algebra lift at the distinguished root.
+2. The lift uses the specified tensor e₁⊗t, so its root computation is exact.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:AdjoinRoot.liftAlgHom.
+
+Acceptance:
+
+- This is the promoted root-evaluation API used by weight, counit and coassociativity proofs.
+
+Source:
+
+- TV17, §3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N. Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper.
+
 ### Affine root-chart coaction
 
 Declaration: FunctionFieldArithmeticPartII:RS.0/affine-coaction. Construction.
@@ -254,7 +369,7 @@ Construction or proof:
 2. Apply the native AdjoinRoot algebra lift with this root and the coefficient map to H⊗_A B. The algebra-map law fixes constants.
 3. Native quotient algebra-hom extensionality proves uniqueness. Counit and coassociativity are proved in separate nodes, not assumed fields.
 
-Inputs: mathlib:AdjoinRoot, mathlib:AdjoinRoot.eval₂_root, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.algHom_ext, mathlib:MonoidAlgebra.single, mathlib:MonoidAlgebra.single_pow, mathlib:Algebra.TensorProduct.includeRight, tauceti:TauCeti.RootsOfUnityGroup.generator, mathlib:MonoidAlgebra.instHopfAlgebra.
+Inputs: mathlib:AdjoinRoot, mathlib:AdjoinRoot.eval₂_root, mathlib:AdjoinRoot.liftAlgHom, mathlib:AdjoinRoot.algHom_ext, mathlib:MonoidAlgebra.single, mathlib:MonoidAlgebra.single_pow, mathlib:Algebra.TensorProduct.includeRight, tauceti:TauCeti.RootsOfUnityGroup.generator, mathlib:MonoidAlgebra.instHopfAlgebra, FunctionFieldArithmeticPartII:RS.0/affine-root-relation, FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:Algebra.TensorProduct.algebraMap_apply', mathlib:Algebra.TensorProduct.tmul_pow.
 
 API uses:
 
@@ -299,7 +414,7 @@ Construction or proof:
 1. Apply multiplicativity of δ to t^i and use δ(t)=e_1⊗t with native tensor multiplication.
 2. Rewrite e_1^i as the basis element at the residue of i. At i=n this agrees with tⁿ=f having weight zero.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.single_pow.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.single_pow, FunctionFieldArithmeticPartII:RS.0/affine-coaction-root, FunctionFieldArithmeticPartII:RS.0/affine-character-power, mathlib:Algebra.TensorProduct.tmul_pow.
 
 Acceptance:
 
@@ -324,7 +439,7 @@ Construction or proof:
 1. The native group-like basis theorem gives ε(e_1)=1.
 2. The composite sends t to t. Both maps are A-algebra maps, so native quotient extensionality establishes equality without an assumed counit predicate.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.counitAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.lid, mathlib:AdjoinRoot.algHom_ext.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.counitAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.lid, mathlib:AdjoinRoot.algHom_ext, FunctionFieldArithmeticPartII:RS.0/affine-coaction-root, mathlib:MonoidAlgebra.counit_single.
 
 Acceptance:
 
@@ -349,7 +464,7 @@ Construction or proof:
 1. The native group-like basis theorem gives Δ(e_1)=e_1⊗e_1.
 2. Both composites send t to e_1⊗(e_1⊗t) after reassociation; quotient extensionality proves equality. The associator is explicit, not a definitional identification of tensor parentheses.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.comulAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.assoc, mathlib:AdjoinRoot.algHom_ext.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:MonoidAlgebra.instBialgebra, mathlib:MonoidAlgebra.isGroupLikeElem_single_one, mathlib:Bialgebra.comulAlgHom, mathlib:Algebra.TensorProduct.map, mathlib:Algebra.TensorProduct.assoc, mathlib:AdjoinRoot.algHom_ext, FunctionFieldArithmeticPartII:RS.0/affine-coaction-root, mathlib:MonoidAlgebra.comul_single.
 
 Acceptance:
 
@@ -595,7 +710,9 @@ Construction or proof:
 1. Use the existing affine coaction and the native right-factor algebra inclusion. Their images commute because the target algebra is commutative.
 2. Apply the native tensor-algebra lift, with these two specified maps. Its algebra-map laws fix coefficients and define a unique comparison; no torsor predicate or geometric-point set is introduced.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:Algebra.TensorProduct.lift, mathlib:Algebra.TensorProduct.includeRight.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:Algebra.TensorProduct.lift, mathlib:Algebra.TensorProduct.includeRight, mathlib:Algebra.TensorProduct.ext'.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -642,6 +759,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-comparison, mathlib:Algebra.TensorProduct.lift_tmul.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - Substitution b=x,c=1 and b=1 recovers the two construction projection APIs.
@@ -664,6 +783,8 @@ Construction or proof:
 2. Use its coordinate equivalence for existence and uniqueness. If A is subsingleton then every A-module is subsingleton and there is exactly one coefficient family; prove this branch directly, without the false degree assertion.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-comparison, mathlib:AdjoinRoot.powerBasis', mathlib:Module.Basis.tensorProduct.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -688,6 +809,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, mathlib:MonoidAlgebra.basis, mathlib:Module.Basis.tensorProduct, mathlib:AdjoinRoot.powerBasis'.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - Over F_p with n=p, all n character vectors remain independent although μ_p(k) has one element.
@@ -710,7 +833,9 @@ Construction or proof:
 2. Use the actual quotient relation xⁿ=f and Euclidean division i+j=nq+r. Tensor balancing moves f^q to the coefficient.
 3. Check the two displayed inverse indices are between zero and n−1, with sum wrapping exactly in the k<i branch. This proves bijectivity of σ without cancellation in A.
 
-Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, mathlib:AdjoinRoot.eval₂_root.
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, mathlib:AdjoinRoot.eval₂_root, FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -734,6 +859,8 @@ Construction or proof:
 2. Unique target coordinates force exactly the displayed coefficient equations, and conversely those equations make every target coefficient zero.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -759,6 +886,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, mathlib:Ideal.mem_span_singleton'.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - At f=0 every strictly lower target coordinate must vanish, but upper and diagonal coordinates remain unrestricted.
@@ -781,6 +910,8 @@ Construction or proof:
 2. Define the inverse by extension by zero outside W and source basis expansion. The criterion proves kernel membership. Unique coordinates prove both inverses and linearity.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients, FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -806,6 +937,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, mathlib:LinearMap.quotKerEquivOfSurjective, mathlib:Submodule.Quotient.mk, mathlib:Ideal.mem_span_singleton'.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - For Z/8,f=4,n=2 the cokernel retains an element of additive order four, rejecting reduction to F₂.
@@ -828,6 +961,8 @@ Construction or proof:
 2. Injectivity of multiplication by f kills every wrapping kernel coefficient. Conversely any a with fa=0 occupies only coordinate (1,n−1); injectivity of Θ and unique source coordinates force a=0.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients, FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -853,6 +988,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - For Z,n=2,f=2 the target e_1⊗1 is not in the image.
@@ -875,6 +1012,8 @@ Construction or proof:
 2. A unit gives both surjectivity and injectivity of multiplication by f. The n=1 case uses the respective criteria.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-injective, FunctionFieldArithmeticPartII:RS.0/affine-torsor-surjective.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -900,6 +1039,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul, FunctionFieldArithmeticPartII:RS.0/affine-torsor-bijective, FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight, FunctionFieldArithmeticPartII:RS.0/affine-coaction, mathlib:AdjoinRoot.algHom_ext, mathlib:Algebra.TensorProduct.lift, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv, tauceti:TauCeti.RootsOfUnityGroup.pointsMulEquiv_symm_apply_single_generator.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - The inverse is fixed by its generator formulas, rather than an unrelated abstract algebra equivalence.
@@ -924,6 +1065,8 @@ Construction or proof:
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, mathlib:Matrix.det_apply, mathlib:Fin.sign_cycleRange.
 
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
+
 Acceptance:
 
 - For n=2 the determinant is −f, including f=0 and nonreduced coefficient rings.
@@ -947,6 +1090,8 @@ Construction or proof:
 3. The source has dimension n² by the native tensor basis; rank-nullity gives the simultaneous kernel formula, equivalently the wrapping coordinates form its basis.
 
 Inputs: FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial, FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates, FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates, mathlib:Module.finrank_eq_card_basis, mathlib:LinearMap.finrank_range_add_finrank_ker.
+
+- TauCeti.RootStack.affineTorsorComparison.test_branch_image (computation): At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption.
 
 Acceptance:
 
@@ -4043,4 +4188,24 @@ The packet carries the eight independently confirmed YZ19 corrections and the ne
 - mathlib:Module.finrank_eq_card_basis — Over a nontrivial strong-rank-condition ring, a finite basis computes finrank; used only over a field here. Source: Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean.
 - mathlib:LinearMap.finrank_range_add_finrank_ker — Rank-nullity for a linear map from a finite-dimensional vector space over a division ring. Source: Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean.
 
-The finite comparison signatures and eight examples are checked as a targeted Mathlib-native fragment, with the native character generator expanded to its actual definition and the existing affine-coaction signature admitted. This is not compilation of the full suggested file: its native Tau Ceti line-bundle/points imports have no compiled build available at the pin. All mathematical implementations and all ten stages remain unchecked and partial; the unchanged geometric omission ledger is still binding.
+The finite comparison signatures and eight examples are checked as a targeted Mathlib-native fragment, with the native character generator expanded to its actual definition. The earlier extraction admitted the coaction; this continuation proves its native quotient lift, weight, counit and coassociativity and the elementary tensor comparison. This is not compilation of the full suggested file: its native Tau Ceti line-bundle/points imports have no compiled build available at the pin. All mathematical implementations and all ten stages remain unchecked and partial; the unchanged geometric omission ledger is still binding.
+
+## Native coaction proof continuation — codex-rtOQ9t
+
+Four new lemmas expose the quotient relation, Euclidean root-power reduction, native character powers, and the promoted root-evaluation API. The checked native algebra branch constructs δ using AdjoinRoot.liftAlgHom and Θ using Algebra.TensorProduct.lift. Constants, weights, counit, coassociativity, pure tensors, root/right-factor values, uniqueness and the monomial formula use these actual maps. The weight signature now parenthesizes the right root power; the mathematical contract is unchanged.
+
+Fresh reading is TV17 v2 §3.1 pp14–16, the full finite-chart setup and cited proofs. The PDF hash matches the inherited receipt. Current reviewed FA.0–FA.7 audit records and supplier scopes were checked. Earlier broad paper readings, AV sibling contracts and source findings retain their original provenance.
+
+The targeted Mathlib extraction proves this algebra branch and its wild-characteristic, nonunit, nilpotent and exponent-one computations. It leaves the coordinate equivalences, kernel/cokernel, inverse, determinant/rank and nonvanishing examples admitted. The exact-pin Tau Ceti compiled imports remain unavailable, so the complete suggested file is uncompiled. All123 proposed nodes stay unchecked and all ten stages remain partial; the geometric, stack, sheaf and infinite-tower gaps are retained.
+
+Additional native baseline statements read at Mathlib082e2d3:
+
+- mathlib:ofAdd_nsmul — Native conversion of an additive n-fold multiple into a power in Multiplicative. Source: Mathlib/Algebra/Group/TypeTags/Basic.lean.
+- mathlib:ZMod.natCast_self — The image of n in ZMod n is zero, independent of the coefficient-ring characteristic. Source: Mathlib/Data/ZMod/Basic.lean.
+- mathlib:Algebra.TensorProduct.tmul_pow — A power of a pure tensor is the tensor of the powers; parentheses distinguish the tensor power from the second-factor power. Source: Mathlib/RingTheory/TensorProduct/Basic.lean.
+- mathlib:Algebra.TensorProduct.algebraMap_apply' — The native coefficient map into a tensor algebra equals 1 tensor the coefficient image in the right factor. Source: Mathlib/RingTheory/TensorProduct/Basic.lean.
+- mathlib:Algebra.TensorProduct.ext' — Algebra homomorphisms out of a tensor algebra agree if their values on every pure tensor agree. Source: Mathlib/RingTheory/TensorProduct/Basic.lean.
+- mathlib:MonoidAlgebra.counit_single — Native coefficient-coalgebra counit formula on a character basis element. Source: Mathlib/RingTheory/Coalgebra/MonoidAlgebra.lean.
+- mathlib:MonoidAlgebra.comul_single — Native coefficient-coalgebra comultiplication formula on a character basis element. Source: Mathlib/RingTheory/Coalgebra/MonoidAlgebra.lean.
+
+The final targeted extraction reports0 errors,20 admitted-body warnings and0 other warnings. All16 audited algebra declarations exclude admission axioms. The independent coordinate check passes57,628 assertions. These receipts certify only the checked extraction; full-file compilation and roadmap implementation remain unclaimed.

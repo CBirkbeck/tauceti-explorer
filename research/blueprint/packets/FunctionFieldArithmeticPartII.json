@@ -469,6 +469,48 @@
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
         "provides": "Rank-nullity for a linear map from a finite-dimensional vector space over a division ring.",
         "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-a71f92."
+      },
+      {
+        "ref": "mathlib:ofAdd_nsmul",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "Native conversion of an additive n-fold multiple into a power in Multiplicative.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_self",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The image of n in ZMod n is zero, independent of the coefficient-ring characteristic.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.tmul_pow",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "A power of a pure tensor is the tensor of the powers; parentheses distinguish the tensor power from the second-factor power.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.algebraMap_apply'",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "The native coefficient map into a tensor algebra equals 1 tensor the coefficient image in the right factor.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.ext'",
+        "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+        "provides": "Algebra homomorphisms out of a tensor algebra agree if their values on every pure tensor agree.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.counit_single",
+        "module": "Mathlib/RingTheory/Coalgebra/MonoidAlgebra.lean",
+        "provides": "Native coefficient-coalgebra counit formula on a character basis element.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.comul_single",
+        "module": "Mathlib/RingTheory/Coalgebra/MonoidAlgebra.lean",
+        "provides": "Native coefficient-coalgebra comultiplication formula on a character basis element.",
+        "checked": "Actual declaration statement personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex — codex-rtOQ9t."
       }
     ]
   },
@@ -4682,6 +4724,146 @@
       }
     },
     {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-root-relation",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Canonical quotient-root relation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineRoot.pow_eq",
+      "statement": "The distinguished root t of the actual quotient B=A[T]/(Tⁿ−f) satisfies tⁿ=algebraMap(f), including over nonreduced and zero coefficient rings.",
+      "hypotheses": [
+        "A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed."
+      ],
+      "prerequisites": [
+        "mathlib:AdjoinRoot",
+        "mathlib:AdjoinRoot.eval₂_root"
+      ],
+      "proofSteps": [
+        "Evaluate the defining polynomial at the canonical quotient root using eval₂_root.",
+        "Expand evaluation of Xⁿ−C(f) and cancel the subtraction; the existing coefficient algebra map is the native quotient map."
+      ],
+      "acceptance": [
+        "For A=F₂,n=2,f=0, t²=0 without any assertion that t vanishes.",
+        "For A=Z,n=2,f=2, t⁴=4; f need not be a unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "match": "Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineRoot.pow_eq.test_wild_branch",
+          "kind": "computation",
+          "statement": "Over F₂, the canonical root of T² has square zero."
+        },
+        {
+          "name": "TauCeti.RootStack.affineRoot.pow_eq.test_regular_nonunit",
+          "kind": "computation",
+          "statement": "Over Z, the canonical root of T²−2 has fourth power equal to the image of 4."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Powers of the native root character",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineCharacter.pow",
+      "statement": "In H=A[Multiplicative(ZMod n)], the basis element e₁ at the existing roots-of-unity character generator satisfies e₁ⁱ=e_i for every i≥0. In particular e₁ⁿ=1, even when n is zero in A.",
+      "hypotheses": [
+        "A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.RootsOfUnityGroup.generator",
+        "mathlib:MonoidAlgebra.single_pow",
+        "mathlib:ofAdd_nsmul",
+        "mathlib:ZMod.natCast_self"
+      ],
+      "proofSteps": [
+        "Apply the native single_pow identity with coefficient 1.",
+        "Expand the existing generator to Multiplicative.ofAdd(1). Its i-th power is the additive multiple i•1, whose image is i modulo n. For i=n, natCast_self gives zero and e₀=1."
+      ],
+      "acceptance": [
+        "Over F₂ at exponent two, e₁²=1 although μ₂ is not étale."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "match": "Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineCharacter.pow.test_wild_order",
+          "kind": "compatibility",
+          "statement": "In F₂[Multiplicative(ZMod 2)], the character basis element e₁ has square one."
+        }
+      ]
+    },
+    {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Euclidean reduction of quotient-root powers",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineRoot.pow_reduce",
+      "statement": "For n≥1 and every k≥0, the actual quotient root satisfies tᵏ=f^⌊k/n⌋ • t^(k mod n), using the native A-module structure on B. No division in A is performed.",
+      "hypotheses": [
+        "A is any commutative ring and f∈A. The root relation and character-power identity allow every natural n; Euclidean reduction uses n≥1. No reducedness, regularity, invertibility of n, or unit condition on f is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation"
+      ],
+      "proofSteps": [
+        "Write k=n⌊k/n⌋+(k mod n) in the natural numbers.",
+        "Use the power product identities and the canonical root relation tⁿ=f. Rewrite multiplication by the coefficient image as scalar multiplication."
+      ],
+      "acceptance": [
+        "For A=Z/4,n=2,f=2, t⁴=0, retaining the nilpotent coefficient.",
+        "At k<n the quotient coefficient is one; at k=n it is f."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "match": "Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineRoot.pow_reduce.test_nilpotent",
+          "kind": "computation",
+          "statement": "In (Z/4)[T]/(T²−2), the canonical root has fourth power zero."
+        }
+      ]
+    },
+    {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
       "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
       "realises": [
@@ -4703,7 +4885,11 @@
         "mathlib:MonoidAlgebra.single_pow",
         "mathlib:Algebra.TensorProduct.includeRight",
         "tauceti:TauCeti.RootsOfUnityGroup.generator",
-        "mathlib:MonoidAlgebra.instHopfAlgebra"
+        "mathlib:MonoidAlgebra.instHopfAlgebra",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-relation",
+        "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+        "mathlib:Algebra.TensorProduct.algebraMap_apply'",
+        "mathlib:Algebra.TensorProduct.tmul_pow"
       ],
       "proofSteps": [
         "In the native group algebra e_1ⁿ=e_0=1 because the character index is modulo n. Hence (e_1⊗t)ⁿ=1⊗f and the quotient polynomial evaluates to zero.",
@@ -4778,6 +4964,43 @@
       ]
     },
     {
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-root",
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "title": "Root image of the universal coaction",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineCoaction.root",
+      "statement": "δ(t)=e_1⊗t in the native H⊗_A B.",
+      "hypotheses": [
+        "A is any commutative ring, f∈A and n≥1. No reducedness, nonzerodivisor or invertibility-of-n hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
+        "mathlib:AdjoinRoot.liftAlgHom"
+      ],
+      "proofSteps": [
+        "Evaluate the native quotient algebra lift at the distinguished root.",
+        "The lift uses the specified tensor e₁⊗t, so its root computation is exact."
+      ],
+      "acceptance": [
+        "This is the promoted root-evaluation API used by weight, counit and coassociativity proofs."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp. 14–16, character grading before Lemma 3.7 and finite chart of Corollary 3.13, P=N",
+          "match": "Root-specific calculation derived here from the finite P=N character grading and quotient chart. The native quotient and character algebra are imported. This is not a verbatim theorem attributed to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
       "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
       "realises": [
@@ -4792,7 +5015,10 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
-        "mathlib:MonoidAlgebra.single_pow"
+        "mathlib:MonoidAlgebra.single_pow",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-root",
+        "FunctionFieldArithmeticPartII:RS.0/affine-character-power",
+        "mathlib:Algebra.TensorProduct.tmul_pow"
       ],
       "proofSteps": [
         "Apply multiplicativity of δ to t^i and use δ(t)=e_1⊗t with native tensor multiplication.",
@@ -4834,7 +5060,9 @@
         "mathlib:Bialgebra.counitAlgHom",
         "mathlib:Algebra.TensorProduct.map",
         "mathlib:Algebra.TensorProduct.lid",
-        "mathlib:AdjoinRoot.algHom_ext"
+        "mathlib:AdjoinRoot.algHom_ext",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-root",
+        "mathlib:MonoidAlgebra.counit_single"
       ],
       "proofSteps": [
         "The native group-like basis theorem gives ε(e_1)=1.",
@@ -4876,7 +5104,9 @@
         "mathlib:Bialgebra.comulAlgHom",
         "mathlib:Algebra.TensorProduct.map",
         "mathlib:Algebra.TensorProduct.assoc",
-        "mathlib:AdjoinRoot.algHom_ext"
+        "mathlib:AdjoinRoot.algHom_ext",
+        "FunctionFieldArithmeticPartII:RS.0/affine-coaction-root",
+        "mathlib:MonoidAlgebra.comul_single"
       ],
       "proofSteps": [
         "The native group-like basis theorem gives Δ(e_1)=e_1⊗e_1.",
@@ -5921,7 +6151,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction",
         "mathlib:Algebra.TensorProduct.lift",
-        "mathlib:Algebra.TensorProduct.includeRight"
+        "mathlib:Algebra.TensorProduct.includeRight",
+        "mathlib:Algebra.TensorProduct.ext'"
       ],
       "proofSteps": [
         "Use the existing affine coaction and the native right-factor algebra inclusion. Their images commute because the target algebra is commutative.",
@@ -6018,6 +6249,11 @@
           "name": "TauCeti.RootStack.affineTorsorComparison.test_cokernel_nonreduced",
           "kind": "computation",
           "statement": "For A=Z/8,n=2,f=4, the A-module cokernel is A/(4) and contains z with 2z≠0,4z=0. Neither the reduced quotient F₂ nor the algebra quotient generated by im Θ has this property."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.test_branch_image",
+          "kind": "computation",
+          "statement": "At n=2 over any commutative ring, Θ(t⊗t)=f • (e₁⊗1). In particular the branch parameter f=0 gives zero without a regularity assumption."
         }
       ]
     },
@@ -6165,7 +6401,8 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-tmul",
         "FunctionFieldArithmeticPartII:RS.0/affine-coaction-weight",
-        "mathlib:AdjoinRoot.eval₂_root"
+        "mathlib:AdjoinRoot.eval₂_root",
+        "FunctionFieldArithmeticPartII:RS.0/affine-root-power-reduction"
       ],
       "proofSteps": [
         "Use the pure-tensor formula and the coaction weight law to obtain e_i⊗x^(i+j).",
@@ -6805,7 +7042,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "Prove the fifteen integrated finite action-comparison declarations against the actual native coaction; the Mathlib fragment elaboration is not full Tau Ceti file compilation or a proof."
+        "Prove the remaining finite comparison coordinate, kernel/cokernel, sharp criterion, inverse, determinant and rank statements and nonvanishing tests. The native coaction and elementary comparison proof extraction has been checked, but neither the whole Tau Ceti file nor the packet is certified."
       ]
     },
     {
@@ -8270,6 +8507,31 @@
       "primaryScope": "Fresh TV17 §3.1 pp.14–16 character grading, Lemma3.7 proof, Definition3.8, Lemma3.12 and Proposition3.10 proof/Corollary3.13; AGV08 AppendixB.1–B.2 pp.52–54; Stacks040N and0245 statements/proofs. PDF hashes match inherited versions. No fresh whole YZ19/AV/B24 reading or erratum claim.",
       "nativeBoundary": "Targeted new comparison fragment only, pinned Mathlib, native generator expanded, existing coaction admitted. Full Tau Ceti suggested file not compiled because compiled imports absent.",
       "preserved": "All 104 inherited node statements, both paper routes, reserved key, source findings/versions, 39 planets, eight gaps and thirteen requests preserved."
+    },
+    "nativeCoactionProofContinuation": {
+      "worker": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "auditTree": "50a5391786116e4f2caa037fabe6ea063abb4034",
+      "reviewedRowsRead": "Full current FA.0–FA.7 reviewed aggregate target/evidence/duplication records under REV-AUDIT-20; no FunctionFieldArithmeticPartII rows. Actual SF.1/SF.3 and R09.3–R09.5 stage descriptions and root-stack owner read.",
+      "primaryScope": "Fresh TV17 v2 §3.1 finite chart setup and character grading, full Lemma3.7, Proposition3.10, Lemma3.12 and Corollary3.13 with proofs, pp14–16. Download hash matches inherited receipt. Broader sources and AV contract reading remain attributed to predecessors.",
+      "nativeBoundary": "The Mathlib-only extraction now uses the actual quotient-lift coaction and tensor-lift comparison; no admitted coaction scaffold. The full suggested Tau Ceti file remains uncompiled because an exact-pin compiled import set is unavailable.",
+      "correction": "The native weight signature parenthesizes the right root power to prevent parsing a power of the entire tensor. The packet mathematical statement is unchanged.",
+      "preserved": "All119 inherited node IDs/statements, all source routes/versions/findings, requests/gaps, AV sibling contracts and39 planets preserved. Four new lemma nodes and seven baseline declarations. All ten stages partial/unchecked.",
+      "proofCheck": {
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "4.34.0-rc2",
+        "nativeFileSha256": "83618bf04d583394bb2c39d8af4fa9cfecc4be99351925cbb7803f8ca3b5a0e4",
+        "extractionSha256": "e61e177d523bfaeecdc22d16eb7f999c0ae7caaa8e36cfc243192eb2dfb7e641",
+        "axiomExtractionSha256": "000158909db7fa58b2d95ea93943a60354c681ad80f7a708ee3c9e743d741f25",
+        "axiomLogSha256": "920236c4660f73fded568d10cc423686a714d68a71c8e940958c9c44983ad2bd",
+        "errors": 0,
+        "admittedWarnings": 20,
+        "otherWarnings": 0,
+        "examples": 14,
+        "axiomAudit": "All16 newly supplied algebra declarations depend only on propext, Classical.choice and Quot.sound; none depends on an admission axiom. This is a Mathlib-only extraction, not whole-file Tau Ceti certification.",
+        "independentArithmeticAssertions": 57628,
+        "independentScriptSha256": "933445122e4281562738d7c976f4c7c6e94d92fbcc28f4ab50c2d36071a5f25a"
+      }
     }
   },
   "continuationBoundary": {
@@ -8323,6 +8585,17 @@
       "scope": "Canonical integration of the predecessor's native finite action comparison; pure-tensor formula promoted to a prerequisite lemma. All ten stages partial/unchecked.",
       "compiled": false,
       "reason": "Only a targeted Mathlib-native fragment can be checked; no compiled Tau Ceti imports available.",
+      "fragmentElaborated": true
+    },
+    {
+      "agent": "Codex — codex-rtOQ9t",
+      "date": "2026-10-02",
+      "base": "50a5391786116e4f2caa037fabe6ea063abb4034",
+      "addedNodes": 4,
+      "preservedNodeIds": 119,
+      "scope": "Native quotient/coaction/elementary comparison proof branch, explicit root-reduction dependencies and promoted coaction root API. All ten stages partial/unchecked.",
+      "compiled": false,
+      "reason": "No exact-pin compiled Tau Ceti imports available; targeted Mathlib-only extraction is checked instead.",
       "fragmentElaborated": true
     }
   ]
