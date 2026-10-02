@@ -37293,7 +37293,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5506"
   },
   {
    "id": "RT-PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -39847,8 +39848,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5525"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5525",
+   "finishedAt": "2026-10-02T00:43:05Z"
   },
   {
    "id": "RT-PAPER-ATOBE-KONDO-YASUDA-22",
