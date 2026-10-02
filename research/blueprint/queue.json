@@ -40373,7 +40373,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5528"
   },
   {
    "id": "RT-PAPER-CALEGARI-DIMITROV-TANG-25",
@@ -43769,8 +43770,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-STEVENS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5539"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5539",
+   "finishedAt": "2026-10-02T00:51:23Z"
   },
   {
    "id": "RT-PAPER-LUST-STEVENS-20",
