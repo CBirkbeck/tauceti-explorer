@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.LinearAlgebra.Complex.FiniteDimensional
 import Mathlib.RingTheory.MvPowerSeries.Inverse
 import Mathlib.RingTheory.LocalRing.Length
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
@@ -2281,4 +2283,64 @@ example :
     let v : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
     function (A := B) (M := B) (v.map (Ideal.Quotient.mk I)) 2 = 6 := by sorry
 end PlaneCurveAcceptance
+end TauCeti.HilbertSamuel
+
+-- Quotient-ring comparison continuation, codex-rtOQ9t. Canonical signatures only.
+namespace TauCeti.HilbertSamuel
+open scoped Pointwise
+variable {A : Type u} [CommRing A]
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function
+-- api: TauCeti.HilbertSamuel.function_ringQuotient
+theorem function_ringQuotient (I J : Ideal A) (n : ℕ) :
+    function (M := A ⧸ I) (J.map (Ideal.Quotient.mk I)) n =
+      Module.length A (A ⧸ (I ⊔ J ^ (n + 1))) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-below-ideal
+-- api: TauCeti.HilbertSamuel.function_ringQuotient_of_le
+theorem function_ringQuotient_of_le (I J : Ideal A) (n : ℕ)
+    (hI : I ≤ J ^ (n + 1)) :
+    function (M := A ⧸ I) (J.map (Ideal.Quotient.mk I)) n =
+      Module.length A (A ⧸ J ^ (n + 1)) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-antitone
+-- api: TauCeti.HilbertSamuel.function_ringQuotient_antitone
+theorem function_ringQuotient_antitone (I I' J : Ideal A) (n : ℕ)
+    (hI : I ≤ I') :
+    function (M := A ⧸ I') (J.map (Ideal.Quotient.mk I')) n ≤
+      function (M := A ⧸ I) (J.map (Ideal.Quotient.mk I)) n := by sorry
+
+-- test: HilbertSamuelQuotientTest.unit_equation
+example (J : Ideal A) (n : ℕ) :
+    function (M := A ⧸ (⊤ : Ideal A))
+      (J.map (Ideal.Quotient.mk ⊤)) n = 0 := by sorry
+
+-- test: HilbertSamuelQuotientTest.zero_equation
+example (J : Ideal A) (n : ℕ) :
+    function (M := A ⧸ (⊥ : Ideal A))
+      (J.map (Ideal.Quotient.mk ⊥)) n = function (M := A) J n := by sorry
+
+-- test: HilbertSamuelQuotientTest.field_one
+example (n : ℕ) :
+    function (M := (ZMod 2) ⧸ (⊥ : Ideal (ZMod 2)))
+      ((⊥ : Ideal (ZMod 2)).map (Ideal.Quotient.mk ⊥)) n = 1 := by sorry
+
+-- test: HilbertSamuelQuotientTest.strict_quotient
+example :
+    function (M := (ZMod 2) ⧸ (⊤ : Ideal (ZMod 2)))
+      ((⊥ : Ideal (ZMod 2)).map (Ideal.Quotient.mk ⊤)) 0 <
+    function (M := (ZMod 2) ⧸ (⊥ : Ideal (ZMod 2)))
+      ((⊥ : Ideal (ZMod 2)).map (Ideal.Quotient.mk ⊥)) 0 := by sorry
+
+-- test: HilbertSamuelQuotientTest.nonreduced_coefficients
+example :
+    let R := MvPowerSeries (Fin 2) (ZMod 4)
+    let J : Ideal R := Ideal.span (Set.range MvPowerSeries.X)
+    let I : Ideal R := Ideal.span {(MvPowerSeries.X 0 : R) ^ 3}
+    function (M := R ⧸ I) (J.map (Ideal.Quotient.mk I)) 0 =
+      Module.length R (R ⧸ J ^ 1) := by sorry
+
+-- test: HilbertSamuelQuotientTest.nonsurjective_coefficients
+example : Module.length ℝ ℂ = 2 ∧ Module.length ℂ ℂ = 1 := by sorry
+
 end TauCeti.HilbertSamuel
