@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-stage partial continuation with 137 declaration targets. The native global Scheme conductor is decomposed into its annihilator comparison, finite flat/localization adapters, ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and recomputed flat comparison. All 128 inherited IDs, 78 routed items, 21 source findings and 20 requests remain; 76 canonical upstream imports are restored and their obsolete encoding gap is removed. The generic annihilator theorem stays at SF.0. No stage, reserved key or implementation is closed.",
+  "summary": "Seven-stage partial continuation with 137 declaration targets. The native global Scheme conductor is decomposed into its annihilator comparison, finite flat/localization adapters, ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and recomputed flat comparison. All 128 inherited IDs, 78 routed items, 21 source findings and 20 requests remain; 76 canonical upstream imports are restored and their obsolete encoding gap is removed. The generic annihilator theorem stays at SF.0. No stage, reserved key or implementation is closed. Codex codex-rtOQ9t second continuation adds13 quadratic-pinching leaves, retains all137 inherited IDs and statements and all78 source routes, and keeps every stage partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -588,6 +588,69 @@
         "provides": "Native AlgebraicGeometry.IsSchemeTheoreticallyDominant.pullbackSnd used for the conductor quotient/flat comparison, chart construction, or canonical Scheme maps; no second carrier is planned.",
         "checked": "Codex codex-5ebb6f read the actual statement and relevant construction/proof at the Mathlib pin on 2026-10-02.",
         "sha256": "b5af1f05d4c22e07d4ee44d4a5cf603f9a2e2a75a0a54848bce4d8d6eb39cc80"
+      },
+      {
+        "ref": "mathlib:Subalgebra.comap",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 441,
+        "provides": "Native preimage subalgebra.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:Subalgebra.toSubring",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
+        "line": 244,
+        "provides": "Reuse the native ring carrier for the existing conductor.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "09e4fbcd2699ec63c989f526f002a9208420df1ef47a341a28bf022b76eb8858"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mkₐ",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 144,
+        "provides": "Native polynomial quotient algebra map.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:AdjoinRoot.mk_eq_mk",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdjoinRoot.lean",
+        "line": 214,
+        "provides": "Equality modulo q is divisibility of the difference.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "2017f684513d82c3442b1db83fdb398f41efab045892816f93ef41a8eef503ef"
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "line": 569,
+        "provides": "Canonical two-generator algebra map.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "617a2278665e02a00684f6f17b96f9925a473c54e456fc53eb6dae299c0fd89f"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.UniversallyClosed.of_comp_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/UniversallyClosed.lean",
+        "line": 75,
+        "provides": "Universally closed descent through a surjective morphism.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "bc777437d7289b65ed23f6cc15ab5ad86917bb753547714b57e8fa5a1cb09f89"
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "line": 42,
+        "provides": "Native conjunction of separated, universally closed and locally finite-type properties.",
+        "checked": "Codex codex-rtOQ9t personally read the statement and its displayed construction/proof at Mathlib082e2d3 on2026-10-02.",
+        "sha256": "d75c6a9ab9a1602b04e570c9b88ba6b63821732586a6791f75d209a58a8a3dd7"
       }
     ]
   },
@@ -846,6 +909,42 @@
       "accessed": "2026-10-02",
       "readSections": [
         "Full displayed statement and proof; general foundational results are imported or explicitly requested."
+      ]
+    },
+    {
+      "id": "stacks-0ECH",
+      "url": "https://stacks.math.columbia.edu/tag/0ECH",
+      "sha256": "f463dad9e8b6d26c33a0648fe580b0353831006054091d44fb47009579b78c14",
+      "title": "Scheme pinching: separatedness and finite type",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public tag-stable HTML retrieved2 October2026",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Codex codex-rtOQ9t read 37.67.1–9 including all displayed proofs; only1–5 used here."
+      ]
+    },
+    {
+      "id": "stacks-00IT",
+      "url": "https://stacks.math.columbia.edu/tag/00IT",
+      "sha256": "90ac8c93535a4d992fb3b50e783496425607a6d80fba84f694d328a03948215b",
+      "title": "Finite type of a ring fibre product",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public tag-stable HTML retrieved2 October2026",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Codex codex-rtOQ9t read the full displayed statement and proof."
+      ]
+    },
+    {
+      "id": "stacks-09MQ",
+      "url": "https://stacks.math.columbia.edu/tag/09MQ",
+      "sha256": "f236d8e925348bba36d179b0536bf303dab5823a5826bc50850d77de2c920a5e",
+      "title": "Separatedness under a universally closed surjection",
+      "authors": "The Stacks Project Authors",
+      "edition": "Public tag-stable HTML retrieved2 October2026",
+      "accessed": "2026-10-02",
+      "readSections": [
+        "Codex codex-rtOQ9t read the full displayed statement and proof."
       ]
     }
   ],
@@ -1946,12 +2045,15 @@
       "hypotheses": [],
       "proofSteps": [
         "Apply global Ferrand existence to the quadratic closed point on P¹.",
-        "The normalization exact sequence gives arithmetic genus1 and the conductor square gives one rational node with two conjugate branches."
+        "The normalization exact sequence gives arithmetic genus1 and the conductor square gives one rational node with two conjugate branches.",
+        "Use the explicit quadratic-pinch chart, properness and E/k cohomology quotient in the new consumer leaves; compare its actual conjugate branches after field extension."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting"
       ],
       "sources": [
         {
@@ -1982,12 +2084,15 @@
       "hypotheses": [],
       "proofSteps": [
         "Pinch the two copies of Spec E in P¹⊔P¹ to Spec E by the identity on each copy.",
-        "The two components are individually rational; their two geometric intersection points are conjugate, so the node set has no k-point."
+        "The two components are individually rational; their two geometric intersection points are conjugate, so the node set has no k-point.",
+        "Use the specified two-component conductor identifications and cohomology map k²→E in the new consumer leaves; keep the component vertices fixed while the two geometric nodes are conjugate."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/small-conductor-classification",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting"
       ],
       "sources": [
         {
@@ -2093,10 +2198,12 @@
       "hypotheses": [],
       "proofSteps": [
         "The degree2 point contributes no rational normalization preimage.",
-        "The pinched node is rational, hence replace zero points by one: q+1+1."
+        "The pinched node is rational, hence replace zero points by one: q+1+1.",
+        "Specialize the new odd/even extension formula to n=1; the complement comparison removes no rational quadratic point and adds the rational node."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts"
       ],
       "sources": [
         {
@@ -2127,10 +2234,12 @@
       "hypotheses": [],
       "proofSteps": [
         "Each rational normalized component contributes q+1.",
-        "The degree2 conductor and its image have no rational points, so no correction is made."
+        "The degree2 conductor and its image have no rational points, so no correction is made.",
+        "Specialize the new fixed-component I₂ extension formula to n=1; neither conductor copy nor its image has an F_q-point."
       ],
       "prerequisites": [
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts"
       ],
       "sources": [
         {
@@ -7384,6 +7493,661 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "conductor_global_flat_comparison"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Affine polynomial pinching algebra",
+      "kind": "definition",
+      "statement": "For a field k and q∈k[t], define A_q as the native k-subalgebra preimage of the constants in AdjoinRoot(q)=k[t]/(q). Thus f∈A_q iff there are c∈k and h∈k[t] with f=c+qh. The construction exists for every q; subsequent quadratic claims require q monic of degree2. It does not assert that q is separable or irreducible.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Take the preimage of the bottom subalgebra under AdjoinRoot.mkₐ; quotient membership gives the displayed divisibility criterion.",
+        "Use native Subalgebra, AdjoinRoot and the existing Ferrand ring pullback rather than introducing a new ring carrier."
+      ],
+      "prerequisites": [
+        "mathlib:Subalgebra.comap",
+        "mathlib:AdjoinRoot.mkₐ",
+        "mathlib:AdjoinRoot.mk_eq_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "The F₂ polynomial t²+t+1 excludes t from the pinch."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.algebra",
+      "api": [
+        {
+          "name": "QuadraticPinch.mem_algebra",
+          "role": "characterisation",
+          "statement": "f∈A_q iff ∃c,h, f=C(c)+q h."
+        },
+        {
+          "name": "QuadraticPinch.constants",
+          "role": "simp",
+          "statement": "Every constant polynomial C(c) belongs to A_q."
+        },
+        {
+          "name": "QuadraticPinch.generation",
+          "role": "characterisation",
+          "statement": "For q=t²+at+b, A_q=k[q,tq]; this is promoted to quadratic-pinch-generation below."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_cusp",
+          "kind": "computation",
+          "statement": "A_(t²)=k[t²,t³]."
+        },
+        {
+          "name": "QuadraticPinch.test_split",
+          "kind": "compatibility",
+          "statement": "For char k≠2, A_(t²−1) is the equal-value subalgebra {f:f(1)=f(−1)}."
+        },
+        {
+          "name": "QuadraticPinch.test_f4",
+          "kind": "non-example",
+          "statement": "Over F₂, t∉A_(t²+t+1) although q and tq belong. The pinch is not all of k[t]."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Schröer §3; G.1/nonsplit-i1 and nonsplit-i2",
+          "how": "Supply the concrete affine chart, residue and branch comparison in the existing Ferrand construction."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Retain the actual pinching locus and its residue extension when extending the field."
+        }
+      ],
+      "planet": {
+        "name": "Quadratic pinching algebras"
+      }
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Quadratic pinching equation",
+      "kind": "definition",
+      "statement": "For a,b∈k define F_(a,b)∈k[U,V] by V²+aUV+bU²−U³, using native MvPolynomial(Fin2,k). With q=t²+at+b, the substitution U=q,V=tq kills F. Its quadratic part is V²+aUV+bU². No discriminant test requiring 2 invertible is built into this definition.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Multiply t²+at+b=q by q² to derive the relation.",
+        "Separate the quadratic part from the cubic term; retain the cross term in characteristic2."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.aeval"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "In F₂ the relation retains the UV term for a=b=1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.relation",
+      "api": [
+        {
+          "name": "QuadraticPinch.relation_eval",
+          "role": "relation",
+          "statement": "Substitution U=q,V=tq sends F_(a,b) to zero."
+        },
+        {
+          "name": "QuadraticPinch.relation_quadratic",
+          "role": "projection",
+          "statement": "F_(a,b)+U³=V²+aUV+bU²."
+        },
+        {
+          "name": "QuadraticPinch.relation_origin",
+          "role": "simp",
+          "statement": "F_(a,b)(0,0)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_relation_cusp",
+          "kind": "computation",
+          "statement": "F_(0,0)=V²−U³."
+        },
+        {
+          "name": "QuadraticPinch.test_relation_char2",
+          "kind": "computation",
+          "statement": "Over F₂, F_(1,1)=V²+UV+U²−U³; the UV term survives."
+        },
+        {
+          "name": "QuadraticPinch.test_relation_cubic",
+          "kind": "non-example",
+          "statement": "F_(0,0)(1,0)=−1. Dropping the cubic term changes the affine curve."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Schröer §3; G.1/nonsplit-i1 and nonsplit-i2",
+          "how": "Supply the concrete affine chart, residue and branch comparison in the existing Ferrand construction."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Retain the actual pinching locus and its residue extension when extending the field."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Residue at the pinched point",
+      "kind": "construction",
+      "statement": "For monic q of degree2, the constant c in f=c+qh is unique. Define the k-algebra map ρ_q:A_q→k by that c, concretely the constant coefficient of the remainder modulo q. It is surjective and its kernel is the contraction of (q)⊂k[t]. The output is an actual AlgHom, not a freely chosen residue identification.",
+      "hypotheses": [],
+      "proofSteps": [
+        "A nonzero constant cannot be divisible by a degree2 polynomial; establish uniqueness independently of the generator presentation.",
+        "Remainders of elements of A_q are constants; constant terms of sums/products give the AlgHom laws.",
+        "Constants split ρ_q, and zero residue is exactly divisibility by q."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "The pinching residue sends q and tq to0 and1 to1."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.residue",
+      "api": [
+        {
+          "name": "QuadraticPinch.residue_normal_form",
+          "role": "simp",
+          "statement": "ρ_q(c+qh)=c for the native subtype element."
+        },
+        {
+          "name": "QuadraticPinch.residue_surjective",
+          "role": "structure",
+          "statement": "ρ_q is surjective, split by constants."
+        },
+        {
+          "name": "QuadraticPinch.residue_kernel",
+          "role": "characterisation",
+          "statement": "ker ρ_q=(q).comap(A_q↪k[t])."
+        }
+      ],
+      "tests": [
+        {
+          "name": "QuadraticPinch.test_residue_constant",
+          "kind": "computation",
+          "statement": "ρ_q(C(1))=1."
+        },
+        {
+          "name": "QuadraticPinch.test_residue_q",
+          "kind": "computation",
+          "statement": "ρ_q(q)=0."
+        },
+        {
+          "name": "QuadraticPinch.test_residue_tq",
+          "kind": "compatibility",
+          "statement": "ρ_q(tq)=0, although the residue of t in AdjoinRoot(q) is not a constant."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Schröer §3; G.1/nonsplit-i1 and nonsplit-i2",
+          "how": "Supply the concrete affine chart, residue and branch comparison in the existing Ferrand construction."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+          "how": "Retain the actual pinching locus and its residue extension when extending the field."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Two generators for a quadratic pinch",
+      "kind": "lemma",
+      "statement": "For q=t²+at+b over any field, A_q=k[q,tq]. As a k-vector space it has basis 1,q^i (i≥1),tq^j (j≥1). These have degrees0,2i,2j+1 respectively, so no degree1 vector occurs.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Write f=c+qh using the defining preimage criterion.",
+        "Use t²q=q²−a tq−bq to inductively express each t^n q in q and tq.",
+        "For linear independence compare distinct leading degrees of the displayed monic polynomials; for spanning reduce powers of tq using the relation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "The cusp q=t² has the same generators and degree1 is absent."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.generation"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Hypersurface presentation of the pinch",
+      "kind": "lemma",
+      "statement": "For q=t²+at+b, the substitution ψ:k[U,V]→k[t], U↦q,V↦tq, has image A_q and kernel (F_(a,b)). Consequently its induced map k[U,V]/(F_(a,b))→A_q is the canonical k-algebra isomorphism. This remains true for split, repeated-root and inseparable quadratics.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Generation identifies the image.",
+        "Since F is monic of V-degree2, divide any polynomial by F in k[U][V], leaving P(U)+VQ(U).",
+        "Under ψ this remainder becomes P(q)+tq Q(q); its nonzero monomials have distinct even/odd leading degrees. Vanishing therefore forces both P and Q to vanish.",
+        "Use the native first-isomorphism theorem with the identified kernel; do not infer injectivity merely from checking F maps to zero."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "For a=b=0 obtain k[U,V]/(V²−U³), with injectivity established by normal forms."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.presentation"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Conductor of a quadratic pinch",
+      "kind": "lemma",
+      "statement": "For monic q of degree2, the conductor of A_q⊂k[t] is exactly the ambient ideal (q). Its contraction m=ker ρ_q satisfies A_q/m≅k, while k[t]/(q)=AdjoinRoot(q). The conductor square is the actual affine chart of the inherited Ferrand square.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Every multiple of q remains a multiple after multiplication by any polynomial, giving (q)≤conductor.",
+        "If f lies in the conductor, f=c+qh lies in A_q and tf also lies in A_q. Modulo q, its remainder is ct of degree≤1, so being constant forces c=0.",
+        "Combine the residue kernel with the inherited ring/cartesian/geometric pushout results."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "For q=t²+t+1 over F₂ the conductor is(q), not the entire ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.conductor"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Finite normalization on the affine chart",
+      "kind": "lemma",
+      "statement": "For monic quadratic q, k[t] is finite over A_q, with module generators1,t. The inclusion is an isomorphism after inverting q, since t=(tq)/q, and induces the same fraction field. As k[t] is normal, this is the finite normalization of A_q. The statement includes the cusp; normality of the normalization does not imply the target is nodal.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The monic equation t²+at+b−q=0 makes t integral over A_q. Its recurrence reduces every power to an A_q-linear combination of1,t.",
+        "Invert the nonzero q and recover t to identify the localization and fraction field.",
+        "Import the normality of the polynomial ring over a field and the normalization comparison from the existing owner."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "The cusp has finite normalization even though it is not nodal."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.finite_normalization"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Tangent cone and separable branches",
+      "kind": "lemma",
+      "statement": "At m=(U,V) on Spec(k[U,V]/F), m/m² has k-dimension2 and the tangent cone is k[U,V]/(V²+aUV+bU²). For separable q=t²+at+b this binary quadratic has two distinct geometric lines; if q is irreducible they are conjugate over its quadratic splitting field. The point is a node by the imported nodal-chart criterion. In characteristic2 a≠0 is the separability condition; a=0 is excluded from this nodal conclusion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "There is no linear term in F, so the images of U,V form the cotangent basis.",
+        "The lowest-degree term of F is its nonzero homogeneous quadratic; the initial ideal of this principal hypersurface is generated by that term.",
+        "Over a splitting field with distinct roots α,β, factor the quadratic as (V−αU)(V−βU).",
+        "Compare the local completed normal form with SR.1, rather than rebuilding a general node predicate. A double tangent requires separate singularity analysis."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "Over F₂, t²+t+1 gives distinct tangent directions over F₄, while t²+1 has a double tangent."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.tangent_branches"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Proper pinching of one closed field point",
+      "kind": "theorem",
+      "statement": "Let k⊂E be a finite field extension and i:Spec E→Y a closed immersion into a proper k-scheme Y, commuting with the structure maps. Then pinching i along Spec E→Spec k gives a proper k-scheme C, with finite surjective ν:Y→C, closed j:Spec k→C, and geometric, categorical and cartesian Ferrand squares. No projective-line carrier, reducedness or separability is required for this existence/properness theorem.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Spec E has one underlying point, so an affine neighborhood of its image in Y supplies the inherited global Ferrand neighborhood hypothesis.",
+        "Use the inherited universal property to obtain C→Spec k. Since Spec E→Spec k is onto, Y→C is onto.",
+        "Descend separatedness through the finite surjection using Stacks09MQ. The inherited finite maps give universally closedness; properness of Y and surjectivity give universally closedness of C→Spec k via the pinned theorem.",
+        "Obtain local finite type over k on Ferrand affine charts from Stacks37.67.5/00IT, retaining the Noetherian base hypothesis (a field). Combine the three native morphism properties."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:key/ferrand-pushouts",
+        "mathlib:AlgebraicGeometry.UniversallyClosed.of_comp_surjective",
+        "mathlib:AlgebraicGeometry.IsProper",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-0ECH",
+          "locator": "37.67.1–5, especially4–5 including proofs",
+          "excerpt": "separated",
+          "match": "Consumer specialization to a proper scheme over a field; general Ferrand existence remains in G.0."
+        },
+        {
+          "sourceId": "stacks-00IT",
+          "locator": "15.5.1, full statement and proof",
+          "excerpt": "Noetherian",
+          "match": "Noetherian finite-type pinching input, requested from SF.0."
+        },
+        {
+          "sourceId": "stacks-09MQ",
+          "locator": "29.42.11(4), full statement and proof",
+          "excerpt": "separated",
+          "match": "Separatedness descends through a surjective universally closed morphism."
+        }
+      ],
+      "acceptance": [
+        "When E=k and i is a closed rational point, pinching is the identity and C≅Y is proper."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.proper_point_pushout"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Cohomology of the one-component pinch",
+      "kind": "lemma",
+      "statement": "Let C be obtained by pinching Spec E⊂P¹_k to Spec k, where E/k is separable quadratic. Then C is proper geometrically integral, H⁰(C,O_C)=k and H¹(C,O_C)≅E/k as k-vector spaces, so p_a(C)=1. It has exactly one rational singular point with two conjugate branches. Normalization is P¹_k and the conductor pair is Spec E→Spec k.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply proper-point-pushout and identify the selected affine chart with A_q; the complement is unchanged.",
+        "The normalization exact sequence is 0→O_C→ν_*O_P¹→j_*(E/k)→0. On global constants the quotient map is zero.",
+        "Import H⁰(P¹,O)=k and H¹(P¹,O)=0; the long exact sequence gives the stated natural vector-space comparison, not a preferred basis of E/k.",
+        "After a separable splitting extension the chart has one ordinary node and integral normalization, giving geometric integrality and the branch assertion."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "Over F₂ the proper I₁ pinch has one rational node, genus1 and four rational points."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.i1_genus"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Cohomology of the two-component pinch",
+      "kind": "lemma",
+      "statement": "Let C pinch P¹_k⊔P¹_k along Spec(E×E)→Spec E, with the two chosen degree2 closed subschemes identified by specified E-isomorphisms. For separable quadratic E/k, C is proper geometrically connected, reduced, with its two rational components fixed over k and two conjugate geometric nodes. H⁰(C,O_C)=k; H¹(C,O_C)≅E/k, hence p_a=1. The incidence identification is part of the input, not equality of the residue fields by name.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the inherited global Ferrand existence: the two closed points lie in a disjoint union of affine neighborhoods, which is affine. Properness follows by the same finite-surjection argument.",
+        "The normalization quotient sheaf is j_*E, using (x,y)↦x−y from E⊕E modulo the specified diagonal E.",
+        "The global map k⊕k→E is (c₁,c₂)↦c₁−c₂; its kernel is the diagonal k and its cokernel is E/k. H¹ of each P¹ vanishes.",
+        "After splitting E, glue corresponding branches in the two components. Each geometric node has branches in different components; Frobenius exchanges the two edges and fixes the component vertices."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/global-existence",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "Over F₂ the specified I₂ pinch has genus1 and six rational points; its two nodes are defined over F₄."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.i2_genus"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Field extension and branch action",
+      "kind": "lemma",
+      "statement": "For a separable quadratic E/k and a field extension K/k, both pinching constructions commute with K-base change via the existing flat-base-change theorem. The new conductor is E⊗_kK. When this is K×K, the one-component pinch is split I₁ and the two-component pinch is split I₂. Otherwise it remains a quadratic field. In the I₂ construction the components are already P¹_k; extending the field splits the nodes, not the component vertices.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Field extension is flat, so apply the existing four-arrow base-change comparison.",
+        "Use the imported separable quadratic tensor/Chinese-remainder comparison and track its two projections.",
+        "For I₁ the two normalization points are identified with one K-rational point. For I₂ each of the two conductor points glues one branch from each specified component.",
+        "Compare actual normalization and branch schemes with the imported graph carrier; record edge/half-edge actions without assuming trivial Galois action on all incidence data."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "Base change to F₄ splits both F₂ branch schemes while keeping the I₂ vertices fixed."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.splitting"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "title": "Point counts over every finite extension",
+      "kind": "lemma",
+      "statement": "For the specified nonsplit I₁ and I₂ pinches over F_q, write Q=q^n with n≥1. Over F_(q^n), the I₁ count is Q+2 for odd n and Q for even n; the I₂ count is 2Q+2 for odd n and 2Q for even n. Counts of a nonreduced schematic fibre with this reduction are identical. These formulas apply to the fixed-component I₂ construction, and make no assertion for component-permuting forms.",
+      "hypotheses": [],
+      "proofSteps": [
+        "E=F_(q²) has no F_(q^n)-points as an F_q-scheme for odd n, and two for even n. Import the standard finite-field embedding criterion.",
+        "For I₁ use the complement isomorphism: #(P¹\\Spec E)+#Spec F_q. This is Q+1−0+1 or Q+1−2+1.",
+        "For I₂ remove the two copies of Spec E from P¹⊔P¹ and add one Spec E: 2(Q+1)−2e+e where e is0 or2.",
+        "A field-valued morphism kills nilpotents; import the reduction comparison. At n=1 recover the two inherited Schröer3.2 counts."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/localization-complement",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "§3, printed p10, separable-quadratic conductor squares; Proposition3.2, printed p11",
+          "excerpt": "conductor square",
+          "match": "Derived consumer proof of the quadratic pinching case; the paper supplies the conductor diagrams and leaves the count computation to the reader."
+        }
+      ],
+      "acceptance": [
+        "For q=2,n=1 the counts are4 and6; for n=2 they are4 and8."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/QuadraticPinching",
+        "namespace": "TauCeti.GenusOne.QuadraticPinch"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "QuadraticPinch.extension_counts"
     }
   ],
   "requests": [
@@ -7691,6 +8455,43 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.3/relative-cubic-contraction",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.6/admissible-transformations"
       ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Exact native exports for the quadratic pinching consumer: Noetherian finite-type fibre products (Stacks00IT/37.67.5), the canonical first-isomorphism/monic-V division and localization/fraction-field comparison, separable quadratic tensor splitting, finite-field embedding parity and field-valued points through scheme reduction. Existing quotient and polynomial carriers remain imports.",
+      "neededBy": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "need": "Export the existing normalization, nodal-chart and branch-scheme interfaces for the concrete quadratic hypersurface chart, including compatibility of the finite birational normalization with field extension. No general node, normalization, graph or genus carrier is re-planned here.",
+      "neededBy": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Exact scheme P¹/coherent-cohomology integration exports, importing SR.2/JacobianChallenge: H⁰(P¹,O)=k,H¹(P¹,O)=0, the long exact normalization sequence for the displayed conductor quotients, and finite-field P¹ counts. Retain the chosen two-component incidence identifications.",
+      "neededBy": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts"
+      ]
     }
   ],
   "coverage": [
@@ -7714,7 +8515,8 @@
         "General Lang theorem for projective-line forms",
         "Suggested signatures for unbuilt geometric conditions",
         "Replace unresolved supplier stage requests by exact verified exports.",
-        "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses."
+        "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses.",
+        "Quadratic pinching has a13-leaf consumer proof; proper single-field-point existence has a native Scheme signature. Exact P¹, nodal tangent/branch and cohomology exports, plus uncompiled prototypes, prevent closure."
       ]
     },
     {
@@ -7918,6 +8720,11 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/f2-isomorphism"
       ]
+    },
+    {
+      "id": "quadratic-pinching-native-exports",
+      "detail": "The13 new leaves are source-derived plans, not implementations. The actual affine subalgebra/relation/residue/generation/presentation/conductor/finite signatures and generic proper-point Scheme existence are supplied. Full normalization fraction-field comparisons, nodal tangent/branch predicates, P¹ realization/cohomology and every-extension count signatures require the exact owner exports named in the final native ledger.",
+      "title": "Exact native quadratic-pinching owner interfaces"
     }
   ],
   "sourceIssues": [
@@ -9926,6 +10733,124 @@
       },
       "leanCompiled": false,
       "reason": "No existing build at both pinned commits; no Lake project/cache/build/server was created."
+    }
+  },
+  "quadraticPinchingContinuation": {
+    "agent": "Codex codex-rtOQ9t",
+    "date": "2026-10-02",
+    "claimComment": 5954581552,
+    "botConfirmation": 5954584603,
+    "inheritedNodes": 137,
+    "addedNodes": [
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-relation",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-residue",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-generation",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-presentation",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-conductor",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-normalization",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-tangent",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-point-proper-pushout",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i1-genus",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-i2-genus",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-splitting",
+      "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-extension-counts"
+    ],
+    "primaryReads": [
+      "Schröer2004.07025v3 §3, printed pp9–11, including both conductor diagrams and Proposition3.1 proof; Proposition3.2 count proof explicitly left to the reader. PDF SHA256 ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61.",
+      "Stacks0ECH all displayed37.67.1–9 statements/proofs;00IT and09MQ full displayed statements/proofs.",
+      "Ferrand alternative PDF front matter/introduction personally read; §7 proof unavailable through browser on this continuation, so inherited G.0 proof receipts are retained without being called fresh reads."
+    ],
+    "audits": [
+      "All six parent R11 AUDIT-10 rows, REV-AUDIT-10 metadata; entire SF.3 AUDIT-01 row and REV-AUDIT-01 metadata. No direct reviewed PartII row found."
+    ],
+    "supplierReads": [
+      "Full SR.1 and SR.2 current stage descriptions and SF.0/SF.3 stage descriptions; relevant inherited SF.0/SF.1/SF.3/SR.1/SR.2 requests.",
+      "JacobianChallenge and Multiquadratic upstream roadmaps personally read in this continuing session; StableReduction full905-line roadmap has not been personally reread here. Only its stated relevant stage contracts are used."
+    ],
+    "finiteExamples": {
+      "checks": 258041,
+      "byKind": {
+        "normal_form_independent": 38,
+        "generator_span": 80440,
+        "membership_normal_form": 80440,
+        "conductor_test": 80440,
+        "residue_remainder": 16418,
+        "hypersurface_points": 38,
+        "proper_point_count": 38,
+        "relation": 160,
+        "distinct_conjugate_roots": 3,
+        "frobenius_fixed_point_count": 6,
+        "split_extension_count": 6,
+        "frobenius_acts_on_classes": 6,
+        "component_swap_rejected": 3,
+        "char2_separable": 1,
+        "f4_irreducible": 1,
+        "f2_double_root": 1,
+        "i1_cohomology_dimension": 1,
+        "i2_cohomology_dimension": 1
+      },
+      "quadratics": 38,
+      "fields": [
+        2,
+        3,
+        5
+      ],
+      "boundedPolynomialDegree": "<5",
+      "extensionFields": [
+        4,
+        9,
+        25
+      ],
+      "limits": "Finite arithmetic examples only; no normalization, properness, cohomology, all finite fields or Lean elaboration is proved by this calculation.",
+      "scriptSHA256": "7d76ef6a7b4b5bcf9c0c9a904d719009f326ee394c5ddc245c18948c061b6d20"
+    },
+    "lean": "Uncompiled; no existing build at both pins. No build or cache installation attempted.",
+    "limits": "All137 inherited IDs and all inherited mathematical statements,78 routes,21 sourceIssues and20 earlier requests preserved exactly. Historical baseline/source receipts remain attributed to their authors. No full model certificate,14-model exhaustiveness proof,Lang2000 acquisition or closed stage is claimed.",
+    "consumerUpdates": {
+      "nodes": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i1",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/nonsplit-i2",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-16",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/count-17"
+      ],
+      "change": "Only proof steps and prerequisites are extended so the existing two nonsplit constructions and two n=1 count targets consume the new leaves. The other133 inherited node objects are identical."
+    },
+    "validation": {
+      "preservedNodeIdsAndStatements": 137,
+      "unchangedNodeObjects": 133,
+      "consumerDependencyUpdates": 4,
+      "routes": 78,
+      "sourceIssues": 21,
+      "priorRequests": 20,
+      "ownDeclarations": 150,
+      "ownPlanets": 29,
+      "ownSkippedLinks": 0,
+      "ownPendingLinks": 0,
+      "allNamedStagePrerequisitesReachConsumers": true,
+      "stageDag": {
+        "vertices": 2992,
+        "edges": 8651,
+        "acyclic": true
+      },
+      "ownDag": {
+        "vertices": 150,
+        "edges": 397,
+        "acyclic": true
+      },
+      "stagePlusThisPacketDag": {
+        "vertices": 3113,
+        "edges": 9230,
+        "acyclic": true
+      },
+      "otherRoadmapSkippedLinks": {
+        "GeneralAlgebraicKTheory": 2,
+        "K2SymbolsBrauer": 1,
+        "K3BlochGroups": 4
+      },
+      "nativeSHA256": "821f66e1c1a43f79a08bc590d1b0307ec09ed3d1b6cc83370703efb910f21b60",
+      "overlaySHA256": "bba2a4836bdea5760f7909e25b6c6a0b9dfe95beea2799a233ed6647e79a56fb",
+      "limits": "Actual build.assemble in-memory pending-packet overlay with its normal retirement, restructuring, links and decomposition trimming. Other declaration graphs not audited; pending work not promoted to disk."
     }
   }
 }
