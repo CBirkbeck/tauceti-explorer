@@ -1592,6 +1592,62 @@
         "module": "Mathlib/RingTheory/Ideal/Defs.lean",
         "provides": "If a is in an ideal and n>0, then a^n is in that same ideal. This is not membership in its nth power.",
         "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/RingTheory/Ideal/Defs.lean:65–87. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:Ideal.IsTwoSided.pow_add",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "An ideal power at a sum is the product of the two powers, including zero exponents.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Submodule.Quotient.eq",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Actual quotient representatives are equal exactly when their difference belongs to the denominator.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Submodule.mkQ_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Every actual quotient module class has a representative.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_span_singleton_sup",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Membership in (f)+K is expressed by a multiple of f plus an element of K.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_span_singleton'",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Membership in a principal ideal is an actual multiple.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_le_iff_mem",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "The principal ideal of f is contained in K exactly when f belongs to K.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker_eq_bot",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "A linear map has zero kernel exactly when it is injective.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker_eq_bot'",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "Zero kernel is equivalent to every zero fibre element being zero.",
+        "checked": "Actual statement and ambient assumptions personally read at the exact pin on 2026-10-02; used by the admission-free principal-quotient prototype."
       }
     ]
   },
@@ -2274,6 +2330,26 @@
       "readSections": [
         "Definition 10.52.1 and Lemmas 10.52.3 and 10.52.5, statements and proofs. This is a selected-passage read, not a fresh reading of the complete section. The quotient Hilbert–Samuel identity is derived using the pinned third isomorphism theorem, not attributed as a numbered Stacks result."
       ]
+    },
+    {
+      "id": "HS-PRINCIPAL-QUOTIENT-PIN",
+      "title": "Principal multiplication and native ideal quotients",
+      "authors": "The Mathlib contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Quotient/Basic.lean",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Quotient/Basic.lean ambient assumptions, mapQ and representative evaluation, kernel/range adapters, factor and its full surjectivity proof; Quotient/Defs.lean quotient equality, zero criterion, mkQ and surjectivity; Ideal/Span.lean singleton membership, singleton sum membership and containment; Ideal/Operations.lean multiplication membership and IsTwoSided.pow_add including the zero-exponent branch; LinearMap/Defs.lean actual mulLeft and evaluation; Submodule/Ker.lean both zero-kernel characterizations. Selected statements and complete displayed proofs freshly read; no whole-tree absence claim.",
+        "DDPA-JET-HANDOFF section 4 freshly read in full. The present primitive extends its principal-image argument to arbitrary commutative rings, with explicit denominator containment; it does not prove the source handoff's series order-to-ideal comparison."
+      ],
+      "sourceHashes": {
+        "Mathlib/LinearAlgebra/Quotient/Basic.lean": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+        "Mathlib/LinearAlgebra/Quotient/Defs.lean": "ddb08efd66c7dd6f5e142ac3e1edc1189ea30de276f1e78f4193d6ee80676fb3",
+        "Mathlib/RingTheory/Ideal/Span.lean": "217304ad0ad295d4ac8b38c191580f636a4448fbfdf0fac94a0b9fe2470aea5f",
+        "Mathlib/RingTheory/Ideal/Operations.lean": "4859dadb42353660e6827c0c070962279d8fabdc8eea013eeed783b5cab59c22",
+        "Mathlib/Algebra/Module/LinearMap/Defs.lean": "242ce4f144fbc775bc424e6b9e088f583fb485fa72f89135d157b5586a987ae7",
+        "Mathlib/Algebra/Module/Submodule/Ker.lean": "6cc0c2a52cc00e0cfa86072a20703538d94475847249493a81617f8e5e9f956d"
+      }
     }
   ],
   "nodes": [
@@ -7307,7 +7383,8 @@
       "proofSteps": [
         "Apply variable-ideal-power-order to a source element g. The native product-order lower bound gives order(fg)≥order(f)+order(g)≥d+(N+1−d)=N+1 in ENat.",
         "The equality of natural exponents follows from d≤N, so the natural subtraction is legitimate. The zero representative and f=0 are covered directly by extended-natural inequalities.",
-        "Apply variable-ideal-power-order to fg. Express the conclusion as Submodule.comap of LinearMap.mulLeft R f, not Ideal.comap: multiplication by f is generally not a ring homomorphism."
+        "Apply variable-ideal-power-order to fg. Express the conclusion as Submodule.comap of LinearMap.mulLeft R f, not Ideal.comap: multiplication by f is generally not a ring homomorphism.",
+        "Retain the separate variable-ideal-power-order adapter to infer f∈v^d from the order bound. Apply ideal-power-mul-denominator with n=N+1; d≤N implies d≤N+1. This imports the actual ideal-power algebra proof; it does not discharge the order-to-algebraic-ideal bridge."
       ],
       "acceptance": [
         "For d=N the source ideal is v, not v^0.",
@@ -7316,7 +7393,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
         "mathlib:MvPowerSeries.le_order_mul",
-        "mathlib:LinearMap.mulLeft"
+        "mathlib:LinearMap.mulLeft",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-mul-denominator"
       ],
       "sources": [
         {
@@ -7442,7 +7520,8 @@
         "For a representative g of a kernel class, μ_f([g])=0 means fg∈v^(N+1), by the actual representative formula and native quotient equality.",
         "Use the built native MvPowerSeries.order_mul, not a new order-multiplicativity theorem: order(fg)=d+order(g). If g=0 the source class is zero. Otherwise its order is finite and ENat cancellation of the finite d gives order(g)≥N+1−d.",
         "Apply variable-ideal-power-order to get g in the source denominator. Thus the kernel is zero, hence the linear map is injective. Equivalently kernel_mapQ transports the same preimage equality.",
-        "An order lower bound alone is insufficient: a series of order larger than d can kill a nonzero source class, even over a field. Over Z/4 take f=2X_0 and g=2: both relevant low classes are nonzero but fg=0."
+        "An order lower bound alone is insufficient: a series of order larger than d can kill a nonzero source class, even over a field. Over Z/4 take f=2X_0 and g=2: both relevant low classes are nonzero but fg=0.",
+        "Apply principal-quotient-injectivity to the actual source and target ideals. Prove its reverse-membership criterion using exact finite order, the built order_mul and the separate variable-ideal-power-order adapter. Right exactness or ambient domain cancellation alone cannot replace this step."
       ],
       "acceptance": [
         "For k=F₂ and f=X_0^4, d=N=4 the map is injective despite a nonreduced equation.",
@@ -7453,7 +7532,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
         "mathlib:MvPowerSeries.order_mul",
         "mathlib:MvPowerSeries.order_eq_top_iff",
-        "mathlib:Submodule.ker_mapQ"
+        "mathlib:Submodule.ker_mapQ",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity"
       ],
       "sources": [
         {
@@ -7493,7 +7573,8 @@
         "Surjectivity is native factor_surjective. A class [h] in the middle quotient lies in the projection kernel exactly when h belongs to (f)+v^(N+1).",
         "For any kernel class choose h=fg+r with r∈v^(N+1), using singleton ideal span membership and the sum-ideal membership criterion. Then [h]=μ_f([g]) for the actual source class, proving kernel⊆range.",
         "Conversely the projection kills every fg because fg∈(f). Native range_mapQ records that the range is the image of the principal ideal under the middle quotient map, yielding the reverse inclusion.",
-        "Only after shifted-jet-injective is added under its stricter hypotheses is this a short exact sequence. The further quotient-of-quotient equivalence with A/n^(N+1) and the length/dimension comparisons remain explicit continuation work; do not assert an A-linear structure on the shifted source."
+        "Only after shifted-jet-injective is added under its stricter hypotheses is this a short exact sequence. The further quotient-of-quotient equivalence with A/n^(N+1) and the length/dimension comparisons remain explicit continuation work; do not assert an A-linear structure on the shifted source.",
+        "Specialize principal-quotient-exact to A=R,J=v^(N+1−d),K=v^(N+1), using shifted-jet-denominator. The existing shifted map and projection have exactly the same native representative formulas, hence agree by quotient induction. The ring-level exactness proof is now explicit; the series denominator remains the earlier separate prerequisite."
       ],
       "acceptance": [
         "For f=0 both multiplication image and projection kernel are zero.",
@@ -7502,7 +7583,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
         "mathlib:Submodule.range_mapQ",
-        "mathlib:Submodule.factor_surjective"
+        "mathlib:Submodule.factor_surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-exact"
       ],
       "sources": [
         {
@@ -7534,7 +7616,8 @@
       "proofSteps": [
         "Since N+1≤d≤order(f), variable-ideal-power-order gives f∈v^(N+1). The generated principal ideal lies in this power, so their sum is the same power.",
         "The canonical factor under this equality has identical source and target quotient relations. Its representative formula proves injectivity; its native factor_surjective proves surjectivity.",
-        "For f=X_0^4,N=0 the projection is the residue-jet bijection, while the tempting multiplication R/v→R/v sends everything to zero. Guard the shifted construction with d≤N and never use truncated natural subtraction to extend injectivity to N<d."
+        "For f=X_0^4,N=0 the projection is the residue-jet bijection, while the tempting multiplication R/v→R/v sends everything to zero. Guard the shifted construction with d≤N and never use truncated natural subtraction to extend injectivity to N<d.",
+        "After the existing order-to-ideal adapter establishes f∈v^(N+1), specialize principal-projection-in-ideal. The already planned projection is definitionally the same native factor. No generic bijection theorem is duplicated and no injective shifted map is asserted at small indices."
       ],
       "acceptance": [
         "The zeroth jet of f=X_0^4 over ℚ is unaffected by the equation.",
@@ -7543,7 +7626,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/variable-ideal-power-order",
         "DeformationAndDerivedPatchingAlgebra:R03.3/shifted-jet-map",
-        "mathlib:Submodule.factor_surjective"
+        "mathlib:Submodule.factor_surjective",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-projection-in-ideal"
       ],
       "sources": [
         {
@@ -8719,6 +8803,311 @@
       },
       "implementationStatus": "unchecked",
       "declaration": "TauCeti.HilbertSamuel.function_ringQuotient_antitone"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-mul-denominator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Ideal-power multiplication denominator",
+      "declaration": "TauCeti.HilbertSamuel.pow_mul_denominator",
+      "statement": "For an ideal q, natural numbers d≤n and f∈q^d, multiplication by f sends q^(n−d) into q^n. This includes d=n, d=0 and n=0; the exponent identity is justified by the displayed inequality.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring. J and K are actual ideals of A; their quotients carry the native A-module structures.",
+        "d≤n and f∈q^d."
+      ],
+      "proofSteps": [
+        "For g∈q^(n−d), native Ideal.mul_mem_mul gives fg∈q^d q^(n−d).",
+        "Use the built two-sided ideal power-addition equality, including exponent zero, and d+(n−d)=n. Express containment through the actual linear multiplication map."
+      ],
+      "acceptance": [
+        "At d=n the source is q^0=A.",
+        "At n=d=0 every f is admissible and the target is the whole ring."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.mul_mem_mul",
+        "mathlib:Ideal.IsTwoSided.pow_add",
+        "mathlib:LinearMap.mulLeft"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, sequence (6) and the middle-kernel argument",
+          "match": "A reusable ring-level adapter for the displayed shifted-jet argument; no order criterion or finite length is assumed as data."
+        },
+        {
+          "sourceId": "HS-PRINCIPAL-QUOTIENT-PIN",
+          "locator": "Selected native declarations in prerequisites; explicit adapter proof derived here",
+          "match": "The native carrier, multiplication, quotient and zero-fibre criteria are reused with their actual representatives."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "HilbertSamuelPrincipalJetTest.endpoint_denominator",
+          "kind": "degenerate",
+          "statement": "For every q,f,n with f∈q^n, multiplication sends q^0 into q^n."
+        },
+        {
+          "name": "HilbertSamuelPrincipalJetTest.zero_cutoff",
+          "kind": "degenerate",
+          "statement": "For every q and f, multiplication sends q^0 into q^0."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "construction",
+      "title": "Principal multiplication between ideal quotients",
+      "declaration": "TauCeti.HilbertSamuel.quotientMulMap",
+      "statement": "For ideals J,K and f with fJ⊆K, define μ:J-quotient A/J→A/K by [g]↦[fg] using native Submodule.mapQ of LinearMap.mulLeft A f. Its projection API is π:A/K→A/((f)+K), the native factor sending [g] to [g]. These are actual linear maps of ideal quotients.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring. J and K are actual ideals of A; their quotients carry the native A-module structures.",
+        "Multiplication by f sends J into K: J is contained in the native submodule preimage of K under LinearMap.mulLeft A f. No local, finite, domain, nonzero, Noetherian or topology hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Descend the existing linear multiplication map using the explicit containment; this chooses the map on every representative.",
+        "Construct the projection by native Submodule.factor for K⊆(f)+K. Its formula and the multiplication formula are definitional.",
+        "Do not introduce a new quotient carrier or treat multiplication by f as a ring or algebra homomorphism. Generic quotient-map and linearity APIs are imported."
+      ],
+      "acceptance": [
+        "The nonzero shift over ℤ/4 rules out replacing multiplication by the zero map.",
+        "The domain counterexample rules out inferring injectivity solely from the ambient ring being a domain."
+      ],
+      "prerequisites": [
+        "mathlib:Submodule.mapQ",
+        "mathlib:Submodule.mapQ_apply",
+        "mathlib:LinearMap.mulLeft",
+        "mathlib:Submodule.factor",
+        "mathlib:Submodule.factor_mk"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, sequence (6) and the middle-kernel argument",
+          "match": "A reusable ring-level adapter for the displayed shifted-jet argument; no order criterion or finite length is assumed as data."
+        },
+        {
+          "sourceId": "HS-PRINCIPAL-QUOTIENT-PIN",
+          "locator": "Selected native declarations in prerequisites; explicit adapter proof derived here",
+          "match": "The native carrier, multiplication, quotient and zero-fibre criteria are reused with their actual representatives."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.quotientMulMap_apply",
+          "role": "simp",
+          "statement": "For every g∈A, μ([g]_J)=[fg]_K."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.principalQuotientProjection",
+          "role": "projection",
+          "statement": "The actual A-linear map π:A/K→A/((f)+K) is native Submodule.factor of K⊆(f)+K."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.principalQuotientProjection_apply",
+          "role": "simp",
+          "statement": "For every g∈A, π([g]_K)=[g]_((f)+K)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DDPA-JET-HANDOFF §4, sequence (6), and this packet shifted-jet-exact",
+          "how": "Take J=v^(N+1−d), K=v^(N+1) after the separate series denominator proof. The ring-level principal-image argument then supplies right exactness."
+        },
+        {
+          "where": "DDPA-JET-HANDOFF §4, small-index comparison (7)",
+          "how": "When f∈K, the same projection is bijective without a shifted injective map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelPrincipalJetTest.zero_equation",
+          "kind": "degenerate",
+          "statement": "For all J,K, f=0 satisfies the denominator containment, μ=0 and ker π=0."
+        },
+        {
+          "name": "HilbertSamuelPrincipalJetTest.unit_equation",
+          "kind": "degenerate",
+          "statement": "For any K, J=K and f=1 give μ=id and ker π=A/K."
+        },
+        {
+          "name": "HilbertSamuelPrincipalJetTest.zero_divisor_noninjective",
+          "kind": "non-example",
+          "statement": "For A=ℤ/4, J=K=0 and f=2, μ is not injective although range μ=ker π and π is surjective; the class of 2 is a nonzero element killed by μ."
+        },
+        {
+          "name": "HilbertSamuelPrincipalJetTest.nonzero_shift",
+          "kind": "computation",
+          "statement": "For A=ℤ/4, q=(2), d=1,n=2, the shifted map A/q→A/q² sends [1] to the nonzero class [2]."
+        },
+        {
+          "name": "HilbertSamuelPrincipalJetTest.wrong_source_domain",
+          "kind": "non-example",
+          "statement": "For the domain A=ℤ, J=K=(4), f=2, the well-defined multiplication A/(4)→A/(4) is not injective: it kills the nonzero class [2]."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-exact",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Exactness of principal quotient multiplication",
+      "declaration": "TauCeti.HilbertSamuel.quotientMulMap_exact",
+      "statement": "For μ and π above, range μ=ker π and π is surjective. The denominator J may be any ideal satisfying fJ⊆K. This asserts right exactness only; no injectivity is claimed.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring. J and K are actual ideals of A; their quotients carry the native A-module structures.",
+        "Multiplication by f sends J into K: J is contained in the native submodule preimage of K under LinearMap.mulLeft A f. No local, finite, domain, nonzero, Noetherian or topology hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "For any source representative g, fg∈(f)⊆(f)+K, so πμ([g])=0.",
+        "For a middle representative x killed by π, native principal-plus-ideal membership gives x=af+b with b∈K. The actual source class [a]_J maps to [x]_K because fa−x=−b∈K. This proves the reverse inclusion without needing division, regularity or a domain.",
+        "Use native factor_surjective for π. Its cokernel target is the actual A/((f)+K); the quotient-ring/scalar bridge is supplied by the preceding function_ringQuotient node when lengths are needed."
+      ],
+      "acceptance": [
+        "The ℤ/4 zero-divisor example satisfies the conclusion and violates injectivity.",
+        "The zero equation has zero image and zero projection kernel."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:Submodule.Quotient.mk_eq_zero",
+        "mathlib:Submodule.Quotient.eq",
+        "mathlib:Ideal.mem_span_singleton'",
+        "mathlib:Ideal.mem_span_singleton_sup",
+        "mathlib:Submodule.factor_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, sequence (6) and the middle-kernel argument",
+          "match": "A reusable ring-level adapter for the displayed shifted-jet argument; no order criterion or finite length is assumed as data."
+        },
+        {
+          "sourceId": "HS-PRINCIPAL-QUOTIENT-PIN",
+          "locator": "Selected native declarations in prerequisites; explicit adapter proof derived here",
+          "match": "The native carrier, multiplication, quotient and zero-fibre criteria are reused with their actual representatives."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Injectivity criterion for quotient multiplication",
+      "declaration": "TauCeti.HilbertSamuel.quotientMulMap_injective_iff",
+      "statement": "Under fJ⊆K, μ:A/J→A/K is injective if and only if every g∈A with fg∈K belongs to J. Equivalently, the submodule preimage of K under multiplication by f equals J. Exactness alone supplies no reverse containment.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring. J and K are actual ideals of A; their quotients carry the native A-module structures.",
+        "Multiplication by f sends J into K: J is contained in the native submodule preimage of K under LinearMap.mulLeft A f. No local, finite, domain, nonzero, Noetherian or topology hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Apply the native equivalences between injectivity, zero kernel and a trivial zero fibre.",
+        "Represent every source quotient class by g. Its image is zero exactly when fg∈K, and its source class is zero exactly when g∈J. This gives both implications of the stated criterion.",
+        "The denominator containment already supplies J⊆preimage; the displayed condition supplies the reverse. The order-additivity proof for series must establish this condition rather than assume it."
+      ],
+      "acceptance": [
+        "For A=ℤ/4,f=2,J=K=0, the element 2 violates the criterion.",
+        "For A=ℤ,f=2,J=K=(4), ambient domain cancellation cannot imply membership in the unshifted source ideal."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:Submodule.Quotient.mk_eq_zero",
+        "mathlib:LinearMap.ker_eq_bot",
+        "mathlib:LinearMap.ker_eq_bot'"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, sequence (6) and the middle-kernel argument",
+          "match": "A reusable ring-level adapter for the displayed shifted-jet argument; no order criterion or finite length is assumed as data."
+        },
+        {
+          "sourceId": "HS-PRINCIPAL-QUOTIENT-PIN",
+          "locator": "Selected native declarations in prerequisites; explicit adapter proof derived here",
+          "match": "The native carrier, multiplication, quotient and zero-fibre criteria are reused with their actual representatives."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/principal-projection-in-ideal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "kind": "lemma",
+      "title": "Projection by an equation already in the ideal",
+      "declaration": "TauCeti.HilbertSamuel.principalQuotientProjection_bijective",
+      "statement": "If f∈K, then (f)+K=K and the actual π:A/K→A/((f)+K) is bijective. This is the algebraic small-index branch and needs no order assumption or domain.",
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring. J and K are actual ideals of A; their quotients carry the native A-module structures.",
+        "f∈K."
+      ],
+      "proofSteps": [
+        "Native singleton-span containment gives (f)⊆K; join absorption proves equality of the denominator ideals.",
+        "For injectivity, lift both source classes to representatives. Their equal projected classes mean their difference lies in (f)+K, hence in K, so the source classes are equal.",
+        "Surjectivity is the existing factor_surjective. This is a property of the existing projection, not a duplicate construction of a generic quotient equivalence."
+      ],
+      "acceptance": [
+        "For f=0 the projection is bijective for every K.",
+        "Apply to f=X₀^4,K=v only after establishing f∈v; this does not license an unguarded injective shifted sequence."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+        "mathlib:Ideal.span_singleton_le_iff_mem",
+        "mathlib:Submodule.mkQ_surjective",
+        "mathlib:Submodule.Quotient.eq",
+        "mathlib:Submodule.factor_surjective"
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "sources": [
+        {
+          "sourceId": "DDPA-JET-HANDOFF",
+          "locator": "§4, equation (7) and the warning after it",
+          "match": "A reusable ring-level adapter for the displayed shifted-jet argument; no order criterion or finite length is assumed as data."
+        },
+        {
+          "sourceId": "HS-PRINCIPAL-QUOTIENT-PIN",
+          "locator": "Selected native declarations in prerequisites; explicit adapter proof derived here",
+          "match": "The native carrier, multiplication, quotient and zero-fibre criteria are reused with their actual representatives."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "baselineCoverage": [
@@ -9951,5 +10340,94 @@
       "Mathlib/Algebra/Algebra/Operations.lean": "913909c0cc53d9f1a34cf059ee192a34bac9b6d62661a710a91bbc245a87f3cc",
       "Mathlib/Algebra/Field/ZMod.lean": "5343882be47490c292c9da2f623221d3d0ea16e0ff252f0f944b4dffb07be5c3"
     }
+  },
+  "principalQuotientContinuation": {
+    "agent": "Codex — codex-5ebb6f",
+    "date": "2026-10-02",
+    "winningClaim": 5961837497,
+    "confirmation": 5961839745,
+    "base": "13f9d3f1562ceaaf4b305a800542a67aa53d3ea9",
+    "status": "partial",
+    "nodes": [
+      "DeformationAndDerivedPatchingAlgebra:R03.3/ideal-power-mul-denominator",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-multiplication",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-exact",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-quotient-injectivity",
+      "DeformationAndDerivedPatchingAlgebra:R03.3/principal-projection-in-ideal"
+    ],
+    "boundary": "Generic principal quotient multiplication and its exactness/zero-fibre/small-index adapters have an admission-free native prototype. The canonical suggested signatures remain admitted and unchecked. No finite-variable order-to-ideal adapter, total-jet basis, shifted series injectivity, plane-curve length formula or general multiplicity theorem is discharged. All 108 incoming statements, hypotheses, acceptance, API, tests and uses are preserved; 104 complete node objects are unchanged. Four existing proof outlines import the new primitives. Every routed paper and original stage obligation remains.",
+    "validation": {
+      "native": {
+        "sourceSha256": "1a1603703e935b9e81014dba4f2020e52bab8391b2afc9961b21271a357cf7aa",
+        "normalizedLogSha256": "1cfdfeb9d826309cbcec5a78df58c7bbddf2e221989f5f56d680db8a5e820774",
+        "lines": 186,
+        "examples": 7,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "axiomAudits": 8,
+        "availableGiBBefore": 56,
+        "elapsedSeconds": 1.7,
+        "maxRSSKiB": 2567192
+      },
+      "canonical": {
+        "sourceSha256": "e5ef713601bb5e18c5cf2532056c1d5378938906cac3c55930786c1b4afbcff4",
+        "normalizedLogSha256": "234435b9d8272f2ddaa10ac077acb52a068f386ea7122a1b87c0bf584e156a9b",
+        "lines": 2438,
+        "examples": 145,
+        "errors": 0,
+        "admissionWarnings": 309,
+        "otherWarnings": 0,
+        "axiomAudits": 0,
+        "availableGiBBefore": 56,
+        "elapsedSeconds": 23.71,
+        "maxRSSKiB": 3547700
+      },
+      "preservedIncomingContracts": 108,
+      "wholeNodeObjectsUnchanged": 104,
+      "nativeCanonicalHeadersMatched": 15,
+      "newNodes": 5,
+      "allStatuses": "unchecked",
+      "stageCoverageUnchanged": true,
+      "reservedMultiplicityObjectUnchanged": true,
+      "partial": true
+    },
+    "graphValidation": {
+      "actualAssembler": true,
+      "stageDAG": {
+        "vertices": 3003,
+        "edges": 8623,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 113,
+        "edges": 173,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3104,
+        "edges": 8794,
+        "acyclic": true
+      },
+      "reachableDeclarations": 114,
+      "externalDeclarations": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "reachableBaselineReferences": 205,
+      "unresolved": [],
+      "ownSkippedLinks": [],
+      "otherSkipsMatchOriginal": true,
+      "stageEdgesUnchanged": true,
+      "requiredStagePairs": 63,
+      "requiredStagePairsReachable": 63,
+      "inheritedMissingStagePairs": [],
+      "unchangedNodeObjects": 104,
+      "partDeclarations": 113,
+      "partPlanets": 13,
+      "roadmapDeclarations": 166,
+      "scriptSha256": "e340e078d7f99367b63b2f2be585b4a82a99ad3cc556b5818994af95b7d4c097"
+    },
+    "proofArchiveCommit": "4c5fd9654e1f835ffdbc7f184c4a6409d0a3216b",
+    "publicationBase": "9f4ec81d1839ece8d10129830133db03a6d5d430"
   }
 }
