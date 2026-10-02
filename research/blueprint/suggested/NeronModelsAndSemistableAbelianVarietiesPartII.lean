@@ -26,6 +26,9 @@ import Mathlib.RingTheory.Conductor
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.Algebra.Polynomial.Degree.Operations
 import Mathlib.Data.ZMod.Basic
+import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
+import Mathlib.GroupTheory.SpecificGroups.Cyclic
+import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.Point.VariableChange
 import Mathlib.Data.Fin.VecNotation
 import TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.Basic
 import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
@@ -467,3 +470,101 @@ extension must use its small étale structure sheaf, not only Zariski-open secti
 The affine theorem above closes the old affine-signature omission only. This file remains
 NOT COMPILED at either pin, with every proof a prototype.
 -/
+
+
+/- The finite F₂ continuation below has native types for all twelve added nodes.
+No arbitrary genus-one scheme presentation or geometric ordinarity predicate is
+asserted by these signatures. The pre-existing omission ledger remains binding.
+This continuation was not compiled: there is no existing build at both pins. -/
+namespace TauCeti.GenusOne
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models
+/-- The source E_(i+1) in native coefficient order (1,2,3,4,6). -/
+def F2Model : Fin 5 → WeierstrassCurve (ZMod 2) :=
+  ![⟨0,1,1,0,1⟩, ⟨1,1,0,1,0⟩, ⟨0,0,1,0,0⟩,
+    ⟨1,0,0,1,0⟩, ⟨0,1,1,0,0⟩]
+
+theorem F2Model.coefficients :
+    F2Model 0 = ⟨0,1,1,0,1⟩ ∧ F2Model 1 = ⟨1,1,0,1,0⟩ ∧
+    F2Model 2 = ⟨0,0,1,0,0⟩ ∧ F2Model 3 = ⟨1,0,0,1,0⟩ ∧
+    F2Model 4 = ⟨0,1,1,0,0⟩ := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-discriminant
+theorem f2_discriminant (W : WeierstrassCurve (ZMod 2)) :
+    W.Δ = if W.a₁ = 0 then W.a₃ else W.a₆ + W.a₄ + W.a₃ * (W.a₄ + W.a₂) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-smooth-split
+theorem f2_smooth_split (W : WeierstrassCurve (ZMod 2)) :
+    W.Δ = 1 ↔ (W.a₁ = 0 ∧ W.a₃ = 1) ∨
+      (W.a₁ = 1 ∧ W.a₆ = 1 + W.a₄ + W.a₃ * (W.a₄ + W.a₂)) := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-change-formula
+theorem f2_change_formula (W : WeierstrassCurve (ZMod 2))
+    (C : WeierstrassCurve.VariableChange (ZMod 2)) :
+    C.u = 1 ∧ (C • W).a₁ = W.a₁ ∧
+    (C • W).a₂ = W.a₂ + C.s * W.a₁ + C.r + C.s ∧
+    (C • W).a₃ = W.a₃ + C.r * W.a₁ ∧
+    (C • W).a₄ = W.a₄ + C.s * W.a₃ + (C.t + C.r * C.s) * W.a₁ + C.r ∧
+    (C • W).a₆ = W.a₆ + C.r * W.a₄ + C.r * W.a₂ + C.r +
+      C.t * W.a₃ + C.t + C.r * C.t * W.a₁ := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants
+theorem F2Model.discriminant (i : Fin 5) : (F2Model i).Δ = 1 := by sorry
+
+instance F2Model.isElliptic (i : Fin 5) : (F2Model i).IsElliptic := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts
+theorem F2Model.pointCount (i : Fin 5) : (F2Model i).pointCount = i.val + 1 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j
+theorem F2Model.j (i : Fin 5) :
+    (F2Model i).j = (![0,1,0,1,0] : Fin 5 → ZMod 2) i := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-witnesses
+theorem F2Model.orbit_witnesses (W : WeierstrassCurve (ZMod 2)) (hW : W.Δ = 1) :
+    ∃ (i : Fin 5) (C : WeierstrassCurve.VariableChange (ZMod 2)),
+      C • W = F2Model i := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-disjoint
+theorem F2Model.orbits_disjoint (i j : Fin 5) :
+    (∃ C : WeierstrassCurve.VariableChange (ZMod 2), C • F2Model i = F2Model j) ↔
+      i = j := by sorry
+
+theorem F2Model.injective {i j : Fin 5} : F2Model i = F2Model j ↔ i = j := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-count-classifier
+theorem f2_count_classifier (W V : WeierstrassCurve (ZMod 2))
+    (hW : W.Δ = 1) (hV : V.Δ = 1) :
+    W.pointCount = V.pointCount ↔
+      ∃ C : WeierstrassCurve.VariableChange (ZMod 2), C • W = V := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-e4-double
+theorem f2_e4_double
+    (hP : (F2Model 3).toAffine.Nonsingular (1 : ZMod 2) 0)
+    (hQ : (F2Model 3).toAffine.Nonsingular (0 : ZMod 2) 0) :
+    let P := WeierstrassCurve.Affine.Point.some 1 0 hP
+    let Q := WeierstrassCurve.Affine.Point.some 0 0 hQ
+    P + P = Q ∧ Q ≠ 0 ∧ Q + Q = 0 := by sorry
+
+-- node: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups
+theorem F2Model.point_group (i : Fin 5) :
+    Nonempty ((F2Model i).toAffine.Point ≃+ ZMod (i.val + 1)) := by sorry
+
+-- test: F2Model.test_three
+example : F2Model 2 = (⟨0,0,1,0,0⟩ : WeierstrassCurve (ZMod 2)) := by sorry
+
+-- test: F2Model.test_one_point
+example : (¬ ∃ x y : ZMod 2, (F2Model 0).toAffine.Equation x y) ∧
+    (F2Model 0).pointCount = 1 := by sorry
+
+-- test: F2Model.test_same_j_distinct
+example : (F2Model 0).j = 0 ∧ (F2Model 4).j = 0 ∧
+    (F2Model 0).pointCount = 1 ∧ (F2Model 4).pointCount = 5 := by sorry
+
+-- test: F2Model.test_singular_count
+example :
+    (⟨0,0,0,0,0⟩ : WeierstrassCurve (ZMod 2)).Δ = 0 ∧
+    (⟨0,0,0,0,0⟩ : WeierstrassCurve (ZMod 2)).pointCount = 3 ∧
+    (⟨0,0,0,0,0⟩ : WeierstrassCurve (ZMod 2)).pointCount = (F2Model 2).pointCount := by sorry
+
+end TauCeti.GenusOne

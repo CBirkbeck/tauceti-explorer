@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-layer partial design with111 declarations,37 API contracts,32 tests and28 planets; all78 routed Schröer items and21 source findings preserved. Twelve additional finite-pinching declarations verify the general algebraic-space existence source and separate it from the scheme criterion. Exact foundational exports, full algebraic-space signatures, geometric model and completeness certificates remain open; no stage or reserved key is closed.",
+  "summary": "Seven-layer partial design with111 declarations,37 API contracts,32 tests and28 planets; all78 routed Schröer items and21 source findings preserved. Twelve additional finite-pinching declarations verify the general algebraic-space existence source and separate it from the scheme criterion. Exact foundational exports, full algebraic-space signatures, geometric model and completeness certificates remain open; no stage or reserved key is closed. Continuation supplies twelve declaration-sized binary-model, discriminant, coefficient/orbit, point-count and native cyclic-group plans with sixteen explicit transformation witnesses. All111 inherited nodes,78 routed items and21 source findings are retained; scheme presentation and all other source/proof gaps remain explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -121,6 +121,97 @@
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/IsPullback/Defs.lean",
         "provides": "Commutativity and the colimit universal property for a specified square. The affine prototype uses it in Scheme, not an invented algebraic-space carrier.",
         "checked": "Actual structure statement at lines78–81 and desc/hom_ext API read at the pinned Mathlib commit on 2026-10-02 in this continuation."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "Native five-coefficient carrier; no second elliptic equation carrier.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "Discriminant polynomial in the b-invariants; binary specialization unfolds this definition.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.VariableChange",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+        "provides": "Actual unit u and r,s,t carrier, its existing group and action; no second admissible-change group.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.variableChange_def",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+        "provides": "All five transformed coefficients, with the native action direction.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.variableChange_Δ",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+        "provides": "Discriminant scales by u^(-12); u=1 in the eight F₂ changes.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.pointCount_def",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "All affine equation solutions plus one infinity point, including singular solutions.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.pointCount_eq_card_point",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+        "provides": "With ellipticity and finite affine solutions, the projective count equals the native nonsingular point-group cardinality.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.variableChange_equation",
+        "kind": "lemma",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Formula/VariableChange.lean",
+        "provides": "Equation equivalence under x↦u²x+r,y↦u³y+u²sx+t, valid before ellipticity.",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.equivVariableChange",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/VariableChange.lean",
+        "provides": "Native additive point-group equivalence from (C•W).Point to W.Point, with inverse C^(-1).",
+        "checked": "Actual statement freshly read at the exact pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point.add_some",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "Addition of non-opposite nonsingular affine points by the native slope/addX/addY formulas.",
+        "checked": "Actual statement and context freshly read at the pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Affine.Point.add_of_Y_eq",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+        "provides": "Opposite affine points sum to the infinity identity.",
+        "checked": "Actual statement and context freshly read at the pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:zmodAddEquivOfGenerator",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/SpecificGroups/Cyclic.lean",
+        "provides": "Given every element in zmultiples g and Nat.card G=n, constructs ZMod n ≃+ G; the finite cyclic carriers are imported, not replanned.",
+        "checked": "Actual statement and context freshly read at the pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.IsElliptic",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The native class asserts IsUnit Δ, as read at lines362–373. Over F₂ this is exactly Δ=1; it is not a new smoothness predicate.",
+        "checked": "Actual protected class statement freshly read at the pinned commit by codex-rtOQ9t on 2026-10-02."
       }
     ]
   },
@@ -135,7 +226,13 @@
       "accessed": "2026-10-02",
       "readSections": [
         "§§3,6,7–10 including proofs; relevant introductory qualifications and bibliography"
-      ]
+      ],
+      "continuationReading": {
+        "agent": "codex-rtOQ9t",
+        "date": "2026-10-02",
+        "extent": "Fresh v3 p11 in full, Proposition3.3/table and preceding genus-one/Lang paragraph; p12 viewed incidentally. Other reading extents retain their inherited attribution.",
+        "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+      }
     },
     {
       "id": "ferrand",
@@ -1785,13 +1882,15 @@
       "statement": "The smooth projective Weierstrass curve y²+y=x³+x²+1 over F₂ has cyclic rational-point group of order 1, j=0, and is supersingular.",
       "hypotheses": [],
       "proofSteps": [
-        "Substitute the five coefficients into the baseline discriminant and j definitions to check smoothness and j.",
-        "Enumerate x,y∈F₂ and include the point at infinity using the baseline pointCount.",
-        "Use the imported characteristic2 ordinary criterion; for order4 verify a point has order4, and for prime orders use the finite group cardinality."
+        "Identify this source equation with F2Model at index 0.",
+        "Use the separate model discriminant, point-count, j and cyclic point-group declarations, including the explicit native point cycles.",
+        "Use the still-requested geometric ordinary/supersingular comparison from EllipticCurves Layer3; j=0 alone is not defined to mean supersingular."
       ],
       "prerequisites": [
-        "tauceti:WeierstrassCurve.pointCount",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
       ],
       "sources": [
         {
@@ -1824,13 +1923,15 @@
       "statement": "The smooth projective Weierstrass curve y²+xy=x³+x²+x over F₂ has cyclic rational-point group of order 2, j=1, and is ordinary.",
       "hypotheses": [],
       "proofSteps": [
-        "Substitute the five coefficients into the baseline discriminant and j definitions to check smoothness and j.",
-        "Enumerate x,y∈F₂ and include the point at infinity using the baseline pointCount.",
-        "Use the imported characteristic2 ordinary criterion; for order4 verify a point has order4, and for prime orders use the finite group cardinality."
+        "Identify this source equation with F2Model at index 1.",
+        "Use the separate model discriminant, point-count, j and cyclic point-group declarations, including the explicit native point cycles.",
+        "Use the still-requested geometric ordinary/supersingular comparison from EllipticCurves Layer3; j=0 alone is not defined to mean supersingular."
       ],
       "prerequisites": [
-        "tauceti:WeierstrassCurve.pointCount",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
       ],
       "sources": [
         {
@@ -1863,13 +1964,15 @@
       "statement": "The smooth projective Weierstrass curve y²+y=x³ over F₂ has cyclic rational-point group of order 3, j=0, and is supersingular.",
       "hypotheses": [],
       "proofSteps": [
-        "Substitute the five coefficients into the baseline discriminant and j definitions to check smoothness and j.",
-        "Enumerate x,y∈F₂ and include the point at infinity using the baseline pointCount.",
-        "Use the imported characteristic2 ordinary criterion; for order4 verify a point has order4, and for prime orders use the finite group cardinality."
+        "Identify this source equation with F2Model at index 2.",
+        "Use the separate model discriminant, point-count, j and cyclic point-group declarations, including the explicit native point cycles.",
+        "Use the still-requested geometric ordinary/supersingular comparison from EllipticCurves Layer3; j=0 alone is not defined to mean supersingular."
       ],
       "prerequisites": [
-        "tauceti:WeierstrassCurve.pointCount",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
       ],
       "sources": [
         {
@@ -1902,13 +2005,15 @@
       "statement": "The smooth projective Weierstrass curve y²+xy=x³+x over F₂ has cyclic rational-point group of order 4, j=1, and is ordinary.",
       "hypotheses": [],
       "proofSteps": [
-        "Substitute the five coefficients into the baseline discriminant and j definitions to check smoothness and j.",
-        "Enumerate x,y∈F₂ and include the point at infinity using the baseline pointCount.",
-        "Use the imported characteristic2 ordinary criterion; for order4 verify a point has order4, and for prime orders use the finite group cardinality."
+        "Identify this source equation with F2Model at index 3.",
+        "Use the separate model discriminant, point-count, j and cyclic point-group declarations, including the explicit native point cycles.",
+        "Use the still-requested geometric ordinary/supersingular comparison from EllipticCurves Layer3; j=0 alone is not defined to mean supersingular."
       ],
       "prerequisites": [
-        "tauceti:WeierstrassCurve.pointCount",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
       ],
       "sources": [
         {
@@ -1941,13 +2046,15 @@
       "statement": "The smooth projective Weierstrass curve y²+y=x³+x² over F₂ has cyclic rational-point group of order 5, j=0, and is supersingular.",
       "hypotheses": [],
       "proofSteps": [
-        "Substitute the five coefficients into the baseline discriminant and j definitions to check smoothness and j.",
-        "Enumerate x,y∈F₂ and include the point at infinity using the baseline pointCount.",
-        "Use the imported characteristic2 ordinary criterion; for order4 verify a point has order4, and for prime orders use the finite group cardinality."
+        "Identify this source equation with F2Model at index 4.",
+        "Use the separate model discriminant, point-count, j and cyclic point-group declarations, including the explicit native point cycles.",
+        "Use the still-requested geometric ordinary/supersingular comparison from EllipticCurves Layer3; j=0 alone is not defined to mean supersingular."
       ],
       "prerequisites": [
-        "tauceti:WeierstrassCurve.pointCount",
-        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups"
       ],
       "sources": [
         {
@@ -1980,16 +2087,18 @@
       "statement": "Every elliptic curve over F₂ is isomorphic over F₂ to exactly one of the five specified E_i; its point count i determines its class.",
       "hypotheses": [],
       "proofSteps": [
-        "Use existence of a Weierstrass equation for a pointed genus1 curve.",
-        "Enumerate the 32 coefficient tuples, reject Δ=0, and quotient the remaining tuples by the admissible characteristic2 coordinate transformations.",
-        "Compare the resulting five orbits with E₁,…,E₅ and their distinct counts."
+        "Import from SF.3 the exact Weierstrass presentation of a pointed smooth proper geometrically connected genus-one curve over F₂, with its scheme model and rational-point comparison. A docstring about equations is not this export.",
+        "Apply the complete native coefficient classifier and its sixteen explicit forward changes.",
+        "Use the SF.3 curve dictionary and projective realization of admissible changes, preserving infinity, to obtain curve isomorphisms. The five counts prove unique class index. Group isomorphisms of rational points alone are not curve isomorphisms."
       ],
       "prerequisites": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E2",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E3",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E4",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-count-classifier",
+        "SchemeAndStackFoundations:SF.3"
       ],
       "sources": [
         {
@@ -5646,6 +5755,541 @@
       },
       "implementationStatus": "unchecked",
       "declarationName": "FerrandPushout.isScheme_iff"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "definition",
+      "title": "The five binary Weierstrass models",
+      "statement": "F2Model:Fin5→WeierstrassCurve(F₂) sends indices 0,…,4 to coefficient tuples (a₁,a₂,a₃,a₄,a₆) equal to (0,1,1,0,1), (1,1,0,1,0), (0,0,1,0,0), (1,0,0,1,0), (0,1,1,0,0). Thus index i names the source E_(i+1). This is an explicit family in the native carrier, not a definition of smoothness, ordinarity or a general elliptic curve.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Read the five equations from the source table and translate them into the native a-coefficient order.",
+        "Use the native structure constructor and a finite five-entry vector. Keep the source count index instead of the table’s supersingular-first row order."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The index convention is 0-based in Fin5 and 1-based in the source E_i.",
+        "Model0 and model4 are distinct despite sharing j=0."
+      ],
+      "api": [
+        {
+          "name": "F2Model.coefficients",
+          "role": "simp",
+          "statement": "Evaluation at each Fin5 index gives the displayed native coefficient tuple."
+        },
+        {
+          "name": "F2Model.isElliptic",
+          "role": "instance",
+          "statement": "Each displayed model is elliptic, from the separately planned discriminant calculation."
+        },
+        {
+          "name": "F2Model.injective",
+          "role": "extensionality",
+          "statement": "F2Model i=F2Model j iff i=j, by their different point counts."
+        },
+        {
+          "name": "F2Model.pointCount",
+          "role": "compatibility",
+          "statement": "The existing projective pointCount equals i.val+1; this API is promoted to f2-model-counts."
+        }
+      ],
+      "tests": [
+        {
+          "name": "F2Model.test_three",
+          "kind": "computation",
+          "statement": "F2Model2 is (0,0,1,0,0), the equation y²+y=x³."
+        },
+        {
+          "name": "F2Model.test_one_point",
+          "kind": "degenerate",
+          "statement": "F2Model0 has no affine F₂ solutions and has exactly its infinity point."
+        },
+        {
+          "name": "F2Model.test_same_j_distinct",
+          "kind": "non-example",
+          "statement": "F2Model0 and F2Model4 both have j=0 but their projective counts are 1 and 5, so they are not identified."
+        },
+        {
+          "name": "F2Model.test_singular_count",
+          "kind": "non-example",
+          "statement": "The all-zero tuple has Δ=0 and projective pointCount3, the same count as F2Model2. A count alone cannot classify singular input."
+        }
+      ],
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E1–NeronModelsAndSemistableAbelianVarietiesPartII:G.1/E5",
+          "how": "Fix the actual native equations for invariant, group and count assertions."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes and G.2/f2-isomorphism",
+          "how": "Supply five explicitly distinguished representatives and their count index."
+        }
+      ],
+      "declarationName": "F2Model"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-discriminant",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "Binary discriminant formula",
+      "statement": "For W over F₂, Δ(W)=a₃ if a₁=0, and Δ(W)=a₆+a₄+a₃(a₄+a₂) if a₁=1. Equivalently, use the if-expression on a₁=0. The identity uses a²=a for elements of F₂ and does not extend unchanged to F₄.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Unfold the pinned b₂,b₄,b₆,b₈ and Δ definitions and reduce integer coefficients modulo2.",
+        "Use a₁²=a₁, a₃²=a₃ and a₄²=a₄; split a₁=0 or1. The two displayed polynomials remain."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Δ"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The all-zero tuple has Δ=0, while every listed model has Δ=1.",
+        "Over an extension field, the unreduced powers must be kept."
+      ],
+      "declarationName": "f2_discriminant"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-smooth-split",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "The sixteen smooth coefficient tuples",
+      "statement": "For a tuple W over F₂, Δ=1 iff either a₁=0 and a₃=1, or a₁=1 and a₆=1+a₄+a₃(a₄+a₂). In the first branch a₂,a₄,a₆ are free and in the second branch a₂,a₃,a₄ are free. These disjoint branches exhibit all16 smooth tuples among the32 equations.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Apply the binary discriminant formula. Over F₂, subtracting a scalar equals adding it.",
+        "In each branch precisely three binary choices are free, giving eight tuples. The a₁ values distinguish the branches.",
+        "The native ellipticity condition is that Δ is a unit; over F₂ this is exactly Δ=1. Do not test smoothness by having some rational solution."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-discriminant",
+        "mathlib:WeierstrassCurve.IsElliptic"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "All-zero y²=x³ has three projective rational points but lies in neither smooth branch."
+      ],
+      "declarationName": "f2_smooth_split"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-change-formula",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "The eight binary admissible changes",
+      "statement": "Every native VariableChange over F₂ has u=1 and one of eight triples (r,s,t). Its action preserves a₁ and sends (a₂,a₃,a₄,a₆) to (a₂+s a₁+r+s, a₃+r a₁, a₄+s a₃+(t+rs)a₁+r, a₆+r a₄+r a₂+r+t a₃+t+rt a₁). This is C•W; the point map from C•W to W is (x,y)↦(x+r,y+sx+t).",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "The only unit of F₂ is1; the other three coefficients range independently over {0,1}.",
+        "Specialize the native five action formulas, keeping its action order and reducing r²=r,s²=s,t²=t.",
+        "The inverse triple is (r,s,t+rs), inherited from the native group. Equation compatibility comes from the existing affine variable-change theorem."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.VariableChange",
+        "mathlib:WeierstrassCurve.variableChange_def",
+        "tauceti:WeierstrassCurve.Affine.variableChange_equation"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The shear and x-translation need not commute; no componentwise-additive eight-element group is introduced.",
+        "The point-map direction is from the changed equation to the original equation."
+      ],
+      "declarationName": "f2_change_formula"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "Smoothness of the five binary models",
+      "statement": "For each i∈Fin5, Δ(F2Model i)=1, so the native IsElliptic instance is justified. No genus-one assertion is inferred from a count on a singular model.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Substitute the five literal coefficient tuples into f2_discriminant.",
+        "Since1 is a unit, the existing native ellipticity class applies to each model."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-discriminant",
+        "mathlib:WeierstrassCurve.IsElliptic"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "All five discriminants are1; the all-zero tuple has discriminant0."
+      ],
+      "declarationName": "F2Model.discriminant"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "The five binary projective point counts",
+      "statement": "For every i∈Fin5, the existing projective pointCount(F2Model i)=i+1. The affine solution sets for i=0,…,4 are respectively ∅, {(0,0)}, {(0,0),(0,1)}, {(0,0),(1,0),(1,1)}, {(0,0),(0,1),(1,0),(1,1)}.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "For each displayed equation substitute all four pairs (x,y)∈{0,1}² and retain exactly the listed affine solutions.",
+        "Apply the actual pointCount_def and add the single infinity point. This calculation does not confuse affine solution count with projective count."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models",
+        "tauceti:WeierstrassCurve.pointCount_def"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The counts are1,2,3,4,5 in the source index order."
+      ],
+      "declarationName": "F2Model.pointCount"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-j",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "The two binary j values",
+      "statement": "The native j values of F2Model0,…,F2Model4 are0,1,0,1,0. These values do not distinguish all five F₂-isomorphism classes; in particular model0 and model4 have the same j but different point counts.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Use the model discriminant1 instance and the existing j_eq_zero_iff_of_char_two to determine precisely which indices have j=0.",
+        "The other two indices have nonzero j; the only nonzero element of F₂ is1. This establishes the whole displayed vector without a new geometric ordinary/supersingular definition."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "mathlib:WeierstrassCurve.j_eq_zero_iff_of_char_two"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "No geometric supersingularity predicate is defined by this equation; its comparison is still imported from EllipticCurves Layer3."
+      ],
+      "declarationName": "F2Model.j"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-witnesses",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "Explicit smooth binary orbit witnesses",
+      "statement": "For each W over F₂ with Δ(W)=1 there are i∈Fin5 and a native C∈VariableChange(F₂) such that C•W=F2Model i. The durable sixteen-row certificate records every smooth coefficient tuple, its 1-based source class and the triple (r,s,t), with u=1.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "The smooth-split lemma reduces the32 coefficient choices to the displayed16 rows.",
+        "For each row substitute its (r,s,t) into the binary change formula and check all five coefficients against the indicated model. Equal native coefficients give equality of WeierstrassCurve objects.",
+        "This is a complete finite witness table, not an appeal to an unavailable search log or to the size of an orbit alone."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-smooth-split",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-change-formula",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The certificate covers all16 smooth tuples with a concrete forward change, including the identity triples."
+      ],
+      "declarationName": "F2Model.orbit_witnesses"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-disjoint",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "Disjointness of the five binary orbits",
+      "statement": "For i,j∈Fin5, (∃C∈VariableChange(F₂), C•F2Model i=F2Model j) iff i=j. The index is unique; the witnessing change generally is not unique because a model can have automorphisms.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Use the native additive point equivalence under C and the elliptic pointCount/card-point comparison to identify the two projective counts.",
+        "The model-count lemma gives i+1=j+1, hence i=j. Conversely the identity change witnesses equality.",
+        "Finiteness of affine solutions holds over the finite coefficient field; ellipticity is supplied by model discriminants."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "tauceti:WeierstrassCurve.pointCount_eq_card_point",
+        "tauceti:WeierstrassCurve.Affine.Point.equivVariableChange"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Model orbit sizes are2,4,4,4,2, with stabilizer sizes4,2,2,2,4 in the eight-element native change group. The theorem claims uniqueness only of the model index."
+      ],
+      "declarationName": "F2Model.orbits_disjoint"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-count-classifier",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "comparison",
+      "title": "Point counts classify smooth binary equations",
+      "statement": "For W,V over F₂ with Δ(W)=Δ(V)=1, pointCount(W)=pointCount(V) iff ∃C∈VariableChange(F₂), C•W=V. This is a statement about native smooth equations and their actual admissible changes. Conversion to arbitrary pointed smooth proper genus-one schemes is an exact SF.3 import, not a consequence of point-group isomorphism alone.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Send W and V to their model representatives with the explicit orbit witnesses.",
+        "Changes preserve the projective point count: specialize the existing affine equation equivalence and its inverse, or use the additive point equivalence together with ellipticity.",
+        "Equal counts force equal model indices by the five model counts. Compose the native changes and an inverse to obtain the required C; the reverse implication follows from the same point-count compatibility."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-witnesses",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-orbit-disjoint",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "mathlib:WeierstrassCurve.VariableChange",
+        "mathlib:WeierstrassCurve.variableChange_Δ",
+        "tauceti:WeierstrassCurve.Affine.variableChange_equation",
+        "tauceti:WeierstrassCurve.pointCount_def"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Δ=1 is essential: the singular all-zero tuple and smooth model2 both have projective count3 but cannot be related by an invertible admissible change.",
+        "This does not claim that isogeny and isomorphism coincide over arbitrary finite fields."
+      ],
+      "declarationName": "f2_count_classifier"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-e4-double",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "lemma",
+      "title": "A point of order four on E₄",
+      "statement": "For E₄=F2Model3 and its nonsingular affine points P=(1,0), Q=(0,0), native point addition gives P+P=Q. Since Q≠O and Q+Q=O, P has order4 and the four-point group is cyclic, not the Klein four group.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "The equation and partial derivatives verify both displayed points are nonsingular.",
+        "At P the tangent denominator is1 and numerator3+1=0 in F₂. The native slope is0; native addX/addY give Q=(0,0).",
+        "Q is its own negative, so the existing add_of_Y_eq gives Q+Q=O. Its affine constructor is different from infinity."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-models",
+        "mathlib:WeierstrassCurve.Affine.Point.add_some",
+        "mathlib:WeierstrassCurve.Affine.Point.add_of_Y_eq"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The full cycle is O,(1,0),(0,0),(1,1),O; a cardinality-four statement alone would not prove cyclicity."
+      ],
+      "declarationName": "f2_e4_double"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-point-groups",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.1",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1"
+      ],
+      "kind": "theorem",
+      "title": "Cyclic point groups of the five binary models",
+      "statement": "For every i∈Fin5, the native rational-point group of F2Model i is additively isomorphic to ZMod(i+1). Generators in source E₁,…,E₅ order are O,(0,0),(0,0),(1,0),(0,0). The explicit cyclic lists include exactly every rational point, not only a subgroup of the right apparent size.",
+      "hypotheses": [
+        "The coefficient field in every finite computation is exactly F₂=ZMod2; it is not an arbitrary field of characteristic two. Existing WeierstrassCurve and VariableChange carriers are used."
+      ],
+      "proofSteps": [
+        "Use the model-count lemma and pointCount_eq_card_point under model ellipticity to get the honest group cardinalities1,…,5.",
+        "The durable point-cycle table lists all multiples of the displayed generator until the first return to infinity; all listed affine points are nonsingular. Verify each addition with add_some or add_of_Y_eq. The order-four case uses f2_e4_double.",
+        "The affine solution lists plus infinity prove the generator spans the whole native group. Apply the existing zmodAddEquivOfGenerator and invert its equivalence to obtain the displayed orientation."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-discriminants",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-model-counts",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/f2-e4-double",
+        "tauceti:WeierstrassCurve.pointCount_eq_card_point",
+        "mathlib:WeierstrassCurve.Affine.Point.add_some",
+        "mathlib:WeierstrassCurve.Affine.Point.add_of_Y_eq",
+        "mathlib:zmodAddEquivOfGenerator"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/F2Classification",
+        "namespace": "TauCeti.GenusOne"
+      },
+      "sources": [
+        {
+          "sourceId": "schroer",
+          "locator": "arXiv:2004.07025v3, p.11, Proposition3.3/table and preceding paragraph",
+          "excerpt": "Proposition 3.3",
+          "match": "The table states the five models and counts. The finite coefficient and transformation calculations here are independently exhibited deductions using the pinned native formulas; the paragraph cites Knapp for the general geometric classification, whose owner adapter is kept explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The group of order1 is the trivial ZMod1 group. Orders2,3,5 and especially4 use actual point addition; no group law is replanned."
+      ],
+      "declarationName": "F2Model.point_group"
     }
   ],
   "requests": [
@@ -5689,7 +6333,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Flat base change of qcqs pushforwards and Milnor patching of finite projective modules on ring fiber products; the rank-one groupoid statement must retain the overlap identification. Relative cohomology/base change and Picard–norm comparison for integral proper curves; positive section twist cohomology; Leray and Euler-characteristic formulas including nonreduced fibers; normalization cohomology exact sequence. Stein factorization and normal-base comparison f_*O=O for the proper normal DVR model, genuine coherent genus and base change; Picard-to-line-bundle obstruction sequence over fields. For the algebraic-space continuation supply the affine flat-object patching equivalence of TT3.4.1 and its scheme-local extension4.1.2, with cartesian unit/counit, flat fiber products, surjectivity and étale-property comparison; preserving an already formed square under flat base change alone is insufficient for constructing the presentation.",
+      "need": "Flat base change of qcqs pushforwards and Milnor patching of finite projective modules on ring fiber products; the rank-one groupoid statement must retain the overlap identification. Relative cohomology/base change and Picard–norm comparison for integral proper curves; positive section twist cohomology; Leray and Euler-characteristic formulas including nonreduced fibers; normalization cohomology exact sequence. Stein factorization and normal-base comparison f_*O=O for the proper normal DVR model, genuine coherent genus and base change; Picard-to-line-bundle obstruction sequence over fields. For the algebraic-space continuation supply the affine flat-object patching equivalence of TT3.4.1 and its scheme-local extension4.1.2, with cartesian unit/counit, flat fiber products, surjectivity and étale-property comparison; preserving an already formed square under flat base change alone is insufficient for constructing the presentation. For G.1/five-f2-classes export a pointed smooth-proper genus-one scheme’s native Weierstrass presentation, equality of its F₂-points with the projective equation count, and realization of an admissible change as an infinity-preserving curve isomorphism. Import the AlgebraicCurves model/dictionary and JacobianChallenge cohomological-genus bridges; a bijection or additive isomorphism of rational point groups is insufficient.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/flat-base-change",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/line-bundle-patching",
@@ -5711,7 +6355,8 @@
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-etale-relation",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/pinching-overlap-scheme",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/algebraic-space-existence",
-        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/space-flat-base-change"
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/space-flat-base-change",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes"
       ]
     },
     {
@@ -5968,7 +6613,8 @@
         "General Lang theorem for projective-line forms",
         "Canonical upstream stage imports and checker encoding",
         "Suggested signatures for unbuilt geometric conditions",
-        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports."
+        "Replace unresolved supplier stage requests and typed upstream imports by exact verified exports.",
+        "Pointed genus-one scheme to binary-equation classification adapter; finite coefficient, count and cyclic-group calculations have explicit source-decomposed witnesses."
       ]
     },
     {
@@ -6230,6 +6876,14 @@
       "detail": "The source reduces an excellent DVR to its henselization. Its residue field is unchanged, the good-reduction elliptic scheme base changes, and regular relative minimality plus the multiple-fiber description must be preserved. Supply the exact regular-model base-change statement before applying the henselian transverse-divisor proof to an arbitrary excellent DVR. The isogeny is then already over the original residue field, so no descent of a morphism across a residue-field extension is needed.",
       "neededBy": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/multiple-fiber-isogeny"
+      ]
+    },
+    {
+      "title": "Pointed genus-one scheme to binary-equation classification adapter",
+      "detail": "The native five-model coefficient classifier is fully decomposed with all finite witnesses. Its conversion to the existing arbitrary elliptic-curve target still needs the exact SF.3 Weierstrass scheme presentation and projective-change/rational-point comparison exports. The borrowed EllipticCurves isogeny stage is function-field based, and its VariableChange docstrings do not supply this scheme-level export. The general construction remains with SF.3 and its AlgebraicCurves/JacobianChallenge inputs.",
+      "neededBy": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.1/five-f2-classes",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.2/f2-isomorphism"
       ]
     }
   ],
@@ -7376,5 +8030,390 @@
       ],
       "qualification": "Statements retain the corrected source hypotheses; unresolved proof inputs are named in gaps."
     }
-  ]
+  ],
+  "finiteF2Certificate": {
+    "coefficientTuples": 32,
+    "smoothTuples": 16,
+    "changes": 8,
+    "pointEquationChecks": 1024,
+    "modelCounts": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "orbitSizes": [
+      2,
+      4,
+      4,
+      4,
+      2
+    ],
+    "smoothWitnesses": [
+      {
+        "coefficients": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "class": 3,
+        "change_rst": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        "class": 3,
+        "change_rst": [
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        "class": 5,
+        "change_rst": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "class": 1,
+        "change_rst": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "class": 5,
+        "change_rst": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        "class": 1,
+        "change_rst": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          1,
+          1,
+          1,
+          0
+        ],
+        "class": 3,
+        "change_rst": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "class": 3,
+        "change_rst": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "class": 4,
+        "change_rst": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        "class": 4,
+        "change_rst": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          0,
+          1,
+          0,
+          1
+        ],
+        "class": 2,
+        "change_rst": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        "class": 2,
+        "change_rst": [
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "class": 2,
+        "change_rst": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "class": 2,
+        "change_rst": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "class": 4,
+        "change_rst": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "coefficients": [
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "class": 4,
+        "change_rst": [
+          1,
+          0,
+          1
+        ]
+      }
+    ],
+    "singularSameCount": {
+      "coefficients": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "count": 3
+    },
+    "modelPointCycles": [
+      [
+        null
+      ],
+      [
+        null,
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        null,
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        null,
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        null,
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "meaning": "Exact ordinary integer/mod2 computations rechecked by codex-rtOQ9t; no Lean elaboration or curve-scheme presentation proof claimed.",
+    "actionDirection": "C•W=model_i; on points the corresponding map goes from the changed equation to W."
+  },
+  "libraryAuditContinuation": {
+    "agent": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "directPartIIEntry": "No reviewed PartII entry in data/library-coverage.json.",
+    "read": [
+      "AUDIT-10: parent NeronModelsAndSemistableAbelianVarieties R11.1–R11.6",
+      "AUDIT-01: SchemeAndStackFoundations SF.3",
+      "AUDIT-11: upstream EllipticCurves Layer3"
+    ],
+    "conclusion": "Reuse native coefficient/change/point-count/point-group carriers. Import general scheme Weierstrass presentation and Picard/cohomological curve theory from SF.3; import geometric ordinarity comparison from EllipticCurves Layer3. The finite constant-F₂ classification is a new specialization, not a second general normal-form or group implementation."
+  },
+  "continuationVerification": {
+    "agent": "codex-rtOQ9t",
+    "date": "2026-10-02",
+    "baselineDeclarations": "All 28 cited declaration statements read at the exact pins; 13 newly registered native declarations, 15 inherited declarations reread.",
+    "finiteCalculation": "32 coefficient tuples, 16 smooth tuples, eight native changes; 1024 affine equation substitutions, discriminant/count preservation, inverse changes, complete sixteen-row witness table and five full point cycles verified independently modulo2. Durable witnesses are in finiteF2Certificate and the reader.",
+    "preservation": "111 inherited IDs, all 78 routeCoverage entries and all 21 sourceIssues preserved; Ferrand key unchanged. Six old five-model/classifier nodes now consume the finite chain. All prior sixteen gaps and twenty supplier requests retained.",
+    "projection": {
+      "nodeCount": 123,
+      "kinds": {
+        "definition": 9,
+        "lemma": 89,
+        "theorem": 22,
+        "comparison": 3
+      },
+      "apiCount": 41,
+      "testCount": 36,
+      "planetCount": 28,
+      "baselineCount": 28,
+      "stageDag": [
+        2612,
+        8726
+      ],
+      "combinedDag": [
+        2738,
+        9269
+      ],
+      "typedUpstreamPrerequisites": 76,
+      "expectedStageEdges": 67,
+      "skippedLinks": 0,
+      "pendingLinks": 0,
+      "inheritedNodesPreserved": 111,
+      "unchangedRoutes": 78,
+      "unchangedSourceIssues": 21,
+      "newNativeForms": 12,
+      "nativeApiNames": 4,
+      "typedTests": 4,
+      "freshSourceHash": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+    },
+    "projectionMethod": "Read-only actual atlas assembly, add the seven-stage definition once, append typed upstream prerequisites only in an in-memory validation copy, then merge the packet once. Every declared/imported stage edge is present; no pending or skipped links. Stage graph and combined declaration/stage graph are acyclic.",
+    "linkScreen": "Endpoint screen of research/blueprint/links and data/links: no PartII touching entries; four parent EllipticCurves link/overlap entries read. General normal forms and geometric presentation remain owned by upstream EllipticCurves and SF.3.",
+    "signatureScope": "Twelve new full native forms, all four new definition API names and four typed examples checked against packet/reader. Existing geometric omission ledger remains explicit. The order-four form includes P+P=Q, Q≠O and Q+Q=O.",
+    "lean": "NOT COMPILED: no existing build at both pins; no new project, cache, library build or language server started."
+  }
 }
