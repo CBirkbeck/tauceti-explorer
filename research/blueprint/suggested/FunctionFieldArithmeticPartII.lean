@@ -1,3 +1,5 @@
+import Mathlib.AlgebraicGeometry.Morphisms.Finite
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
 import Mathlib.GroupTheory.Perm.Fin
 import Mathlib.Algebra.BigOperators.Intervals
 import Mathlib.Data.Nat.ModEq
@@ -345,7 +347,9 @@ example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
       ∃ a : A, b = algebraMap A (AffineRing f n) a := by
   sorry
 
--- Native finite-to-infinite chart interfaces, Codex — codex-5ebb6f.
+/- BEGIN NATIVE FINITE ROOT TRANSITIONS -/
+open Module AlgebraicGeometry
+
 def affineTransition (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
     AffineRing f n →ₐ[A] AffineRing f (n * m) := by
   sorry
@@ -354,6 +358,10 @@ lemma affineTransition.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
     affineTransition f n m (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
       AdjoinRoot.root (Polynomial.X ^ (n * m) - Polynomial.C f) ^ m := by
   sorry
+
+local instance affineTransition.coefficientAlgebra (f : A) (n m : ℕ)
+    [NeZero n] [NeZero m] : Algebra (AffineRing f n) (AffineRing f (n*m)) :=
+  (affineTransition f n m).toRingHom.toAlgebra
 
 lemma affineTransition.constant (f a : A) (n m : ℕ) [NeZero n] [NeZero m] :
     affineTransition f n m (algebraMap A (AffineRing f n) a) =
@@ -370,8 +378,35 @@ lemma affineTransition.unique (f : A) (n m : ℕ) [NeZero n] [NeZero m]
 lemma affineTransition.comp (f : A) (n m k : ℕ)
     [NeZero n] [NeZero m] [NeZero k] :
     (affineTransition f (n * m) k).comp (affineTransition f n m) =
-      ((by simpa only [Nat.mul_assoc] using affineTransition f n (m * k)) :
-        AffineRing f n →ₐ[A] AffineRing f ((n * m) * k)) := by
+      (AdjoinRoot.algEquivOfEq A
+        (Polynomial.X ^ (n * (m*k)) - Polynomial.C f)
+        (Polynomial.X ^ ((n*m) * k) - Polynomial.C f)
+        (by rw [Nat.mul_assoc])).toAlgHom.comp (affineTransition f n (m*k)) := by
+  sorry
+
+abbrev affineIteratedRing (f : A) (n m : ℕ) :=
+  AdjoinRoot (Polynomial.X ^ m -
+    Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)))
+
+def affineIteratedReverse (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    AffineRing f (n * m) →ₐ[A] affineIteratedRing f n m := by
+  sorry
+
+lemma affineIteratedReverse.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineIteratedReverse f n m (AdjoinRoot.root (Polynomial.X ^ (n*m) - Polynomial.C f)) =
+      AdjoinRoot.root (Polynomial.X ^ m -
+        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f))) := by
+  sorry
+
+lemma affineIteratedReverse.constant (f a : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineIteratedReverse f n m (algebraMap A (AffineRing f (n*m)) a) =
+      algebraMap A (affineIteratedRing f n m) a := by
+  sorry
+
+lemma affineIteratedReverse.coefficient (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (b : AffineRing f n) :
+    affineIteratedReverse f n m (affineTransition f n m b) =
+      algebraMap (AffineRing f n) (affineIteratedRing f n m) b := by
   sorry
 
 def affineTransitionIterated (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
@@ -380,6 +415,19 @@ def affineTransitionIterated (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
      AdjoinRoot (Polynomial.X ^ m -
        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f))) ≃ₐ[AffineRing f n]
        AffineRing f (n * m)) := by
+  sorry
+
+lemma affineTransitionIterated.root (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    affineTransitionIterated f n m
+      (AdjoinRoot.root (Polynomial.X ^ m -
+        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)))) =
+      AdjoinRoot.root (Polynomial.X ^ (n*m) - Polynomial.C f) := by
+  sorry
+
+lemma affineTransitionIterated.coefficient (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (b : AffineRing f n) :
+    affineTransitionIterated f n m (algebraMap (AffineRing f n) (affineIteratedRing f n m) b) =
+      affineTransition f n m b := by
   sorry
 
 def affineTransitionBasis (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
@@ -408,16 +456,31 @@ lemma affineTransitionBasis.repr_symm (f : A) (n m : ℕ) [NeZero n] [NeZero m]
   sorry
 
 theorem affineTransitionFaithfullyFlat (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
-    (letI : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
+    (let : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
        (affineTransition f n m).toRingHom.toAlgebra;
      Module.FaithfullyFlat (AffineRing f n) (AffineRing f (n * m))) := by
+  sorry
+
+theorem affineTransitionSpecProperties (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) := by
+  sorry
+
+-- affineTransitionSpecProperties.test_wild
+example :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) := by
   sorry
 
 -- affineTransition.test_one
 example (f : A) (n : ℕ) [NeZero n] :
     affineTransition f n 1 =
-      ((by simpa only [Nat.mul_one] using AlgHom.id A (AffineRing f n)) :
-        AffineRing f n →ₐ[A] AffineRing f (n * 1)) := by
+      (AdjoinRoot.algEquivOfEq A
+        (Polynomial.X ^ n - Polynomial.C f)
+        (Polynomial.X ^ (n*1) - Polynomial.C f)
+        (by rw [Nat.mul_one])).toAlgHom := by
   sorry
 
 -- affineTransition.test_four_to_two
@@ -449,6 +512,54 @@ example (f : A) (b : AffineRing f 4) :
 example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m] (i : Fin m) :
     affineTransitionBasis f n m i = 0 := by
   sorry
+
+-- affineIteratedReverse.test_root
+example (k : Type u) [Field k] :
+    affineIteratedReverse (0 : k) 2 2
+      (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C (0 : k))) =
+      AdjoinRoot.root (Polynomial.X ^ 2 -
+        Polynomial.C (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k)))) := by
+  sorry
+
+-- affineIteratedReverse.test_coefficient
+example (f : A) :
+    affineIteratedReverse f 2 2 (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 2) =
+      algebraMap (AffineRing f 2) (affineIteratedRing f 2 2)
+        (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) := by
+  sorry
+
+-- affineIteratedReverse.test_fourth_power
+example (f : A) :
+    affineIteratedReverse f 2 2 (AdjoinRoot.root (Polynomial.X ^ 4 - Polynomial.C f) ^ 4) =
+      algebraMap A (affineIteratedRing f 2 2) f := by
+  sorry
+
+-- affineIteratedReverse.test_zeroRing
+example [Subsingleton A] (f : A) (n m : ℕ) [NeZero n] [NeZero m]
+    (b : AffineRing f (n*m)) : affineIteratedReverse f n m b = 0 := by
+  sorry
+
+-- affineTransitionBasis.test_nonreduced
+example :
+    (letI : Algebra (AffineRing (2 : ZMod 4) 2) (AffineRing (2 : ZMod 4) 4) :=
+      (affineTransition (2 : ZMod 4) 2 2).toRingHom.toAlgebra;
+    Module.FaithfullyFlat (AffineRing (2 : ZMod 4) 2) (AffineRing (2 : ZMod 4) 4)) := by
+  sorry
+
+-- affineTransitionBasis.test_wild
+example :
+    (letI : Algebra (AffineRing (0 : ZMod 2) 2) (AffineRing (0 : ZMod 2) 4) :=
+      (affineTransition (0 : ZMod 2) 2 2).toRingHom.toAlgebra;
+    Module.FaithfullyFlat (AffineRing (0 : ZMod 2) 2) (AffineRing (0 : ZMod 2) 4)) := by
+  sorry
+
+-- affineTransitionBasis.test_finite_free
+example (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    Module.Free (AffineRing f n) (AffineRing f (n*m)) ∧
+    Module.Finite (AffineRing f n) (AffineRing f (n*m)) := by
+  sorry
+
+/- END NATIVE FINITE ROOT TRANSITIONS -/
 
 end Affine
 
