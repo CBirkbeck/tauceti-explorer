@@ -17,7 +17,7 @@
       "All61 pages: introduction, §§2–12, acknowledgments and bibliography."
     ]
   },
-  "summary": "Bhatt–Scholze prove that the Witt vector affine Grassmannian is an ind-(perfection of a projective scheme), by constructing an ample determinant line bundle, using h- and v-descent for vector bundles and perfect complexes on perfect schemes, a K-theoretic determinant and Keel's criterion; they also prove descendability and Witt vector cohomology results. Reviewed by REV-PAPER-BHATT-SCHOLZE-17 (Claude Code, cc-2aeb03) and corrected in place: 363 items (17 library, 35 planned, 311 missing). 56 mistakes are recorded (40 misprints, 11 gaps, 5 errors; 5 reach a stated result, 10 a proof). Theorem 1.3 needs 'of finite presentation' (E27) and Proposition 9.7 needs k algebraically closed (E41); Theorem 1.1 and the other main results stand. Not formalised.",
+  "summary": "Bhatt–Scholze prove that the Witt vector affine Grassmannian is an ind-(perfection of a projective scheme), by constructing an ample determinant line bundle, using h- and v-descent for vector bundles and perfect complexes on perfect schemes, a K-theoretic determinant and Keel's criterion; they also prove descendability and Witt vector cohomology results. The independent review REV-PAPER-BHATT-SCHOLZE-17 (Claude Code, cc-2aeb03) established the earlier extraction; this fix updates its inventory to 364 items (18 library, 39 planned, 307 missing). 56 mistakes are recorded (40 misprints, 11 gaps, 5 errors; 5 reach a stated result, 10 a proof). Theorem 1.3 needs 'of finite presentation' (E27) and Proposition 9.7 needs k algebraically closed (E41); Theorem 1.1 and the other main results stand. Not formalised. FIX-RT-PAPER-BHATT-SCHOLZE-17 corrects RG71’s proper/henselian scope, credits existing ordinary monoidal functors, and imports general K-theory suppliers at their existing owners. All 56 prior source issues remain unchanged; these are extraction corrections.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -5033,7 +5033,8 @@
       "status": "missing",
       "ownerKey": "determinant",
       "prerequisites": [
-        "PAPER-BHATT-SCHOLZE-17/D510"
+        "PAPER-BHATT-SCHOLZE-17/D510",
+        "PAPER-BHATT-SCHOLZE-17/k-theory-additivity"
       ],
       "proofSteps": [
         "Use K-theory additivity, retaining the associativity and symmetry homotopies for filtrations."
@@ -5224,7 +5225,11 @@
       "status": "planned",
       "ownerKey": "supportk",
       "prerequisites": [
-        "PAPER-BHATT-SCHOLZE-17/D513"
+        "PAPER-BHATT-SCHOLZE-17/D513",
+        "PAPER-BHATT-SCHOLZE-17/supported-perfect-complexes-general",
+        "PAPER-BHATT-SCHOLZE-17/localization-sequences",
+        "PAPER-BHATT-SCHOLZE-17/localization-g-theory",
+        "PAPER-BHATT-SCHOLZE-17/tt90-k-equals-g-regular"
       ],
       "proofSteps": [
         "Compare regular K with coherent G on Y,Z and the open complement, then compare localization fibre sequences and Quillen devissage."
@@ -6505,10 +6510,14 @@
       "ownerKey": "wittgeometry",
       "prerequisites": [
         "PAPER-BHATT-SCHOLZE-17/F621",
-        "PAPER-BHATT-SCHOLZE-17/F618"
+        "PAPER-BHATT-SCHOLZE-17/F618",
+        "PAPER-BHATT-SCHOLZE-17/cited-rg-flat-fp-algebra-free"
       ],
       "proofSteps": [
-        "Use integral closedness, locally free possibly infinite-rank V-modules from RG71 Cor3.3.13, and Hom_V(m,V)=V. Correct the printed O_Xeta to E_eta."
+        "Use the proper flat model and the corrected RG71 free-section cover for O_X₀. Retain the source’s sheaf Hom calculation and vector-bundle trivialization/localization compatibility as separate proof obligations; freeness of section rings alone is not an automatic proof for every localized bundle.",
+        "For this nondiscrete rank-one valuation ring, Hom_V(m,V)=V: an element of K multiplying all of m into V cannot have negative valuation, since m has arbitrarily small positive values. This statement is false for a DVR, where Hom_V(tV,V)=t⁻¹V.",
+        "For a free module ⊕_I V, evaluation at one nonzero a∈m forces any homomorphism m→⊕_I V to have finite support, by torsionfreeness and comparison in the fraction field. Thus Hom_V(m,⊕_I V)=⊕_I V. Apply this to the cover; use integral closedness to identify Hom(m,O_X₀) and its inclusion in generic-fibre sections, then the perfection colimit as in the source. The compatibility with this colimit and the boundedness argument remain proof obligations under Q-valuations/Q-source.",
+        "Take global sections, with the boundedness argument and vector-bundle hypotheses retained. Correct the printed O_Xη to E_η (existing E9)."
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -6518,7 +6527,7 @@
           "match": "Final arXiv v3 read; corrected statements and conventions in sourceIssues take precedence."
         }
       ],
-      "ambientHypotheses": "§§7–8 use perfect F_p-algebras and finite projective Witt modules, with n≥0 and a partition of length at most n. §§9–10 use a specified complete mixed-characteristic discrete valuation field K with perfect residue field k and its smooth affine integral group model. The SLn section assertions use n≥2.",
+      "ambientHypotheses": "Theorem 6.13: V is the rank-one valuation ring of the chosen complete algebraically closed nonarchimedean field K, with nonzero nondiscrete maximal ideal m. X₀ is the proper flat reduced finitely presented model; after normalization it is integrally closed in its generic fibre. X is its perfection and E is the vector bundle, trivial on the generic fibre. Spherical completeness and the specified value group enter the subsequent Lemma 6.14, not the RG cover.",
       "gaps": [
         "Q-closure",
         "Q-sites",
@@ -11425,7 +11434,8 @@
         "PAPER-BHATT-SCHOLZE-17/A1204",
         "PAPER-BHATT-SCHOLZE-17/L32",
         "PAPER-BHATT-SCHOLZE-17/L33",
-        "PAPER-BHATT-SCHOLZE-17/L35"
+        "PAPER-BHATT-SCHOLZE-17/L35",
+        "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-functor"
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -11489,7 +11499,7 @@
       "consumers": [
         "PAPER-BHATT-SCHOLZE-17/A1213"
       ],
-      "note": "Correction: the construction must also require X_∅ ≅ 1 (E54)."
+      "note": "Correction: the construction must also require X_∅ ≅ 1 (E54). Reuse the ordinary pinned symmetric-monoidal functor and transformation definitions; the induced coherent subset/group-completion/spectral maps are separate obligations."
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/A1207",
@@ -11946,7 +11956,8 @@
       "ownerKey": "picard",
       "prerequisites": [
         "PAPER-BHATT-SCHOLZE-17/L32",
-        "PAPER-BHATT-SCHOLZE-17/L35"
+        "PAPER-BHATT-SCHOLZE-17/L35",
+        "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-functor"
       ],
       "implementationStatus": "unchecked",
       "sources": [
@@ -12008,7 +12019,8 @@
       ],
       "consumers": [
         "PAPER-BHATT-SCHOLZE-17/A1215"
-      ]
+      ],
+      "note": "Reuse the ordinary pinned symmetric-monoidal functor and transformation definitions; the induced coherent subset/group-completion/spectral maps are separate obligations."
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/A1215",
@@ -12135,7 +12147,8 @@
       "prerequisites": [
         "PAPER-BHATT-SCHOLZE-17/A1216",
         "PAPER-BHATT-SCHOLZE-17/A1203",
-        "PAPER-BHATT-SCHOLZE-17/A1215"
+        "PAPER-BHATT-SCHOLZE-17/A1215",
+        "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-functor"
       ],
       "proofSteps": [
         "Apply group completion to the signed determinant functor; the Picard target is already grouplike."
@@ -12157,7 +12170,8 @@
       "consumers": [
         "PAPER-BHATT-SCHOLZE-17/D510",
         "PAPER-BHATT-SCHOLZE-17/A1218"
-      ]
+      ],
+      "note": "Reuse the ordinary pinned symmetric-monoidal functor and transformation definitions; the induced coherent subset/group-completion/spectral maps are separate obligations."
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/A1218",
@@ -12936,11 +12950,32 @@
     {
       "id": "PAPER-BHATT-SCHOLZE-17/cited-rg-flat-fp-algebra-free",
       "kind": "theorem",
-      "name": "Flat finitely presented algebras over a valuation ring are free [RG71, Cor. 3.3.13]",
-      "statement": "As used: if X_0 is flat and finitely presented over a valuation ring V (here of rank 1), then O_{X_0} is locally a free V-module (of infinite rank).",
+      "name": "Free-section affine cover of a proper flat model over a henselian valuation ring [RG71, I.3.3.13]",
+      "statement": "Let V be a henselian valuation ring and X₀ → Spec V a proper flat finitely presented scheme. Then X₀ has an affine open cover Uᵢ such that Γ(Uᵢ,O) is a free V-module, with rank possibly infinite. RG71 I.3.3.13 first gives an affine neighbourhood at each point of the closed fibre; properness promotes these neighbourhoods to a cover of X₀. This does not assert freeness for arbitrary flat finitely presented V-algebras.",
       "locator": "Proof of Theorem 6.13, p. 26",
       "status": "missing",
-      "note": "Cited black box. It gives Hom_V(m, O_{X_0}) = O_{X_0}. Missing: routed to route 1."
+      "note": "Route 1, SchemeAndStackFoundations:SF.0/SF.4 source addition. The complete algebraically closed rank-one field, reduced/integrally closed model and vector bundle hypotheses in BS17 Theorem 6.13 remain separate inputs to F622; local henselianity alone does not imply Hom_V(m,V)=V.",
+      "proofSteps": [
+        "Apply the pointed local-henselian corollary to O_X₀, a finitely presented sheaf flat at each point of the closed fibre. Its sections on the resulting affine neighbourhood are V-free.",
+        "Let W be the union of these neighbourhoods. If X₀ − W were nonempty, its image would be closed and nonempty by properness, hence contain the closed point of the local base. This contradicts coverage of the closed fibre."
+      ],
+      "counterexample": "For a nonfield rank-one valuation ring V and 0≠t∈m, V[1/t]=Frac(V)=V[T]/(tT−1) is a nonzero flat finitely presented V-algebra. Multiplication by t is invertible, so K/tK=0; a nonzero free V-module has nonzero quotient modulo t. Spec K therefore refutes the version with no properness assumption.",
+      "sources": [
+        {
+          "sourceId": "bs17",
+          "locator": "arXiv v3 p.26, proof of Theorem 6.13",
+          "match": "Proper flat reduced model explicitly chosen before RG71 invocation."
+        },
+        {
+          "sourceId": "rg71-fix",
+          "locator": "I.3.3.13, printed p.23 (scan page 30)",
+          "match": "Pointed local-henselian affine neighbourhood with free sections; checked directly."
+        }
+      ],
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/F622"
+      ],
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/spherical-completeness-ext-vanishing",
@@ -13254,8 +13289,41 @@
       "name": "Symmetric monoidal functor and symmetric monoidal natural transformation",
       "statement": "A symmetric monoidal functor F: C → D between symmetric monoidal categories is a functor that commutes with ⊗ 'in the appropriate sense': coherent isomorphisms F(X)⊗F(Y) ≅ F(X⊗Y) and F(1) ≅ 1, compatible with the unit, commutativity and associativity constraints. There is also a notion of natural transformation between symmetric monoidal functors (Mac Lane [ML63]).",
       "locator": "§12, p. 54 (opening paragraph)",
-      "status": "missing",
-      "note": "Recalled without details. Proposition 12.3 and the functoriality K(F) (used in Corollary 12.17) need it. Missing: routed to route 12."
+      "status": "library",
+      "note": "Existing ordinary categorical definitions at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Functor.Braided between SymmetricCategory instances is a symmetric monoidal functor; NatTrans.IsMonoidal gives the unit/tensor equations for transformations. No claim of an implemented Segal machine, higher monoidal coherence, or inherited symmetric monoidal structure on Core.",
+      "ownerKey": "library",
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:CategoryTheory.Functor.Monoidal",
+        "mathlib:CategoryTheory.Functor.Braided",
+        "mathlib:CategoryTheory.NatTrans.IsMonoidal",
+        "mathlib:CategoryTheory.SymmetricCategory"
+      ],
+      "libraryEvidence": [
+        {
+          "declaration": "CategoryTheory.Functor.Monoidal",
+          "file": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
+          "line": 389,
+          "fit": "Inverse lax/oplax constraints; εIso and μIso at lines 405/411."
+        },
+        {
+          "declaration": "CategoryTheory.Functor.Braided",
+          "file": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+          "line": 531,
+          "fit": "Monoidal and LaxBraided; braiding equation at 385–388, SymmetricCategory at 367."
+        },
+        {
+          "declaration": "CategoryTheory.NatTrans.IsMonoidal",
+          "file": "Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean",
+          "line": 46,
+          "fit": "Unit and tensor compatibility."
+        }
+      ],
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/A1205",
+        "PAPER-BHATT-SCHOLZE-17/A1214",
+        "PAPER-BHATT-SCHOLZE-17/A1217"
+      ]
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-groupoid-and-core",
@@ -13452,8 +13520,16 @@
       "name": "Classes of perfect complexes and additivity in K(X)",
       "statement": "For qcqs X there is a natural map of spaces Perf(X)^≃ → K(X), C ↦ [C]. For every distinguished triangle C′ → C → C″, [C] = [C′] + [C″] up to homotopy, for the coherently commutative group law on K(X).",
       "locator": "§5, p. 18 (cf. Theorem 12.9)",
-      "status": "missing",
-      "note": "Waldhausen additivity, used as a black box; it underlies D511. Missing: routed to route 10."
+      "status": "planned",
+      "note": "Route 11 imports Waldhausen additivity from the existing S-construction owner. Its application to Perf uses the planned model/comparison, not merely the existing K₀ additivity shadow. D511 remains a determinant-specific consumer in route 10.",
+      "planned": [
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "ownerKey": "GeneralAlgebraicKTheory:K.4:construction",
+      "implementationStatus": "unchecked",
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/D511"
+      ]
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/remark-5-4-det-not-in-pic",
@@ -13468,10 +13544,19 @@
       "id": "PAPER-BHATT-SCHOLZE-17/supported-perfect-complexes-general",
       "kind": "definition",
       "name": "Perf(Y on Z) and K(Y on Z)",
-      "statement": "For a qcqs scheme Y and a closed Z ⊂ Y with quasi-compact complement, Perf(Y on Z) is the ∞-category of perfect complexes on Y that are acyclic on Y − Z, and K(Y on Z) is its K-theory spectrum [TT90, Def. 3.1]. For Z a closed subscheme with Perf(Z) → Perf(Y) (e.g. Y regular), pushforward gives the natural map K(Z) → K(Y on Z).",
+      "statement": "For a qcqs scheme Y and a closed Z ⊂ Y with quasi-compact complement, Perf(Y on Z) is the ∞-category of perfect complexes on Y that are acyclic on Y − Z, and K(Y on Z) is its K-theory spectrum [TT90, Def. 3.1]. For Z a closed subscheme with Perf(Z) → Perf(Y) (for example Y regular noetherian finite-dimensional and the bounded coherent complexes on Z), pushforward gives the natural map K(Z) → K(Y on Z).",
       "locator": "§5, p. 19 (Theorem 5.5; proof of Corollary 5.6 with Y = Spec A_∞, Z = X)",
-      "status": "missing",
-      "note": "D512/D513 cover only the Witt case Perf(W(X) on X). Missing: routed to route 10."
+      "status": "planned",
+      "note": "Route 9 imports the existing support-perfect-category construction. D512/D513 specialize it to Witt geometry. The closed-subscheme pushforward requires preservation of perfect complexes (finite Tor-dimension, in particular regular noetherian finite-dimensional Y with the coherent bounded source); no arbitrary closed immersion is silently declared perfect.",
+      "planned": [
+        "SchemeKTheoryOperations:S.3"
+      ],
+      "ownerKey": "SchemeKTheoryOperations:S.3",
+      "implementationStatus": "unchecked",
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/D513",
+        "PAPER-BHATT-SCHOLZE-17/D514"
+      ]
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/tt90-k-equals-g-regular",
@@ -13480,16 +13565,36 @@
       "statement": "For a regular noetherian scheme Y, the natural map K(Y) → G(Y) = K′(Y) is an equivalence.",
       "locator": "Theorem 5.5 proof, p. 19",
       "status": "missing",
-      "note": "Black box. Missing: routed to route 10."
+      "note": "Route 9 source addition to S.2. The item preserves the paper’s cited regular-noetherian scope; the existing S.2 Cartan contract promises regular noetherian finite-dimensional schemes. That special case is imported as planned, while removal of the global finite-dimensional restriction remains missing here. No broader coverage or proof is claimed.",
+      "ownerKey": "SchemeKTheoryOperations:S.2",
+      "plannedSpecialCase": {
+        "stages": [
+          "SchemeKTheoryOperations:S.2"
+        ],
+        "extraHypothesis": "finite Krull dimension",
+        "status": "planned"
+      },
+      "implementationStatus": "unchecked",
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/D514"
+      ]
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/localization-sequences",
       "kind": "theorem",
-      "name": "Localization fibre sequences [TT90, Thm. 5.1], [Qui73, §7 Prop. 3.2]",
-      "statement": "For Y noetherian (regular), Z ⊂ Y closed and U = Y − Z, there are fibre sequences K(Y on Z) → K(Y) → K(U) (Thomason–Trobaugh) and G(Z) → G(Y) → G(U) (Quillen).",
+      "name": "Localization fibre sequence for scheme K-theory [TT90, Thm. 5.1]",
+      "statement": "For qcqs Y and a closed subset Z with quasi-compact open complement U, nonconnective scheme K-theory has a fibre sequence K(Y on Z) → K(Y) → K(U). In the regular noetherian application of Theorem 5.5, the connective sequence is obtained with the K₀(Y) → K₀(U) surjectivity input; this connective assertion is not extended to arbitrary Y.",
       "locator": "Theorem 5.5 proof, p. 19",
-      "status": "missing",
-      "note": "Black boxes. For connective K the first is a fibre sequence because K_0(Y) → K_0(U) is surjective for regular Y. Missing: routed to route 10."
+      "status": "planned",
+      "note": "Route 9 imports scheme support localization. The old combined item’s K-theory half retains its original ID; the Quillen G-theory half is now localization-g-theory, with its separate supplier and scope. Nonconnective localization is the existing S.3 contract; the regular connective comparison uses the existing scheme K/G and Quillen localization inputs.",
+      "planned": [
+        "SchemeKTheoryOperations:S.3"
+      ],
+      "ownerKey": "SchemeKTheoryOperations:S.3",
+      "implementationStatus": "unchecked",
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/D514"
+      ]
     },
     {
       "id": "PAPER-BHATT-SCHOLZE-17/de-jong-alterations",
@@ -13508,6 +13613,67 @@
       "locator": "Theorem 5.7 proof, p. 20",
       "status": "missing",
       "note": "D519 records only the map f. Uniqueness of det̃ up to a contractible space of choices follows from this identification. Missing: routed to route 10."
+    },
+    {
+      "id": "PAPER-BHATT-SCHOLZE-17/localization-g-theory",
+      "kind": "theorem",
+      "name": "Quillen localization for coherent G-theory [Qui73, §7 Prop. 3.2]",
+      "statement": "Let Y be a noetherian scheme, Z a closed subscheme, and U=Y−Z. The exact category of coherent sheaves supported on Z is a Serre subcategory of Coh(Y), whose quotient is Coh(U). Quillen localization and devissage identify its connective K-theory with G(Z) and give G(Z) → G(Y) → G(U) as a fibre sequence of K-theory spaces (and the connective spectral formulation with the degree-zero surjectivity input). No regularity assumption is required for G-theory.",
+      "locator": "BS17 arXiv v3 p.19, proof of Theorem 5.5; [Qui73, §7 Prop. 3.2]",
+      "status": "planned",
+      "planned": [
+        "GeneralAlgebraicKTheory:K.3"
+      ],
+      "ownerKey": "GeneralAlgebraicKTheory:K.3",
+      "implementationStatus": "unchecked",
+      "prerequisites": [],
+      "note": "Route 11 imports the existing general Serre localization/devissage supplier; the geometric identification is the scheme application in route 9, not a duplicate low-degree construction. Split from localization-sequences to give each supplier one owner. Original Quillen proof not recursively audited.",
+      "sources": [
+        {
+          "sourceId": "bs17",
+          "locator": "arXiv v3 p.19, proof of Theorem 5.5",
+          "match": "Separate Quillen sequence explicitly cited."
+        }
+      ],
+      "consumers": [
+        "PAPER-BHATT-SCHOLZE-17/D514"
+      ],
+      "api": [
+        {
+          "name": "BhattScholze17.gLocalization.sequence",
+          "role": "construction",
+          "statement": "Apply imported Serre localization to Coh_Z(Y) ⊂ Coh(Y) and identify the quotient with Coh(U)."
+        },
+        {
+          "name": "BhattScholze17.gLocalization.devissage",
+          "role": "compatibility",
+          "statement": "Use the ideal-power filtration to compare Coh_Z(Y) with coherent sheaves on Z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gLocalization.emptySupport",
+          "kind": "degenerate",
+          "statement": "For Z empty, the supported category is zero and G(Y) → G(U) is the identity.",
+          "status": "specified; not Lean compiled"
+        },
+        {
+          "name": "gLocalization.fullSupport",
+          "kind": "degenerate",
+          "statement": "For Z=Y, G(Z) → G(Y) is the identity and G(U) is zero.",
+          "status": "specified; not Lean compiled"
+        },
+        {
+          "name": "gLocalization.singular",
+          "kind": "scope",
+          "statement": "Keep the G-sequence on a noetherian singular scheme; do not replace every G-term by K without regularity.",
+          "status": "specified; not Lean compiled"
+        }
+      ],
+      "proofSteps": [
+        "Import Quillen localization for the Serre subcategory of coherent sheaves supported on Z and identify the quotient with Coh(U).",
+        "Use the finite ideal-power filtration and devissage to compare the support category with Coh(Z). Retain the noetherian and degree-zero surjectivity hypotheses; this is a planned supplier application, not a new proof audit."
+      ]
     }
   ],
   "routes": [
@@ -15681,9 +15847,12 @@
         "PAPER-BHATT-SCHOLZE-17/D517",
         "PAPER-BHATT-SCHOLZE-17/D519",
         "PAPER-BHATT-SCHOLZE-17/G712",
-        "PAPER-BHATT-SCHOLZE-17/G1008"
+        "PAPER-BHATT-SCHOLZE-17/G1008",
+        "PAPER-BHATT-SCHOLZE-17/supported-perfect-complexes-general",
+        "PAPER-BHATT-SCHOLZE-17/localization-sequences",
+        "PAPER-BHATT-SCHOLZE-17/tt90-k-equals-g-regular"
       ],
-      "reason": "Own K of schemes and Witt complexes supported at p=0, localization, regular devissage and its sheafified extension. The general K model and colimit theorems stay in GeneralAlgebraicKTheory.",
+      "reason": "Own K of schemes and Witt complexes supported at p=0, localization, regular devissage and its sheafified extension. The general K model and colimit theorems stay in GeneralAlgebraicKTheory. Import general support and nonconnective localization from S.3. The cited Cartan statement without a finite-dimensional bound is a source extension of S.2, whose narrower promise is retained.",
       "imports": [
         "GeneralAlgebraicKTheory:K.3/K.4:construction/K.7",
         "SchemeKTheoryOperations:S.1",
@@ -15721,19 +15890,19 @@
         "PAPER-BHATT-SCHOLZE-17/low-k-groups-of-local-rings",
         "PAPER-BHATT-SCHOLZE-17/pic-z-etale-sheaf",
         "PAPER-BHATT-SCHOLZE-17/locally-constant-functions-v-sheaf",
-        "PAPER-BHATT-SCHOLZE-17/k-theory-additivity",
         "PAPER-BHATT-SCHOLZE-17/remark-5-4-det-not-in-pic",
-        "PAPER-BHATT-SCHOLZE-17/supported-perfect-complexes-general",
-        "PAPER-BHATT-SCHOLZE-17/tt90-k-equals-g-regular",
-        "PAPER-BHATT-SCHOLZE-17/localization-sequences",
         "PAPER-BHATT-SCHOLZE-17/pic-z-is-sheafified-tau1-k"
       ],
-      "reason": "Extend the existing determinant and comparison interfaces to graded Picard targets, coherent perfect-complex determinants and the Witt-support determinant. Import the general Picard groupoid from SF and spectra from H.5; do not re-plan the upstream Grothendieck group or exact category.",
+      "reason": "Extend the existing determinant and comparison interfaces to graded Picard targets, coherent perfect-complex determinants and the Witt-support determinant. Import the general Picard groupoid from SF and spectra from H.5; do not re-plan the upstream Grothendieck group or exact category. The general additivity, support, Cartan and localization suppliers are imported from routes 9/11, leaving their determinant consequences here.",
       "imports": [
         "SchemeAndStackFoundations:SF.1/SF.3",
         "SchemeKTheoryOperations:S.1/S.2/S.3",
         "StableHomotopyKTheory:H.4/H.5:spectra",
-        "GeneralAlgebraicKTheory:K.2:plus/K.4:construction"
+        "GeneralAlgebraicKTheory:K.2:plus/K.4:construction",
+        "GeneralAlgebraicKTheory:K.4:construction — general additivity (k-theory-additivity)",
+        "GeneralAlgebraicKTheory:K.3 — Quillen G-localization (localization-g-theory)",
+        "SchemeKTheoryOperations:S.3 — supported-perfect-complexes-general and localization-sequences",
+        "SchemeKTheoryOperations:S.2 — Cartan comparison; broader regular-noetherian source addition remains missing"
       ],
       "suggestedLeanFile": "TauCeti/Algebra/KTheory/Determinant/GradedPicard.lean",
       "relatedExtractionItems": []
@@ -15750,9 +15919,11 @@
       "items": [
         "PAPER-BHATT-SCHOLZE-17/D518",
         "PAPER-BHATT-SCHOLZE-17/A1213",
-        "PAPER-BHATT-SCHOLZE-17/A1216"
+        "PAPER-BHATT-SCHOLZE-17/A1216",
+        "PAPER-BHATT-SCHOLZE-17/k-theory-additivity",
+        "PAPER-BHATT-SCHOLZE-17/localization-g-theory"
       ],
-      "reason": "Reuse the Q/plus/S models and their comparison theorems. Add the symmetric-monoidal projective model and its filtered-colimit interface as compared models, with the landed split exact structure imported unchanged.",
+      "reason": "Reuse the Q/plus/S models and their comparison theorems. Add the symmetric-monoidal projective model and its filtered-colimit interface as compared models, with the landed split exact structure imported unchanged. Import Waldhausen additivity from K.4:construction and Quillen Serre localization/devissage from K.3; neither is re-planned by the determinant consumer.",
       "imports": [
         "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
         "StableHomotopyKTheory:H.4/H.5:spectra",
@@ -15785,7 +15956,6 @@
         "PAPER-BHATT-SCHOLZE-17/A1210",
         "PAPER-BHATT-SCHOLZE-17/A1211",
         "PAPER-BHATT-SCHOLZE-17/A1212",
-        "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-functor",
         "PAPER-BHATT-SCHOLZE-17/symmetric-monoidal-groupoid-and-core",
         "PAPER-BHATT-SCHOLZE-17/groupoid-nerve-homotopy-type",
         "PAPER-BHATT-SCHOLZE-17/e-infinity-monoid-infinity-category",
@@ -15797,7 +15967,8 @@
       "reason": "The existing homotopy group-completion layer owns the Fin*-Segal construction, coherent subset model and bar/group-completion adjunction. This is different from topological uniform completion or the group completion of a discrete monoid.",
       "imports": [
         "Pinned nerve, Core and Quasicategory",
-        "EnhancedDerivedSheaves:E0 abstract higher-category operations"
+        "EnhancedDerivedSheaves:E0 abstract higher-category operations",
+        "Mathlib Functor.Monoidal/Functor.Braided on SymmetricCategory and NatTrans.IsMonoidal (ordinary definitions)"
       ],
       "suggestedLeanFile": "TauCeti/AlgebraicTopology/GroupCompletion/Segal.lean",
       "relatedExtractionItems": []
@@ -22583,15 +22754,15 @@
   "coverage": {
     "mainPaper": "All61 primary-source pages read. Numbered main results and central constructions covered; remaining bundled incidence/valuation/coherence and original-source steps are explicit gaps.",
     "counts": {
-      "library": 17,
-      "planned": 35,
-      "missing": 311
+      "library": 18,
+      "missing": 307,
+      "planned": 39
     },
-    "definitionsAndConstructions": 77,
-    "apiStatements": 231,
-    "specifiedTests": 231,
+    "definitionsAndConstructions": 100,
+    "apiStatements": 224,
+    "specifiedTests": 225,
     "routeCount": 18,
-    "sourceIssueCount": 26
+    "sourceIssueCount": 56
   },
   "validation": {
     "lean": "No Lean file is authorized by this paper issue, and none was written or compiled. API/test names and module destinations are planning specifications; implementationStatus is unchecked.",
@@ -22653,11 +22824,11 @@
         "status": "passed"
       }
     ],
-    "items": 363,
+    "items": 364,
     "statuses": {
-      "library": 17,
-      "missing": 311,
-      "planned": 35
+      "library": 18,
+      "missing": 307,
+      "planned": 39
     },
     "sourceIssues": 56,
     "review": "REV-PAPER-BHATT-SCHOLZE-17"
@@ -22680,5 +22851,39 @@
     "status": "complete",
     "reading": "arXiv v3 re-fetched (hash matches); Unpaywall and Crossref checked for the version of record; every numbered statement checked against the items.",
     "changes": "Question 10.6 added; Theorem 1.2 mapped to Theorem 4.1; twelve findings reclassified to affect nothing; gap statuses recorded; status complete."
+  },
+  "fixes": {
+    "job": "FIX-RT-PAPER-BHATT-SCHOLZE-17",
+    "issue": 5511,
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-02",
+    "findings": [
+      "RT-PAPER-BHATT-SCHOLZE-17/1",
+      "RT-PAPER-BHATT-SCHOLZE-17/2",
+      "RT-PAPER-BHATT-SCHOLZE-17/3"
+    ],
+    "status": "complete",
+    "reading": "Targeted rereading of BS17 arXiv v3 pp.18–19,25–26,54 and RG71 printed pp.21–23,25. No complete published/preprint collation and no recursive Quillen/TT90 proof audit. Historical sourceArchives readScope belongs to its original workers; not a claim of this fixer’s full reading.",
+    "sourceReads": [
+      {
+        "id": "bs17-fix",
+        "url": "https://arxiv.org/pdf/1507.06490v3",
+        "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+        "accessed": "2026-10-01",
+        "checked": "2026-10-02",
+        "scope": "PDF/printed pp.18–19,25–26,54; visual pp.19,26,54. Extraction version only; version of record not collated."
+      },
+      {
+        "id": "rg71-fix",
+        "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0013/PPN356556735_0013.pdf",
+        "sha256": "623b5e4f7182dc04bfa537ef2f656c979fcd93f7b08b179607e3cdfaab0a2a58",
+        "accessed": "2026-10-01",
+        "checked": "2026-10-02",
+        "scope": "Full 363-page journal-volume PDF downloaded; targeted visual reading only of article printed pp.21–23,25 (scan pp.28–30,32). No full article/volume reading."
+      }
+    ],
+    "preserved": "All 363 original IDs, 18 routes, 28 bibliography prerequisites and 56 source issues preserved. One combined K/G supplier split by adding localization-g-theory. Historical reviews and checks retain their original provenance.",
+    "validation": "Passed paper schema and intake deliverable checks, git diff --check, 364 unique acyclic items with 468 internal edges and all original edges preserved, exact 18/39/307 statuses, unique missing routing and supplier owners, unchanged 56 source issues/28 bibliography prerequisites/unaffected records; 289 signed-braiding and 100 exact valuation cases. No Lean compiled."
   }
 }

@@ -7,10 +7,51 @@ Issue [#1300](https://github.com/CBirkbeck/tauceti-explorer/issues/1300). Status
   - arXiv v3, the final arXiv version, was re-fetched; its SHA-256 (b4d5a4e0…) matches the checkpoint.
   - Unpaywall lists only the arXiv submitted version, so the version of record could not be collated.
   - Crossref registers no erratum.
-- **Items.** The result has **266 items: 23 library, 35 planned and 208 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
-- **Mistakes.** Twenty-six are recorded under `sourceIssues`.
+- **Items.** The current result has **364 items: 18 library, 39 planned and 307 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Fifty-six prior observations are recorded under `sourceIssues`; this fix adds no published-source errata.
 
-## Independent review (REV-PAPER-BHATT-SCHOLZE-17)
+## Confirmed red-team fixes (FIX-RT-PAPER-BHATT-SCHOLZE-17)
+
+Codex, session codex-J6LwjP, 2 October 2026, issue [#5511](https://github.com/CBirkbeck/tauceti-explorer/issues/5511).
+These current corrections supersede the historical counts and route lists below: **364 items, 18 library, 39 planned,
+307 missing; 18 routes; 28 cited prerequisites; 56 unchanged source issues**. All original item IDs remain.
+The new item `localization-g-theory` splits the original paired localization supplier. Source proof closure is still deferred.
+
+**Valuation-ring freeness.** `cited-rg-flat-fp-algebra-free` now states the sufficient proper flat finitely presented
+application over a henselian valuation ring. RG71 I.3.3.13 supplies free-section affine neighbourhoods at points of the
+closed fibre. Their union covers the whole proper model: otherwise its nonempty closed complement has closed image in
+the local base, containing the closed point. The modules may have infinite rank. The conclusion fails without properness:
+for 0≠t∈m in a nonfield rank-one valuation ring, V[1/t]=Frac(V)=V[T]/(tT−1) is flat and finitely presented, but K/tK=0,
+so this nonzero module cannot be free. The item stays in route 1. F622 now imports it explicitly and retains the complete
+algebraically closed rank-one field and normalized-model hypotheses for the separate Hom calculation. In this nondiscrete
+setting Hom_V(m,V)=V; for a DVR it is t⁻¹V. Sheaf/localization and perfection-colimit compatibilities remain explicit gates.
+
+**Existing ordinary monoidal definitions.** `symmetric-monoidal-functor` is library, citing Mathlib’s
+`CategoryTheory.Functor.Monoidal`, `Functor.Braided` on symmetric source/target categories, and `NatTrans.IsMonoidal`
+at 082e2d3. It is removed from route 12 and imported by the coherent subset, Picard and determinant constructions.
+The symmetric monoidal structure on Core and the higher coherent Segal/group-completion maps remain separate obligations.
+
+**One owner for general K-theory suppliers.** The assignments are now:
+
+| Item | Status | Supplier | Route |
+| --- | --- | --- | --- |
+| `k-theory-additivity` | planned | GeneralAlgebraicKTheory:K.4:construction | 11 |
+| `supported-perfect-complexes-general` | planned | SchemeKTheoryOperations:S.3 | 9 |
+| `localization-sequences` (K half) | planned | SchemeKTheoryOperations:S.3 | 9 |
+| `localization-g-theory` (G half) | planned | GeneralAlgebraicKTheory:K.3 | 11 |
+| `tt90-k-equals-g-regular` | missing extension | SchemeKTheoryOperations:S.2 | 9 |
+
+S.2’s regular noetherian **finite-dimensional** Cartan comparison is imported as its planned special case; the cited
+broader regular-noetherian statement is retained as a source addition to the same owner. S.3’s general localization is
+nonconnective; the regular connective application keeps its K₀-surjectivity/comparison input. The G-sequence needs
+no regularity. Route 10 retains the determinant consequences and imports all these suppliers. Routes 9/10/11/12 now
+have 13/21/5/13 items respectively. No recursive TT90/Quillen proof audit or new formalization is claimed.
+
+Targeted source checks used BS17 arXiv v3 pp.18–19,25–26,54 and RG71 printed pp.21–23,25. The version of record was
+not collated. Full source URLs, dates, pinned declaration locations and correction checks are in the result and
+`research/blueprint/redteam/RT-PAPER-BHATT-SCHOLZE-17.fixes.md`. Earlier reviews and reading reports below are history.
+
+## Independent review (REV-PAPER-BHATT-SCHOLZE-17) — historical
 
 The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
 report is `research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-17.md`; the counts in the sections below it are the earlier ones
@@ -260,7 +301,7 @@ Suggested future module: `TauCeti/AlgebraicGeometry/PerfectComplex/VDescent.lean
 
 #### 9. SchemeKTheoryOperations
 
-Owner `SchemeKTheoryOperations`; `source` route; 10 items.
+Owner `SchemeKTheoryOperations`; `source` route; 13 items.
 
 Own K of schemes and Witt complexes supported at p=0, localization, regular devissage and its sheafified extension. The general K model and colimit theorems stay in GeneralAlgebraicKTheory.
 
@@ -272,7 +313,7 @@ Suggested future module: `TauCeti/AlgebraicGeometry/KTheory/WittSupport.lean`.
 
 #### 10. KTheoryLowDegrees
 
-Owner `KTheoryLowDegrees`; `source` route; 14 items.
+Owner `KTheoryLowDegrees`; `source` route; 21 items.
 
 Extend the existing determinant and comparison interfaces to graded Picard targets, coherent perfect-complex determinants and the Witt-support determinant. Import the general Picard groupoid from SF and spectra from H.5; do not re-plan the upstream Grothendieck group or exact category.
 
@@ -284,7 +325,7 @@ Suggested future module: `TauCeti/Algebra/KTheory/Determinant/GradedPicard.lean`
 
 #### 11. GeneralAlgebraicKTheory
 
-Owner `GeneralAlgebraicKTheory`; `source` route; 3 items.
+Owner `GeneralAlgebraicKTheory`; `source` route; 5 items.
 
 Reuse the Q/plus/S models and their comparison theorems. Add the symmetric-monoidal projective model and its filtered-colimit interface as compared models, with the landed split exact structure imported unchanged.
 
@@ -296,13 +337,13 @@ Suggested future module: `TauCeti/Algebra/KTheory/SymmetricMonoidal.lean`.
 
 #### 12. StableHomotopyKTheory
 
-Owner `StableHomotopyKTheory`; `source` route; 6 items.
+Owner `StableHomotopyKTheory`; `source` route; 13 items.
 
 The existing homotopy group-completion layer owns the Fin*-Segal construction, coherent subset model and bar/group-completion adjunction. This is different from topological uniform completion or the group completion of a discrete monoid.
 
 Stages: `StableHomotopyKTheory:H.1`, `StableHomotopyKTheory:H.4`.
 
-Imports: Pinned nerve, Core and Quasicategory, EnhancedDerivedSheaves:E0 abstract higher-category operations.
+Imports: Pinned nerve, Core and Quasicategory; ordinary Functor.Monoidal/Functor.Braided and NatTrans.IsMonoidal; EnhancedDerivedSheaves:E0 abstract higher-category operations.
 
 Suggested future module: `TauCeti/AlgebraicTopology/GroupCompletion/Segal.lean`.
 
@@ -2180,11 +2221,14 @@ Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-sou
 
 For the normalized flat model in Theorem6.13, H0(X,E) is bounded in H0(X_eta,E_eta)≃K^r and equals Hom_V(m,H0(X,E)).
 
-§§7–8 use perfect F_p-algebras and finite projective Witt modules, with n≥0 and a partition of length at most n. §§9–10 use a specified complete mixed-characteristic discrete valuation field K with perfect residue field k and its smooth affine integral group model. The SLn section assertions use n≥2.
+Theorem 6.13: V is the rank-one valuation ring of the chosen complete algebraically closed nonarchimedean field K, with nonzero nondiscrete maximal ideal m. X₀ is the proper flat reduced finitely presented model; after normalization it is integrally closed in its generic fibre. X is its perfection and E is the vector bundle, trivial on the generic fibre. Spherical completeness and the specified value group enter the subsequent Lemma 6.14, not the RG cover.
 
-Prerequisites: `F621`, `F618`.
+Prerequisites: `F621`, `F618`, `cited-rg-flat-fp-algebra-free`.
 
-Use integral closedness, locally free possibly infinite-rank V-modules from RG71 Cor3.3.13, and Hom_V(m,V)=V. Correct the printed O_Xeta to E_eta.
+Use the proper flat model and the corrected RG71 free-section cover for O_X₀. Retain the source’s sheaf Hom calculation and vector-bundle trivialization/localization compatibility as separate proof obligations; freeness of section rings alone is not an automatic proof for every localized bundle.
+For this nondiscrete rank-one valuation ring, Hom_V(m,V)=V: an element of K multiplying all of m into V cannot have negative valuation, since m has arbitrarily small positive values. This statement is false for a DVR, where Hom_V(tV,V)=t⁻¹V.
+For a free module ⊕_I V, evaluation at one nonzero a∈m forces any homomorphism m→⊕_I V to have finite support, by torsionfreeness and comparison in the fraction field. Thus Hom_V(m,⊕_I V)=⊕_I V. Apply this to the cover; use integral closedness to identify Hom(m,O_X₀) and its inclusion in generic-fibre sections, then the perfection colimit as in the source. The compatibility with this colimit and the boundedness argument remain proof obligations under Q-valuations/Q-source.
+Take global sections, with the boundedness argument and vector-bundle hypotheses retained. Correct the printed O_Xη to E_η (existing E9).
 
 Open gates: `Q-closure`, `Q-sites`, `Q-valuations`, `Q-Keel`, `Q-groups`, `Q-source`.
 
