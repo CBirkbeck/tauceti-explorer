@@ -5713,9 +5713,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.3. Ownership and relative S-integer sequence repairs are sound, but /9, /12, /26–/28 leave the general transfer/residue comparison, mixed-inseparable finiteness, acyclic DVR boundary owner, K₂(ℤ) upper bound and local/Chern normalization gaps. Corrected m=1 real factors, two degree-two residue proof signs and the local invariant coordinate. PR #5300 additionally confirms unresolved relative-D3, total conic-symbol and arbitrary-base-change defects. These prevent acceptance. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
+  "date": "2026-10-02",
+  "notes": "Codex session codex-rtOQ9t; independent of fixer codex-a71f92 (PR #5603). All five confirmed RT-BP-K2SymbolsBrauer--T.3 fixes are sound at planning/signature level: guarded relative D3 and its actual differential detector; conditional m=1 real factor and full first-root regression; units-only real Hilbert comparison plus zero-input non-example; arbitrary valued embeddings with positive residue-map index and a separate trivial-restriction case; direct degree-two residue/tame-symbol equality. However the earlier independent-review-REV-FIX-RT-AREA-ktheory-1 objections remain: source/decompose general Milnor/Quillen and norm-residue proofs, identify the upstream degree-one DVR boundary supplier, establish mixed-inseparable normalization finiteness and K2(Z) upper generation, and fix source-backed local/Chern normalizations. This review confirms the five specific repairs without treating them as completion of those broader fixes. Earlier review preserved verbatim in reviewHistory; 11 gaps and 29 requests remain. Public source pages and six added pinned declarations checked; finite-ring/ramification controls and pinned-index checker passed (0 errors/0 warnings). No mathematical edits. Suggested Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md."
  },
  "reviewHistory": [
   {
@@ -6015,6 +6015,12 @@
      "note": "The stage's 'prove it agrees with the étale Chern class' as a real comparison through T.1/k2-pi2 and generation by symbols, with the sign made explicit."
     }
    ]
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.3. Ownership and relative S-integer sequence repairs are sound, but /9, /12, /26–/28 leave the general transfer/residue comparison, mixed-inseparable finiteness, acyclic DVR boundary owner, K₂(ℤ) upper bound and local/Chern normalization gaps. Corrected m=1 real factors, two degree-two residue proof signs and the local invariant coordinate. PR #5300 additionally confirms unresolved relative-D3, total conic-symbol and arbitrary-base-change defects. These prevent acceptance. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }
