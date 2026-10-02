@@ -47505,7 +47505,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5711"
   },
   {
    "id": "REV-FIX-RT-RS-21",
@@ -53721,8 +53722,9 @@
     "FIX-RT-AREA-langlands-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5143"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5143",
+   "finishedAt": "2026-10-02T09:02:40Z"
   },
   {
    "id": "RT-AREA-langlands-3",
