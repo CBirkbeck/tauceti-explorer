@@ -1,3 +1,27 @@
+# Common-ideal reconstruction checkpoint — Codex codex-J6LwjP
+
+Refs #3378. Claim 5952038870 confirmed by bot comment 5952041952; the full issue was reread. Base 9c2a511. Partial checkpoint; all seven stages and the reserved Ferrand key remain open.
+
+The packet now contains **128 nodes: 9 definitions, 1 construction, 92 lemmas, 23 theorems and 3 comparisons; 44 API items, 40 planned tests, 28 planets, 38 baseline declarations, 17 gaps and 20 requests**. All 123 predecessor node ids, 78 routed items, 21 source findings and the previous finite F₂ certificate are retained. Only the existing geometric conductor-square proof/dependency list consumes the new chain. The roadmap definition and reserved key are unchanged.
+
+Five added affine declarations expose the common-ideal reconstruction: a canonical comparison into the existing ring pullback, its kernel ker(f)∩I, compatible-pair lifting when f(I) is already an ideal, the cartesian if-and-only-if criterion, and its specialization to an arbitrary subring conductor. The conductor identity itself needs no finite, birational, reduced or Noetherian hypothesis. Its geometric application still requires the separately stated pinching/localization/gluing inputs.
+
+The comparison has three API signatures and four native tests. The tests distinguish two real obstructions: Z→Z/2 with I=ker(f) has nonzero reconstruction kernel, while the injective diagonal F₂→F₂×F₂ with I=F₂ has an image that is not an ideal and a comparison missing two of four elements. Identity maps and zero ideals give the positive/degenerate cases.
+
+Fresh reading: Ferrand, Conducteur, descente et pincement, printed pp555–557 in full, especially Lemma1.3 and its converse, 2 October2026. Public PDF SHA-256: 4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91. Ten new baseline declarations were read at Mathlib082e2d3. Exact-pin searches find no existing Ferrand/common-ideal reconstruction theorem; the apparent Tau Ceti common-ideal hit concerns matrix-division-algebra uniqueness. Reviewed R11.1–R11.6 and SF.0/SF.1/SF.3 audits, parent document, complete accepted Schröer continuation brief and key-definition entry were read. The continuous session’s earlier full JacobianChallenge/StableReduction readings are reused. No new source error is asserted.
+
+Validation: indexed blueprint checker 0 errors/0 warnings; preservation and five-declaration/three-API/four-test reader/native-name parity; all 128 declaration nodes form an acyclic 347-edge dependency graph. Read-only actual atlas assembly with the unchanged definition/current packet preserves all 67 required stage edges and 76 typed upstream references, with zero pending/skipped links. Its stage graph has 3042 vertices/8726 edges; combined declaration/stage graph has 3142 vertices/9359 edges; both are acyclic. Typed upstream references were appended only to an in-memory validation copy. No atlas or other job files were edited.
+
+Finite checks cover 778 integer-quotient squares, both missing-hypothesis counterexamples, and the nonreduced conductor example F₂[u]/u⁴ with subring F₂+u²F₂[u]/u⁴. Its conductor is (u²) and all eight compatible pairs reconstruct the subring. These calculations are not general proofs, geometric pushout verification, or reruns of the prior elliptic/surface certificates. The packet retains the precise scope.
+
+**Lean not compiled:** the whole suggested file imports Tau Ceti modules, and no existing build at the exact Tau Ceti pin was found. No new project, cache, library build or Lean server was started. Suggested-file SHA-256: ef166fa314cc1f1021a86372a444d4a6a0029dbf51ef97023142bd454ce5f0ad. The five new declarations have actual native ring/quotient/pullback types, but this handoff does not certify elaboration. Every implementation status remains unchecked.
+
+Resume with the prior 17 gaps and 20 requests below: exact SF.1/SF.3 space/descent/flat-object-patching exports and full signatures, the scheme-to-Weierstrass adapter, then the canonical/wild, numerical-Picard, DVR/henselization, rational-surface and full model-resolution/completeness source boundaries. The new affine reconstruction does not close those global interfaces.
+
+---
+
+## Previous finite-classifier checkpoint (historical receipt)
+
 # DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII: codex-rtOQ9t continuation
 
 Refs #3378. **Partial checkpoint** extending the merged 111-node plan. No stage or reserved Ferrand key is declared closed. Every implementation status is unchecked.

@@ -12,7 +12,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII:G.6"
   ],
   "status": "partial",
-  "summary": "Seven-layer partial design with111 declarations,37 API contracts,32 tests and28 planets; all78 routed Schröer items and21 source findings preserved. Twelve additional finite-pinching declarations verify the general algebraic-space existence source and separate it from the scheme criterion. Exact foundational exports, full algebraic-space signatures, geometric model and completeness certificates remain open; no stage or reserved key is closed. Continuation supplies twelve declaration-sized binary-model, discriminant, coefficient/orbit, point-count and native cyclic-group plans with sixteen explicit transformation witnesses. All111 inherited nodes,78 routed items and21 source findings are retained; scheme presentation and all other source/proof gaps remain explicit.",
+  "summary": "Seven-layer partial design with111 declarations,37 API contracts,32 tests and28 planets; all78 routed Schröer items and21 source findings preserved. Twelve additional finite-pinching declarations verify the general algebraic-space existence source and separate it from the scheme criterion. Exact foundational exports, full algebraic-space signatures, geometric model and completeness certificates remain open; no stage or reserved key is closed. Continuation supplies twelve declaration-sized binary-model, discriminant, coefficient/orbit, point-count and native cyclic-group plans with sixteen explicit transformation witnesses. All111 inherited nodes,78 routed items and21 source findings are retained; scheme presentation and all other source/proof gaps remain explicit. The common-ideal conductor reconstruction now separates the canonical native comparison, kernel intersection, compatible-pair lifting and cartesian criterion; affine conductor reconstruction is stated without geometric finiteness/reducedness hypotheses.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -212,6 +212,76 @@
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "The native class asserts IsUnit Δ, as read at lines362–373. Over F₂ this is exactly Δ=1; it is not a new smoothness predicate.",
         "checked": "Actual protected class statement freshly read at the pinned commit by codex-rtOQ9t on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The existing map A/I to B/map(I) induced by a ring homomorphism.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The induced quotient map sends the class of a to the class of f(a).",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Every quotient class has a representative, used to lift compatible pairs.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Equality of quotient classes is membership of their difference in the ideal.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.mk_ker",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The quotient map has kernel exactly the given ideal.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.le_comap_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The input ideal maps into its ideal extension, so the induced quotient map exists.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:Ideal.map_comap_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "For a common ideal, the ideal generated by its inverse image is contained in that ideal.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:RingHom.injective_iff_ker_eq_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "A ring homomorphism is injective precisely when its kernel is zero.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:RingEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "A bijective native ring homomorphism produces a ring equivalence.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
+      },
+      {
+        "ref": "mathlib:RingEquiv.toCommRingCatIso",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Category/Ring/Basic.lean",
+        "provides": "The ring equivalence gives an isomorphism of the existing commutative-ring category.",
+        "checked": "Actual complete statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by codex-J6LwjP."
       }
     ]
   },
@@ -244,7 +314,13 @@
       "accessed": "2026-10-02",
       "readSections": [
         "§§1.1–1.4,4.1–4.4,5.1–5.6,7.1–7.2 and proof of 7.1"
-      ]
+      ],
+      "reconstructionContinuationReading": {
+        "agent": "codex-J6LwjP",
+        "date": "2026-10-02",
+        "extent": "Printed pp555–557 in full: introduction boundary, §1.1 ring/underlying-set criterion, Lemma1.2 and Lemma1.3 including converse, §1.3.1/1.3.2, Lemma1.4 and beginning of Remark1.5. No new full-paper reading claim.",
+        "sha256": "4f1f2438ad6d757d67d2ecf154b1bc920d210d8abd54c02e6acd020805629d91"
+      }
     },
     {
       "id": "witaszek",
@@ -986,11 +1062,12 @@
       "statement": "For a finite inclusion A⊂B of reduced Noetherian rings and I=c(A,B), A→B×_(B/I)(A/I) is an isomorphism. Thus the conductor diagram is a Ferrand square, without a birational hypothesis.",
       "hypotheses": [],
       "proofSteps": [
-        "A maps into the pullback by its two quotient maps.",
+        "Use the arbitrary-subring conductor reconstruction lemma for the affine ring identity; its common-ideal kernel and compatible-pair lifting are explicit prerequisite nodes.",
         "If b mod I is represented by a∈A, then b−a∈I⊂A, giving the inverse.",
         "Localize the conductor to glue these identities for finite reduced Noetherian schemes."
       ],
       "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/affine-existence",
         "SchemeAndStackFoundations:SF.0"
@@ -6290,6 +6367,244 @@
         "The group of order1 is the trivial ZMod1 group. Orders2,3,5 and especially4 use actual point addition; no group law is replanned."
       ],
       "declarationName": "F2Model.point_group"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Canonical comparison for a common-ideal square",
+      "kind": "construction",
+      "statement": "For arbitrary commutative rings A,B, a unital ring map f:A→B and an ideal I of A, let J=map_f(I) and q:A/I→B/J be the native induced quotient map. Define the canonical ring homomorphism c_f,I:A→B×_(B/J)(A/I) by a↦(f(a),[a]). No image-ideal, injectivity, finite, reduced or Noetherian assumption is needed to define it.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native quotient map q and its representative equation to check that the two coordinates agree in B/J.",
+        "Use the already constructed commutative-ring pullback and its universal property to form c_f,I; do not construct a second fiber-product carrier."
+      ],
+      "prerequisites": [
+        "mathlib:CommRingCat.pullbackCone",
+        "mathlib:CommRingCat.pullbackConeIsLimit",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Ideal.quotientMap_mk",
+        "mathlib:Ideal.le_comap_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Lemma 1.3, converse, printed pp556–557 (plus ring/underlying-set criterion in §1.1)",
+          "excerpt": "carré cartésien",
+          "match": "The image of I must already be an ideal; the kernel intersection is exactly the obstruction to cartesian reconstruction."
+        }
+      ],
+      "acceptance": [
+        "For any f and I=0, c_f,0 is bijective even when f is not injective."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel",
+          "how": "A named comparison with both coordinate equations permits computing the reconstruction kernel."
+        },
+        {
+          "where": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian",
+          "how": "A bijective comparison supplies the actual ring pullback square for conductor/pinching consumers."
+        }
+      ],
+      "api": [
+        {
+          "name": "commonIdealComparison_fst",
+          "statement": "The B-projection of c_f,I(a) is f(a).",
+          "role": "projection"
+        },
+        {
+          "name": "commonIdealComparison_snd",
+          "statement": "The A/I-projection of c_f,I(a) is [a].",
+          "role": "projection"
+        },
+        {
+          "name": "commonIdealComparison_unique",
+          "statement": "Any ring map from A to this native pullback with projections f and the quotient map equals c_f,I.",
+          "role": "universal-property"
+        }
+      ],
+      "tests": [
+        {
+          "name": "commonIdealComparison.test_identity",
+          "kind": "compatibility",
+          "statement": "For f=id_A and any I, the canonical comparison is bijective."
+        },
+        {
+          "name": "commonIdealComparison.test_zero_ideal",
+          "kind": "degenerate",
+          "statement": "For arbitrary f and I=0, the canonical comparison is bijective."
+        },
+        {
+          "name": "commonIdealComparison.test_noninjective_kernel",
+          "kind": "non-example",
+          "statement": "For f:Z→Z/2 and I=ker f, the comparison sends 2 and 0 to the same element, although 2≠0. Thus having an ideal image alone does not make it an isomorphism."
+        },
+        {
+          "name": "commonIdealComparison.test_image_not_ideal",
+          "kind": "non-example",
+          "statement": "For the diagonal map F₂→F₂×F₂ and I=F₂, the kernel intersection is zero but the comparison is not surjective. Its image is the diagonal two-element subring, while the ideal generated by it is all four elements. The image-ideal hypothesis is therefore necessary for the stated lifting criterion."
+        }
+      ]
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Kernel of the reconstruction comparison",
+      "kind": "lemma",
+      "statement": "With the preceding notation, ker(c_f,I)=ker(f)∩I, without any image-ideal assumption.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the two comparison projections: c_f,I(a)=0 precisely when f(a)=0 and [a]=0.",
+        "Use the native quotient-kernel identity; the native pullback lies in B×A/I, so zero in both coordinates is zero in the pullback."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:Ideal.mk_ker"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Lemma 1.3, converse, printed pp556–557 (plus ring/underlying-set criterion in §1.1)",
+          "excerpt": "carré cartésien",
+          "match": "The image of I must already be an ideal; the kernel intersection is exactly the obstruction to cartesian reconstruction."
+        }
+      ],
+      "acceptance": [
+        "For I=ker f the kernel is ker f itself; for I=0 the comparison is injective for every f."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Lifting compatible pairs across a common ideal",
+      "kind": "lemma",
+      "statement": "If the set f(I) equals the underlying set of J=map_f(I), then c_f,I is surjective. This condition says that the image is already an ideal, not merely that the ideal generated by it exists.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Take a compatible pair (b,α) in the native pullback and choose a representative a of α.",
+        "Compatibility says b−f(a)∈J. The image-ideal condition supplies i∈I with f(i)=b−f(a).",
+        "Then a+i maps to (b,α); replacing a by a+i does not alter its class modulo I. No finiteness or injectivity of f is used."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.Quotient.eq",
+        "mathlib:Ideal.quotientMap_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Lemma 1.3, converse, printed pp556–557 (plus ring/underlying-set criterion in §1.1)",
+          "excerpt": "carré cartésien",
+          "match": "The image of I must already be an ideal; the kernel intersection is exactly the obstruction to cartesian reconstruction."
+        }
+      ],
+      "acceptance": [
+        "The correction works for rings with nilpotents and for non-injective maps; uniqueness belongs to the separate kernel condition."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Cartesian criterion for common-ideal squares",
+      "kind": "theorem",
+      "statement": "If f(I)=map_f(I) as sets, the square A→B, A→A/I, B→B/map_f(I), A/I→B/map_f(I) is cartesian in commutative rings if and only if ker(f)∩I=0. No finite, reduced or Noetherian hypothesis is imposed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "By compatible-pair lifting the canonical comparison is surjective. By its kernel identity and the native injectivity criterion it is injective exactly when ker(f)∩I=0.",
+        "Convert the resulting bijective ring map into the native ring equivalence and categorical isomorphism; transfer the existing pullback universal property.",
+        "Conversely, a cartesian square identifies the comparison with the unique isomorphism between two limits; its kernel is zero, giving the required intersection condition."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting",
+        "mathlib:CommRingCat.pullbackConeIsLimit",
+        "mathlib:RingHom.injective_iff_ker_eq_bot",
+        "mathlib:RingEquiv.ofBijective",
+        "mathlib:RingEquiv.toCommRingCatIso"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Lemma 1.3, converse, printed pp556–557 (plus ring/underlying-set criterion in §1.1)",
+          "excerpt": "carré cartésien",
+          "match": "The image of I must already be an ideal; the kernel intersection is exactly the obstruction to cartesian reconstruction."
+        }
+      ],
+      "acceptance": [
+        "The non-injective Z→Z/2 example with I=ker f fails the criterion; I=0 succeeds."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian",
+      "parentStageId": "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
+      "realises": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0"
+      ],
+      "title": "Conductor reconstruction for arbitrary subrings",
+      "kind": "lemma",
+      "statement": "For an arbitrary subring A⊂B of a commutative ring B, let J=c(A,B) be the already planned general conductor and I=J∩A. Then A→B, A→A/I, B→B/J, A/I→B/J is cartesian in commutative rings. Finiteness, birationality, reducedness and Noetherianity are unnecessary for this affine identity.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The conductor is an ideal of B contained in A. For the inclusion f:A→B every element of J is the image of its subtype in I; hence f(I)=J and map_f(I)=J. Use the native map/comap inclusion for the reverse ideal bound.",
+        "The inclusion has zero kernel, so ker(f)∩I=0. Apply the common-ideal cartesian criterion and identify the quotient map with the native induced map to B/J.",
+        "The existing geometric conductor-square node separately uses finite affine pinching and localization/gluing under its stated hypotheses. This affine identity alone does not supply global algebraic-space existence."
+      ],
+      "prerequisites": [
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor",
+        "NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian",
+        "mathlib:Ideal.map_comap_le",
+        "mathlib:Ideal.quotientMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "ferrand",
+          "locator": "Lemma 1.3, converse, printed pp556–557 (plus ring/underlying-set criterion in §1.1)",
+          "excerpt": "carré cartésien",
+          "match": "The image of I must already be an ideal; the kernel intersection is exactly the obstruction to cartesian reconstruction."
+        }
+      ],
+      "acceptance": [
+        "For a proper field subring the conductor is zero and reconstruction still holds; for A=B it is the whole ring, including a nonreduced B."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/GenusOne/AffinePinching",
+        "namespace": "TauCeti.GenusOne.AffinePinching"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -8415,5 +8730,44 @@
     "linkScreen": "Endpoint screen of research/blueprint/links and data/links: no PartII touching entries; four parent EllipticCurves link/overlap entries read. General normal forms and geometric presentation remain owned by upstream EllipticCurves and SF.3.",
     "signatureScope": "Twelve new full native forms, all four new definition API names and four typed examples checked against packet/reader. Existing geometric omission ledger remains explicit. The order-four form includes P+P=Q, Q≠O and Q+Q=O.",
     "lean": "NOT COMPILED: no existing build at both pins; no new project, cache, library build or language server started."
+  },
+  "commonIdealVerification": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-10-02",
+    "base": "9c2a511",
+    "newNodes": 5,
+    "newApiItems": 3,
+    "newTests": 4,
+    "newBaselineDeclarations": 10,
+    "sourceReading": "Fresh Ferrand printed pp555–557, including Lemma1.3/converse; earlier source readings remain historical. No new sourceIssue.",
+    "preservation": "All 123 previous node ids, 78 routes, 21 findings, previous sources/requests/gaps/coverage/finite certificate retained; only the geometric conductor-square proof and prerequisite list consume the new affine chain.",
+    "concreteModels": {
+      "integerQuotientSquares": 778,
+      "imageNotIdealCounterexample": "Diagonal F2 into F2 x F2, comparison image has 2 of 4 elements.",
+      "nonreducedConductor": "F2[u]/u^4, S has no u coefficient; conductor is (u^2), reconstruction has 8 compatible pairs.",
+      "scope": "Finite checks of the new affine identities and both missing-hypothesis counterexamples only. No general proof, geometric pushout or previous F2/surface classification rerun."
+    },
+    "projection": {
+      "stageDag": [
+        3042,
+        8726
+      ],
+      "combinedDag": [
+        3142,
+        9359
+      ],
+      "expectedStageEdges": 67,
+      "typedUpstreamPrerequisites": 76,
+      "skippedLinks": 0,
+      "pendingLinks": 0,
+      "method": "Read-only actual atlas assembly plus unchanged roadmap definition and current packet; typed upstream references appended only to the in-memory validation copy. All required edges present and both graphs acyclic."
+    },
+    "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+    "nativeForms": "Five new native declarations, three API signatures and four native examples; new reader/signature/name parity passes.",
+    "leanCompiled": false,
+    "leanReason": "The entire file imports Tau Ceti modules, and no existing build at the exact Tau Ceti pin was found. No project/cache setup, library build or language server started.",
+    "suggestedSha256": "ef166fa314cc1f1021a86372a444d4a6a0029dbf51ef97023142bd454ce5f0ad",
+    "implementationStatus": "unchecked"
   }
 }
