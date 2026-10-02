@@ -10,9 +10,10 @@ traits. Here those objects become moduli groupoids and stack morphisms; the
 parent is imported rather than planned a second time. Stable-map moduli are
 not constructed in this continuation.
 
-Every stage is partial. The packet records 102 declaration nodes, 98 API items,
-95 discriminating tests, 35 planets, 135 precise supplier requests and 15 gaps.
-There are 28 inspected pinned-library declarations. Nothing is claimed
+Every stage is partial. The packet records 110 declaration nodes, 116 API items,
+110 definition/construction tests plus two exactness tests, 35 planets,
+135 precise supplier requests and 14 gaps. There are 33 inspected
+pinned-library declarations. Nothing is claimed
 formalized: every implementationStatus is unchecked. An open request is a
 dependency on a specification, not evidence that the mathematical library
 already contains its theorem.
@@ -1003,7 +1004,7 @@ Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, 
 
 **Dependencies:** `StableReductionPartII:MC.2/section-coefficient-map`, `StableReductionPartII:MC.2/polynomial-normal-form`, `mathlib:TensorProduct.lift`.
 
-**Acceptance:** The native prototype certifies the specified A′-linear equivalence; the algebra-equiv adapter remains a recorded signature gap.
+**Acceptance:** The algebra-equivalence adapter section-ring-tensor-equivalence specifies the same natural underlying linear map; the prototype records signatures, not verified implementation proofs.
 
 **Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
 
@@ -1035,7 +1036,7 @@ Set q=X²+γXY+δY², F=q(X,Y)−q(s,t), R=A[Y][X]/(F), u=[X], v=[Y], ι:A→R, 
 
 **Dependencies:** `StableReductionPartII:MC.2/section-ideal-base-change`, `StableReductionPartII:MC.2/section-dual-normal-equivalence`, `StableReductionPartII:MC.2/section-dual-scalar-correction`, `StableReductionPartII:MC.2/section-coordinate-regular`, `mathlib:TensorProduct.lift`.
 
-**Acceptance:** The formal signature presently gives A′-linearity and natural evaluation. Native R′-module transport, identity/composition of dual tensor comparisons, and a quotient-equivalence adapter remain explicit integration gaps; no global sheaf conclusion follows.
+**Acceptance:** The native canonical dual adapter, tensor action, R′-linearity, identity/composition and actual quotient comparison have declaration-sized signatures. No completed-local or global sheaf conclusion follows.
 
 **Source:** knudsen2012, §3, printed pp.11–12: monic division, κ/λ comparisons and proof of Proposition3.1.
 
@@ -1047,7 +1048,7 @@ For a nodal family C/S over a locally noetherian base and an arbitrary section �
 
 **Hypotheses:** The full range, base and auxiliary data are specified in the statement; none are suppressed by a global stable-pair convention.
 
-**Construction/proof.** (1) Apply the separately named polynomial dual, residue, coefficient-flatness and natural coefficient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion. (2) Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family. (3) Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.
+**Construction/proof.** (1) Apply the separately named polynomial dual, residue, coefficient-flatness, ring-linear tensor and actual quotient-base-change calculations; these are inputs to the completed-local comparison, not the global conclusion. (2) Apply the source’s flat-completion and faithful-descent comparison to transfer the calculation to the local family. (3) Use the invertible-ideal calculation at smooth points and descend the fibrewise-compatible local identifications.
 
 **Dependencies:** `StableReductionPartII:MC.2/pointed-node-normal-form`, `StableReductionPartII:MC.2/node-factorization-exact`, `SchemeAndStackFoundations:SF.1`, `StableReductionPartII:MC.2/section-dual-residue`, `StableReductionPartII:MC.2/section-dual-base-change`, `StableReductionPartII:MC.2/section-ideal-coefficient-flat`, `StableReductionPartII:MC.2/section-dual-coefficient-flat`, `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs`.
 
@@ -2454,7 +2455,7 @@ KnudsenIII §6 is a characteristic-zero proof. Yuan p.56 cites an all-field mini
 
 ### Pointed noetherian-to-arbitrary-base passage
 
-The repaired node calculation was checked in Knudsen2012 under noetherian hypotheses. Supply finite-presentation approximation, descent and arbitrary-base-change tests to justify the moduli definition over arbitrary schemes. Read KnudsenII Appendix (PDF32–39), not yet read.
+The polynomial-model monic proofs and arbitrary coefficient-base-change comparisons are separated into named nodes over every commutative ring. This does not establish a pointed completed-local normal form, stable reflexivity, sheaf comparison or descent for general families. Read KnudsenII Appendix (PDF32–39), apply its precise flat-completion/faithful-descent statements and finite-presentation approximation; all these remain open.
 
 ### Rigid genus-one locus and boundary normalization details
 
@@ -2462,15 +2463,11 @@ Expand the special labelled triangle recovery into individual family lemmas and 
 
 ### Suggested Lean type interfaces
 
-The pinned libraries have schemes but no stable pointed-family, algebraic-stack, relative Picard, or invertible sheaf interfaces of the strength required here. The suggested file gives real ring/matrix signatures and explicitly lists omitted moduli signatures. All remaining APIs/tests need actual Lean types from supplier packets; arbitrary Prop fields or axioms standing for moduli objects would falsify the prototype.
+The pinned libraries lack the stable pointed-family, algebraic-stack, relative Picard and sheaf interfaces of the strength required here. All 207 inherited geometric omissions remain. Native AdjoinRoot, Ideal, LinearMap, tensor-algebra, specified tensor-module action and actual dual-quotient signatures elaborate, including R′-linearity and dual tensor identity/composition on pure tensors. Elaboration checks types only; no completed-local or general-family comparison is supplied.
 
 ### Source-locator and published-version collation
 
 Before full submission verify every short excerpt literally at its cited printed/PDF page, refine combined locators to individual statements, and collate the published Yuan/DGH texts. Yuan publisher PDF could not be acquired: Annals candidate404 and Euclid non-PDF response; author hash/version scope is explicit. CLM’s NSF copy repairs several older manuscript errors, but publisher identification still needs checking.
-
-### Standard checker upstream-stage dispatch
-
-scripts/check_blueprint.py tests its baseline-reference regex before known stage membership and therefore rejects genuine upstream stage IDs. Reported at issue3342 comment5950082999. Only job deliverables may be edited, so the script is not patched and no baseline entries are forged. A scratch diagnostic excludes roadmap IDs from the baseline regex; it is not a standard-check pass.
 
 **rescope — tauceti:TauCetiRoadmap/JacobianChallenge, StableReductionPartII.** Field-only layer D is insufficient for family Picᵈ/Jacobians and strong Torelli. Existing relative abelian duality is not curve Picard representability. Create JacobianChallenge,Part II with relative curve Picard/Jacobian and strong Torelli stages. This packet keeps moduli-specific level and Torelli maps, importing those generic constructions after approval; no upstream edits.
 
@@ -2484,16 +2481,351 @@ scripts/check_blueprint.py tests its baseline-reference regex before known stage
 
 The standard packet checker is run against the pinned declaration index, and
 the issue deliverable intake and whitespace checks are required before submission.
-The 58 upstream stage references retain their typed upstreamPrerequisites
-encoding; the graph overlay restores them in memory, preserving their dependency
-meaning. No checker code, atlas data or other packet is edited. Exact current
+The 58 upstream stage references appear in canonical prerequisites. The pinned
+checker recognizes known Tau Ceti roadmap stages before baseline-name dispatch;
+no compatibility side field or in-memory restoration is needed. No checker code, atlas data or other packet is edited. Exact current
 check counts and source/build hashes are recorded in the handoff.
 
 The complete suggested file elaborates with only admitted-proof warnings in
 an existing Mathlib build at the pinned commit. It imports individual Mathlib
 modules and uses native AdjoinRoot, Ideal, LinearMap, Matrix and tensor types.
 The packet's expressed-node/API/test ledgers now include the polynomial model;
-all geometric omissions remain explicit. The coefficient comparisons currently
-state A′-linear equivalences with natural pure-tensor evaluation. Native R′
-scalar/algebra-equiv adapters, dual comparison coherence and quotient transport
-remain open. No stage or shared key definition is closed.
+all geometric omissions remain explicit. The coefficient comparisons include a native algebra equivalence, a specified
+tensor-ring module action, an R′-linear dual comparison, pure-tensor identity and
+composition, and transport of the actual quotient by multiplication maps. No stage or shared key definition is closed.
+
+## Canonical polynomial tensor and residue-quotient interfaces
+
+The following declarations specialize the existing tensor and quotient APIs to
+the explicit monic model. They are needed to retain the actual module action
+and the actual multiplication-range quotient when using the natural coefficient
+comparisons. They do not replan general tensor algebra or matrix-factorization
+theory. No flatness of the coefficient map is used. All proofs are plans and
+all implementation statuses are unchecked.
+
+The tensor-ring action is specified before R′-scalar restriction through E_R⁻¹.
+It is not obtained by conjugating the desired dual equivalence. In particular
+K is retained in normal coordinates: d·ε=m(b), so discarding the correction
+term changes the action even though the residue is still annihilated by d.
+
+### Naturality of section evaluation
+
+`StableReductionPartII:MC.2/section-evaluation-coefficient-naturality` · lemma
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. ev′(φ(r))=f(ev(r)) for every r∈R.
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-coefficient-map
+- StableReductionPartII:MC.2/polynomial-normal-form
+- StableReductionPartII:MC.2/section-evaluation-kernel
+
+**Proof**
+
+- Both sides are ring maps R→A′; evaluate them on u, v and every coefficient ιz.
+- Use the unique expression p(v)+u q₁(v) to reduce the equality to coefficientwise polynomial evaluation.
+
+**Acceptance**
+
+- The equation holds also when f kills a nonzero coefficient; it is not cancellation through f.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Algebraic tensor comparison for a pointed node
+
+`StableReductionPartII:MC.2/section-ring-tensor-equivalence` · construction
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the unique A′-algebra equivalence E_R:A′⊗_A R≃R′ with E_R(a′⊗r)=ι′a′·φ(r). The tensor algebra multiplication is (a′⊗r)(b′⊗z)=a′b′⊗rz.
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-ring-base-change
+- StableReductionPartII:MC.2/section-coefficient-map
+- mathlib:AlgHom.liftEquiv
+
+**Proof**
+
+- The coefficient map is an A-algebra map after restricting the target through f; its scalar equation follows on coefficients.
+- Use the baseline algebra base-change universal property to obtain the A′-algebra map with the specified pure-tensor formula.
+- The existing linear tensor comparison has the same formula, hence the same underlying map by tensor induction. Transfer its inverse/bijectivity, not an unproved algebra isomorphism.
+- Uniqueness follows by equality on pure tensors.
+
+**Acceptance**
+
+- Multiplication preservation is required; an unrelated A′-linear normal-coordinate identification does not suffice.
+
+**API**
+
+- `NodeSectionFactorization.PolynomialModel.ringTensorEquivTmul` (simp): E_R(a′⊗r)=ι′a′φ(r).
+- `NodeSectionFactorization.PolynomialModel.ringTensorEquivUnique` (extensionality): Every A′-algebra equivalence with this pure-tensor formula equals E_R.
+
+**Unit tests**
+
+- `NodeSectionFactorization.PolynomialModel.ringTensorIdentity` (compatibility): For f=id_A, E_R(a⊗r)=ιa·r.
+- `NodeSectionFactorization.PolynomialModel.ringTensorMultiplication` (characterisation): E_R(xy)=E_R(x)E_R(y) for every two tensor-algebra elements x,y.
+- `NodeSectionFactorization.PolynomialModel.ringTensorZero` (degenerate): For the zero coefficient ring A, A⊗_A R has one element.
+
+**Uses**
+
+- `StableReductionPartII:MC.2/section-dual-tensor-scalar`: Supplies the inverse ring map used to transport the canonical tensor-ring module action to R′.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Canonical tensor comparison for the section dual
+
+`StableReductionPartII:MC.2/section-dual-tensor-equivalence` · construction
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the canonical A′-linear equivalence E_D:A′⊗_A D≃D′ characterized by E_D(a′⊗h)(φ(j))=ι′a′φ(h(j)). It is identity-compatible and composition-compatible under the canonical heterobasic base-change cancellation a″⊗(a′⊗h)↦a″g(a′)⊗h: for g:A′→A″, E_{D,g}(a″⊗E_{D,f}(a′⊗h))=E_{D,gf}(a″g(a′)⊗h).
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-dual-base-change
+- StableReductionPartII:MC.2/section-coefficient-map
+- StableReductionPartII:MC.2/section-ideal-base-change
+- StableReductionPartII:MC.2/section-coordinate-regular
+
+**Proof**
+
+- Identify the mapped-polynomial quotient in the existing tensor theorem with R′ by coefficientwise mapping of the explicit polynomial; transport the ideal and dual through that equality.
+- Pure-tensor evaluation determines the dual map because φ(c),φ(d) generate J′ as an R′-ideal; do not assume φ(J) is all of J′ as a set.
+- For the identity, compare evaluations on c,d. For composition, evaluate the two nested maps on φ_gφ_f(c),φ_gφ_f(d), and use coefficient-map composition.
+- Use the baseline heterobasic base-change cancellation A″⊗_{A′}(A′⊗_A D)≃A″⊗_A D, sending a″⊗(a′⊗h) to a″g(a′)⊗h. Tensor generation extends the displayed formula to the full comparison square.
+
+**Acceptance**
+
+- For f:ℤ→F₂ and γ=1,δ=s=t=0 the equivalence exists although F₂ is not flat over ℤ.
+
+**API**
+
+- `NodeSectionFactorization.PolynomialModel.dualTensorEquivEvaluation` (characterisation): E_D(a′⊗h)(φ(j))=ι′a′φ(h(j)).
+- `NodeSectionFactorization.PolynomialModel.dualTensorEquivIdentity` (compatibility): E_{D,id}(a⊗h)=a·h.
+- `NodeSectionFactorization.PolynomialModel.dualTensorEquivComposition` (functoriality): E_{D,g}(a″⊗E_{D,f}(a′⊗h))=E_{D,gf}(a″g(a′)⊗h) under the canonical heterobasic base-change cancellation.
+- `NodeSectionFactorization.PolynomialModel.dualTensorEquivScalar` (compatibility): E_D(a′⊗(r·h))=φ(r)·E_D(a′⊗h). This is the pure-tensor consequence of section-dual-tensor-scalar.
+
+**Unit tests**
+
+- `NodeSectionFactorization.PolynomialModel.dualTensorIdentity` (compatibility): For identity coefficients, E_D(a⊗h)=a·h.
+- `NodeSectionFactorization.PolynomialModel.dualTensorComposition` (compatibility): E_{D,g}(1⊗E_{D,f}(1⊗h))=E_{D,gf}(1⊗h).
+- `NodeSectionFactorization.PolynomialModel.dualTensorNonflat` (non-example): For γ=1,δ=s=t=0, F₂ is not ℤ-flat but F₂⊗_ℤ D_ℤ≃D_F₂.
+
+**Uses**
+
+- `StableReductionPartII:MC.2/section-dual-tensor-scalar`: The evaluation-characterized map must respect the full transported R′-module action.
+- `StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence`: The natural quotient comparison must be induced by this actual dual map.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Coefficient naturality of dual scalar correction
+
+`StableReductionPartII:MC.2/section-correction-coefficient-naturality` · lemma
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. If K:R→R and K′:R′→R′ are the coefficient-linear corrections dK(r)=b(r−ιev(r)) and d′K′(r′)=b′(r′−ι′ev′(r′)), then φ(K(r))=K′(φ(r)) for every r.
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-dual-scalar-correction
+- StableReductionPartII:MC.2/section-coordinate-regular
+- StableReductionPartII:MC.2/section-coefficient-map
+- StableReductionPartII:MC.2/section-evaluation-coefficient-naturality
+
+**Proof**
+
+- Apply φ to the defining correction equation; naturality of evaluation changes its right side into the primed correction right side.
+- Subtract the primed equation at φ(r); regularity of d′ forces equality. No injectivity of φ or flatness of f is used.
+
+**Acceptance**
+
+- Taking r=d gives φ(b)=b′; taking r=c gives φ(−a)=−a′.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Tensor-ring action on the section dual
+
+`StableReductionPartII:MC.2/section-dual-tensor-action` · construction
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Equip A′⊗_A D with the canonical module structure over the actual tensor algebra T=A′⊗_A R, uniquely characterized by (a′⊗r)·(b′⊗h)=a′b′⊗(r·h). This specializes the existing module/tensor universal properties, and introduces no new abstract theory of tensor representations.
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-dual-scalar-action
+- StableReductionPartII:MC.2/section-ring-tensor-equivalence
+- mathlib:TensorProduct.lift
+
+**Proof**
+
+- The displayed product is additive and A-balanced separately in both pairs, using the coefficient scalar tower on D; extend it by the tensor universal property.
+- Check unit, associativity and both distributivities on pure tensors and extend by tensor induction.
+- In the normal coordinates of D, use r·(z,α)=(rz+ιαK(r),ev(r)α). This checks that the tensor action is not the componentwise action on R⊕A.
+
+**Acceptance**
+
+- For r=d, d·ε=m(b), not zero. On a nonzero base monic normal form gives b≠0 and injectivity of m, so a componentwise action gives the wrong answer.
+
+**API**
+
+- `NodeSectionFactorization.PolynomialModel.dualTensorActionTmul` (characterisation): (a′⊗r)·(b′⊗h)=a′b′⊗(r·h).
+
+**Unit tests**
+
+- `NodeSectionFactorization.PolynomialModel.tensorActionProduct` (characterisation): The action on two pure tensors is (a′b′)⊗(r·h).
+- `NodeSectionFactorization.PolynomialModel.tensorActionCorrection` (computation): For f=id_A, (1⊗d)·(1⊗ε)=1⊗m(b).
+- `NodeSectionFactorization.PolynomialModel.tensorActionZero` (degenerate): For the zero ring A, A⊗_A D has one element.
+
+**Uses**
+
+- `StableReductionPartII:MC.2/section-dual-tensor-scalar`: Supplies the concrete source action before scalar transport through E_R.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Ring-linear tensor comparison for the section dual
+
+`StableReductionPartII:MC.2/section-dual-tensor-scalar` · theorem
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Transport the preceding T-module structure along E_R⁻¹:R′→T. Then E_D is an R′-linear equivalence for this action and the usual action on Hom_{R′}(J′,R′). In particular E_D(a′⊗(r·h))=φ(r)·E_D(a′⊗h).
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-ring-tensor-equivalence
+- StableReductionPartII:MC.2/section-dual-tensor-equivalence
+- StableReductionPartII:MC.2/section-dual-tensor-action
+- StableReductionPartII:MC.2/section-correction-coefficient-naturality
+- mathlib:Module.compHom
+
+**Proof**
+
+- For pure scalars a′⊗r and pure vectors b′⊗h, compare evaluations on φ(c),φ(d); the natural formula gives ι′a′φ(r)·E_D(b′⊗h).
+- Use tensor induction in scalar and vector to establish T-linearity. Equivalently the normal-coordinate calculation uses φK=K′φ and the non-diagonal correction term.
+- Restrict the canonical T action through E_R⁻¹ using the baseline scalar restriction; the bijective map E_D is then R′-linear.
+
+**Acceptance**
+
+- The R′ action is transported from the specified tensor-ring action, not defined by conjugating the desired E_D; linearity is a theorem rather than tautological by design.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Residue equivalence for the actual dual quotient
+
+`StableReductionPartII:MC.2/section-dual-quotient-equivalence` · construction
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Form Q=D/im(m), using the image of the actual injective R-linear multiplication map m:R→D. Construct the canonical A-linear equivalence E_Q:Q≃A induced by ρ, normalized by E_Q([ε])=1. The inherited R action satisfies E_Q(r·z)=ev(r)E_Q(z).
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-dual-residue
+- StableReductionPartII:MC.2/section-dual-normal-equivalence
+- StableReductionPartII:MC.2/section-coordinate-regular
+- mathlib:Submodule.liftQ
+
+**Proof**
+
+- The characterized residue kills precisely im(m), so descend it through the native quotient universal property.
+- The inverse sends α to [ιαε]; the unique dual normal form proves both inverse identities.
+- Transport the residue scalar equation to quotient representatives; every quotient element has a representative.
+
+**Acceptance**
+
+- Q is the quotient by multiplication maps, not an arbitrary kernel or a second copy of A inserted by fiat. d kills Q although d acts injectively on D.
+
+**API**
+
+- `NodeSectionFactorization.PolynomialModel.dualQuotientEquiv` (equivalence): E_Q is the residue-induced equivalence Q≃A for Q=D/im(m).
+- `NodeSectionFactorization.PolynomialModel.dualQuotientEquivGenerator` (simp): E_Q([ε])=1.
+- `NodeSectionFactorization.PolynomialModel.dualQuotientEquivScalar` (compatibility): E_Q(r·z)=ev(r)E_Q(z).
+
+**Unit tests**
+
+- `NodeSectionFactorization.PolynomialModel.quotientGenerator` (computation): E_Q([ε])=1.
+- `NodeSectionFactorization.PolynomialModel.quotientMultiplication` (compatibility): [m(r)]=0 in Q for every r∈R.
+- `NodeSectionFactorization.PolynomialModel.quotientCoordinateKills` (non-example): d·z=0 for every z∈Q, whereas multiplication by d is injective on D.
+
+**Uses**
+
+- `StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence`: Supplies a concrete coefficient-linear quotient and residue normalization for tensor transport.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+### Coefficient base change of the actual dual quotient
+
+`StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence` · construction
+
+Let A be any commutative ring, γ,δ,s,t∈A, q=X²+γXY+δY², R=A[Y][X]/(q(X,Y)−q(s,t)), u=[X], v=[Y], ι:A→R, c=u−ιs, d=v−ιt, b=u+ιs+ιγ·ιt, a=ιδv+ιδ·ιt+ιγu, J=(c,d), D=Hom_R(J,R), m(r)(j)=rj, ev:R→A the section evaluation and ε the unique dual generator dε(j)=bj. For f:A→A′, primes denote the same construction with mapped parameters and φ:R→R′ the coefficient map. Construct the canonical A′-linear equivalence E_{Q,f}:A′⊗_A Q≃Q′ satisfying E_{Q,f}(a′⊗[h])=[E_D(a′⊗h)] and E_Q′(E_{Q,f}(a′⊗z))=a′f(E_Q(z)). This is the base change of D/im(m), not an identification of chosen unrelated copies of A.
+
+**Hypotheses**
+
+- All coefficient rings are commutative and may have zero divisors or be the zero ring. No noetherianity, unit discriminant, injectivity or flatness of f is required. Statements concern the explicit polynomial model, not arbitrary nodal families.
+
+**Prerequisites**
+
+- StableReductionPartII:MC.2/section-dual-quotient-equivalence
+- StableReductionPartII:MC.2/section-dual-tensor-equivalence
+- StableReductionPartII:MC.2/section-ring-tensor-equivalence
+- StableReductionPartII:MC.2/section-dual-tensor-scalar
+- mathlib:TensorProduct.lid
+- mathlib:Submodule.liftQ
+
+**Proof**
+
+- Compose the tensor of E_Q with the canonical A′⊗_A A≃A′ and E_Q′⁻¹ to construct a bijective coefficient-linear map.
+- The evaluation formula and generation of J′ show E_D(a′⊗m(r))=m′(ι′a′φ(r)); hence passing from h to its quotient class is well-defined.
+- Evaluate E_D in normal coordinates: it takes r incl+ιαε to the corresponding primed expression, sends ε to ε′, and its residue is a′f(ρh). This proves the quotient-representative formula agrees with the constructed equivalence.
+- Identity and composition follow from the residue formula and injectivity of E_Q′; no tensor left-exactness or flatness of f is assumed.
+
+**Acceptance**
+
+- Nonflat specialization ℤ→F₂ with γ=1,δ=s=t=0 preserves the actual quotient and sends its residue generator to residue 1.
+
+**API**
+
+- `NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquiv` (equivalence): E_{Q,f}:A′⊗_A Q≃Q′ is the natural dual-quotient comparison.
+- `NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivTmul` (simp): E_{Q,f}(a′⊗[h])=[E_D(a′⊗h)].
+- `NodeSectionFactorization.PolynomialModel.dualQuotientTensorEquivResidue` (compatibility): E_Q′(E_{Q,f}(a′⊗z))=a′f(E_Q(z)).
+
+**Unit tests**
+
+- `NodeSectionFactorization.PolynomialModel.quotientTensorResidue` (characterisation): For every a′,z, the residue of the tensor comparison is a′f(E_Q(z)).
+- `NodeSectionFactorization.PolynomialModel.quotientTensorIdentity` (compatibility): E_{Q,id}(a⊗z)=a·z.
+- `NodeSectionFactorization.PolynomialModel.quotientTensorNonflat` (non-example): For f:ℤ→F₂ and γ=1,δ=s=t=0, F₂ is not ℤ-flat and E_Q′(E_{Q,f}(1⊗z))=f(E_Q(z)) for every z∈Q.
+
+**Uses**
+
+- `StableReductionPartII:MC.2/dual-section-ideal`: Provides the explicit polynomial quotient comparison required before the separately open completion and sheaf-descent steps.
+
+**Source:** Knudsen2012, §3, printed pp.11–12, monic division and the dual residue calculation preceding Proposition3.1. These are authored polynomial-model adapters derived from that calculation and the pinned generic APIs; the printed stable-reflexivity proposition has stronger hypotheses.
+
+The residue construction additionally exports `NodeSectionFactorization.PolynomialModel.dualMultiplication`, the R-linear map m:R→D given by r↦(j↦rj), and `NodeSectionFactorization.PolynomialModel.dualMultiplicationApply`, the equation m(r)(j)=rj. Q is the native quotient by this map’s actual range. The global dual-section node imports the ring-linear and quotient comparisons before its still-open completion/descent step.
+
+The additional baseline inputs are `mathlib:AlgHom.liftEquiv`, `mathlib:Module.compHom`, `mathlib:Submodule.liftQ` and `mathlib:TensorProduct.lid`. Their actual pinned statements were read; none supplies the pointed dual or the global geometric theorem by itself. The fresh source receipt is scoped to Knudsen2012 §3, Corollary3.2 and §4, with PDF SHA-256 `de9f73f25a4fbe03dbe2865ebc5932412b5bf3aa7f02734c04de05013da44d36`. Other inherited source receipts retain their historical authorship.
+
+The ring tensor interface additionally exports `NodeSectionFactorization.PolynomialModel.ringTensorEquiv`: construct E_R as the natural A′-algebra equivalence A′⊗_A R≃R′. The action interface exports `NodeSectionFactorization.PolynomialModel.dualTensorAction`: the native module structure on A′⊗_A D has scalar ring A′⊗_A R and the specified pure-tensor action. Its extensionality API `NodeSectionFactorization.PolynomialModel.dualTensorActionUnique` states that a module structure with the specified action on every pair of pure tensors equals the canonical tensor-ring action.
+
+The two-step coefficient comparison uses `mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange` from the pinned Tower module. Its map A″⊗_{A′}(A′⊗_A D)→A″⊗_A D is a″⊗(a′⊗h)↦a″g(a′)⊗h. This is a heterobasic cancellation equivalence, not ordinary same-ring tensor associativity.
+
+Additional prerequisite of the canonical dual comparison: mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange.

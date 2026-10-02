@@ -6,6 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Quotient.Defs
 import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.RingTheory.TensorProduct.Basic
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.Data.ZMod.Basic
 
@@ -412,6 +413,12 @@ theorem coefficientMapValues {A' : Type*} [CommRing A'] (f : A →+* A') (z : A)
     coefficientMap A γ δ s t f (ι₀ z) = coefficientHom A' (f γ) (f δ) (f s) (f t) (f z) := by
   sorry
 
+-- StableReductionPartII:MC.2/section-evaluation-coefficient-naturality
+theorem coefficientMapEvaluation {A' : Type*} [CommRing A'] (f : A →+* A') (r : R₀) :
+    sectionEval A' (f γ) (f δ) (f s) (f t) (coefficientMap A γ δ s t f r) =
+      f (sectionEval A γ δ s t r) := by
+  sorry
+
 theorem coefficientMapIdentity : coefficientMap A γ δ s t (RingHom.id A) = RingHom.id R₀ := by
   sorry
 
@@ -439,6 +446,263 @@ theorem sectionIdeal_baseChange {A' : Type*} [CommRing A'] (f : A →+* A') :
         coefficientHom A' (f γ) (f δ) (f s) (f t) a' * coefficientMap A γ δ s t f (j : R₀) := by
   sorry
 
+
+/- Native algebra, dual and quotient adapters for the explicit polynomial model.
+No completed-local or geometric-family transport is asserted. -/
+
+-- StableReductionPartII:MC.2/section-ring-tensor-equivalence
+def ringTensorEquiv {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    (A' ⊗[A] R₀) ≃ₐ[A'] Ring A' (f γ) (f δ) (f s) (f t) := by
+  sorry
+
+theorem ringTensorEquivTmul {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (r : R₀),
+      ringTensorEquiv A γ δ s t f (a' ⊗ₜ[A] r) =
+        coefficientHom A' (f γ) (f δ) (f s) (f t) a' *
+          coefficientMap A γ δ s t f r := by
+  sorry
+
+theorem ringTensorEquivUnique {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ e : (A' ⊗[A] R₀) ≃ₐ[A'] Ring A' (f γ) (f δ) (f s) (f t),
+      (∀ (a' : A') (r : R₀), e (a' ⊗ₜ[A] r) =
+        coefficientHom A' (f γ) (f δ) (f s) (f t) a' *
+          coefficientMap A γ δ s t f r) → e = ringTensorEquiv A γ δ s t f := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-tensor-equivalence
+def dualTensorEquiv {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    (A' ⊗[A] D₀) ≃ₗ[A'] sectionDual A' (f γ) (f δ) (f s) (f t) := by
+  sorry
+
+theorem dualTensorEquivEvaluation {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (h : D₀) (j : J₀),
+      dualTensorEquiv A γ δ s t f (a' ⊗ₜ[A] h)
+        ⟨coefficientMap A γ δ s t f (j : R₀), by sorry⟩ =
+      coefficientHom A' (f γ) (f δ) (f s) (f t) a' *
+        coefficientMap A γ δ s t f (h j) := by
+  sorry
+
+theorem dualTensorEquivIdentity (a : A) (h : D₀) :
+    dualTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] h) = a • h := by
+  sorry
+
+theorem dualTensorEquivComposition {A' A'' : Type*} [CommRing A'] [CommRing A'']
+    (f : A →+* A') (g : A' →+* A'') :
+    letI : Algebra A A' := f.toAlgebra
+    letI : Algebra A' A'' := g.toAlgebra
+    letI : Algebra A A'' := (g.comp f).toAlgebra
+    ∀ (a'' : A'') (a' : A') (h : D₀),
+      dualTensorEquiv A' (f γ) (f δ) (f s) (f t) g
+        (a'' ⊗ₜ[A'] dualTensorEquiv A γ δ s t f (a' ⊗ₜ[A] h)) =
+      dualTensorEquiv A γ δ s t (g.comp f) ((a'' * g a') ⊗ₜ[A] h) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-correction-coefficient-naturality
+theorem correctionCoefficientNaturality {A' : Type*} [CommRing A'] (f : A →+* A')
+    (K : R₀ →ₗ[A] R₀)
+    (K' : Ring A' (f γ) (f δ) (f s) (f t) →ₗ[A']
+      Ring A' (f γ) (f δ) (f s) (f t))
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (hK' : ∀ r : Ring A' (f γ) (f δ) (f s) (f t),
+      (AdjoinRoot.of (polynomial A' (f γ) (f δ) (f s) (f t)) Polynomial.X -
+        coefficientHom A' (f γ) (f δ) (f s) (f t) (f t)) * K' r =
+      (AdjoinRoot.root (polynomial A' (f γ) (f δ) (f s) (f t)) +
+        coefficientHom A' (f γ) (f δ) (f s) (f t) (f s) +
+        coefficientHom A' (f γ) (f δ) (f s) (f t) (f γ) *
+          coefficientHom A' (f γ) (f δ) (f s) (f t) (f t)) *
+        (r - coefficientHom A' (f γ) (f δ) (f s) (f t)
+          (sectionEval A' (f γ) (f δ) (f s) (f t) r))) (r : R₀) :
+    coefficientMap A γ δ s t f (K r) = K' (coefficientMap A γ δ s t f r) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-tensor-scalar
+theorem dualTensorEquivScalar {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (r : R₀) (h : D₀),
+      dualTensorEquiv A γ δ s t f (a' ⊗ₜ[A] (r • h)) =
+        coefficientMap A γ δ s t f r •
+          dualTensorEquiv A γ δ s t f (a' ⊗ₜ[A] h) := by
+  sorry
+
+-- Actual multiplication range, not an arbitrary submodule standing for R.
+-- StableReductionPartII:MC.2/section-dual-tensor-action
+/-- The canonical action is constrained by dualTensorActionTmul below. -/
+@[instance_reducible]
+def dualTensorAction {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    Module (A' ⊗[A] R₀) (A' ⊗[A] D₀) := by
+  sorry
+
+theorem dualTensorActionTmul {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    letI := dualTensorAction A γ δ s t f
+    ∀ (a' b' : A') (r : R₀) (h : D₀),
+      (a' ⊗ₜ[A] r) • (b' ⊗ₜ[A] h) = (a' * b') ⊗ₜ[A] (r • h) := by
+  sorry
+
+theorem dualTensorActionUnique {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ action : Module (A' ⊗[A] R₀) (A' ⊗[A] D₀),
+      (∀ (a' b' : A') (r : R₀) (h : D₀),
+        letI := action
+        (a' ⊗ₜ[A] r) • (b' ⊗ₜ[A] h) = (a' * b') ⊗ₜ[A] (r • h)) →
+      action = dualTensorAction A γ δ s t f := by
+  sorry
+
+/-- R'-linearity for the canonical tensor-ring action transported by the
+actual algebra equivalence, not an action invented from the desired answer. -/
+theorem dualTensorRingLinear {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    let R' := Ring A' (f γ) (f δ) (f s) (f t)
+    letI : Module (A' ⊗[A] R₀) (A' ⊗[A] D₀) := dualTensorAction A γ δ s t f
+    letI : Module R' (A' ⊗[A] D₀) :=
+      Module.compHom (A' ⊗[A] D₀) (ringTensorEquiv A γ δ s t f).symm.toRingHom
+    ∃ e : (A' ⊗[A] D₀) ≃ₗ[R'] sectionDual A' (f γ) (f δ) (f s) (f t),
+      ∀ z, e z = dualTensorEquiv A γ δ s t f z := by
+  sorry
+
+-- API of StableReductionPartII:MC.2/section-dual-residue
+def dualMultiplication : R₀ →ₗ[R₀] D₀ := by
+  sorry
+
+theorem dualMultiplicationApply (r : R₀) (j : J₀) :
+    dualMultiplication A γ δ s t r j = r * (j : R₀) := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-quotient-equivalence
+abbrev sectionDualQuotient :=
+  D₀ ⧸ LinearMap.range (dualMultiplication A γ δ s t)
+
+def dualQuotientEquiv : sectionDualQuotient A γ δ s t ≃ₗ[A] A := by
+  sorry
+
+theorem dualQuotientEquivGenerator (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    dualQuotientEquiv A γ δ s t (Submodule.Quotient.mk ε) = 1 := by
+  sorry
+
+theorem dualQuotientEquivScalar (r : R₀) (q : sectionDualQuotient A γ δ s t) :
+    dualQuotientEquiv A γ δ s t (r • q) =
+      sectionEval A γ δ s t r * dualQuotientEquiv A γ δ s t q := by
+  sorry
+
+-- StableReductionPartII:MC.2/section-dual-quotient-tensor-equivalence
+def dualQuotientTensorEquiv {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    (A' ⊗[A] sectionDualQuotient A γ δ s t) ≃ₗ[A']
+      sectionDualQuotient A' (f γ) (f δ) (f s) (f t) := by
+  sorry
+
+theorem dualQuotientTensorEquivTmul {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (h : D₀),
+      dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A]
+        (Submodule.Quotient.mk h : sectionDualQuotient A γ δ s t)) =
+      Submodule.Quotient.mk (dualTensorEquiv A γ δ s t f (a' ⊗ₜ[A] h)) := by
+  sorry
+
+theorem dualQuotientTensorEquivResidue {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (q : sectionDualQuotient A γ δ s t),
+      dualQuotientEquiv A' (f γ) (f δ) (f s) (f t)
+        (dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A] q)) =
+      a' * f (dualQuotientEquiv A γ δ s t q) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.ringTensorIdentity
+example (a : A) (r : R₀) :
+    ringTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] r) = ι₀ a * r := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ringTensorMultiplication
+example {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ x y : A' ⊗[A] R₀, ringTensorEquiv A γ δ s t f (x * y) =
+      ringTensorEquiv A γ δ s t f x * ringTensorEquiv A γ δ s t f y := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.ringTensorZero
+example [Subsingleton A] : Subsingleton (A ⊗[A] R₀) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.dualTensorIdentity
+example (a : A) (h : D₀) :
+    dualTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] h) = a • h := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.dualTensorComposition
+example {A' A'' : Type*} [CommRing A'] [CommRing A'']
+    (f : A →+* A') (g : A' →+* A'') :
+    letI : Algebra A A' := f.toAlgebra
+    letI : Algebra A' A'' := g.toAlgebra
+    letI : Algebra A A'' := (g.comp f).toAlgebra
+    ∀ h : D₀,
+      dualTensorEquiv A' (f γ) (f δ) (f s) (f t) g
+        (1 ⊗ₜ[A'] dualTensorEquiv A γ δ s t f (1 ⊗ₜ[A] h)) =
+      dualTensorEquiv A γ δ s t (g.comp f) (1 ⊗ₜ[A] h) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.dualTensorNonflat
+example :
+    (¬ Module.Flat ℤ (ZMod 2)) ∧
+      Nonempty (((ZMod 2) ⊗[ℤ] sectionDual ℤ 1 0 0 0) ≃ₗ[ZMod 2]
+        sectionDual (ZMod 2) 1 0 0 0) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.tensorActionProduct
+example {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    letI := dualTensorAction A γ δ s t f
+    ∀ (a' b' : A') (r : R₀) (h : D₀),
+      (a' ⊗ₜ[A] r) • (b' ⊗ₜ[A] h) = (a' * b') ⊗ₜ[A] (r • h) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.tensorActionCorrection
+example (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    letI := dualTensorAction A γ δ s t (RingHom.id A)
+    ((1 : A) ⊗ₜ[A] d₀) • ((1 : A) ⊗ₜ[A] ε) =
+      (1 : A) ⊗ₜ[A] dualMultiplication A γ δ s t b₀ := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.tensorActionZero
+example [Subsingleton A] : Subsingleton (A ⊗[A] D₀) := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.quotientGenerator
+example (ε : D₀) (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) :
+    dualQuotientEquiv A γ δ s t (Submodule.Quotient.mk ε) = 1 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.quotientMultiplication
+example (r : R₀) :
+    (Submodule.Quotient.mk (dualMultiplication A γ δ s t r) :
+      sectionDualQuotient A γ δ s t) = 0 := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.quotientCoordinateKills
+example (q : sectionDualQuotient A γ δ s t) : d₀ • q = 0 := by
+  sorry
+
+-- test: NodeSectionFactorization.PolynomialModel.quotientTensorResidue
+example {A' : Type*} [CommRing A'] (f : A →+* A') :
+    letI : Algebra A A' := f.toAlgebra
+    ∀ (a' : A') (q : sectionDualQuotient A γ δ s t),
+      dualQuotientEquiv A' (f γ) (f δ) (f s) (f t)
+        (dualQuotientTensorEquiv A γ δ s t f (a' ⊗ₜ[A] q)) =
+      a' * f (dualQuotientEquiv A γ δ s t q) := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.quotientTensorIdentity
+example (a : A) (q : sectionDualQuotient A γ δ s t) :
+    dualQuotientTensorEquiv A γ δ s t (RingHom.id A) (a ⊗ₜ[A] q) = a • q := by
+  sorry
+-- test: NodeSectionFactorization.PolynomialModel.quotientTensorNonflat
+example :
+    let f : ℤ →+* ZMod 2 := Int.castRingHom (ZMod 2)
+    letI : Algebra ℤ (ZMod 2) := f.toAlgebra
+    letI : Module ℤ (ZMod 2) := f.toAlgebra.toModule
+    (¬ Module.Flat ℤ (ZMod 2)) ∧
+      ∀ q : sectionDualQuotient ℤ 1 0 0 0,
+        dualQuotientEquiv (ZMod 2) 1 0 0 0
+          (dualQuotientTensorEquiv ℤ 1 0 0 0 f ((1 : ZMod 2) ⊗ₜ[ℤ] q)) =
+        f (dualQuotientEquiv ℤ 1 0 0 0 q) := by
+  sorry
 
 -- NodeSectionFactorization.PolynomialModel.modelRelation
 example : NodeForm (ι₀ γ) (ι₀ δ) u₀ v₀ = ι₀ (NodeForm γ δ s t) := by
