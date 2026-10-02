@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "partial",
-  "summary": "Partial native dual-generator checkpoint on the actual polynomial section ideal: names the inherited ε and correction K constructions, adds eight consumed monicity/freeness/relation/divisibility/dual/correction lemma nodes, eight APIs and four discriminating tests. Actual canonical proofs are checked separately from the complete admitted suggested file. All previous moduli targets, supplier requests, geometric keys and gaps remain required; every stage is partial and every implementation status unchecked.",
+  "summary": "Partial native dual-generator checkpoint on the actual polynomial section ideal: names the inherited ε and correction K constructions, adds eight consumed monicity/freeness/relation/divisibility/dual/correction lemma nodes, eight APIs and four discriminating tests. Actual canonical proofs are checked separately from the complete admitted suggested file. All previous moduli targets, supplier requests, geometric keys and gaps remain required; every stage is partial and every implementation status unchecked. The ordered native polynomial coordinates, reconstruction and uniqueness, the basis (1,u) and the untruncated coefficient monomial basis now have admission-free proof receipts. Complete dual coordinates and geometric interfaces remain separate open obligations.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -597,6 +597,69 @@
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "For an actual σ-semilinear map f, f(c•x)=σ(c)•f(x); used without defining a second semilinear-map structure.",
         "checked": "Actual full statement and ambient module/ring-homomorphism variables read at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line335; exact index entry verified."
+      },
+      {
+        "ref": "mathlib:Module.Basis.reindex",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Reindexing by an equivalence changes the index type and preserves the vectors.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.equivFun",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Finite basis coordinates as a linear equivalence to functions.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.finTwoArrow",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Pi.lean",
+        "provides": "The ordered finite two-entry function/product linear equivalence.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofSubsingleton",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Equiv/Basic.lean",
+        "provides": "Canonical equivalence of two subsingleton modules.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofEquivFun",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A finite coordinate equivalence defines a native basis.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.smulTower_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AlgebraTower.lean",
+        "provides": "The scalar-tower basis vector equals the outer basis scalar times the inner basis vector.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Polynomial.coe_basisMonomials",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Basis.lean",
+        "provides": "The native polynomial basis vector is monomial n one.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Module.Free.of_basis",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "provides": "Any native basis supplies the free-module instance.",
+        "checked": "Full relevant ambient statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no library implementation of the general construction is replanned."
+      },
+      {
+        "ref": "mathlib:Module.Basis.smulTower_repr",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AlgebraTower.lean",
+        "provides": "The scalar-tower basis coordinates are obtained by taking the outer coefficient of the inner basis coordinate.",
+        "checked": "Ambient statement and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
       }
     ]
   },
@@ -2155,20 +2218,13 @@
         "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
       ],
       "prerequisites": [
-        "StableReductionPartII:MC.2/polynomial-node-model",
-        "mathlib:Polynomial.divByMonic",
-        "mathlib:Polynomial.modByMonic",
-        "mathlib:AdjoinRoot.powerBasis'",
-        "mathlib:Polynomial.Monic.free_adjoinRoot",
-        "mathlib:Polynomial.basisMonomials",
-        "mathlib:Module.Basis.smulTower",
-        "mathlib:Module.subsingleton"
+        "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+        "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+        "mathlib:Module.Free.of_basis"
       ],
       "proofSteps": [
-        "Use the pinned AdjoinRoot.powerBasis' supplied by monic remainder division. Over nontrivial A, natDegree_quadratic identifies its dimension as two.",
-        "Reindex that basis by Fin 2. Its vectors are 1 and u; basis reconstruction supplies p(v)+u q₁(v), and applying the basis representation to an equality proves uniqueness of both coefficients.",
-        "Over the zero ring, Module.subsingleton makes both the quotient and the pair of coefficient polynomials subsingleton, proving the same unique-existence statement.",
-        "Monic.free_adjoinRoot gives freeness over A[Y]. Compose its power basis with Polynomial.basisMonomials using Basis.smulTower to obtain freeness over A; no truncation of v is introduced."
+        "Apply the native unique ordered coordinate pair theorem, with the equality reversed to the existing normalForm signature.",
+        "The specified two-term and monomial bases supply both freeness instances through the pinned basis-to-free constructor. No relation truncating powers of v is added."
       ],
       "acceptance": [
         "No relation truncating powers of v is introduced."
@@ -2185,7 +2241,15 @@
       "library": {
         "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
         "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
-      }
+      },
+      "declarationName": "NodeSectionFactorization.PolynomialModel.normalForm",
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.normalFormFree",
+          "role": "characterisation",
+          "statement": "The actual node quotient is free both over A[Y] and over A using the prescribed bases."
+        }
+      ]
     },
     {
       "id": "StableReductionPartII:MC.2/section-coordinate-regular",
@@ -8643,6 +8707,544 @@
           "how": "Combined with projection naturality proves canonical correction naturality."
         }
       ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is a nontrivial commutative ring; γ,δ,s,t∈A. No noetherianity or discriminant assumption."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-degree-two",
+      "title": "Degree of the node polynomial",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. If A is nontrivial, the outer natural degree of F is two. The zero ring is excluded only from this degree assertion.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialNatDegree",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-node-model",
+        "mathlib:Polynomial.natDegree_quadratic"
+      ],
+      "proofSteps": [
+        "Apply the pinned quadratic degree formula with leading coefficient one in A[Y]."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+      "title": "Ordered polynomial coordinates",
+      "kind": "construction",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct the A[Y]-linear equivalence E:R≃A[Y]×A[Y] with E⁻¹(p,q₁)=of(p)+u·of(q₁), including the zero ring.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/section-polynomial-monic",
+        "StableReductionPartII:MC.2/polynomial-degree-two",
+        "mathlib:AdjoinRoot.powerBasis'",
+        "mathlib:Module.Basis.reindex",
+        "mathlib:Module.Basis.equivFun",
+        "mathlib:LinearEquiv.finTwoArrow",
+        "mathlib:LinearEquiv.ofSubsingleton",
+        "mathlib:Module.subsingleton"
+      ],
+      "proofSteps": [
+        "For nontrivial A reindex the native monic power basis by Fin 2 and compose its coordinate equivalence with Mathlib’s ordered two-entry product equivalence.",
+        "For subsingleton A use the existing native module structures to prove the quotient and coefficient pair subsingleton, then use the pinned subsingleton linear equivalence."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-two-term-basis",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_of",
+          "role": "simp",
+          "statement": "E(of(p))=(p,0)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root",
+          "role": "simp",
+          "statement": "E(u)=(0,1)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_symm",
+          "role": "projection",
+          "statement": "E⁻¹(p,q₁)=of(p)+u·of(q₁)."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_reconstruction",
+          "role": "characterisation",
+          "statement": "of(E(r)₀)+u·of(E(r)₁)=r."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_unique",
+          "role": "extensionality",
+          "statement": "There is a unique ordered coefficient pair representing r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coordinatesZeroRing",
+          "kind": "degenerate",
+          "statement": "Over Z/1Z, E(r)=(0,0) for every native quotient element r."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coordinatesCharacteristicTwoRoot",
+          "kind": "computation",
+          "statement": "Over Z/2Z with γ=1,δ=s=t=0, E(u)=(0,1), in that order."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.coordinatesNonreducedPolynomial",
+          "kind": "computation",
+          "statement": "Over Z/4Z with all parameters zero, E(of(2Y⁹))=(2Y⁹,0)."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+      "title": "Coordinate reconstruction map",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For all p,q₁∈A[Y], E⁻¹(p,q₁)=of(p)+u·of(q₁).",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_symm",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence"
+      ],
+      "proofSteps": [
+        "In the nontrivial branch, use the native power-basis vector formula and the finite coordinate sum; its ordered vectors are one and u.",
+        "In the zero-ring branch both sides are equal by subsingleton elimination."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-two-term-basis",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+      "title": "Reconstruction from ordered coordinates",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every r, of(E(r)₀)+u·of(E(r)₁)=r.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_reconstruction",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse"
+      ],
+      "proofSteps": [
+        "Use the explicit inverse formula and the left inverse identity of E."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+      "title": "Unique ordered coefficient pair",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every r there exists a unique ordered pair (p,q₁) with of(p)+u·of(q₁)=r.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_unique",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse"
+      ],
+      "proofSteps": [
+        "Use E(r) as witness, and apply injectivity of E⁻¹ to any other candidate pair."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-normal-form",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-two-term-basis",
+      "title": "The ordered basis one and root",
+      "kind": "construction",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct a native A[Y]-basis B indexed by Fin 2 with B(0)=1 and B(1)=u, including subsingleton A.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialBasis",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+        "mathlib:Module.Basis.ofEquivFun",
+        "mathlib:LinearEquiv.finTwoArrow"
+      ],
+      "proofSteps": [
+        "Compose E with the inverse of the pinned product/function equivalence and use the existing finite coordinate-to-basis constructor."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-monomial-basis",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialBasis_apply",
+          "role": "simp",
+          "statement": "For every i∈Fin 2, B(i)=uⁱ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialBasis_zero",
+          "role": "simp",
+          "statement": "B(0)=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialBasis_one",
+          "role": "simp",
+          "statement": "B(1)=u."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.basisConstant",
+          "kind": "characterisation",
+          "statement": "For every commutative A and every parameter tuple B(0)=1."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.basisRoot",
+          "kind": "characterisation",
+          "statement": "For every commutative A and every parameter tuple B(1)=u."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.basisZeroRing",
+          "kind": "degenerate",
+          "statement": "Over Z/1Z with zero parameters B(1)=0."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+      "title": "Values of the two-term basis",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every i∈Fin 2, B(i)=uⁱ.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialBasis_apply",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-two-term-basis",
+        "StableReductionPartII:MC.2/polynomial-coordinate-inverse"
+      ],
+      "proofSteps": [
+        "Evaluate the finite coordinate-to-basis constructor on its two single-coordinate functions and apply the prescribed inverse formula."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-monomial-basis",
+      "title": "Untruncated node monomial basis",
+      "kind": "construction",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct a native A-basis indexed by N×Fin 2; its vector at (n,i) is vⁿuⁱ, with no bound on n. The A-action is the inherited polynomial/AdjoinRoot scalar tower.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-two-term-basis",
+        "mathlib:Polynomial.basisMonomials",
+        "mathlib:Module.Basis.smulTower",
+        "mathlib:Module.Basis.smulTower_repr"
+      ],
+      "proofSteps": [
+        "Use the pinned monomial basis of A[Y] and the preceding two-term basis, then compose them by the native scalar-tower basis construction."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        },
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-normal-form",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ],
+      "api": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_apply",
+          "role": "simp",
+          "statement": "The (n,i)-vector is vⁿuⁱ."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_tower",
+          "role": "compatibility",
+          "statement": "This basis equals the pinned scalar-tower composition of the native polynomial monomial basis with B."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_repr",
+          "role": "projection",
+          "statement": "The coefficient at (n,i) is the n-th polynomial basis coordinate of the i-th B-coordinate of r."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.monomialBasisUntruncated",
+          "kind": "computation",
+          "statement": "Over Z/2Z, γ=1 and remaining parameters zero, the (37,0)-vector is v³⁷."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.monomialBasisNonreduced",
+          "kind": "computation",
+          "statement": "Over Z/4Z with zero parameters, the (3,1)-vector is v³u."
+        },
+        {
+          "name": "NodeSectionFactorization.PolynomialModel.monomialBasisZeroRing",
+          "kind": "degenerate",
+          "statement": "Over Z/1Z with zero parameters, the (37,1)-vector is zero."
+        }
+      ]
+    },
+    {
+      "parentStageId": "StableReductionPartII:MC.2",
+      "realises": [
+        "StableReductionPartII:MC.2"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, including the zero ring; γ,δ,s,t∈A. No noetherianity, regularity of A or unit discriminant is assumed for this polynomial-model statement."
+      ],
+      "acceptance": [
+        "Use the existing untruncated polynomial quotient, native coefficient algebra and actual coordinate ideal. Include zero and nonreduced coefficient rings."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ModuliCurves/MC2",
+        "namespace": "TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel"
+      },
+      "id": "StableReductionPartII:MC.2/polynomial-monomial-basis-values",
+      "title": "Values of the node monomial basis",
+      "kind": "lemma",
+      "statement": "In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every n∈N and i∈Fin 2 the A-basis vector at (n,i) equals vⁿuⁱ.",
+      "declarationName": "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_apply",
+      "prerequisites": [
+        "StableReductionPartII:MC.2/polynomial-monomial-basis",
+        "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+        "mathlib:Module.Basis.smulTower_apply",
+        "mathlib:Polynomial.coe_basisMonomials"
+      ],
+      "proofSteps": [
+        "Use the pinned scalar-tower basis formula and the two-term vector formula; the native quotient homomorphism carries Yⁿ to vⁿ."
+      ],
+      "sources": [
+        {
+          "sourceId": "knudsen2012",
+          "locator": "§3 Key Example, monic polynomial division preceding Proposition 3.1; full Proposition 3.1 and Corollary 3.2 reread",
+          "excerpt": "Key example",
+          "match": "Knudsen uses the unique ordered polynomial coordinates in the native quotient. The general monic-quotient basis is imported from pinned Mathlib; the named coordinate and monomial maps specialize it to this section model. Arbitrary commutative rings, including the zero ring, are proved by explicit nontrivial/subsingleton cases. No power-series, completion, relative stable-reflexivity or geometric strengthening is asserted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "StableReductionPartII:MC.2/polynomial-normal-form",
+          "how": "Supplies the prescribed ordered native polynomial coordinates or basis used by this consumer."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9616,7 +10218,8 @@
         "Appendix has been read in full. Prove/import the exact relative stable-reflexivity Theorem2 and Proposition6 over S→R; Proposition7 is an exercise, not a proved leaf. Finish pointed hull identification, actual sheaf comparison and finite-presentation approximation for arbitrary bases.",
         "Expand the rigid genus-one embedding and local collision charts into individual lemmas; supply missing Lean family types.",
         "Prove the native polynomial and flat-ambient/completion adapters and tensor coherence. Completion of actual Hom and quotient has native signatures; the pointed-family, relative stable-reflexivity and arbitrary-family descent interfaces remain absent.",
-        "The actual semilinear coefficient restriction, projection and canonical ε/K naturality now have admission-free proof checks. The tensor equivalence, complete dual normal coordinates, arbitrary coefficient-module Hom/Ext exchange and all completed-local/family comparison steps remain separate obligations."
+        "The actual semilinear coefficient restriction, projection and canonical ε/K naturality now have admission-free proof checks. The tensor equivalence, complete dual normal coordinates, arbitrary coefficient-module Hom/Ext exchange and all completed-local/family comparison steps remain separate obligations.",
+        "Ordered polynomial coordinates and both native bases have actual proof checks. Complete dual coordinates/residue, the specified cokernel identifications, arbitrary coefficient-module Hom/Ext exchange and tensor-dual comparisons still require proofs."
       ]
     },
     {
@@ -10520,7 +11123,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The complete current Mathlib-only admitted sketch elaborates. A separately archived admission-free canonical polynomial/ideal proof establishes arbitrary coefficient naturality of the native projection, dual generator and correction, including a nonflat integer-to-characteristic-two test. No entire-dual tensor equivalence, geometric or completion interface is certified.",
+    "reason": "The complete current Mathlib-only admitted sketch elaborates. A separately archived admission-free canonical polynomial/ideal proof establishes arbitrary coefficient naturality of the native projection, dual generator and correction, including a nonflat integer-to-characteristic-two test. No entire-dual tensor equivalence, geometric or completion interface is certified. The new ordered polynomial-coordinate and basis specialization is checked without admissions over every commutative ring; the final submitted file remains an admitted plan.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -10579,7 +11182,16 @@
       "StableReductionPartII:MC.2/section-dual-correction-product",
       "StableReductionPartII:MC.2/section-ideal-coefficient-map",
       "StableReductionPartII:MC.2/section-projection-coefficient-naturality",
-      "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality"
+      "StableReductionPartII:MC.2/section-dual-generator-coefficient-naturality",
+      "StableReductionPartII:MC.2/polynomial-degree-two",
+      "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+      "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+      "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+      "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+      "StableReductionPartII:MC.2/polynomial-two-term-basis",
+      "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+      "StableReductionPartII:MC.2/polynomial-monomial-basis",
+      "StableReductionPartII:MC.2/polynomial-monomial-basis-values"
     ],
     "expressedApi": [
       "NodeForm.eval",
@@ -10675,7 +11287,19 @@
       "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_comp",
       "NodeSectionFactorization.PolynomialModel.idealCoefficientMap_smul",
       "NodeSectionFactorization.PolynomialModel.coefficientMapCoordinates",
-      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient_naturality"
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap_coefficient_naturality",
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_of",
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root",
+      "NodeSectionFactorization.PolynomialModel.polynomialBasis_apply",
+      "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_apply",
+      "NodeSectionFactorization.PolynomialModel.normalFormFree",
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_symm",
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_reconstruction",
+      "NodeSectionFactorization.PolynomialModel.polynomialCoordinates_unique",
+      "NodeSectionFactorization.PolynomialModel.polynomialBasis_zero",
+      "NodeSectionFactorization.PolynomialModel.polynomialBasis_one",
+      "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_tower",
+      "NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_repr"
     ],
     "expressedTests": [
       "NodeForm.characteristicTwo",
@@ -10759,7 +11383,16 @@
       "NodeSectionFactorization.PolynomialModel.idealCoefficientMap.nonflat",
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientIdentity",
       "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.coefficientProjection",
-      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo"
+      "NodeSectionFactorization.PolynomialModel.dualCorrectionMap.nonflatCharacteristicTwo",
+      "NodeSectionFactorization.PolynomialModel.coordinatesZeroRing",
+      "NodeSectionFactorization.PolynomialModel.coordinatesCharacteristicTwoRoot",
+      "NodeSectionFactorization.PolynomialModel.coordinatesNonreducedPolynomial",
+      "NodeSectionFactorization.PolynomialModel.basisConstant",
+      "NodeSectionFactorization.PolynomialModel.basisRoot",
+      "NodeSectionFactorization.PolynomialModel.basisZeroRing",
+      "NodeSectionFactorization.PolynomialModel.monomialBasisUntruncated",
+      "NodeSectionFactorization.PolynomialModel.monomialBasisNonreduced",
+      "NodeSectionFactorization.PolynomialModel.monomialBasisZeroRing"
     ],
     "omissions": [
       {
@@ -12665,5 +13298,84 @@
       "sources": "Fresh Knudsen parsed scope above; earlier Ile and other inventories remain attributed predecessor evidence."
     },
     "remaining": "Normal dual coordinates/residue and specified cokernels; arbitrary coefficient-module exactness, natural Hom exchange, bidual and Ext vanishings; canonical tensor-dual comparisons; two-base completion and relative stable-reflexivity; actual nodal-family/sheaf/finite-presentation interfaces and all MC.0–MC.7 geometric/positivity/Picard/consumer targets."
+  },
+  "polynomialCoordinateContinuation": {
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "issue": 3342,
+    "claimComment": 5961224111,
+    "botConfirmation": 5961226983,
+    "base": "fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e",
+    "status": "partial checkpoint",
+    "addedNodes": [
+      "StableReductionPartII:MC.2/polynomial-degree-two",
+      "StableReductionPartII:MC.2/polynomial-coordinate-equivalence",
+      "StableReductionPartII:MC.2/polynomial-coordinate-inverse",
+      "StableReductionPartII:MC.2/polynomial-coordinate-reconstruction",
+      "StableReductionPartII:MC.2/polynomial-coordinate-uniqueness",
+      "StableReductionPartII:MC.2/polynomial-two-term-basis",
+      "StableReductionPartII:MC.2/polynomial-two-term-basis-values",
+      "StableReductionPartII:MC.2/polynomial-monomial-basis",
+      "StableReductionPartII:MC.2/polynomial-monomial-basis-values"
+    ],
+    "preservedStatements": 136,
+    "unchangedNodeObjects": 135,
+    "stageClosure": "All eight stages remain partial; all implementation statuses unchecked. The reserved key and its six consumers are preserved.",
+    "sourceScope": "Fresh Knudsen arXiv:1106.1588v2 §3 complete setup, Proposition 3.1 and Corollary 3.2 with their proofs. Earlier full-paper and Appendix readings remain predecessor evidence; no fresh whole-paper claim.",
+    "actualProof": {
+      "source": "858e6ba1dbe2b178fe677b2cc4871e497305a5270c70d9e3f7c4edd594e538e4",
+      "diagnostics": "19c5d56a1d77c5d06f76ef18c576b11d4fb5067a27e3dc96e73fd8f283aaa35f",
+      "lines": 977,
+      "examples": 31,
+      "audits": 70,
+      "seconds": 9.51,
+      "peakRSSKiB": 2918712,
+      "availableGiB": 58
+    },
+    "fullSuggested": {
+      "source": "0e2e86e9d620038198f760a9bf201f28162009b7e93e75d68798cfd17ff4adb0",
+      "diagnostics": "2792965aac672d3b664f24f39ae640f7e99861fd16cc8ed52ecd248d605e5661",
+      "errors": 0,
+      "admissions": 227,
+      "otherWarnings": 0,
+      "examples": 93,
+      "lines": 1780,
+      "seconds": 15.91,
+      "peakRSSKiB": 2970560,
+      "availableGiB": 58
+    },
+    "assembler": {
+      "actualAssembler": true,
+      "declarations": 145,
+      "planets": 35,
+      "ownSkippedLinks": [],
+      "stageDAG": {
+        "vertices": 3050,
+        "edges": 8750,
+        "acyclic": true
+      },
+      "ownDeclarationDAG": {
+        "vertices": 145,
+        "edges": 331,
+        "acyclic": true
+      },
+      "stagesAndReachableDeclarations": {
+        "vertices": 3160,
+        "edges": 9340,
+        "acyclic": true
+      },
+      "reachableDeclarations": 145,
+      "externalDeclarations": [],
+      "unresolved": [],
+      "requiredStagePairsReachable": 81,
+      "stageEdgesUnchanged": true,
+      "otherSkipsMatchOriginal": true,
+      "unchangedNodeObjects": 135,
+      "scriptSha256": "07c489300c0ae7e4c32dc6546ba2a88b10a6e28d9c4ca60da25491a3dad35f70"
+    },
+    "signatureParity": {
+      "publicDeclarations": 17,
+      "actualArchiveEqualsCheckedSource": true
+    }
   }
 }

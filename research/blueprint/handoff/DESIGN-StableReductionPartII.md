@@ -1,3 +1,184 @@
+# Current continuation: polynomial coordinates — Codex codex-J6LwjP
+
+Refs #3342. Claim comment 5961224111 was confirmed by bot comment 5961226983. Base fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e. This current receipt supersedes the historical numerical receipts below, which remain predecessor evidence.
+
+145 nodes: 8 definitions, 39 constructions, 35 lemmas, 62 theorems and 1 application. There are 170 distinct API items, 154 definition/construction tests (156 tests on all nodes), 35 planets, 87 baseline declarations, 14 gaps and 135 requests. All eight stages remain partial, with zero closed stages and every implementation status unchecked. Nine native polynomial-coordinate/basis nodes and nine examples were added. All 136 inherited statements survive; 135 inherited whole node objects are unchanged. Only the existing polynomial-normal-form proof route/API was refined. Its hypotheses and source contracts are preserved. The reserved key and six consumer inventories, source findings, version records and supplier requests are preserved.
+
+The polynomial coordinate equivalence, ordered basis (1,u), untruncated monomial basis, reconstruction, uniqueness and both freeness statements have actual native proof checks. The nine declaration nodes specialize existing Mathlib constructions; no general basis, quotient, module or stack theory is replanned. Natural degree two is used only for nontrivial A; the zero-ring branch uses the inherited module structures and subsingleton elimination. The checked suggested file is a plan with admitted outer bodies under PROTOCOL §13. Neither artifact certifies the geometric moduli construction.
+
+## Reads and limits
+
+Freshly read: whole confirmed issue, whole latest handoff, all 136 inherited statements, eight own stage descriptions, reserved moduli key record and all six consumer requirements; full relevant reviewed AUDIT-02 parent layers 1 and 3 and their duplicate records. No own Part II audit row was found. The full upstream StableReduction document was read earlier in this continuing worker session and remains a supplier specification. The inherited nineteen Yuan and two DGH route inventories are preserved, with no fresh whole-paper reading attributed. No tracked blueprint link JSON mentions this owner.
+
+Knudsen arXiv:1106.1588v2 §3 setup, Proposition 3.1, Corollary 3.2 and their proofs were freshly read at the public HTML rendering. Earlier full-paper/Appendix readings retain their authorship and scope below. The new arguments do not invoke the cited relative stable-reflexivity criterion or extend it beyond its source hypotheses. Exact ambient statements read at the pinned Mathlib include monic AdjoinRoot power bases, finite basis coordinate/reindex constructors, Fin 2 function/product and subsingleton equivalences, polynomial monomial bases, scalar-tower basis formulas and basis-to-free conversion. All new baseline references resolve in the pinned declaration index.
+
+## Checks
+
+Indexed packet checker: zero errors and warnings. Actual intake: pass. Whitespace and allowed-path checks: pass. The full 1780-line submitted Mathlib-only suggested file elaborates at the existing pinned build: exit 0, zero errors, 227 admitted-proof warnings and no other warnings, 93 examples, 15.91 seconds, peak RSS 2,970,560 KiB, 58 GiB available. No Lake setup, dependency update, cache download, library build or language server was used. Tau Ceti is a pinned input but the sketch imports no Tau Ceti module.
+
+The separate complete 977-line native source elaborates with exit 0, zero errors, admissions or warnings, 31 examples (22 inherited and nine new), 70 axiom audits, 9.51 seconds, peak RSS 2,918,712 KiB, 58 GiB available. No printed axiom list contains an admitted-proof axiom; only standard kernel axioms appear where needed. Seventeen public actual declaration headers match their submitted signatures after whitespace, lemma/theorem and local F/w notation normalization; two nontrivial-branch helper declarations remain internal to the proof archive.
+
+The real read-only assembler injects this packet and its roadmap definition before decomposition trimming, and compares with the base packet. Stage DAG: 3,050 vertices/8,750 edges; own declaration DAG: 145/331; scoped stage/declaration DAG: 3,160/9,340. All are acyclic. All 81 required stage pairs are reachable; original stage edges and unrelated skips match the control. No own skipped links or unresolved references. The combined diagnostic graph contains parent-stage→declaration context edges, prerequisite edges and supplier-request edges; these context edges are not claimed as mathematical proofs or realises links. This is a scoped check, not an audit of unrelated declaration plans.
+
+## Durable proof reconstruction
+
+The full actual proof is archived in the allowed suggested file at immutable revision [8e9f1da10e6b5e5e426b45c441821aee2aaa10b9](https://github.com/CBirkbeck/tauceti-explorer/blob/8e9f1da10e6b5e5e426b45c441821aee2aaa10b9/research/blueprint/suggested/StableReductionPartII.lean). The predecessor coefficient-naturality source was recovered from immutable 29e68bdcb7165310e94bcdb11882d057685efa13, marker BEGIN ARCHIVED CHECKED COEFFICIENT NATURALITY, and its SHA-256 dbf4374d619b337b19727079fa52f712582a2e8dc921d0dd027b820f3c0a9ff8 verified. That entire native source is included in the new archive, followed by the actual coordinate/basis proof, nine tests and nineteen additional axiom audits.
+
+Use your own disk scratch. From an already-built exact pinned Mathlib environment and with at least 20 GiB available, extract and run a single Lean process on the resulting source. Keep its final newline. Do not set up or build a new environment.
+
+```python
+from pathlib import Path
+import subprocess, hashlib
+archive = "8e9f1da10e6b5e5e426b45c441821aee2aaa10b9"
+path = "research/blueprint/suggested/StableReductionPartII.lean"
+blob = subprocess.check_output(["git", "show", archive + ":" + path], text=True)
+source = blob.split("BEGIN ARCHIVED CHECKED POLYNOMIAL COORDINATES\n", 1)[1]
+source = source.split("END ARCHIVED CHECKED POLYNOMIAL COORDINATES\n", 1)[0]
+assert hashlib.sha256(source.encode()).hexdigest() == "858e6ba1dbe2b178fe677b2cc4871e497305a5270c70d9e3f7c4edd594e538e4"
+Path("polynomial-coordinates.lean").write_text(source)
+```
+
+Actual source SHA-256: 858e6ba1dbe2b178fe677b2cc4871e497305a5270c70d9e3f7c4edd594e538e4.
+Actual diagnostics SHA-256: 19c5d56a1d77c5d06f76ef18c576b11d4fb5067a27e3dc96e73fd8f283aaa35f.
+Full submitted source SHA-256: 0e2e86e9d620038198f760a9bf201f28162009b7e93e75d68798cfd17ff4adb0.
+Full sketch normalized diagnostics SHA-256: 2792965aac672d3b664f24f39ae640f7e99861fd16cc8ed52ecd248d605e5661.
+
+Diagnostic hashes exclude the timing wrapper, strip leading/trailing whitespace and retain one final newline; sketch diagnostics normalize the source filename to StableReductionPartII.lean. Timing observations are excluded. The assembler reproduction script follows; run from the repository root, save it in your own disk scratch. It reads the immutable control revision and writes only its receipt beside itself.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="StableReductionPartII"
+packetpath="research/blueprint/packets/"+rid+".json"
+roadmappath="research/blueprint/roadmaps/"+rid+".json"
+base="fcbc9decd8e2b4e2cb51d562fc3de0f023d2031e"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if v.get("roadmapId")!=rid]+[(rid,packet)],
+   {**ds,rid:"research/blueprint/readmes/"+rid+".md"},
+   [x for x in defs if x.get("id")!=rid]+[definition])
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+unresolved=[]
+for v in used:
+ for d in allnodes[v].get("prerequisites",[]):
+  if d not in used and d not in stageids and not d.startswith("mathlib:") and not (d.startswith("tauceti:") and "TauCetiRoadmap/" not in d):unresolved.append((v,d))
+assert not unresolved,unresolved
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+assert not missing,missing
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==len(own)
+assert ar[rid]["blueprint"]["planets"]==35
+assert not ar[rid]["blueprint"]["skippedLinks"]
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("requests","gaps","sources","sourceIssues","sourceVersions","consumerCoverage","keyDefinitionCoverage","restructure","upstreamImportEncoding"):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","acceptance","sources","implementationStatus","uses"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(t in own[id].get("api",[]) for t in n.get("api",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/"research/blueprint/suggested/StableReductionPartII.lean").read_text()
+for node in p["nodes"]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,roadmappath,"research/blueprint/readmes/"+rid+".md","research/blueprint/suggested/"+rid+".lean","research/blueprint/handoff/DESIGN-"+rid+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":len(own),"planets":35,"ownSkippedLinks":[],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),"unresolved":unresolved,
+ "requiredStagePairsReachable":len(pairs),"stageEdgesUnchanged":True,
+ "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+Script SHA-256: 07c489300c0ae7e4c32dc6546ba2a88b10a6e28d9c4ca60da25491a3dad35f70.
+
+## Exact continuation boundary
+
+Complete dual coordinates/residue are still unproved in the native model. Next establish them using these ordered polynomial coordinates and the already characterized canonical generator. Preserve the specified ideal and dual cokernel maps, including the negative second generator and transpose complexes. Arbitrary coefficient-module exactness, Hom exchange, bidual evaluation, both higher Ext vanishings and canonical tensor-dual comparisons remain open. The two-base completion/relative stable-reflexivity comparison, pointed completed-local hull, actual family/sheaf interfaces, finite-presentation approximation and all MC.0–MC.7 geometric, positivity, level, determinant, Torelli and Picard targets remain open. The fourteen gap and 135 request records below and in the packet are retained exactly.
+
+## Historical coefficient-naturality and generator handoffs
+
 # DESIGN-StableReductionPartII — native coefficient naturality checkpoint
 
 Worker: Codex — codex-a71f92. Refs #3342. Date: 2026-10-02.
