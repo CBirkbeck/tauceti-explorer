@@ -1605,7 +1605,42 @@ theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
     (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
     Presheaf.IsSheaf J (presheaf F) := by sorry
 
-variable (J : GrothendieckTopology C) [hGerbe : IsGerbe F J]
+variable (J : GrothendieckTopology C)
+
+/-- Specific descent of evaluations, using the existing fully faithful descent functor. -/
+theorem eval_eq_of_cover [F.IsPrestack J] {U V : C} (a : V ⟶ U)
+    (x : F.obj (.mk (op V))) (s t : IntrinsicBandSection F U)
+    (R : Sieve V) (hR : R ∈ J V)
+    (h : ∀ (W : C) (g : W ⟶ V), R g →
+      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s =
+        eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) t) :
+    eval F a x s = eval F a x t := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map (eval F a x s).hom =
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (eval F a x t).hom
+  have he := h i.obj.left i.obj.hom i.property
+  rw [← eval_restrict, ← eval_restrict] at he
+  exact congrArg Iso.hom he
+
+/-- Joint injectivity on an actual covering sieve, not on one arbitrary arrow. -/
+theorem ext_of_cover [F.IsPrestack J] {U : C} (s t : IntrinsicBandSection F U)
+    (R : Sieve U) (hR : R ∈ J U)
+    (h : ∀ (V : C) (f : V ⟶ U), R f → restrict F f s = restrict F f t) :
+    s = t := by
+  apply ext
+  intro V a x
+  have he := eval_eq_of_cover F J a x s t (Sieve.pullback a R)
+    (J.pullback_stable a hR) (by
+      intro W g hg
+      have he := congrArg (eval F (𝟙 W) ((F.map g.op.toLoc).toFunctor.obj x))
+        (h W (g ≫ a) hg)
+      simpa only [eval_reindex, Category.id_comp] using he)
+  exact congrArg Iso.hom he
+
+variable [hGerbe : IsGerbe F J]
 
 include hGerbe in
 /-- Concrete sheaf packaging; proof source is the preceding Hom-descent leaf. -/
@@ -1616,7 +1651,25 @@ noncomputable def sheaf : Sheaf J AddCommGrpCat.{max u v u' v'} where
 include hGerbe in
 /-- R09.4/band-center-evaluation-injective. -/
 theorem eval_injective (U : C) (x : F.obj (.mk (op U))) :
-    Function.Injective (eval F (𝟙 U) x) := by sorry
+    Function.Injective (eval F (𝟙 U) x) := by
+  intro s t h
+  apply ext
+  intro V a y
+  have hp : eval F a ((F.map a.op.toLoc).toFunctor.obj x) s =
+      eval F a ((F.map a.op.toLoc).toFunctor.obj x) t := by
+    have he := congrArg ((F.map a.op.toLoc).toFunctor.mapAut x) h
+    simpa only [eval_restrict, Category.comp_id] using he
+  obtain ⟨R, hR, hloc⟩ := IsGerbe.locallyIsomorphic (F := F) (J := J)
+    V ((F.map a.op.toLoc).toFunctor.obj x) y
+  have hy := eval_eq_of_cover F J a y s t R hR (by
+    intro W g hg
+    obtain ⟨e⟩ := hloc g hg
+    have he := congrArg ((F.map g.op.toLoc).toFunctor.mapAut
+      ((F.map a.op.toLoc).toFunctor.obj x)) hp
+    rw [eval_restrict, eval_restrict] at he
+    rw [← eval_conjugation F (g ≫ a) e s, ← eval_conjugation F (g ≫ a) e t]
+    exact congrArg (Aut.autMulEquivOfIso e) he)
+  exact congrArg Iso.hom hy
 
 variable (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
 
@@ -1767,6 +1820,22 @@ theorem fromBanding_restrict {U V : C} (f : V ⟶ U)
   exact congrArg (fun z ↦ (b.autEquiv W x (Multiplicative.ofAdd z)).hom)
     (congrArg (fun h ↦ h a.toAdd) (A.obj.map_comp f.op g.op))
 
+/-- Local nonemptiness detects the fixed-band coefficient, even if F(U) is empty. -/
+theorem fromBanding_injective (U : C) :
+    Function.Injective (fromBanding F J A b U) := by
+  intro a a' he
+  change a.toAdd = a'.toAdd
+  have hs := (isSheaf_iff_isSheaf_of_type J _).1
+    (Presheaf.isSheaf_comp_of_isSheaf J A.obj
+      (forget AddCommGrpCat.{max u v u' v'}) A.property)
+  obtain ⟨R, hR, hloc⟩ := IsGerbe.locallyNonempty (F := F) (J := J) U
+  apply (hs.isSeparated R hR).ext
+  intro V f hf
+  obtain ⟨x⟩ := hloc f hf
+  have hh := congrArg (eval F f x) he
+  rw [fromBanding_eval, fromBanding_eval] at hh
+  exact congrArg Multiplicative.toAdd ((b.autEquiv V x).injective hh)
+
 /-- R09.4/band-center-from-banding-ext: determine the actual comparison section. -/
 theorem fromBanding_ext (U : C) (a : Multiplicative (A.obj.obj (op U)))
     (s : IntrinsicBandSection F U)
@@ -1845,7 +1914,9 @@ example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b *
 
 -- BandCenterTests.identity, conditional on the displayed trivial inertia.
 example (U : C) (x : F.obj (.mk (op U))) (h : Subsingleton (Aut x)) :
-    Subsingleton (IntrinsicBandSection F U) := by sorry
+    Subsingleton (IntrinsicBandSection F U) := by
+  let := h
+  exact (eval_injective F J U x).subsingleton
 
 -- BandEvaluationTests.noncentral, with the actual transposition coordinate.
 example (U : C) (x : F.obj (.mk (op U)))
@@ -1975,6 +2046,41 @@ example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
       ((fromBandingPresheaf F J A b).app (op V) (A.obj.map f.op a)).toMul :=
   fromBanding_restrict F J A b f (Multiplicative.ofAdd a)
 
+-- BandLocalityTests.cover: true covering-sieve joint injectivity.
+example {U : C} (s t : IntrinsicBandSection F U)
+    (R : Sieve U) (hR : R ∈ J U)
+    (h : ∀ (V : C) (f : V ⟶ U), R f → restrict F f s = restrict F f t) :
+    s = t := ext_of_cover F J s t R hR h
+
+-- BandLocalityTests.nonabelian: no commutativity assumption occurs.
+example (U : C) (x : F.obj (.mk (op U))) (s t : IntrinsicBandSection F U)
+    (h : eval F (𝟙 U) x s = eval F (𝟙 U) x t) : s = t :=
+  eval_injective F J U x h
+
+-- BandCoefficientDetectionTests.noGlobalChoice: no x over U is supplied.
+example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+    (U : C) (a a' : Multiplicative (A.obj.obj (op U)))
+    (h : fromBanding F J A b U a = fromBanding F J A b U a') : a = a' :=
+  fromBanding_injective F J A b U h
+
+-- BandLocalityTests.disconnected: only the finite coordinate consequence.
+-- This is not an elaborated classifying-stack or point-site fixture.
+example : ¬ Function.Injective (fun z : ZMod 3 × ZMod 3 ↦ z.1) := by
+  intro h
+  have he : ((0, 0) : ZMod 3 × ZMod 3) = (0, 1) := h rfl
+  have hn : (0 : ZMod 3) ≠ 1 := by decide
+  exact hn (congrArg Prod.snd he)
+
+-- BandLocalityTests.singleReduction: actual ring reduction is not injective.
+-- This does not assert that this one arrow is a covering sieve.
+example : ¬ Function.Injective
+    (ZMod.castHom (show 2 ∣ 4 from ⟨2, rfl⟩) (ZMod 2)) := by
+  intro h
+  have he := h (by decide :
+    ZMod.castHom (show 2 ∣ 4 from ⟨2, rfl⟩) (ZMod 2) (0 : ZMod 4) =
+      ZMod.castHom (show 2 ∣ 4 from ⟨2, rfl⟩) (ZMod 2) (2 : ZMod 4))
+  exact (by decide : (0 : ZMod 4) ≠ 2) he
+
 end IntrinsicBandTestsRT
 end TauCeti.AlgebraicGeometry
 
@@ -2015,4 +2121,20 @@ BandSheafTests.rootNonneutral: For the gerbe of nth roots of O(1) on P1, the coe
 BandComparisonTests.identity: For the canonical C3 band, c_b sends the labelled generator to the generator section.
 BandComparisonTests.inversion: If the C3 banding is changed by a↦-a, c_b sends1 to2; these two coefficient identifications are distinct. They cannot be quotiented by Aut(C3).
 BandComparisonTests.trivial: The zero coefficient on the terminal gerbe gives the unique section homomorphism.
+-/
+
+/- New fixture omissions, distinct from their checked finite coordinates:
+OMITTED BandLocalityTests.disconnected: On the one-object point site, the
+stack with two disconnected one-object C3 fibre groupoids is not a gerbe;
+its central-section group is C3 x C3, of order 9, and evaluation at the first
+object is the noninjective first projection. The actual point-site/classifying
+stack fixture and its comparison with ZF still require the inherited D0 carrier.
+OMITTED BandLocalityTests.singleReduction: Instantiate the inherited
+three-object C4 -> C2 -> C2 site pseudofunctor with its actual topology,
+identify its compatible section groups, and compare the first restriction
+with ZMod.castHom. The finite reduction example alone does not instantiate
+that site and does not declare its first arrow covering.
+The nonneutral root-gerbe instance of
+BandCoefficientDetectionTests.noGlobalChoice still requires RootGerbe;
+the general injectivity theorem is proved without any object over U.
 -/
