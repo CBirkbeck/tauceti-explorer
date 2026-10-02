@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap.",
+  "summary": "Continuation of the verified prime-filtration baseline, now refining the R03.4 characteristic-zero-point argument into five declaration-sized nodes. The new proof separates nilpotent-uniformizer Artinianness, coefficient injection at a generic prime, an algebraically closed point with the exact kernel, finiteness of its field of values, and the integral local-map assembly. It does not assume flatness, a fixed residue field, or an unproved framed-lifting assertion. The complete local-field interpretation remains a required comparison with its existing owner, not a prerequisite of the algebraic theorem. Earlier baseline records and other-stage worklists are retained; the eight-stage blueprint remains partial. A further continuation adds four R03.3 nodes answering R03.6's requests: the catenary predicate with the Noetherian-local dimension-function criterion (Stacks 0ECF), Cohen–Macaulayness of regular local rings, and freeness of maximal-depth modules over a regular local base (Stacks 00NT, 00O7), with the domain property of regular local rings recorded as a gap. Continuation of 2 October 2026 plans the reserved general Hilbert–Samuel multiplicity once in R03.3, with actual module quotient lengths, cumulative polynomial, intrinsic and ambient normalizations, finite-difference integrality, ideal-power scaling, dimension-normalized additivity and associativity. Its proof leaves and geometric comparisons remain explicit gaps; all nine earlier nodes, source receipts and existing stage coverage are preserved.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -339,6 +339,118 @@
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "Free modules.",
         "checked": "statement read at the pinned commit on 2026-09-28"
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Extended-natural-valued length; no finite-cardinality assumption.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Equality of lengths under scalar restriction along a surjective algebra map.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_finrank",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Over a division ring a finite module has length equal to finrank.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_add_of_exact",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Length additivity for actual injective, surjective, Function.Exact linear maps.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.length_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "An actual linear equivalence preserves module length.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.supportDim",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "Dimension of the prime support in WithBot ℕ∞.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "For finite M, its support dimension equals dim A/Ann(M).",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.supportDim_eq_bot_iff_subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "Zero-module support dimension is bottom.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Module.supportDim_le_ringKrullDim",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
+        "provides": "Module support dimension is at most ambient ring dimension.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Ideal.exists_radical_pow_le_of_fg",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Ideal.lean",
+        "provides": "A power of a finitely generated radical is contained in the ideal.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Submodule.smul_eq_map₂",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Ideal multiplication of a submodule equals the existing lsmul image construction.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Ideal.radical_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "A positive ideal power has the same radical.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Polynomial.eq_of_infinite_eval_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+        "provides": "Polynomial equality from equal evaluations on an infinite set over a domain.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Polynomial.hilbertPoly",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
+        "provides": "Polynomial extraction from the rational formal series p/(1-X)^d, not the general module theorem.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
+        "provides": "For n above numerator degree, rational-series coefficient equals extracted polynomial evaluation.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
+      },
+      {
+        "ref": "mathlib:ENat.toNat",
+        "kind": "def",
+        "module": "Mathlib/Data/ENat/Basic.lean",
+        "provides": "Conversion sends infinity to zero; a finiteness proof is required for quotient-length interpretation.",
+        "checked": "Statement and surrounding parameters read at the exact Mathlib pin on 2026-10-02; historical baseline records retained."
       }
     ]
   },
@@ -534,6 +646,103 @@
         "§10.106 Regular local rings: statements of Lemmas 10.106.1–10.106.8 (00NO–00NU, 07DX); proofs of 10.106.3 (00NQ) and 10.106.6 (00NT)",
         "Proposition 10.110.1 (00O7) with its proof citing 00NT, 00NG and 065T; Lemma 10.104.9 (00NG)",
         "§10.119, tag 02JE: Nagata's non-catenary Noetherian local ring A[x]_{m'} and its maximal chain of length 2 in dimension 3"
+      ]
+    },
+    {
+      "id": "STACKS-HS",
+      "title": "Noetherian local rings and adic Hilbert functions",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00K4",
+      "sha256": "e3d86d2fc7e6a9df48e73e4e8d12629cdb08f9e0fb9d15e35472d7bc21629932",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "§10.59, all mathematical definitions, statements and proofs; graded φ and cumulative χ conventions distinguished."
+      ]
+    },
+    {
+      "id": "STACKS-GRADED-HS",
+      "title": "Numerical polynomiality for finite standard-graded modules",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00K1",
+      "sha256": "f421fbc2dc074fc0ae392c392f06c6223f60740703e9ccb28d6bd18c5d57afc3",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Proposition 10.58.7, complete proof; underlying K0/graded infrastructure not certified."
+      ]
+    },
+    {
+      "id": "STACKS-FINITE-LENGTH",
+      "title": "Finite length of modules annihilated by a maximal-ideal power",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00J0",
+      "sha256": "18165b061f5ce7acafb49b5ca9f1ac2adeda94f032d2abf157c691aa337b336e",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Lemma 10.52.8, statement and finite-filtration proof."
+      ]
+    },
+    {
+      "id": "STACKS-ANTIDIFFERENCE",
+      "title": "Eventual numerical polynomials from differences",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00JZ",
+      "sha256": "9e111a9d48c6a3bb8ede444e6f7e92c4b4bd0ec28898427bea06b1da4e6dccf8",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Lemma 10.58.5, complete binomial antidifference proof."
+      ]
+    },
+    {
+      "id": "STACKS-SUPPORT-HS",
+      "title": "Hilbert–Samuel degree and support dimension",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/00L8",
+      "sha256": "92a56c6a8b0afd5e4f775892d094d05557a7e0a10585323f8b0dce84f3b95984",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Lemma 10.62.6, complete proof; its referenced 10.60.9 ring-dimension proof is not claimed read."
+      ]
+    },
+    {
+      "id": "STACKS-MULT",
+      "title": "Algebraic multiplicities",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML read and downloaded 2026-10-02",
+      "url": "https://stacks.math.columbia.edu/tag/0AZU",
+      "sha256": "fa26c4ba52a27c097c6bfc6ac9f8f2c2053ceacabd044bd3426d8ae8d8440e14",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "§43.15 Definitions 1, Lemmas 2–4 and proofs; Theorem 5 proof and Remark 6 inspected but not decomposed."
+      ]
+    },
+    {
+      "id": "IKM-MULT-USE",
+      "title": "Congruence modules and the Wiles-Lenstra-Diamond numerical criterion in higher codimensions",
+      "authors": "Srikanth B. Iyengar, Chandrashekhar B. Khare, Jeffrey Manning",
+      "edition": "arXiv:2206.08212v3, 29 September 2024, 84-page preprint, not a publisher-edition collation",
+      "url": "https://arxiv.org/pdf/2206.08212v3",
+      "sha256": "8f061724a1800af6319492108835f4db0fd640b93750c213fd1bb313bb8c9d7b",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Theorem 9.2 and its multiplicity paragraph in the proof, printed pp. 38–40. Surrounding §9 definitions/proofs inspected; not the entire paper or a new verification of its congruence criterion."
+      ],
+      "accessNote": "The manuscript uses additivity and positivity of multiplicity of maximal Cohen–Macaulay modules. The ambient convention is required by the maintained key brief; these passages do not independently distinguish conventions on lower-dimensional modules."
+    },
+    {
+      "id": "HUNEKE-YAO-UNMIXED",
+      "title": "Unmixed local rings with minimal Hilbert-Kunz multiplicity are regular",
+      "authors": "Craig Huneke and Yongwei Yao",
+      "edition": "Five-page author copy served by GSU, publisher metadata is a template; not a version-of-record verification",
+      "url": "https://math.gsu.edu/yyao/eprint/regular.pdf",
+      "sha256": "a3cc1a784cd4a6dce3fda7a3f6d666c500c66e75987bb1f0d9e783c71e643c7f",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Introduction p. 2: definition of unmixedness using every associated prime of the completion, and quoted Samuel–Nagata Theorem 1.4. Nagata's own proof not read or certified."
       ]
     }
   ],
@@ -1079,6 +1288,858 @@
         "namespace": "Module"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Hilbert–Samuel quotient-length function",
+      "kind": "definition",
+      "statement": "For any commutative ring A, module M and ideal q, define H(q,M,n)=length_A(M/(q^(n+1)·M)) in ℕ∞. Here q^(n+1)·M is the existing ideal action on the top submodule. For the local Noetherian finite-module regime, finite-adic-quotient-length proves that these values are finite; only then read them in ℕ or ℚ.",
+      "hypotheses": [
+        "A is a commutative ring and M an A-module for this raw extended-natural-valued definition; q is any ideal."
+      ],
+      "proofSteps": [
+        "Use the actual quotient of M by (q^(n+1))·top, with its induced A action. Use Module.length directly, not the number of elements, a residue-field dimension of the whole quotient, or an unproved length-toNat conversion."
+      ],
+      "acceptance": [
+        "At n=0 take M/qM, not the zero quotient M/M.",
+        "A finite quotient over an infinite residue field can still have finite length."
+      ],
+      "prerequisites": [
+        "mathlib:Module.length",
+        "mathlib:Submodule.smul_eq_map₂"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59 opening formulas and ideal-of-definition variant",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.function_eq_length",
+          "role": "characterisation",
+          "statement": "H(q,M,n) is exactly the A-length of M/q^(n+1)M."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_zero",
+          "role": "simp",
+          "statement": "For a zero module H(q,0,n)=0 for every n and q."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_congr",
+          "role": "compatibility",
+          "statement": "An A-linear equivalence M≃N induces equality of quotient-length functions for the same q."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_top",
+          "role": "simp",
+          "statement": "For q=A the raw function is zero; the ideal-of-definition hypotheses reject q=A over a nontrivial local ring."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTest.function_field_rank",
+          "kind": "computation",
+          "statement": "For a field k, q=0 and M=k^r, H(q,M,n)=r for all n, including n=0 and r=0."
+        },
+        {
+          "name": "HilbertSamuelTest.function_dvr_power",
+          "kind": "computation",
+          "statement": "For a DVR O, q=m^s, s>0, and M=O, H(q,M,n)=s(n+1)."
+        },
+        {
+          "name": "HilbertSamuelTest.function_infinite",
+          "kind": "non-example",
+          "statement": "For A=ℤ, q=0 and M=ℤ, the raw length is ∞ for all n. Applying ENat.toNat would misleadingly give zero; do not export a polynomial here."
+        },
+        {
+          "name": "HilbertSamuelTest.function_zero",
+          "kind": "degenerate",
+          "statement": "For the zero A-module and any ideal q the function is identically zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59 and 43.15",
+          "how": "Build finite adic quotient lengths and the eventual polynomial before extracting multiplicity."
+        },
+        {
+          "where": "PAPER-IYENGAR-KHARE-MANNING-24/multiplicity; arXiv v3, Theorem 9.2 and its proof, printed pp. 38–40",
+          "how": "The free-summand argument uses additivity and positivity for maximal Cohen–Macaulay modules; its other congruence and depth inputs are not proved by multiplicity."
+        },
+        {
+          "where": "PAPER-CARO-PASTEN-23/multiplicity, maintained key brief",
+          "how": "The geometric consumer specializes the general module construction to O_C,x; the curve-order comparison remains a separate open application, not the definition."
+        }
+      ],
+      "planet": {
+        "name": "Hilbert–Samuel function"
+      },
+      "declaration": "TauCeti.HilbertSamuel.function"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite length under maximal-ideal-power annihilation",
+      "kind": "lemma",
+      "statement": "For a Noetherian local A and finite A-module N, if m^r·N=0 for some r:ℕ, then length_A(N)≠∞, including r=0 and N=0.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring, N a finite A-module.",
+        "There is r:ℕ such that m^r·top_N=bottom."
+      ],
+      "proofSteps": [
+        "Filter N by m^iN for 0≤i≤r. Each subquotient is finite, because A is Noetherian, and is annihilated by m.",
+        "Use the induced A/m scalar action on each subquotient. Module.length_eq_of_surjective compares its A-length with its residue-field length, and Module.length_eq_finrank makes the latter a finite natural number.",
+        "Induct along the finite filtration using Module.length_eq_add_of_exact on the actual inclusion/projection exact sequences; do not assume they split. For r=0 the annihilation hypothesis already makes N zero."
+      ],
+      "acceptance": [
+        "The module k[ε]/(ε²) has length 2 over itself although the filtration need not split.",
+        "Without finite generation an infinite direct sum of k has mN=0 but infinite length."
+      ],
+      "prerequisites": [
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:Module.length_eq_finrank",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-FINITE-LENGTH",
+          "locator": "Lemma 10.52.8, statement and proof",
+          "match": "Maximal-ideal-power annihilation and finite generation give the finite filtration used here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.finite_length_of_maximal_power"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Finite adic quotient lengths",
+      "kind": "lemma",
+      "statement": "Under the common hypotheses, H(q,M,n)≠∞ for every n:ℕ.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Use Ideal.exists_radical_pow_le_of_fg and Noetherianity to choose r with m^r⊆q. If needed increase r to a positive integer; ideal powers decrease.",
+        "The quotient N=M/q^(n+1)M is finite and is annihilated by m^(r(n+1)), since m^(r(n+1))⊆q^(n+1). Apply finite-length-of-maximal-power-annihilation.",
+        "This supplies the necessary finiteness witness before H.toNat is interpreted as the genuine length."
+      ],
+      "acceptance": [
+        "For a field and q=0 the lengths of finite-dimensional modules are finite.",
+        "For k[[x,y]], q=(x) is rejected: its radical is not m, and A/q^(n+1) has infinite length."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+        "mathlib:Ideal.exists_radical_pow_le_of_fg",
+        "mathlib:ENat.toNat"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "§10.59, immediately after Definition 10.59.1",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_ne_top"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Existence and uniqueness of the cumulative polynomial",
+      "kind": "theorem",
+      "statement": "Under the common hypotheses there is exactly one P∈ℚ[T] such that P(n)=H(q,M,n).toNat for all n≥N for some N:ℕ. The polynomial interpolates the cumulative function, not the degree-n graded piece.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "The associated-graded bridge gap supplies gr_q(A), gr_q(M), Noetherianity, generation of the ring in degree one, finite generation of the graded module, and the coefficient lengths φ(n)=length(q^nM/q^(n+1)M). These are genuine missing module-to-series inputs, not supplied by Polynomial.hilbertPoly.",
+        "The graded numerical-polynomial theorem gap follows the inspected induction of Stacks 10.58.7: isolate the largest x-power-torsion submodule, terminate its nilpotent filtration, then use the degree-one multiplication exact sequence on the torsion-free quotient. Finite differences reconstruct the coefficient polynomial.",
+        "The cumulative-sum gap supplies H(n)=Σ_{i=0}^n φ(i) using the quotient filtration and length exactness. Apply the binomial antidifference of Stacks 10.58.5, retaining the constant contributed by the initial segment.",
+        "Uniqueness uses Polynomial.eq_of_infinite_eval_eq on the infinite tail of distinct rational natural-number casts. Finite-adic-quotient-length validates the conversion of every eventual length to ℚ."
+      ],
+      "acceptance": [
+        "For O a DVR and q=m, P=T+1, not T and not the constant 1.",
+        "For the embedded-prime example P=T+2 agrees only for n≥1; P(0)=2 is not the actual H(0)=1."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "mathlib:Polynomial.eq_of_infinite_eval_eq",
+        "mathlib:Polynomial.hilbertPoly",
+        "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5; compare Definition 10.59.6",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        },
+        {
+          "sourceId": "STACKS-GRADED-HS",
+          "locator": "Proposition 10.58.7, complete proof",
+          "match": "The proof is inspected but its graded-module hypotheses and induction interfaces still require the named gaps."
+        },
+        {
+          "sourceId": "STACKS-ANTIDIFFERENCE",
+          "locator": "Lemma 10.58.5, complete proof",
+          "match": "The initial constant survives summation; this is not the assertion that the polynomial vanishes at zero."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.existsUnique_polynomial"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Cumulative Hilbert–Samuel polynomial",
+      "kind": "construction",
+      "statement": "For a Noetherian local A, ideal q with radical q=m and finite M, define P(q,M) to be the unique polynomial of eventual-hilbert-samuel-polynomial. Its coefficient field is ℚ. It is chosen from the theorem on the actual quotient lengths, not accepted as extra data supplied by a caller.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Choose the polynomial from eventual-hilbert-samuel-polynomial; uniqueness makes the choice independent of the threshold and of every existence witness.",
+        "The evaluation API is an eventual assertion with a threshold; it is not an equality for every n. Polynomial.degree returns −∞ for the zero polynomial and is retained in the zero-module case."
+      ],
+      "acceptance": [
+        "For finite length M the eventual polynomial is the constant length M.",
+        "The zero polynomial has degree −∞, not the support dimension zero."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Proposition 10.59.5 and cumulative function in the opening formulas",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.polynomial_eventually",
+          "role": "characterisation",
+          "statement": "There is N with P(q,M).eval(n)=H(q,M,n).toNat for all n≥N."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.polynomial_unique",
+          "role": "extensionality",
+          "statement": "Any Q∈ℚ[T] eventually evaluating to the same quotient lengths equals P(q,M)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.polynomial_zero",
+          "role": "simp",
+          "statement": "For a zero module P(q,0)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.polynomial_congr",
+          "role": "compatibility",
+          "statement": "An A-linear equivalence M≃N gives P(q,M)=P(q,N), by the quotient comparison and uniqueness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTest.polynomial_field",
+          "kind": "computation",
+          "statement": "For q=0 on a field and M=k^r, P=C(r)."
+        },
+        {
+          "name": "HilbertSamuelTest.polynomial_dvr",
+          "kind": "computation",
+          "statement": "For q=m^s on a DVR, s>0, P=C(s)(T+1)."
+        },
+        {
+          "name": "HilbertSamuelTest.polynomial_embedded",
+          "kind": "computation",
+          "statement": "For A=k[[x,y]]/(xy,y²), q=m, P=T+2 while H(0)=1; an all-n evaluation API fails."
+        },
+        {
+          "name": "HilbertSamuelTest.polynomial_zero",
+          "kind": "degenerate",
+          "statement": "For a zero module P=0 and polynomial degree = −∞."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59 and 43.15",
+          "how": "Build finite adic quotient lengths and the eventual polynomial before extracting multiplicity."
+        },
+        {
+          "where": "PAPER-IYENGAR-KHARE-MANNING-24/multiplicity; arXiv v3, Theorem 9.2 and its proof, printed pp. 38–40",
+          "how": "The free-summand argument uses additivity and positivity for maximal Cohen–Macaulay modules; its other congruence and depth inputs are not proved by multiplicity."
+        },
+        {
+          "where": "PAPER-CARO-PASTEN-23/multiplicity, maintained key brief",
+          "how": "The geometric consumer specializes the general module construction to O_C,x; the curve-order comparison remains a separate open application, not the definition."
+        }
+      ],
+      "planet": {
+        "name": "Hilbert–Samuel polynomial"
+      },
+      "declaration": "TauCeti.HilbertSamuel.polynomial"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Polynomial degree equals support dimension",
+      "kind": "lemma",
+      "statement": "For a nonzero finite M and radical q=m, P(q,M)≠0 and the natural degree d of P satisfies Module.supportDim A M=d (in WithBot ℕ∞). For M=0, P=0 and both polynomial degree and support dimension are −∞; no artificial dimension-zero convention is imposed.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "For q=m the dimension bridge gap supplies the exact-sequence leading-degree comparison of Stacks 10.59.10 and the local-ring degree/dimension theorem 10.60.9. Apply the existing prime-filtration theorem, not a new filtration construction.",
+        "In a prime filtration, degree equals the maximum degree of its factors and support is the union of their closed supports. Stacks 10.62.6 identifies these maxima. Module.supportDim is the existing dimension carrier, and Module.supportDim_eq_ringKrullDim_quotient_annihilator pins its convention.",
+        "For another ideal of definition q, compare powers of q and m as in Stacks 10.59.4 and 10.59.7; polynomial growth in both directions gives the same degree. Nakayama prevents a nonzero finite M from giving a zero eventual polynomial.",
+        "Use Module.supportDim_eq_bot_iff_subsingleton for the zero branch, not natDegree(0)=0 as a dimension assertion."
+      ],
+      "acceptance": [
+        "For a DVR O and M=κ(O), degree is zero although dim O=1.",
+        "For M=0 keep bottom support dimension."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "mathlib:IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime",
+        "mathlib:Module.supportDim",
+        "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
+        "mathlib:Module.supportDim_eq_bot_iff_subsingleton"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-SUPPORT-HS",
+          "locator": "Lemma 10.62.6, proof",
+          "match": "This source is read; the named ring-dimension and exact-sequence inputs have not been decomposed or closed here."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Lemmas 10.59.4, 10.59.7 and Definition 10.59.8",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.polynomial_degree"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Factorial top coefficient from finite differences",
+      "kind": "lemma",
+      "statement": "For P∈ℚ[T], d:ℕ with natDegree P≤d, and t∈ℚ, Σ_{i=0}^d (−1)^i binom(d,i)P(t−i)=d!·coeff(P,d). This includes P=0 and the case natDegree P<d.",
+      "hypotheses": [
+        "P is a rational polynomial, d a natural number bounding its natural degree, and t a rational number."
+      ],
+      "proofSteps": [
+        "Induct on the number of backward differences ΔP(T)=P(T)−P(T−1); Pascal's identity gives the binomial expression.",
+        "For positive polynomial degree, Δ lowers degree by one and multiplies the leading coefficient by that degree, by binomial expansion. A constant has zero first difference; the zero polynomial remains zero.",
+        "After d steps obtain d! coeff(P,d). This proof is polynomial algebra only; it does not assume that module lengths themselves are exact-sequence additive at every adic level."
+      ],
+      "acceptance": [
+        "For P=(T+1)(T+2)/2 and d=2 the difference equals 1, not 1/2.",
+        "For P=T+1 and d=2 it equals 0."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Lemma 43.15.4 and its complete finite-difference proof; explicit extension to degree ≤d",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.top_coefficient_finite_difference"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Intrinsic Hilbert–Samuel multiplicity",
+      "kind": "definition",
+      "statement": "For a Noetherian local A, radical q=m and finite A-module M, define e(q;M)∈ℚ by natDegree(P(q,M))! times the leading coefficient of P(q,M). Set e(M)=e(m;M) and e(A)=e(m;A). This gives e(q;0)=0 without assigning the zero module dimension zero. For nonzero M, hilbert-samuel-degree identifies the factorial index with dim Supp M. A separate theorem proves this rational value is a positive integer.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Use the actual cumulative polynomial and its top coefficient. The zero polynomial has zero leading coefficient, so the formula is zero even though its natural degree is zero.",
+        "Do not redefine a curve multiplicity or ambient-normalized module multiplicity here: curve applications specialize to M=A=O_C,x; ambient normalization uses multiplicityInDegree at dim A.",
+        "The definition is general in the ideal q and finite module M. Its existence theorem and support-degree comparison carry recorded gaps; merely giving the reserved id does not certify key-definition closure."
+      ],
+      "acceptance": [
+        "The intrinsic multiplicity of κ(O) over a DVR O is 1, while its ambient-normalized multiplicity is 0.",
+        "The embedded-prime example has multiplicity 1 but is not regular."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Definition 43.15.1",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_zero",
+          "role": "simp",
+          "statement": "e(q;0)=0."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_eq_factorial_leadingCoeff",
+          "role": "characterisation",
+          "statement": "e(q;M)=natDegree(P(q,M))!·leadingCoeff(P(q,M))."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_congr",
+          "role": "compatibility",
+          "statement": "A-linear equivalence M≃N preserves e(q;M)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_eq_inDegree",
+          "role": "compatibility",
+          "statement": "If M≠0 and dim Supp M=d, then e(q;M)=e(q;M,d), the comparison node below."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_pos_integral",
+          "role": "characterisation",
+          "statement": "For M≠0 there is a positive natural integer whose rational cast equals e(q;M), the positivity/integrality node below."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicity_pow",
+          "role": "compatibility",
+          "statement": "For s>0, e(q^s;M)=s^dim(M) e(q;M) when M≠0, the power-ideal node below."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTest.multiplicity_field",
+          "kind": "computation",
+          "statement": "For a field k, q=0, M=k^r, e(q;M)=r, including r=0."
+        },
+        {
+          "name": "HilbertSamuelTest.multiplicity_dvr_power",
+          "kind": "computation",
+          "statement": "For a DVR O, e(m^s;O)=s for every s>0."
+        },
+        {
+          "name": "HilbertSamuelTest.multiplicity_residue",
+          "kind": "computation",
+          "statement": "For a DVR O, intrinsic e(m;κ(O))=1, not the ambient-normalized value 0."
+        },
+        {
+          "name": "HilbertSamuelTest.multiplicity_embedded",
+          "kind": "non-example",
+          "statement": "A=k[[x,y]]/(xy,y²) has H(n)=n+2 for n≥1 and e(A)=1, but embedding dimension 2 and dimension 1. Its embedded prime forbids omitting unmixedness in Nagata's converse."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59 and 43.15",
+          "how": "Build finite adic quotient lengths and the eventual polynomial before extracting multiplicity."
+        },
+        {
+          "where": "PAPER-IYENGAR-KHARE-MANNING-24/multiplicity; arXiv v3, Theorem 9.2 and its proof, printed pp. 38–40",
+          "how": "The free-summand argument uses additivity and positivity for maximal Cohen–Macaulay modules; its other congruence and depth inputs are not proved by multiplicity."
+        },
+        {
+          "where": "PAPER-CARO-PASTEN-23/multiplicity, maintained key brief",
+          "how": "The geometric consumer specializes the general module construction to O_C,x; the curve-order comparison remains a separate open application, not the definition."
+        }
+      ],
+      "planet": {
+        "name": "Hilbert–Samuel multiplicity"
+      },
+      "declaration": "TauCeti.HilbertSamuel.multiplicity"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Dimension-normalized multiplicity",
+      "kind": "definition",
+      "statement": "Define e(q;M,d)=d!·coeff(P(q,M),d)∈ℚ for d:ℕ. Its multiplicity theorems require dim Supp M≤d (equivalently natDegree P≤d for nonzero M). If d=dim M it is intrinsic; if d>dim M it is zero. Ambient e_A(M) means d=dim A, not d=dim M. The raw coefficient extractor for smaller d is defined but is not a multiplicity and need not be nonnegative.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Use the coefficient at the requested dimension, not the leading coefficient with a differently sized factorial.",
+        "Use the existing support-dimension bound to justify d=dim A for any finite M. All zero-module values vanish.",
+        "Do not convert coefficients to natural numbers before integrality and nonnegativity have been proved under the dimension bound."
+      ],
+      "acceptance": [
+        "For M=κ(O) over a DVR, d=1 gives zero and d=0 gives one.",
+        "Intrinsic additivity is not asserted across mixed dimensions."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "mathlib:Module.supportDim_le_ringKrullDim"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Definition 43.15.1 and Lemma 43.15.2",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_zero",
+          "role": "simp",
+          "statement": "For M=0, e(q;M,d)=0 for every d."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_eq_coeff",
+          "role": "characterisation",
+          "statement": "e(q;M,d)=d! coeff(P(q,M),d)."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_eq_zero_of_lt",
+          "role": "characterisation",
+          "statement": "If natDegree P(q,M)<d, the indexed value is zero."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_additive",
+          "role": "compatibility",
+          "statement": "For a finite short exact sequence and one d bounding the support dimension of its middle module, the indexed value is additive; see the standalone additivity node."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.multiplicityInDegree_associativity",
+          "role": "compatibility",
+          "statement": "For dim M≤d, the finite sum over top-dimensional support primes gives the indexed value; see the standalone associativity node."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HilbertSamuelTest.inDegree_residue",
+          "kind": "computation",
+          "statement": "For a DVR O and M=κ(O), e(m;M,0)=1 and e(m;M,1)=0."
+        },
+        {
+          "name": "HilbertSamuelTest.inDegree_mixed",
+          "kind": "non-example",
+          "statement": "For O⊕κ(O) over a DVR, P=T+2 and intrinsic e=1. The sum of the two intrinsic multiplicities is 2; at ambient d=1 the identity is 1=1+0."
+        },
+        {
+          "name": "HilbertSamuelTest.inDegree_zero",
+          "kind": "degenerate",
+          "statement": "For a zero module the indexed multiplicity is zero in every dimension."
+        },
+        {
+          "name": "HilbertSamuelTest.inDegree_factorial",
+          "kind": "computation",
+          "statement": "For A=k[[x,y]], P=(T+1)(T+2)/2 and the d=2 value is 1, not 1/2; the plane-polynomial computation is a required open example."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 10.59 and 43.15",
+          "how": "Build finite adic quotient lengths and the eventual polynomial before extracting multiplicity."
+        },
+        {
+          "where": "PAPER-IYENGAR-KHARE-MANNING-24/multiplicity; arXiv v3, Theorem 9.2 and its proof, printed pp. 38–40",
+          "how": "The free-summand argument uses additivity and positivity for maximal Cohen–Macaulay modules; its other congruence and depth inputs are not proved by multiplicity."
+        },
+        {
+          "where": "PAPER-CARO-PASTEN-23/multiplicity, maintained key brief",
+          "how": "The geometric consumer specializes the general module construction to O_C,x; the curve-order comparison remains a separate open application, not the definition."
+        }
+      ],
+      "declaration": "TauCeti.HilbertSamuel.multiplicityInDegree"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-ambient-normalization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Intrinsic and ambient normalization comparison",
+      "kind": "lemma",
+      "statement": "If M≠0 and Module.supportDim A M=d, then e(q;M,d)=e(q;M). If d< D, then e(q;M,D)=0. In particular ambient normalization at dim A vanishes for every lower-dimensional M; for M=0 both notions vanish.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Use hilbert-samuel-degree to identify the natural degree of the nonzero cumulative polynomial with d.",
+        "At d, its coefficient is its leading coefficient. At a larger D the coefficient is zero. Multiply by the indicated factorial.",
+        "Treat the zero module by P=0, without coercing bottom support dimension to a natural number."
+      ],
+      "acceptance": [
+        "On κ(O) the two normalizations differ, despite its positive intrinsic multiplicity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Definition 43.15.1",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.multiplicity_eq_inDegree"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Positivity and integrality of intrinsic multiplicity",
+      "kind": "lemma",
+      "statement": "For any nonzero finite M under the common hypotheses, e(q;M) is a positive natural integer viewed in ℚ.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "Let d=natDegree P. For t a sufficiently large natural integer, all t−i (0≤i≤d) are above the eventual evaluation threshold. top-coefficient-finite-difference expresses e as an integer linear combination of genuine integer quotient lengths, proving integrality.",
+        "Positivity uses the polynomial-growth/sign gap together with nonnegative quotient lengths and Nakayama: the eventual polynomial is nonzero and nonnegative on a cofinal tail, hence has positive leading coefficient. Its factorial is positive.",
+        "Combine positive rational value and integrality to obtain a positive natural integer. No primality, reducedness or Cohen–Macaulay hypothesis is introduced."
+      ],
+      "acceptance": [
+        "A nonzero finite-length module has e=length>0 in dimension zero.",
+        "The zero module is excluded from the positive statement."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Lemma 43.15.4; positivity is the explicit polynomial-tail argument",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Definition 10.59.8 and Lemma 10.59.10 proof, nonnegative leading coefficients",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.multiplicity_pos_integral"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-powers",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Multiplicity for powers of an ideal of definition",
+      "kind": "lemma",
+      "statement": "For s>0 and nonzero finite M of support dimension d, e(q^s;M)=s^d e(q;M). For M=0 both sides vanish.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "The actual quotient functions satisfy H(q^s,M,n)=H(q,M,s(n+1)−1) for every n; the exponent identity is s(n+1).",
+        "For sufficiently large n, polynomial evaluation identifies P(q^s,M) with P(q,M) composed with sT+(s−1), by uniqueness.",
+        "The coefficient of degree d of this composition is s^d times the original top coefficient by the binomial theorem. Multiply by d!, using hilbert-samuel-degree and radical(q^s)=radical(q) for s>0."
+      ],
+      "acceptance": [
+        "For a DVR, s=3 changes e from 1 to 3; declaring ideal-independence of multiplicity fails.",
+        "For dimension zero, s^0=1 and multiplicity remains the module length."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "mathlib:Ideal.radical_pow"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Definition 10.59.1 and quotient-length formula; explicit derivation, not a numbered source theorem",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.multiplicity_pow"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Additivity at a common dimension",
+      "kind": "theorem",
+      "statement": "For a short exact sequence 0→M'→M→M''→0 of finite A-modules, q with radical q=m, and d:ℕ with Module.supportDim A M≤d, e(q;M,d)=e(q;M',d)+e(q;M'',d). Consequently intrinsic multiplicity is additive if all nonzero terms have the same dimension; it is not asserted additive for mixed dimensions.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "The Artin–Rees leading-coefficient gap supplies the correctly filtered quotient exact sequence: kernel M'/(M'∩q^(n+1)M), not generally M'/q^(n+1)M'.",
+        "Use Stacks 10.59.3 to replace the intersection filtration by a shifted q-adic filtration of a finite-colength submodule N⊆M'. The finite-colength comparison 10.59.9 preserves top coefficients in positive dimension.",
+        "Stacks 10.59.10 shows the discrepancy has strictly smaller degree; when M' has finite length, Artin–Rees makes its intersection with q^nM vanish eventually and the discrepancy becomes exactly length M'. Thus the dimension-zero case is genuine length additivity, not an omitted case.",
+        "Extract the coefficient of degree d of the eventual polynomials; terms of smaller dimension have zero dth coefficient by hilbert-samuel-degree. Multiply by d!."
+      ],
+      "acceptance": [
+        "The nonsplit sequence 0→O→O→κ(O)→0 induced by a uniformizer gives 1=1+0 at d=1; the adic quotient sequences are not exact without the induced filtration."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Lemma 43.15.2",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Lemmas 10.59.3, 10.59.9 and 10.59.10, all proofs",
+          "match": "The cumulative n+1 convention is read from section 10.59; graded and cumulative polynomials are not identified."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.multiplicityInDegree_additive"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Associativity of multiplicities",
+      "kind": "theorem",
+      "statement": "For d≥dim Supp M, e(q;M,d)=Σ_p length_{A_p}(M_p) e(q_p;A/p,d), over primes p∈Supp M with dim(A/p)=d, where q_p is the image of q in A/p. The sum is finite; localized lengths are finite. At d=dim M≠−∞ this gives intrinsic associativity. Primes outside Supp M are not assigned ∞·0 terms.",
+      "hypotheses": [
+        "A is a commutative Noetherian local ring with maximal ideal m; q is an ideal with radical q = m.",
+        "M is a finite A-module; no field, DVR, equidimensionality, completeness, freeness or nonzero hypothesis unless explicitly stated."
+      ],
+      "proofSteps": [
+        "The finite top-dimensional support/localization gap identifies these primes with the relevant minimal support primes and proves the lengths of localized modules finite, as in Stacks 10.62.5.",
+        "Use the existing prime-filtration induction and dimension-normalized-additivity. Do not introduce a new generic filtration. The localized length is additive by the existing length exact-sequence theorem.",
+        "On a factor A/r, only p=r of dimension d contributes, with local length 1; if dim(A/r)<d both sides are zero. Transport q to the quotient coefficient ring and compare its lengths using Module.length_eq_of_surjective.",
+        "Sum along the finite filtration. The localization gap supplies exactness and the residue-field/zero dichotomy for every localized factor; no expression with infinite length is coerced to zero."
+      ],
+      "acceptance": [
+        "The nodal special fiber k[[x,y]]/(xy) must count both one-dimensional branches and give 2; its formal-series comparison is a required remaining example."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "mathlib:IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime",
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS-MULT",
+          "locator": "Lemma 43.15.3, complete prime-filtration proof",
+          "match": "General local algebra, not a ring-only or curve-only special case. Section 43.15 uses n rather than n+1; translation preserves the top coefficient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.multiplicityInDegree_associativity"
     }
   ],
   "baselineCoverage": [
@@ -1154,7 +2215,8 @@
       "status": "partial",
       "remaining": [
         "The prime-filtration/finite-module induction slice is supplied by the baseline. Catenarity (definition and the Noetherian-local dimension-function criterion), Cohen–Macaulayness of regular local rings and freeness of maximal-depth modules over a regular local base are now separate nodes, answering R03.6's two requests. Reconcile and refine the remaining integrated depth, Auslander-Buchsbaum, Cohen-Macaulay, complete-intersection, dimension and support arguments. Import the ModularCurves 4D local regularity/completion/flatness statements in the accepted RS-08 scope, and check any more general module-level forms. Do not infer that this baseline slice closes the whole stage.",
-        "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap."
+        "Supply the domain property of regular local rings (Stacks 00NP, through the associated graded ring 00NO), used by regular-local-cohen-macaulay; see the gap.",
+        "The general Hilbert–Samuel key-definition strand now has fourteen declaration-sized nodes, intrinsic and dimension-indexed normalizations, and adversarial examples. Finish its seven named gap groups, especially the actual associated-graded bridge, degree/dimension theorem, Artin–Rees additivity and geometric comparisons; no stage or key definition is certified closed."
       ]
     },
     {
@@ -1213,8 +2275,86 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay"
       ],
       "detail": "Stacks Lemma 10.106.2 (00NP): any regular local ring is a domain, proved from Lemma 10.106.1 (00NO), gr_m(R) ≅ κ[X_1, ..., X_d]. Neither is in the pinned Mathlib (no IsDomain instance for IsRegularLocalRing) and no layer of the atlas plans the associated-graded computation; it is generic local algebra owned by R03.3 under RS-08 and must be decomposed there (Hilbert–Samuel function of R and of the polynomial ring)."
+    },
+    {
+      "title": "Associated-graded module-to-series bridge and cumulative filtration identity",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
+      ],
+      "detail": "Construct gr_q(A), gr_q(M) on the pinned associated-graded carriers after inspecting their full API; prove ring generation in degree one, Noetherianity, finite module generation and each coefficient length, then H(n)=Σ_i≤n φ(i) with actual quotient scalar maps. Neither Polynomial.hilbertPoly nor finiteness of each length proves this. The excerpt of Stacks 10.59.5 is read; this missing construction remains generic R03.3 work."
+    },
+    {
+      "title": "Graded numerical-polynomial induction and integer-valued antidifference",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial"
+      ],
+      "detail": "Decompose the inspected Stacks 10.58.7 proof into nilpotent x-torsion filtration, stabilization of the maximal torsion submodule, degree-one shifted multiplication exact sequences and induction on degree-one generators. Supply the binomial-antidifference API 10.58.5; retain the finite initial constant. K0 of finite modules is not introduced as an unverified surrogate. A length-valued direct proof can avoid K0 but must prove every exactness step."
+    },
+    {
+      "title": "Degree-dimension and Artin–Rees leading-term comparison",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity"
+      ],
+      "detail": "Read and decompose Stacks 10.60.9 (ring dimension = Hilbert–Samuel degree) and the exact hypotheses of 10.59.3/9/10 at the pinned Artin–Rees interface. Prove finite-colength top-coefficient invariance, shifted-polynomial comparison, the finite-length branch and prime-filtration support maximum. Reuse existing supportDim and prime filtration. No inference from a length generating function alone establishes degree = dimension."
+    },
+    {
+      "title": "Positivity from an eventually nonnegative polynomial",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree"
+      ],
+      "detail": "Inspect the pinned polynomial order/asymptotic declarations, then provide a named lemma: a nonzero rational polynomial nonnegative on a cofinal natural tail has positive leading coefficient, together with finite-module Nakayama to exclude an eventually zero Hilbert–Samuel polynomial. The finite-difference integrality calculation does not supply positivity."
+    },
+    {
+      "title": "Top-dimensional support and localization length adapter",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity"
+      ],
+      "detail": "Inspect Stacks 10.62.5 and pinned localization/associated-prime finiteness APIs. Prove finiteness of top-dimensional primes in Supp M, finiteness of M_p length, exactness of localization and the zero/residue-field dichotomy on prime-filtration factors. Express the finite sum on actual localizations and avoid coercing infinite length to zero."
+    },
+    {
+      "title": "Remaining discriminating key-definition comparisons",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity"
+      ],
+      "detail": "Reserved key is planned for general finite modules and ideals of definition, but not closed. Required remaining comparisons: formal plane-curve order e(k[[x,y]]/(f))=ord(f), including smooth/node/cusp/triple-point values with reducedness and characteristic stated; regular-local multiplicity 1 and Nagata converse under formal unmixedness (all associated primes of completion, not merely minimal primes); parameter-ideal bound e≤length and equality iff Cohen–Macaulay; completion invariance on actual completed rings/modules. Decompose these proofs and their APIs rather than claiming that raw rational polynomial tests establish them. Retain every original paper-route requirement for P7–P9/R03.1–R03.5."
+    },
+    {
+      "title": "New Hilbert–Samuel prototype not elaborated",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-length-of-maximal-power-annihilation",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-adic-quotient-length",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/eventual-hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-polynomial",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-degree",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/top-coefficient-finite-difference",
+        "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/degree-indexed-multiplicity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/intrinsic-ambient-normalization",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-positive-integer",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-powers",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/dimension-normalized-additivity",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/multiplicity-associativity"
+      ],
+      "detail": "No existing build at both prescribed pins was found in this worker environment. Do not set up a Lake project, fetch caches, or compile libraries. The new suggested signatures remain uncompiled; the prior worker's successful compilation receipt covers only the older file."
     }
   ],
   "sourceIssues": [],
-  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate."
+  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read.",
+  "keyDefinitionBoundary": {
+    "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
+    "status": "planned_with_gaps",
+    "normalizations": "Intrinsic uses dim Supp M, ambient uses dim A; dimension-indexed theorems require a common upper dimension bound.",
+    "hypothesisClarification": "The maintained key brief's phrase 'formally equidimensional (unmixed)' must not identify the two notions. A=k[[x,y]]/(xy,y²) is complete with a unique minimal prime (y), dim A/(y)=1, but Ann(y)=m is an associated prime of dimension zero. Thus it is formally equidimensional in the minimal-prime sense and still has e=1 without regularity. Huneke–Yao's introductory definition requires every associated prime of the completion to have full dimension. Nagata's converse is retained with that unmixedness hypothesis; its proof is still an explicit gap.",
+    "maintenanceTarget": "data/keydefs/KEYDEF-algebraicgeometry.json, hilbert-samuel-multiplicity sample API: out of this issue's edit allowlist; no change to that file or allegation of a published-source erratum.",
+    "consumers": [
+      "PAPER-CARO-PASTEN-23/multiplicity",
+      "PAPER-IYENGAR-KHARE-MANNING-24/multiplicity",
+      "PadicLocalLanglandsForGL2Qp:R30.6 special-fiber multiplicities",
+      "LocalGaloisDeformationRings special-fiber examples"
+    ],
+    "ownership": "Maintainer assign.json fixes this general owner. Other roadmaps keep their special applications/cycles; the multiplicity strand imports no automorphic theorem as a prerequisite."
+  }
 }
