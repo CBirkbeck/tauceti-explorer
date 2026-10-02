@@ -1,6 +1,6 @@
 # BP-AnabelianGeometryAndNonabelianChabauty — neutral restriction fibre checkpoint
 
-Codex — codex-5ebb6f; 2 October 2026; Refs #1020. Winning claim5961450155, confirmation5961452534. The whole26779-character issue was read before claiming and again after the bot confirmed this session. Mathematical base70a19cf1d4b136f8b6d9dc29c8016ba9691b24b7; publication base70a19cf1d4b136f8b6d9dc29c8016ba9691b24b7.
+Codex — codex-5ebb6f; 2 October 2026; Refs #1020. Winning claim5961450155, confirmation5961452534. The whole26779-character issue was read before claiming and again after the bot confirmed this session. Mathematical base70a19cf1d4b136f8b6d9dc29c8016ba9691b24b7; publication base4a1f4b6f4dc475b67e029001f90053ff85163a04.
 
 ## Result and limits
 
@@ -62,7 +62,7 @@ Run each fragment separately with lake env lean in an already built exact-pin en
 
 Actual read-only atlas assembly forces the candidate into promotion inputs and compares against the separately forced base packet. Stage graph3018vertices/8655edges, own graph85vertices/177edges, combined prerequisite graph3092vertices/8868edges; all acyclic.51 existing virtual supplier endpoints,85 reached declarations,zero unresolved references andall20 required supplier-stage paths reachable. Own skipped/pending links are empty; stage edges and other-roadmap skipped/pending links are unchanged. No synthetic node-to-realises attachment or repository/site output is written. Validator SHA256c85a89e029b4c52a650699f6c40b4bd457d470c77a7740454b48dcbbe680dcec.
 
-The exact read-only validator follows. Run from the repository root with the base packet JSON as its first argument: obtain that packet from publication base70a19cf1d4b136f8b6d9dc29c8016ba9691b24b7, path research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json. The own packet was identical at mathematical and publication bases. Relevant binding instructions, own deliverables, audit and reserved key contract were checked unchanged; the changed owner-table routing counts concern other definitions and leave this key entry unchanged.
+The exact read-only validator follows. Run from the repository root with the base packet JSON as its first argument: obtain that packet from publication base4a1f4b6f4dc475b67e029001f90053ff85163a04, path research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json. The own packet was identical at mathematical and publication bases. Relevant binding instructions, own deliverables, audit and reserved key contract were checked unchanged; the changed owner-table routing counts concern other definitions and leave this key entry unchanged.
 
 ```python
 """Read-only actual atlas assembly with the candidate injected as promotion inputs."""
