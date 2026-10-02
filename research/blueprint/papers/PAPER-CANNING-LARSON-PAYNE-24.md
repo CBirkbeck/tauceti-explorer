@@ -3,17 +3,23 @@
 Claude Code — session `cc-7b31c4`; issue #1362; read on 22 September 2026.
 
 Samir Canning, Hannah Larson and Sam Payne, *Extensions of tautological rings and motivic structures in the
-cohomology of $\overline{\mathcal M}_{g,n}$*, Forum of Mathematics, Pi **12** (2024), `doi:10.1017/fmp.2024.24`.
+cohomology of $\overline{\mathcal M}_{g,n}$*, Forum of Mathematics, Pi **12** (2024), **e23**, `doi:10.1017/fmp.2024.24`.
 Read in the authors' public version, [arXiv:2307.08830v3](https://arxiv.org/abs/2307.08830v3) (25 October 2024,
 33 pages, described by the authors as the final version to appear in Forum of Mathematics, Pi) — in its **LaTeX
 source** (`STEForumPiRevision.tex`, source archive sha256 `7828f493…`), since `pdftotext` was unavailable here. The
-published open-access version was consulted on Cambridge Core for the one source issue recorded below. Locators are
-statement numbers (all theorem environments share one counter, numbered by section), not pages.
+original extraction consulted the published open-access version on Cambridge Core for E1. Locators are
+statement numbers (all theorem environments share one counter, numbered by section).
 
-The paper has been extracted into **93 items**. One is in the pinned libraries, five are planned by existing layers
-of the atlas, and the remaining 87 are routed exactly once: **84 to a new roadmap**,
-`MotivicStructuresInModuliOfCurves`, **2** as a source for `SchemeAndStackFoundations` SF.5 and **1** as a source
-for `MotivesAndAlgebraicCycles` MC.2.
+Codex, session `codex-J6LwjP`, rechecked the decisive published PDF and arXiv v3 PDF passages on
+2 October 2026 for FIX-RT #5520. The version-of-record pages 20–22 and 27 correspond to v3
+pages 21–24 and 29 for the two new source issues. Full download hashes and read scope are in
+`sourceVersions`; a fresh Cambridge watermark means its bytes differ from the red-team download.
+
+After independent review and FIX-RT #5520, the extraction has **96 items**: **2 library**, **4 planned**,
+and **90 missing**, routed exactly once: **86** to `MotivicStructuresInModuliOfCurves`, **2** as a source
+for `SchemeAndStackFoundations` SF.5, **1** for `MotivesAndAlgebraicCycles` MC.2, and **1** for
+`SchemeAndStackFoundations` SF.2. There are four routes and twenty prerequisite entries. Items /95–96
+are explicit unresolved Mukai proof gates; /94 imports existing half-spin primitives.
 
 ## What the paper proves
 
@@ -51,11 +57,16 @@ dimension, `RH^*` for the tautological subrings of `H^*(M̄_{g,n})`, `L = H^2(P^
   the tetragonal locus is handled with Hurwitz stacks of degree 4 covers and their Casnati–Ekedahl bundles,
   stratified by splitting type; and the pentagonal locus needs a genuinely new construction — a marked version of
   Mukai's model realising a pentagonal genus 7 curve as a linear section `OG(5,10) ∩ P^6` of the orthogonal
-  Grassmannian in its spinor embedding, which here becomes an open embedding of `M^◦_{7,n}` into a Grassmann bundle
-  over `OG(5, V)^n` (Lemma 5.13), with all the relevant bundles identified tautologically (Lemmas 5.14–5.16).
+  Grassmannian in its spinor embedding. **The source’s family/stack presentation is defective:** a half-spin
+  bundle does not exist on `BSO_10` as claimed. The intended embedding (Lemma 5.13) and bundle identifications
+  (Lemmas 5.14–5.16) are gated on /95–96, described below. The final theorem remains a target with this
+  proof dependency exposed.
 * **The graphical calculus (Section 7).** `H^{15}(M̄_{2,12})` is shown to be spanned by boundary pushforwards by
   exhibiting 891 `ω`-decorated graphs with 55 relations among them, matching Bergström–Faber's count of
-  `836 L^2 S_12`; Lemmas 7.4–7.7 give explicit bases of `H^{13}(M̄_{1,12})`, `H^{13}(M̄_{1,13})`,
+  `836 L^2 S_12`. The intermediate representation is corrected to
+  `Ind_{S10×S2}^{S12}(sgn⊠1)`, of dimension `66=11+55`, with the `S2` stabilizer of the unordered pair acting
+  trivially and `S10` by sign. The historical software run giving the dimension 836 has not been pinned or
+  reproduced here. Lemmas 7.4–7.7 give explicit bases of `H^{13}(M̄_{1,12})`, `H^{13}(M̄_{1,13})`,
   `H^{13}(M̄_{1,14})` and `H^{13}(M̄_{2,12})` by such graphs (11, 429, 6006 and 264 of them).
 * **From Hodge structures to Galois representations (Section 8).** For `g ≥ 3` the pullback to the normalised
   boundary is injective (Lemma 8.2, which is where the genus 7 base cases are used), and an induction on stable
@@ -85,16 +96,21 @@ What exists and is imported:
   polarisation and semisimplicity (L1) and mixed Hodge structures with strictness (L2);
   `DeligneWeightsAndPurity:DWP.9` plans hard Lefschetz; `AutomorphicGaloisRepresentations:R19.1` plans the Galois
   representations attached to modular forms of weight ≥ 2 (the objects `S_12` and `S_16`).
-* **One library item.** Mathlib has modular and cusp forms (`ModularForm`, `CuspForm`, `SlashInvariantForm`),
+* **Cusp forms.** Mathlib has modular and cusp forms (`ModularForm`, `CuspForm`, `SlashInvariantForm`),
   which is the space appearing in Remark 2.5; it has no Chow groups at all (a search of the pinned declarations for
   "chow" returns nothing).
 
 ## The routes
 
-### 1. New roadmap `MotivicStructuresInModuliOfCurves` — 84 items
+### 1. New roadmap `MotivicStructuresInModuliOfCurves` — 86 items
 
 "Tautological rings and motivic structures in the cohomology of moduli of stable curves", area `algebraicgeometry`.
-It plans the moduli stacks and their boundary stratification, the tautological morphisms and rings with the ψ-, κ-
+For `2g−2+n>0`, it constructs the smooth proper DM compactification `M̄_{g,n}` and its smooth open
+substack `M_{g,n}`, with the boundary stratification. The open stack is not generally proper.
+The regression is `M_{0,4}=P¹\{0,1,∞}` versus `M̄_{0,4}=P¹`: cross-ratio `t` degenerates at `t=0`,
+where the stable limit has a boundary node. Ordinary cohomology, compact support and Borel–Moore
+homology must remain distinct until their correct duality comparison is established. It also plans the
+tautological morphisms and rings with the ψ-, κ-
 and Hodge classes, the two boundary exact sequences with the subspaces Φ and Ψ, semi-tautological extensions with
 the filling criterion and finite generation, the decomposition of pure cohomology in terms of symplectic local
 systems with the genus 1 and 2 classifications, the Chow–Künneth generation Property with its permanence properties
@@ -121,27 +137,90 @@ the formula divides by 2.
 
 MC.2 constructs realisations and proves that cycle classes respect composition, cup products, pushforward, trace
 and Tate twists. The cycle class map the paper needs is the one for a smooth but not necessarily proper variety or
-Deligne–Mumford stack, landing in the lowest-weight part `W_{2i}H^{2i}`, with the consequence that algebraic
-classes are of type `(p,p)` and Tate on the ℓ-adic side. That belongs to MC.2 in exactly that generality.
+Deligne–Mumford stack of pure dimension `d`, with rational coefficients:
+`cl:A^c(X)_Q→W_{2c}H^{2c}(X,Q)`, or equivalently
+`cl:A_i(X)_Q→W_{2d−2i}H^{2d−2i}(X,Q)`, with `c=d−i`. The untwisted class has type `(c,c)`
+and Tate type `Q(−c)`; as a Hodge/Galois morphism, write the target twist `(c)` separately
+(the twisted Hodge class has weight zero). On `P²`, its fundamental class, line and point
+land in degrees `0,2,4`; the point class must commute with proper pushforward from `Spec C`.
+The ungraded surjectivity of Lemma 4.3 is unchanged. MC.2 owns this generality.
 
 ## Prerequisites the atlas does not cover
 
-Seventeen entries are listed. The ones that matter most: **Chenevier–Lannes**, *Automorphic forms and even
-unimodular lattices*, whose Theorem F is the prediction being confirmed; the authors' own earlier paper on
-`H^{11}(M̄_{g,n})` and the weight 11 complex (arXiv:2209.03113), and **Canning–Larson** on the Chow rings of
-`M_{7,8,9}` (arXiv:2104.05820) and on the CKgP for low-genus `M_{g,n}` (arXiv:2110.01059), which supply the
-technique and most of the table of known cases; **Bergström–Faber–Payne** (arXiv:2206.07759) for the Borel–Moore
-vanishing; **Getzler** for the pure cohomology of `M_{1,n}` and the multiplicity 186263; **Petersen** and
-**Petersen–Tommasi(–Yin)** for genus 2 and for the Leray/Künneth analysis behind Lemma 3.1; **Mukai** for the
-genus 7 model and **Casnati–Ekedahl** for degree 4 covers; **Arbarello–Cornalba** for degrees `≤ 3`; **Wahl** and
-Harer for stability; **Edidin–Graham** and **Kresch** for Chow groups of stacks, **Totaro** for the weak
-Chow–Künneth property, and **Kresch–Tamvakis** for the Giambelli formula; and **Bergström–Faber**'s point counts,
-which give the dimension `836 L^2S_12` and which Theorem 1.9 makes unconditional for `M̄_{3,n}`, `n = 9, 10, 11`.
+Twenty entries are listed. The repaired bindings are:
+
+* **Canning–Larson**, [On the Chow and cohomology rings of moduli spaces of stable curves](https://arxiv.org/abs/2208.02357),
+  published reference [5]: Theorem 1.4 (known CKgP cases), §3.1 (permanence), Lemma 3.11
+  (smooth proper case), and Lemma 10.5 (main-paper Lemma 5.1). `2110.01059` is a distinct
+  Hurwitz Chow-ring paper and is removed from this binding. The actual Hurwitz input [7],
+  [Tautological classes on low-degree Hurwitz spaces](https://arxiv.org/abs/2103.09902), §3 and
+  Definition 5.2, is listed separately for the Casnati–Ekedahl base stack.
+* **Dan Petersen**, [Cohomology of local systems on the moduli of principally polarized abelian surfaces](https://doi.org/10.2140/pjm.2015.275.39),
+  Pacific J. Math. 275 (2015), 39–61, reference [27], Theorem 2.1 in Proposition 2.8;
+  separately, [the compact-type genus-two paper](https://arxiv.org/abs/1310.7369), reference [28],
+  Theorems 2.1 and 3.8 in Propositions 2.8 and 2.6. **Petersen–Orsola Tommasi** [30] is a
+  separate source for the Gorenstein obstruction.
+* **Dan Petersen, Mehdi Tavakol and Qizheng Yin**,
+  [Tautological classes with twisted coefficients](https://arxiv.org/abs/1705.08875), reference
+  **[29]**: §§3.2, 5.1 and 5.2.2 in Lemma 3.1. It is not a Petersen–Tommasi–Yin paper.
+* **Mukai**, [Curves and symmetric spaces I](https://doi.org/10.2307/2375032), reference [21],
+  Theorem 0.4, Proposition 2.2 and §5 for the genus-seven spinor model; part II is distinct.
+* **Totaro**, [The motive of a classifying space](https://arxiv.org/abs/1407.1366), reference [34],
+  Theorem 4.1 in Remark 5.12, rather than the 1998 classifying-space Chow-ring paper.
+* **Bergström–Faber**, [Cohomology of moduli spaces via a result of Chenevier and Lannes](https://arxiv.org/abs/2207.05130),
+  reference [3], for the genus-three computations discussed in Theorem 1.9. The separate
+  [Bergström software repository](https://github.com/jonasbergstroem/Cohomology-of-moduli-spaces-of-curves),
+  reference [2], implements the Getzler–Kapranov calculation yielding `(7.1)` and the genus-two
+  dimension 836. **Reproducibility remains a gap:** the exact historical commit, data, inputs
+  and executable run are not pinned or reproduced here. Do not treat a corrected citation as
+  verification of that computation.
+* **Andrew Kresch** and Harry Tamvakis, [Quantum cohomology of orthogonal Grassmannians](https://arxiv.org/abs/math/0306338),
+  reference [19], for the Giambelli formula in Lemma 5.10.
+
+The remaining inputs retain their roles: Chenevier–Lannes Theorem F; the earlier Canning–Larson–Payne
+`H^{11}` paper; Canning–Larson on genera 7–9; Bergström–Faber–Payne for Borel–Moore vanishing;
+Getzler; Casnati–Ekedahl; Arbarello–Cornalba; Harer–Wahl; and Edidin–Graham/Kresch for stack Chow groups.
+
+## Mukai proof gates and half-spin reuse
+
+Item /94 imports `TauCeti.spinPlus`, `spinPlusAction`, `spinPlusSubrep` and `finrank_spinPlus`
+from TauCeti commit `f790474`. The action and subrepresentation require `P.line=⊥`; the dimension
+formula requires a field, finite-dimensional `P.W` and `P.W≠⊥`. For `dim W=5`, the half-spin
+module has dimension 16. These declarations were read at the pin; they do not construct a bundle
+on `BSO_10` or prove a moduli presentation.
+
+Over `C`, `−1` in the kernel of `Spin_10→SO_10` acts as `−Id` on the half-spin module, so
+it cannot descend to `SO_10`. The center `μ4` of `Spin_10` acts by faithful scalars, trivially
+on projective incidence and Grassmannian data. The effective projective group is `PSO_10`.
+A Spin lift supplies actual `S^+`, `L_i`, `Q_n` and tautological bundles, but its quotient retains
+ineffective central inertia. An SO quotient would retain ineffective `μ2` as well.
+
+**/95** requires construction of the marked lifted incidence quotient, its central rigidification,
+and the comparison of the effective quotient with the actual moduli stack, including automorphism
+groups and forgetting markings. Import general stacks/rigidification from `R09.4/R09.5`; the
+reviewed audit marks the required machinery as absent/partial, not a ready-made proof of this
+specific comparison. Preserve genuine curve automorphisms when removing scalar inertia.
+
+**/96** requires explicit bundle descent or specified twists and the rational Chow/cohomology/CKgP
+comparisons needed in the argument. `S^+`, `L_i`, `Q_n` and the lifted tautological bundle have
+nontrivial central weight and cannot descend unchanged. `Hom(L_i,S^+)` and projective data have
+weight zero; that does not descend either factor. Every bundle asserted descended must have
+trivial action of the full removed `μ4`, including a generator, not just `−1`. A pulled-back
+Hodge bundle has trivial gerbe inertia, so it cannot be identified untwisted with a weight-one
+lifted bundle. The exact Hodge sequence and `c1(L_i)=−ψ_i` must be proved for the correctly
+descended/twisted objects. CKgP transfer requires rational Chow comparisons compatible with
+exterior products for every allowed test stack `Y`; cohomology agreement alone is insufficient.
+
+The gates are **unresolved proof dependencies**, not a claimed complete geometric repair or an
+author corrigendum. Items /60–65 are conditional consumer contracts, and Theorem 1.10 and its
+genus-seven-dependent applications remain targets requiring those gates. The valid `BSO_10`
+ambient calculation in /59 is not automatically a calculation for `BSpin_10` or `BPSO_10`.
 
 ## Mistakes in the source
 
-One misprint, recorded under `sourceIssues`. An audit of every hand-typed environment name against its `\ref`
-target found no mismatched cross-references in this paper.
+Three source issues are now recorded. E1 retains its prior independent confirmation; E2–E3
+are newly recorded by this fix and await independent review. The original environment-name
+audit found no mismatched cross-references; it did not test the new mathematical defects.
 
 * **E1** (misprint, first sentence of the proof of Theorem 1.5(3) in Section 6.2): "We now show that
   `H_k(M̄_{g,n})` is tautological for even `k ≥ 14`" — the theorem states even `k ≤ 14`, and the proof itself uses
@@ -149,6 +228,23 @@ target found no mismatched cross-references in this paper.
   published version at `doi:10.1017/fmp.2024.24` has the same sentence: checking the Cambridge Core text on
   22 September 2026 shows `k \geq 14` in the proof and `k \leq 14` in the statement, so the slip was not caught in
   production. It affects nothing.
+
+* **E2** (source error/proof gap, published §5.3.2–3 p. 20 and v3 pp. 21–22): the rank-16
+  half-spin bundle on `BSO_10` and literal quotient/embedding claims fail as stated, for the
+  central-action reasons above. Record /95–96 rather than replacing `SO` by `Spin` and continuing.
+  This affects the intermediate construction and proof; it is not a counterexample to the final theorem.
+* **E3** (misprint, published p. 27 and v3 p. 29): the displayed
+  `Ind_{S10}^{S12}(sgn)` has dimension 132. The symbols are indexed by an unordered pair, so
+  the stabilizer is `S10×S2`, with sign on the complementary ten labels and trivial action on
+  the pair. The corrected induced representation has dimension 66. Pieri gives the two
+  partitions `(2,1^10)` and `(3,1^9)`, whose hook-length dimensions are 11 and 55.
+  Keep the intended `891−55=836` argument; this is not a counterexample to Lemma 7.3.
+
+For E2–E3 the bounded correction search on 2 October 2026 checked the arXiv version history
+(still v3), the Cambridge article record/HTML and PDF, Sam Payne’s current publication page,
+and title-specific erratum/correction searches. No existing correction was found there.
+The author-copy PDF returned HTTP 403 and was not collated. The JSON records the scope and URLs;
+“new” is relative to that search.
 
 ## Changes by the independent review
 
@@ -167,6 +263,7 @@ this extraction and all its routes, and made two changes, both concerning one it
   reason recording that the hard Lefschetz half is `DeligneWeightsAndPurity:DWP.9`'s obligation and
   must be stated there for stacks rather than assumed.
 
-Route bookkeeping remains exact: 88 missing items, 88 routed, none twice, none unrouted.
+At that review the bookkeeping was 88 missing items, 88 routed, none twice or unrouted.
+The current FIX-RT inventory is the 96-item, 90-missing inventory at the top of this reader.
 `sourceIssues` E1 was confirmed against the LaTeX source and carries the review's verdict. The
 review's report is `research/blueprint/reviews/REV-PAPER-CANNING-LARSON-PAYNE-24.md`.
