@@ -45498,7 +45498,8 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-01.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4386"
   },
   {
    "id": "RT-RS-02",
@@ -53116,8 +53117,9 @@
     "FIX-RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5148"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5148",
+   "finishedAt": "2026-10-02T05:19:28Z"
   },
   {
    "id": "RT-AREA-padic-1",
