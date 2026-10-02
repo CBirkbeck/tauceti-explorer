@@ -1778,3 +1778,121 @@ example : polynomialMonomialBasis (ZMod 1) 0 0 0 0 (37,1) = 0 := sorry
 
 end
 end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+
+
+namespace TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
+noncomputable section
+open Polynomial
+variable (A : Type*) [CommRing A] (γ δ s t : A)
+local notation "F₀" => polynomial A γ δ s t
+local notation "R₀" => Ring A γ δ s t
+local notation "ι₀" => coefficientHom A γ δ s t
+local notation "u₀" => AdjoinRoot.root F₀
+local notation "v₀" => AdjoinRoot.of F₀ (Polynomial.X : Polynomial A)
+local notation "c₀" => u₀ - ι₀ s
+local notation "d₀" => v₀ - ι₀ t
+local notation "b₀" => u₀ + ι₀ s + ι₀ γ * ι₀ t
+local notation "J₀" => (Ideal.span {c₀,d₀} : Ideal R₀)
+local notation "D₀" => J₀ →ₗ[R₀] R₀
+local notation "E₀" => polynomialCoordinates A γ δ s t
+
+lemma polynomialCoordinates_coefficient_mul (p : Polynomial A) (r : R₀) :
+    E₀ (AdjoinRoot.of F₀ p * r) = (p * (E₀ r).1, p * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_second_mul (r : R₀) :
+    E₀ (d₀ * r) =
+      ((X - C t) * (E₀ r).1, (X - C t) * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_root_mul (r : R₀) :
+    E₀ (u₀ * r) =
+      ((C (NodeForm γ δ s t) - C δ * X ^ 2) * (E₀ r).2,
+       (E₀ r).1 - (C γ * X) * (E₀ r).2) := by
+  sorry
+
+lemma polynomialCoordinates_first_mul (r : R₀) :
+    (E₀ (c₀ * r)).2 =
+      (E₀ r).1 - (C s + C γ * X) * (E₀ r).2 := by
+  sorry
+
+lemma dualValue_commutes (h : D₀) (j k : J₀) :
+    (j : R₀) * h k = (k : R₀) * h j := by
+  sorry
+
+lemma dualValue_at_second (h : D₀) :
+    let jd : J₀ := ⟨d₀,sectionSecond_mem A γ δ s t⟩
+    ((E₀ (h jd)).1).eval t =
+      (s + γ * t) * ((E₀ (h jd)).2).eval t := by
+  sorry
+
+lemma polynomialCoordinates_dualNumerator : E₀ b₀ = (C (s + γ * t), 1) := by
+  sorry
+
+lemma dualValue_decomposition (h : D₀) :
+    let jd : J₀ := ⟨d₀,sectionSecond_mem A γ δ s t⟩
+    ∃ z : R₀ × A, h jd = d₀ * z.1 + ι₀ z.2 * b₀ := by
+  sorry
+
+lemma dualNormalForm_exists (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (h : D₀) :
+    ∃ z : R₀ × A, ∀ j : J₀,
+      h j = z.1 * (j : R₀) + ι₀ z.2 * ε j := by
+  sorry
+
+lemma dualValue_coordinates_unique (z z' : R₀ × A)
+    (hz : d₀ * z.1 + ι₀ z.2 * b₀ = d₀ * z'.1 + ι₀ z'.2 * b₀) : z = z' := by
+  sorry
+
+lemma dualGenerator_action (ε : D₀)
+    (hε : ∀ j : J₀, d₀ * ε j = b₀ * (j : R₀)) (K : R₀ →ₗ[A] R₀)
+    (hK : ∀ r : R₀, d₀ * K r = b₀ * (r - ι₀ (sectionEval A γ δ s t r)))
+    (z : R₀) (j : J₀) :
+    (z - ι₀ (sectionEval A γ δ s t z)) * ε j = K z * (j : R₀) := by
+  sorry
+
+lemma dualMultiplicationInjective : Function.Injective (dualMultiplication A γ δ s t) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalInclusionCanonical
+example : ∃ e : D₀ ≃ₗ[A] (R₀ × A),
+    e (dualMultiplication A γ δ s t 1) = (1,0) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalGeneratorNonreduced
+example : ∃ e : (sectionIdeal (ZMod 4) 0 0 0 0 →ₗ[Ring (ZMod 4) 0 0 0 0]
+    Ring (ZMod 4) 0 0 0 0) ≃ₗ[ZMod 4] (Ring (ZMod 4) 0 0 0 0 × ZMod 4),
+    e (dualGenerator (ZMod 4) 0 0 0 0) = (0,1) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.normalRoundTripCanonical
+example : ∃ e : D₀ ≃ₗ[A] (R₀ × A),
+    (∀ p, e (e.symm p) = p) ∧
+    (∀ p j, e.symm p j = p.1 * (j : R₀) + ι₀ p.2 * dualGenerator A γ δ s t j) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.residueGeneratorCanonical
+example : ∃ ρ : D₀ →ₗ[A] A,
+    Function.Surjective ρ ∧ ρ (dualGenerator A γ δ s t) = 1 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.residueMultiplicationCanonical
+example : ∃ ρ : D₀ →ₗ[A] A,
+    Function.Surjective ρ ∧ ∀ r, ρ (dualMultiplication A γ δ s t r) = 0 := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationZero
+example : dualMultiplication A γ δ s t 0 = 0 := map_zero _
+example (j : J₀) : dualMultiplication A γ δ s t 1 j = (j : R₀) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationOne
+example (j : J₀) : dualMultiplication A γ δ s t 1 j = (j : R₀) := by
+  sorry
+
+-- NodeSectionFactorization.PolynomialModel.multiplicationFaithful
+example (r : R₀) : dualMultiplication A γ δ s t r = 0 ↔ r = 0 := by
+  sorry
+
+end
+end TauCeti.ModuliCurves.NodeSectionFactorization.PolynomialModel
