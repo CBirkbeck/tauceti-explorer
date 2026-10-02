@@ -11578,7 +11578,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeStructuresPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3371"
   },
   {
    "id": "REV-DESIGN-HodgeStructuresPartII",
@@ -23657,12 +23658,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -35079,8 +35080,9 @@
     "REV-PAPER-JIANG-ZHANG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-JIANG-ZHANG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4082"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4082",
+   "finishedAt": "2026-10-02T08:54:06Z"
   },
   {
    "id": "RT-PAPER-BROWNING-SAWIN-20",
@@ -53418,8 +53420,9 @@
     "FIX-RT-AREA-iwasawa-3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5139"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5139",
+   "finishedAt": "2026-10-02T08:54:09Z"
   },
   {
    "id": "RT-AREA-langlands-1",
