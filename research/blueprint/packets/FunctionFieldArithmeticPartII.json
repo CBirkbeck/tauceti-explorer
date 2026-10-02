@@ -619,6 +619,42 @@
         "checked": "Exact statement and relevant construction/proof read at the pinned commit on 2026-10-02.",
         "sourceLine": 183,
         "sourceSha256": "ce8909ba1bfc5e1fa0fbf6ddcecbb0233a4ae175622578772b290814a9a7fcc8"
+      },
+      {
+        "ref": "mathlib:Fin.addCommGroup",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Group/Fin/Basic.lean",
+        "provides": "The existing cyclic additive group structure on Fin n for positive n, including subtraction and additive cancellation.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on 2026-10-02; native proof use elaborated in the separate extraction.",
+        "sourceLine": 67,
+        "sourceSha256": "93b39c73c1f7c096a6b894a063ac03ad1e7fec0439545f2e5b8c65d458bed2cd"
+      },
+      {
+        "ref": "mathlib:Fin.coe_int_add_eq_ite",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fin/Basic.lean",
+        "provides": "The integer representative of u+v in Fin n is the sum if the natural sum is below n and otherwise the sum minus n.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on 2026-10-02; native proof use elaborated in the separate extraction.",
+        "sourceLine": 249,
+        "sourceSha256": "9fe5a258560080295fb923c9471123c56cb14b87ce55c362b1124c76f775167f"
+      },
+      {
+        "ref": "mathlib:IsUnit.exists_right_inv",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "In any monoid, a unit a has b with a*b=1.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on 2026-10-02; native proof use elaborated in the separate extraction.",
+        "sourceLine": 405,
+        "sourceSha256": "f35090c081e7903c719d1d77033bd1b443cc70a99ee4fb711dcaa2384508c77e"
+      },
+      {
+        "ref": "mathlib:isUnit_iff_exists_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "In a Dedekind-finite monoid, including a commutative ring under multiplication, IsUnit a iff there exists b with a*b=1.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on 2026-10-02; native proof use elaborated in the separate extraction.",
+        "sourceLine": 436,
+        "sourceSha256": "f35090c081e7903c719d1d77033bd1b443cc70a99ee4fb711dcaa2384508c77e"
       }
     ]
   },
@@ -6878,14 +6914,19 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-map",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-synthesis",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-wrap"
       ],
       "proofSteps": [
-        "Expand linearly using the weighted formula. Distinct source coordinates land in distinct target coordinates by the explicit inverse of σ.",
-        "Unique target coordinates force exactly the displayed coefficient equations, and conversely those equations make every target coefficient zero."
+        "Rewrite the source sum as the specified synthesis inverse. For a zero image, extract the target coefficient at σp and use the complete coefficient table.",
+        "The wrap/lower equivalence gives precisely the nonwrapping zero and wrapping f-annihilation conditions.",
+        "Conversely evaluate every target coefficient q using σ⁻¹q and apply the assumed equations. Injectivity of the native target coordinate equivalence gives the zero image."
       ],
       "acceptance": [
-        "The coefficient 2 in wrapping coordinate (1,1) lies in the kernel for A=Z/4,f=2."
+        "The coefficient 2 in wrapping coordinate (1,1) lies in the kernel for A=Z/4,f=2.",
+        "The separate native proof extraction checks this declaration with no admission dependency. This is evidence for the unchecked plan, not certification of the whole suggested file or geometric root stack."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -6924,15 +6965,19 @@
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinates",
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
-        "mathlib:Ideal.mem_span_singleton'"
+        "mathlib:Ideal.mem_span_singleton'",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-map",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-extraction"
       ],
       "proofSteps": [
-        "The weighted formula shows that every lower-triangular coordinate is f times the corresponding wrapping coefficient.",
-        "For k≥i choose c_(i,k−i)=d_(i,k). For k<i choose a with d_(i,k)=fa and set c_(i,n+k−i)=a. The explicit inverse indices do not collide; finite basis expansion gives a preimage.",
-        "Translate the principal-ideal membership using the pinned singleton span criterion and commutativity."
+        "For a preimage z, use its actual source coordinates in the coefficient table. Every lower target coefficient is f times the source coefficient at σ⁻¹q.",
+        "Conversely choose a factor for each of the finitely many lower coefficients; use the coefficient itself elsewhere. Define the source family by transport along σ.",
+        "Synthesize that source family. Its image has exactly the target coefficients by the weighted table and the promoted target-extraction identity. Target coordinate injectivity proves equality.",
+        "The existing principal-ideal membership criterion identifies these f-multiple conditions with membership in fA."
       ],
       "acceptance": [
-        "At f=0 every strictly lower target coordinate must vanish, but upper and diagonal coordinates remain unrestricted."
+        "At f=0 every strictly lower target coordinate must vanish, but upper and diagonal coordinates remain unrestricted.",
+        "The separate native proof extraction checks this declaration with no admission dependency. This is evidence for the unchecked plan, not certification of the whole suggested file or geometric root stack."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -7061,14 +7106,17 @@
       ],
       "prerequisites": [
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients",
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinates",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-synthesis"
       ],
       "proofSteps": [
-        "For n=1 there is no wrapping coordinate; otherwise (1,n−1) is a wrapping coordinate.",
-        "Injectivity of multiplication by f kills every wrapping kernel coefficient. Conversely any a with fa=0 occupies only coordinate (1,n−1); injectivity of Θ and unique source coordinates force a=0."
+        "For n=1 every coefficient is nonwrapping, so the kernel criterion makes the kernel zero.",
+        "For n>1 the source position (1,n−1) is wrapping. Place a−b there; if fa=fb the kernel criterion kills its actual synthesized tensor. Injectivity and source coefficient extraction imply a=b.",
+        "Conversely apply the kernel criterion to the source coordinate family of z−w. Injectivity of multiplication by f kills every wrapping coefficient, and target equality gives z=w."
       ],
       "acceptance": [
-        "For Z,n=2,f=2 the map is injective although f is not a unit."
+        "For Z,n=2,f=2 the map is injective although f is not a unit.",
+        "The separate native proof extraction checks this declaration with no admission dependency. This is evidence for the unchecked plan, not certification of the whole suggested file or geometric root stack."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -7104,15 +7152,20 @@
         "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
       ],
       "prerequisites": [
-        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients"
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-image-coefficients",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-synthesis",
+        "mathlib:isUnit_iff_exists_inv",
+        "mathlib:IsUnit.exists_right_inv"
       ],
       "proofSteps": [
-        "For n=1 there are no strictly lower coordinates. For n>1 the target coordinate (1,0) exists.",
-        "Surjectivity forces its coefficient 1 to be fa for some a, hence f is a unit by commutativity. Conversely a unit makes every coefficient a multiple of f, and the image criterion gives all preimages.",
-        "The argument includes the zero ring with its usual unit convention."
+        "For n=1 no strictly lower position exists; the image criterion gives every preimage.",
+        "For n>1 synthesize the target family single((1,0),1). Surjectivity and the image criterion give 1=fa for some a. The pinned commutative-ring unit criterion gives IsUnit f.",
+        "Conversely a right inverse of f multiplies each lower target coefficient to an explicit factor; apply the image criterion and target synthesis to an arbitrary native target element.",
+        "The zero ring is included, and no inverse of n enters."
       ],
       "acceptance": [
-        "For Z,n=2,f=2 the target e_1⊗1 is not in the image."
+        "For Z,n=2,f=2 the target e_1⊗1 is not in the image.",
+        "The separate native proof extraction checks this declaration with no admission dependency. This is evidence for the unchecked plan, not certification of the whole suggested file or geometric root stack."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -7152,11 +7205,12 @@
         "FunctionFieldArithmeticPartII:RS.0/affine-torsor-surjective"
       ],
       "proofSteps": [
-        "Bijectivity implies surjectivity and hence the stated alternative.",
-        "A unit gives both surjectivity and injectivity of multiplication by f. The n=1 case uses the respective criteria."
+        "Bijectivity implies surjectivity and the preceding criterion.",
+        "Conversely a unit has injective multiplication by multiplying an equality by its inverse. Combine the injectivity and surjectivity criteria, including the exponent-one alternative."
       ],
       "acceptance": [
-        "For F₂,n=2,f=1 the comparison is bijective despite the nilpotent x−1 in B."
+        "For F₂,n=2,f=1 the comparison is bijective despite the nilpotent x−1 in B.",
+        "The separate native proof extraction checks this declaration with no admission dependency. This is evidence for the unchecked plan, not certification of the whole suggested file or geometric root stack."
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
@@ -7324,6 +7378,573 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "n≥1. The construction is independent of the coefficient ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation",
+      "title": "Cyclic root coefficient permutation",
+      "kind": "construction",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation",
+      "statement": "For positive n, construct the native equivalence σ:Fin n×Fin n≃Fin n×Fin n defined by σ(i,j)=(i,i+j) using cyclic addition on Fin n, with inverse σ⁻¹(i,k)=(i,k−i). Its representative is (i,(i+j) mod n); it reorders coordinates of the actual root action comparison.",
+      "prerequisites": [
+        "mathlib:Fin.addCommGroup"
+      ],
+      "proofSteps": [
+        "Use the pinned cyclic additive group on Fin n, not addition of natural representatives without reduction.",
+        "Define the two pair maps and verify their composites by additive cancellation. No coefficient ring or choice of a root of unity enters."
+      ],
+      "acceptance": [
+        "At n=2 the wrapping position (1,1) maps to the lower position (1,0)."
+      ],
+      "uses": [
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-map",
+          "how": "Identifies the unique source coordinate contributing to each target coordinate."
+        },
+        {
+          "where": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-kernel-coefficients",
+          "how": "Transfers wrapping source positions to strictly lower target positions without collisions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_apply",
+          "role": "projection",
+          "statement": "σ(i,j)=(i,i+j) in the cyclic Fin n group."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_symm",
+          "role": "projection",
+          "statement": "σ⁻¹(i,k)=(i,k−i) in the cyclic Fin n group."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_val",
+          "role": "compatibility",
+          "statement": "The natural representative of the second component of σ(i,j) is (i+j) mod n."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.wrap_iff_lower",
+          "role": "characterisation",
+          "statement": "The second component of σ(i,j) is smaller than its first iff n≤i+j, for natural representatives 0≤i,j<n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation.test_one",
+          "kind": "degenerate",
+          "statement": "At n=1 the permutation fixes every pair."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation.test_wrap",
+          "kind": "computation",
+          "statement": "At n=2, σ(1,1)=(1,0)."
+        },
+        {
+          "name": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation.test_inverse",
+          "kind": "computation",
+          "statement": "At n=3, σ⁻¹(2,0)=(2,1); natural truncated subtraction would give the wrong answer."
+        }
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "n≥1. The construction is independent of the coefficient ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-apply",
+      "title": "Cyclic permutation evaluation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_apply",
+      "statement": "σ(i,j)=(i,i+j) in the cyclic Fin n group.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation"
+      ],
+      "proofSteps": [
+        "Unfold the specified native pair equivalence; for the representative use the Fin addition formula."
+      ],
+      "acceptance": [
+        "No assumption on the base ring is used."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "n≥1. The construction is independent of the coefficient ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-inverse",
+      "title": "Cyclic inverse evaluation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_symm",
+      "statement": "σ⁻¹(i,k)=(i,k−i) in the cyclic Fin n group.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation"
+      ],
+      "proofSteps": [
+        "Unfold the specified native pair equivalence; for the representative use the Fin addition formula."
+      ],
+      "acceptance": [
+        "No assumption on the base ring is used."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "n≥1. The construction is independent of the coefficient ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-representative",
+      "title": "Natural representative of the cyclic permutation",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficientPermutation_val",
+      "statement": "The natural representative of the second component of σ(i,j) is (i+j) mod n.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation"
+      ],
+      "proofSteps": [
+        "Unfold the specified native pair equivalence; for the representative use the Fin addition formula."
+      ],
+      "acceptance": [
+        "No assumption on the base ring is used."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "n≥1. The construction is independent of the coefficient ring."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-wrap",
+      "title": "Wrapping and lower coordinates",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.wrap_iff_lower",
+      "statement": "The second component of σ(i,j) is smaller than its first iff n≤i+j, for natural representatives 0≤i,j<n.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation",
+        "mathlib:Fin.coe_int_add_eq_ite"
+      ],
+      "proofSteps": [
+        "Read the pinned integer formula for addition of two Fin representatives.",
+        "Split at i+j<n; integer arithmetic gives exactly the wrap/lower equivalence, including n=1."
+      ],
+      "acceptance": [
+        "No assumption on the base ring is used."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-synthesis",
+      "title": "Source coefficient synthesis",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.sourceCoordinateEquiv_symm_apply",
+      "statement": "The inverse coefficient map sends c to Σ_p c_p(x^i⊗x^j).",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-coordinate-equivalence"
+      ],
+      "proofSteps": [
+        "The synthesis inverse is the defining finite linear combination of the native equivalence."
+      ],
+      "acceptance": [
+        "This promotes a consumed API to a declaration; it preserves the existing construction and API statement."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-synthesis",
+      "title": "Target coefficient synthesis",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_symm_apply",
+      "statement": "The inverse coefficient map sends c to Σ_p c_p(e_i⊗x^k).",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence"
+      ],
+      "proofSteps": [
+        "The synthesis inverse is the defining finite linear combination of the native equivalence."
+      ],
+      "acceptance": [
+        "This promotes a consumed API to a declaration; it preserves the existing construction and API statement."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-extraction",
+      "title": "Target coefficients of a synthesized family",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_apply_sum",
+      "statement": "Coefficient extraction of Σ_p c_p(e_i⊗x^k) is exactly c, for every coefficient family c.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence"
+      ],
+      "proofSteps": [
+        "Apply the inverse law of the specified native coefficient equivalence."
+      ],
+      "acceptance": [
+        "This promotes a consumed API to a declaration; it preserves the existing construction and API statement."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate",
+      "title": "Target coefficient of a basis vector",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.targetCoordinateEquiv_monomial",
+      "statement": "The coefficient family of the vector e_i⊗x^k indexed by p is single(p,1), zero at every other index.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-coordinate-equivalence",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-synthesis"
+      ],
+      "proofSteps": [
+        "The synthesis of single(p,1) is the named target basis vector by finite-sum evaluation.",
+        "Apply the inverse law to extract its exact coefficient family."
+      ],
+      "acceptance": [
+        "This promotes a consumed API to a declaration; it preserves the existing construction and API statement."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial-permuted",
+      "title": "Weighted permuted root monomial",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.monomial_permuted",
+      "statement": "For p=(i,j), Θ(x^i⊗x^j)=w(σp)(e_i⊗x^k), where σp=(i,k) and w(i,k)=f when k<i, otherwise 1. This is the actual native comparison, not an arbitrary matrix.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-representative",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-permutation-wrap"
+      ],
+      "proofSteps": [
+        "Since 0≤i,j<n, the quotient (i+j)/n is either 0 or 1 by elementary integer arithmetic.",
+        "Use the native monomial formula and the representative identity. The wrap/lower lemma identifies exactly the factor f."
+      ],
+      "acceptance": [
+        "At n=2, Θ(x⊗x)=f(e₁⊗1), including nilpotent f."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial-coordinates",
+      "title": "Coefficients of a compared monomial",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.monomial_coordinates",
+      "statement": "In the fixed target coefficient equivalence, Θ(x^i⊗x^j) has coefficient family w(σp) single(σp,1), with w(i,k)=f for k<i and 1 otherwise.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial-permuted",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-target-basis-coordinate"
+      ],
+      "proofSteps": [
+        "Use the preceding weighted monomial identity and linearity of target coefficient extraction.",
+        "Apply its promoted basis-vector formula; the first permutation component remains i."
+      ],
+      "acceptance": [
+        "The universal character coordinate is retained in characteristic dividing n."
+      ]
+    },
+    {
+      "parentStageId": "FunctionFieldArithmeticPartII:RS.0",
+      "realises": [
+        "FunctionFieldArithmeticPartII:RS.0"
+      ],
+      "hypotheses": [
+        "A is any commutative ring, n≥1 and f∈A, unless the statement specifies a field or a unit. No reducedness, domain, flatness of coefficient change or invertibility-of-n assumption."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/RootStacks/RS0",
+        "namespace": "TauCeti.RootStack"
+      },
+      "sources": [
+        {
+          "sourceId": "TV17",
+          "locator": "§3.1 pp.14–16, character grading and Corollary 3.13, P=N",
+          "excerpt": "induces an action",
+          "match": "The finite root-chart action motivates this root-specific coordinate calculation. The weighted matrix, kernel and cokernel formulas are explicit derivations below, not standalone theorems quoted from the paper."
+        },
+        {
+          "sourceId": "STACKS-KUMMER",
+          "locator": "Tag 040N, Lemma 59.28.3, unit-parameter finite-free cover and proof",
+          "excerpt": "finite free of rank",
+          "match": "The unit-parameter cover motivates the torsor comparison. Nonunit obstructions and matrix formulas are derived here using the listed native algebra declarations; no geometric stack theorem is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "id": "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-map",
+      "title": "Complete weighted coefficient table",
+      "kind": "lemma",
+      "declarationName": "TauCeti.RootStack.affineTorsorComparison.coefficient_map",
+      "statement": "For every coefficient family c and q=(i,k), C_t(Θ(C_s⁻¹(c)))(q)=w(q)c(σ⁻¹q), where C_s and C_t are the specified source and target coefficient equivalences and w(q)=f for k<i, otherwise 1.",
+      "prerequisites": [
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-source-synthesis",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-monomial-coordinates",
+        "FunctionFieldArithmeticPartII:RS.0/affine-torsor-coefficient-permutation"
+      ],
+      "proofSteps": [
+        "Expand the specified source synthesis and distribute the native comparison and target coordinates over the finite linear combination.",
+        "Each compared monomial is supported only at its permutation image. Bijectivity of σ leaves exactly the term indexed by σ⁻¹q in the coefficient sum.",
+        "Ordinary scalar multiplication of coefficients gives the displayed product; no cancellation of f is used."
+      ],
+      "acceptance": [
+        "The formula works over the zero ring, over nonreduced rings and under arbitrary coefficient change. It asserts no preservation of kernels under nonflat change."
+      ]
     }
   ],
   "requests": [
@@ -7494,7 +8115,7 @@
       "remaining": [
         "Resolve JAC-A’s actual tensor-section/unit coordinate and pullback contracts.",
         "Implement and elaborate the five native root-coordinate comparison nodes and full-file signatures at the exact pins.",
-        "Prove the remaining finite comparison coordinate, kernel/cokernel, sharp criterion, inverse, determinant and rank statements and nonvanishing tests. The native coaction and elementary comparison proof extraction has been checked, but neither the whole Tau Ceti file nor the packet is certified."
+        "The separate native proof extraction now checks the complete coefficient table, kernel/image criteria and sharp injectivity/surjectivity/bijectivity statements. Complete the specified module kernel/cokernel equivalences, unit inverse, determinant, field ranks and the still-open nonvanishing examples; then the geometric suppliers and full-file elaboration. Neither the whole Tau Ceti file nor this partial packet is certified."
       ]
     },
     {
@@ -9041,6 +9662,84 @@
         "nativeSketchSha256": "724f1b3fbd4d8f6d59d69f0efe09bc80ff0940c6679715782873b822ccd7c810",
         "extractionSha256": "96567ff95673219f87ee60f50fad8924b9d96d6e6806bc3932810432593b2ad6",
         "compiled": "Targeted admitted Mathlib-only sketch; full Tau Ceti file not compiled."
+      }
+    },
+    "weightedCoefficientContinuation": {
+      "worker": "Codex — codex-J6LwjP",
+      "date": "2026-10-02",
+      "auditTree": "1197be4",
+      "freshReading": "Predecessor handoff in full; Talpo–Vistoli v2 §3.1 pp14–16 finite setup, Lemma3.7, Proposition3.10, Lemma3.12 and Corollary3.13 statements/proofs; full Stacks040N statement/proof. Current FA.0–FA.7 target statuses and full FA.2/FA.4 reviewed rows; FA.0/FA.1 inherited detailed audit retained without claiming a fresh complete reading. JacobianChallenge upstream document read in full; nearby SemisimpleAlgebras and RepresentationTheory documents were read earlier in this continuous session.",
+      "freshSources": [
+        {
+          "url": "https://arxiv.org/pdf/1410.1164v2",
+          "sha256": "92a90d1e3d9ac46e17de8cc9d9524c1621d5e2a8caea7938de61d6503ec2a6c2",
+          "read": "2026-10-02"
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/040N",
+          "sha256": "21a955ccf3224e20294b510800db3342840f0f44e33d1d15980a7a477633ec24",
+          "read": "2026-10-02"
+        }
+      ],
+      "preserved": "All125 inherited IDs and mathematical statements, both paper routes, AV sibling contracts, source versions/findings,39 planets,8 gaps,13 requests and ten partial stages retained. Four consumed coordinate APIs promoted, one native cyclic construction and seven helper lemmas added. Five old proof/input records refined.",
+      "nativeBoundary": "Current suggested signatures and examples remain admitted under PROTOCOL13. Separate native Mathlib proof evidence will be linked at its immutable intermediate commit. Full Tau Ceti file remains uncompiled because required compiled imports are absent.",
+      "arithmetic": "Fin addition/wrap and elementary quotient arithmetic were checked in the native proof. Finset.sum_eq_single, the additive theorem generated from prod_eq_single at Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean355, is used only for routine finite coefficient-sum evaluation; the source and generated use were read and elaborated, rather than assumed from the incomplete textual declaration index.",
+      "proofCheck": {
+        "exitCode": 0,
+        "wallSeconds": 3.8,
+        "maxRssKiB": 3161656,
+        "errors": 0,
+        "admittedWarnings": 9,
+        "otherWarnings": 0,
+        "nativeFileSha256": "d37dc5ae12becd5f3c25fa7f6e47cb29dd9c0fb18a48c03ac57e026b3c7204a4",
+        "extractionSha256": "4ab15358f6cc7033abe508a1e3114b7a602a922ec2510c1f13fac4d9cac3a5bb",
+        "axiomExtractionSha256": "605ac5eee2ab7003f97a33817d5461ba322a0bd19789d6e0255ab08fd30b38ed",
+        "axiomLogSha256": "c8d258ef9d7e6590e9931349e7b4fe210ed0f64442589a1d2a77753dcfd41765",
+        "examples": 23,
+        "extractionLines": 828,
+        "axiomAuditCount": 39,
+        "axiomAudit": "All39 audited native declarations depend only on propext, Classical.choice and Quot.sound; every printed list excludes admission axioms.",
+        "availableMemoryGiB": 69,
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "leanVersion": "4.34.0-rc2",
+        "proofSourceCommit": "7660b60d3ed205f650aeefe6b1e46996ec36ff09"
+      },
+      "sketchCheck": {
+        "exitCode": 0,
+        "errors": 0,
+        "admittedWarnings": 67,
+        "otherWarnings": 0,
+        "wallSeconds": 2.6,
+        "examples": 23,
+        "extractionLines": 466,
+        "nativeSketchSha256": "106ce0892461a29355c944ccfe52101d5c97d726c1c8b6cde532b0a62ba28266",
+        "extractionSha256": "bd3d9f8b34c36b19ba94edbaad645af46bff31798174c058e4d83d3f72c41355",
+        "logSha256": "0028e41cf9b67c1e0d731bae93153ae7b913b7b1fa41b64132455b38463ace4e",
+        "compiled": "Targeted admitted Mathlib-only sketch; full Tau Ceti file not compiled."
+      },
+      "atlasCheck": {
+        "stageGraph": {
+          "vertices": 3056,
+          "edges": 8723,
+          "acyclic": true
+        },
+        "ownGraph": {
+          "vertices": 137,
+          "edges": 288,
+          "acyclic": true
+        },
+        "scopedGraph": {
+          "vertices": 3205,
+          "edges": 9168,
+          "acyclic": true
+        },
+        "reachableDeclarations": 188,
+        "unresolvedReferences": [],
+        "ownPendingLinks": [],
+        "ownSkippedLinks": [],
+        "unrelatedLinkListsUnchanged": true,
+        "virtualStageEndpoints": 51,
+        "readOnly": true
       }
     }
   },

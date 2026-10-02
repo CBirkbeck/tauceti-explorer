@@ -1,7 +1,4 @@
 /-
-Intermediate proof evidence for the weighted coefficient continuation.
-This commit preserves actual affine proof experiments; the PR head restores
-admitted suggested signatures under PROTOCOL13. No implementation is claimed.
 This file is not the roadmap and is not exhaustive. The roadmap document is
 definitive. These signatures suggest Lean forms so that contributors and
 reviewers converge on names and signatures. No implementation is claimed.
@@ -227,66 +224,54 @@ abbrev MuHopf (R : Type u) [CommRing R] (n : ℕ) :=
 lemma affineRoot.pow_eq (f : A) (n : ℕ) :
     AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ n =
       algebraMap A (AffineRing f n) f := by
-  have h := AdjoinRoot.eval₂_root (Polynomial.X ^ n - Polynomial.C f)
-  simpa only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
-    Polynomial.eval₂_C, sub_eq_zero, AdjoinRoot.algebraMap_eq] using h
+  sorry
+
 lemma affineCharacter.pow (n i : ℕ) :
     (MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A)) ^ i =
       MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) := by
-  rw [MonoidAlgebra.single_pow, ← ofAdd_nsmul]
-  simp
+  sorry
+
 lemma affineRoot.pow_reduce (f : A) (n k : ℕ) [NeZero n] :
     AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ k =
       f ^ (k / n) • (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ (k % n)) := by
-  calc
-    _ = AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ (n * (k / n) + k % n) := by
-      rw [Nat.div_add_mod]
-    _ = _ := by rw [pow_add, pow_mul, affineRoot.pow_eq, Algebra.smul_def, map_pow]
+  sorry
+
 def affineCoaction (f : A) (n : ℕ) [NeZero n] :
-    AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n) :=
-  AdjoinRoot.liftAlgHom (Polynomial.X ^ n - Polynomial.C f)
-    (Algebra.ofId A (MuHopf A n ⊗[A] AffineRing f n))
-    (MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
-      AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) (by
-      simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow, Polynomial.eval₂_X,
-        Polynomial.eval₂_C, Algebra.TensorProduct.tmul_pow,
-        affineCharacter.pow, ZMod.natCast_self, ofAdd_zero,
-        affineRoot.pow_eq]
-      rw [sub_eq_zero]
-      exact ((Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-        MuHopf A n ⊗[A] AffineRing f n).commutes f))
+    AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n) := by
+  sorry
+
 lemma affineCoaction.root (f : A) (n : ℕ) [NeZero n] :
     affineCoaction f n (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
       MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
         AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
-  simp [affineCoaction]
+  sorry
+
 lemma affineCoaction.constant (f a : A) (n : ℕ) [NeZero n] :
     affineCoaction f n (algebraMap A (AffineRing f n) a) =
       (1 : MuHopf A n) ⊗ₜ[A] algebraMap A (AffineRing f n) a := by
-  rw [(affineCoaction f n).commutes]
-  exact ((Algebra.TensorProduct.includeRight : AffineRing f n →ₐ[A]
-    MuHopf A n ⊗[A] AffineRing f n).commutes a).symm
+  sorry
+
 lemma affineCoaction.unique (f : A) (n : ℕ) [NeZero n]
     (ψ : AffineRing f n →ₐ[A] (MuHopf A n ⊗[A] AffineRing f n))
     (hψ : ψ (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) =
       MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
         AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) :
     ψ = affineCoaction f n := by
-  apply AdjoinRoot.algHom_ext
-  rw [hψ, affineCoaction.root]
+  sorry
+
 lemma affineCoaction.weight (f : A) (n i : ℕ) [NeZero n] :
     affineCoaction f n ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i) =
       MonoidAlgebra.single (Multiplicative.ofAdd (i : ZMod n)) (1 : A) ⊗ₜ[A]
         ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f)) ^ i) := by
-  rw [map_pow, affineCoaction.root, Algebra.TensorProduct.tmul_pow, affineCharacter.pow]
+  sorry
+
 -- TauCeti.RootStack.affineCoaction.counit
 lemma affineCoaction.counit (f : A) (n : ℕ) [NeZero n] :
     ((Algebra.TensorProduct.lid A (AffineRing f n)).toAlgHom.comp
       (Algebra.TensorProduct.map (Bialgebra.counitAlgHom A (MuHopf A n))
         (AlgHom.id A (AffineRing f n)))).comp (affineCoaction f n) =
       AlgHom.id A (AffineRing f n) := by
-  apply AdjoinRoot.algHom_ext
-  simp [AlgHom.comp_apply, affineCoaction.root, Bialgebra.counitAlgHom]
+  sorry
 
 -- TauCeti.RootStack.affineCoaction.coassoc
 lemma affineCoaction.coassoc (f : A) (n : ℕ) [NeZero n] :
@@ -296,8 +281,7 @@ lemma affineCoaction.coassoc (f : A) (n : ℕ) [NeZero n] :
         (AlgHom.id A (AffineRing f n))).comp (affineCoaction f n)) =
       (Algebra.TensorProduct.map (AlgHom.id A (MuHopf A n))
         (affineCoaction f n)).comp (affineCoaction f n) := by
-  apply AdjoinRoot.algHom_ext
-  simp [AlgHom.comp_apply, affineCoaction.root, Bialgebra.comulAlgHom]
+  sorry
 
 -- TauCeti.RootStack.affineCoaction.nativePoint
 lemma affineCoaction.nativePoint (f : A) (n : ℕ) [NeZero n]
@@ -318,15 +302,7 @@ theorem affineCoaction.invariants (f : A) (n : ℕ) [NeZero n] (b : AffineRing f
 -- TauCeti.RootStack.affineCoaction.test_one
 example (f : A) (b : AffineRing f 1) :
     affineCoaction f 1 b = (1 : MuHopf A 1) ⊗ₜ[A] b := by
-  have h : affineCoaction f 1 = (Algebra.TensorProduct.includeRight :
-      AffineRing f 1 →ₐ[A] MuHopf A 1 ⊗[A] AffineRing f 1) := by
-    apply AdjoinRoot.algHom_ext
-    rw [affineCoaction.root]
-    change MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 1)) (1 : A) ⊗ₜ[A] _ = _
-    rw [show (1 : ZMod 1) = 0 from Subsingleton.elim _ _, ofAdd_zero, ← MonoidAlgebra.one_def]
-    rfl
-  rw [h]
-  rfl
+  sorry
 
 -- TauCeti.RootStack.affineCoaction.test_sign
 example (f : A) :
@@ -1146,14 +1122,13 @@ factor. Its formula on pure tensors is specified below. -/
 def affineTorsorComparison (f : A) (n : ℕ) [NeZero n] :
     (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
       (MuHopf A n ⊗[A] AffineRing f n) := by
-  exact Algebra.TensorProduct.lift (affineCoaction f n)
-    Algebra.TensorProduct.includeRight (fun _ _ => Commute.all _ _)
+  sorry
 
 lemma affineTorsorComparison.tmul (f : A) (n : ℕ) [NeZero n]
     (x y : AffineRing f n) :
     affineTorsorComparison f n (x ⊗ₜ[A] y) =
       affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y) := by
-  rfl
+  sorry
 
 lemma affineTorsorComparison.left_root (f : A) (n : ℕ) [NeZero n] :
     affineTorsorComparison f n
@@ -1161,14 +1136,13 @@ lemma affineTorsorComparison.left_root (f : A) (n : ℕ) [NeZero n] :
         (1 : AffineRing f n)) =
       MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
         AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by
-  rw [affineTorsorComparison.tmul, affineCoaction.root]
-  simp
+  sorry
 
 lemma affineTorsorComparison.right_factor (f : A) (n : ℕ) [NeZero n]
     (y : AffineRing f n) :
     affineTorsorComparison f n ((1 : AffineRing f n) ⊗ₜ[A] y) =
       (1 : MuHopf A n) ⊗ₜ[A] y := by
-  rw [affineTorsorComparison.tmul, map_one, one_mul]
+  sorry
 
 lemma affineTorsorComparison.unique (f : A) (n : ℕ) [NeZero n]
     (h : (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
@@ -1176,9 +1150,7 @@ lemma affineTorsorComparison.unique (f : A) (n : ℕ) [NeZero n]
     (hh : ∀ x y : AffineRing f n,
       h (x ⊗ₜ[A] y) = affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y)) :
     h = affineTorsorComparison f n := by
-  apply Algebra.TensorProduct.ext'
-  intro x y
-  rw [hh, affineTorsorComparison.tmul]
+  sorry
 
 /-- Weighted permutation formula in the native monic tensor bases.
 No division by n, reducedness, or unit condition on f is used. -/
@@ -1191,10 +1163,7 @@ lemma affineTorsorComparison.monomial (f : A) (n : ℕ) [NeZero n]
         (MonoidAlgebra.single (Multiplicative.ofAdd (i.val : ZMod n)) (1 : A) ⊗ₜ[A]
           (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
             ((i.val + j.val) % n))) := by
-  rw [affineTorsorComparison.tmul, affineCoaction.weight,
-    Algebra.TensorProduct.tmul_mul_tmul, mul_one, ← pow_add, affineRoot.pow_reduce]
-  exact TensorProduct.tmul_smul _ _ _
-
+  sorry
 
 /-- Every source tensor has unique monic-basis coefficients, including over
 the zero ring. In that case use the unique coefficient function directly. -/
@@ -1203,32 +1172,7 @@ lemma affineTorsorComparison.source_coordinates (f : A) (n : ℕ) [NeZero n]
     ∃! c : (Fin n × Fin n) → A,
       z = ∑ p : Fin n × Fin n, c p •
         ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
-  classical
-  by_cases hA : Subsingleton A
-  · let : Subsingleton A := hA
-    have : Subsingleton (AffineRing f n ⊗[A] AffineRing f n) := Module.subsingleton A _
-    exact ⟨0, Subsingleton.elim _ _, fun _ _ => Subsingleton.elim _ _⟩
-  · let : Nontrivial A := not_subsingleton_iff_nontrivial.mp hA
-    have hd : (Polynomial.X ^ n - Polynomial.C f).natDegree = n :=
-      Polynomial.natDegree_X_pow_sub_C
-    let pb := AdjoinRoot.powerBasis' (Polynomial.monic_X_pow_sub_C f (NeZero.ne n))
-    let b := pb.basis.reindex (finCongr hd)
-    have hb (i : Fin n) : b i = AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val := by
-      rw [Module.Basis.reindex_apply, pb.basis_eq_pow]
-      rfl
-    let v := b.tensorProduct b
-    have hv (p : Fin n × Fin n) : v p =
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by
-      rw [Module.Basis.tensorProduct_apply', hb, hb]
-    refine ⟨v.equivFun z, ?_, ?_⟩
-    · simpa only [hv] using (v.sum_equivFun z).symm
-    · intro c hc
-      apply v.equivFun.symm.injective
-      simpa only [Module.Basis.equivFun_symm_apply, hv,
-        LinearEquiv.symm_apply_apply] using hc.symm
-
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
 
 /-- Character basis in the first factor and monic basis in the second. -/
 lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
@@ -1236,210 +1180,112 @@ lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
     ∃! c : (Fin n × Fin n) → A,
       z = ∑ p : Fin n × Fin n, c p •
         (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
-  classical
-  by_cases hA : Subsingleton A
-  · let : Subsingleton A := hA
-    have : Subsingleton (MuHopf A n ⊗[A] AffineRing f n) := Module.subsingleton A _
-    exact ⟨0, Subsingleton.elim _ _, fun _ _ => Subsingleton.elim _ _⟩
-  · let : Nontrivial A := not_subsingleton_iff_nontrivial.mp hA
-    have hd : (Polynomial.X ^ n - Polynomial.C f).natDegree = n :=
-      Polynomial.natDegree_X_pow_sub_C
-    let pb := AdjoinRoot.powerBasis' (Polynomial.monic_X_pow_sub_C f (NeZero.ne n))
-    let b := pb.basis.reindex (finCongr hd)
-    have hb (i : Fin n) : b i = AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val := by
-      rw [Module.Basis.reindex_apply, pb.basis_eq_pow]
-      rfl
-    let e : Multiplicative (ZMod n) ≃ Fin n :=
-      Multiplicative.toAdd.trans (ZMod.finEquiv n).toEquiv.symm
-    let a := (MonoidAlgebra.basis (Multiplicative (ZMod n)) A).reindex e
-    have hz (i : Fin n) : ZMod.finEquiv n i = (i.val : ZMod n) := by
-      cases n with
-      | zero => exact (NeZero.ne 0 rfl).elim
-      | succ n =>
-        apply Fin.ext
-        change i.val = ((i.val : ZMod (n + 1))).val
-        exact (ZMod.val_natCast_of_lt i.isLt).symm
-    have ha (i : Fin n) : a i =
-        MonoidAlgebra.single (Multiplicative.ofAdd (i.val : ZMod n)) (1 : A) := by
-      rw [Module.Basis.reindex_apply, MonoidAlgebra.basis_apply]
-      change MonoidAlgebra.single (Multiplicative.ofAdd (ZMod.finEquiv n i)) (1 : A) = _
-      rw [hz]
-    let v := a.tensorProduct b
-    have hv (p : Fin n × Fin n) : v p =
-        MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by
-      rw [Module.Basis.tensorProduct_apply', ha, hb]
-    refine ⟨v.equivFun z, ?_, ?_⟩
-    · simpa only [hv] using (v.sum_equivFun z).symm
-    · intro c hc
-      apply v.equivFun.symm.injective
-      simpa only [Module.Basis.equivFun_symm_apply, hv,
-        LinearEquiv.symm_apply_apply] using hc.symm
-
+          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
 
 /-- The actual finite coefficient equivalence, fixed by the original tensor
 monomials. This includes the subsingleton coefficient ring. -/
 def affineTorsorComparison.sourceCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    (AffineRing f n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by
-  classical
-  let s : ((Fin n × Fin n) → A) →ₗ[A] (AffineRing f n ⊗[A] AffineRing f n) :=
-    { toFun := fun c => ∑ p, c p •
-        ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))
-      map_add' := by intro c d; simp [add_smul, Finset.sum_add_distrib]
-      map_smul' := by intro a c; simp [Finset.smul_sum, smul_smul] }
-  have hs : Function.Bijective s := by
-    constructor
-    · intro c d h
-      obtain ⟨v, _, hu⟩ := affineTorsorComparison.source_coordinates f n (s c)
-      exact (hu c rfl).trans (hu d h).symm
-    · intro z
-      obtain ⟨c, hc, _⟩ := affineTorsorComparison.source_coordinates f n z
-      exact ⟨c, hc.symm⟩
-  exact (LinearEquiv.ofBijective s hs).symm
+    (AffineRing f n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
 
 lemma affineTorsorComparison.sourceCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
     (c : (Fin n × Fin n) → A) :
     (affineTorsorComparison.sourceCoordinateEquiv f n).symm c =
       ∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := rfl
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
 
 lemma affineTorsorComparison.sourceCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
     (c : (Fin n × Fin n) → A) :
     affineTorsorComparison.sourceCoordinateEquiv f n
       (∑ p, c p • ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c :=
-  (affineTorsorComparison.sourceCoordinateEquiv f n).apply_symm_apply c
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
 
 lemma affineTorsorComparison.sourceCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
     affineTorsorComparison.sourceCoordinateEquiv f n
       ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
         (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
-      Pi.single p 1 := by
-  classical
-  have hs : (affineTorsorComparison.sourceCoordinateEquiv f n).symm (Pi.single p 1) =
-      ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
-    rw [affineTorsorComparison.sourceCoordinateEquiv_symm_apply]
-    simp [Pi.single_apply]
-  rw [← hs]
-  exact (affineTorsorComparison.sourceCoordinateEquiv f n).apply_symm_apply _
+      Pi.single p 1 := by sorry
 
 /-- The character tensor coefficient equivalence uses every group-algebra
 character, including in characteristic dividing n. -/
 def affineTorsorComparison.targetCoordinateEquiv (f : A) (n : ℕ) [NeZero n] :
-    (MuHopf A n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by
-  classical
-  let s : ((Fin n × Fin n) → A) →ₗ[A] (MuHopf A n ⊗[A] AffineRing f n) :=
-    { toFun := fun c => ∑ p, c p •
-        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))
-      map_add' := by intro c d; simp [add_smul, Finset.sum_add_distrib]
-      map_smul' := by intro a c; simp [Finset.smul_sum, smul_smul] }
-  have hs : Function.Bijective s := by
-    constructor
-    · intro c d h
-      obtain ⟨v, _, hu⟩ := affineTorsorComparison.target_coordinates f n (s c)
-      exact (hu c rfl).trans (hu d h).symm
-    · intro z
-      obtain ⟨c, hc, _⟩ := affineTorsorComparison.target_coordinates f n z
-      exact ⟨c, hc.symm⟩
-  exact (LinearEquiv.ofBijective s hs).symm
+    (MuHopf A n ⊗[A] AffineRing f n) ≃ₗ[A] ((Fin n × Fin n) → A) := by sorry
 
 lemma affineTorsorComparison.targetCoordinateEquiv_symm_apply (f : A) (n : ℕ) [NeZero n]
     (c : (Fin n × Fin n) → A) :
     (affineTorsorComparison.targetCoordinateEquiv f n).symm c =
       ∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := rfl
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by sorry
 
 lemma affineTorsorComparison.targetCoordinateEquiv_apply_sum (f : A) (n : ℕ) [NeZero n]
     (c : (Fin n × Fin n) → A) :
     affineTorsorComparison.targetCoordinateEquiv f n
       (∑ p, c p • (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c :=
-  (affineTorsorComparison.targetCoordinateEquiv f n).apply_symm_apply c
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = c := by sorry
 
 lemma affineTorsorComparison.targetCoordinateEquiv_monomial (f : A) (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
     affineTorsorComparison.targetCoordinateEquiv f n
       (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
         (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) =
-      Pi.single p 1 := by
-  classical
-  have hs : (affineTorsorComparison.targetCoordinateEquiv f n).symm (Pi.single p 1) =
-      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) := by
-    rw [affineTorsorComparison.targetCoordinateEquiv_symm_apply]
-    simp [Pi.single_apply]
-  rw [← hs]
-  exact (affineTorsorComparison.targetCoordinateEquiv f n).apply_symm_apply _
+      Pi.single p 1 := by sorry
 
 -- affineTorsorComparison.sourceCoordinateEquiv.test_one
 example (f : A) : affineTorsorComparison.sourceCoordinateEquiv f 1
-    ((1 : AffineRing f 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by
-  simpa using affineTorsorComparison.sourceCoordinateEquiv_monomial f 1 (0, 0)
+    ((1 : AffineRing f 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
+
 -- affineTorsorComparison.sourceCoordinateEquiv.test_zero_ring
 example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
     (z : AffineRing f n ⊗[A] AffineRing f n) :
-    affineTorsorComparison.sourceCoordinateEquiv f n z = 0 := Subsingleton.elim _ _
+    affineTorsorComparison.sourceCoordinateEquiv f n z = 0 := by sorry
+
 -- affineTorsorComparison.sourceCoordinateEquiv.test_nonreduced
 example : affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2
     (AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ⊗ₜ[ZMod 4]
-      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))) (1, 1) = 1 := by
-  simpa using congrFun
-    (affineTorsorComparison.sourceCoordinateEquiv_monomial (2 : ZMod 4) 2 (1, 1)) (1, 1)
+      AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))) (1, 1) = 1 := by sorry
+
 -- affineTorsorComparison.targetCoordinateEquiv.test_one
 example (f : A) : affineTorsorComparison.targetCoordinateEquiv f 1
-    ((1 : MuHopf A 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by
-  simpa [MonoidAlgebra.one_def] using
-    affineTorsorComparison.targetCoordinateEquiv_monomial f 1 (0, 0)
+    ((1 : MuHopf A 1) ⊗ₜ[A] (1 : AffineRing f 1)) = Pi.single (0, 0) 1 := by sorry
+
 -- affineTorsorComparison.targetCoordinateEquiv.test_zero_ring
 example [Subsingleton A] (f : A) (n : ℕ) [NeZero n]
     (z : MuHopf A n ⊗[A] AffineRing f n) :
-    affineTorsorComparison.targetCoordinateEquiv f n z = 0 := Subsingleton.elim _ _
+    affineTorsorComparison.targetCoordinateEquiv f n z = 0 := by sorry
+
 -- affineTorsorComparison.targetCoordinateEquiv.test_wild_character
 example : affineTorsorComparison.targetCoordinateEquiv (0 : ZMod 2) 2
     (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2) ⊗ₜ[ZMod 2]
-      (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by
-  simpa using congrFun
-    (affineTorsorComparison.targetCoordinateEquiv_monomial (0 : ZMod 2) 2 (1, 0)) (1, 0)
+      (1 : AffineRing (0 : ZMod 2) 2)) (1, 0) = 1 := by sorry
 
 def affineTorsorComparison.coefficientPermutation (n : ℕ) [NeZero n] :
-    (Fin n × Fin n) ≃ (Fin n × Fin n) where
-  toFun p := (p.1, p.1 + p.2)
-  invFun p := (p.1, p.2 - p.1)
-  left_inv p := by ext <;> simp
-  right_inv p := by ext <;> simp
+    (Fin n × Fin n) ≃ (Fin n × Fin n) := by sorry
 
 lemma affineTorsorComparison.coefficientPermutation_apply (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
-    coefficientPermutation n p = (p.1, p.1 + p.2) := rfl
+    coefficientPermutation n p = (p.1, p.1 + p.2)  := by sorry
 
 lemma affineTorsorComparison.coefficientPermutation_symm (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
-    (coefficientPermutation n).symm p = (p.1, p.2 - p.1) := rfl
+    (coefficientPermutation n).symm p = (p.1, p.2 - p.1)  := by sorry
 
 lemma affineTorsorComparison.wrap_iff_lower (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
     (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val ↔
-      n ≤ p.1.val + p.2.val := by
-  change (p.1 + p.2).val < p.1.val ↔ n ≤ p.1.val + p.2.val
-  have h := Fin.coe_int_add_eq_ite p.1 p.2
-  split_ifs at h <;> omega
+      n ≤ p.1.val + p.2.val  := by sorry
 
 -- affineTorsorComparison.coefficientPermutation.test_one
-example (p : Fin 1 × Fin 1) : affineTorsorComparison.coefficientPermutation 1 p = p := by
-  exact Subsingleton.elim _ _
+example (p : Fin 1 × Fin 1) : affineTorsorComparison.coefficientPermutation 1 p = p  := by sorry
+
 -- affineTorsorComparison.coefficientPermutation.test_wrap
-example : affineTorsorComparison.coefficientPermutation 2 (1,1) = (1,0) := by decide
+example : affineTorsorComparison.coefficientPermutation 2 (1,1) = (1,0)  := by sorry
+
 -- affineTorsorComparison.coefficientPermutation.test_inverse
-example : (affineTorsorComparison.coefficientPermutation 3).symm (2,0) = (2,1) := by decide
+example : (affineTorsorComparison.coefficientPermutation 3).symm (2,0) = (2,1)  := by sorry
 
 lemma affineTorsorComparison.coefficientPermutation_val (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
-    (coefficientPermutation n p).2.val = (p.1.val + p.2.val) % n := rfl
+    (coefficientPermutation n p).2.val = (p.1.val + p.2.val) % n  := by sorry
 
 lemma affineTorsorComparison.monomial_permuted (f : A) (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
@@ -1449,22 +1295,7 @@ lemma affineTorsorComparison.monomial_permuted (f : A) (n : ℕ) [NeZero n]
       (if (coefficientPermutation n p).2.val < p.1.val then f else 1) •
         (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
           (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
-            (coefficientPermutation n p).2.val)) := by
-  rw [affineTorsorComparison.monomial, coefficientPermutation_val]
-  congr 1
-  by_cases h : p.1.val + p.2.val < n
-  · have hn : ¬ (coefficientPermutation n p).2.val < p.1.val := by
-      intro hlt
-      have hwrap := (wrap_iff_lower n p).mp hlt
-      omega
-    simp only [coefficientPermutation_val] at hn
-    rw [ite_eq_right hn, Nat.div_eq_of_lt h, pow_zero]
-  · have hn : (coefficientPermutation n p).2.val < p.1.val :=
-      (wrap_iff_lower n p).mpr (by omega)
-    have hd : (p.1.val + p.2.val) / n = 1 :=
-      Nat.div_eq_of_lt_le (by omega) (by omega)
-    simp only [coefficientPermutation_val] at hn
-    rw [ite_eq_left hn, hd, pow_one]
+            (coefficientPermutation n p).2.val))  := by sorry
 
 lemma affineTorsorComparison.monomial_coordinates (f : A) (n : ℕ) [NeZero n]
     (p : Fin n × Fin n) :
@@ -1472,32 +1303,14 @@ lemma affineTorsorComparison.monomial_coordinates (f : A) (n : ℕ) [NeZero n]
       ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
         (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) =
       (if (coefficientPermutation n p).2.val < (coefficientPermutation n p).1.val
-        then f else 1) • Pi.single (coefficientPermutation n p) 1 := by
-  rw [monomial_permuted, map_smul]
-  congr 1
-  exact targetCoordinateEquiv_monomial f n (coefficientPermutation n p)
+        then f else 1) • Pi.single (coefficientPermutation n p) 1  := by sorry
 
 lemma affineTorsorComparison.coefficient_map (f : A) (n : ℕ) [NeZero n]
     (c : (Fin n × Fin n) → A) (q : Fin n × Fin n) :
     targetCoordinateEquiv f n
       (affineTorsorComparison f n ((sourceCoordinateEquiv f n).symm c)) q =
       (if q.2.val < q.1.val then f else 1) *
-        c ((coefficientPermutation n).symm q) := by
-  classical
-  rw [sourceCoordinateEquiv_symm_apply]
-  simp only [map_sum, map_smul, monomial_coordinates, smul_smul]
-  rw [Finset.sum_apply]
-  rw [Finset.sum_eq_single ((coefficientPermutation n).symm q)]
-  · simp [smul_eq_mul, mul_comm]
-  · intro p _ hp
-    have hne : coefficientPermutation n p ≠ q := by
-      intro h
-      apply hp
-      apply (coefficientPermutation n).injective
-      simpa using h
-    simp [hne]
-  · simp
-
+        c ((coefficientPermutation n).symm q)  := by sorry
 
 /-- The nonwrapping source coefficients vanish; the wrapping coefficients
 lie in the annihilator of f. This also specifies the kernel comparison map. -/
@@ -1508,36 +1321,7 @@ lemma affineTorsorComparison.kernel_coefficients (f : A) (n : ℕ) [NeZero n]
         ((AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val) ⊗ₜ[A]
           (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) = 0 ↔
       ∀ p : Fin n × Fin n,
-        if p.1.val + p.2.val < n then c p = 0 else f * c p = 0 := by
-  classical
-  rw [← sourceCoordinateEquiv_symm_apply]
-  constructor
-  · intro hz p
-    have hq := congrArg
-      (fun z => targetCoordinateEquiv f n z (coefficientPermutation n p)) hz
-    simp only [coefficient_map, Equiv.symm_apply_apply, map_zero, Pi.zero_apply,
-      wrap_iff_lower] at hq
-    by_cases hp : p.1.val + p.2.val < n
-    · simpa [hp, not_le.mpr hp] using hq
-    · simpa [hp, le_of_not_gt hp] using hq
-  · intro hc
-    apply (targetCoordinateEquiv f n).injective
-    ext q
-    rw [coefficient_map, map_zero]
-    change (if q.2.val < q.1.val then f else 1) *
-      c ((coefficientPermutation n).symm q) = 0
-    have hp := hc ((coefficientPermutation n).symm q)
-    have hw := wrap_iff_lower n ((coefficientPermutation n).symm q)
-    simp only [Equiv.apply_symm_apply] at hw
-    split_ifs at hp with hs
-    · have hlow : ¬ q.2.val < q.1.val := by
-        intro h
-        have := hw.mp h
-        omega
-      simpa [hlow] using hp
-    · have hlow : q.2.val < q.1.val := hw.mpr (by omega)
-      simpa [hlow] using hp
-
+        if p.1.val + p.2.val < n then c p = 0 else f * c p = 0 := by sorry
 
 /-- Target coefficients below the diagonal, not all coefficients, must be
 multiples of f. This specifies the cokernel quotient map. -/
@@ -1547,33 +1331,7 @@ lemma affineTorsorComparison.image_coefficients (f : A) (n : ℕ) [NeZero n]
       (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
         (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) ∈
       LinearMap.range (affineTorsorComparison f n).toLinearMap ↔
-      ∀ p : Fin n × Fin n, p.2.val < p.1.val → ∃ a : A, c p = f * a := by
-  classical
-  constructor
-  · rintro ⟨z, hz⟩ q hq
-    have ht := congrArg (fun z => targetCoordinateEquiv f n z q) hz
-    rw [targetCoordinateEquiv_apply_sum] at ht
-    have hc := coefficient_map f n (sourceCoordinateEquiv f n z) q
-    rw [LinearEquiv.symm_apply_apply] at hc
-    refine ⟨sourceCoordinateEquiv f n z ((coefficientPermutation n).symm q), ?_⟩
-    simpa [hq] using (hc.symm.trans ht).symm
-  · intro h
-    let d : (Fin n × Fin n) → A := fun q =>
-      if hq : q.2.val < q.1.val then Classical.choose (h q hq) else c q
-    have hd (q : Fin n × Fin n) :
-        (if q.2.val < q.1.val then f else 1) * d q = c q := by
-      dsimp [d]
-      split_ifs with hq
-      · exact (Classical.choose_spec (h q hq)).symm
-      · simp
-    let b : (Fin n × Fin n) → A := fun p => d (coefficientPermutation n p)
-    refine ⟨(sourceCoordinateEquiv f n).symm b, ?_⟩
-    apply (targetCoordinateEquiv f n).injective
-    ext q
-    change targetCoordinateEquiv f n (affineTorsorComparison f n
-      ((sourceCoordinateEquiv f n).symm b)) q = _
-    rw [coefficient_map, targetCoordinateEquiv_apply_sum]
-    simpa only [b, Equiv.apply_symm_apply] using hd q
+      ∀ p : Fin n × Fin n, p.2.val < p.1.val → ∃ a : A, c p = f * a := by sorry
 
 /-- Native kernel, indexed by the wrapping source pairs. The coordinate
 formula specifies the equivalence, not just its abstract isomorphism class. -/
@@ -1607,109 +1365,13 @@ theorem affineTorsorComparison.cokernel_equiv (f : A) (n : ℕ) [NeZero n] :
 
 theorem affineTorsorComparison.injective_iff (f : A) (n : ℕ) [NeZero n] :
     Function.Injective (affineTorsorComparison f n) ↔
-      n = 1 ∨ Function.Injective (fun a : A => f * a) := by
-  classical
-  constructor
-  · intro hi
-    by_cases hn : n = 1
-    · exact Or.inl hn
-    · right
-      intro a b hab
-      have hpos := NeZero.pos n
-      have htwo : 1 < n := by omega
-      let p : Fin n × Fin n := (⟨1, htwo⟩, ⟨n - 1, by omega⟩)
-      let c : (Fin n × Fin n) → A := Pi.single p (a - b)
-      have hc : ∀ r : Fin n × Fin n,
-          if r.1.val + r.2.val < n then c r = 0 else f * c r = 0 := by
-        intro r
-        by_cases hr : r = p
-        · subst r
-          have hw : ¬ p.1.val + p.2.val < n := by dsimp [p]; omega
-          simpa [hw, c, mul_sub] using sub_eq_zero.mpr hab
-        · simp [c, Pi.single_eq_of_ne hr]
-      have hz : affineTorsorComparison f n ((sourceCoordinateEquiv f n).symm c) = 0 := by
-        rw [sourceCoordinateEquiv_symm_apply]
-        exact (kernel_coefficients f n c).mpr hc
-      have hz' : (sourceCoordinateEquiv f n).symm c = 0 := hi (hz.trans (map_zero _).symm)
-      have hcp := congrArg (fun z => sourceCoordinateEquiv f n z p) hz'
-      have : a - b = 0 := by simpa [c] using hcp
-      exact sub_eq_zero.mp this
-  · intro h z w hzw
-    let c := sourceCoordinateEquiv f n (z - w)
-    have hz : affineTorsorComparison f n ((sourceCoordinateEquiv f n).symm c) = 0 := by
-      simp only [c, LinearEquiv.symm_apply_apply, map_sub, hzw, sub_self]
-    rw [sourceCoordinateEquiv_symm_apply] at hz
-    have hc := (kernel_coefficients f n c).mp hz
-    have hc0 : c = 0 := by
-      ext p
-      have hp := hc p
-      rcases h with hn | hf
-      · have hi : p.1.val = 0 := by have := p.1.isLt; omega
-        have hj : p.2.val = 0 := by have := p.2.isLt; omega
-        simpa [hi, hj, hn] using hp
-      · split_ifs at hp with hwrap
-        · exact hp
-        · exact hf (hp.trans (mul_zero f).symm)
-    have hzw0 : z - w = 0 := (sourceCoordinateEquiv f n).injective
-      (by simpa only [c, map_zero] using hc0)
-    exact sub_eq_zero.mp hzw0
+      n = 1 ∨ Function.Injective (fun a : A => f * a) := by sorry
 
 theorem affineTorsorComparison.surjective_iff (f : A) (n : ℕ) [NeZero n] :
-    Function.Surjective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by
-  classical
-  constructor
-  · intro hs
-    by_cases hn : n = 1
-    · exact Or.inl hn
-    · right
-      have hpos := NeZero.pos n
-      have htwo : 1 < n := by omega
-      let q : Fin n × Fin n := (⟨1, htwo⟩, 0)
-      let c : (Fin n × Fin n) → A := Pi.single q 1
-      obtain ⟨z, hz⟩ := hs ((targetCoordinateEquiv f n).symm c)
-      have hm : (∑ p : Fin n × Fin n, c p •
-          (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-            (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) ∈
-          LinearMap.range (affineTorsorComparison f n).toLinearMap := by
-        rw [← targetCoordinateEquiv_symm_apply]
-        exact ⟨z, hz⟩
-      obtain ⟨a, ha⟩ := (image_coefficients f n c).mp hm q (by simp [q])
-      apply isUnit_iff_exists_inv.mpr
-      exact ⟨a, by simpa [c] using ha.symm⟩
-  · intro h y
-    let c := targetCoordinateEquiv f n y
-    have hm : (∑ p : Fin n × Fin n, c p •
-        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
-          (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))) ∈
-        LinearMap.range (affineTorsorComparison f n).toLinearMap := by
-      apply (image_coefficients f n c).mpr
-      intro q hq
-      rcases h with hn | hf
-      · have hi : q.1.val = 0 := by have := q.1.isLt; omega
-        have hj : q.2.val = 0 := by have := q.2.isLt; omega
-        omega
-      · obtain ⟨a, ha⟩ := hf.exists_right_inv
-        exact ⟨a * c q, by rw [← mul_assoc, ha, one_mul]⟩
-    rw [← targetCoordinateEquiv_symm_apply] at hm
-    have hm' : y ∈ LinearMap.range (affineTorsorComparison f n).toLinearMap := by
-      simpa only [c, LinearEquiv.symm_apply_apply] using hm
-    obtain ⟨z, hz⟩ := hm'
-    exact ⟨z, hz⟩
+    Function.Surjective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
 
 theorem affineTorsorComparison.bijective_iff (f : A) (n : ℕ) [NeZero n] :
-    Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by
-  constructor
-  · intro h
-    exact (surjective_iff f n).mp h.2
-  · intro h
-    refine ⟨(injective_iff f n).mpr ?_, (surjective_iff f n).mpr h⟩
-    rcases h with hn | hf
-    · exact Or.inl hn
-    · right
-      obtain ⟨v, rfl⟩ := hf
-      intro a b hab
-      have := congrArg (fun x : A => (↑v⁻¹ : A) * x) hab
-      simpa [← mul_assoc] using this
+    Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
 
 /-- The algebra equivalence is fixed by the original comparison and the
 inverse image of the character generator. This includes characteristic
@@ -1744,14 +1406,11 @@ theorem affineTorsorComparison.zero_rank (k : Type u) [Field k]
       n * (n - 1) / 2 := by sorry
 
 -- affineTorsorComparison.test_exponent_one: no unit condition on f.
-example (f : A) : Function.Bijective (affineTorsorComparison f 1) := by
-  exact (affineTorsorComparison.bijective_iff f 1).mpr (Or.inl rfl)
+example (f : A) : Function.Bijective (affineTorsorComparison f 1) := by sorry
 
 -- affineTorsorComparison.test_zero_ring: the usual zero-ring unit convention.
 example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] :
-    Function.Bijective (affineTorsorComparison f n) := by
-  apply (affineTorsorComparison.bijective_iff f n).mpr
-  exact Or.inr (isUnit_iff_exists_inv.mpr ⟨0, Subsingleton.elim _ _⟩)
+    Function.Bijective (affineTorsorComparison f n) := by sorry
 
 -- affineTorsorComparison.test_branch_kernel: an actual nonzero source tensor.
 example (k : Type u) [Field k] :
@@ -1760,39 +1419,13 @@ example (k : Type u) [Field k] :
 
 -- affineTorsorComparison.test_regular_nonunit: injective does not mean torsor.
 example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
-    ¬ Function.Surjective (affineTorsorComparison (2 : ℤ) 2) := by
-  constructor
-  · apply (affineTorsorComparison.injective_iff (2 : ℤ) 2).mpr
-    right
-    change Function.Injective (fun a : ℤ => (2 : ℤ) * a)
-    intro a b h
-    exact mul_left_cancel₀ (by decide : (2 : ℤ) ≠ 0) h
-  · rw [affineTorsorComparison.surjective_iff]
-    simp only [show ¬ (2 : ℕ) = 1 by decide, false_or]
-    intro hf
-    obtain ⟨a, ha⟩ := hf.exists_right_inv
-    omega
+    ¬ Function.Surjective (affineTorsorComparison (2 : ℤ) 2) := by sorry
 
 -- affineTorsorComparison.test_nilpotent_parameter: nonzero f is not enough.
 example :
     let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))
     let z := (2 : ZMod 4) • (x ⊗ₜ[ZMod 4] x)
-    z ≠ 0 ∧ affineTorsorComparison (2 : ZMod 4) 2 z = 0 := by
-  dsimp only
-  constructor
-  · intro hz
-    have hc := congrArg (fun z => affineTorsorComparison.sourceCoordinateEquiv (2 : ZMod 4) 2 z (1,1)) hz
-    have hm := affineTorsorComparison.sourceCoordinateEquiv_monomial (2 : ZMod 4) 2 (1,1)
-    simp only [Fin.val_one, pow_one] at hm
-    simp only [map_smul, hm, map_zero, Pi.zero_apply, Pi.smul_apply,
-      Pi.single_eq_same, smul_eq_mul, mul_one] at hc
-    exact (by decide : (2 : ZMod 4) ≠ 0) hc
-  · rw [map_smul]
-    have hm := affineTorsorComparison.monomial (2 : ZMod 4) 2 1 1
-    norm_num at hm
-    rw [hm]
-    change (2 : ZMod 4) • ((2 : ZMod 4) • _) = 0
-    rw [smul_smul, show (2 : ZMod 4) * 2 = 0 by decide, zero_smul]
+    z ≠ 0 ∧ affineTorsorComparison (2 : ZMod 4) 2 z = 0 := by sorry
 
 -- affineTorsorComparison.test_wild_unit: the chart is a torsor despite its
 -- nonzero nilpotent and despite 2 not being invertible in the base field.
@@ -1824,20 +1457,21 @@ variable {A : Type u} [CommRing A]
 open scoped TensorProduct
 -- TauCeti.RootStack.affineRoot.pow_eq.test_wild_branch
 example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : ZMod 2)) ^ 2 = 0 := by
-  simpa using affineRoot.pow_eq (0 : ZMod 2) 2
+  sorry
+
 -- TauCeti.RootStack.affineRoot.pow_eq.test_regular_nonunit
 example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ℤ)) ^ 4 =
     algebraMap ℤ (AffineRing (2 : ℤ) 2) 4 := by
-  rw [show 4 = 2 * 2 by decide, pow_mul, affineRoot.pow_eq, ← map_pow]
-  norm_num
+  sorry
+
 -- TauCeti.RootStack.affineRoot.pow_reduce.test_nilpotent
 example : AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4)) ^ 4 = 0 := by
-  have h : (2 : ZMod 4) ^ 2 = 0 := by decide
-  simpa [h] using affineRoot.pow_reduce (2 : ZMod 4) 2 4
+  sorry
+
 -- TauCeti.RootStack.affineCharacter.pow.test_wild_order
 example : (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : ZMod 2)) ^ 2 = 1 := by
-  rw [affineCharacter.pow]
-  simp only [ZMod.natCast_self, ofAdd_zero, ← MonoidAlgebra.one_def]
+  sorry
+
 -- TauCeti.RootStack.affineTorsorComparison.test_branch_image
 example (f : A) :
     affineTorsorComparison f 2
@@ -1845,5 +1479,6 @@ example (f : A) :
         AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C f)) =
       f • (MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod 2)) (1 : A) ⊗ₜ[A]
         (1 : AffineRing f 2)) := by
-  simpa using affineTorsorComparison.monomial f 2 (1 : Fin 2) (1 : Fin 2)
+  sorry
+
 end TauCeti.RootStack
