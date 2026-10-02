@@ -150,6 +150,200 @@ Acceptance: A zero section gives valid root objects; replacing arrows by all mod
 
 Source: AGV08, B.2 p. 53.
 
+
+
+### Native coordinates of root objects
+
+These six declarations are root-specific comparisons on the existing native
+invertible-sheaf category. They require specified trivializations; they do not
+assert that every line bundle is globally trivial. Set O to the native free
+rank-one sheaf. Its coordinate map is the existing freePUnitIsoUnit evaluated
+on global sections, and its unit section is the existing freeSection. Thus a
+coordinate is an actual element of Γ(X,O_X), including when X is nonaffine.
+
+Keep the tensor parentheses O⁰=O and Oⁿ⁺¹=Oⁿ⊗O. Define c_n:Oⁿ≅O by the
+identity at zero and the native right-unit isomorphism at each successor. For
+a root object a=(M,t,φ), trivializations e:M≅O and l:L≅O turn the root
+identification into the automorphism α=c_n⁻¹;(e⁻¹)ⁿ;φ;l of O. Its coefficient
+u is defined by the image of the unit section. It is not extra input. The
+coordinate z of e(t) then satisfies u zⁿ=f, where f is the coordinate of l(s).
+
+The inverse of α proves that u is a unit. This does not require a reduced
+base, an affine base, or invertibility of n. It also does not choose an n-th
+root of u. For n=2 over Q, u=2,z=1,f=2 is valid root data although 2 has no
+rational square root. Globally setting u=1 would discard such a chosen
+trivialization. The affine quotient chart instead uses the generic torsor
+and descent construction supplied by SF.1, which can normalize local frames
+in the appropriate topology.
+
+For an arrow from a to b, the scalar w of the line isomorphism is a unit and
+the two equations are z_b=w z_a and u_b wⁿ=u_a. Both remain necessary when
+the sections are zero. For an automorphism they give wⁿ=1 and w z=z. These
+are scheme-theoretic stabilizer equations on every test algebra, rather than
+a list of field-valued points. Over characteristic-two dual numbers, 1+ε
+has square 1 even though the corresponding field has only the identity
+point of μ₂. Over Z/4, n=2, u=3,z=2 gives a nonzero nilpotent root of f=0.
+
+#### Canonical coordinates for powers of the trivial line
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism. Construction. Proposed name: TauCeti.RootStack.tensorPower.trivialIso.
+
+For any scheme X and n≥0, let O be the native free rank-one invertible sheaf. Construct c_n:Oⁿ≅O with c_0=id and c_{n+1}=(c_n⊗id_O) followed by the native right-unit isomorphism. The parentheses agree with tensorPower; these are canonical coordinates for that recursion, not a new tensor product.
+
+Hypotheses: Scheme X arbitrary; n a natural number, including zero.
+
+Construction or proof:
+
+1. Start with the identity at zero.
+2. At the successor compose native tensorProductCongrLeft(c_n) with tensorTrivialRightIso(O). Their actual domains match the recursive tensor power.
+3. For the section-unit API use the existing bilinear tensor-section/unit contract JAC-A; no generic section tensor map is constructed here.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProductCongrLeft, tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorTrivialRightIso, SchemeAndStackFoundations:SF.3.
+
+The API serves: AGV B.2, trivial L=O calculation — Identifies the domain of the root identification with O while retaining its unit coefficient.; FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation — Computes powers in the same parentheses as the native root object.
+
+API:
+
+- TauCeti.RootStack.tensorPower.trivialIso_zero (simp): c_0 is the identity of O.
+- TauCeti.RootStack.tensorPower.trivialIso_succ (simp): c_{n+1}=(c_n⊗id) followed by the right-unit map, with the native tensor congruence.
+- TauCeti.RootStack.tensorPower.trivialIso_unit (compatibility): Under c_n the n-th power of the native unit section has coefficient 1 for every n≥0.
+
+Unit tests:
+
+- TauCeti.RootStack.tensorPower.trivialIso_test_zero (degenerate): c_0=id_O.
+- TauCeti.RootStack.tensorPower.trivialIso_test_one (compatibility): c_1 equals the existing right-unit isomorphism O⊗O≅O.
+- TauCeti.RootStack.tensorPower.trivialIso_test_two (computation): For a section of O with coefficient z, its square transported by c_2 has coefficient z², including nilpotent z.
+
+Acceptance: The exponent-one comparison is the native right-unit map, not an arbitrarily chosen scalar multiple.
+
+Source: [AGV Appendix B.1–B.2, pp. 52–54](https://arxiv.org/pdf/math/0603151v2). The root data and chart computation motivate this coordinate derivation; these comparison lemmas are not asserted to be printed separately in the source.
+
+#### Isomorphism transport of section powers
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-transport.
+Comparison. Proposed name: TauCeti.RootStack.sectionPower.mapIso.
+
+For any native invertible-sheaf isomorphism e:M≅N and section t, eⁿ(tⁿ)
+equals (e(t))ⁿ for every n≥0, with the recursive tensor parentheses fixed.
+This promotes the existing section-power API to its own prerequisite node;
+it introduces no second section-power construction or signature.
+
+Induct from the native unit section at zero. At a successor, use JAC-A's
+natural bilinear tensor-section map and the existing tensor congruences on
+both factors. The zero-degree transport is the unit identity, and the
+identity/composition transport laws come from the same coherent tensor
+recursion. These supplier laws remain proof obligations, not extra premises
+that assert the desired result. The section may vanish and the base may be
+nonreduced. Multiplication by a unit w gives coefficient wⁿ on section powers.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/tensor-power,
+FunctionFieldArithmeticPartII:RS.0/section-power and
+SchemeAndStackFoundations:SF.3 (JAC-A). The existing suggested
+sectionPower.mapIso signature already states this comparison.
+Source: [AGV Appendix B.1–B.2](https://arxiv.org/pdf/math/0603151v2),
+root identifications and their isomorphisms; the transport proof is the native
+tensor recursion, not a separately printed AGV theorem.
+
+#### Section powers in native coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization. Lemma. Proposed name: TauCeti.RootStack.sectionPower.in_trivialization.
+
+For an invertible sheaf M on X, a specified trivialization e:M≅O, a section t and n≥0, transporting tⁿ by eⁿ followed by c_n gives the global function zⁿ, where z is the coefficient of e(t). Coefficients use the existing freePUnitIsoUnit map on global sections.
+
+Hypotheses: Scheme X arbitrary; M trivialized by the actual isomorphism e; n≥0; zero sections allowed.
+
+Construction or proof:
+
+1. Use sectionPower.mapIso to transport to the native trivial line.
+2. At zero use its unit-section API. At the successor use JAC-A’s bilinear section tensor map and the native right-unit map: their coordinate evaluation is multiplication.
+3. Induct with the same c_n recursion. Neither tensor-power parenthesization nor an unidentified scalar is discarded.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/section-power, FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism, FunctionFieldArithmeticPartII:RS.0/section-power-transport, tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit, SchemeAndStackFoundations:SF.3.
+
+Acceptance: At n=0 the result is 1 even for t=0. At positive n zero gives zero. Over Z/4 the coefficient 2 has square zero.
+
+Source: [AGV Appendix B.1–B.2, pp. 52–54](https://arxiv.org/pdf/math/0603151v2). The root data and chart computation motivate this coordinate derivation; these comparison lemmas are not asserted to be printed separately in the source.
+
+#### The unit coefficient of a root identification
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-identification-unit. Lemma. Proposed name: TauCeti.RootStack.RootObject.powerIdentification_isUnit.
+
+For an actual n-th root object a=(M,t,φ) of (L,s), n≥1, and specified trivializations e:M≅O and l:L≅O, form α=c_n⁻¹ followed by (e⁻¹)ⁿ, φ and l, an automorphism of O. Let u be the coefficient of α(1). Then u is a unit in Γ(X,O_X); for every v∈Γ(X,Mⁿ), the coefficient of lφ(v) equals u times the coefficient of c_n eⁿ(v).
+
+Hypotheses: Scheme X arbitrary; n≥1; actual native invertible-sheaf isomorphisms φ,e,l.
+
+Construction or proof:
+
+1. Construct α from the stated isomorphisms, so it has an actual inverse.
+2. Use pinned freeHomEquiv/unitHomEquiv: maps from the free one-generator sheaf are determined by the image of its unit section. On each open, module linearity makes α multiplication by its unit-section coefficient; naturality makes those coefficients restrictions of the global coefficient.
+3. Apply the inverse map to obtain u v=1=v u in global functions. This proves IsUnit(u), rather than postulating it.
+4. Apply the scalar evaluation formula to c_n eⁿ(v) and use the inverse/cancellation identities.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/root-object, FunctionFieldArithmeticPartII:RS.0/trivial-power-isomorphism, tauceti:TauCeti.SheafOfModules.freePUnitIsoUnit, mathlib:SheafOfModules.freeHomEquiv, mathlib:SheafOfModules.freeHomEquiv_apply, mathlib:SheafOfModules.unitHomEquiv, mathlib:AlgebraicGeometry.Scheme.Modules.Hom.app_smul.
+
+Acceptance: Multiplication by 2 on O over Spec(Z/4) is not an allowed root identification. Nilpotents in the base do not invalidate multiplication by a unit.
+
+Source: [AGV Appendix B.1–B.2, pp. 52–54](https://arxiv.org/pdf/math/0603151v2). The root data and chart computation motivate this coordinate derivation; these comparison lemmas are not asserted to be printed separately in the source.
+
+#### The native root equation in coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-trivialization-equation. Theorem. Proposed name: TauCeti.RootStack.RootObject.trivializationEquation.
+
+With the native root object and chosen trivializations above, the computed coefficient u is a unit and u zⁿ=f, where z is the coefficient of the root section under e and f is the coefficient of s under l. The coefficient u is part of the comparison; no choice of an n-th root of u is assumed.
+
+Hypotheses: Scheme X arbitrary; n≥1; root object and two specified native trivializations.
+
+Construction or proof:
+
+1. Use root-identification-unit to evaluate φ on the actual section tⁿ and establish that u is a unit.
+2. Use section-power-in-trivialization to identify the coordinate of tⁿ with zⁿ.
+3. Transport the defining root equation φ(tⁿ)=s by l; this gives u zⁿ=f. The example quantifies over a bundled unit and asserts equality to the computed coefficient, not just a renamed defining equation.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/root-identification-unit, FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization.
+
+Acceptance: Over Spec(Z/4), n=2, u=3 and z=2 give f=0 with z nonzero; zero sections and nilpotent roots must remain. Over Q the root object u=2,z=1,f=2 exists without a rational square root of 2.
+
+Source: [AGV Appendix B.1–B.2, pp. 52–54](https://arxiv.org/pdf/math/0603151v2). The root data and chart computation motivate this coordinate derivation; these comparison lemmas are not asserted to be printed separately in the source.
+
+#### Scalar equations for arrows of root objects
+
+Declaration: FunctionFieldArithmeticPartII:RS.0/root-arrow-scalars. Comparison. Proposed name: TauCeti.RootStack.RootObject.arrow_scalar_equations.
+
+For root objects a,b of the same (L,s,n), chosen trivializations e_a,e_b of their root lines and l of L, every actual root arrow h:a→b has a unit coefficient w. The section coordinates satisfy z_b=w z_a and the computed root-identification coefficients satisfy u_b wⁿ=u_a. Retain both equations and the unit condition, including when sections vanish.
+
+Hypotheses: Scheme X arbitrary; n≥1; h is a native invertible root arrow, not an arbitrary module map.
+
+Construction or proof:
+
+1. Conjugate the underlying line isomorphism by e_a and e_b. The native free-sheaf Hom equivalence and its actual inverse give its unit coefficient w.
+2. The arrow section equation gives z_b=w z_a.
+3. Evaluate the tensor-power transport on the native unit section; sectionPower.mapIso and section-power-in-trivialization identify its coefficient with wⁿ.
+4. Conjugate the arrow power equation φ_b∘hⁿ=φ_a by the chosen trivializations to obtain u_b wⁿ=u_a.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/root-identification-unit, FunctionFieldArithmeticPartII:RS.0/section-power-in-trivialization, FunctionFieldArithmeticPartII:RS.0/root-object, mathlib:SheafOfModules.freeHomEquiv.
+
+Acceptance: For a=b with zero section and u_a=u_b, the power condition still forces wⁿ=1; forgetting it incorrectly makes every unit an automorphism. Composition multiplies w coefficients.
+
+Source: [AGV Appendix B.1–B.2, pp. 52–54](https://arxiv.org/pdf/math/0603151v2). The root data and chart computation motivate this coordinate derivation; these comparison lemmas are not asserted to be printed separately in the source.
+
+The existing RootObject.test_trivialization now has a native suggested
+signature: it quantifies over a bundled unit equal to the computed coefficient
+and asserts its actual power equation. The suggested abbreviations expose
+existing section maps only. They introduce no substitute line-bundle, scheme,
+stack or tensor type and no arbitrary proposition field.
+
+The remaining JAC-A contract is precise: the generic tensor-section map must
+evaluate to multiplication after the native trivial-line unit identifications,
+and the free unit section must evaluate to 1. That proof belongs to the
+existing generic invertible-sheaf supplier SF.3. The root-specific induction
+and coordinate transports above use it; this packet does not create a second
+generic tensor-section theory. Tensor-power isomorphism transport must keep
+identity/composition coherence, including exponent zero. The absence of a
+compiled Tau Ceti build at the required pin leaves all these signatures
+uncompiled. Their mathematical implementations and the ten stages remain
+unchecked and partial.
+
+
 ### Diagonalizable action on the affine root chart
 
 Declaration: FunctionFieldArithmeticPartII:RS.0/affine-action. Construction.
@@ -1963,11 +2157,15 @@ The suggested file prototypes the native root-object and affine-action fragment.
 
 Consumers: FunctionFieldArithmeticPartII:key/root-stacks, FunctionFieldArithmeticPartII:RS.1/two-pullback, FunctionFieldArithmeticPartII:RS.1/base-change, FunctionFieldArithmeticPartII:RS.1/affine-chart, FunctionFieldArithmeticPartII:RS.1/closed-fibre, FunctionFieldArithmeticPartII:RS.1/coarse-space, FunctionFieldArithmeticPartII:RS.1/regular-dm, FunctionFieldArithmeticPartII:RS.2/transition, FunctionFieldArithmeticPartII:RS.2/infinite-root-stack, FunctionFieldArithmeticPartII:RS.2/infinite-base-change, FunctionFieldArithmeticPartII:RS.2/dvr-roots, FunctionFieldArithmeticPartII:RS.2/dvr-infinite-gerbe, FunctionFieldArithmeticPartII:RS.2/dvr-kummer-classes, FunctionFieldArithmeticPartII:GC.0/root-picard, FunctionFieldArithmeticPartII:GC.0/square-action-quotient, FunctionFieldArithmeticPartII:GC.0/root-picard-section, FunctionFieldArithmeticPartII:GC.1/root-symmetric-space, FunctionFieldArithmeticPartII:GC.1/evaluation-pullback, FunctionFieldArithmeticPartII:GC.1/incidence-transversality, FunctionFieldArithmeticPartII:GC.1/evaluation-smooth-criterion, FunctionFieldArithmeticPartII:GC.1/root-symmetric-smooth, FunctionFieldArithmeticPartII:GC.1/root-symmetric-coarse, FunctionFieldArithmeticPartII:GC.1/root-addition, FunctionFieldArithmeticPartII:GC.1/ordered-divisors, FunctionFieldArithmeticPartII:GC.1/ordered-proper, FunctionFieldArithmeticPartII:GC.1/root-abel-jacobi, FunctionFieldArithmeticPartII:GC.2/root-units, FunctionFieldArithmeticPartII:GC.2/adelic-root-groupoid, FunctionFieldArithmeticPartII:GC.2/root-divisor-groupoid, FunctionFieldArithmeticPartII:GC.3/tame-local-systems, FunctionFieldArithmeticPartII:GC.3/symmetric-local-system, FunctionFieldArithmeticPartII:GC.3/collision-kernel, FunctionFieldArithmeticPartII:GC.3/middle-extension, FunctionFieldArithmeticPartII:GC.3/collision-descent, FunctionFieldArithmeticPartII:GC.3/cohomology-vanishing, FunctionFieldArithmeticPartII:GC.3/koszul-exterior, FunctionFieldArithmeticPartII:GC.3/exterior-cohomology, FunctionFieldArithmeticPartII:GC.3/multiplicity-free-product, FunctionFieldArithmeticPartII:GC.3/symmetric-multiplicativity, FunctionFieldArithmeticPartII:GC.3/symmetric-associativity, FunctionFieldArithmeticPartII:GC.3/symmetric-symmetry, FunctionFieldArithmeticPartII:GC.4/evaluation-surjective, FunctionFieldArithmeticPartII:GC.4/affine-fibre-chart, FunctionFieldArithmeticPartII:GC.4/weighted-cover, FunctionFieldArithmeticPartII:GC.4/weighted-ramification, FunctionFieldArithmeticPartII:GC.4/weighted-simply-connected, FunctionFieldArithmeticPartII:GC.4/fibre-triviality, FunctionFieldArithmeticPartII:GC.4/empty-ramification-descent, FunctionFieldArithmeticPartII:GC.4/high-degree-descent, FunctionFieldArithmeticPartII:GC.5/auxiliary-divisors, FunctionFieldArithmeticPartII:GC.5/divisor-tensor-line, FunctionFieldArithmeticPartII:GC.5/translate-high-degree, FunctionFieldArithmeticPartII:GC.5/all-degree-extension, FunctionFieldArithmeticPartII:GC.5/choice-comparison, FunctionFieldArithmeticPartII:GC.5/choice-cocycle, FunctionFieldArithmeticPartII:GC.5/effective-pullback, FunctionFieldArithmeticPartII:GC.5/unit-trivialization, FunctionFieldArithmeticPartII:GC.5/high-degree-multiplication, FunctionFieldArithmeticPartII:GC.5/all-degree-multiplication, FunctionFieldArithmeticPartII:GC.5/character-associativity, FunctionFieldArithmeticPartII:GC.5/character-symmetry-unit, FunctionFieldArithmeticPartII:GC.5/hat-character-pullback, FunctionFieldArithmeticPartII:GC.6/root-multiplicative-sheaf, FunctionFieldArithmeticPartII:GC.6/norm-residue-square, FunctionFieldArithmeticPartII:GC.6/root-norm, FunctionFieldArithmeticPartII:GC.6/root-norm-surjective, FunctionFieldArithmeticPartII:GC.6/norm-kernel, FunctionFieldArithmeticPartII:GC.6/exact-sheaf-complex, FunctionFieldArithmeticPartII:GC.6/picard-descent-obstructions, FunctionFieldArithmeticPartII:GC.6/hat-root-norm, FunctionFieldArithmeticPartII:GC.6/quadratic-input, FunctionFieldArithmeticPartII:GC.6/trace-character, FunctionFieldArithmeticPartII:GC.6/closed-point-trace, FunctionFieldArithmeticPartII:GC.6/away-ramification-generation, FunctionFieldArithmeticPartII:GC.6/quadratic-trace.
 
-### LEAN-SECTION-COMP — Native root-object affine trivialization test
+### LEAN-SECTION-COMP — Native root-coordinate proofs after signature completion
 
-The root-object data, constructor, section transport and two small tests have native signatures. Its test_trivialization still needs the concrete comparison between a trivialized native line-bundle isomorphism and multiplication by its unit coefficient, plus the section-power scalar comparison. The chart theorem states the exact unit/root equation, but those native comparison declarations have no verified supplier signature in this session. Keep that one example in the omission ledger, rather than replacing it by the defining root equation.
+The root-object trivialization example has a native signature through the six
+RS.0 coordinate nodes. It retains the computed unit coefficient, zero
+sections and both arrow equations. The outstanding work is JAC-A's actual
+tensor-section coordinate/unit proof, tensor-power coherence and full-file
+elaboration at the exact pins. Signature completion does not implement these
+proofs or close the stage.
 
-Consumers: FunctionFieldArithmeticPartII:RS.0/root-object.
 
 ## Source findings
 
