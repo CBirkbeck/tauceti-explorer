@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.MvPowerSeries.Inverse
 import Mathlib.RingTheory.LocalRing.Length
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 import Mathlib.LinearAlgebra.Dimension.Constructions
@@ -212,7 +213,6 @@ The local-field/topology transport and framed-lifting theorem are recorded
 as separate open owner interfaces in the packet and reader.
 -/
 
-import Mathlib.RingTheory.MvPowerSeries.Inverse
 
 namespace TauCeti.FiniteLocalAlgebra
 
