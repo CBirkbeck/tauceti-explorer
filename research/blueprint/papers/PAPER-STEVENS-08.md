@@ -41,21 +41,15 @@ These are the classical-group analogue of Bushnell–Kutzko's theory for GL_N.
 
 ## Coverage
 
-There were **306 items**; the independent review merged three duplicate pairs, leaving **303** (6 library, 8 planned, 289 missing). The extraction's counts:
-
-| Status | Count |
-|---|---|
-| library | 6 |
-| planned | 9 |
-| missing | 291 |
+There were **306 items**; the independent review merged three pairs to 303, and this repair merges 306 into the general disconnected-cuspidality definition 246, leaving **302 (6 library, 8 planned, 288 missing)**. Current counts, grouped by the first main-paper section in each locator:
 
 | Sections | Items | Library | Planned | Missing |
 |---|---|---|---|---|
-| Introduction, §§1–2 | 55 | 1 | 4 | 50 |
+| Introduction, §§1–2 | 60 | 2 | 5 | 53 |
 | §3 semisimple characters, Heisenberg extensions | 51 | 1 | 0 | 50 |
-| §§4–5 β-extensions, Iwahori factorizations | 93 | 2 | 2 | 89 |
-| §6 intertwining and supercuspidal types | 55 | 1 | 2 | 52 |
-| §7 exhaustion | 52 | 1 | 1 | 50 |
+| §§4–5 β-extensions, Iwahori factorizations | 91 | 1 | 2 | 88 |
+| §6 intertwining and supercuspidal types | 53 | 1 | 1 | 51 |
+| §7 exhaustion | 47 | 1 | 0 | 46 |
 
 Five items stated twice were merged:
 - the Introduction's main theorems I(a), I(b) and II and its corollary, merged with Proposition 6.18, Corollary 6.19 and Theorem 7.14;
@@ -83,7 +77,7 @@ Five items stated twice were merged:
 
 ## The routes
 
-**1. Part II → SmoothRepresentationsPartII** (289 items as extracted; 281 after the review moved six finite-group items to a third route and merged two duplicates). This is *Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations*, parent SmoothRepresentationsOfLocalGroups.
+**1. Part II → SmoothRepresentationsPartII** (280 current missing items; item 306 merged into 246). This is *Smooth representations of local groups, Part II: types, depth and the construction of supercuspidal representations*, parent SmoothRepresentationsOfLocalGroups.
 - **The existing proposal.** It was accepted from Fintzen's paper (route 1) and joined by Newton–Thorne and Nakamura. It is exactly this direction, but its construction is Yu's, for tame groups with p ∤ |W|. For classical groups that excludes p up to the rank, which Stevens covers.
 - **Why this is the right place now.** A route from Gan–Harris–Sawin–Beuzart-Plessis tried to add "Stevens's odd-residue-characteristic classical-group contract" to this Part II. It was rejected because that contract was unread. This extraction reads it, so the route coalesces with the existing proposal, keeping its id, title, parent, area and brief. It adds the classical-group branch.
 - **Final theorems**, stated as corrected by Miyauchi–Stevens: Proposition 6.18, Corollary 6.19 and Theorem 7.14.
@@ -107,19 +101,19 @@ The maintainer's note also mentions endo-parameters and L-packets of classical g
 
 ## Mistakes in the paper
 
-**42** mistakes were recorded by the extraction (54 after the independent review) under `sourceIssues`, each checked in the arXiv v2 TeX and compared with v1.
+The extraction recorded **42** findings and the independent review increased this to **54**. This repair adds the skew-scalar misprint E55, for **55** current findings. Historical searches/reviews are preserved; only E55’s v1/v2 scalar passage is freshly compared here.
 
 | Kind | Count |
 |---|---|
-| misprints | 30 |
-| gaps | 7 |
-| errors | 5 |
+| error | 5 |
+| gap | 8 |
+| misprint | 42 |
 
 | Reach | Count |
 |---|---|
 | a stated result | 4 |
-| the proof only | 4 |
-| nothing | 34 |
+| nothing | 46 |
+| the proof | 5 |
 
 **Already published: 7**, all from Miyauchi–Stevens 2014. These include all 4 that affect stated results:
 - **E1:** the Introduction's claims that β is elliptic and that normalizers of maximal parahorics are compact both fail when G_E has an SO(1,1) factor.
@@ -129,7 +123,7 @@ The maintainer's note also mentions endo-parameters and L-packets of classical g
 
 The other three are the replacement of hypothesis (H) (E4), and two corrections in §7.2.2 (E36, E40).
 
-**New: 35.** None changes a main theorem. They include:
+**Historical new findings: 35 before the independent review’s additions.** E55 newly records the verified skew-scalar wording. None of this repair’s findings disproves a main theorem. They include:
 - the element diag(ϖ_E, ϖ_E⁻¹) in Lemma 3.10, which is not in G_E for ramified E/E₀;
 - an ill-typed Mackey display in the proof of Lemma 4.4;
 - a formula for Λ′ on p. 48 that makes it equal to Λ″ (E38);
@@ -181,3 +175,13 @@ Claude Code, session `cc-fb70e5`, 29 September 2026. The full report is `researc
   - The `known` fields of E1–E4, E27 and E36 cite the published Miyauchi–Stevens appendix.
   - Twelve new findings are added: E43–E54, eleven misprints and one gap in the proof of Lemma 5.8.
 - **Prerequisites.** The title of Stevens (2001) now follows the journal.
+
+## Repair after RT-PAPER-STEVENS-08 (2 October 2026)
+
+Codex, session codex-rtOQ9t, Refs #5539. All three independently confirmed findings are repaired.
+
+- **Relative extension:** item 112 imports the normalized Clifford obstruction on K/N from the existing InductionRestriction layer-7 owner and rescales only by a quotient cochain, preserving η on N. Item 113 states the valid absolute determinant bound separately. Item 111 now passes through the smooth finite quotient, sets d=dim η and m=ord(det η), descends (det ρ)^m to K/N, and uses δ(det ρ)^m=α^(dm). Since d and m are p-powers, restriction to S/N and prime-to-p transfer kill the relative class. Item 114 retains its cohomology-carrier comparison. The exact missing bridge is a requests/upstreamNotes entry; no Tau Ceti roadmap is edited or theorem claimed built. E16 remains the superscript misprint, with explicit proof-context documentation. The Heisenberg counterexample refutes the extraction’s absolute iff, not Stevens’s extension theorem.
+- **Unitary scalars:** item 78 and route 1 use F₀/o_{F₀} on the skew parts and restricted maps. Ambient orders/maps and Λ in V retain F/o_F. Its API includes the unramified unitary-line closure check, the invalid multiplication by i and the F=F₀ specialization. New E55 records the identical §2.1 scalar slip in v1/v2; no published-original collation or new independent source-issue review is claimed.
+- **One cuspidality definition:** item 246 now covers the general disconnected finite reductive quotient, imports the connected predicate from Fintzen /33 and item 10, and records maximal-order plus §§7.2–7.3 consumers. Item 306 is merged with its provenance retained. The route drops its redundant entry. Counts are 302 items, 6 library, 8 planned, 288 missing; route sizes 280,2,6. No new finite-reductive roadmap or connected predicate is introduced.
+
+The unread published-original entry is kept as source.unreadPublished metadata, outside sourceVersions; that list now contains only actual historical/preprint readings plus this bounded check. Fresh v2 pp.8,15,20,43 and v1 p.8 were read and viewed. All earlier sourceIssue review verdicts and recorded later-paper corrections remain unchanged. Detailed proof, diagnostics and supplier requests: [RT-PAPER-STEVENS-08.fixes.md](../redteam/RT-PAPER-STEVENS-08.fixes.md). No Lean deliverable or compilation.
