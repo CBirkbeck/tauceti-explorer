@@ -34532,7 +34532,8 @@
     "REV-PAPER-NGODAC-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NGODAC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4078"
   },
   {
    "id": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -36723,8 +36724,9 @@
     "REV-PAPER-HEUER-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HEUER-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5064"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5064",
+   "finishedAt": "2026-10-02T03:58:24Z"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
