@@ -40110,8 +40110,9 @@
     "REV-PAPER-VENKATESH-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-VENKATESH-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4252"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4252",
+   "finishedAt": "2026-10-02T02:25:58Z"
   },
   {
    "id": "REV-RT-PAPER-VENKATESH-19",
