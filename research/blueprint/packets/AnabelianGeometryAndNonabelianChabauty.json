@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "First checkpoint: nonabelian continuous cohomology for NC.3 — continuous 1-cocycles and invariants with nonabelian coefficients, H¹(G, U) as a pointed set, functoriality, comparison with Tau Ceti's abelian continuous cohomology, the exact sequences of pointed sets for subgroups and normal subgroups, central extensions (the action of H¹ of the kernel and the connecting map to H²), twisting, and the classification of torsors by H¹. Built from Mathlib's group actions and topological groups and Tau Ceti's explicit continuous cohomology; Selmer varieties, local conditions and all other stages remain open.",
+  "summary": "A partial continuation: twelve declaration-sized NC.0 nodes plan the reserved coefficient-class-aware étale K(π,1) interface, its transports, finite-cover/raw-homotopy comparisons and tested field, curve, product and Artin-tower contracts. The eight-node NC.3 checkpoint is retained, with its twisting equivalence correctly treated as an unpointed bijection unless the target is repointed at the twisting class. All stages remain open; exact foundational/source proof gaps and supplier requests are recorded.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -240,6 +240,55 @@
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "The differential d¹f(g, h) = g•f(h) − f(gh) + f(g).",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Native scheme carrier, locally modelled on affine spectra.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsLocallyNoetherian",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
+        "provides": "Local noetherianity via noetherian affine coordinate rings.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+        "provides": "Actual small étale topology on X.Etale; not the geometric cohomology/π₁ comparison.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:continuousCohomology",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+        "provides": "All-degree homogeneous continuous cochain cohomology of TopRep k G in TopModuleCat k; derived finite-discrete comparison is a separate request.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Galois/IsFundamentalgroup.lean",
+        "provides": "Abstract compact topological group acting on an actual fibre functor with transitivity, continuity and faithfulness; not a geometric π₁ constructor.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:CommAlgCat.FiniteEtale",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Etale/Finite.lean",
+        "provides": "Native full subcategory of finite étale commutative R-algebras.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
+      },
+      {
+        "ref": "mathlib:CommAlgCat.FiniteEtale.fiber",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Etale/Finite.lean",
+        "provides": "Affine fibre functor (FiniteEtale R)^op → FintypeCat for a geometric field Ω; opposite orientation and non-affine gluing stay explicit.",
+        "checked": "Actual declaration and hypotheses personally read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in this 2026-10-02 continuation; index checked as a name aid."
       }
     ]
   },
@@ -276,6 +325,42 @@
       "readSections": [
         "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154)."
       ]
+    },
+    {
+      "id": "schmidt-stix-2016",
+      "title": "Anabelian geometry with étale homotopy types",
+      "authors": "Alexander Schmidt and Jakob Stix",
+      "edition": "Annals of Mathematics 184 (2016), 817–868; publisher version, accessed 2026-10-02.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759",
+      "readSections": [
+        "Personally read the finite-cover convention and Lemma 2.1 with proof (pp. 821–822); §2.3, definition, Lemma 2.7 and Proposition 2.8 with their printed proofs (pp. 826–828); Appendix A.3, Lemmas A.14–A.15, Proposition A.16 and Definition A.17/Corollary A.18 with proofs (pp. 861–866); Definition 6.1 and M₀,n example (p. 845).",
+        "Schmidt 1996 Proposition 15, Artin–Mazur Theorems 4.3/11.1, Friedlander Theorem 11.5, Isaksen model-category leaves and cited SGA Künneth proofs were not separately acquired/read; their exact roles are requests/gaps. Reconstruction proofs in §4–§6 were not read."
+      ]
+    },
+    {
+      "id": "farb-kisin-wolfson-2024-v2",
+      "title": "Essential dimension via prismatic cohomology",
+      "authors": "Benson Farb, Mark Kisin and Jesse Wolfson",
+      "edition": "arXiv:2110.05534v2, 40 pages; this preprint, not a collation with the published version, accessed 2026-10-02.",
+      "url": "https://arxiv.org/pdf/2110.05534v2",
+      "sha256": "f281f903f7a1836ef0eb7abe718c78e72f481d059cecb91dd237e6ecfe83b26b",
+      "readSections": [
+        "Personally read §2.3.1 (p. 16), the constant-Fₚ canonical cohomology map and its finite-quotient use, and Lemma 3.2.2 with proof (p. 24), for torus torsors over abelian varieties and their specific maximal-pro-p inflation comparison.",
+        "Prismatic and essential-dimension arguments outside these selected passages were not read for this continuation. The paper does not define our p-primary coefficient-class predicate."
+      ]
+    },
+    {
+      "id": "stacks-etale-tests",
+      "title": "Étale cohomology of a point and smooth projective curves",
+      "authors": "The Stacks Project authors",
+      "edition": "Live text, selected tags 03QQ and 03RQ, accessed 2026-10-02.",
+      "url": "https://stacks.math.columbia.edu/tag/03QQ",
+      "readSections": [
+        "03QQ: personally read Lemmas 59.59.1–2 and their proofs identifying abelian étale sheaves with continuous Galois modules and derived cohomology on Spec K.",
+        "03RQ: personally read Lemma 59.69.1 and its proof giving H²(X,μ_n) ≅ Z/n for algebraically closed smooth projective curves with n invertible; referenced Picard/Kummer inputs are imported from SF.2.",
+        "03N8 was read as supporting motivation for the projective-line test; its introductory sketch is not a substitute for the curve-cohomology theorem."
+      ]
     }
   ],
   "nodes": [
@@ -287,7 +372,7 @@
       ],
       "title": "Continuous 1-cocycles and invariants with nonabelian coefficients",
       "kind": "definition",
-      "statement": "Let G be a topological group and U a topological group on which G acts by group automorphisms, continuously (G × U → U continuous). The invariants are H⁰(G, U) := U^G = {u ∈ U : g•u = u for all g}, a subgroup of U (Mathlib FixedPoints.subgroup). The continuous 1-cocycles are Z¹(G, U) := {c : G → U continuous : c(gh) = c(g)·(g•c(h)) for all g, h ∈ G}, with the trivial cocycle 1 (the constant map to the identity) as base point. Lean: `TauCeti.NonabelianCohomology.H0 G U`, `TauCeti.NonabelianCohomology.Z1 G U` (a subtype of G → U).",
+      "statement": "Let G be a topological group and U a topological group on which G acts by group automorphisms, continuously (G × U → U continuous). The invariants are H⁰(G, U) := U^G = {u ∈ U : g•u = u for all g}, a subgroup of U (Mathlib FixedPoints.subgroup). The continuous 1-cocycles are Z¹(G, U) := {c : G → U continuous : c(gh) = c(g)·(g•c(h)) for all g, h ∈ G}, with the trivial cocycle 1 (the constant map to the identity) as base point.",
       "hypotheses": [
         "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). No commutativity of U; for U commutative written additively the definitions agree with Tau Ceti's explicit continuous cohomology (NC.3/abelian-comparison)."
       ],
@@ -429,7 +514,7 @@
       ],
       "title": "Nonabelian first cohomology as a pointed set",
       "kind": "definition",
-      "statement": "In the situation of NC.3/continuous-cocycles, U acts on Z¹(G, U) by (u·c)(g) := u·c(g)·(g•u)⁻¹. The first cohomology H¹(G, U) is the orbit set of this action (Mathlib MulAction.orbitRel.Quotient U (Z¹ G U)), pointed by the class of the trivial cocycle; two cocycles in one orbit are called cohomologous. The class of c is trivial iff c is a coboundary g ↦ u·(g•u)⁻¹. Lean: `TauCeti.NonabelianCohomology.H1 G U` with the class map `H1.mk`.",
+      "statement": "In the situation of NC.3/continuous-cocycles, U acts on Z¹(G, U) by (u·c)(g) := u·c(g)·(g•u)⁻¹. The first cohomology H¹(G, U) is the orbit set of this action (Mathlib MulAction.orbitRel.Quotient U (Z¹ G U)), pointed by the class of the trivial cocycle; two cocycles in one orbit are called cohomologous. The class of c is trivial iff c is a coboundary g ↦ u·(g•u)⁻¹.",
       "hypotheses": [
         "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U)."
       ],
@@ -829,7 +914,7 @@
       ],
       "title": "Twisting by a cocycle",
       "kind": "construction",
-      "statement": "Let c ∈ Z¹(G, U). The twisted group ₍c₎U is U with the action g ⋆ u := c(g)·(g•u)·c(g)⁻¹, again a continuous action by automorphisms. The map τ_c : Z¹(G, ₍c₎U) → Z¹(G, U), c′ ↦ (g ↦ c′(g)·c(g)), is a bijection carrying the trivial cocycle to c and the twisted-conjugation action of U on the left to that on the right; it induces a bijection of pointed sets H¹(G, ₍c₎U) ≅ H¹(G, U) sending the base point to [c]. Twisting is compatible with G-stable subgroups (for cocycles with values in them) and with quotients by normal ones, so that fibres of the maps in NC.3/exact-sequence over [c] become fibres over the base point after twisting. Lean: `TauCeti.NonabelianCohomology.Twist c` (a type synonym of U) and `TauCeti.NonabelianCohomology.H1.twistEquiv c`.",
+      "statement": "Let c ∈ Z¹(G, U). The twisted group ₍c₎U is U with the action g ⋆ u := c(g)·(g•u)·c(g)⁻¹, again a continuous action by automorphisms. The map τ_c : Z¹(G, ₍c₎U) → Z¹(G, U), c′ ↦ (g ↦ c′(g)·c(g)), is a bijection carrying the trivial cocycle to c and the twisted-conjugation action of U on the left to that on the right; it induces a bijection of underlying sets H¹(G, ₍c₎U) ≅ H¹(G, U) sending the source base point to [c]; it becomes a pointed equivalence only when the target is repointed at [c]. Twisting is compatible with G-stable subgroups (for cocycles with values in them) and with quotients by normal ones, so that fibres of the maps in NC.3/exact-sequence over [c] become fibres over the base point after twisting.",
       "hypotheses": [
         "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). c a continuous cocycle."
       ],
@@ -994,15 +1079,717 @@
       "planet": {
         "name": "Torsors and nonabelian H¹"
       }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Étale K(π,1) for a specified finite coefficient class",
+      "kind": "definition",
+      "declarationName": "TauCeti.EtaleKPiOne.Is",
+      "statement": "Let X be a connected locally noetherian scheme with geometric point x. Put π = π₁ᵉᵗ(X,x), the profinite SGA fundamental group. Let C specify an isomorphism-invariant class of finite discrete abelian groups with continuous π-action, transported along pointed fundamental-group isomorphisms. Define Is(X,x;C) to mean that, for every M in C and every integer n ≥ 0, the canonical comparison εⁿ_M : Hⁿ_cont(π,M) → Hⁿ_et(X,L_x(M)) is an isomorphism of abelian groups. L_x(M) is the finite locally constant étale sheaf corresponding to M, not an arbitrary constructible sheaf. The default full property uses all finite continuous π-modules. The p-primary property uses those whose underlying finite group has p-power order, with p prime; the constant-Fₚ comparison is a separately named specialization, not the definition of either full property. None of these coefficient restrictions changes π to its maximal pro-p quotient.",
+      "hypotheses": [
+        "Connected locally noetherian X; an actual geometric point x and profinite finite-étale fibre-functor fundamental group.",
+        "C is invariant under coefficient isomorphisms and transported by fundamental-group isomorphisms. No invertibility assumption on coefficient orders in this definition."
+      ],
+      "proofSteps": [
+        "Import the non-affine finite-étale category, geometric-point fibre functor and profinite π from IG.0, building on the native abstract Galois-category API and affine finite-étale fibres.",
+        "Import the exact finite continuous π-module / finite locally constant sheaf dictionary and its natural canonical cohomology comparison from SF.2, with the π-action from IG.0. Native continuousCohomology already supplies all cochain degrees; its agreement with derived discrete continuous cohomology for these coefficients is a requested comparison, not a new cohomology definition.",
+        "Quantify over every allowed coefficient and every nonnegative degree; take isomorphism of the canonical map, not existence of an unrelated group isomorphism. Restriction of C is a logical implication. Geometric/base-point transports are separate lemma nodes.",
+        "The cohomological predicate makes sense on all connected locally noetherian schemes. Identification with Schmidt–Stix's raw pro-homotopy definition is the separately scoped raw-homotopy-comparison node; no such identification is asserted outside its verified hypotheses."
+      ],
+      "acceptance": [
+        "Spec K passes for any field K; P¹ over an algebraically closed field fails full finite coefficients in degree two.",
+        "Farb–Kisin–Wolfson §2.3.1 only consumes the constant-Fₚ edge comparison. Their Lemma 3.2.2 proves an additional pro-p comparison for its particular torus-torsor fundamental groups; it is not a general consequence of the coefficient restriction."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme",
+        "mathlib:AlgebraicGeometry.IsLocallyNoetherian",
+        "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
+        "mathlib:continuousCohomology",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup",
+        "mathlib:CommAlgCat.FiniteEtale",
+        "mathlib:CommAlgCat.FiniteEtale.fiber"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "§2.3, pp. 826–827; cohomological criterion in Lemma 2.7(b)",
+          "match": "Full finite coefficients are related to the raw homotopy definition under the separate comparison hypotheses."
+        },
+        {
+          "sourceId": "farb-kisin-wolfson-2024-v2",
+          "locator": "§2.3.1, p. 16; Lemma 3.2.2, p. 24",
+          "match": "The constant-Fₚ edge map and the specially justified maximal-pro-p inflation are different inputs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.Is"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Étale K(π,1) schemes"
+      },
+      "uses": [
+        {
+          "where": "PAPER-SCHMIDT-STIX-16/14",
+          "how": "State the curve and product K(π,1) contracts and the finite-cover cohomological criterion."
+        },
+        {
+          "where": "PAPER-SCHMIDT-STIX-16/31",
+          "how": "Compare the full property with the classifying morphism and higher raw étale homotopy, with the profiniteness hypotheses visible."
+        },
+        {
+          "where": "PAPER-SCHMIDT-STIX-16/68",
+          "how": "Certify characteristic-zero Artin neighbourhoods, without reconstructing moduli schemes."
+        },
+        {
+          "where": "PAPER-FARB-KISIN-WOLFSON-24/005; §2.3.1",
+          "how": "Supply the actual constant-Fₚ comparison in every degree, while retaining the larger coefficient class."
+        },
+        {
+          "where": "PAPER-FARB-KISIN-WOLFSON-24/091 and /146; Lemma 3.2.2",
+          "how": "Provide the full K(π,1) interface consumed by torus torsors over abelian varieties; the special pro-p inflation is an additional theorem, not built into the definition."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.edgeIso",
+          "role": "projection",
+          "statement": "From Is(X,x;C), for M in C and n ≥ 0, obtain the inverse of the canonical εⁿ_M with both inverse identities; it is natural in equivariant coefficient homomorphisms."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.iff_all_comparisons",
+          "role": "characterisation",
+          "statement": "Is(X,x;C) holds exactly when εⁿ_M is an isomorphism for every M in C and every n ≥ 0; checking only n ≤ 1 is not sufficient."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.of_subclass",
+          "role": "functoriality",
+          "statement": "If C′ ⊆ C, then Is(X,x;C) implies Is(X,x;C′); in particular full finite coefficients imply p-primary coefficients and constant-Fₚ comparison."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.pointedIso_iff",
+          "role": "functoriality",
+          "statement": "For a pointed scheme isomorphism f:(X,x) ≅ (Y,y), Is(X,x;f*D) iff Is(Y,y;D), using transported coefficients and the natural comparison square."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.basePoint_iff",
+          "role": "compatibility",
+          "statement": "For geometric points x,y and an étale path between their finite-étale fibre functors, Is(X,x;C) iff Is(X,y;transport C); full and p-primary classes are invariant under every such transport."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.zero_coefficients",
+          "role": "simp",
+          "statement": "For the class containing only the zero π-module, every comparison is 0 → 0 and Is(X,x;C) holds; this case is not evidence for the full property."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.Is.constantFp_edgeIso",
+          "role": "compatibility",
+          "statement": "For p prime, the full or p-primary property supplies Hⁿ_cont(π,Fₚ) ≅ Hⁿ_et(X,Fₚ) via ε in every degree, with trivial π-action; the group in the source is still π."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.field",
+          "kind": "degenerate",
+          "statement": "For every field K and separable geometric point, Is(Spec K,x;all finite coefficients) holds and π identifies with Gal(K_sep/K), with ε equal to the Galois-cohomology comparison."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.projective_line_degree_two",
+          "kind": "non-example",
+          "statement": "For algebraically closed k and prime ℓ invertible in k, π₁ᵉᵗ(P¹_k)=1 and H²_et(P¹_k,Z/ℓ) ≅ Z/ℓ is nonzero, while H²_cont(1,Z/ℓ)=0; hence the full property and the ℓ-primary property both fail although degrees zero and one agree."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.affine_curve",
+          "kind": "characterisation",
+          "statement": "For a geometrically connected smooth affine curve over a characteristic-zero field, including Gₘ and P¹ minus {0,1,∞}, the full finite-coefficient property holds; no claim that every open immersion preserves it is involved."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.positive_genus",
+          "kind": "characterisation",
+          "statement": "For a geometrically connected smooth proper curve of genus at least one over a characteristic-zero field, the full property holds. Nonzero H²_et of an elliptic curve does not contradict it: its profinite fundamental group need not have vanishing H²."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.product_char_zero",
+          "kind": "compatibility",
+          "statement": "For two geometrically connected geometrically unibranch characteristic-zero varieties with the full property, their product has it; over a non-algebraically-closed field the arithmetic π₁ of the product is the fibre product over Gal(k_sep/k), not the ordinary product."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.artin_tower",
+          "kind": "characterisation",
+          "statement": "A finite characteristic-zero tower of smooth elementary curve fibrations ending in Spec k has the full property; this includes M₀,n for n ≥ 4 after importing its moduli construction and forgetting-mark fibrations."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.pro_p_not_coefficient_restriction",
+          "kind": "non-example",
+          "statement": "The finite group C₂ acts on F₃ by negation. This is a 3-primary continuous coefficient with invariants 0. Its action does not descend to the trivial maximal pro-3 quotient of C₂; putting F₃ with trivial action on that quotient gives invariants F₃ instead. A p-primary coefficient restriction is not a licence to replace π by π^(p)."
+        },
+        {
+          "name": "TauCeti.EtaleKPiOne.tests.zero_class",
+          "kind": "degenerate",
+          "statement": "The zero-coefficient class passes on P¹, whereas the full and invertible-prime primary classes fail there. The class argument must not be erased."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Restriction of the allowed finite coefficients",
+      "kind": "lemma",
+      "declarationName": "TauCeti.EtaleKPiOne.Is.of_subclass",
+      "statement": "If C′ ⊆ C, then Is(X,x;C) implies Is(X,x;C′); in particular full finite coefficients imply p-primary coefficients and constant-Fₚ comparison.",
+      "hypotheses": [
+        "The key definition applies; C′ ⊆ C on the same profinite π-module category."
+      ],
+      "proofSteps": [
+        "For M in C′ use the inclusion to view M in C, then apply the same canonical εⁿ_M in each degree. No cohomological theorem or quotient of π is used."
+      ],
+      "acceptance": [
+        "Apply to all finite modules → p-primary modules → the trivial-action Fₚ module; do not assert either reverse implication."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1"
+      ],
+      "sources": [
+        {
+          "sourceId": "farb-kisin-wolfson-2024-v2",
+          "locator": "§2.3.1, p. 16",
+          "match": "The constant-Fₚ comparison is obtained by specializing the full coefficient comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.Is.of_subclass"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Invariance under pointed scheme isomorphism",
+      "kind": "lemma",
+      "declarationName": "TauCeti.EtaleKPiOne.Is.pointedIso_iff",
+      "statement": "For a pointed scheme isomorphism f:(X,x) ≅ (Y,y), Is(X,x;f*D) iff Is(Y,y;D), using transported coefficients and the natural comparison square.",
+      "hypotheses": [
+        "A pointed scheme isomorphism; coefficient class transported along the induced π-isomorphism."
+      ],
+      "proofSteps": [
+        "Use IG.0's fibre-functor transport and SF.2's naturality to form the comparison square with vertical cohomology isomorphisms.",
+        "Conjugate ε across this square. Its being an isomorphism is equivalent on the two schemes, for each coefficient and degree; reverse f for the converse."
+      ],
+      "acceptance": [
+        "The identity transport gives the same canonical comparison; composition of two pointed isomorphisms agrees with their composite."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "§2.3, p. 826; Appendix A.3",
+          "match": "The K(π,1) condition is an isomorphism-invariant property; this node uses the cohomological interface."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.Is.pointedIso_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Change of geometric base point",
+      "kind": "lemma",
+      "declarationName": "TauCeti.EtaleKPiOne.Is.basePoint_iff",
+      "statement": "For geometric points x,y and an étale path between their finite-étale fibre functors, Is(X,x;C) iff Is(X,y;transport C); full and p-primary classes are invariant under every such transport.",
+      "hypotheses": [
+        "An étale path, meaning an isomorphism between the two actual finite-étale fibre functors; transport of C along its profinite π-isomorphism."
+      ],
+      "proofSteps": [
+        "Import IG.0's path-induced conjugacy transport of π-actions and SF.2's compatible locally constant sheaf identifications.",
+        "The induced cohomology isomorphisms commute with ε. Thus one canonical comparison is an isomorphism iff the other is.",
+        "A different path differs by an inner π-isomorphism. The transported finite module and sheaf are naturally isomorphic, so the all-finite and p-primary assertions do not depend on that path. This does not construct rational-point sections or tangential specializations."
+      ],
+      "acceptance": [
+        "Full and p-primary coefficient classes are unchanged by conjugacy; an arbitrary non-invariant class must be transported, not silently identified."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "§2.3, p. 826, sentence following the definition",
+          "match": "The raw version has a separately stated geometric-unibranch base-point assertion; this node is the finite-fibre-functor cohomological transport."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.Is.basePoint_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Finite-cover effacement criterion",
+      "kind": "comparison",
+      "declarationName": "TauCeti.EtaleKPiOne.iff_finiteCover_effacement",
+      "statement": "For a connected geometrically unibranch variety X over a field, the full finite-coefficient property holds iff, for every connected finite étale cover X′ → X, every finite abelian group A regarded as a constant sheaf on X′, every i ≥ 2 and every α ∈ Hⁱ_et(X′,A), there is a further finite étale surjective cover X″ → X′ on which α restricts to zero.",
+      "hypotheses": [
+        "X is a connected geometrically unibranch variety; finite covers are surjective. Coefficients are all finite abelian groups, with no prime discarded."
+      ],
+      "proofSteps": [
+        "Import SF.2's Cartan–Leray comparison for the filtered system of pointed finite étale covers, its low-degree edge identification, filtered-cohomology compatibility and Shapiro/induction comparison with IG.0's finite-cover classification.",
+        "Every finite continuous module is trivialized after a finite cover. Conversely a constant finite coefficient on any finite cover induces a finite π-module; Shapiro transfers its comparison back to X. These two directions explain why testing only constant coefficients on X is insufficient.",
+        "The filtered universal-cover cohomology in degrees ≥ 2 vanishes exactly when each class becomes zero at some further finite cover. The requested comparison converts this effacement into the all-degree edge isomorphism. Artin–Mazur Theorem 4.3, cited by Schmidt–Stix, is a source leaf still requiring its full proof audit.",
+        "Only finite étale covers occur. Arbitrary small-site étale covers would give ordinary local sheaf-cohomology effacement and would not characterize K(π,1)."
+      ],
+      "acceptance": [
+        "The cover X′ is part of the quantifier; replacing finite covers by arbitrary étale coverings or allowing only X′=X is not this criterion."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(b), proof, p. 827; finite-cover convention p. 821",
+          "match": "The exact finite-cover quantifiers and higher cohomology condition are read; the external Artin–Mazur input is explicitly open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.iff_finiteCover_effacement"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Comparison with raw étale K(π,1)",
+      "kind": "comparison",
+      "declarationName": "TauCeti.EtaleKPiOne.iff_raw_etale_aspherical",
+      "statement": "For a connected geometrically unibranch variety X with geometric point x, the full finite-coefficient property agrees with the raw étale K(π,1) condition π⁽raw⁾ₙ(X_et,x_et)=0 for every n ≥ 2, equivalently the canonical classifying morphism X_et → Bπ₁(X_et,x_et) is an isomorphism in Ho(pro-ss_*). Here π₁(X_et,x_et) is profinite in this scope and identified with the SGA finite-étale π used by the cohomological definition. This equivalence is not asserted for an arbitrary non-geometrically-unibranch locally noetherian scheme.",
+      "hypotheses": [
+        "Connected geometrically unibranch variety, not an arbitrary locally noetherian scheme.",
+        "Full finite coefficients; a p-primary coefficient comparison alone is not an assertion about all raw higher homotopy groups."
+      ],
+      "proofSteps": [
+        "Use the finite-cover-effacement node and the cohomological weak-equivalence criterion of Artin–Mazur Theorem 4.3, as invoked for this precise scope by Schmidt–Stix §2.3.",
+        "Import, rather than rebuild in NC.0, the raw étale pro-space and homotopy groups, their profinite-π identification in the stated scope, and the classifying morphism. These types/theorems are a recorded generic étale-homotopy foundation gap.",
+        "Schmidt–Stix Proposition A.16 constructs the map corresponding to id_π₁ through the nerve of the fundamental groupoid. Corollary A.18 then tests isomorphism on all homotopy groups: the π₁ map is the identity and Bπ₁ has no higher groups. The model-category and cohomological-detection proof leaves remain explicit, not routine automation."
+      ],
+      "acceptance": [
+        "The canonical map is essential, not an arbitrary equivalence. Outside the geometric-unibranch scope raw π₁ may be a non-profinite pro-group, even though its profinite completion is the SGA π₁."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "§2.3, pp. 826–827; Proposition A.16, Definition A.17 and Corollary A.18, pp. 864–866",
+          "match": "Relates the full coefficient interface to the paper's actual raw definition, without identifying all pro-groups with their profinite completions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.iff_raw_etale_aspherical"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Fields are étale K(π,1)",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.field",
+      "statement": "For every field K, with a separable geometric point x of Spec K, Is(Spec K,x;all finite coefficients) holds. Under π ≅ Gal(K_sep/K), its comparison εⁿ_M is the canonical Galois-cohomology isomorphism in every degree and for every finite discrete continuous Galois module M.",
+      "hypotheses": [
+        "K is a field; choose a separable closure inside the geometric-point field."
+      ],
+      "proofSteps": [
+        "IG.0 identifies finite étale K-schemes and their fibre functor with finite continuous Galois sets.",
+        "SF.2 imports Stacks 03QQ: abelian étale sheaves on Spec K correspond to discrete continuous Galois modules, global sections correspond to invariants, and their derived functors identify in every degree.",
+        "Restrict that actual derived-functor comparison to finite modules. Its direction agrees with ε, so the quantified definition holds; invoke coefficient-restriction for every subclass."
+      ],
+      "acceptance": [
+        "For separably closed K, π=1 and all positive cohomology vanishes. For general K, higher Galois cohomology need not vanish: K(π,1) does not mean Hⁿ_et=0."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-etale-tests",
+          "locator": "03QQ",
+          "match": "The complete selected section gives the sheaf/module equivalence and canonical derived global-sections comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.field"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fields as étale K(π,1)"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "The degree-two obstruction on the projective line",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.not_projectiveLine",
+      "statement": "For algebraically closed k and prime ℓ invertible in k, P¹_k does not have the full finite-coefficient property, and does not have the ℓ-primary property. For M=Z/ℓ with trivial action, ε²_M has source zero and target isomorphic to Z/ℓ; it is not an isomorphism.",
+      "hypotheses": [
+        "Algebraically closed k; prime ℓ distinct from char k, so ℓ ≥ 2 and its constant coefficient is nonzero."
+      ],
+      "proofSteps": [
+        "Import the geometric finite-étale fundamental-group computation π₁(P¹_k)=1 from IG.0.",
+        "Import SF.2's canonical smooth projective curve computation H²_et(P¹_k,μ_ℓ) ≅ Z/ℓ (Stacks 03RQ); a choice of primitive ℓth root gives the corresponding noncanonical identification for the constant Z/ℓ sheaf.",
+        "The continuous cohomology of the trivial group in degree two is zero by the requested native/derived comparison and trivial-group calculation. The target is nonzero, so ε² cannot be an isomorphism; its coefficient belongs to both classes."
+      ],
+      "acceptance": [
+        "Degrees zero and one agree in this example. A definition checking only these degrees would falsely accept P¹. Do not use μ_p ≅ constant Z/p in characteristic p."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-etale-tests",
+          "locator": "03RQ",
+          "match": "The selected statement and proof give the higher cohomology of a smooth projective curve with invertible torsion coefficients."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.not_projectiveLine"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Smooth curves of affine or positive-genus type",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.smooth_curve_charZero",
+      "statement": "For a geometrically connected smooth curve C over a characteristic-zero field k, if C is affine or its smooth proper model has genus at least one, then Is(C,x;all finite coefficients) holds for every geometric point x.",
+      "hypotheses": [
+        "Smooth geometrically connected curve over a characteristic-zero field; affineness or positive genus of its smooth proper model.",
+        "The genus-zero proper curve is excluded."
+      ],
+      "proofSteps": [
+        "Schmidt–Stix Lemma 2.7(a) states the stronger any-field raw K(π,1) theorem and delegates its proof to Schmidt 1996 Proposition 15. The restricted characteristic-zero statement here uses that theorem; its proof leaf has not been freshly acquired and is a precise open gap.",
+        "Use SF.3 for smooth curve/compactification/genus data, not a second curve construction. Smoothness gives the geometric-unibranch scope required by raw-homotopy-comparison.",
+        "Apply the raw theorem and raw-homotopy-comparison; transport among geometric points using basepoint-transport. A proof audit must expose the referenced curve homotopy/comparison inputs before this node is closed."
+      ],
+      "acceptance": [
+        "Gₘ and P¹ minus {0,1,∞} pass. A smooth proper genus-one curve passes; P¹ fails by the separate degree-two obstruction."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(a), p. 827, citing Schmidt 1996 Proposition 15",
+          "match": "The source asserts all fields; this checkpoint retains the requested characteristic-zero test scope and openly records the delegated proof leaf."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.smooth_curve_charZero"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Curves as étale K(π,1)"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Characteristic-zero products of étale K(π,1) varieties",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.product_charZero",
+      "statement": "Over a characteristic-zero field k, a finite product of geometrically connected geometrically unibranch k-varieties having the full finite-coefficient property again has that property.",
+      "hypotheses": [
+        "Each factor is a geometrically connected geometrically unibranch variety; k has characteristic zero; full finite coefficients."
+      ],
+      "proofSteps": [
+        "IG.1 and SF.2 supply the geometric-base-change equivalence of the finite-cover criterion, so reduce to algebraically closed k as in Schmidt–Stix Lemma 2.7(b). This is an explicitly requested theorem, not arbitrary base-change invariance.",
+        "IG.0 supplies the characteristic-zero product theorem for geometric π₁. It makes product covers cofinal among finite covers: an open subgroup of the profinite product contains a product of open subgroups.",
+        "SF.2 supplies natural derived finite-torsion étale Künneth, with its Tor contributions, and its filtered finite-cover cohomology compatibility. These identify the vanishing of positive universal-cover cohomology for the product from that of the factors; no unsupported tensor-only formula is used.",
+        "Apply finite-cover-effacement, then descend via the same requested geometric-base-change equivalence. Iterate for finitely many factors, with Spec k as the empty product."
+      ],
+      "acceptance": [
+        "Over nonclosed k the arithmetic product π₁ is a fibre product over G_k, not a direct product. No positive-characteristic product theorem is asserted."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Lemma 2.7(b) and proof, p. 827",
+          "match": "The proof explicitly uses SGA 1 XIII Proposition 4.6 and étale Künneth; their full proof audits remain requested."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.product_charZero"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Products of étale K(π,1) varieties"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Elementary curve fibrations preserve étale K(π,1)",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.elementary_fibration_charZero",
+      "statement": "Let f:X→Y be an elementary fibration of smooth connected varieties over a characteristic-zero field: X is the complement of a divisor D, finite étale over Y, in a smooth proper geometrically connected curve family X̄→Y, and each fibre of X→Y is a nonempty affine curve. If Y has the full finite-coefficient property, then X has it.",
+      "hypotheses": [
+        "Smooth connected varieties and the specified elementary curve fibration; characteristic zero; full finite coefficients on Y."
+      ],
+      "proofSteps": [
+        "Use raw-homotopy-comparison to turn the hypothesis on Y into vanishing of its higher raw étale homotopy. The geometric fibre is a smooth affine curve, hence has the raw property by smooth-curve.",
+        "Pull f back over the filtered pointed finite étale covers of Y. The missing generic homotopy foundation must supply Friedlander Theorem 11.5's long homotopy exact sequence here, and Schmidt–Stix Lemma 2.1's invariance of higher groups under finite covers.",
+        "That sequence, together with π₁ of the universal finite-cover system of Y being trivial, identifies the higher homotopy exact sequence for X_y → X → Y. In each degree n ≥ 2 the fibre and base terms vanish, hence so does πₙ(X).",
+        "Convert back with raw-homotopy-comparison. The higher homotopy sequence is explicitly a gap; the arithmetic π₁ exact sequence of IG.1 alone cannot replace it."
+      ],
+      "acceptance": [
+        "An iterated tower must retain the smooth/proper compactification and finite étale boundary data; a general smooth morphism is not covered."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Proposition 2.8 and proof, pp. 827–828; Lemma 2.1, pp. 821–822",
+          "match": "The full selected proof uses a generic homotopy fibration theorem, not just arithmetic π₁ exactness."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.elementary_fibration_charZero"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Elementary fibrations and étale K(π,1)"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "title": "Artin towers give étale K(π,1) examples",
+      "kind": "theorem",
+      "declarationName": "TauCeti.EtaleKPiOne.artin_tower_charZero",
+      "statement": "For a finite tower X=X_r→⋯→X₀=Spec k of smooth connected characteristic-zero varieties with each arrow an elementary curve fibration as specified in elementary-fibration, X has the full finite-coefficient property. In particular this applies to strongly hyperbolic Artin neighbourhoods of Schmidt–Stix Definition 6.1, whose additional product-embedding condition must not be omitted when naming that stronger notion.",
+      "hypotheses": [
+        "Characteristic-zero field; finite tower with actual elementary-fibration data at every arrow."
+      ],
+      "proofSteps": [
+        "The initial field is K(π,1) by the field node.",
+        "Induct on the length, applying elementary-fibration at each arrow. The stronger hyperbolicity and product embeddings are not required for this induction but are required to call the object strongly hyperbolic.",
+        "For M₀,n with n ≥ 4, import the moduli scheme and its forgetting-mark elementary fibrations from the reserved StableReductionPartII moduli-curves owner. That supplier is not yet a typed input, so the instance remains an acceptance obligation rather than a fabricated local moduli construction."
+      ],
+      "acceptance": [
+        "M₀,4=P¹ minus {0,1,∞}; the n-to-n−1 forgetting-mark tower gives the higher-n example once its supplier is available. This does not prove the anabelian reconstruction theorem of Schmidt–Stix §6."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration"
+      ],
+      "sources": [
+        {
+          "sourceId": "schmidt-stix-2016",
+          "locator": "Definition 6.1 and following M₀,n example, p. 845",
+          "match": "Separates the elementary-fibration K(π,1) induction from the additional product-embedding hypothesis of strongly hyperbolic Artin neighbourhoods."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/EtaleKPiOne/Basic",
+        "namespace": "TauCeti.EtaleKPiOne",
+        "name": "TauCeti.EtaleKPiOne.artin_tower_charZero"
+      },
+      "implementationStatus": "unchecked"
     }
   ],
-  "requests": [],
+  "requests": [
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "need": "The actual category of finite étale schemes over a connected locally noetherian X, geometric-point fibre functor, its profinite automorphism group and equivalence with finite continuous π-sets; finite-cover subgroups, geometric-point path transport and induced coefficient transport, compatible with native abstract IsFundamentalGroup and the opposite affine FiniteEtale.fiber.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Finite continuous π-module / finite locally constant abelian sheaf dictionary on native smallEtaleTopology, natural in coefficients, pointed scheme isomorphisms and fibre-functor paths; actual canonical εⁿ in every degree. Compare derived continuous cohomology of finite discrete modules to native all-degree TopRep homogeneous continuousCohomology rather than define a second cohomology theory.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Spec K: exact stalk equivalence for discrete continuous G_K-modules and derived global-sections/invariants comparison of Stacks 03QQ Lemmas 59.59.1–2, identifying its map with ε. Also positive-degree trivial-group continuous cohomology calculation.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "need": "For algebraically closed k, π₁ᵉᵗ(P¹_k)=1 by classification of connected finite étale covers; retain characteristic and geometric-point hypotheses.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "For smooth projective curves over algebraically closed k and n invertible in k, canonical H²_et(X,μ_n) ≅ Z/n of Stacks 03RQ, with noncanonical constant Z/n identification after choosing roots of unity. Specialize to P¹ and prime ℓ≥2 without constructing Picard/NS theory here.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Filtered pointed finite-cover Cartan–Leray and edge comparisons; étale cohomology compatibility with the filtered pro-cover construction; Shapiro for induced finite modules and finite-cover trivialization of finite locally constant sheaves. Supply all-finite-coefficient ⇔ all-finite-cover higher-class-effacement under the geometrically-unibranch variety hypotheses of Schmidt–Stix Lemma 2.7(b), including its Artin–Mazur Theorem 4.3 input audit.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "need": "Characteristic-zero geometric product π₁ theorem for geometrically connected geometrically unibranch varieties over algebraically closed k, SGA 1 XIII Proposition 4.6; cofinality of product finite covers by profinite open subgroups. Arithmetic π₁ over nonclosed k is not an ordinary product.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "need": "Arithmetic π₁ exact sequence for geometrically connected varieties over k, with product/fibre-product compatibility needed in the characteristic-zero geometric-base-change reduction; not a higher homotopy fibration theorem.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "For characteristic-zero geometrically connected geometrically unibranch varieties, equivalence of the full finite-cover effacement condition over k and its algebraic closure, including descent of finite covers/classes. Natural derived finite-torsion Künneth with Tor terms and filtered universal-finite-cover cohomology compatibility must yield product effacement; audit SGA 4½ Théorème de finitude Corollary 1.11.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Smooth geometric curves, smooth proper models and genus, and smooth ⇒ geometrically unibranch in the needed scope. Import these scheme-theoretic curve objects, not a second NC.0 construction.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+      "need": "For an abelian variety A, define NS(A)=Pic(A)/Pic⁰(A), factor L↦φ_L through NS and prove its injection into symmetric Hom(A,A∨), with finite generation from the A6 Hom finite-rank result and ρ as the rank. The current A6/hom-is-free-of-finite-rank node states the NS conclusion but does not replace this A2 definition/injection. NC.5 imports these data for BDMTV /9 and its rank criterion; never rebuild NS in this packet.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ]
+    }
+  ],
   "coverage": [
     {
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6."
+        "Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6.",
+        "Close the coefficient/sheaf/edge-map requests and raw-homotopy/source proof gaps of the twelve new K(π,1) nodes; type their signatures and eight discriminating key tests.",
+        "Read/decompose Chen 2024 /57–58 tangential specialization ⟨γ_t⟩\\Y_t ≅ Y_x, functorial in finite covers, and good/symmetric-path consumers, distinct from reconstruction."
       ]
     },
     {
@@ -1016,7 +1803,8 @@
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.2",
       "status": "not_read",
       "remaining": [
-        "Unipotent fundamental groups: Tannakian construction of unipotent étale and de Rham fundamental groups, central series and finite quotients, path torsors with filtration, Frobenius and Galois structures (tensor-isomorphism torsors from MotivesAndAlgebraicCycles MC.6; rigid/de Rham input from ColemanIntegration L1), and the depth-one comparison with the Jacobian."
+        "Unipotent fundamental groups: Tannakian construction of unipotent étale and de Rham fundamental groups, central series and finite quotients, path torsors with filtration, Frobenius and Galois structures (tensor-isomorphism torsors from MotivesAndAlgebraicCycles MC.6; rigid/de Rham input from ColemanIntegration L1), and the depth-one comparison with the Jacobian.",
+        "Read BDMTV 2019 Appendix A, Theorem 4.2, Lemma 4.3, Corollary 4.4, Hadian Theorem 4.5, Lemma 5.2 and nonabelian Berthelot–Ogus bridge; account individually for 17 routed items and E9/E10. Do not merge local iterated-integral word expansion /58(40) with global comparison /93(41)."
       ]
     },
     {
@@ -1025,7 +1813,8 @@
       "remaining": [
         "Representability: Kim 2005 Propositions 2–3 (H¹(G, U) and H⁰(G, U(B)/U) represented by affine pro-varieties under finite-dimensionality and H⁰-vanishing hypotheses), with the topologies on U(B ⊗_K R) of Kim §1 Lemmas 1–5; the unipotent-group inputs (lower central series, algebraic splittings of central extensions).",
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
-        "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here."
+        "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here.",
+        "Split inherited multi-declaration nodes and supply all API/test forms explicitly omitted by the appended suggested-file audit; no stage is closed here."
       ]
     },
     {
@@ -1039,14 +1828,17 @@
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
       "status": "not_read",
       "remaining": [
-        "Quadratic Chabauty: Balakrishnan–Dogra I and II, depth-two quotients, p-adic heights with all local terms, and a worked curve."
+        "Quadratic Chabauty: Balakrishnan–Dogra I and II, depth-two quotients, p-adic heights with all local terms, and a worked curve.",
+        "Import NS=Pic/Pic⁰, injection into symmetric Hom and finite-generation/rank data from AbelianSchemesAndArithmeticModuli:A2; logically retarget BDMTV /9 to this owner without locally rebuilding it.",
+        "Read/decompose BDMTV 2019 §3 split-Cartan-level-13 pairs/determinants, nice correspondences and U_Z, A_Z twists/D_cris, specialized height (17), Lemmas 3.2/3.7, Corollary 3.8 and splitting/character independence. Preserve all 19 routed items including four applications; generic heights/mixed extensions/local terms come from the pending Part II owner, with no reverse NC.5 dependency."
       ]
     },
     {
       "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
       "status": "not_read",
       "remaining": [
-        "Reconstruction and rational-point handoff to EffectiveDiophantineMethods ED.6, keeping the section conjecture and eventual Chabauty–Kim completeness conjectural."
+        "Reconstruction and rational-point handoff to EffectiveDiophantineMethods ED.6, keeping the section conjecture and eventual Chabauty–Kim completeness conjectural.",
+        "Process-only handoff: propose removal in restructure, retaining actual reconstruction in NC.1 and rational-point outputs in NC.5/EffectiveDiophantineMethods:ED.6. No process nodes or unaccepted closed coverage."
       ]
     }
   ],
@@ -1064,6 +1856,74 @@
         "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension"
       ],
       "detail": "The continuous-section hypothesis of NC.3/central-extension (b) holds for central extensions of unipotent groups over a field of characteristic 0 by an algebraic splitting (Kim 2005, proof of Proposition 2). Tau Ceti has unipotent-group theory, but this splitting and the lower-central-series quotients as vector groups are not decomposed here."
+    },
+    {
+      "title": "Generic raw étale homotopy foundations and fibration theorem",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration"
+      ],
+      "detail": "Raw étale pro-spaces, pro-homotopy groups, profinite-π identification in the stated geometrically-unibranch variety scope, classifying morphisms/Bπ₁ and Isaksen's weak-equivalence test are absent at the pins. Elementary fibrations additionally need Friedlander Theorem 11.5 on universal finite-cover pullbacks, finite-cover higher-homotopy invariance (Schmidt–Stix Lemma 2.1) and smooth profiniteness (Artin–Mazur Theorem 11.1). IG.0/IG.1 do not state this higher theory. The reviewed Schmidt–Stix extraction already retains an UNACCEPTED EtaleHomotopyTypes candidate, with no registered stages or design job. Reconcile its foundational core, rather than create a parallel owner: it imports generic pro-categories, ordinary homotopy, sites and IG.0/IG.1; it must not depend on NC.0/NC.1 for the generic inputs consumed here. Keep its source-qualified anabelian orbit results downstream. No unregistered stage is a prerequisite."
+    },
+    {
+      "title": "Raw homotopy comparison outside geometric-unibranch varieties",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison"
+      ],
+      "detail": "The cohomological predicate is planned on all connected locally noetherian schemes. Its raw equivalence is sourced here only for connected geometrically unibranch varieties. Raw π₁ is not automatically profinite on arbitrary locally noetherian schemes; replacing it with its profinite completion changes the target. Establish broader exact hypotheses or retain distinct cohomological and raw notions; never export this restricted equivalence universally."
+    },
+    {
+      "title": "Delegated proof leaves of finite-cover and curve criteria",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+      ],
+      "detail": "Schmidt–Stix Lemma 2.7(a) delegates to Schmidt 1996 Proposition 15, not personally read in this continuation. The finite-cover criterion uses Artin–Mazur Theorem 4.3; products use SGA 1 XIII 4.6 and SGA 4½ finitude 1.11. The selected printed Schmidt–Stix proofs were read, but these transitive nonroutine inputs have not been decomposed to baseline. Exact supplier requests state the inputs; obtain primary proofs before marking closure."
+    },
+    {
+      "title": "Typed étale comparison carrier and suggested signatures",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood"
+      ],
+      "detail": "Native schemes, local noetherianity, small étale topology, abstract Galois categories, affine finite étale fibres and all-degree continuousCohomology exist. Actual non-affine profinite π, finite-coefficient/sheaf dictionary and canonical all-degree ε are not supplied at the pins. Every new declaration/API/test has an explicit mathematical omission entry in the suggested file, not a dummy Prop field, invented carrier or fabricated signature. Native smoke forms test only existing carriers. The key is planned, not formalised."
+    },
+    {
+      "title": "M₀,n moduli and forgetting-mark fibrations are imported",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood",
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1"
+      ],
+      "detail": "StableReductionPartII:key/moduli-curves is a reserved owner with no packet node at this audit tree. Its M₀,n scheme, M₀,4 identification and characteristic-zero forgetting-mark elementary fibrations must be imported/checked before the named instance is typed. No moduli construction is added here; the reserve is not an established theorem."
+    },
+    {
+      "title": "Routed Chen and BDMTV additions remain source inventory obligations",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0",
+        "AnabelianGeometryAndNonabelianChabauty:NC.2",
+        "AnabelianGeometryAndNonabelianChabauty:NC.5"
+      ],
+      "detail": "This continuation reads the K(π,1) sources, not the full Chen 2024 tangential specialization /57–58 or BDMTV 2019 universal-connection/Frobenius and quadratic-height proofs. The issue's 17 NC.2 and 19 NC.5 route items, E9/E10 and four applications still require individual source-to-node/import records. NC.5 imports NS from AbelianSchemesAndArithmeticModuli:A2 and generic mixed extensions/local heights from the pending SelmerComplexesAndPadicHeightsPartII owner, which must not depend on NC.5. No provisional height stage or duplicate is inserted."
+    },
+    {
+      "title": "Inherited NC.3 declaration/API granularity remains open",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "detail": "The eight inherited nodes and their source receipts are retained, not re-audited or closed. continuous-cocycles, functoriality, exact-sequence and central-extension bundle independent declarations and need granular continuation. Several inherited API/test forms are absent or only comment-level in the old suggested file. The appended omission audit accounts for every such name. Twisting's target must be repointed at [c] to make its set bijection pointed."
     }
   ],
   "sourceIssues": [],
@@ -1088,6 +1948,435 @@
       "citation": "B. Poonen, Rational points on varieties, GSM 186 (author PDF)",
       "read": "2026-09-28",
       "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+      "citation": "Schmidt–Stix, Annals 184 (2016), 817–868",
+      "read": "2026-10-02",
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2110.05534v2",
+      "citation": "Farb–Kisin–Wolfson, arXiv:2110.05534v2, selected §2.3.1 and Lemma 3.2.2",
+      "read": "2026-10-02",
+      "sha256": "f281f903f7a1836ef0eb7abe718c78e72f481d059cecb91dd237e6ecfe83b26b"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/03QQ",
+      "citation": "Stacks Project tags 03QQ and 03RQ",
+      "read": "2026-10-02"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AnabelianGeometryAndNonabelianChabauty"
+      ],
+      "detail": "NC.6 is a process handoff, not a mathematical layer, in the reviewed audit.",
+      "proposal": "Remove NC.6 after maintainer acceptance; retain reconstruction in NC.1 and rational-point exports in NC.5, supplying EffectiveDiophantineMethods:ED.6 directly. Keep section and eventual Chabauty–Kim completeness conjectural. Current NC.6 coverage remains pending acceptance."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AnabelianGeometryAndNonabelianChabauty",
+        "EtaleHomotopyTypes"
+      ],
+      "detail": "The Schmidt–Stix extraction already retains an unaccepted EtaleHomotopyTypes candidate. Its generic foundational targets overlap the raw inputs needed here; its NC.1 centre-free input would create a cycle if used by the NC.0 foundation.",
+      "proposal": "Reconcile and narrow the existing unaccepted Étale homotopy types and pro-spaces candidate into a generic foundational core: import existing pro-category/ordinary homotopy/site/IG.0/IG.1 owners, resolve its G1/G3/G7 closure obligations and supply raw étale pro-spaces, classifying pro-spaces, coefficient detection and elementary-fibration homotopy inputs without any dependency on NC.0 or NC.1. Leave source-qualified anabelian monodromy/orbit results to the downstream anabelian component. This packet alone owns the reserved K(π,1) predicate. Do not create a duplicate IG Part II owner or treat this candidate as a registered supplier stage."
+    }
+  ],
+  "continuationReceipt": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "auditTree": "c73495ab905f9f59dff658b7f5b4abae3564aeaf",
+    "historical": "The eight NC.3 nodes, 32 baseline checks and three old primary-read/hash receipts belong to Claude Code cc-fb70e5's 2026-09-28 checkpoint. They are preserved, not claimed as fresh primary reads; this continuation read the packet, reader and suggested file.",
+    "checked": [
+      "Reviewed library-coverage NC.0–NC.6, all seven atlas stages and 17 touching stage edges.",
+      "Full-tree pinned git-grep for K(pi,1)/étale-homotopy spellings found no Mathlib/TauCeti matches; seven actual native declaration statements read and index names checked.",
+      "All research/blueprint/links files screened: no links mentioning this roadmap at the immutable tree. Stage edges examined separately.",
+      "JacobianChallenge and StableReduction upstream documents were read during the continuous worker run. EllipticCurves/ProfiniteCohomology were not fully read for this continuation.",
+      "Schmidt–Stix catalogue /14,/31,/68 and FKW /005,/091,/146 checked against selected primary passages. Historical source issues outside those passages are not newly audited.",
+      "Full Schmidt–Stix EtaleHomotopyTypes candidate brief read: unaccepted, no registered stages; reconcile its generic foundation and remove NC.1 consumer cycles rather than propose duplicate ownership.",
+      "BDMTV 19+17 routed IDs/names/locators preserved explicitly as not_read inventory; /58 versus /93 and E9/E10 corrected catalogue contracts read. Chen /57–58 corrected catalogue contracts read; primary reading still open.",
+      "A2 stage scope and A6/hom-is-free-of-finite-rank statement read; precise NS definition/injection request added, not a local definition."
+    ]
+  },
+  "sourceCoverage": [
+    {
+      "source": "PAPER-SCHMIDT-STIX-16",
+      "status": "partial",
+      "items": [
+        {
+          "item": "PAPER-SCHMIDT-STIX-16/14",
+          "nodes": [
+            "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/products"
+          ],
+          "detail": "Selected primary definition/Lemma 2.7 read; exact delegated proof gaps remain."
+        },
+        {
+          "item": "PAPER-SCHMIDT-STIX-16/31",
+          "nodes": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison"
+          ],
+          "detail": "Selected Appendix A.3 primary proofs read. General pro-classifying space machinery is imported via the unaccepted foundation candidate, not rebuilt in the key node."
+        },
+        {
+          "item": "PAPER-SCHMIDT-STIX-16/68",
+          "nodes": [
+            "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood"
+          ],
+          "detail": "Only the K(π,1) consequence is planned here. Generic strongly hyperbolic Artin neighbourhood construction and reconstruction remain with the downstream candidate route."
+        }
+      ]
+    },
+    {
+      "source": "PAPER-FARB-KISIN-WOLFSON-24",
+      "status": "partial",
+      "items": [
+        {
+          "item": "PAPER-FARB-KISIN-WOLFSON-24/005",
+          "nodes": [
+            "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1"
+          ],
+          "detail": "Reserved owner supersedes the historical SF.2 key-definition placement. SF.2 supplies cohomology, not a duplicate K(π,1) predicate."
+        },
+        {
+          "item": "PAPER-FARB-KISIN-WOLFSON-24/091",
+          "nodes": [],
+          "detail": "Selected Lemma 3.2.2 proof read. Torus-torsor-over-abelian-variety full K(π,1) theorem remains to be decomposed into fibre-fibration cohomology/π₁ suppliers and the owned predicate. Its pro-p inflation also needs the separately proved prime-to-p kernel, not just p-primary coefficients."
+        },
+        {
+          "item": "PAPER-FARB-KISIN-WOLFSON-24/146",
+          "nodes": [],
+          "detail": "Abelian varieties and split tori over algebraically closed characteristic-zero fields: full finite-coefficient geometric instances remain to be decomposed, importing A5 uniformization/comparison rather than rebuilding it. The key interface is supplied, not a completed instance."
+        }
+      ]
+    },
+    {
+      "source": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+      "stage": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "status": "not_read",
+      "items": [
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/11",
+          "name": "Quadratic Chabauty pair",
+          "kind": "definition",
+          "locator": "Published §1.4, (5), pp.890–891",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/12",
+          "name": "Lemma 1.5: the determinant criterion",
+          "kind": "theorem",
+          "locator": "Published Lemma 1.5, (6), p.891",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/13",
+          "name": "Equivariant heights reduce the number of points",
+          "kind": "theorem",
+          "locator": "Published Remark 1.6, §1.7, Remark 1.7, Remark 3.9, pp.892, 895, 908",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/22",
+          "name": "Lemma 2.4",
+          "kind": "theorem",
+          "locator": "Published Lemma 2.4, p.900",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
+          "name": "Lemma 3.2",
+          "kind": "theorem",
+          "locator": "Published Lemma 3.2, p.903",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
+          "name": "The height formula (17)",
+          "kind": "theorem",
+          "locator": "Published (16)–(17), pp.905–906",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/33",
+          "name": "A_Z(b), twisting and the pair (θ, Υ)",
+          "kind": "construction",
+          "locator": "Published §3.4, (18)–(19), pp.906–907",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/35",
+          "name": "Lemma 3.7",
+          "kind": "theorem",
+          "locator": "Published Lemma 3.7, pp.907–908",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/36",
+          "name": "Corollary 3.8",
+          "kind": "theorem",
+          "locator": "Published Corollary 3.8, p.908",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/37",
+          "name": "Independence of the splitting and the character",
+          "kind": "theorem",
+          "locator": "Published Remarks 3.10, 3.12, (20), pp.908–909",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/38",
+          "name": "Chow–Heegner points (Remarks 3.11, 5.6)",
+          "kind": "theorem",
+          "locator": "Published Remark 3.11, Remark 5.6, (47), pp.908, 925",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/46",
+          "name": "Admissible Tate classes Z",
+          "kind": "definition",
+          "locator": "Published §4.4, p.913",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/47",
+          "name": "Lemma 4.7 (corrected)",
+          "kind": "theorem",
+          "locator": "Published Lemma 4.7, pp.913–914 (arXiv v1 Lemma 4.5)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/48",
+          "name": "The filtered connection A_Z",
+          "kind": "construction",
+          "locator": "Published (25), p.914",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/62",
+          "name": "Lemma 5.4: comparison for A_Z",
+          "kind": "theorem",
+          "locator": "Published Lemma 5.4, (46), pp.923–924",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/20",
+          "name": "Theorem 2.3 (Balakrishnan–Dogra)",
+          "kind": "theorem",
+          "locator": "Published Theorem 2.3, p.899 (arXiv v1 Lemma 2.3)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/21",
+          "name": "Symmetric and nice correspondences",
+          "kind": "definition",
+          "locator": "Published §2.3, p.900",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/23",
+          "name": "The depth-two quotient U_Z",
+          "kind": "construction",
+          "locator": "Published §2.3, Remark 2.5, pp.900–901",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/34",
+          "name": "Theorem 3.6 (Kim–Tamagawa)",
+          "kind": "theorem",
+          "locator": "Published Theorem 3.6, p.907",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        }
+      ]
+    },
+    {
+      "source": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+      "stage": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+      "status": "not_read",
+      "items": [
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/40",
+          "name": "The universal unipotent connection on Y",
+          "kind": "construction",
+          "locator": "Published §4.2, (21), p.910",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/41",
+          "name": "Theorem 4.2 (Kim): universality",
+          "kind": "theorem",
+          "locator": "Published Theorem 4.2, p.910 (arXiv v1 Theorem 4.1)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/42",
+          "name": "Lemma 4.3: the trivialisation respects composition",
+          "kind": "theorem",
+          "locator": "Published (22)–(24), Lemma 4.3, p.911",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/43",
+          "name": "Corollary 4.4",
+          "kind": "theorem",
+          "locator": "Published Corollary 4.4, pp.911–912",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/44",
+          "name": "Filtered connections",
+          "kind": "definition",
+          "locator": "Published §4.3, p.912",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/45",
+          "name": "Theorem 4.5 (Hadian)",
+          "kind": "theorem",
+          "locator": "Published Theorem 4.5, Remark 4.6, pp.912–913 (arXiv v1 Theorem 4.4)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/54",
+          "name": "Unipotent isocrystals and the Frobenius structure",
+          "kind": "definition",
+          "locator": "Published §5.1, (37), pp.918–919",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/55",
+          "name": "Lemma 5.2",
+          "kind": "theorem",
+          "locator": "Published Lemma 5.2, (38), p.919",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/56",
+          "name": "Theorem 5.3 (Chiarellotto–Le Stum)",
+          "kind": "theorem",
+          "locator": "Published Theorem 5.3, p.920 (arXiv v1 Theorem A.7)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/57",
+          "name": "Frobenius operators on de Rham path torsors",
+          "kind": "construction",
+          "locator": "Published §5.2, (42), pp.920–921",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/67",
+          "name": "Unipotent Tannakian categories and the universal objects A_n(C, ω)",
+          "kind": "definition",
+          "locator": "Published §A.1, Definition A.1, pp.934–935",
+          "nodes": [],
+          "detail": "Use correction E10: invariant-vector condition only for nonzero objects; primary proof not freshly read here."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/68",
+          "name": "Universal pointed objects",
+          "kind": "definition",
+          "locator": "Published Definition A.2, p.935",
+          "nodes": [],
+          "detail": "Use correction E9: unique filtration/point-preserving universal morphism; primary proof not freshly read here."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/69",
+          "name": "Lemma A.3",
+          "kind": "theorem",
+          "locator": "Published Lemma A.3, p.935",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/70",
+          "name": "Path torsors of the universal objects (Lemma A.4)",
+          "kind": "construction",
+          "locator": "Published §A.1.2, Lemma A.4, pp.936–937",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/63",
+          "name": "Olsson's non-abelian comparison",
+          "kind": "theorem",
+          "locator": "Published proof of Lemma 5.4, p.923 (arXiv v1 Theorem A.8)",
+          "nodes": [],
+          "detail": "Catalogue route inventory only; exact primary source decomposition remains."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58",
+          "name": "Local iterated-integral word expansion (40)",
+          "kind": "construction",
+          "locator": "Published §5.2.1, (40), p.921 (arXiv v1 §5.1, (20))",
+          "nodes": [],
+          "detail": "Import ColemanIntegration:L1/word-algebra-local-expansion for (40); not the global path-torsor bridge."
+        },
+        {
+          "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/93",
+          "name": "Tannakian path transport and Besser’s global Frobenius path",
+          "kind": "theorem",
+          "locator": "Published §5.2.1, (39),(41), p.921; Lemma 4.3 p.910; Theorem 5.3 pp.919–920; Besser, arXiv:math/0011269, Theorem 3.1 and Corollaries 3.2–3.3, pp.7–9",
+          "nodes": [],
+          "detail": "Own the missing global identification (41)/Besser bridge in NC.2, importing L1 rather than rebuilding integrals."
+        }
+      ]
+    },
+    {
+      "source": "PAPER-CHEN-24",
+      "stage": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "status": "not_read",
+      "items": [
+        {
+          "item": "PAPER-CHEN-24/57",
+          "nodes": [],
+          "detail": "Tangential specialization/inertia orbit bijection for finite ramified curves, functorial in covers; catalogue corrected contract read, primary proof not freshly read. Import analytic-to-algebraically-closed-char-zero transfer /129."
+        },
+        {
+          "item": "PAPER-CHEN-24/58",
+          "nodes": [],
+          "detail": "Good symmetric fibre-functor paths on P¹ minus {0,1,∞}, their existence and conjugation conventions; catalogue corrected contract read, primary proof not freshly read. These paths are not reconstructed by the K(π,1) predicate."
+        }
+      ]
     }
   ]
 }
