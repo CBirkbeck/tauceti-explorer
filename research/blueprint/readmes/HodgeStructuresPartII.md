@@ -1739,3 +1739,235 @@ These IDs continue to name the coordinate models; the intrinsic equivalence requ
 ## Elaboration continuation — codex-J6LwjP
 
 This continuation rechecked the reviewed parent L0–L3 audit and the D3/E1 audit boundaries, read the full parent document, and inspected the pinned additive tensor-lift and unit-inverse statements. It adds no mathematical nodes or source-reading claims. The preceding continuation’s PDF/model/projection receipts are retained as historical evidence; they were not rerun here. The current Lean check exercises all 44 native example signatures, including the nonreduced rank-one example with a universe-polymorphic coefficient ring. The 35 global nodes, 65 APIs and 54 tests listed only in the omission ledger still require actual supplier interfaces and native signatures. Compilation checks types; it does not prove the sorry goals or close H.0.
+
+
+## Coordinate determinant continuation — codex-J6LwjP
+
+The fixed-determinant conditions of EG require the induced line connection, not merely the underlying line bundle. On a chosen finite free chart, its coefficient is the trace of the matrix. This continuation supplies that local model over any commutative coefficient ring. It does not construct a determinant sheaf or identify arbitrary global tensors with tensors of global sections.
+
+### Coordinate determinant parameter connection
+
+Declaration: Connection.determinant. Node: HodgeStructuresPartII:H.0/determinant-coordinate.
+
+For the finite free coordinate model c with matrices A_i, construct a rank-one coordinate model det(c) with the same F and λ and one-by-one matrix tr(A_i). Its section operator is s ↦ λδ_i(s)+tr(A_i)s. This is the local coefficient model for the induced top exterior-power connection; the global determinant sheaf, the wedge identification and change-of-frame descent are separate supplier/bridge obligations. Rank zero gives the unit-line connection with zero coefficient.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Define the rank-one matrices by the existing matrix trace, summing diagonal entries; reuse the existing coordinate Connection carrier with index Fin 1.
+2. The operator formula follows from the existing operator equation. The scalar derivative term has λ, not rank(V)λ; the rank only multiplies scalar coefficient matrices.
+3. This construction uses no scalar division, exterior-sheaf construction or global frame choice. Its identification with a top exterior power is recorded as a separate gap, not an assumed theorem.
+
+Uses:
+
+- EG author §1 Definition 1.1 and §2.1; HodgeStructuresPartII:H.1/H.5: Provide the local coefficients needed for the fixed-determinant connection and trace-zero Higgs condition without assuming an arbitrary connection has trace zero.
+- HodgeStructuresPartII:H.0/determinant-curvature: Identify the scalar curvature and prove flatness is preserved.
+- HodgeStructuresPartII:H.0/determinant-tensor and HodgeStructuresPartII:H.0/determinant-dual: Test determinant compatibility and rank multiplicities before global exterior-power descent.
+
+API:
+
+- Connection.determinant_matrix (projection): The sole matrix entry of det(c) in direction i equals tr(A_i). Promoted to determinant-matrix for downstream use.
+- Connection.determinant_operator (projection): On the coordinate line, D_det,i(s)(0)=λδ_i(s(0))+tr(A_i)s(0).
+- Connection.determinant_curvature (compatibility): The sole curvature entry of det(c) in directions i,j is tr(κ_c,ij). Promoted to determinant-curvature for downstream use.
+
+Tests:
+
+- Connection.test_determinant_rank_zero (degenerate): For an empty index Fin 0, det(c) is the rank-one zero-coefficient model; the determinant is not the zero module.
+- Connection.test_determinant_rank_one (compatibility): For index Fin 1, det(c)=c.
+- Connection.test_determinant_scalar_rank_two (computation): For A_i=a_i I_2, the determinant connection coefficient is 2a_i, not a_i² and not a rank-scaled parameter.
+- Connection.test_determinant_flat_no_converse (non-example): For λ=0, two zero directions over Q and A_0=E12, A_1=E21, det(c) is flat while c has nonzero diagonal(1,−1) curvature.
+
+Acceptance:
+
+- Distinguish trace(A_i) from the algebraic determinant of A_i.
+- The model preserves the source parameter at every rank, including rank zero.
+- Trace loses information: flatness of det(c) has no converse.
+
+Prerequisites: HodgeStructuresPartII:H.0/preconnection, HodgeStructuresPartII:H.0/operator, mathlib:Matrix.trace.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Matrix of the coordinate determinant connection
+
+Declaration: Connection.determinant_matrix. Node: HodgeStructuresPartII:H.0/determinant-matrix.
+
+The unique matrix entry of det(c) in direction i is tr(A_i).
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Project the defining one-by-one matrix from the coordinate construction.
+
+Acceptance:
+
+- The coefficient is trace, not determinant.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-coordinate.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Curvature of the determinant coordinate line
+
+Declaration: Connection.determinant_curvature. Node: HodgeStructuresPartII:H.0/determinant-curvature.
+
+For all i,j, the unique entry of κ_det(c),ij is tr(κ_c,ij)=λδ_i(tr A_j)−λδ_j(tr A_i).
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Use determinant-matrix and expand the coordinate curvature. One-by-one coefficient commutators vanish because R is commutative.
+2. Apply AddMonoidHom.map_trace to each derivation, commuting differentiation with the finite diagonal sum. Apply trace_add, trace_sub and trace_smul to the original curvature.
+3. Matrix.trace_mul_comm identifies tr(A_i A_j) and tr(A_j A_i); their difference cancels. No division by rank or by two is used.
+
+Acceptance:
+
+- Valid over any commutative coefficient ring, including characteristic two.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-matrix, HodgeStructuresPartII:H.0/curvature, mathlib:AddMonoidHom.map_trace, mathlib:Matrix.trace_mul_comm, mathlib:Matrix.trace_add, mathlib:Matrix.trace_sub, mathlib:Matrix.trace_smul.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Flat connections have flat determinant models
+
+Declaration: Connection.determinant_flat. Node: HodgeStructuresPartII:H.0/determinant-flat.
+
+If c is flat, det(c) is flat. A flat determinant model does not imply that c is flat.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Apply determinant-curvature and trace_zero to every vanishing input curvature matrix; a one-by-one matrix vanishes exactly when its entry does.
+2. The test with two noncommuting off-diagonal matrix units has nonzero trace-zero curvature and refutes the converse.
+
+Acceptance:
+
+- Do not replace the full integrability condition by trace-zero curvature.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-curvature, HodgeStructuresPartII:H.0/flatness, mathlib:Matrix.trace_zero.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Determinant model commutes with duality
+
+Declaration: Connection.determinant_dual. Node: HodgeStructuresPartII:H.0/determinant-dual.
+
+The coordinate models det(c.dual) and det(c).dual are equal, with the same F and λ.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Use the inherited dual coefficient −A_iᵀ. Trace_neg and trace_transpose give tr(−A_iᵀ)=−tr(A_i).
+2. The one-by-one matrices agree by determinant-matrix; connection extensionality gives equality.
+
+Acceptance:
+
+- The minus sign is required; transpose alone is wrong.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-matrix, HodgeStructuresPartII:H.0/dual, mathlib:Matrix.trace_transpose, mathlib:Matrix.trace_neg.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Tensor determinant rank multiplicities
+
+Declaration: Connection.determinant_tensor_matrix. Node: HodgeStructuresPartII:H.0/determinant-tensor.
+
+For c on R^V and b on R^W with the same F and λ, the determinant coordinate coefficient of c.tensor(b) in direction i is rank(W)tr(A_i)+rank(V)tr(B_i), with natural ranks cast into R.
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Use the inherited Kronecker-sum coefficient A_i⊗I_W+I_V⊗B_i.
+2. Apply trace_add and Matrix.trace_kronecker, then trace_one. Commute the scalar factors in R to obtain the displayed rank coefficients.
+3. The section operator still has parameter λ. This coefficient identity alone is not the global determinant-line tensor isomorphism.
+
+Acceptance:
+
+- Ranks appear as elements of R and can vanish in positive characteristic; they are not inverted.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-matrix, HodgeStructuresPartII:H.0/tensor, mathlib:Matrix.trace_kronecker, mathlib:Matrix.trace_one, mathlib:Matrix.trace_add.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+### Curvature under coordinate change
+
+Declaration: Connection.gauge_curvature. Node: HodgeStructuresPartII:H.0/gauge-curvature.
+
+For the coordinate transformation s′=Gs and every invertible matrix G, curvature transforms as κ_gauge(c,G),ij=G κ_c,ij G⁻¹. This is the promoted curvature API of the inherited gauge construction.
+
+Proof:
+
+1. Differentiate GG⁻¹=I entrywise. The matrix product Leibniz rule gives δ_i(G⁻¹)=−G⁻¹δ_i(G)G⁻¹ by multiplying the resulting zero identity on the left by G⁻¹.
+2. Insert the defined coefficient G A_i G⁻¹−λδ_i(G)G⁻¹ into the curvature formula. Use the preceding inverse derivative, the relatively constant parameter and commutation of the coordinate derivations to cancel all terms with derivatives of G; the remaining expression is G(λδ_iA_j−λδ_jA_i+[A_i,A_j])G⁻¹. Finite matrix sums and multiplication are over the commutative ring R.
+
+Prerequisites: HodgeStructuresPartII:H.0/gauge, HodgeStructuresPartII:H.0/curvature, HodgeStructuresPartII:H.0/coordinate-frame, mathlib:Derivation.leibniz.
+
+Source: EG author preprint §4.2 pp.23–24 parameter rule, with explicit coordinate derivation. This promotes the inherited gauge curvature API without adding a second declaration.
+
+### Determinant curvature is gauge invariant
+
+Declaration: Connection.determinant_gauge_curvature. Node: HodgeStructuresPartII:H.0/determinant-gauge-curvature.
+
+For every invertible coordinate matrix G, the one-by-one curvature entry of det(c.gauge(G)) equals that of det(c).
+
+Hypotheses:
+
+- k and R are commutative rings and R is a k-algebra.
+- d∈N and λ∈R; all derivations are k-linear.
+- F is the existing coordinate Frame: its k-linear derivations commute and annihilate λ. Every coordinate model uses this same frame.
+- The index types V and W are finite decidable types. No positive rank, characteristic-zero or invertibility of rank is assumed.
+
+Proof or construction:
+
+1. Apply determinant-curvature on both sides and the inherited gauge curvature identity κ_gauge=G κ G⁻¹.
+2. Matrix.trace_units_conj proves equality of the two traces. This requires no derivative of det(G).
+3. This is curvature invariance only; the connection coefficient still has its trace of the derivative correction. A global determinant descent theorem also needs the induced frame det(G) and the Jacobi derivative formula.
+
+Acceptance:
+
+- Do not assert that the determinant connection matrices themselves are unchanged under a nonconstant gauge.
+
+Prerequisites: HodgeStructuresPartII:H.0/determinant-curvature, HodgeStructuresPartII:H.0/gauge-curvature, mathlib:Matrix.trace_units_conj.
+
+Source: EG author preprint, §1 p.2, §2.1 pp.5–6 and §4.2 pp.23–24; algebraic coordinate derivations, not separately asserted source theorems.
+
+The new public source is the 44-page author preprint at https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf, retrieved on 2026-10-02 with SHA-256 0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35. The published PDF returned HTTP 403 in this continuation; its historical receipt remains. Only the selected fixed-determinant/Higgs/parameter passages were freshly read. No complete edition collation or new erratum is claimed.
+
+The global determinant/exterior-power bridge remains a gap: import locally free exterior powers and determinant lines from E1, define the induced alternating operator, prove its trace expression in a top-wedge frame, and prove the det(G) transition law using the Jacobi derivative identity before descent. Curvature invariance alone is insufficient. All 35 global signature omissions and later-stage source obligations remain.
+
+The expanded entire suggested file elaborated at the exact pinned Mathlib commit with zero errors, 118 sorry warnings, no other warnings and 48 native examples. The global omission ledger remains unchanged. The packet checker and five-file intake pass; actual atlas projection preserves all 18 required layer edges without pending/skipped links and is acyclic. Fresh exact polynomial/Laurent gauges over characteristics zero, two and three support the determinant formulas; reproduction counts and hashes are in the handoff.
