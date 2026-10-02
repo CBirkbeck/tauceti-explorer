@@ -14,16 +14,27 @@ published Remark 2.1, arXiv Theorem 3.6 = published Theorem 4.6, and so on), ver
 Theorems A and B keep their letters. Every locator gives the preprint number with the published number in
 parentheses.
 
-The paper has been extracted into **42 items**. One is in the pinned libraries, three are planned by existing
-layers, and the remaining 38 are routed exactly once: **37 to a Part II** of *Drinfeld modules, t-motives and
+The current extraction has **102 items: 2 library, 13 planned and 87 missing**. The following initial extraction count is historical: 42 items, with 1 library, 3 planned and 38 missing, of which **37 went to a Part II** of *Drinfeld modules, t-motives and
 characteristic-p special values* — the same Part II proposed by `PAPER-CHANG-CHEN-MISHIBA-23` — and **1** as a
 source for that roadmap's stage DM.8.
+
+## Confirmed red-team fixes (Codex, codex-J6LwjP, 2 October 2026)
+
+[Issue #5519](https://github.com/CBirkbeck/tauceti-explorer/issues/5519) applies all five independently confirmed findings. The [fixes report](../redteam/RT-PAPER-IM-KIM-LE-ETAL-24.fixes.md) gives the source and pinned-declaration checks. This section supersedes conflicting historical claims below. There are now **102 items (2 library, 13 planned, 87 missing)**, still 86 missing items in the shared Part II and one source item for DM.8, with **23 prerequisite works**. All original item IDs/statuses and all 36 source-issue records and review verdicts are preserved; these are extraction fixes, not new author errata or an independent review by this fixer.
+
+- **Base field.** Item 1 now claims only the supplied algebraic/valued setup, explicitly citing `RatFunc.inftyValuation` and `RatFunc.CompletionAtInfty`. The new planned `analytic-C-infinity` item imports the normalized norm, rank-one/completion interfaces, characteristic-p completed algebraic closure and compatible embeddings from **DrinfeldModulesAndTModules:DM.2**. Its reviewed coverage is partial: the valued completion alone is insufficient, and `IsAlgClosed.of_denseRange` assumes characteristic zero.
+- **Tate algebra.** `restricted-series-library-ingredients` records the available carrier, subring, bounded Gauss norm and multiplicativity, with their actual hypotheses. `ordinary-tate-algebra-and-gauss-norm` imports the remaining general analytic interfaces from **AdicSpaces Layer 0 §§0.4–0.5**. The old bundled item keeps its stable ID but now covers the specialized entire-series ring ℰ, its finite coefficient-field requirement and function-field evaluation/Frobenius interfaces. The Part II imports general Tate theory rather than constructing another copy. Unit-disc Tate evaluation does not authorize evaluation at θ, whose norm is q>1.
+- **Convergence.** The authoritative statements of items 28, 30 and the ABP difference-system construction now require `‖Q_j‖_∞ < |θ|_∞^(q s_j/(q−1))` for every component. This ensures every consecutive subtuple, including each prefix and tail, is defined. The weaker printed whole-tuple condition is retained as historical text linked to accepted E14. The intended γ and γH_s applications satisfy the stronger bound. Cited whole-tuple lemmas retain their original scope; they are instantiated for tails only under the corrected setup.
+- **Relations.** Theorem 3.4 (published 4.4) concerns **normalized periods indexed by J′_w, augmented by 1**. A nontrivial relation has a nonzero constant coefficient and forces `(q−1)|w`; uniqueness is after that coefficient is normalized to 1, with the original character restriction. AS_w itself is independent. General ACMPLs reduce to AS_w; their unrestricted relation space is not asserted one-dimensional. Item 34, including its γ normalization, is unchanged.
+- **Prerequisites.** Added [Chang–Papanikolas–Yu](https://arxiv.org/abs/1411.0124) for the general motive/Frobenius construction and common denominators; [Chen–Harada](https://arxiv.org/abs/2012.00340) for the AMZV period formula; and the authors' [separate Note](https://hal.science/hal-04240841) for the small-weight proof details deferred in published §5.4. These cited suppliers remain black boxes at extraction scope.
+
+The 49-page published PDF was checked at pp. 4, 20–23, 27, 30 and 47–48, with rendered pp. 20, 22, 23 and 30. SHA-256: `82e85086688c1274207d7265a310381a4b04d02243d11ee78bf67a8105ab7e98`. This session did not reread the full paper, collate the preprint or recursively audit suppliers. Exact checks covered the E14 exponent counterexample, the strict application bounds, and a q=3 truncated rational-function identity showing why the old unrestricted reader sentence fails. Paper, intake and whitespace checks passed. No Lean file or compilation was requested.
 
 ## Independent review (REV-PAPER-IM-KIM-LE-ETAL-24)
 
 The independent review (Claude Code, session cc-2aeb03, 24 September 2026) corrected this extraction in place. The review
 report is `research/blueprint/reviews/REV-PAPER-IM-KIM-LE-ETAL-24.md`; the counts in the sections below are the earlier ones
-and are superseded by these.
+and were superseded by this review. The current fix counts above supersede these review counts.
 
 - **Items: 99** (1 library, 11 planned, 87 missing), each missing item routed once: 86 to the Part II (route 1) and 1 as a
   source for DM.8 (route 2).
@@ -71,8 +82,10 @@ values twist the summand by `ε_1^{deg a_1} ⋯ ε_r^{deg a_r}` for `ε ∈ (F_q
   `dim_K AL_w ≤ s(w)`; (iii) an improved linear-independence criterion (Theorem 2.4) which, from a relation in
   weight `w` and independence in lower weights, produces a controlled system of Frobenius difference equations.
 * **The transcendental part.** Through dual `t`-motives and the ABP criterion, with a character-splitting lemma
-  (Lemma 3.2) and a Kuan–Lin degree bound (Lemma 3.3), Theorem 3.4 determines *all* `K`-linear relations between
-  ACMPL values: a non-trivial relation forces `(q − 1) | w`, and then there is exactly one. Theorem 3.6 concludes
+  (Lemma 3.2) and a Kuan–Lin degree bound (Lemma 3.3), Theorem 3.4 controls relations among normalized
+  periods indexed by `J′_w`, augmented by `1`: a nontrivial relation forces `(q−1)|w` and a nonzero
+  constant coefficient, with uniqueness after normalizing that coefficient to `1` and retaining the
+  trivial-character qualification. `AS_w` is independent; general ACMPL relations are handled by reduction to it. Theorem 3.6 concludes
   that `AS_w` is a basis of `AL_w`; the bridge gives Theorem A, and restricting to non-alternating indices gives
   the lower bound `dim_K Z_w ≥ d(w)` (Proposition 4.10) and hence Theorem B.
 * **What the direct route gives.** Section 4.3 records the ad hoc arguments inside the AMZV theory: they give
@@ -87,19 +100,18 @@ uniformisation and the period (DM.2), Anderson `t`-modules and effective `t`-mot
 and Goss/Taelman `L`-values (DM.6), and Papanikolas's Tannakian difference-Galois theory with Carlitz logarithms
 (DM.8) — and stops at depth one. `PeriodsAndSpecialValues:PS.9` plans the classical multiple zeta values with
 shuffle, stuffle, regularisation and the motivic basis/spanning results, which is where Zagier, Hoffman, Brown and
-Deligne–Goncharov–Terasoma belong, including the classical alternating bound. Mathlib supplies `A`, `K`, `K_∞` and
-the monic polynomials, and nothing else. Nothing anywhere plans multiple zeta values in characteristic `p`,
+Deligne–Goncharov–Terasoma belong, including the classical alternating bound. The pinned libraries supply `A`, `K`, the valued completion `K_∞`, monic polynomials and restricted-series/Gauss-norm ingredients. The normalized normed-field and `C_∞` package remains a DM.2 import; general Tate interfaces come from AdicSpaces Layer 0. Nothing anywhere plans multiple zeta values in characteristic `p`,
 alternating or not, Carlitz polylogarithms, the `q`-shuffle or stuffle algebras, or the ABP criterion.
 
 ## The routes
 
-### 1. Part II of *Drinfeld modules, t-motives and characteristic-p special values* — 37 items
+### 1. Part II of *Drinfeld modules, t-motives and characteristic-p special values* — 86 missing items
 
 `DrinfeldModulesAndTModulesPartII`, "…, Part II: multiple zeta values and Thakur's basis", area `functionfields`.
 It plans Thakur's and Harada's values, Carlitz multiple polylogarithms and their alternating versions with the
 power sums and Carlitz's identity, the combinatorics of tuples and arrays, the calculus of binary relations with
 the operators `𝓑*` and `𝓒`, the weak and strong Brown theorems with `AT_w` and `AS_w`, the dual `t`-motive package
-with the improved linear-independence criterion, the transcendental theorem on all relations between ACMPLs, and
+with the improved linear-independence criterion, the restricted normalized-period theorem followed by reduction of general ACMPLs to AS_w, and
 the bridge with the two main theorems.
 
 **This is deliberately the same Part II — same id, same title — that `PAPER-CHANG-CHEN-MISHIBA-23` proposes.** The
@@ -116,7 +128,7 @@ paper and the Chang–Chen–Mishiba paper are sources for it, and both Part II 
 
 ## Prerequisites the atlas does not cover
 
-Twelve entries. The ones that matter most: **Ngo Dac** (Ann. of Math. 2021) for the algebraic part and the method;
+Twenty-three current entries (12 in the initial extraction and 20 after review). The three new direct suppliers and dependent items are listed above. The older selection includes: **Ngo Dac** (Ann. of Math. 2021) for the algebraic part and the method;
 **Harada** (Math. Z. 2021) for the alternating values themselves; **Anderson–Brownawell–Papanikolas**
 (arXiv:math/0207168) for the criterion; **Thakur**'s book and papers for the values, the shuffle relations and the
 basis conjecture; **Chang** (Compositio 2014) for Carlitz multiple polylogarithms and the Goncharov analogues;
@@ -127,7 +139,7 @@ difference-Galois framework; **Lara Rodríguez–Thakur** for the relations behi
 
 ## Mistakes in the source
 
-One misprint, recorded under `sourceIssues` and checked against the published text.
+There are 36 existing source issues after independent review; this fix adds none. The following initial one-misprint account is historical.
 
 * **E1** (Section 0.2.2, the definition of the alternating multiple zeta values; published Section 1.2.2): the
   tuples are introduced as `𝔰 = (s_1, …, s_r) ∈ N^n` and `𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^n`, where the ambient sets
@@ -136,5 +148,5 @@ One misprint, recorded under `sourceIssues` and checked against the published te
   in Section 0.3.2, where the alternating Carlitz multiple polylogarithms are defined. **Still present in the
   published version.** It affects nothing.
 
-No erratum exists: arXiv 2205.07165 has versions v1 and v2 only, the Cambridge Core article carries none, and the
+The initial extraction recorded the following correction search at its original reading date; it was not rerun as a new search in this fix: arXiv 2205.07165 has versions v1 and v2 only, the Cambridge Core article carries none, and the
 sequel (arXiv:2402.11539) does not correct this point.
