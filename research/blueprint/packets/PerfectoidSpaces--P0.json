@@ -11011,7 +11011,8 @@
       ],
       "acceptance": [
         "p − [p♭] ∈ W(𝒪_{ℂ_p♭}) is a nonzerodivisor (PadicHodgeTheory:R06.1/explicit-generator-of-ker-theta).",
-        "p − [p♭] and Σ_{i<p}[ε]^{i/p} generate different ideals, so neither divides the other."
+        "With p♭ a compatible system of p-power roots of p and ε a compatible system of primitive p-power roots of unity, p − [p♭] and ξ_cyc = Σ_{i<p}[ε]^{i/p} both generate ker θ in W(𝒪_{ℂ_p♭}); hence they are associates and each divides the other by a unit (P1/fontaine-theta-and-primitive-kernel; Scholze 2013 Lemma 6.3).",
+        "Negative example: μ = [ε] − 1 = ([ε]^{1/p} − 1)·ξ_cyc lies in ker θ but does not generate it. The factor [ε]^{1/p} − 1 is not a unit: its zeroth Witt coefficient ε^{1/p} − 1 lies in the maximal ideal of 𝒪_{ℂ_p♭} (P1/witt-vectors-of-perfect-plus-ring (d)). Regularity of ξ_cyc implies (μ) is strictly smaller than (ξ_cyc), so μ is not primitive. Membership in ker θ alone does not imply primitivity."
       ],
       "prerequisites": [
         "PerfectoidSpaces:P1/primitive-degree-one-ideals",
@@ -33408,12 +33409,18 @@
           "note": "Remove the false full-subcategory cardinal bound, construct non-full cofiltered subcategories including selected arrows and compositions, and remove the surviving κ-cofiltered consumer claim. Add a one-object zero-monoid regression example. This is a bounded correction, not certification of every source, prerequisite, API item or test of this node."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
+      "date": "2026-10-01",
+      "notes": "Follows the partial independent-review-REV-PerfectoidSpaces--P0. Scoped independent review of FIX-RT-AREA-padic-2~2 (53f4c49), by Codex, codex-J6LwjP. The three P1 use-record changes correctly leave primitive-kernel generation and nonzerodivisibility with P1; R06.1 supplies the uniform chosen generator and mixed-characteristic filtration, and AI.0 specializes through Q0. Checked ECD Lemmas 3.14/3.16 and proof, BMS Lemma 3.10/Remark 3.11, Scholze 2013 Lemma 6.3/Corollary 6.4, and the relevant pinned Mathlib PreTilt, untilt, theta, Frobenius and BDeRham declarations including hypotheses and TODOs. Accept these ownership fixes; retain needs_changes because the preceding review explicitly left the comprehensive source/dependency/API/test/planet audit and most declaration statements unfinished. Later FIX-RT-AREA-padic-1~2 modifications are preserved and outside this review. This limited supplier audit does not certify that wider work or close its general-base gaps. No Lean compilation. See REV-FIX-RT-AREA-padic-2~2.md."
     }
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~2",
-    "date": "2026-10-01",
-    "notes": "Follows the partial independent-review-REV-PerfectoidSpaces--P0. Scoped independent review of FIX-RT-AREA-padic-2~2 (53f4c49), by Codex, codex-J6LwjP. The three P1 use-record changes correctly leave primitive-kernel generation and nonzerodivisibility with P1; R06.1 supplies the uniform chosen generator and mixed-characteristic filtration, and AI.0 specializes through Q0. Checked ECD Lemmas 3.14/3.16 and proof, BMS Lemma 3.10/Remark 3.11, Scholze 2013 Lemma 6.3/Corollary 6.4, and the relevant pinned Mathlib PreTilt, untilt, theta, Frobenius and BDeRham declarations including hypotheses and TODOs. Accept these ownership fixes; retain needs_changes because the preceding review explicitly left the comprehensive source/dependency/API/test/planet audit and most declaration statements unfinished. Later FIX-RT-AREA-padic-1~2 modifications are preserved and outside this review. This limited supplier audit does not certify that wider work or close its general-base gaps. No Lean compilation. See REV-FIX-RT-AREA-padic-2~2.md."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-padic-2~3",
+    "date": "2026-10-02",
+    "notes": "Follows independent-review-REV-FIX-RT-AREA-padic-2~2 and the unfinished independent-review-REV-PerfectoidSpaces--P0. Independent review of FIX-RT-AREA-padic-2~3 by Codex, codex-5ebb6f: the three affected P1 use records and reader copies are correct; fresh BMS 3.10/3.11, Scholze 2013 6.3/6.4 and ECD 3.14/3.16 reading, plus actual pinned PreTilt/untilt/Frobenius/theta/BDeRham statements, confirm the stated supplier and missing-theorem boundaries. Corrected the distinguished-element node's contradictory acceptance example: p-[p-flat] and the cyclotomic sum are associates generating the same theta kernel; added the nonprimitive product [epsilon]-1 as a negative example and an explanatory suggested-file comment. Its reader owner must synchronize these acceptance items. The broader 292 baseline-statement and comprehensive source/dependency/API/test/planet audit left unfinished by REV-PerfectoidSpaces--P0 remains outstanding, together with its general-base gaps. These local corrections do not finish that review. Prior histories and later padic-1 changes are preserved; no new theorem node or Lean compilation claimed. See REV-FIX-RT-AREA-padic-2~3.md."
   }
 }
