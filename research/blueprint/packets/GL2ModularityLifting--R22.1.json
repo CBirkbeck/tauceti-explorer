@@ -3241,8 +3241,8 @@
         {
           "sourceId": "KW2-2009",
           "locator": "§8.2, p. 70",
-          "excerpt": "(α) ¯ρ|GF arises from a cuspidal automorphic representation π of GL2(AF ), such that πv is unramiﬁed for all v|p, and is discrete series of weight k(¯ρ) at the inﬁnite places.",
-          "match": "Hypothesis (α); (β) follows it."
+          "excerpt": "πv, at all places v above p, is of conductor dividing v, and is of weight 2 at the inﬁnite places.",
+          "match": "Hypothesis (β), p.70: the cuspidal residual witness has conductor exponent at most one above p and parallel weight two. This is not the preceding hypothesis (α)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5305,8 +5305,10 @@
     }
   ],
   "review": {
-    "status": "pending",
-    "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-2~2",
+    "date": "2026-10-02",
+    "notes": "Independent review of FIX-RT-AREA-langlands-2~2 (Codex codex-5ebb6f, #5142, PR #5282), following RT-AREA-langlands-2.review.json and the earlier needs_changes independent-review-REV-GL2ModularityLifting--R22.1 preserved in reviewHistory. Read KW II author-final pp.37,40–46,63–78,81,89–92 and published CHT pp.116–117. The new §7.6/§8 statements retain the source cases, α/β distinction, integer character exponents and split-at-p exceptions; corrected β’s copied α excerpt. /19 is correct locally; /12,/13,/26 remain partial. The early soluble field/character construction is an explicit missing supplier, not a live import; /12’s downstream R24.4/RS-08 handoff is unimplemented. Full field/idele/automorphic definitions, named API signatures and packet-named tests remain comments, including the new definitions; arithmetic controls do not satisfy PROTOCOL §13. Preserve all prior typed-API, granularity and independence gaps, including the R33.3→R32.2 coarse back-edge. Read all baseline records and the Henselian completeness instance at the pins. Checker passes with zero errors/warnings. Implementation unchecked; Lean not compiled because no existing pinned build. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md"
   },
   "reviewHistory": [
     {
@@ -5616,6 +5618,10 @@
           "note": "Separated DP1.7 proposition and made finite-order ψ explicit. Exact transport from the ordinary theorem and external consumer updates remain a recorded gap."
         }
       ]
+    },
+    {
+      "status": "pending",
+      "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
     }
   ]
 }

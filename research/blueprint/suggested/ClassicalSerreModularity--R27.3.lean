@@ -14,7 +14,7 @@ the checked examples test the arithmetic of the Khare–Wintenberger and Dieulef
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
 
-Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX pending.
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX records needs_changes (2 October 2026, Refs #5143).
 No compilation was performed: no existing build was found at the pins. Historical compilation
 in reviewHistory is not a check of this revision. Supplier signature sketches below are comments.
 Lemma 8.2 imports the early R01.3/R01.4 definitions/classification; no level-one theorem or R15.6.
