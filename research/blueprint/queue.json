@@ -34456,7 +34456,8 @@
     "REV-PAPER-ZHANG-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ZHANG-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4074"
   },
   {
    "id": "RT-PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -34642,8 +34643,9 @@
     "REV-PAPER-LI-LIU-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LI-LIU-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5058"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5058",
+   "finishedAt": "2026-10-02T08:33:46Z"
   },
   {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -52584,7 +52586,8 @@
     "FIX-RT-AREA-iwasawa-3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5139"
   },
   {
    "id": "RT-AREA-langlands-1",
