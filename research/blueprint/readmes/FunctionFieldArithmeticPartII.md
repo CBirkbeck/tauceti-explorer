@@ -5311,3 +5311,275 @@ Acceptance:
 Sources:
 
 - TV17, §3.1 pp.14–16, character grading and Corollary 3.13, P=N: “root stacks”. The finite quotient chart motivates this calculation. This root-specific cardinality, coordinate or dimension assertion is derived from the actual native comparison and the listed pinned library declarations; it is not a theorem quoted from the paper.
+
+## RS.2 continuation — finite affine transition proofs
+
+For every commutative ring A, parameter f and positive n,m, write B_n=A[t_n]/(t_nⁿ−f). The transition j_(n,m) is the actual A-algebra map t_n↦t_(nm)^m. The iterated algebra D_(n,m)=B_n[U]/(U^m−t_n) is B_n-algebra equivalent to B_(nm), with U↦t_(nm). Its transported basis is indexed by Fin m and has vector t_(nm)^i. The coefficient action is multiplication through j_(n,m). No reducedness, nonzero-ring, invertibility or unit-parameter condition enters this finite algebra.
+
+The composition and exponent-one signatures use the existing canonical equivalence of quotients by equal polynomials. This corrects the inherited dependent casts while keeping the intended equality after the associativity identification. A local coefficient-algebra instance gives the basis projections the exact transition scalar structure; it introduces no new generic algebra or quotient theory. The actual inverse coefficient identity upgrades the inverse lift from an A-algebra map to a B_n-algebra map.
+
+When B_n is nontrivial, import the monic quotient power basis, reindex along nat-degree m and transport through the specified equivalence. When B_n is the zero ring, import the subsingleton module equivalence to its Finsupp coefficients; a zero vector family is a valid indexed basis here. Fin m is nonempty because m>0, so the existing faithfully-flat Finsupp instance and basis coordinates give native faithful flatness. The native free and finite module facts follow from the same basis. The existing finite and flat-and-surjective Spec-map criteria translate this exact ring algebra into a finite, flat, surjective native scheme morphism. This affine step needs no extra supplier; representability of the root-stack transition remains separate.
+
+The preserved nilpotent test sends the nonzero t_2 in k[t]/t² to the nonzero t_4² in k[t]/t⁴. Additional examples cover Z/4Z with f=2, F_2 with f=0, finite/free structures and all four reverse-map tests. These are computations in the native quotient algebras. The primary-source reading is TV17 v2 printed pp12–16, including Proposition 3.2 and §3.1; finite rank-one freeness is the authored P=N specialization, rather than a claim about arbitrary monoid charts. Historical source findings and the separate symplectic route remain unchanged.
+
+### Root of the finite chart transition
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-root. Lemma.
+
+The actual A-algebra map j_(n,m):B_n→B_(nm) sends the distinguished root t_n to t_(nm)^m.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Evaluate the native quotient lift at its distinguished root; its chosen value is t_(nm)^m.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition, mathlib:AdjoinRoot.liftAlgHom_root.
+
+Acceptance:
+
+- For n=m=2 the root of A[t]/(t²−f) maps to the square of the root of A[t]/(t⁴−f), including f=0.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Coefficients of the finite chart transition
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-constant. Lemma.
+
+For every a∈A, j_(n,m)(a in B_n)=a in B_(nm); these are the given coefficient algebra maps.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Use the native A-algebra homomorphism coefficient law.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition.
+
+Acceptance:
+
+- The coefficient map remains the specified map over nonreduced and zero rings.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Reverse map from the larger root chart
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/iterated-reverse. Construction.
+
+Put D_(n,m)=B_n[U]/(U^m−t_n) as the native monic AdjoinRoot quotient with its inherited A-algebra. Construct v_(n,m):B_(nm)→D_(n,m) as an A-algebra homomorphism sending t_(nm) to the actual distinguished root U.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. In D_(n,m), U^m is the image of t_n, so U^(nm)=(U^m)^n is the image of f under the coefficient tower.
+2. Apply the native A-algebra quotient lift using that equation. Keep the actual coefficient algebra and the quotient nilpotents.
+
+Inputs: FunctionFieldArithmeticPartII:RS.0/affine-root-relation, mathlib:AdjoinRoot, mathlib:AdjoinRoot.liftAlgHom, mathlib:IsScalarTower.algebraMap_apply.
+
+API uses:
+
+- TV17 §3.1, P=N finite local charts — The reverse lift supplies the specified inverse in the iterated quotient, needed for finite chart freeness.
+- FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated — Its coefficient compatibility upgrades the A-algebra map to a B_n-algebra inverse.
+
+API:
+
+- TauCeti.RootStack.affineIteratedReverse.root (simp): v_(n,m)(t_(nm))=U in D_(n,m).
+- TauCeti.RootStack.affineIteratedReverse.constant (simp): v_(n,m) sends each a∈A in B_(nm) to its image in D_(n,m).
+- TauCeti.RootStack.affineIteratedReverse.coefficient (compatibility): For every b∈B_n, v_(n,m)(j_(n,m)(b)) equals the coefficient image of b in D_(n,m).
+
+Unit tests:
+
+- TauCeti.RootStack.affineIteratedReverse.test_root (computation): Over every field k with f=0 and n=m=2, the reverse map sends t_4 exactly to the distinguished U in B_2[U]/(U²−t_2), fixing its sign as well as its square.
+- TauCeti.RootStack.affineIteratedReverse.test_coefficient (computation): For n=m=2, v_(2,2)(t_4²) is the coefficient image of t_2 in B_2[U]/(U²−t_2).
+- TauCeti.RootStack.affineIteratedReverse.test_fourth_power (compatibility): For n=m=2, v_(2,2)(t_4⁴) equals the coefficient image of f from A in the iterated quotient.
+- TauCeti.RootStack.affineIteratedReverse.test_zeroRing (degenerate): When A is the zero ring, the reverse map sends every element to zero in the actual iterated quotient.
+
+Acceptance:
+
+- This is an actual map of the native quotient algebras for arbitrary A, rather than a map between representative coefficient arrays.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Root value of the reverse quotient map
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/iterated-reverse-root. Lemma.
+
+The reverse A-algebra quotient lift v_(n,m) sends t_(nm) to U, the distinguished root of D_(n,m).
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Evaluate the native quotient lift on its actual distinguished root.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/iterated-reverse, mathlib:AdjoinRoot.liftAlgHom_root.
+
+Acceptance:
+
+- The formula holds at a nilpotent branch fibre; U is not replaced by zero.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Coefficient compatibility of the reverse map
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/iterated-reverse-coefficient. Lemma.
+
+For every b∈B_n, v_(n,m)(j_(n,m)(b))=algebraMap(B_n,D_(n,m))(b). Thus v_(n,m) is compatible with the actual B_n coefficient algebra of the transition.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Compare the composite v_(n,m)∘j_(n,m) with the native coefficient algebra homomorphism B_n→D_(n,m).
+2. Both fix A. Their root values are U^m and the coefficient image of t_n, equal by the defining equation of D_(n,m).
+3. Native quotient extensionality gives equality of A-algebra homomorphisms; evaluate at b.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/iterated-reverse, FunctionFieldArithmeticPartII:RS.2/iterated-reverse-root, FunctionFieldArithmeticPartII:RS.2/affine-transition-root, FunctionFieldArithmeticPartII:RS.0/affine-root-relation, mathlib:AdjoinRoot.algHom_ext, mathlib:AdjoinRoot.ofAlgHom.
+
+Acceptance:
+
+- Compatibility is for all coefficients b, not only t_n or field-valued points.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Distinguished root under the iterated equivalence
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated-root. Lemma.
+
+The specified B_n-algebra equivalence D_(n,m)≃B_(nm) sends its distinguished root U to t_(nm).
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. The forward part of the constructed equivalence is exactly the quotient lift with root value t_(nm).
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated, mathlib:AdjoinRoot.liftAlgHom_root.
+
+Acceptance:
+
+- The resulting basis transport uses this particular root value, not an unspecified algebra equivalence.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Vectors of the finite transition basis
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-basis-vector. Lemma.
+
+For i∈Fin m, the specified B_n-basis vector of B_(nm) is exactly t_(nm)^i.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. In the nontrivial B_n branch, evaluate the reindexed native monic power basis and its transport through the iterated equivalence.
+2. Use the forward root formula and preservation of powers.
+3. In the zero B_n branch, both sides are the unique element; do not invoke a false positive-degree equality.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition-basis, FunctionFieldArithmeticPartII:RS.2/affine-transition-iterated-root, mathlib:Module.Basis.map_apply, mathlib:Module.Basis.reindex_apply.
+
+Acceptance:
+
+- At m=1 the sole vector is 1; over the zero ring the indexed basis is still a basis although every vector is zero.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Finite transition coefficient reconstruction
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-coordinates. Lemma.
+
+For every b∈B_(nm), its specified basis coordinates c_i∈B_n reconstruct b as ∑_{i∈Fin m} j_(n,m)(c_i)t_(nm)^i.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Apply the native finite-basis reconstruction theorem.
+2. Replace each basis vector by its distinguished-root power and each coefficient scalar action by multiplication through j_(n,m).
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition-basis, FunctionFieldArithmeticPartII:RS.2/affine-transition-basis-vector, mathlib:Module.Basis.sum_repr.
+
+Acceptance:
+
+- The scalar action is the transition coefficient algebra, and the coordinates reconstruct every element of the actual quotient.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Inverse finite transition coordinates
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-inverse-coordinates. Lemma.
+
+For c∈Fin m→₀B_n, the inverse of the specified coordinate equivalence sends c to ∑_{i∈Fin m} j_(n,m)(c_i)t_(nm)^i.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Apply the reconstruction identity to the inverse coordinate image and cancel the coordinate equivalence with its inverse.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition-basis, FunctionFieldArithmeticPartII:RS.2/affine-transition-coordinates.
+
+Acceptance:
+
+- The inverse formula uses the actual transition coefficient action and full quotient, including the zero ring.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+### Finite flat surjective maps of root charts
+
+Declaration: FunctionFieldArithmeticPartII:RS.2/affine-transition-Spec-properties. Theorem.
+
+For the actual ring homomorphism j_(n,m):B_n→B_(nm), the native scheme morphism Spec B_(nm)→Spec B_n is finite, flat and surjective.
+
+Hypotheses:
+
+- A is any commutative ring; f∈A and n,m are positive natural numbers. No reducedness, Noetherian, unit-parameter or invertibility-of-exponent hypothesis is imposed.
+
+Construction or proof:
+
+1. Apply the existing finite Spec-map equivalence to the exact ring map; its induced coefficient algebra is the transition algebra and the finite basis supplies Module.Finite.
+2. Apply the existing flat-and-surjective Spec-map equivalence to the same ring map; its RingHom.FaithfullyFlat definition is precisely the checked Module.FaithfullyFlat result.
+
+Inputs: FunctionFieldArithmeticPartII:RS.2/affine-transition-basis, FunctionFieldArithmeticPartII:RS.2/affine-transition-faithfully-flat, mathlib:Module.Finite.of_basis, mathlib:RingHom.Finite, mathlib:RingHom.FaithfullyFlat, mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff, mathlib:AlgebraicGeometry.flat_and_surjective_SpecMap_iff.
+
+Unit tests:
+
+- TauCeti.RootStack.affineTransitionSpecProperties.test_wild (non-example): Over F_2 with f=0 and n=m=2, the actual nonreduced root-chart Spec map is finite, flat and surjective without an invertible exponent.
+
+Acceptance:
+
+- No extra geometric supplier is needed for the affine Spec translation already in Mathlib. This gives no representability statement about the corresponding root-stack transition.
+
+Source: TV17, Section3.1 pp.14–16, P=N specialization. Root-specific specialization and proof derivation using the stated source construction and the listed native baseline declarations; not a claim that the paper literally states every algebraic comparison below.
+
+The existing finite transition APIs gain TauCeti.RootStack.affineTransition.coefficientAlgebra: Use j_(n,m) as the coefficient map for the B_n-algebra structure on B_(nm); retain the original A-algebra and its compatible coefficient tower.
+
+- TauCeti.RootStack.affineTransitionIterated.root (simp): The iterated quotient equivalence sends U to t_(nm).
+- TauCeti.RootStack.affineTransitionIterated.coefficient (compatibility): For every b∈B_n, the iterated quotient equivalence sends its coefficient image to j_(n,m)(b).
+
+Additional finite-basis tests:
+
+- TauCeti.RootStack.affineTransitionBasis.test_nonreduced (non-example): For A=Z/4Z and f=2, the actual B_2→B_4 coefficient map is faithfully flat despite the nonreduced base and nilpotent parameter.
+- TauCeti.RootStack.affineTransitionBasis.test_wild (non-example): For A=F_2 and f=0, the actual B_2→B_4 coefficient map is faithfully flat without invertibility of either exponent.
+- TauCeti.RootStack.affineTransitionBasis.test_finite_free (compatibility): For arbitrary A,f and positive n,m, the specified finite basis gives both native Module.Free and Module.Finite structures on B_(nm) over B_n.
+
+All ten stages remain partial, with the same eight gaps and thirteen supplier requests. Suggested bodies remain admitted and implementation statuses remain unchecked. Separate native proofs are archived and reproducible in the handoff; the complete geometric file is not compiled because its exact-pin Tau Ceti imports are unavailable.

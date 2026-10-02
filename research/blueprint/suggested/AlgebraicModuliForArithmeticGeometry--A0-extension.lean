@@ -3018,3 +3018,127 @@ example {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
 example {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
     eval F (𝟙 U) x (lift F J hComm x a) = a := by sorry
 end TauCeti.AlgebraicGeometry.IntrinsicBandSections
+
+/-! Chosen-band inverse continuation, Codex codex-J6LwjP. -/
+
+namespace TauCeti.AlgebraicGeometry
+variable {C : Type u} [Category.{v} C]
+namespace IntrinsicBandSections
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+-- Recover a coefficient on any base carrying an actual gerbe object.
+lemma fromBanding_surjective_of_object (U : C) (x : F.obj (.mk (op U))) :
+    Function.Surjective (fromBanding F J A b U) := by
+  sorry
+
+-- Local nonemptiness supplies these coefficients; no global object is chosen.
+noncomputable def localBandCoefficient (b : AbelianBanding F J A) {U : C} (R : Sieve U)
+    (objects : ∀ ⦃V : C⦄ (f : V ⟶ U), R f → F.obj (.mk (op V)))
+    (z : IntrinsicBandSection F U) :
+    Presieve.FamilyOfElements (A.obj ⋙ forget AddCommGrpCat.{max u v u' v'}) R.arrows := by
+  sorry
+
+lemma localBandCoefficient_recovery {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    fromBanding F J A b V (Multiplicative.ofAdd
+      (localBandCoefficient F J A b R objects z f hf)) = restrict F f z := by
+  sorry
+
+lemma localBandCoefficient_compatible {U : C} (R : Sieve U)
+    (objects : ∀ ⦃V : C⦄ (f : V ⟶ U), R f → F.obj (.mk (op V)))
+    (z : IntrinsicBandSection F U) :
+    (localBandCoefficient F J A b R objects z).Compatible := by
+  sorry
+
+lemma fromBanding_surjective (U : C) :
+    Function.Surjective (fromBanding F J A b U) := by
+  sorry
+
+end IntrinsicBandSections
+end TauCeti.AlgebraicGeometry
+
+namespace TauCeti.AlgebraicGeometry.IntrinsicBandSections
+variable {C : Type u} [Category.{v} C]
+variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
+variable (J : GrothendieckTopology C) [IsGerbe F J]
+variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
+
+noncomputable def fromBandingEquiv (b : AbelianBanding F J A) (U : C) :
+    Multiplicative (A.obj.obj (op U)) ≃* IntrinsicBandSection F U := by
+  sorry
+
+lemma fromBandingEquiv_apply (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    fromBandingEquiv F J A b U a = fromBanding F J A b U a := by
+  sorry
+
+lemma fromBandingEquiv_symm_restrict {U V : C} (f : V ⟶ U)
+    (z : IntrinsicBandSection F U) :
+    Multiplicative.ofAdd (A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd) =
+      (fromBandingEquiv F J A b V).symm (restrict F f z) := by
+  sorry
+
+-- All original choices of local objects give the same glued inverse.
+lemma fromBandingEquiv_symm_local {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd =
+      localBandCoefficient F J A b R objects z f hf := by
+  sorry
+
+-- LocalCoefficientTests.unit
+example {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects 1 f hf = 0 := by
+  sorry
+
+-- LocalCoefficientTests.existing
+example {U V : C} (R : Sieve U)
+    (objects : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (a : Multiplicative (A.obj.obj (op U))) (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects (fromBanding F J A b U a) f hf =
+      A.obj.map f.op a.toAdd := by
+  sorry
+
+-- LocalCoefficientTests.choiceIndependent
+example {U V : C} (R : Sieve U)
+    (objects objects' : ∀ ⦃W : C⦄ (f : W ⟶ U), R f → F.obj (.mk (op W)))
+    (z : IntrinsicBandSection F U) (f : V ⟶ U) (hf : R f) :
+    localBandCoefficient F J A b R objects z f hf =
+      localBandCoefficient F J A b R objects' z f hf := by
+  sorry
+
+-- BandInverseTests.unit
+example (U : C) : (fromBandingEquiv F J A b U).symm 1 = 1 := by
+  sorry
+
+-- BandInverseTests.coefficientRoundTrip
+example (U : C) (a : Multiplicative (A.obj.obj (op U))) :
+    (fromBandingEquiv F J A b U).symm (fromBanding F J A b U a) = a := by
+  sorry
+
+-- BandInverseTests.sectionRoundTrip
+example (U : C) (z : IntrinsicBandSection F U) :
+    fromBanding F J A b U ((fromBandingEquiv F J A b U).symm z) = z := by
+  sorry
+
+-- BandInverseTests.inverse
+example (U : C) (z : IntrinsicBandSection F U) :
+    (fromBandingEquiv F J A b U).symm z⁻¹ = ((fromBandingEquiv F J A b U).symm z)⁻¹ := by
+  sorry
+
+-- BandInverseTests.restriction
+example {U V : C} (f : V ⟶ U) (z : IntrinsicBandSection F U) :
+    Multiplicative.ofAdd (A.obj.map f.op ((fromBandingEquiv F J A b U).symm z).toAdd) =
+      (fromBandingEquiv F J A b V).symm (restrict F f z) := by
+  sorry
+
+-- BandInverseTests.nontrivial
+example (U : C) (z : IntrinsicBandSection F U) (hz : z ≠ 1) :
+    (fromBandingEquiv F J A b U).symm z ≠ 1 := by
+  sorry
+
+end TauCeti.AlgebraicGeometry.IntrinsicBandSections

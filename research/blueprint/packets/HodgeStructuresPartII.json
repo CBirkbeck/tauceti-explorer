@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "General ringed-site Higgs/constant-parameter connection plan with 112 nodes. This partial checkpoint adds actual scalar-extension horizontal/coefficient coherence for arbitrary coefficient modules, receiving-ring ordered naturality, and faithful-flat field/degree-one reflection. All 107 inherited contracts, finite-basis all-degree transport, split and flat same-ring reflection, 149 routed obligations and global supplier boundaries remain. Arbitrary-Q cross-ring tensor-power comparison in all degrees and E1 sheaf restriction/gluing remain open. H.0 partial, H.1–H.8 not_read; all nodes unchecked and no source route or reserved key closed.",
+  "summary": "General ringed-site Higgs/constant-parameter connection plan with 112 nodes. This partial checkpoint adds actual scalar-extension horizontal/coefficient coherence for arbitrary coefficient modules, receiving-ring ordered naturality, and faithful-flat field/degree-one reflection. All 107 inherited contracts, finite-basis all-degree transport, split and flat same-ring reflection, 149 routed obligations and global supplier boundaries remain. Arbitrary-Q cross-ring tensor-power comparison in all degrees and E1 sheaf restriction/gluing remain open. H.0 partial, H.1–H.8 not_read; all nodes unchecked and no source route or reserved key closed. This continuation supplies the native arbitrary-coefficient cross-ring tensor-power unit/prepend/iterate comparison and identical-exponent preservation/reflection plans, with a separately checked actual proof; global restriction and gluing remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1053,6 +1053,42 @@
         "sourceSha256": "192d565083c2a68f0bd28a1cc258c7ad0f4322446e201b84297a98a6e18e6e8a",
         "provides": "The native identity module is faithfully flat, including over ℤ; supplies torsion-module boundary tests.",
         "checked": "Complete declaration, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02 by Codex codex-J6LwjP. Existing generic carriers/laws are imported, never replanned."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 731,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "Scalar extension of an existing R-linear equivalence is an actual S-linear equivalence, without flatness.",
+        "checked": "Complete selected statement and its ambient ring/module/algebra hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; exact names and source lines matched against the declaration index."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.baseChange_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 739,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "The extended equivalence sends a⊗m to a⊗e(m).",
+        "checked": "Complete selected statement and its ambient ring/module/algebra hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; exact names and source lines matched against the declaration index."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.baseChange_symm_tmul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 743,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "The inverse extended equivalence sends a⊗n to a⊗e⁻¹(n).",
+        "checked": "Complete selected statement and its ambient ring/module/algebra hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; exact names and source lines matched against the declaration index."
+      },
+      {
+        "ref": "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "sourceLine": 369,
+        "sourceSha256": "2cc909974909b6b519388f8d7255361d25ad58d053a72c5983c526edbed9b249",
+        "provides": "The heterobasic right unit sends a⊗r to r acting on a.",
+        "checked": "Complete selected statement and its ambient ring/module/algebra hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-a71f92 on 2026-10-02; exact names and source lines matched against the declaration index."
       }
     ]
   },
@@ -1265,6 +1301,21 @@
         "Complete Theorem 4.8(1)–(3), Remark 4.9 and its displayed proof, §4.2"
       ],
       "readingExtent": "Scoped geometric motivation and actual local scalar-extension formula. Authored arbitrary-ring affine deductions are separated from the analytic correspondence, which is not discharged. No complete-paper or 149-item source collation is claimed."
+    },
+    {
+      "id": "Heuer25-codex-a71f92-arbitrary-coherence",
+      "authors": "Ben Heuer",
+      "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
+      "edition": "arXiv 2307.01303v3",
+      "url": "https://arxiv.org/html/2307.01303v3",
+      "accessed": "2026-10-02",
+      "sha256": "ec7742d917b413a52d05e5eeffbab9fdaab3bed13412dc2c9e426ffb8bcb8081",
+      "readSections": [
+        "Definition 1.2(1)–(2) and selected introduction",
+        "Complete Definition 4.1",
+        "Complete Theorem 4.8(1)–(3), Remark 4.9 and displayed proof"
+      ],
+      "readingExtent": "Scoped fresh reading of field/scalar-extension motivation. The all-degree arbitrary-ring statements are authored native algebraic deductions. No whole-paper, correspondence, source-route collation or gluing closure is claimed."
     }
   ],
   "nodes": [
@@ -6281,6 +6332,21 @@
           "name": "TwistedHiggsBundle.affineOrderedIterate_natural_zero_iff_of_flat",
           "role": "compatibility",
           "statement": "Let f:E→F and u:Q→P be injective R-linear maps with ψ∘f=(f⊗u)∘θ. If F,Q,P are flat over R, then for every n≥0, I_n(ψ)∘f=0 if and only if I_n(θ)=0. In particular a specified bound on ψ restricts to the same bound on θ. E need not be flat. The left side is the restriction along f, not vanishing on all of F."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison",
+          "role": "compatibility",
+          "statement": "For every θ:E→E⊗_R Q and n≥0, D_n∘(I_n(θ))_S=I_n(θ_S) as actual S-linear maps E_S→E_S⊗_S Q_S^⊗n. Here (I_n(θ))_S is native scalar extension of the source-ring iterate, whereas I_n(θ_S) is formed recursively over S. No coefficient basis or integrability premise is required."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients",
+          "role": "compatibility",
+          "statement": "For every specified n≥0 and every R-algebra S, I_n(θ)=0 implies I_n(θ_S)=0 at the identical n, for arbitrary R-modules E and Q. S need not be flat."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients",
+          "role": "characterisation",
+          "statement": "If S is faithfully flat over R, then for every specified n≥0, I_n(θ_S)=0 if and only if I_n(θ)=0, for arbitrary modules E and Q. The exponent is unchanged, and no flatness or finiteness of E or Q is needed."
         }
       ],
       "tests": [
@@ -6348,6 +6414,21 @@
           "name": "TwistedHiggsBundle.affineOrderedIterate.test_restriction_not_ambient",
           "kind": "non-example",
           "statement": "Over ℤ let f(a)=(a,0) and ψ(a,b)=(0,b)⊗1. Then ψ∘f=0 and ψ≠0. Restricted vanishing does not assert ambient vanishing, even with free finite modules and the identity coefficient map."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_preservation",
+          "kind": "compatibility",
+          "statement": "For R=ℤ, E=ℤ/4, Q=ℤ/2 and S=ℤ/2, I_n(θ)=0 implies I_n(θ_S)=0 for every specified n≥0 and actual θ. The extension S and both coefficient/source modules are not flat; no reflection is asserted."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_reflection",
+          "kind": "compatibility",
+          "statement": "For R=S=ℤ, E=ℤ/4 and Q=ℤ/2, I_n(θ_S)=0 iff I_n(θ)=0 at every specified n≥0 for every θ, using the faithfully flat identity algebra, without source or coefficient flatness."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate.test_arbitrary_coefficient_degree_zero",
+          "kind": "non-example",
+          "statement": "If R is nontrivial and S is faithfully flat, the degree-zero receiving iterate of every θ:R→R⊗_R Q is nonzero, even for Q=0. Tensor nilpotence at exponent zero cannot mean the zero field."
         }
       ],
       "uses": [
@@ -6394,6 +6475,18 @@
         {
           "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-flat-subobject",
           "how": "The promoted exact-bound reflection API identifies the actual restricted iterate; flatness and injectivity remain explicit."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+          "how": "The promoted arbitrary-coefficient cross-ring API supplies this exact all-degree contract, without replacing the retained finite-basis theorem."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary",
+          "how": "The promoted arbitrary-coefficient cross-ring API supplies this exact all-degree contract, without replacing the retained finite-basis theorem."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful",
+          "how": "The promoted arbitrary-coefficient cross-ring API supplies this exact all-degree contract, without replacing the retained finite-basis theorem."
         }
       ]
     },
@@ -8164,6 +8257,443 @@
           "how": "Supply one-step field transport and coefficient coherence on affine charts; higher cross-ring tensor-power comparison and sheaf gluing remain explicit prerequisites."
         }
       ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Scalar extension of ordered coefficient powers",
+      "declaration": "TwistedHiggsBundle.affineTensorPowerBaseChange",
+      "statement": "Construct T_n:S⊗_R Q^⊗n≃_S Q_S^⊗n for every n≥0, with Q_S=S⊗_R Q. T_0 is the scalar extension of (R≃Q^⊗0)⁻¹ followed by S⊗_R R≃S and S≃Q_S^⊗0. T_(n+1) is the scalar extension of α_R,n⁻¹, followed by the native binary distributor, id_(Q_S)⊗T_n and α_S,n. No basis of Q is chosen.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "mathlib:TensorPower.algebraMap₀",
+        "mathlib:LinearEquiv.baseChange",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
+        "mathlib:TensorProduct.congr",
+        "mathlib:PiTensorProduct.subsingletonEquiv",
+        "mathlib:TensorPower.mulEquiv",
+        "mathlib:TensorPower.cast"
+      ],
+      "proofSteps": [
+        "At degree zero compose the three specified existing linear equivalences; no nontriviality assumption is used.",
+        "At a successor compose the four specified native linear equivalences. The private syntactic abbreviation α is exactly the singleton/multiplication/cast composite already used by affineOrderedStep, not a replacement tensor carrier.",
+        "Primitive recursion supplies the actual S-linear equivalence and its actual inverse at every degree; no comparison property or bijectivity is stored as an assumption."
+      ],
+      "acceptance": [
+        "Construct T_n:S⊗_R Q^⊗n≃_S Q_S^⊗n for every n≥0, with Q_S=S⊗_R Q. T_0 is the scalar extension of (R≃Q^⊗0)⁻¹ followed by S⊗_R R≃S and S≃Q_S^⊗0. T_(n+1) is the scalar extension of α_R,n⁻¹, followed by the native binary distributor, id_(Q_S)⊗T_n and α_S,n. No basis of Q is chosen."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit",
+          "how": "Keep the empty-word tensor unit in the iterate comparison."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend",
+          "how": "Keep the coefficient order in the successor square."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+          "how": "Combine this coefficient-power adapter with the existing binary distributor."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange_unit",
+          "role": "compatibility",
+          "statement": "For every a∈S, T_0(a⊗algebraMap₀_R(1))=algebraMap₀_S(a). In particular the empty coefficient word maps to the tensor unit, with no premise on Q."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange_prepend",
+          "role": "compatibility",
+          "statement": "For every n≥0, a∈S, q∈Q and t∈Q^⊗n, T_(n+1)(a⊗α_R,n(q⊗t))=α_S,n((a⊗q)⊗T_n(1⊗t)). This is the actual cross-ring prepend equation, not same-ring coefficient-map naturality."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange_symm_apply",
+          "role": "characterisation",
+          "statement": "For every n≥0 and x∈S⊗_R Q^⊗n, T_n⁻¹(T_n(x))=x. The inverse is the actual inverse of the recursively composed native equivalences, with no flatness or basis premise."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_unit",
+          "kind": "computation",
+          "statement": "For R=ℤ, S=ℤ/4 and Q=ℤ/2, T_0(a⊗1_0)=algebraMap₀(a) in Q_S^⊗0, for every a∈S. The coefficient module is not free over ℤ."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange.test_torsion_prepend",
+          "kind": "compatibility",
+          "statement": "For R=S=ℤ, Q=ℤ/2, q∈Q and t∈Q^⊗1, T_2(1⊗α_R,1(q⊗t))=α_S,1((1⊗q)⊗T_1(1⊗t)). This keeps the new factor on the left without a coefficient basis."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineTensorPowerBaseChange.test_nonflat_distributor",
+          "kind": "characterisation",
+          "statement": "For R=ℤ, S=Q=ℤ/2, every n≥0 and x∈S⊗_R Q^⊗n, T_n⁻¹(T_n(x))=x. The distributor remains an equivalence although S is not flat over R; this alone does not reflect scalar-extended vanishing."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension preserves the empty coefficient word",
+      "declaration": "TwistedHiggsBundle.affineTensorPowerBaseChange_unit",
+      "statement": "For every a∈S, T_0(a⊗algebraMap₀_R(1))=algebraMap₀_S(a). In particular the empty coefficient word maps to the tensor unit, with no premise on Q.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-tensor-power-base-change",
+        "mathlib:LinearEquiv.baseChange_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.rid_tmul"
+      ],
+      "proofSteps": [
+        "Unfold T_0, evaluate the scalar-extended inverse degree-zero equivalence, then the native right tensor unit. The two degree-zero inverse evaluations and 1 acting on a give the displayed equality."
+      ],
+      "acceptance": [
+        "For every a∈S, T_0(a⊗algebraMap₀_R(1))=algebraMap₀_S(a). In particular the empty coefficient word maps to the tensor unit, with no premise on Q."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension respects ordered coefficient prepending",
+      "declaration": "TwistedHiggsBundle.affineTensorPowerBaseChange_prepend",
+      "statement": "For every n≥0, a∈S, q∈Q and t∈Q^⊗n, T_(n+1)(a⊗α_R,n(q⊗t))=α_S,n((a⊗q)⊗T_n(1⊗t)). This is the actual cross-ring prepend equation, not same-ring coefficient-map naturality.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-tensor-power-base-change",
+        "mathlib:LinearEquiv.baseChange_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul"
+      ],
+      "proofSteps": [
+        "Evaluate the successor definition on the specified elementary tensor, cancel α_R,n with its inverse, and use the existing binary distributor evaluation and tensor congruence. No permutation of the coefficient factors is made."
+      ],
+      "acceptance": [
+        "For every n≥0, a∈S, q∈Q and t∈Q^⊗n, T_(n+1)(a⊗α_R,n(q⊗t))=α_S,n((a⊗q)⊗T_n(1⊗t)). This is the actual cross-ring prepend equation, not same-ring coefficient-map naturality."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Scalar extension of ordered iterate codomains",
+      "declaration": "TwistedHiggsBundle.affineOrderedBaseChange",
+      "statement": "Construct D_n:S⊗_R(E⊗_R Q^⊗n)≃_S E_S⊗_S Q_S^⊗n as the native binary distributor followed by id_(E_S)⊗T_n, at every n≥0. Both E and Q are arbitrary modules.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-tensor-power-base-change",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange",
+        "mathlib:TensorProduct.congr"
+      ],
+      "proofSteps": [
+        "Compose the existing binary distributor with tensor congruence for id_(E_S) and T_n. This introduces no new scalar-extension, tensor-product or module carrier.",
+        "Evaluate on elementary tensors using the binary distributor: D_n(a⊗(e⊗t))=(a⊗e)⊗T_n(1⊗t)."
+      ],
+      "acceptance": [
+        "Construct D_n:S⊗_R(E⊗_R Q^⊗n)≃_S E_S⊗_S Q_S^⊗n as the native binary distributor followed by id_(E_S)⊗T_n, at every n≥0. Both E and Q are arbitrary modules."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-base-change-step",
+          "how": "Transport the actual successor step between rings."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+          "how": "Compare the entire scalar-extended iterate, including the degree-zero unit."
+        },
+        {
+          "where": "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful",
+          "how": "Use the actual equivalence's injectivity before applying faithful-flat one-tensor detection."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineOrderedBaseChange_tmul",
+          "role": "simp",
+          "statement": "For all n,a,e,t, D_n(a⊗(e⊗t))=(a⊗e)⊗T_n(1⊗t)."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedBaseChange_step",
+          "role": "compatibility",
+          "statement": "For every θ:E→E⊗_R Q and n≥0, D_(n+1)∘(S_θ,n)_S=S_(θ_S),n∘D_n as actual S-linear maps on S⊗_R(E⊗_R Q^⊗n)."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison",
+          "role": "compatibility",
+          "statement": "For every θ:E→E⊗_R Q and n≥0, D_n∘(I_n(θ))_S=I_n(θ_S) as actual S-linear maps E_S→E_S⊗_S Q_S^⊗n. Here (I_n(θ))_S is native scalar extension of the source-ring iterate, whereas I_n(θ_S) is formed recursively over S. No coefficient basis or integrability premise is required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineOrderedBaseChange.test_unit",
+          "kind": "degenerate",
+          "statement": "For arbitrary R,S,E,Q and a∈S,e∈E, D_0(a⊗(e⊗1_0))=(a⊗e)⊗1_0 in E_S⊗_S Q_S^⊗0. No field or horizontal-morphism hypothesis is needed."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedBaseChange.test_torsion_degree_two",
+          "kind": "compatibility",
+          "statement": "For R=S=ℤ and E=Q=ℤ/2, D_2∘(I_2(θ))_S=I_2(θ_S) for every θ:E→E⊗_R Q. Neither E nor Q is flat over R."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineOrderedBaseChange.test_zero_module",
+          "kind": "degenerate",
+          "statement": "For E=(Fin 0→R), every n≥0 and x∈S⊗_R(E⊗_R Q^⊗n), D_n(x)=0, without any hypothesis on Q or S beyond the ring/algebra structure."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-base-change-step",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension commutes with the ordered successor step",
+      "declaration": "TwistedHiggsBundle.affineOrderedBaseChange_step",
+      "statement": "For every θ:E→E⊗_R Q and n≥0, D_(n+1)∘(S_θ,n)_S=S_(θ_S),n∘D_n as actual S-linear maps on S⊗_R(E⊗_R Q^⊗n).",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+        "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-prepend",
+        "HodgeStructuresPartII:H.0/affine-ordered-step",
+        "HodgeStructuresPartII:H.0/affine-base-change",
+        "mathlib:TensorProduct.AlgebraTensorModule.ext",
+        "mathlib:LinearMap.baseChange_tmul",
+        "mathlib:TensorProduct.AlgebraTensorModule.distribBaseChange_tmul"
+      ],
+      "proofSteps": [
+        "Use heterobasic tensor extensionality, then tensor induction to reduce the input to a⊗(e⊗t).",
+        "Expand the actual field and step maps before tensor-inducting on θ(e). Zero and sum cases follow from additivity; for x⊗q use the cross-ring prepend equation with scalar 1.",
+        "The E factor carries a; the new Q factor carries 1; remaining coefficients use T_n. Both sides thus have the same left-prepended ordered tensor."
+      ],
+      "acceptance": [
+        "For every θ:E→E⊗_R Q and n≥0, D_(n+1)∘(S_θ,n)_S=S_(θ_S),n∘D_n as actual S-linear maps on S⊗_R(E⊗_R Q^⊗n)."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Scalar extension of every ordered Higgs iterate",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_baseChange_comparison",
+      "statement": "For every θ:E→E⊗_R Q and n≥0, D_n∘(I_n(θ))_S=I_n(θ_S) as actual S-linear maps E_S→E_S⊗_S Q_S^⊗n. Here (I_n(θ))_S is native scalar extension of the source-ring iterate, whereas I_n(θ_S) is formed recursively over S. No coefficient basis or integrability premise is required.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+        "HodgeStructuresPartII:H.0/affine-tensor-power-base-change-unit",
+        "HodgeStructuresPartII:H.0/affine-ordered-base-change-step",
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-base-change",
+        "mathlib:LinearMap.baseChange_comp"
+      ],
+      "proofSteps": [
+        "At n=0 evaluate on a⊗e, use the actual tensor-unit definition and the cross-ring degree-zero unit equation. Do not assume a zero field or discard the empty word.",
+        "At n+1 apply native baseChange_comp to the iterate recursion. Associate compositions, insert the promoted step square, then the inductive comparison. The result is precisely the receiving-ring recursion."
+      ],
+      "acceptance": [
+        "For every θ:E→E⊗_R Q and n≥0, D_n∘(I_n(θ))_S=I_n(θ_S) as actual S-linear maps E_S→E_S⊗_S Q_S^⊗n. Here (I_n(θ))_S is native scalar extension of the source-ring iterate, whereas I_n(θ_S) is formed recursively over S. No coefficient basis or integrability premise is required."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Preserve ordered nilpotence without a coefficient basis",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients",
+      "statement": "For every specified n≥0 and every R-algebra S, I_n(θ)=0 implies I_n(θ_S)=0 at the identical n, for arbitrary R-modules E and Q. S need not be flat.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+        "mathlib:LinearMap.baseChange_zero"
+      ],
+      "proofSteps": [
+        "Rewrite the receiving-ring iterate by the cross-ring comparison. Scalar extension of the zero source iterate is zero; composition with D_n remains zero. No finite-basis coordinate criterion is invoked."
+      ],
+      "acceptance": [
+        "For every specified n≥0 and every R-algebra S, I_n(θ)=0 implies I_n(θ_S)=0 at the identical n, for arbitrary R-modules E and Q. S need not be flat."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary-faithful",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Reflect ordered nilpotence without a coefficient basis",
+      "declaration": "TwistedHiggsBundle.affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients",
+      "statement": "If S is faithfully flat over R, then for every specified n≥0, I_n(θ_S)=0 if and only if I_n(θ)=0, for arbitrary modules E and Q. The exponent is unchanged, and no flatness or finiteness of E or Q is needed.",
+      "hypotheses": [
+        "R and S are arbitrary commutative rings with a specified R-algebra structure on S. E and Q are arbitrary native R-modules. No basis, finite generation, projectivity, flatness of E/Q, integrability, reducedness or characteristic hypothesis is imposed.",
+        "Use native TensorPower R n Q and its existing singleton, multiplication, degree cast and tensor-unit equivalences. Write α_R,n:Q⊗_R Q^⊗n≃Q^⊗(n+1) for the left-prepend composite used by affineOrderedStep. A successor adds its coefficient on the left; the rightmost endomorphism is applied first. Degree zero is the tensor unit, not a zero map.",
+        "These are affine module adapters, not new tensor/module-sheaf carriers. E1 restriction, sheaf tensor comparison, equality detection and gluing remain separate open inputs.",
+        "Only this reflection result additionally assumes Module.FaithfullyFlat R S. This is a hypothesis on the algebra S, not on E or Q."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-comparison",
+        "HodgeStructuresPartII:H.0/affine-ordered-base-change",
+        "HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary",
+        "mathlib:Module.FaithfullyFlat.one_tmul_eq_zero_iff"
+      ],
+      "proofSteps": [
+        "For reflection evaluate the comparison on 1⊗e. The receiving iterate is zero, so injectivity of the actual D_n gives 1⊗I_n(θ)(e)=0.",
+        "Apply the native faithful-flat one-tensor detection theorem to the arbitrary module E⊗_R Q^⊗n; extensionality gives I_n(θ)=0.",
+        "For preservation apply the preceding arbitrary-algebra fixed-bound lemma. Nonfaithful extensions do not satisfy this equivalence."
+      ],
+      "acceptance": [
+        "If S is faithfully flat over R, then for every specified n≥0, I_n(θ_S)=0 if and only if I_n(θ)=0, for arbitrary modules E and Q. The exponent is unchanged, and no flatness or finiteness of E or Q is needed."
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25-codex-a71f92-arbitrary-coherence",
+          "locator": "Definition 1.2(1)–(2); Definition 4.1; Theorem 4.8(1)–(3), Remark 4.9 and complete displayed proof, arXiv 2307.01303v3",
+          "excerpt": "Higgs field",
+          "match": "The source motivates the local field and scalar-extension formula. The arbitrary-ring ordered tensor-power equivalence and all-degree equations here are authored affine deductions from the named native Mathlib maps; they are not statements of the geometric correspondence or sheaf gluing."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -8261,7 +8791,8 @@
         "The cross-ring affine field and all-order finite-coefficient-basis bound are now planned with a separately checked native proof. Extend the chart proof to finite-projective coefficients, supply scalar-extension/tensor-power coherence for arbitrary Q and actual E1 restriction/gluing. Global source and supplier obligations retain their status.",
         "Native coefficient postcomposition now has all-degree comparison and exact-bound preservation for arbitrary modules,with reflection through a specified linear left inverse. Combine it with the scalar-extension leg only after actual E1 chart restriction/sheaf tensor-power coherence and equality detection. Exterior-integrability comparisons,finite-projective locality and allglobal source obligations remain open.",
         "The affine flat-coefficient injection and horizontal-subobject reflection are now explicit plans at each specified exponent. Projectivity supplies flatness without a basis. Still supply arbitrary-Q cross-ring tensor-power coherence, finite-projective chart restriction and actual sheaf equality detection/gluing. Same-ring flatness does not identify a sheaf tensor with a tensor of global sections or discharge exterior integrability.",
-        "One-step arbitrary-Q scalar-extension field/coefficient coherence and faithful-flat degree-one reflection now have native checked prototypes. Receiving-ring all-degree naturality does not compare an S-iterate with scalar extension of an R-iterate. Still prove the arbitrary-Q cross-ring tensor-power unit/prepend/comparison equations, all-degree bound preservation/reflection, finite-projective restriction and E1 sheaf gluing; do not replace these with a basis or stored oracle."
+        "One-step arbitrary-Q scalar-extension field/coefficient coherence and faithful-flat degree-one reflection now have native checked prototypes. Receiving-ring all-degree naturality does not compare an S-iterate with scalar extension of an R-iterate. Still prove the arbitrary-Q cross-ring tensor-power unit/prepend/comparison equations, all-degree bound preservation/reflection, finite-projective restriction and E1 sheaf gluing; do not replace these with a basis or stored oracle.",
+        "Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility."
       ]
     },
     {
@@ -8436,7 +8967,7 @@
         "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
         "HodgeStructuresPartII:H.0/symmetric-action-morphism"
       ],
-      "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures. The cross-ring affine continuation now supplies actual scalar extension and ordered-word comparisons, plus fixed-exponent preservation and faithful-flat reflection with a finite basis of Q and arbitrary E. General arbitrary-Q tensor-power comparison, finite-projective chart restriction and actual sheaf gluing remain open; no global pullback, exterior-integrability or nilpotence-kernel base-change assertion follows. Native coefficient-change formulas and left-inverse reflection are now explicit for arbitrary modules; no unconditional injective-map reflection is asserted. This does not discharge sheaf restriction/gluing or the exterior-integrability comparison.",
+      "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures. The cross-ring affine continuation now supplies actual scalar extension and ordered-word comparisons, plus fixed-exponent preservation and faithful-flat reflection with a finite basis of Q and arbitrary E. General arbitrary-Q tensor-power comparison, finite-projective chart restriction and actual sheaf gluing remain open; no global pullback, exterior-integrability or nilpotence-kernel base-change assertion follows. Native coefficient-change formulas and left-inverse reflection are now explicit for arbitrary modules; no unconditional injective-map reflection is asserted. This does not discharge sheaf restriction/gluing or the exterior-integrability comparison. Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility.",
       "previousDetail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles. A separate native affine prototype proves reconstruction and the arbitrary-N ordered coefficient criterion, including the tensor unit at N=0, without integrability. The current affine continuation supplies change-of-module/coefficient-map naturality, same-bound transport under two isomorphisms and degree-one/two native comparisons. Arbitrary scalar extension across coefficient rings, restriction and equality detection/gluing of sheaf morphisms, global uniformity and rank bounds remain open. The latest mathematical handoff proves candidate scalar-extension/locality/rank routes; these are inherited leads, not newly elaborated canonical signatures."
     }
   ],
@@ -8874,356 +9405,467 @@
           "previousCheckpoint": {
             "previousCheckpoint": {
               "previousCheckpoint": {
-                "leanCompiled": true,
-                "reason": "The entire expanded Mathlib-only suggested file elaborated in an existing exact-pin Mathlib build with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings; all 58 native examples. No project/cache setup, library build or Lean server. No Tau Ceti build is required or certified. The two new global obligations remain omissions (one reuses an existing API entry).",
-                "mathematics": "All 70 nodes unchecked; H.0 partial and H.1–H.8 not_read. No formal implementation or closed stage.",
                 "previousCheckpoint": {
                   "leanCompiled": true,
-                  "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
-                  "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
-                  "checks": [
-                    "Indexed check_blueprint: zero errors, zero warnings.",
-                    "Actual five-file intake and private-path/whitespace checks.",
-                    "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
-                    "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
-                    "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
-                    "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
-                  ],
+                  "reason": "The entire expanded Mathlib-only suggested file elaborated in an existing exact-pin Mathlib build with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings; all 58 native examples. No project/cache setup, library build or Lean server. No Tau Ceti build is required or certified. The two new global obligations remain omissions (one reuses an existing API entry).",
+                  "mathematics": "All 70 nodes unchecked; H.0 partial and H.1–H.8 not_read. No formal implementation or closed stage.",
                   "previousCheckpoint": {
                     "leanCompiled": true,
-                    "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
-                    "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
-                    "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
-                    "checks": {
-                      "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
-                      "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
-                      "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
-                      "atlasProjection": {
-                        "inheritedNodesPreserved": 47,
-                        "newNodes": 8,
-                        "routeManifestPreserved": true,
-                        "totalNodes": 55,
-                        "apiItems": 103,
-                        "tests": 89,
-                        "planets": 6,
-                        "baselineDeclarations": 29,
-                        "gaps": 10,
-                        "requests": 4,
-                        "requiredLayerEdges": 18,
-                        "missingEdges": 0,
-                        "pendingLinks": 0,
-                        "skippedLinks": 0,
-                        "stageDAG": {
+                    "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
+                    "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
+                    "checks": [
+                      "Indexed check_blueprint: zero errors, zero warnings.",
+                      "Actual five-file intake and private-path/whitespace checks.",
+                      "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
+                      "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
+                      "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
+                      "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
+                    ],
+                    "previousCheckpoint": {
+                      "leanCompiled": true,
+                      "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
+                      "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
+                      "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
+                      "checks": {
+                        "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
+                        "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
+                        "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
+                        "atlasProjection": {
+                          "inheritedNodesPreserved": 47,
+                          "newNodes": 8,
+                          "routeManifestPreserved": true,
+                          "totalNodes": 55,
+                          "apiItems": 103,
+                          "tests": 89,
+                          "planets": 6,
+                          "baselineDeclarations": 29,
+                          "gaps": 10,
+                          "requests": 4,
+                          "requiredLayerEdges": 18,
+                          "missingEdges": 0,
+                          "pendingLinks": 0,
+                          "skippedLinks": 0,
+                          "stageDAG": {
+                            "vertices": 3022,
+                            "edges": 8662,
+                            "acyclic": true
+                          },
+                          "combinedDAG": {
+                            "vertices": 3071,
+                            "edges": 8862,
+                            "acyclic": true
+                          }
+                        },
+                        "concreteModels": {
+                          "polynomialConnectionPairs": 270,
+                          "laurentGaugeCases": 90,
+                          "characteristics": [
+                            "zero",
+                            2,
+                            3
+                          ],
+                          "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
+                          "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+                        },
+                        "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
+                      },
+                      "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
+                      "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
+                      "elaborationContinuation": {
+                        "agent": "Codex",
+                        "session": "codex-J6LwjP",
+                        "base": "ead8d4f",
+                        "errors": 0,
+                        "sorryWarnings": 106,
+                        "nativeExamples": 44,
+                        "globalNodesOmitted": 35,
+                        "globalApiItemsOmitted": 65,
+                        "globalTestsOmitted": 54,
+                        "changes": [
+                          "Use lam instead of the reserved lambda token in native identifiers.",
+                          "Infer the frame as an implicit parameter in Connection methods.",
+                          "Separate finite index universes from the coefficient-ring universe.",
+                          "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
+                        ],
+                        "implementationStatus": "unchecked",
+                        "exitCode": 0,
+                        "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
+                        "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
+                      },
+                      "historicalVerification": {
+                        "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+                        "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
+                        "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+                        "atlasProjection": {
                           "vertices": 3022,
                           "edges": 8662,
-                          "acyclic": true
+                          "requiredLayerEdges": 18,
+                          "acyclic": true,
+                          "pendingLinks": 0,
+                          "skippedLinks": 0
                         },
-                        "combinedDAG": {
-                          "vertices": 3071,
-                          "edges": 8862,
-                          "acyclic": true
-                        }
+                        "concreteModels": {
+                          "passed": 20,
+                          "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+                        },
+                        "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
                       },
-                      "concreteModels": {
-                        "polynomialConnectionPairs": 270,
-                        "laurentGaugeCases": 90,
-                        "characteristics": [
-                          "zero",
+                      "determinantContinuation": {
+                        "agent": "Codex",
+                        "session": "codex-J6LwjP",
+                        "date": "2026-10-02",
+                        "base": "72b8733",
+                        "claim": "5952774707",
+                        "bot": "5952777457",
+                        "newNodes": 8,
+                        "nativeGlobalOmissionsUnchanged": true,
+                        "primaryEdition": "EG-author-2026",
+                        "checksPending": false,
+                        "exitCode": 0,
+                        "seconds": 2.27,
+                        "errors": 0,
+                        "sorryWarnings": 118,
+                        "otherWarnings": 0,
+                        "nativeExamples": 48,
+                        "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
+                        "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+                      }
+                    },
+                    "determinantDerivationContinuation": {
+                      "agent": "Codex — codex-a71f92",
+                      "issue": 3371,
+                      "claim": 5953381486,
+                      "confirmation": 5953384526,
+                      "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
+                      "addedNodes": [
+                        "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+                        "HodgeStructuresPartII:H.0/determinant-row-action",
+                        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+                        "HodgeStructuresPartII:H.0/determinant-gauge",
+                        "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+                      ],
+                      "originalNodesPreserved": 55,
+                      "nativeBaselineCount": 43,
+                      "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
+                      "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
+                      "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
+                      "leanReceipt": {
+                        "leanVersion": "v4.34.0-rc2",
+                        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+                        "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
+                        "errors": 0,
+                        "sorryWarnings": 123,
+                        "otherWarnings": 0,
+                        "nativeExamples": 48,
+                        "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
+                      },
+                      "modelReceipt": {
+                        "seed": 3371,
+                        "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
+                        "ranks": [
+                          0,
+                          1,
                           2,
                           3
                         ],
-                        "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
-                        "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+                        "pairs": 720,
+                        "assertions": 6303,
+                        "scope": "Independent finite model regressions, not Lean proofs."
                       },
-                      "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
-                    },
-                    "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
-                    "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
-                    "elaborationContinuation": {
-                      "agent": "Codex",
-                      "session": "codex-J6LwjP",
-                      "base": "ead8d4f",
-                      "errors": 0,
-                      "sorryWarnings": 106,
-                      "nativeExamples": 44,
-                      "globalNodesOmitted": 35,
-                      "globalApiItemsOmitted": 65,
-                      "globalTestsOmitted": 54,
-                      "changes": [
-                        "Use lam instead of the reserved lambda token in native identifiers.",
-                        "Infer the frame as an implicit parameter in Connection methods.",
-                        "Separate finite index universes from the coefficient-ring universe.",
-                        "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
-                      ],
-                      "implementationStatus": "unchecked",
-                      "exitCode": 0,
-                      "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
-                      "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
-                    },
-                    "historicalVerification": {
-                      "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-                      "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
-                      "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
-                      "atlasProjection": {
-                        "vertices": 3022,
-                        "edges": 8662,
-                        "requiredLayerEdges": 18,
+                      "graphReceipt": {
+                        "actualAssemblyStages": 2971,
+                        "actualAssemblyEdges": 8663,
+                        "requiredLayerEdges": 19,
+                        "reachableDeclarationVertices": 128,
+                        "skippedLinks": [],
+                        "pendingLinks": [],
                         "acyclic": true,
-                        "pendingLinks": 0,
-                        "skippedLinks": 0
-                      },
-                      "concreteModels": {
-                        "passed": 20,
-                        "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
-                      },
-                      "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
-                    },
-                    "determinantContinuation": {
-                      "agent": "Codex",
-                      "session": "codex-J6LwjP",
-                      "date": "2026-10-02",
-                      "base": "72b8733",
-                      "claim": "5952774707",
-                      "bot": "5952777457",
-                      "newNodes": 8,
-                      "nativeGlobalOmissionsUnchanged": true,
-                      "primaryEdition": "EG-author-2026",
-                      "checksPending": false,
-                      "exitCode": 0,
-                      "seconds": 2.27,
-                      "errors": 0,
-                      "sorryWarnings": 118,
-                      "otherWarnings": 0,
-                      "nativeExamples": 48,
-                      "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
-                      "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+                        "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
+                      }
                     }
                   },
-                  "determinantDerivationContinuation": {
-                    "agent": "Codex — codex-a71f92",
-                    "issue": 3371,
-                    "claim": 5953381486,
-                    "confirmation": 5953384526,
-                    "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
-                    "addedNodes": [
-                      "HodgeStructuresPartII:H.0/determinant-derivation-rows",
-                      "HodgeStructuresPartII:H.0/determinant-row-action",
-                      "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
-                      "HodgeStructuresPartII:H.0/determinant-gauge",
-                      "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+                  "nativeReceipt": {
+                    "lean": "v4.34.0-rc2",
+                    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+                    "imports": "Mathlib only",
+                    "errors": 0,
+                    "admitted_declaration_warnings": 151,
+                    "other_warnings": 0,
+                    "examples": 58,
+                    "native_sha256": "92d380f0b3fd13af0187b13920525b4e2ccc957872e27cf41d16eddf7a810f24",
+                    "compiler_log_sha256": "b625bfec8c11ee32b9154fffad4ea7512a4a138d813bb894d3efda740fc89b51"
+                  },
+                  "finiteModels": {
+                    "assertions": 11378,
+                    "matrix_pairs": {
+                      "2": {
+                        "pairs": 256,
+                        "commuting": 88
+                      },
+                      "3": {
+                        "pairs": 6561,
+                        "commuting": 945
+                      }
+                    },
+                    "truncated_polynomial_modules": {
+                      "2": {
+                        "dimension": 4,
+                        "ordered_bound": 3,
+                        "symmetric_degree_p_zero": true,
+                        "ordered_degree_p_nonzero": true
+                      },
+                      "3": {
+                        "dimension": 9,
+                        "ordered_bound": 5,
+                        "symmetric_degree_p_zero": true,
+                        "ordered_degree_p_nonzero": true
+                      }
+                    },
+                    "scope": "Finite models only; no general ideal-power, sheaf, or source correspondence proof.",
+                    "script_sha256": "5dfc681b5f0b4b707166a8a24d5d548ad7f63aa3d515af49fdbfc182880364cd"
+                  },
+                  "atlasProjection": {
+                    "actual_assembler": true,
+                    "declarations": 70,
+                    "planets": 6,
+                    "own_skipped_links": [],
+                    "own_pending_links": [],
+                    "stage_dag": {
+                      "vertices": 3056,
+                      "edges": 8663,
+                      "acyclic": true
+                    },
+                    "own_declaration_dag": {
+                      "vertices": 70,
+                      "edges": 137,
+                      "acyclic": true
+                    },
+                    "stages_and_reachable_declarations": {
+                      "vertices": 3121,
+                      "edges": 8914,
+                      "acyclic": true
+                    },
+                    "reachable_declarations": 71,
+                    "imported_declarations": [
+                      "ColemanPowerSeries:L1/derivation-determinant-unit"
                     ],
-                    "originalNodesPreserved": 55,
-                    "nativeBaselineCount": 43,
-                    "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
-                    "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
-                    "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
-                    "leanReceipt": {
-                      "leanVersion": "v4.34.0-rc2",
-                      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-                      "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
-                      "errors": 0,
-                      "sorryWarnings": 123,
-                      "otherWarnings": 0,
-                      "nativeExamples": 48,
-                      "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
-                    },
-                    "modelReceipt": {
-                      "seed": 3371,
-                      "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
-                      "ranks": [
-                        0,
-                        1,
-                        2,
-                        3
+                    "required_stage_pairs_reachable": 19,
+                    "other_skipped_links": {
+                      "GeneralAlgebraicKTheory": [
+                        [
+                          "SchemeKTheoryOperations:S.5",
+                          "GeneralAlgebraicKTheory:K.6"
+                        ],
+                        [
+                          "SchemeKTheoryOperations:S.6",
+                          "GeneralAlgebraicKTheory:K.7"
+                        ]
                       ],
-                      "pairs": 720,
-                      "assertions": 6303,
-                      "scope": "Independent finite model regressions, not Lean proofs."
+                      "K2SymbolsBrauer": [
+                        [
+                          "ArithmeticKTheory:N.2",
+                          "K2SymbolsBrauer:T.5"
+                        ]
+                      ],
+                      "K3BlochGroups": [
+                        [
+                          "ArithmeticKTheory:N.3:ranks",
+                          "K3BlochGroups:V.2"
+                        ],
+                        [
+                          "ArithmeticKTheory:N.3:finite-generation",
+                          "K3BlochGroups:V.2"
+                        ],
+                        [
+                          "ArithmeticKTheory:N.5",
+                          "K3BlochGroups:V.2"
+                        ],
+                        [
+                          "ArithmeticKTheory:N.8",
+                          "K3BlochGroups:V.5"
+                        ]
+                      ]
                     },
-                    "graphReceipt": {
-                      "actualAssemblyStages": 2971,
-                      "actualAssemblyEdges": 8663,
-                      "requiredLayerEdges": 19,
-                      "reachableDeclarationVertices": 128,
-                      "skippedLinks": [],
-                      "pendingLinks": [],
-                      "acyclic": true,
-                      "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
-                    }
-                  }
+                    "scope": "Actual in-memory pending packet/definition assembled with normal retirements, restructuring, link overlays and replaced-decomposition trimming. All stage graph and only this packet plus recursively used declaration graph checked; unrelated declaration graphs not audited.",
+                    "script_sha256": "d04a67b35367b2a5521740f4c63e82189ce879091002b99fee94f4524238e558",
+                    "other_skips_match_baseline": true
+                  },
+                  "preservation": "All 60 inherited node IDs and statements, all 103 inherited API items and 89 tests, all 149 routed IDs/statuses, sourceIssues, restructure, source/baseline prefixes and six planets preserved. Fifty-nine inherited node objects unchanged; symmetric-action only gains the precise TensorAlgebra/RingCon proof step/dependency. E1 supplier request gains precise global algebra/action/quotient interfaces. All nodes unchecked, zero closed stages.",
+                  "checks": [
+                    "Indexed packet checker: zero errors, zero warnings.",
+                    "Five named deliverables, JSON/private-path/whitespace intake checks.",
+                    "New node/API/test names and complete mathematical statements present in reader and native or explicit omission forms.",
+                    "Actual in-memory build.assemble pending overlay; full stage graph and recursively used declaration graph acyclic; no own pending/skipped links; all 19 named stage prerequisites reachable; other seven skips exactly match baseline.",
+                    "11,378 independent finite algebra assertions; finite scope only.",
+                    "Full exact-pin Mathlib-only signature elaboration, with 151 admitted-declaration warnings only."
+                  ]
                 },
+                "leanCompiled": true,
+                "reason": "The entire exact changed Mathlib-only suggested file elaborates at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean v4.34.0-rc2: zero errors, 127 admitted-declaration warnings, no other warnings, 59 native examples. Fifteen named affine declarations and ten examples have actual bodies; a separate matching focused file elaborates with zero warnings and checks all fifteen named declarations for admitted-proof axiom dependencies. No Tau Ceti build or global sheaf implementation is certified.",
+                "mathematics": "All 70 nodes remain unchecked; H.0 partial, H.1–H.8 not_read. Fifteen named affine declarations have actual proof bodies; this does not close a stage or implement the global sheaf objects.",
                 "nativeReceipt": {
-                  "lean": "v4.34.0-rc2",
-                  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-                  "imports": "Mathlib only",
+                  "exitCode": 0,
+                  "seconds": 3.55,
                   "errors": 0,
-                  "admitted_declaration_warnings": 151,
-                  "other_warnings": 0,
-                  "examples": 58,
-                  "native_sha256": "92d380f0b3fd13af0187b13920525b4e2ccc957872e27cf41d16eddf7a810f24",
-                  "compiler_log_sha256": "b625bfec8c11ee32b9154fffad4ea7512a4a138d813bb894d3efda740fc89b51"
+                  "admittedWarnings": 127,
+                  "otherWarnings": 0,
+                  "examples": 59,
+                  "sourceSha256": "af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83",
+                  "logSha256": "9458fef8f76f8955e974846509c23124dd24da5b252d934fc6a0494df7968a3e"
                 },
-                "finiteModels": {
-                  "assertions": 11378,
-                  "matrix_pairs": {
-                    "2": {
-                      "pairs": 256,
-                      "commuting": 88
-                    },
-                    "3": {
-                      "pairs": 6561,
-                      "commuting": 945
-                    }
+                "affineProofReceipt": {
+                  "agent": "Codex",
+                  "session": "codex-J6LwjP",
+                  "claim": 5955847141,
+                  "bot": 5955851389,
+                  "base": "27ae2a7daec09365d1ea5abc8a5148ce445ae429",
+                  "declarations": [
+                    "affineContractions",
+                    "affineContractions_apply",
+                    "affineContractions_zero",
+                    "affineContractions_add",
+                    "affineSymmetricAction",
+                    "affineSymmetricAction_generator",
+                    "affineSymmetricAction_unique",
+                    "affineSymmetricAction_zero",
+                    "affineSymmetricAction_iff_commute",
+                    "symmetricAction_word",
+                    "symmetricAction_morphism",
+                    "truncatedSymmetricAction",
+                    "truncatedSymmetricAction_mk",
+                    "truncatedSymmetricAction_unique",
+                    "truncatedSymmetricAction_exists_iff"
+                  ],
+                  "existingExamplesProved": 9,
+                  "newExamplesProved": 1,
+                  "focusedExamples": 10,
+                  "axiomAudit": {
+                    "exitCode": 0,
+                    "seconds": 2.18,
+                    "errors": 0,
+                    "warnings": 0,
+                    "sorryAx": false,
+                    "declarations": 15,
+                    "sourceSha256": "4f92141c3c91821a4ce6a20e2a177506ac44554b3a42343e47cc7b0aafeb92be",
+                    "logSha256": "e44351794e0b77d4828e013fc26647c405fe51313db9ae126ee6138ccbf91253"
                   },
-                  "truncated_polynomial_modules": {
-                    "2": {
-                      "dimension": 4,
-                      "ordered_bound": 3,
-                      "symmetric_degree_p_zero": true,
-                      "ordered_degree_p_nonzero": true
-                    },
-                    "3": {
-                      "dimension": 9,
-                      "ordered_bound": 5,
-                      "symmetric_degree_p_zero": true,
-                      "ordered_degree_p_nonzero": true
-                    }
-                  },
-                  "scope": "Finite models only; no general ideal-power, sheaf, or source correspondence proof.",
-                  "script_sha256": "5dfc681b5f0b4b707166a8a24d5d548ad7f63aa3d515af49fdbfc182880364cd"
+                  "scope": "Actual affine proofs and example calculations at the exact Mathlib pin. The only dependencies reported are propext, Classical.choice and Quot.sound; no admitted-proof axiom. All implementationStatus entries remain unchecked."
                 },
                 "atlasProjection": {
-                  "actual_assembler": true,
+                  "actualAssembler": true,
                   "declarations": 70,
                   "planets": 6,
-                  "own_skipped_links": [],
-                  "own_pending_links": [],
-                  "stage_dag": {
-                    "vertices": 3056,
+                  "ownPendingLinks": [],
+                  "ownSkippedLinks": [],
+                  "stageDAG": {
+                    "vertices": 3022,
                     "edges": 8663,
                     "acyclic": true
                   },
-                  "own_declaration_dag": {
+                  "ownDeclarationDAG": {
                     "vertices": 70,
                     "edges": 137,
                     "acyclic": true
                   },
-                  "stages_and_reachable_declarations": {
-                    "vertices": 3121,
+                  "stagesAndReachableDeclarations": {
+                    "vertices": 3087,
                     "edges": 8914,
                     "acyclic": true
                   },
-                  "reachable_declarations": 71,
-                  "imported_declarations": [
+                  "reachableDeclarations": 71,
+                  "externalDeclarations": [
                     "ColemanPowerSeries:L1/derivation-determinant-unit"
                   ],
-                  "required_stage_pairs_reachable": 19,
-                  "other_skipped_links": {
-                    "GeneralAlgebraicKTheory": [
-                      [
-                        "SchemeKTheoryOperations:S.5",
-                        "GeneralAlgebraicKTheory:K.6"
-                      ],
-                      [
-                        "SchemeKTheoryOperations:S.6",
-                        "GeneralAlgebraicKTheory:K.7"
-                      ]
-                    ],
-                    "K2SymbolsBrauer": [
-                      [
-                        "ArithmeticKTheory:N.2",
-                        "K2SymbolsBrauer:T.5"
-                      ]
-                    ],
-                    "K3BlochGroups": [
-                      [
-                        "ArithmeticKTheory:N.3:ranks",
-                        "K3BlochGroups:V.2"
-                      ],
-                      [
-                        "ArithmeticKTheory:N.3:finite-generation",
-                        "K3BlochGroups:V.2"
-                      ],
-                      [
-                        "ArithmeticKTheory:N.5",
-                        "K3BlochGroups:V.2"
-                      ],
-                      [
-                        "ArithmeticKTheory:N.8",
-                        "K3BlochGroups:V.5"
-                      ]
-                    ]
-                  },
-                  "scope": "Actual in-memory pending packet/definition assembled with normal retirements, restructuring, link overlays and replaced-decomposition trimming. All stage graph and only this packet plus recursively used declaration graph checked; unrelated declaration graphs not audited.",
-                  "script_sha256": "d04a67b35367b2a5521740f4c63e82189ce879091002b99fee94f4524238e558",
-                  "other_skips_match_baseline": true
+                  "requiredStagePairsReachable": 21,
+                  "stageEdgesUnchanged": true,
+                  "otherSkipsMatchOriginal": true,
+                  "unchangedNodeObjects": 67,
+                  "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
+                  "scriptSha256": "14985a897bb969631f728f35ee9a1bc67280f0245e6034effe465300eec58d41"
                 },
-                "preservation": "All 60 inherited node IDs and statements, all 103 inherited API items and 89 tests, all 149 routed IDs/statuses, sourceIssues, restructure, source/baseline prefixes and six planets preserved. Fifty-nine inherited node objects unchanged; symmetric-action only gains the precise TensorAlgebra/RingCon proof step/dependency. E1 supplier request gains precise global algebra/action/quotient interfaces. All nodes unchecked, zero closed stages.",
+                "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
                 "checks": [
-                  "Indexed packet checker: zero errors, zero warnings.",
-                  "Five named deliverables, JSON/private-path/whitespace intake checks.",
-                  "New node/API/test names and complete mathematical statements present in reader and native or explicit omission forms.",
-                  "Actual in-memory build.assemble pending overlay; full stage graph and recursively used declaration graph acyclic; no own pending/skipped links; all 19 named stage prerequisites reachable; other seven skips exactly match baseline.",
-                  "11,378 independent finite algebra assertions; finite scope only.",
-                  "Full exact-pin Mathlib-only signature elaboration, with 151 admitted-declaration warnings only."
+                  "Indexed packet checker: zero errors and warnings; 70 nodes, 112 API items, 100 planned definition/construction tests, six planets, 69 baseline citations, eleven gaps and five requests.",
+                  "Full exact-file Mathlib-only Lean elaboration: zero errors, 127 admitted-declaration warnings only, 59 examples.",
+                  "Fifteen actual native affine proof bodies, nine existing examples now proved and one concrete noncommuting-action example; focused axiom audit has no admitted-proof dependency.",
+                  "Actual read-only assembler with normal overlays and trimmed decompositions; stage/own declaration/reachable declaration-plus-supplier-request graphs acyclic; no own pending/skipped links, all 21 computed stage prerequisite pairs reachable.",
+                  "All prior source issues, restructure, routed obligations, requests, gaps, mathematical node statements and API/test prefixes preserved.",
+                  "Five-file intake, whitespace and private-path checks."
                 ]
               },
               "leanCompiled": true,
-              "reason": "The entire exact changed Mathlib-only suggested file elaborates at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 with Lean v4.34.0-rc2: zero errors, 127 admitted-declaration warnings, no other warnings, 59 native examples. Fifteen named affine declarations and ten examples have actual bodies; a separate matching focused file elaborates with zero warnings and checks all fifteen named declarations for admitted-proof axiom dependencies. No Tau Ceti build or global sheaf implementation is certified.",
-              "mathematics": "All 70 nodes remain unchecked; H.0 partial, H.1–H.8 not_read. Fifteen named affine declarations have actual proof bodies; this does not close a stage or implement the global sheaf objects.",
+              "reason": "The complete current admitted Mathlib-only sketch elaborated at the exact pin. Tau Ceti primary source was inspected at its exact pin; no matching Tau Ceti compiled import set was certified or created.",
+              "mathematics": "One Higgs-specific generator lemma, built generic facts reused, same-exponent source kernel retained. No global sheaf, rank-bound or later-source closure.",
+              "preservation": "All 70 prior IDs/statements/hypotheses/APIs/acceptance/source records and all 100 prior tests retained. Requests, gaps, routes, sourceIssues and restructure unchanged. Only the existing augmentation criterion's proof/prerequisite outline and the symmetric-action test list change.",
+              "checks": [
+                "Indexed packet checker: zero errors/warnings; 71 nodes, 112 APIs, 101 required definition/construction tests, 103 all-node tests, six planets, 74 baseline citations, eleven gaps and five requests.",
+                "Complete admitted Mathlib-only sketch: zero errors, 156 admitted warnings only, 62 examples. Historical 15 affine proofs and ten proved examples preserved at immutable 9a36f4d1d6743c0202f12020c0df603400149faa.",
+                "Separate generic span/word/kernel experiment: zero errors/warnings, both declarations audited with no admitted axiom dependency.",
+                "Fresh 440 finite same-exponent cases and all displayed counterexample fixtures passed.",
+                "Actual read-only assembler with normal overlays and decomposition trimming; stage, own declaration and reachable declaration-plus-request graphs acyclic; 21 computed stage prerequisite pairs reachable, no own skipped links. All stage edges and other skips match the unmodified packet overlay.",
+                "Seventy original mathematical node signatures, 100 original tests, APIs, all source/routes/requests/gaps/ownership metadata and baseline prefix preserved. Five-file intake, whitespace and private-path checks."
+              ],
               "nativeReceipt": {
-                "exitCode": 0,
-                "seconds": 3.55,
+                "library": "Mathlib only",
+                "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+                "leanVersion": "v4.34.0-rc2",
+                "sourceSha256": "e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b",
+                "outputSha256": "2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f",
                 "errors": 0,
-                "admittedWarnings": 127,
+                "admittedWarnings": 156,
                 "otherWarnings": 0,
-                "examples": 59,
-                "sourceSha256": "af7d537a0dc75975f2081fbd6b143a70b7d63a81b92e032511fd9a20d0ae4b83",
-                "logSha256": "9458fef8f76f8955e974846509c23124dd24da5b252d934fc6a0494df7968a3e"
+                "examples": 62,
+                "proofClaim": false,
+                "existingArtifactsReused": true,
+                "minimumAvailableMemoryGB": 70,
+                "noSetupCacheLibraryBuildOrServer": true
               },
-              "affineProofReceipt": {
-                "agent": "Codex",
-                "session": "codex-J6LwjP",
-                "claim": 5955847141,
-                "bot": 5955851389,
-                "base": "27ae2a7daec09365d1ea5abc8a5148ce445ae429",
+              "conditionalProofReceipt": {
+                "sourceSha256": "f992d8964bf0d0537ccd3650eaaafd5701de75631319a06160dc993c874956a2",
+                "outputSha256": "302b28803b85c8f8c140865854ebec97f21481fe83a0c14664d2b13d0f879326",
+                "errors": 0,
+                "warnings": 0,
                 "declarations": [
-                  "affineContractions",
-                  "affineContractions_apply",
-                  "affineContractions_zero",
-                  "affineContractions_add",
-                  "affineSymmetricAction",
-                  "affineSymmetricAction_generator",
-                  "affineSymmetricAction_unique",
-                  "affineSymmetricAction_zero",
-                  "affineSymmetricAction_iff_commute",
-                  "symmetricAction_word",
-                  "symmetricAction_morphism",
-                  "truncatedSymmetricAction",
-                  "truncatedSymmetricAction_mk",
-                  "truncatedSymmetricAction_unique",
-                  "truncatedSymmetricAction_exists_iff"
+                  "WordProof.span_pow_words",
+                  "WordProof.pow_ker_iff_words"
                 ],
-                "existingExamplesProved": 9,
-                "newExamplesProved": 1,
-                "focusedExamples": 10,
-                "axiomAudit": {
-                  "exitCode": 0,
-                  "seconds": 2.18,
-                  "errors": 0,
-                  "warnings": 0,
-                  "sorryAx": false,
-                  "declarations": 15,
-                  "sourceSha256": "4f92141c3c91821a4ce6a20e2a177506ac44554b3a42343e47cc7b0aafeb92be",
-                  "logSha256": "e44351794e0b77d4828e013fc26647c405fe51313db9ae126ee6138ccbf91253"
-                },
-                "scope": "Actual affine proofs and example calculations at the exact Mathlib pin. The only dependencies reported are propext, Classical.choice and Quot.sound; no admitted-proof axiom. All implementationStatus entries remain unchecked."
+                "axioms": [
+                  "propext",
+                  "Classical.choice",
+                  "Quot.sound"
+                ],
+                "admittedAxiomDependency": false,
+                "boundary": "Separate experiment under an explicit ideal-generation equality; this is not an extra public hypothesis or a compiled proof of the canonical Tau Ceti augmentation theorem. Full reproducible code is in the handoff."
+              },
+              "freshReading": {
+                "audits": "Full reviewed Hodge L0–L3 and E1/D3 rows; REV-AUDIT02/10/22 metadata. Part II has no dedicated row.",
+                "Heuer25": "Definition 1.2(2), complete Definition 4.1 and Remark 4.2; publisher HTML SHA-256 b3162f810c5064726cd951511bbdb036227e6c2a30b7b682cb4548cb13500fed",
+                "LZ17": "Complete Lemma 2.15 and its short proof, printed pp.18–19; v3 PDF SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
+                "baseline": "Full named augmentation/span/kernel, set-word and matrix-adapter statements at the pinned commits. No broader source decomposition certified."
+              },
+              "finiteReceipt": {
+                "scriptSha256": "1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1",
+                "commutingPairsF2": 88,
+                "sameExponentCases": 440,
+                "bounds": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "fixtures": [
+                  "ambient left ideal nonzero idempotent",
+                  "four-basis characteristic-two ordered/projection witness",
+                  "nonreduced Z/4 rank-one",
+                  "noncommuting coefficient pair"
+                ],
+                "boundary": "Exact finite regression, not the general theorem or a Lean proof; predecessor's displayed script rerun."
               },
               "atlasProjection": {
                 "actualAssembler": true,
-                "declarations": 70,
+                "declarations": 71,
                 "planets": 6,
-                "ownPendingLinks": [],
                 "ownSkippedLinks": [],
                 "stageDAG": {
                   "vertices": 3022,
@@ -9231,252 +9873,228 @@
                   "acyclic": true
                 },
                 "ownDeclarationDAG": {
-                  "vertices": 70,
-                  "edges": 137,
+                  "vertices": 71,
+                  "edges": 138,
                   "acyclic": true
                 },
                 "stagesAndReachableDeclarations": {
-                  "vertices": 3087,
-                  "edges": 8914,
+                  "vertices": 3088,
+                  "edges": 8916,
                   "acyclic": true
                 },
-                "reachableDeclarations": 71,
+                "reachableDeclarations": 72,
                 "externalDeclarations": [
                   "ColemanPowerSeries:L1/derivation-determinant-unit"
                 ],
                 "requiredStagePairsReachable": 21,
                 "stageEdgesUnchanged": true,
                 "otherSkipsMatchOriginal": true,
-                "unchangedNodeObjects": 67,
-                "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
-                "scriptSha256": "14985a897bb969631f728f35ee9a1bc67280f0245e6034effe465300eec58d41"
-              },
-              "preservation": "All 70 IDs/statements/hypotheses/APIs/acceptance/source records, 99 prior tests, requests/gaps/routes/sourceIssues/restructure and baseline prefix retained. Only three node proof/dependency/test outlines change; one action test added.",
-              "checks": [
-                "Indexed packet checker: zero errors and warnings; 70 nodes, 112 API items, 100 planned definition/construction tests, six planets, 69 baseline citations, eleven gaps and five requests.",
-                "Full exact-file Mathlib-only Lean elaboration: zero errors, 127 admitted-declaration warnings only, 59 examples.",
-                "Fifteen actual native affine proof bodies, nine existing examples now proved and one concrete noncommuting-action example; focused axiom audit has no admitted-proof dependency.",
-                "Actual read-only assembler with normal overlays and trimmed decompositions; stage/own declaration/reachable declaration-plus-supplier-request graphs acyclic; no own pending/skipped links, all 21 computed stage prerequisite pairs reachable.",
-                "All prior source issues, restructure, routed obligations, requests, gaps, mathematical node statements and API/test prefixes preserved.",
-                "Five-file intake, whitespace and private-path checks."
-              ]
+                "unchangedNodeObjects": 68,
+                "scriptSha256": "171b894b6c4ab30417c9c1b19d49443332b8d3ca7bb84a19d245ded8914dfe74"
+              }
             },
             "leanCompiled": true,
-            "reason": "The complete current admitted Mathlib-only sketch elaborated at the exact pin. Tau Ceti primary source was inspected at its exact pin; no matching Tau Ceti compiled import set was certified or created.",
-            "mathematics": "One Higgs-specific generator lemma, built generic facts reused, same-exponent source kernel retained. No global sheaf, rank-bound or later-source closure.",
-            "preservation": "All 70 prior IDs/statements/hypotheses/APIs/acceptance/source records and all 100 prior tests retained. Requests, gaps, routes, sourceIssues and restructure unchanged. Only the existing augmentation criterion's proof/prerequisite outline and the symmetric-action test list change.",
-            "checks": [
-              "Indexed packet checker: zero errors/warnings; 71 nodes, 112 APIs, 101 required definition/construction tests, 103 all-node tests, six planets, 74 baseline citations, eleven gaps and five requests.",
-              "Complete admitted Mathlib-only sketch: zero errors, 156 admitted warnings only, 62 examples. Historical 15 affine proofs and ten proved examples preserved at immutable 9a36f4d1d6743c0202f12020c0df603400149faa.",
-              "Separate generic span/word/kernel experiment: zero errors/warnings, both declarations audited with no admitted axiom dependency.",
-              "Fresh 440 finite same-exponent cases and all displayed counterexample fixtures passed.",
-              "Actual read-only assembler with normal overlays and decomposition trimming; stage, own declaration and reachable declaration-plus-request graphs acyclic; 21 computed stage prerequisite pairs reachable, no own skipped links. All stage edges and other skips match the unmodified packet overlay.",
-              "Seventy original mathematical node signatures, 100 original tests, APIs, all source/routes/requests/gaps/ownership metadata and baseline prefix preserved. Five-file intake, whitespace and private-path checks."
-            ],
-            "nativeReceipt": {
-              "library": "Mathlib only",
-              "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-              "leanVersion": "v4.34.0-rc2",
-              "sourceSha256": "e7c84108653b8d910a49fb6aebe50ca9880572f206b2e0348ba36e625665af4b",
-              "outputSha256": "2c8ff8fa3cfb9ca4ba9deef0bc48a0fdb6436a483149be1da355a8281715482f",
+            "reason": "Entire submitted Mathlib-only suggested file elaborates with admitted proposed bodies; 35 inherited global signature omissions remain, so compilation does not certify them or any stage.",
+            "mathematics": "75 unchecked nodes; H.0 partial, H.1–H.8 not_read; eleven gaps/five requests remain.",
+            "agent": "Codex — codex-5ebb6f",
+            "base": "10fbe71f06e15275bec06bdcc8e7c4bc931c1636",
+            "proofPrototype": {
+              "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+              "leanVersion": "4.34.0-rc2",
+              "fullProofSourceSha256": "ff593d09cafb7b524f6391663792370769c026c37c904ee4397eaec8a538d054",
+              "extractionSha256": "fc2dac59a3bcb423c8dd635aaddabe3114ab4152aeb1d50a5cd26c859c476a64",
+              "axiomExtractionSha256": "3e7fec73d7d1766616ffaadd0e73754a0a4f50972c0ba7a552ef767ac2f10bb7",
+              "normalizedLogSha256": "eb652cfccfe9bb7b22359fbf3343b87ddf9ebe0eda9177160168f2ab24e11639",
               "errors": 0,
-              "admittedWarnings": 156,
+              "admittedWarnings": 0,
               "otherWarnings": 0,
-              "examples": 62,
-              "proofClaim": false,
-              "existingArtifactsReused": true,
-              "minimumAvailableMemoryGB": 70,
-              "noSetupCacheLibraryBuildOrServer": true
+              "axiomAudits": 7,
+              "examples": 7,
+              "newExamples": 4,
+              "extractionLines": 206,
+              "availableGiB": 70,
+              "elapsedSeconds": 2.3,
+              "maxResidentKiB": 2897292,
+              "boundary": "Narrow actual affine-contraction and ordered-second-iterate prototype; no omitted sheaf signature, general-N coordinate theorem, rank theorem or correspondence certified.",
+              "proofSourceCommit": "a31c7908e2ba7455d333f1f4e25e07a6563f692b"
             },
-            "conditionalProofReceipt": {
-              "sourceSha256": "f992d8964bf0d0537ccd3650eaaafd5701de75631319a06160dc993c874956a2",
-              "outputSha256": "302b28803b85c8f8c140865854ebec97f21481fe83a0c14664d2b13d0f879326",
+            "freshReading": "Heuer25 complete printed Definitions1.2(2) and4.1 only; no correspondence proof. Full parent Hodge README freshly read; other upstream styles retain continuous-session readings.",
+            "submittedSketch": {
+              "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+              "leanVersion": "4.34.0-rc2",
+              "fullSuggestedSha256": "40cf843adc56ed03be635eeccd9b169dca6df7f9f1466479ff2aedb5587ab24d",
+              "normalizedLogSha256": "0363945c0e69da1d73906656f13dedd311a1f39b59bef35a1d86063e156797b2",
+              "fullFileElaborated": true,
+              "examples": 66,
               "errors": 0,
-              "warnings": 0,
-              "declarations": [
-                "WordProof.span_pow_words",
-                "WordProof.pow_ker_iff_words"
-              ],
-              "axioms": [
-                "propext",
-                "Classical.choice",
-                "Quot.sound"
-              ],
-              "admittedAxiomDependency": false,
-              "boundary": "Separate experiment under an explicit ideal-generation equality; this is not an extra public hypothesis or a compiled proof of the canonical Tau Ceti augmentation theorem. Full reproducible code is in the handoff."
+              "admittedWarnings": 166,
+              "otherWarnings": 0,
+              "availableGiB": 70,
+              "elapsedSeconds": 4.2,
+              "maxResidentKiB": 2911904,
+              "boundary": "The entire submitted file uses only Mathlib imports and elaborates; 35 inherited global signature omissions remain. No exact TauCeti compiled import set or omitted sheaf signature is certified."
             },
-            "freshReading": {
-              "audits": "Full reviewed Hodge L0–L3 and E1/D3 rows; REV-AUDIT02/10/22 metadata. Part II has no dedicated row.",
-              "Heuer25": "Definition 1.2(2), complete Definition 4.1 and Remark 4.2; publisher HTML SHA-256 b3162f810c5064726cd951511bbdb036227e6c2a30b7b682cb4548cb13500fed",
-              "LZ17": "Complete Lemma 2.15 and its short proof, printed pp.18–19; v3 PDF SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79",
-              "baseline": "Full named augmentation/span/kernel, set-word and matrix-adapter statements at the pinned commits. No broader source decomposition certified."
-            },
-            "finiteReceipt": {
-              "scriptSha256": "1d51a023fbcd294545fde2255cebff86f5d47945083ba2f6585e82d96ce366c1",
-              "commutingPairsF2": 88,
-              "sameExponentCases": 440,
-              "bounds": [
-                0,
-                1,
-                2,
-                3,
-                4
-              ],
-              "fixtures": [
-                "ambient left ideal nonzero idempotent",
-                "four-basis characteristic-two ordered/projection witness",
-                "nonreduced Z/4 rank-one",
-                "noncommuting coefficient pair"
-              ],
-              "boundary": "Exact finite regression, not the general theorem or a Lean proof; predecessor's displayed script rerun."
-            },
-            "atlasProjection": {
-              "actualAssembler": true,
-              "declarations": 71,
-              "planets": 6,
-              "ownSkippedLinks": [],
-              "stageDAG": {
-                "vertices": 3022,
-                "edges": 8663,
-                "acyclic": true
-              },
-              "ownDeclarationDAG": {
-                "vertices": 71,
-                "edges": 138,
-                "acyclic": true
-              },
-              "stagesAndReachableDeclarations": {
-                "vertices": 3088,
-                "edges": 8916,
-                "acyclic": true
-              },
-              "reachableDeclarations": 72,
-              "externalDeclarations": [
-                "ColemanPowerSeries:L1/derivation-determinant-unit"
-              ],
+            "projection": {
+              "nodes": 75,
+              "ownEdges": 147,
+              "stageVertices": 3022,
+              "stageEdges": 8663,
+              "virtualSupplierEndpoints": 51,
+              "reachableDeclarations": 76,
+              "combinedVertices": 3092,
+              "combinedEdges": 8929,
+              "acyclic": true,
+              "preservedStatements": 71,
+              "identicalInheritedNodeObjects": 70,
               "requiredStagePairsReachable": 21,
+              "unresolvedReferences": 0,
+              "ownSkippedLinks": 0,
+              "ownPendingLinks": 0,
               "stageEdgesUnchanged": true,
-              "otherSkipsMatchOriginal": true,
-              "unchangedNodeObjects": 68,
-              "scriptSha256": "171b894b6c4ab30417c9c1b19d49443332b8d3ca7bb84a19d245ded8914dfe74"
-            }
+              "apiItems": 115,
+              "allTests": 107
+            },
+            "preservation": "All71 inherited statements and70 complete inherited node objects,112 APIs,103 tests,149 routes,five requests,eleven gaps and six planets are preserved. Only the all-N coordinate node proof/prerequisites and one existing gap detail are refined.",
+            "checks": [
+              "Indexed packet: zero errors/warnings.",
+              "Actual five-file intake policy and whitespace checks pass.",
+              "Reader/native API/test presence and exact predecessor source preservation outside the inserted block/import.",
+              "Actual read-only atlas assembly and stage/declaration DAG checks; all21 required stage pairs reachable.",
+              "Distinct immutable proof extraction: zero errors/warnings,seven axiom audits without admission dependencies; four new tests proved.",
+              "Entire admitted suggested file: 66 examples,zero errors,166 admission warnings only."
+            ]
           },
           "leanCompiled": true,
-          "reason": "Entire submitted Mathlib-only suggested file elaborates with admitted proposed bodies; 35 inherited global signature omissions remain, so compilation does not certify them or any stage.",
-          "mathematics": "75 unchecked nodes; H.0 partial, H.1–H.8 not_read; eleven gaps/five requests remain.",
-          "agent": "Codex — codex-5ebb6f",
-          "base": "10fbe71f06e15275bec06bdcc8e7c4bc931c1636",
+          "agent": "Codex — codex-J6LwjP",
+          "base": "bdfc250",
+          "reason": "Whole Mathlib-only admitted planning file; omitted global signatures, sheaf construction or stage implementation not certified.",
+          "mathematics": "88 unchecked nodes; H.0 partial, H.1–H.8 not_read; eleven gaps/five requests remain.",
           "proofPrototype": {
-            "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-            "leanVersion": "4.34.0-rc2",
-            "fullProofSourceSha256": "ff593d09cafb7b524f6391663792370769c026c37c904ee4397eaec8a538d054",
-            "extractionSha256": "fc2dac59a3bcb423c8dd635aaddabe3114ab4152aeb1d50a5cd26c859c476a64",
-            "axiomExtractionSha256": "3e7fec73d7d1766616ffaadd0e73754a0a4f50972c0ba7a552ef767ac2f10bb7",
-            "normalizedLogSha256": "eb652cfccfe9bb7b22359fbf3343b87ddf9ebe0eda9177160168f2ab24e11639",
+            "exitCode": 0,
+            "availableGiB": 67,
+            "elapsedSeconds": 3,
+            "metrics": "3.00 2942916",
             "errors": 0,
             "admittedWarnings": 0,
             "otherWarnings": 0,
-            "axiomAudits": 7,
-            "examples": 7,
-            "newExamples": 4,
-            "extractionLines": 206,
-            "availableGiB": 70,
-            "elapsedSeconds": 2.3,
-            "maxResidentKiB": 2897292,
-            "boundary": "Narrow actual affine-contraction and ordered-second-iterate prototype; no omitted sheaf signature, general-N coordinate theorem, rank theorem or correspondence certified.",
-            "proofSourceCommit": "a31c7908e2ba7455d333f1f4e25e07a6563f692b"
-          },
-          "freshReading": "Heuer25 complete printed Definitions1.2(2) and4.1 only; no correspondence proof. Full parent Hodge README freshly read; other upstream styles retain continuous-session readings.",
-          "submittedSketch": {
+            "examples": 14,
             "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
             "leanVersion": "4.34.0-rc2",
-            "fullSuggestedSha256": "40cf843adc56ed03be635eeccd9b169dca6df7f9f1466479ff2aedb5587ab24d",
-            "normalizedLogSha256": "0363945c0e69da1d73906656f13dedd311a1f39b59bef35a1d86063e156797b2",
-            "fullFileElaborated": true,
-            "examples": 66,
-            "errors": 0,
-            "admittedWarnings": 166,
-            "otherWarnings": 0,
-            "availableGiB": 70,
-            "elapsedSeconds": 4.2,
-            "maxResidentKiB": 2911904,
-            "boundary": "The entire submitted file uses only Mathlib imports and elaborates; 35 inherited global signature omissions remain. No exact TauCeti compiled import set or omitted sheaf signature is certified."
+            "proofSourceCommit": "ea49500be7122dfa7b09c7128537d8a304dae405",
+            "fullProofSourceSha256": "ea88d223a722d734a190368f979b3235f0da621a9e1ca9d904600b79e7e3dd9d",
+            "extractionSha256": "0bdf51d8056063efdc38796d1f76b09f39b0bf88fc7fdd7a93988263c5d1ea99",
+            "axiomExtractionSha256": "cd5c5b3e1edbdd9be9ed60334fcdd79f6f9ad552574bdb99b5ebfcea81dfd61b",
+            "normalizedLogSha256": "3a9f4aa995dbfa80b6ca5d4955ca53c9887e8a2cecba81a418ce85795901eb58",
+            "axiomAudits": 20,
+            "newExamples": 7,
+            "extractionLines": 445,
+            "boundary": "Actual native all-N affine coefficient/unit/vanishing proof; global sheaf restriction/gluing, augmentation bridge, rank bounds, and correspondence remain open."
           },
+          "submittedSketch": {
+            "exitCode": 0,
+            "availableGiB": 69,
+            "elapsedSeconds": 4.01,
+            "metrics": "4.00 2937240",
+            "errors": 0,
+            "admittedWarnings": 184,
+            "otherWarnings": 0,
+            "examples": 73,
+            "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+            "leanVersion": "4.34.0-rc2",
+            "fullSuggestedSha256": "055c383caade3e28edf700be28447603ac43dcee5c6b9636063943234fbae24e",
+            "normalizedLogSha256": "16410b26a650f836ab34891268d4f172ca8adc9c55d4b72c97d7185464a1eb0d",
+            "fullFileElaborated": true,
+            "globalOmissions": 35,
+            "boundary": "Whole Mathlib-only admitted planning file; omitted global signatures, sheaf construction or stage implementation not certified."
+          },
+          "freshReading": "Complete Heuer Definitions1.2(2)/4.1; Liu–Zhu Theorem2.1(i)–(v), Lemma2.15 and its proof only. Full parent Hodge upstream document and reviewed parent/supplier audit rows read; other nearby upstream readings remain in continuous-session history.",
+          "preservation": "All75 inherited IDs/statements,74 complete node objects,115 APIs,107 tests,149 routes,source findings,5 requests,11 gaps and6 planets retained. Only ordered-coordinate-vanishing proof/prerequisites refined. Stage IDs/requires and owner boundaries unchanged.",
           "projection": {
-            "nodes": 75,
-            "ownEdges": 147,
-            "stageVertices": 3022,
-            "stageEdges": 8663,
+            "stage": {
+              "vertices": 3022,
+              "edges": 8663,
+              "acyclic": true
+            },
+            "own": {
+              "vertices": 88,
+              "edges": 168,
+              "acyclic": true
+            },
+            "combinedPrerequisites": {
+              "vertices": 3105,
+              "edges": 8869,
+              "acyclic": true
+            },
             "virtualSupplierEndpoints": 51,
-            "reachableDeclarations": 76,
-            "combinedVertices": 3092,
-            "combinedEdges": 8929,
-            "acyclic": true,
-            "preservedStatements": 71,
-            "identicalInheritedNodeObjects": 70,
-            "requiredStagePairsReachable": 21,
+            "reachableDeclarations": 89,
             "unresolvedReferences": 0,
+            "combinedBoundary": "Existing stage/planet edges plus recursively reachable declaration prerequisite edges; no extra node-to-realises attachment is inserted.",
+            "stageEdgesUnchanged": true,
+            "otherDeferredLinksUnchanged": true,
+            "otherSkippedLinksUnchanged": true,
             "ownSkippedLinks": 0,
             "ownPendingLinks": 0,
-            "stageEdgesUnchanged": true,
-            "apiItems": 115,
-            "allTests": 107
+            "displayedDeclarations": 88,
+            "planets": 6
           },
-          "preservation": "All71 inherited statements and70 complete inherited node objects,112 APIs,103 tests,149 routes,five requests,eleven gaps and six planets are preserved. Only the all-N coordinate node proof/prerequisites and one existing gap detail are refined.",
           "checks": [
             "Indexed packet: zero errors/warnings.",
-            "Actual five-file intake policy and whitespace checks pass.",
-            "Reader/native API/test presence and exact predecessor source preservation outside the inserted block/import.",
-            "Actual read-only atlas assembly and stage/declaration DAG checks; all21 required stage pairs reachable.",
-            "Distinct immutable proof extraction: zero errors/warnings,seven axiom audits without admission dependencies; four new tests proved.",
-            "Entire admitted suggested file: 66 examples,zero errors,166 admission warnings only."
+            "Entire submitted planning file:73 examples,zero errors,184 admitted-declaration warnings only.",
+            "Immutable native proof extraction:14 examples,zero errors/warnings/admissions,20 axiom audits without admission dependencies.",
+            "Actual read-only atlas assembly and scoped stage/declaration prerequisite DAGs pass; no unresolved inputs.",
+            "Exact75 inherited statements,74 full node objects,route/source/request/stage ownership preservation pass.",
+            "Reader/native signature/API/test presence checks pass.",
+            "Actual predecessor assembly comparison:stage edges,unrelated deferred/skipped links unchanged; own88 declarations and6 planets,no own skipped/pending links.",
+            "Five-file intake and whitespace pass."
           ]
         },
+        "agent": "Codex — codex-5ebb6f",
+        "base": "100d7c8b65c171b0838c09359d94f457819bea1d",
         "leanCompiled": true,
-        "agent": "Codex — codex-J6LwjP",
-        "base": "bdfc250",
-        "reason": "Whole Mathlib-only admitted planning file; omitted global signatures, sheaf construction or stage implementation not certified.",
-        "mathematics": "88 unchecked nodes; H.0 partial, H.1–H.8 not_read; eleven gaps/five requests remain.",
+        "mathematics": "95 unchecked nodes; H.0 partial andH.1–H.8 not_read. Five requests,eleven gaps,six planets and149 route obligations retained.",
+        "freshReading": "Entire current issue before/after claim, latest mathematical handoff, all88 statements/hypotheses, all9 stage descriptions, reviewed parent/supplier audit rows, accepted relevant owner contracts,key-definition survey entry, complete parent Hodge upstream document; selected Heuer v3 field/morphism definition and Stacks tensor section passages; exact-pin native tensor map/congr,multiplication/singleton/cast statements. No fresh correspondence/source-route closure claim.",
+        "preservation": "All88 inherited IDs and mathematical statements,86 complete node objects,all122 inherited APIs and114 inherited tests retained. Only the two native step/iterate constructions gain promoted APIs and recorded uses; the iterate gains seven tests. Requests,planets,149 paper-item obligations,source findings,global35-signature omission ledger and allstage IDs/requires retained.",
+        "reason": "Entire exact Mathlib-only admitted planning file elaborated with198 admitted-declaration warnings and no errors/other warnings;80 examples. This certifies types only. Separately the native affine proof source has no admissions or warning and uses the same12 declaration headers. No global sheaf signature omission,source correspondence,stage implementation or TauCeti compiled import is certified.",
         "proofPrototype": {
+          "proofSourceCommit": "ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f",
+          "archiveMarker": "ARCHIVED CHECKED HIGGS NATURALITY",
+          "sourceSha256": "98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8",
+          "compilerLogSha256": "473915f1a9281af480b4599ff43db2ed51ab49d9423ca197eb7fd0dc15902caf",
+          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "leanVersion": "4.34.0-rc2",
+          "availableGiB": 65,
+          "elapsedSeconds": 2.2,
+          "maxRssKiB": 2154116,
           "exitCode": 0,
-          "availableGiB": 67,
-          "elapsedSeconds": 3.0,
-          "metrics": "3.00 2942916",
           "errors": 0,
           "admittedWarnings": 0,
           "otherWarnings": 0,
-          "examples": 14,
-          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-          "leanVersion": "4.34.0-rc2",
-          "proofSourceCommit": "ea49500be7122dfa7b09c7128537d8a304dae405",
-          "fullProofSourceSha256": "ea88d223a722d734a190368f979b3235f0da621a9e1ca9d904600b79e7e3dd9d",
-          "extractionSha256": "0bdf51d8056063efdc38796d1f76b09f39b0bf88fc7fdd7a93988263c5d1ea99",
-          "axiomExtractionSha256": "cd5c5b3e1edbdd9be9ed60334fcdd79f6f9ad552574bdb99b5ebfcea81dfd61b",
-          "normalizedLogSha256": "3a9f4aa995dbfa80b6ca5d4955ca53c9887e8a2cecba81a418ce85795901eb58",
-          "axiomAudits": 20,
-          "newExamples": 7,
-          "extractionLines": 445,
-          "boundary": "Actual native all-N affine coefficient/unit/vanishing proof; global sheaf restriction/gluing, augmentation bridge, rank bounds, and correspondence remain open."
+          "newLemmaAxiomAudits": 7,
+          "axiomDependencies": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "examples": 7,
+          "matchingNativeDeclarationHeaders": 12,
+          "publicExtraction": "Verbatim extraction from the pushed immutable archive exactly matches the already compiled native source SHA-256; no private carrier or assumed property field is substituted.",
+          "scope": "Seven affine algebraic lemmas and seven actual examples on native modules/tensor powers. Three native definitions and unit/successor facts are the inherited carriers; the archive retains their complete real bodies."
         },
         "submittedSketch": {
-          "exitCode": 0,
-          "availableGiB": 69,
-          "elapsedSeconds": 4.01,
-          "metrics": "4.00 2937240",
-          "errors": 0,
-          "admittedWarnings": 184,
-          "otherWarnings": 0,
-          "examples": 73,
+          "fullSuggestedSha256": "87dd584cbe55a71d10bf049f6839f87a83e04c1d73b81b334a685b079b4cfb2b",
+          "compilerLogSha256": "a0bff331fa557021ea49a37df2737387a4bf6417dbeeb2a76f629e7640e01a5e",
           "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
           "leanVersion": "4.34.0-rc2",
-          "fullSuggestedSha256": "055c383caade3e28edf700be28447603ac43dcee5c6b9636063943234fbae24e",
-          "normalizedLogSha256": "16410b26a650f836ab34891268d4f172ca8adc9c55d4b72c97d7185464a1eb0d",
-          "fullFileElaborated": true,
-          "globalOmissions": 35,
-          "boundary": "Whole Mathlib-only admitted planning file; omitted global signatures, sheaf construction or stage implementation not certified."
+          "availableGiB": 65,
+          "elapsedSeconds": 4.7,
+          "maxRssKiB": 2933908,
+          "exitCode": 0,
+          "errors": 0,
+          "admittedWarnings": 198,
+          "otherWarnings": 0,
+          "examples": 80,
+          "boundary": "All new submitted lemma/example bodies are admitted plans under protocol13; the35 inherited omitted global signatures remain. Whole file compiled,not only an extracted fragment."
         },
-        "freshReading": "Complete Heuer Definitions1.2(2)/4.1; Liu–Zhu Theorem2.1(i)–(v), Lemma2.15 and its proof only. Full parent Hodge upstream document and reviewed parent/supplier audit rows read; other nearby upstream readings remain in continuous-session history.",
-        "preservation": "All75 inherited IDs/statements,74 complete node objects,115 APIs,107 tests,149 routes,source findings,5 requests,11 gaps and6 planets retained. Only ordered-coordinate-vanishing proof/prerequisites refined. Stage IDs/requires and owner boundaries unchanged.",
         "projection": {
           "stage": {
             "vertices": 3022,
@@ -9484,169 +10102,155 @@
             "acyclic": true
           },
           "own": {
-            "vertices": 88,
-            "edges": 168,
+            "vertices": 95,
+            "edges": 179,
             "acyclic": true
           },
           "combinedPrerequisites": {
-            "vertices": 3105,
-            "edges": 8869,
+            "vertices": 3112,
+            "edges": 8880,
             "acyclic": true
           },
           "virtualSupplierEndpoints": 51,
-          "reachableDeclarations": 89,
+          "reachableDeclarations": 96,
           "unresolvedReferences": 0,
-          "combinedBoundary": "Existing stage/planet edges plus recursively reachable declaration prerequisite edges; no extra node-to-realises attachment is inserted.",
-          "stageEdgesUnchanged": true,
-          "otherDeferredLinksUnchanged": true,
-          "otherSkippedLinksUnchanged": true,
-          "ownSkippedLinks": 0,
-          "ownPendingLinks": 0,
-          "displayedDeclarations": 88,
-          "planets": 6
+          "stageEdgesUnchanged": true
         },
         "checks": [
-          "Indexed packet: zero errors/warnings.",
-          "Entire submitted planning file:73 examples,zero errors,184 admitted-declaration warnings only.",
-          "Immutable native proof extraction:14 examples,zero errors/warnings/admissions,20 axiom audits without admission dependencies.",
-          "Actual read-only atlas assembly and scoped stage/declaration prerequisite DAGs pass; no unresolved inputs.",
-          "Exact75 inherited statements,74 full node objects,route/source/request/stage ownership preservation pass.",
-          "Reader/native signature/API/test presence checks pass.",
-          "Actual predecessor assembly comparison:stage edges,unrelated deferred/skipped links unchanged; own88 declarations and6 planets,no own skipped/pending links.",
-          "Five-file intake and whitespace pass."
+          "Indexed packet zero errors/warnings;five allowed files pass intake.",
+          "Entire exact admitted file80 examples:zero errors,198 admission warnings only.",
+          "Native proof seven examples and seven axiom audits:zero errors,warnings or admissions;public immutable extraction hash matches.",
+          "Actual read-only atlas assembly and stage/own/reachable prerequisite DAGs acyclic,zero unresolved references,no own skipped or pending links,stage edges unchanged.",
+          "All88 inherited statements and86 complete node objects,122 APIs,114 tests,149 source-route obligations,six planets,five requests,35 omitted global signatures andstage requires retained.",
+          "Twelve actual native declaration headers match the canonical suggested file;seven new proposed lemmas and allseven tests mapped.",
+          "Whitespace and allowed-file diff checks pass."
         ]
       },
-      "agent": "Codex — codex-5ebb6f",
-      "base": "100d7c8b65c171b0838c09359d94f457819bea1d",
+      "historicalScalarExtension": {
+        "agent": "Codex — codex-rtOQ9t",
+        "base": "fe93910f0a75056cc4f868bae9a417ec1e4f685a",
+        "leanCompiled": true,
+        "mathematics": "Partial native affine scalar-extension checkpoint; all implementation statuses remain unchecked.",
+        "freshReading": [
+          "Complete selected TensorProduct/Tower scalar-extension distributor, heterobasic ext/right unit, LinearMap.baseChange and Module.End.baseChangeHom declarations and proofs.",
+          "Complete selected TensorProduct/Basis baseChange and coordinate formula, FaithfullyFlat native class and one-tensor zero detection proof, ordered-list map_list_prod statement/proof.",
+          "All95 inherited mathematical statements, all18 distinct hypothesis groups, all9 own stage descriptions; full current HodgeStructures upstream README and latest/earlier all-order handoff. Nearby StableReduction and JacobianChallenge upstream documents were fully read earlier in this continuous session.",
+          "Reviewed Hodge parentL0–L3 audit rows and E1/D3 supplier rows; current CR.1/E1/DD.1/D3 stage contracts and full reserved key-definition survey entry.",
+          "Fresh Heuer arXivv3 Definition1.2 field/morphism equations; fresh Stacks00H9 Definition10.39.1 and complete Lemma10.39.14 proof. Other source receipts remain historical, not freshly reread correspondence proofs."
+        ],
+        "preservation": "All95 inherited IDs, statements, hypotheses,acceptance contracts,129 APIs and121 tests retained.93 complete node objects unchanged; ordered-iterate adds two consumed APIs/uses,global pullback-nilpotence adds an affine prerequisite and refines its proof route without weakening its statement. Allsix planets,five requests,eleven gap identities,149 paper-item obligations,source findings,35 global signature omissions and allstage IDs/requires retained.",
+        "reason": "The finite-coefficient-basis affine scalar-extension and fixed-exponent comparison are established in a separate actual native proof. Arbitrary-Q coherence, finite-projective chart restriction, sheaf equality detection/gluing,global exterior integrability,Tate/period adapters and all other source decomposition remain open.",
+        "proofPrototype": {
+          "archiveCommit": "dc25c5c1974994ba2e382998b82d187f9b027bd9",
+          "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+          "marker": "BEGIN/END ARCHIVED CHECKED HIGGS SCALAR EXTENSION",
+          "sourceSha256": "f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6",
+          "diagnosticsSha256": "31bce2ebd5b7edcb52ff3b03df4417d953573be47f6d5bf29b56b18fb884241b",
+          "lines": 607,
+          "examples": 18,
+          "axiomAudits": 28,
+          "matchedCanonicalDeclarationHeaders": 28,
+          "matchedNewExampleTypes": 4,
+          "errors": 0,
+          "warnings": 0,
+          "admissions": 0,
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "exactPublicExtractionVerified": true,
+          "leanVersion": "4.34.0-rc2",
+          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "runtimeSeconds": 3.8,
+          "maxRSSKiB": 2991956,
+          "availableGiB": 63,
+          "scope": "Standalone actual Mathlib native affine proof. No assumed predicates, replacement carriers, TauCeti compiled imports or global source closure."
+        },
+        "submittedSketch": {
+          "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+          "sourceSha256": "ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3",
+          "diagnosticsSha256": "c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0",
+          "examples": 84,
+          "errors": 0,
+          "admittedWarnings": 209,
+          "otherWarnings": 0,
+          "runtimeSeconds": 5,
+          "maxRSSKiB": 2960448,
+          "availableGiB": 61,
+          "scope": "Entire exact final Mathlib-only planning file. Every body remains admitted under protocol13; the35 omitted global signatures are still omitted. Diagnostics normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final timing line."
+        },
+        "projection": {
+          "stage": {
+            "vertices": 3022,
+            "edges": 8663,
+            "acyclic": true
+          },
+          "own": {
+            "vertices": 100,
+            "edges": 189,
+            "acyclic": true
+          },
+          "combinedPrerequisites": {
+            "vertices": 3117,
+            "edges": 8890,
+            "acyclic": true
+          },
+          "virtualSupplierEndpoints": 51,
+          "reachableDeclarations": 101,
+          "unresolvedReferences": 0,
+          "stageEdgesUnchanged": true,
+          "otherRoadmapSkippedPendingLinksUnchanged": true
+        },
+        "checks": [
+          "Indexed check_blueprint:zero errors/zero warnings;100nodes,135API entries,123 required definition/construction tests,125total tests,124baseline entries,six planets,five requests,eleven gaps.",
+          "Actual read-only atlas assembler with candidate injection:100declarations/six planets,zero own skipped/pending links. Stage graph and other roadmaps skipped/pending links equal the base-input control.",
+          "All95 inherited contract IDs/statements/hypotheses/acceptance/implementationStatus and all129APIs/121tests retained;93 complete node objects unchanged. Requests,149-item route manifest and source findings unchanged.",
+          "All28 native headers and four new example types match the canonical signatures. Exact public archive extraction is byte-identical. Native proof has zero admissions and only standard axioms.",
+          "Entire exact final planning file elaborates with84examples,209admission warnings,no errors/no other warnings.",
+          "Allowed-file intake,JSON validity,roadmap/stage preservation and git diff --check pass. One bounded Lean process at a time; no setup/cache/library build/LSP; no owned background compile remains."
+        ]
+      },
+      "agent": "Codex — codex-7e92bd",
+      "readBase": "c1ce73c82043f8e7f67b701bb7797bf8ebde7ef1",
       "leanCompiled": true,
-      "mathematics": "95 unchecked nodes; H.0 partial andH.1–H.8 not_read. Five requests,eleven gaps,six planets and149 route obligations retained.",
-      "freshReading": "Entire current issue before/after claim, latest mathematical handoff, all88 statements/hypotheses, all9 stage descriptions, reviewed parent/supplier audit rows, accepted relevant owner contracts,key-definition survey entry, complete parent Hodge upstream document; selected Heuer v3 field/morphism definition and Stacks tensor section passages; exact-pin native tensor map/congr,multiplication/singleton/cast statements. No fresh correspondence/source-route closure claim.",
-      "preservation": "All88 inherited IDs and mathematical statements,86 complete node objects,all122 inherited APIs and114 inherited tests retained. Only the two native step/iterate constructions gain promoted APIs and recorded uses; the iterate gains seven tests. Requests,planets,149 paper-item obligations,source findings,global35-signature omission ledger and allstage IDs/requires retained.",
-      "reason": "Entire exact Mathlib-only admitted planning file elaborated with198 admitted-declaration warnings and no errors/other warnings;80 examples. This certifies types only. Separately the native affine proof source has no admissions or warning and uses the same12 declaration headers. No global sheaf signature omission,source correspondence,stage implementation or TauCeti compiled import is certified.",
+      "mathematics": "Partial native affine flat-reflection checkpoint; every implementation status remains unchecked. H.0 is partial and H.1–H.8 not_read.",
+      "reason": "Flatness supplies actual tensor-map injectivity at every ordered degree. This proves the native same-ring reflection statements in a separate prototype. Arbitrary-Q cross-ring tensor coherence, sheaf restriction/equality detection/gluing, exterior integrability, period/Tate interfaces and source coverage remain open.",
       "proofPrototype": {
-        "proofSourceCommit": "ab19cc58e36f8fe16ff95e0258bb5dd308e2fb5f",
-        "archiveMarker": "ARCHIVED CHECKED HIGGS NATURALITY",
-        "sourceSha256": "98d24ca7657199269c93f26eaae69b83dfedcd777ea8b0f0a669e5bb437bacc8",
-        "compilerLogSha256": "473915f1a9281af480b4599ff43db2ed51ab49d9423ca197eb7fd0dc15902caf",
-        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "leanVersion": "4.34.0-rc2",
-        "availableGiB": 65,
-        "elapsedSeconds": 2.2,
-        "maxRssKiB": 2154116,
-        "exitCode": 0,
+        "archiveCommit": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a",
+        "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+        "marker": "BEGIN/END ARCHIVED CHECKED HIGGS FLAT REFLECTION",
+        "sourceSha256": "b1335d49069b99337ff05089cbfc8658ab2bb0da4e32dd5cedfb64d2d0ad04dc",
+        "diagnosticsSha256": "685d3490ea12048f2b24592c953adb26e7f0669a4e120b52ab293a5518fbe209",
+        "lines": 517,
+        "examples": 9,
         "errors": 0,
         "admittedWarnings": 0,
         "otherWarnings": 0,
-        "newLemmaAxiomAudits": 7,
-        "axiomDependencies": [
-          "propext",
-          "Classical.choice",
-          "Quot.sound"
-        ],
-        "examples": 7,
-        "matchingNativeDeclarationHeaders": 12,
-        "publicExtraction": "Verbatim extraction from the pushed immutable archive exactly matches the already compiled native source SHA-256; no private carrier or assumed property field is substituted.",
-        "scope": "Seven affine algebraic lemmas and seven actual examples on native modules/tensor powers. Three native definitions and unit/successor facts are the inherited carriers; the archive retains their complete real bodies."
-      },
-      "submittedSketch": {
-        "fullSuggestedSha256": "87dd584cbe55a71d10bf049f6839f87a83e04c1d73b81b334a685b079b4cfb2b",
-        "compilerLogSha256": "a0bff331fa557021ea49a37df2737387a4bf6417dbeeb2a76f629e7640e01a5e",
-        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "leanVersion": "4.34.0-rc2",
-        "availableGiB": 65,
-        "elapsedSeconds": 4.7,
-        "maxRssKiB": 2933908,
-        "exitCode": 0,
-        "errors": 0,
-        "admittedWarnings": 198,
-        "otherWarnings": 0,
-        "examples": 80,
-        "boundary": "All new submitted lemma/example bodies are admitted plans under protocol13; the35 inherited omitted global signatures remain. Whole file compiled,not only an extracted fragment."
-      },
-      "projection": {
-        "stage": {
-          "vertices": 3022,
-          "edges": 8663,
-          "acyclic": true
-        },
-        "own": {
-          "vertices": 95,
-          "edges": 179,
-          "acyclic": true
-        },
-        "combinedPrerequisites": {
-          "vertices": 3112,
-          "edges": 8880,
-          "acyclic": true
-        },
-        "virtualSupplierEndpoints": 51,
-        "reachableDeclarations": 96,
-        "unresolvedReferences": 0,
-        "stageEdgesUnchanged": true
-      },
-      "checks": [
-        "Indexed packet zero errors/warnings;five allowed files pass intake.",
-        "Entire exact admitted file80 examples:zero errors,198 admission warnings only.",
-        "Native proof seven examples and seven axiom audits:zero errors,warnings or admissions;public immutable extraction hash matches.",
-        "Actual read-only atlas assembly and stage/own/reachable prerequisite DAGs acyclic,zero unresolved references,no own skipped or pending links,stage edges unchanged.",
-        "All88 inherited statements and86 complete node objects,122 APIs,114 tests,149 source-route obligations,six planets,five requests,35 omitted global signatures andstage requires retained.",
-        "Twelve actual native declaration headers match the canonical suggested file;seven new proposed lemmas and allseven tests mapped.",
-        "Whitespace and allowed-file diff checks pass."
-      ]
-    },
-    "historicalScalarExtension": {
-      "agent": "Codex — codex-rtOQ9t",
-      "base": "fe93910f0a75056cc4f868bae9a417ec1e4f685a",
-      "leanCompiled": true,
-      "mathematics": "Partial native affine scalar-extension checkpoint; all implementation statuses remain unchecked.",
-      "freshReading": [
-        "Complete selected TensorProduct/Tower scalar-extension distributor, heterobasic ext/right unit, LinearMap.baseChange and Module.End.baseChangeHom declarations and proofs.",
-        "Complete selected TensorProduct/Basis baseChange and coordinate formula, FaithfullyFlat native class and one-tensor zero detection proof, ordered-list map_list_prod statement/proof.",
-        "All95 inherited mathematical statements, all18 distinct hypothesis groups, all9 own stage descriptions; full current HodgeStructures upstream README and latest/earlier all-order handoff. Nearby StableReduction and JacobianChallenge upstream documents were fully read earlier in this continuous session.",
-        "Reviewed Hodge parentL0–L3 audit rows and E1/D3 supplier rows; current CR.1/E1/DD.1/D3 stage contracts and full reserved key-definition survey entry.",
-        "Fresh Heuer arXivv3 Definition1.2 field/morphism equations; fresh Stacks00H9 Definition10.39.1 and complete Lemma10.39.14 proof. Other source receipts remain historical, not freshly reread correspondence proofs."
-      ],
-      "preservation": "All95 inherited IDs, statements, hypotheses,acceptance contracts,129 APIs and121 tests retained.93 complete node objects unchanged; ordered-iterate adds two consumed APIs/uses,global pullback-nilpotence adds an affine prerequisite and refines its proof route without weakening its statement. Allsix planets,five requests,eleven gap identities,149 paper-item obligations,source findings,35 global signature omissions and allstage IDs/requires retained.",
-      "reason": "The finite-coefficient-basis affine scalar-extension and fixed-exponent comparison are established in a separate actual native proof. Arbitrary-Q coherence, finite-projective chart restriction, sheaf equality detection/gluing,global exterior integrability,Tate/period adapters and all other source decomposition remain open.",
-      "proofPrototype": {
-        "archiveCommit": "dc25c5c1974994ba2e382998b82d187f9b027bd9",
-        "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-        "marker": "BEGIN/END ARCHIVED CHECKED HIGGS SCALAR EXTENSION",
-        "sourceSha256": "f922ee36944f958ba59913bf9bef72223e69b22de885590cc37c35beefe8ebb6",
-        "diagnosticsSha256": "31bce2ebd5b7edcb52ff3b03df4417d953573be47f6d5bf29b56b18fb884241b",
-        "lines": 607,
-        "examples": 18,
-        "axiomAudits": 28,
-        "matchedCanonicalDeclarationHeaders": 28,
-        "matchedNewExampleTypes": 4,
-        "errors": 0,
-        "warnings": 0,
-        "admissions": 0,
+        "timing": "wall=3.30 peak_kb=2433160 exit=0",
+        "axiomAudits": 14,
         "axioms": [
           "propext",
           "Classical.choice",
           "Quot.sound"
         ],
-        "exactPublicExtractionVerified": true,
+        "exactExtractionVerified": true,
+        "availableGiB": 58,
         "leanVersion": "4.34.0-rc2",
-        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "runtimeSeconds": 3.8,
-        "maxRSSKiB": 2991956,
-        "availableGiB": 63,
-        "scope": "Standalone actual Mathlib native affine proof. No assumed predicates, replacement carriers, TauCeti compiled imports or global source closure."
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
       },
       "submittedSketch": {
         "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-        "sourceSha256": "ab7b037d990ebfd7e39d242e8819ab8aaaece15e07adf3c171c64893d18e3bc3",
-        "diagnosticsSha256": "c0699f5d698b2734b1774f886f1f3da335303bf55ba8d276acfbde43c41237d0",
-        "examples": 84,
+        "sourceSha256": "82a282d7a295d3c678c3fdc9462c64b8c6931ebccd4617053b08dc7662121b29",
+        "diagnosticsSha256": "edf8ac99d2d19481735c1bbfb404b5930ce136ec6413a9cef71cab62ba30f54e",
+        "lines": 1552,
+        "examples": 93,
         "errors": 0,
-        "admittedWarnings": 209,
+        "admittedWarnings": 228,
         "otherWarnings": 0,
-        "runtimeSeconds": 5.0,
-        "maxRSSKiB": 2960448,
-        "availableGiB": 61,
-        "scope": "Entire exact final Mathlib-only planning file. Every body remains admitted under protocol13; the35 omitted global signatures are still omitted. Diagnostics normalize the source filename to suggested/HodgeStructuresPartII.lean and omit the final timing line."
+        "timing": "wall=5.30 peak_kb=2965276 exit=0",
+        "availableGiB": 58,
+        "scope": "Entire exact final Mathlib-only planning file; all bodies admitted. No Tau Ceti compiled-import claim."
       },
       "projection": {
         "stage": {
@@ -9655,112 +10259,138 @@
           "acyclic": true
         },
         "own": {
-          "vertices": 100,
-          "edges": 189,
+          "vertices": 107,
+          "edges": 199,
           "acyclic": true
         },
         "combinedPrerequisites": {
-          "vertices": 3117,
-          "edges": 8890,
+          "vertices": 3124,
+          "edges": 8900,
           "acyclic": true
         },
         "virtualSupplierEndpoints": 51,
-        "reachableDeclarations": 101,
+        "reachableDeclarations": 108,
         "unresolvedReferences": 0,
+        "actualBlueprint": {
+          "declarations": 107,
+          "planets": 6,
+          "kinds": {
+            "comparison": 5,
+            "construction": 24,
+            "definition": 12,
+            "lemma": 52,
+            "theorem": 14
+          },
+          "skippedLinks": []
+        },
         "stageEdgesUnchanged": true,
         "otherRoadmapSkippedPendingLinksUnchanged": true
       },
       "checks": [
-        "Indexed check_blueprint:zero errors/zero warnings;100nodes,135API entries,123 required definition/construction tests,125total tests,124baseline entries,six planets,five requests,eleven gaps.",
-        "Actual read-only atlas assembler with candidate injection:100declarations/six planets,zero own skipped/pending links. Stage graph and other roadmaps skipped/pending links equal the base-input control.",
-        "All95 inherited contract IDs/statements/hypotheses/acceptance/implementationStatus and all129APIs/121tests retained;93 complete node objects unchanged. Requests,149-item route manifest and source findings unchanged.",
-        "All28 native headers and four new example types match the canonical signatures. Exact public archive extraction is byte-identical. Native proof has zero admissions and only standard axioms.",
-        "Entire exact final planning file elaborates with84examples,209admission warnings,no errors/no other warnings.",
-        "Allowed-file intake,JSON validity,roadmap/stage preservation and git diff --check pass. One bounded Lean process at a time; no setup/cache/library build/LSP; no owned background compile remains."
+        "Indexed packet checker: zero errors and warnings; 107 nodes, 142 API items, 132 required construction/definition tests and 134 total tests, 131 baseline declarations, six planets, eleven gaps, five requests and zero closed stages.",
+        "Read-only actual atlas assembly: stage, own and combined prerequisite graphs acyclic; zero unresolved references or own skipped/pending links. Stage edges and unrelated skipped/pending links equal the predecessor control.",
+        "All 105 inherited IDs, mathematical statements, hypotheses, acceptance conditions, prerequisites and proof routes retained; 103 whole node objects unchanged. Two existing constructions gain only APIs, tests and uses. All original API/test prefixes, baseline prefix, source obligations, requests, gaps, findings, reserved key and 35 global signature omissions retained.",
+        "Two new declaration headers and four example types match the standalone actual proof exactly; the original suggested prefix is unchanged except the added native Flat import. Exact archive extraction is byte-identical.",
+        "Standalone proof: 517 lines, nine examples including the five inherited coefficient tests, fourteen kernel axiom audits, zero errors, admissions or warnings. Only propext, Classical.choice and Quot.sound occur in the audits. Entire submitted sketch: 93 examples, zero errors, 228 admitted-declaration warnings, zero other warnings.",
+        "Only the five issue deliverables change. The roadmap definition changes its stale summary only; every stage and dependency is preserved. No library build, cache setup, Lake project setup or language server was used. One bounded Lean process at a time; none remains running."
       ]
     },
-    "agent": "Codex — codex-7e92bd",
-    "readBase": "c1ce73c82043f8e7f67b701bb7797bf8ebde7ef1",
+    "agent": "Codex — codex-a71f92",
+    "readBase": "f6de888f4ad723d376d77b66fa8486d538bd1aeb",
+    "publicationBase": "2b3589a76848631513fb000b4d252a3f2a326a43",
     "leanCompiled": true,
-    "mathematics": "Partial native affine flat-reflection checkpoint; every implementation status remains unchecked. H.0 is partial and H.1–H.8 not_read.",
-    "reason": "Flatness supplies actual tensor-map injectivity at every ordered degree. This proves the native same-ring reflection statements in a separate prototype. Arbitrary-Q cross-ring tensor coherence, sheaf restriction/equality detection/gluing, exterior integrability, period/Tate interfaces and source coverage remain open.",
+    "mathematics": "All 120 nodes remain unchecked; H.0 partial and H.1–H.8 not_read. Five requests, eleven gaps, six planets, all 149 route obligations and 35 global omissions retained.",
+    "reason": "Type elaboration of the complete admitted planning file is separate from the actual Mathlib-only affine proof. No intrinsic sheaf or source-correspondence implementation is certified.",
     "proofPrototype": {
-      "archiveCommit": "d94ef3bb3b47d21b8308c595f6e23055cd390a3a",
-      "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-      "marker": "BEGIN/END ARCHIVED CHECKED HIGGS FLAT REFLECTION",
-      "sourceSha256": "b1335d49069b99337ff05089cbfc8658ab2bb0da4e32dd5cedfb64d2d0ad04dc",
-      "diagnosticsSha256": "685d3490ea12048f2b24592c953adb26e7f0669a4e120b52ab293a5518fbe209",
-      "lines": 517,
-      "examples": 9,
+      "sourceSha256": "acda08ebf51d6fba9d90af2f66453a49ee34519f26b56f00822a51449c81a077",
+      "normalizedLogSha256": "0377446fdc308dd430f91513c2ab9a307c843af478038a10deb7e7fad4a2bc23",
+      "lines": 888,
+      "examples": 25,
+      "axiomAudits": 30,
       "errors": 0,
-      "admittedWarnings": 0,
+      "admissionWarnings": 0,
       "otherWarnings": 0,
-      "timing": "wall=3.30 peak_kb=2433160 exit=0",
-      "axiomAudits": 14,
-      "axioms": [
+      "elapsed": "0:05.90",
+      "maxRSSKiB": 2535720,
+      "exitCode": 0,
+      "availableGiBBefore": 52,
+      "archiveCommit": "9b529b527d287fe76f1f2fa7978c2cdf47354307",
+      "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+      "beginMarker": "BEGIN ARCHIVED CHECKED HIGGS ARBITRARY COEFFICIENT COHERENCE",
+      "endMarker": "END ARCHIVED CHECKED HIGGS ARBITRARY COEFFICIENT COHERENCE",
+      "newAxiomAudits": 10,
+      "allowedAxioms": [
         "propext",
         "Classical.choice",
         "Quot.sound"
       ],
-      "exactExtractionVerified": true,
-      "availableGiB": 58,
-      "leanVersion": "4.34.0-rc2",
-      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+      "predecessorArchive": "9f179c941d3686eacb96322f20831efef6c2c78c",
+      "predecessorSourceSha256": "6a23f25f4d8709db044e950a9097754d114071dd5d08b9d000cb34a2c3194fb2",
+      "predecessorByteIdentical": true,
+      "publicExtractionVerified": true
     },
     "submittedSketch": {
-      "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
-      "sourceSha256": "82a282d7a295d3c678c3fdc9462c64b8c6931ebccd4617053b08dc7662121b29",
-      "diagnosticsSha256": "edf8ac99d2d19481735c1bbfb404b5930ce136ec6413a9cef71cab62ba30f54e",
-      "lines": 1552,
-      "examples": 93,
+      "sourceSha256": "5de4a850ac1eeff81e5ecc86e5f7558e367a4dee719c780b363041d164fffdf9",
+      "normalizedLogSha256": "ba4f04a5a3cd830d1c639afeb1460f9479d51ac05ef27bbde95554b1d7e38947",
+      "lines": 1746,
+      "examples": 109,
+      "axiomAudits": 0,
       "errors": 0,
-      "admittedWarnings": 228,
+      "admissionWarnings": 260,
       "otherWarnings": 0,
-      "timing": "wall=5.30 peak_kb=2965276 exit=0",
-      "availableGiB": 58,
-      "scope": "Entire exact final Mathlib-only planning file; all bodies admitted. No Tau Ceti compiled-import claim."
+      "elapsed": "0:05.90",
+      "maxRSSKiB": 2986768,
+      "exitCode": 0,
+      "availableGiBBefore": 52,
+      "compiled": true,
+      "scope": "Entire exact Mathlib-only admitted planning file; 35 global omissions retained. No Tau Ceti compiled imports or sheaf implementation are certified.",
+      "incomingPrefixByteIdentical": true,
+      "newDeclarationHeadersMatched": 10,
+      "newExampleHeadersMatched": 9
     },
     "projection": {
-      "stage": {
+      "stageDAG": {
         "vertices": 3022,
         "edges": 8663,
         "acyclic": true
       },
-      "own": {
-        "vertices": 107,
-        "edges": 199,
+      "ownDAG": {
+        "vertices": 120,
+        "edges": 223,
         "acyclic": true
       },
-      "combinedPrerequisites": {
-        "vertices": 3124,
-        "edges": 8900,
+      "combinedDAG": {
+        "vertices": 3137,
+        "edges": 8929,
         "acyclic": true
       },
-      "virtualSupplierEndpoints": 51,
-      "reachableDeclarations": 108,
-      "unresolvedReferences": 0,
-      "actualBlueprint": {
-        "declarations": 107,
-        "planets": 6,
-        "kinds": {
-          "comparison": 5,
-          "construction": 24,
-          "definition": 12,
-          "lemma": 52,
-          "theorem": 14
-        },
-        "skippedLinks": []
-      },
+      "reachableDeclarations": 121,
+      "externalDeclarations": [
+        "ColemanPowerSeries:L1/derivation-determinant-unit"
+      ],
+      "reachableBaselineReferences": 128,
+      "unresolved": [],
+      "otherPartsRetained": [],
+      "partDeclarations": 120,
+      "partPlanets": 6,
+      "roadmapDeclarations": 120,
+      "requiredStagePairs": 7,
+      "requiredStagePairsReachable": 7,
+      "inheritedMissingStagePairs": [],
+      "acceptedRestructurePairs": 0,
+      "acceptedRestructurePairsReachable": 0,
       "stageEdgesUnchanged": true,
-      "otherRoadmapSkippedPendingLinksUnchanged": true
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
     },
     "checks": [
-      "Indexed packet checker: zero errors and warnings; 107 nodes, 142 API items, 132 required construction/definition tests and 134 total tests, 131 baseline declarations, six planets, eleven gaps, five requests and zero closed stages.",
-      "Read-only actual atlas assembly: stage, own and combined prerequisite graphs acyclic; zero unresolved references or own skipped/pending links. Stage edges and unrelated skipped/pending links equal the predecessor control.",
-      "All 105 inherited IDs, mathematical statements, hypotheses, acceptance conditions, prerequisites and proof routes retained; 103 whole node objects unchanged. Two existing constructions gain only APIs, tests and uses. All original API/test prefixes, baseline prefix, source obligations, requests, gaps, findings, reserved key and 35 global signature omissions retained.",
-      "Two new declaration headers and four example types match the standalone actual proof exactly; the original suggested prefix is unchanged except the added native Flat import. Exact archive extraction is byte-identical.",
-      "Standalone proof: 517 lines, nine examples including the five inherited coefficient tests, fourteen kernel axiom audits, zero errors, admissions or warnings. Only propext, Classical.choice and Quot.sound occur in the audits. Entire submitted sketch: 93 examples, zero errors, 228 admitted-declaration warnings, zero other warnings.",
-      "Only the five issue deliverables change. The roadmap definition changes its stale summary only; every stage and dependency is preserved. No library build, cache setup, Lake project setup or language server was used. One bounded Lean process at a time; none remains running."
+      "Exact pinned Mathlib native proof: zero errors, warnings or admissions, 25 examples and 30 axiom audits.",
+      "Entire admitted planning file: zero errors, 260 admission warnings only, 109 examples.",
+      "Immutable archive bytes and native/canonical header parity verified; complete predecessor native source unchanged.",
+      "Actual immutable packet checker and five-file intake: zero findings.",
+      "Actual candidate/control atlas assembly: all three dependency graphs acyclic, seven supplier paths present, no unresolved inputs or own skipped/pending links; stage edges and unrelated skipped/pending links unchanged.",
+      "All 112 incoming contracts, 111 whole node objects, key definition, source routes, supplier requests, global omissions and stage IDs/requires preserved.",
+      "Live claim and all five job paths/governing docs/audit/key-owner files checked before publication."
     ]
   },
   "coefficientMapContinuation": {
@@ -10028,5 +10658,134 @@
       "Finite-projective chart restriction, actual E1 sheaf tensor-power comparison/equality detection/gluing, including globally specified versus locally varying exponents.",
       "All existing CR.1, E1, DD.1 and D3 supplier requests, global determinant/exterior and Tate/period-lattice adapters, source inventories and H.1–H.8 decomposition."
     ]
+  },
+  "arbitraryCoefficientContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "issue": 3371,
+    "claimComment": 5962697872,
+    "winningBotComment": 5962698993,
+    "readBase": "f6de888f4ad723d376d77b66fa8486d538bd1aeb",
+    "publicationBase": "2b3589a76848631513fb000b4d252a3f2a326a43",
+    "status": "partial",
+    "mathematics": "Eight declaration-sized affine plans: actual arbitrary-Q tensor-power distributor and unit/prepend laws, ordered-codomain distributor and successor square, all-degree iterate comparison and identical-exponent preservation/reflection. The distinct native proof includes two additional native construction APIs, without assumed comparison properties or replacement carriers.",
+    "proofPrototype": {
+      "sourceSha256": "acda08ebf51d6fba9d90af2f66453a49ee34519f26b56f00822a51449c81a077",
+      "normalizedLogSha256": "0377446fdc308dd430f91513c2ab9a307c843af478038a10deb7e7fad4a2bc23",
+      "lines": 888,
+      "examples": 25,
+      "axiomAudits": 30,
+      "errors": 0,
+      "admissionWarnings": 0,
+      "otherWarnings": 0,
+      "elapsed": "0:05.90",
+      "maxRSSKiB": 2535720,
+      "exitCode": 0,
+      "availableGiBBefore": 52,
+      "archiveCommit": "9b529b527d287fe76f1f2fa7978c2cdf47354307",
+      "path": "research/blueprint/suggested/HodgeStructuresPartII.lean",
+      "beginMarker": "BEGIN ARCHIVED CHECKED HIGGS ARBITRARY COEFFICIENT COHERENCE",
+      "endMarker": "END ARCHIVED CHECKED HIGGS ARBITRARY COEFFICIENT COHERENCE",
+      "newAxiomAudits": 10,
+      "allowedAxioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "predecessorArchive": "9f179c941d3686eacb96322f20831efef6c2c78c",
+      "predecessorSourceSha256": "6a23f25f4d8709db044e950a9097754d114071dd5d08b9d000cb34a2c3194fb2",
+      "predecessorByteIdentical": true,
+      "publicExtractionVerified": true
+    },
+    "submittedSketch": {
+      "sourceSha256": "5de4a850ac1eeff81e5ecc86e5f7558e367a4dee719c780b363041d164fffdf9",
+      "normalizedLogSha256": "ba4f04a5a3cd830d1c639afeb1460f9479d51ac05ef27bbde95554b1d7e38947",
+      "lines": 1746,
+      "examples": 109,
+      "axiomAudits": 0,
+      "errors": 0,
+      "admissionWarnings": 260,
+      "otherWarnings": 0,
+      "elapsed": "0:05.90",
+      "maxRSSKiB": 2986768,
+      "exitCode": 0,
+      "availableGiBBefore": 52,
+      "compiled": true,
+      "scope": "Entire exact Mathlib-only admitted planning file; 35 global omissions retained. No Tau Ceti compiled imports or sheaf implementation are certified.",
+      "incomingPrefixByteIdentical": true,
+      "newDeclarationHeadersMatched": 10,
+      "newExampleHeadersMatched": 9
+    },
+    "projection": {
+      "stageDAG": {
+        "vertices": 3022,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "ownDAG": {
+        "vertices": 120,
+        "edges": 223,
+        "acyclic": true
+      },
+      "combinedDAG": {
+        "vertices": 3137,
+        "edges": 8929,
+        "acyclic": true
+      },
+      "reachableDeclarations": 121,
+      "externalDeclarations": [
+        "ColemanPowerSeries:L1/derivation-determinant-unit"
+      ],
+      "reachableBaselineReferences": 128,
+      "unresolved": [],
+      "otherPartsRetained": [],
+      "partDeclarations": 120,
+      "partPlanets": 6,
+      "roadmapDeclarations": 120,
+      "requiredStagePairs": 7,
+      "requiredStagePairsReachable": 7,
+      "inheritedMissingStagePairs": [],
+      "acceptedRestructurePairs": 0,
+      "acceptedRestructurePairsReachable": 0,
+      "stageEdgesUnchanged": true,
+      "otherSkippedPendingUnchanged": true,
+      "ownSkippedPendingEmpty": true
+    },
+    "preservation": {
+      "incomingContracts": 112,
+      "unchangedWholeNodes": 111,
+      "keyDefinitionUnchanged": true,
+      "routeManifestAndRequestsUnchanged": true,
+      "existingApiTestsUsesPreserved": true,
+      "allNineStagesAndDependenciesUnchanged": true,
+      "planetsUnchanged": 6,
+      "globalOmissionsUnchanged": 35
+    },
+    "freshReading": {
+      "url": "https://arxiv.org/html/2307.01303v3",
+      "htmlSha256": "ec7742d917b413a52d05e5eeffbab9fdaab3bed13412dc2c9e426ffb8bcb8081",
+      "sections": [
+        "Definition 1.2(1)–(2) and selected introduction",
+        "Complete Definition 4.1",
+        "Complete Theorem 4.8(1)–(3), Remark 4.9 and displayed proof"
+      ],
+      "scope": "Only these source passages and actual native declarations; no fresh whole-paper or 149-item collation claim."
+    },
+    "remaining": [
+      "Current codex-a71f92 checkpoint supplies actual native arbitrary-Q affine cross-ring unit/prepend/step/iterate equations and all-degree same-exponent preservation and faithfully-flat reflection, including n=0; earlier affine missing-work wording above is retained as checkpoint history. Finite-projective chart restriction, sheaf tensor-power comparison/equality detection/gluing, exterior-integrability transport, globally uniform versus locally varying exponents, rank bounds and all global/source/supplier obligations remain open. This does not identify sheaf tensor sections with tensors of global sections or assert kernel/image base-change compatibility."
+    ],
+    "checks": [
+      "Exact pinned Mathlib native proof: zero errors, warnings or admissions, 25 examples and 30 axiom audits.",
+      "Entire admitted planning file: zero errors, 260 admission warnings only, 109 examples.",
+      "Immutable archive bytes and native/canonical header parity verified; complete predecessor native source unchanged.",
+      "Actual immutable packet checker and five-file intake: zero findings.",
+      "Actual candidate/control atlas assembly: all three dependency graphs acyclic, seven supplier paths present, no unresolved inputs or own skipped/pending links; stage edges and unrelated skipped/pending links unchanged.",
+      "All 112 incoming contracts, 111 whole node objects, key definition, source routes, supplier requests, global omissions and stage IDs/requires preserved.",
+      "Live claim and all five job paths/governing docs/audit/key-owner files checked before publication."
+    ],
+    "scriptSha256": {
+      "recover.py": "dbef5d0bcb12c4bcf0cc224c75f7fefdf5b0284a1c7587353b32a31e5f00610f",
+      "verify.py": "51aa6265257b77a973a3ba8e8b936557f63d6857c6970c26d49b609e7aed37c9",
+      "immutable_view.py": "aaf9b08ff01ac1c2c3185758716f2ef65ed9980462410050bd132e296bedc037"
+    }
   }
 }

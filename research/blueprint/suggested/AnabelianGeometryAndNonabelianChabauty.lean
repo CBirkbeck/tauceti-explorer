@@ -1,3 +1,5 @@
+import Mathlib.CategoryTheory.Limits.Types.Filtered
+import Mathlib.CategoryTheory.Category.Preorder
 import Mathlib.GroupTheory.GroupAction.OfQuotient
 import Mathlib.Topology.Algebra.ClopenNhdofOne
 import Mathlib.Tactic.Group
@@ -1587,3 +1589,279 @@ example (x : U) :
 end NeutralEquivalence
 end TauCeti.NonabelianCohomology
 /- END NATIVE QUOTIENT FIXED CONTINUITY AND NEUTRAL EQUIVALENCE -/
+
+/-! Native reverse-inclusion transitions and the compact/discrete inflation colimit.
+Functor/cocone data remain transparent; all new proof obligations are admitted. -/
+namespace TauCeti.NonabelianCohomology
+section Transitions
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {M N P : Subgroup G} [M.Normal] [N.Normal] [P.Normal]
+
+/-- Reverse-inclusion transition: descend the same inflated cocycle to the smaller subgroup. -/
+def Z1.transition (h : M ≤ N) (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1 (G ⧸ M) (FixedPoints.subgroup M U) := by sorry
+
+lemma Z1.transition_apply (h : M ≤ N)
+    (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (g : G) :
+    (Z1.transition h d (QuotientGroup.mk g)).val = (d (QuotientGroup.mk g)).val := by sorry
+
+lemma Z1.inflate_transition (h : M ≤ N)
+    (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.inflate M (Z1.transition h d) = Z1.inflate N d := by sorry
+
+lemma Z1.transition_refl (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.transition (le_refl N) d = d := by sorry
+
+lemma Z1.transition_trans (h : M ≤ N) (k : P ≤ M)
+    (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.transition k (Z1.transition h d) = Z1.transition (k.trans h) d := by sorry
+
+lemma Z1.transition_one (h : M ≤ N) :
+    Z1.transition h (1 : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+lemma Z1.transition_injective (h : M ≤ N) :
+    Function.Injective (Z1.transition (U := U) h) := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [ContinuousSMul (G ⧸ M) (FixedPoints.subgroup M U)]
+  [ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U)]
+  [ContinuousSMul (G ⧸ P) (FixedPoints.subgroup P U)]
+
+/-- Transitions on the actual native gauge-orbit pointed sets. -/
+def H1.transition (h : M ≤ N) :
+    H1 (G ⧸ N) (FixedPoints.subgroup N U) → H1 (G ⧸ M) (FixedPoints.subgroup M U) := by sorry
+
+lemma H1.transition_mk (h : M ≤ N) (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    H1.transition h (H1.mk d) = H1.mk (Z1.transition h d) := by sorry
+
+lemma H1.inflate_transition (h : M ≤ N) (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    H1.inflate M (H1.transition h a) = H1.inflate N a := by sorry
+
+lemma H1.transition_refl (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    H1.transition (le_refl N) a = a := by sorry
+
+lemma H1.transition_trans (h : M ≤ N) (k : P ≤ M)
+    (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    H1.transition k (H1.transition h a) = H1.transition (k.trans h) a := by sorry
+
+lemma H1.transition_one (h : M ≤ N) :
+    H1.transition h (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+lemma H1.transition_injective (h : M ≤ N) :
+    Function.Injective (H1.transition (U := U) h) := by sorry
+
+end Transitions
+end TauCeti.NonabelianCohomology
+
+
+namespace TauCeti.NonabelianCohomology
+open CategoryTheory CategoryTheory.Limits
+section QuotientDiagram
+variable (G : Type u) [Group G] [TopologicalSpace G] [SeparatelyContinuousMul G]
+  (U : Type v) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+attribute [local instance] quotientFixedContinuousSMul
+
+/-- Actual quotient cohomology, indexed by reverse inclusion of open normal subgroups. -/
+def H1.quotientDiagram (G : Type u) [Group G] [TopologicalSpace G] [SeparatelyContinuousMul G]
+    (U : Type v) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+    [MulDistribMulAction G U] [ContinuousSMul G U] : OrderDual (OpenNormalSubgroup G) ⥤ Type (max u v) where
+  obj N := H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U)
+  map {M N} f := ↾(H1.transition (M := (OrderDual.ofDual N).toSubgroup) (N := (OrderDual.ofDual M).toSubgroup) (show _ ≤ _ from leOfHom f))
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- The native inflation maps form a cocone of pointed sets in the category of types. -/
+def H1.inflationCocone : Cocone (H1.quotientDiagram G U) where
+  pt := H1 G U
+  ι := {
+    app N := ↾(H1.inflate (OrderDual.ofDual N).toSubgroup)
+    naturality := by sorry }
+
+lemma H1.quotientDiagram_map_apply {M N : OrderDual (OpenNormalSubgroup G)}
+    (f : M ⟶ N) (a : (H1.quotientDiagram G U).obj M) :
+    (H1.quotientDiagram G U).map f a = H1.transition (M := (OrderDual.ofDual N).toSubgroup) (N := (OrderDual.ofDual M).toSubgroup) (show _ ≤ _ from leOfHom f) a := by sorry
+
+lemma H1.inflationCocone_app (N : OrderDual (OpenNormalSubgroup G))
+    (a : (H1.quotientDiagram G U).obj N) :
+    (H1.inflationCocone G U).ι.app N a = H1.inflate (OrderDual.ofDual N).toSubgroup a := by sorry
+
+lemma H1.quotientDiagram_obj (N : OrderDual (OpenNormalSubgroup G)) :
+    (H1.quotientDiagram G U).obj N =
+      H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U) := by sorry
+
+lemma H1.quotientDiagram_map_id (N : OrderDual (OpenNormalSubgroup G))
+    (a : (H1.quotientDiagram G U).obj N) :
+    (H1.quotientDiagram G U).map (𝟙 N) a = a := by sorry
+
+lemma H1.inflationCocone_pt : (H1.inflationCocone G U).pt = H1 G U := by sorry
+
+lemma H1.inflationCocone_naturality {M N : OrderDual (OpenNormalSubgroup G)}
+    (f : M ⟶ N) (a : (H1.quotientDiagram G U).obj M) :
+    (H1.inflationCocone G U).ι.app N ((H1.quotientDiagram G U).map f a) =
+      (H1.inflationCocone G U).ι.app M a := by sorry
+
+end QuotientDiagram
+
+section CompactDiscreteColimit
+variable (G : Type u) [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G]
+  (U : Type v) [Group U] [TopologicalSpace U] [DiscreteTopology U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+attribute [local instance] quotientFixedContinuousSMul
+
+/-- Every class is inflated from a genuinely descended cocycle on an open normal quotient. -/
+theorem H1.exists_quotient_class (a : H1 G U) :
+    ∃ (N : OpenNormalSubgroup G) (b : H1 (G ⧸ N.toSubgroup) (FixedPoints.subgroup N.toSubgroup U)),
+      H1.inflate N.toSubgroup b = a := by sorry
+
+/-- Inflation realizes the native filtered colimit, with equality detected on intersections. -/
+noncomputable def H1.inflationCoconeIsColimit : IsColimit (H1.inflationCocone G U) := by sorry
+
+omit [IsTopologicalGroup G] [CompactSpace G] in
+/-- The indexing category is filtered: intersections refine any two subgroups. -/
+theorem H1.quotientIndex_isFiltered : IsFiltered (OrderDual (OpenNormalSubgroup G)) := by sorry
+
+/-- The chosen native colimit is identified with H¹ by inflation. -/
+noncomputable def H1.finiteQuotientColimitEquiv :
+    colimit (H1.quotientDiagram G U) ≃ H1 G U := by sorry
+
+lemma H1.finiteQuotientColimitEquiv_ι (N : OrderDual (OpenNormalSubgroup G))
+    (a : (H1.quotientDiagram G U).obj N) :
+    H1.finiteQuotientColimitEquiv G U (colimit.ι (H1.quotientDiagram G U) N a) =
+      H1.inflate (OrderDual.ofDual N).toSubgroup a := by sorry
+
+lemma H1.finiteQuotientColimitEquiv_symm_inflate (N : OrderDual (OpenNormalSubgroup G))
+    (a : (H1.quotientDiagram G U).obj N) :
+    (H1.finiteQuotientColimitEquiv G U).symm (H1.inflate (OrderDual.ofDual N).toSubgroup a) =
+      colimit.ι (H1.quotientDiagram G U) N a := by sorry
+
+lemma H1.finiteQuotientColimitEquiv_one (N : OrderDual (OpenNormalSubgroup G)) :
+    H1.finiteQuotientColimitEquiv G U (colimit.ι (H1.quotientDiagram G U) N (1 : H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U))) = 1 := by sorry
+
+end CompactDiscreteColimit
+end TauCeti.NonabelianCohomology
+
+
+
+namespace TauCeti.NonabelianCohomology
+open CategoryTheory CategoryTheory.Limits
+section TransitionTests
+variable {G : Type u} [Group G] [TopologicalSpace G]
+  {U : Type v} [Group U] [TopologicalSpace U] [MulDistribMulAction G U]
+  {M N : Subgroup G} [M.Normal] [N.Normal]
+
+-- test: TauCeti.NonabelianCohomology.Z1.transition.test_one
+example (h : M ≤ N) : Z1.transition h (1 : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.transition.test_value
+example (h : M ≤ N) (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) (g : G) :
+    (Z1.transition h d (QuotientGroup.mk g)).val = (d (QuotientGroup.mk g)).val := by sorry
+
+-- test: TauCeti.NonabelianCohomology.Z1.transition.test_identity
+example (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U)) :
+    Z1.transition (le_refl N) d = d := by sorry
+
+variable [IsTopologicalGroup U] [ContinuousSMul G U]
+  [ContinuousSMul (G ⧸ M) (FixedPoints.subgroup M U)]
+  [ContinuousSMul (G ⧸ N) (FixedPoints.subgroup N U)]
+-- test: TauCeti.NonabelianCohomology.H1.transition.test_one
+example (h : M ≤ N) : H1.transition h (1 : H1 (G ⧸ N) (FixedPoints.subgroup N U)) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.transition.test_gauge
+example (h : M ≤ N) (d : Z1 (G ⧸ N) (FixedPoints.subgroup N U))
+    (x : FixedPoints.subgroup N U) :
+    H1.transition h (H1.mk (x • d)) = H1.mk (Z1.transition h d) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.transition.test_nonneutral
+example (h : M ≤ N) (a : H1 (G ⧸ N) (FixedPoints.subgroup N U)) (ha : a ≠ 1) :
+    H1.transition h a ≠ 1 := by sorry
+
+end TransitionTests
+
+section DiagramTests
+variable (G : Type u) [Group G] [TopologicalSpace G] [SeparatelyContinuousMul G]
+  (U : Type v) [Group U] [TopologicalSpace U] [IsTopologicalGroup U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+attribute [local instance] quotientFixedContinuousSMul
+-- test: TauCeti.NonabelianCohomology.H1.quotientDiagram.test_identity
+example (N : OrderDual (OpenNormalSubgroup G)) (a : (H1.quotientDiagram G U).obj N) :
+    (H1.quotientDiagram G U).map (𝟙 N) a = a := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.quotientDiagram.test_composition
+example {M N P : OrderDual (OpenNormalSubgroup G)} (f : M ⟶ N) (g : N ⟶ P)
+    (a : (H1.quotientDiagram G U).obj M) :
+    (H1.quotientDiagram G U).map (f ≫ g) a =
+      (H1.quotientDiagram G U).map g ((H1.quotientDiagram G U).map f a) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.quotientDiagram.test_coefficients
+example (N : OrderDual (OpenNormalSubgroup G)) :
+    (H1.quotientDiagram G U).obj N =
+      H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.inflationCocone.test_representative
+example (N : OrderDual (OpenNormalSubgroup G))
+    (d : Z1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U)) :
+    (H1.inflationCocone G U).ι.app N (H1.mk d) = H1.mk (Z1.inflate (OrderDual.ofDual N).toSubgroup d) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.inflationCocone.test_one
+example (N : OrderDual (OpenNormalSubgroup G)) :
+    (H1.inflationCocone G U).ι.app N
+      (1 : H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U)) = (1 : H1 G U) := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.inflationCocone.test_commutes
+example {M N : OrderDual (OpenNormalSubgroup G)} (f : M ⟶ N)
+    (a : (H1.quotientDiagram G U).obj M) :
+    (H1.inflationCocone G U).ι.app N ((H1.quotientDiagram G U).map f a) =
+      (H1.inflationCocone G U).ι.app M a := by sorry
+
+end DiagramTests
+
+section ColimitTests
+variable (G : Type u) [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G]
+  (U : Type v) [Group U] [TopologicalSpace U] [DiscreteTopology U]
+  [MulDistribMulAction G U] [ContinuousSMul G U]
+attribute [local instance] quotientFixedContinuousSMul
+-- test: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_target_round_trip
+example (a : H1 G U) :
+    H1.finiteQuotientColimitEquiv G U ((H1.finiteQuotientColimitEquiv G U).symm a) = a := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_one
+example (N : OrderDual (OpenNormalSubgroup G)) :
+    H1.finiteQuotientColimitEquiv G U (colimit.ι (H1.quotientDiagram G U) N
+      (1 : H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U))) = 1 := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_inflated_inverse
+example (N : OrderDual (OpenNormalSubgroup G)) (a : (H1.quotientDiagram G U).obj N) :
+    (H1.finiteQuotientColimitEquiv G U).symm (H1.inflate (OrderDual.ofDual N).toSubgroup a) =
+      colimit.ι (H1.quotientDiagram G U) N a := by sorry
+
+-- test: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_nonneutral
+example (N : OrderDual (OpenNormalSubgroup G))
+    (a : H1 (G ⧸ (OrderDual.ofDual N).toSubgroup) (FixedPoints.subgroup (OrderDual.ofDual N).toSubgroup U))
+    (ha : a ≠ 1) :
+    H1.finiteQuotientColimitEquiv G U (colimit.ι (H1.quotientDiagram G U) N a) ≠ 1 := by sorry
+
+end ColimitTests
+-- test: TauCeti.NonabelianCohomology.H1.finiteQuotientColimitEquiv.test_transposition
+example :
+    let G := Equiv.Perm (Fin 2)
+    let U := Equiv.Perm (Fin 3)
+    letI : TopologicalSpace G := ⊥
+    letI : TopologicalSpace U := ⊥
+    letI : DiscreteTopology G := ⟨rfl⟩
+    letI : DiscreteTopology U := ⟨rfl⟩
+    letI : IsTopologicalGroup U := inferInstance
+    letI : MulDistribMulAction G U := {
+      smul := fun _ x => x
+      one_smul := fun _ => rfl
+      mul_smul := fun _ _ _ => rfl
+      smul_one := fun _ => rfl
+      smul_mul := fun _ _ _ => rfl }
+    letI : ContinuousSMul G U := ⟨continuous_snd⟩
+    let c : Z1 G U := ⟨fun g => if g = 1 then 1 else Equiv.swap 0 1,
+      continuous_of_discreteTopology, by decide⟩
+    (H1.finiteQuotientColimitEquiv G U).symm (H1.mk c) ≠
+      (H1.finiteQuotientColimitEquiv G U).symm 1 := by sorry
+
+end TauCeti.NonabelianCohomology
