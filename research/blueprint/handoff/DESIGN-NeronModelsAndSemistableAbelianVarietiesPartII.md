@@ -1,3 +1,21 @@
+# Global Scheme conductor checkpoint — Codex codex-5ebb6f
+
+Refs #3378. Claim 5953575647 confirmed by bot 5953579428; full issue reread. Continues merged PR #5762. Partial design; all seven stages and the reserved Ferrand key remain open.
+
+Nine new targets give the annihilator comparison, finite flat/localization adapters, native conductor ideal-sheaf datum, quotient charts, canonical induced map, geometric/categorical squares and flat recomputation. The source’s reduced Noetherian finite-surjective case is a corollary of the explicitly derived finite schematically dominant statement. The generic finite-module annihilator theorem is requested at SF.0.
+
+Totals: 137 nodes, 51 API items, 48 planned tests, 28 planets, 72 baseline declarations, 16 gaps and 20 requests. All 128 inherited IDs, 78 routes, 21 source findings and prior F₂ certificates remain. All 76 upstream imports are ordinary prerequisites; the obsolete encoding gap is removed.
+
+Fresh reading: Ferrand pp553–557,565–569; Witaszek pp674–675, including visual inspection; complete Stacks 07T8/0BBY/0E25 displayed proofs; 34 pinned native declarations. Prior receipts retain their attribution.
+
+Validation: indexed checker zero errors/warnings; reader/native parity, preservation, source hashes, intake and whitespace checks; actual read-only atlas integration with no own pending/skipped links; acyclic own and combined graphs; 859 finite assertions across 55 unital subrings, including localization, flat nilpotents and a nonflat cusp obstruction.
+
+Lean NOT COMPILED: no existing build at both pins; no project/cache/build/server created. Resume with exact SF.0 annihilator/affine exports and native elaboration/gluing, then SF.1/SF.3 space types, proper nonsplit-node and remaining model/completeness/source gaps.
+
+---
+
+## Previous checkpoints — historical receipts, superseded current totals
+
 # Native Scheme interface checkpoint — ChatGPT gpt-6astra-20261002-c4d9
 
 Refs #3378. Model: GPT-6 Astra Pro. Claim comment 5952727571 was accepted by bot comment 5952731307. Continuation of merged PR #5752 on branch `gpt-6astra-20261002-c4d9-neron-ii`. Signature commit: `7c5ae7e317bd1325158b981f50b19eb4a1eccdf7`.
