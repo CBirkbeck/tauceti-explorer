@@ -21,7 +21,7 @@
   "judgeScale": 1.0,
   "tau": 1.5,
   "weights": {
-   "lnMissingTargets": 0.9465,
+   "lnMissingTargets": 0.9466,
    "depth": 0.04
   },
   "targetsPerUnauditedLayer": 4.06,
@@ -305,7 +305,7 @@
    "judgements": 11,
    "distance": 4.6,
    "low": 4.07,
-   "high": 5.13,
+   "high": 5.12,
    "basis": "judged",
    "usedBy": [
     {
@@ -346,7 +346,7 @@
    "judgements": 11,
    "distance": 4.1,
    "low": 3.56,
-   "high": 4.64,
+   "high": 4.63,
    "basis": "judged",
    "usedBy": [
     {
@@ -473,7 +473,7 @@
    "judgements": 7,
    "distance": 6.26,
    "low": 5.52,
-   "high": 7.01,
+   "high": 7.0,
    "basis": "judged",
    "usedBy": []
   },
@@ -532,7 +532,7 @@
     "depth": 45,
     "suppliers": 42
    },
-   "measurement": 6.27,
+   "measurement": 6.26,
    "judgements": 7,
    "distance": 6.09,
    "low": 5.49,
@@ -559,7 +559,7 @@
    "judgements": 11,
    "distance": 4.92,
    "low": 4.31,
-   "high": 5.53,
+   "high": 5.52,
    "basis": "judged",
    "usedBy": [
     {
@@ -973,7 +973,7 @@
    "measurement": 7.39,
    "judgements": 11,
    "distance": 7.67,
-   "low": 7.03,
+   "low": 7.02,
    "high": 8.31,
    "basis": "judged",
    "usedBy": []
@@ -1027,7 +1027,7 @@
     "depth": 95,
     "suppliers": 110
    },
-   "measurement": 8.74,
+   "measurement": 8.73,
    "judgements": 11,
    "distance": 9.19,
    "low": 8.37,
@@ -1344,7 +1344,7 @@
    },
    "measurement": 7.39,
    "judgements": 7,
-   "distance": 8.01,
+   "distance": 8.0,
    "low": 7.33,
    "high": 8.68,
    "basis": "judged",
@@ -1771,7 +1771,7 @@
    "judgements": 11,
    "distance": 4.62,
    "low": 4.06,
-   "high": 5.18,
+   "high": 5.17,
    "basis": "judged",
    "usedBy": [
     {
@@ -1808,11 +1808,11 @@
      "sourcePages": 38
     }
    },
-   "measurement": 2.75,
+   "measurement": 2.74,
    "judgements": 11,
    "distance": 2.67,
    "low": 2.02,
-   "high": 3.33,
+   "high": 3.32,
    "basis": "judged",
    "usedBy": [
     {
@@ -2014,7 +2014,7 @@
    "judgements": 10,
    "distance": 7.73,
    "low": 7.1,
-   "high": 8.36,
+   "high": 8.35,
    "basis": "judged",
    "usedBy": [
     {
@@ -2418,7 +2418,7 @@
     "depth": 51,
     "suppliers": 70
    },
-   "measurement": 7.03,
+   "measurement": 7.02,
    "judgements": 10,
    "distance": 7.48,
    "low": 6.84,
@@ -2449,7 +2449,7 @@
    "judgements": 7,
    "distance": 8.03,
    "low": 7.3,
-   "high": 8.76,
+   "high": 8.75,
    "basis": "judged",
    "usedBy": [
     {
@@ -2518,7 +2518,7 @@
    "measurement": 8.98,
    "judgements": 11,
    "distance": 9.04,
-   "low": 8.39,
+   "low": 8.4,
    "high": 9.68,
    "basis": "judged",
    "usedBy": []
@@ -2621,7 +2621,7 @@
     "depth": 52,
     "suppliers": 56
    },
-   "measurement": 6.82,
+   "measurement": 6.81,
    "judgements": 11,
    "distance": 6.53,
    "low": 5.94,
@@ -2653,7 +2653,7 @@
    "judgements": 11,
    "distance": 9.17,
    "low": 8.41,
-   "high": 9.93,
+   "high": 9.92,
    "basis": "judged",
    "usedBy": []
   },
@@ -2681,7 +2681,7 @@
    "judgements": 7,
    "distance": 6.08,
    "low": 5.35,
-   "high": 6.82,
+   "high": 6.81,
    "basis": "judged",
    "usedBy": [
     {
@@ -2933,7 +2933,7 @@
    "measurement": 6.88,
    "judgements": 7,
    "distance": 7.67,
-   "low": 6.9,
+   "low": 6.89,
    "high": 8.45,
    "basis": "judged",
    "usedBy": [
@@ -2966,16 +2966,16 @@
    "structure": {
     "layers": 12,
     "missingOwn": 12.0,
-    "missingLayers": 319.0,
-    "missingTargets": 1549.8,
+    "missingLayers": 335.0,
+    "missingTargets": 1627.8,
     "depth": 51,
     "suppliers": 70
    },
-   "measurement": 6.93,
+   "measurement": 6.96,
    "judgements": 7,
-   "distance": 7.34,
-   "low": 6.41,
-   "high": 8.28,
+   "distance": 7.37,
+   "low": 6.44,
+   "high": 8.3,
    "basis": "judged",
    "usedBy": [
     {
@@ -3231,7 +3231,7 @@
    },
    "measurement": 5.17,
    "judgements": 10,
-   "distance": 4.47,
+   "distance": 4.46,
    "low": 3.87,
    "high": 5.06,
    "basis": "judged",
@@ -3649,7 +3649,7 @@
     "depth": 41,
     "suppliers": 28
    },
-   "measurement": 6.02,
+   "measurement": 6.01,
    "judgements": 7,
    "distance": 6.48,
    "low": 5.66,
@@ -3816,7 +3816,7 @@
    "judgements": 10,
    "distance": 5.88,
    "low": 5.28,
-   "high": 6.48,
+   "high": 6.47,
    "basis": "judged",
    "usedBy": [
     {
@@ -3847,7 +3847,7 @@
    },
    "measurement": 7.45,
    "judgements": 11,
-   "distance": 8.03,
+   "distance": 8.02,
    "low": 7.41,
    "high": 8.64,
    "basis": "judged",
@@ -3872,7 +3872,7 @@
     "depth": 55,
     "suppliers": 98
    },
-   "measurement": 7.46,
+   "measurement": 7.45,
    "judgements": 10,
    "distance": 8.2,
    "low": 7.52,
@@ -4034,7 +4034,7 @@
    "judgements": 7,
    "distance": 7.06,
    "low": 6.43,
-   "high": 7.7,
+   "high": 7.69,
    "basis": "judged",
    "usedBy": [
     {
@@ -4192,7 +4192,7 @@
    "judgements": 10,
    "distance": 8.41,
    "low": 7.74,
-   "high": 9.08,
+   "high": 9.07,
    "basis": "judged",
    "usedBy": []
   },
@@ -4631,7 +4631,7 @@
    "measurement": 6.05,
    "judgements": 10,
    "distance": 5.61,
-   "low": 5.04,
+   "low": 5.03,
    "high": 6.18,
    "basis": "judged",
    "usedBy": [
@@ -4695,7 +4695,7 @@
    "measurement": 8.08,
    "judgements": 11,
    "distance": 8.49,
-   "low": 7.82,
+   "low": 7.81,
    "high": 9.16,
    "basis": "judged",
    "usedBy": [
@@ -4952,7 +4952,7 @@
      "sourcePages": 8
     }
    },
-   "measurement": 5.57,
+   "measurement": 5.56,
    "judgements": 8,
    "distance": 5.66,
    "low": 5.09,
@@ -5908,7 +5908,7 @@
    },
    "measurement": 2.98,
    "judgements": 10,
-   "distance": 4.0,
+   "distance": 3.99,
    "low": 3.4,
    "high": 4.59,
    "basis": "judged",

@@ -2,7 +2,7 @@
  "version": 1,
  "purpose": "Directions of the subject galaxies from Mathlib, computed from shared missing theory by scripts/measure_distances.py (scripts/radial_layout.py); do not edit by hand.",
  "method": "Relatedness: 60% the rank of the cosine similarity of the prerequisite layers two galaxies rest on (each layer weighted by its rarity across galaxies, layers still to be built counting double), 40% the rank of the cosine similarity of their references' subject classes. The areas of one field rank above any pair from different fields, so a field's areas lie side by side. Directions minimise the weighted misfit to target angles that run from zero for the most related pair to a half turn for the least, with overlapping galaxies penalised; the result is turned so the roadmaps' mean direction points right, with algebraic geometry above that axis and number theory below it.",
- "stress": 122.205,
+ "stress": 122.2043,
  "galaxies": {
   "algebraicgeometry": {
    "direction": -36.3,
@@ -509,7 +509,7 @@
    ]
   },
   "probability": {
-   "direction": 171.1,
+   "direction": 171.2,
    "neighbours": [
     {
      "galaxy": "combinatorics",
