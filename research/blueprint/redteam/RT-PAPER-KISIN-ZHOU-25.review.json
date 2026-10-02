@@ -1,0 +1,455 @@
+{
+  "redteam": "RT-PAPER-KISIN-ZHOU-25",
+  "findings": [
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against v2 pp.7–10, the BG0/BG1 stage texts, HE18/C2,C6,C7 and its current route 6, van Hoften/A08,A09,G05, GLX/D04 and LLHLM20/def-2-3-9. The W-side Newton displacement, straightness and straight-class theorem have the shared root continuation as owner; Adm and its parahoric image belong with RG2.4. Import those results and retain the arithmetic He14 comparison with B(G) in BG1. HE18 explicitly distinguishes its combinatorial theorem from this comparison. A candidate continuation is ownership evidence, not an implemented or accepted stage: do not turn these missing items into planned items at nonexistent stages."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/2",
+      "verdict": "confirmed",
+      "reason": "Theorem 4.4.4 on v2 p.43 proves normality in (1) and openness/density in (2), at neat level for the standing strongly acceptable datum. S34 and the route-8 brief instead assume normality. Definition 4.2.2 and Remark 2.2.5 supply quasi-splitness and ordinary existence in this setting. Add the normality theorem and its very-special admissible-set integrality input; derive existence and density. The computed graph has no consumer of S34, although the p.54 base case requires a dense ordinary preimage: connect this theorem to the curve/base-case contract of E11."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/3",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.3.2(2)(ii), v2 p.25, puts the cocharacter filtration on D tensor K for the specified finite extension, not over W(k). D13's statement and acceptance repeat the wrong base. State the filtration over K and the induced saturated O_K filtration reducing to the special Hodge filtration; retain the finite extension and reflex-field maps. Neither an unramified field of definition nor a W(k)-defined cocharacter follows from acceptability."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/4",
+      "verdict": "confirmed",
+      "reason": "The proof of Theorem 6.2.7, p.59, explicitly disposes of the torus case by Shimura–Taniyama; the 210-item extraction supplies only the non-torus enlargement path. A11 also stops at a generic Shimura point although A12 applies E15 to its integral reduction. Add separate CM Frobenius and good-reduction/tower-specialization contracts, using the CM owner and the Néron–Ogg–Shafarevich supplier in their precise domains. Carry the unchanged residue field and actual geometric Frobenius through these comparisons. S24's extension property alone does not identify the specialized tower with the abelian Tate module."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/5",
+      "verdict": "confirmed",
+      "reason": "Case (1), p.51, takes a uniformizer u of K in Res_(K/F_q((t)))SL2 and uses u_-(u^-1 x). C05 and its x=1 test use t^-1. I recomputed the SL2 factorization; when v_K(t)=e>1 the latter has translation e times the rank-one coroot, rather than the next step. Replace t by u in the statement, API and tests and retain restriction of scalars. The factorization is on x≠0; the curve at zero is defined by the original unipotent formula."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/6",
+      "verdict": "confirmed",
+      "reason": "The 210-item DAG is acyclic, but owner projection has BG→RG edges N03→N22 and N13→N24 and RG→BG edge N24→N25 (also N05→N08). BG0/BG1 already import RG local structure. Split the algebraic fundamental-group/inertia lattice and integral Kottwitz-kernel contracts below the parahoric consumers from the B(G) classification and full-Galois coinvariants in BG1. Move the pure W-side imports as in /1. Preserve the accepted BG ownership of B(G) invariants and record any required change to a Tau Ceti roadmap as an upstream note; merely adding both owners preserves the cycle."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/7",
+      "verdict": "confirmed",
+      "reason": "Route projection gives E02→E03→E09 with group→Shimura→group owners, and A05→A10→A12→A13 alternating between the same two routes. The generic quotient/finiteness and diagonal/central-product injectivity lemmas do not require the later Frobenius application. Extract those group-theoretic contracts first; keep Tate-module algebraicity, Mumford–Tate applications and the post-main-theorem elliptic/rational-representative refinements after the Shimura theorem. Give each remaining group input a source-qualified theorem and remove the backward application prerequisite."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/8",
+      "verdict": "confirmed",
+      "reason": "At pp.10–12 the proofs of Lemma 2.2.6 and Proposition 2.3.3 explicitly invoke the He, He–Nie, He–Rapoport and He–Zhou results identified in the finding. No items state those six input contracts; G-local and the bundled prerequisites row only defer them. Add one cited-result item per theorem, preserving its actual group, straightness and parahoric hypotheses, with a single owner and consumer edge. This confirms an extraction omission; it does not certify the original proofs or remove the stated acquisition/read gates."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/9",
+      "verdict": "confirmed",
+      "reason": "Section 2.3.1, pp.11–12, defines associated parahorics from an adjoint identification. N23 adds a homomorphism of the original groups, unavailable for the auxiliary datum of Proposition 4.2.3. Remove that extra condition from the definition and record the induced apartment/facet correspondence from the chosen adjoint isomorphism. A group homomorphism extending to models is a separate hypothesis when a later functoriality theorem actually needs one."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/10",
+      "verdict": "confirmed",
+      "reason": "Sections 2.2.1 and 2.2.2 distinguish Kottwitz injectivity on B(G) from He's map from W sigma-classes and its bijection on straight classes. N15 combines them under one missing status. BG1 already plans the former; HE18/C7 supplies the separate combinatorial straight-class input, with its current route expressly excluding the arithmetic comparison. Split the item and wire the He14 comparison to both inputs. Do not identify HN14's W theorem with He14 Theorem 3.7."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/11",
+      "verdict": "confirmed",
+      "reason": "N03 requires the integral surjection to pi_1(G)_I, whereas BG1's printed contract concerns Galois coinvariants and B(G). N22 includes the Haines–Rapoport identity for a nonempty bounded subset lying in an apartment, stronger than RG2.3's facet-parahoric construction. The p.6 and p.11–12 source contracts are real missing extensions. State them explicitly, separating inertia from full Galois coinvariants and bounded-set fixers from connected facet models, with the earlier ownership boundary required by /6; stage names alone do not supply them."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/12",
+      "verdict": "confirmed",
+      "reason": "The pp.6–9 setup invokes Steinberg, Tits's rational split torus/apartment choices, the extended building and Lang lifting; these contracts have no extraction items. R14 only supplies the finite-field Lang theorem, not its integral/congruence application or the other choices. Add atomic cited inputs and local adapters before their consumers. Correct the finding's overbroad H^1 wording: use the relevant connected reductive/linear group over the specified field, not every connected group. Quasi-splitness and vanishing of torsors must carry their field hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/13",
+      "verdict": "confirmed",
+      "reason": "The references and proofs on pp.13–18 contain the listed Néron/Weil-restriction, tame R-smoothness, Bruhat–Tits chart and integral-embedding inputs, which are not individual items. G-neron is a deferred bundle. Add exact cited contracts and import existing torus/local-model owners, separating torus lft Néron theory from the abelian Néron existence stage R11.1. Preserve tame, separability and p>2 assumptions where used. In particular retain the actual Prasad citation Pra01; a later work with a similar topic is not the source cited here."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/14",
+      "verdict": "confirmed",
+      "reason": "I checked the listed prerequisites and consumers against pp.13–18 and the p.44–46 lifting proof. R06 has no consumer although R09/R10 need the finite-type closed-immersion refinement; their R05 input only covers the lft statement. N21 has no consumer, and the ordinary-transfer/lift proof uses N20/N21; N20 uses N19. R12/R13 need the lft immersion result. Add these edges, remove the unused proof-level R09 dependence from the N01 carrier, and keep statements distinct from the results used only to prove them."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/15",
+      "verdict": "confirmed",
+      "reason": "Section 3.4.2, p.26, explicitly assumes the full fixer G-tilde equals the parahoric G before deducing the analogous equality for M. D15/D16 omit this standing hypothesis. For a ramified norm-one torus the sign cocharacter lattice has inertia coinvariants Z/2, so the full fixer need not equal its connected parahoric. Include the G-tilde=G hypothesis and the normalized ordinary b=σ(t_mu') data; then state the coroot-kernel argument that transfers connectedness to M. The torus example refutes the omitted-hypothesis version, not the paper's conditioned theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/16",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.2.7, p.24, asserts existence of a chosen versal p-divisible family over the reflex-base-changed formal ring, constructed from a tensor-preserving section constant modulo the specified ideal. D10 instead describes an unspecified family over A. State the existential choice, its coefficient maps and section condition; make D09 supply that section. The factor-through-A_G criterion applies to this chosen family and a continuous integral specialization to O_K, not every versal family or a map to K with no integral base."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/17",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.1.12, p.21, proves existence of a good symplectic Hodge embedding under its standing hypotheses; M09 records only the trace-form construction in its proof. Add the local symplectic/good-embedding definitions and the full existence theorem, importing M09 as a proof input. Preserve odd p, acceptability, the prime-to-p fundamental-group condition and R-smoothness. S03 needs this theorem's conclusion, so a construction of an alternating form cannot replace it."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/18",
+      "verdict": "confirmed",
+      "reason": "Lemma 3.1.10, p.20, targets the local model of the Weil-restricted triple, followed by reflex-field base change. M08 calls it the restriction of scalars of a base-changed local model; these are different constructions and their flatness need not agree. Replace the target by the explicit triple and both reflex bases, retain every hypothesis of Proposition 3.1.9, and wire the diagram through M07. The proof uses the intermediate model embeddings, not a general assertion that restriction of scalars preserves this flat local-model closure."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/19",
+      "verdict": "confirmed",
+      "reason": "The definition in the paragraph after Remark 3.1.3, p.18, requires a minuscule representation as well as scalars and the two-weight cocharacter condition. M03 drops the representation condition. A non-minuscule representation on a factor on which mu is trivial preserves the two mu-weights, so the omission changes the definition. Restore minuscule constituents in the KPZ sense and specify this precise unnumbered locator. Do not confuse a minuscule representation with a minuscule cocharacter or infer the former from two weights alone."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/20",
+      "verdict": "confirmed",
+      "reason": "Sections 3.1.4 and 3.2.1 impose p>2, and Proposition 3.1.14 repeats it. The listed M/D statements do not carry those standing assumptions into their extracted interfaces. Add them and the G-action in M04's local-model identification, with the precise field/ring hypotheses of each result. This is about these odd-prime deformation and local-model results; it is not a reason to restrict the general definition of J_b or unrelated existing carriers to odd primes."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/21",
+      "verdict": "confirmed",
+      "reason": "D01 depends on P08, which depends on the global Hodge/Shimura datum and tower. Section 3.2.2, p.22, instead starts with arbitrary local Frobenius-invariant tensors in Fil^0. The graph therefore sends global application data into every local tensor-deformation object. Remove P08 from the local definition, state the local tensor hypotheses directly, and add a later specialization from global absolute-Hodge tensors. This restores the local owner as a supplier of the Shimura application."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/22",
+      "verdict": "confirmed",
+      "reason": "The construction on p.24 uses display-to-BT equivalence, KP18 Lemma 3.1.5 and Lemma 3.1.12, absent as cited-result items. A–LB23/144,146,147 also plan display/window carriers and their prismatic construction, so route 7's instruction to define displays independently duplicates their general language. Consolidate a general frame/window carrier once, with Witt and Zink hat-W instances and explicit site/base comparisons; retain each classification and prismatic adapter in its proper scope. Add the three missing input contracts to D09/D10. Perfect residue field, complete local base and the equivalence's prime conditions must be explicit."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/23",
+      "verdict": "confirmed",
+      "reason": "The p.24,25,27 proofs cite Anschütz Proposition 10.3, but there is no cited-result item or edge into D06/D11/D18. I acquired arXiv 1804.06356v2: Proposition 10.3 on p.33 extends torsors for a parahoric over O_E from the punctured spectrum of O_E[[z]]; Theorem 9.10 is the separate A_inf-type extension. Add these exact contracts and the required base/group adapters. Do not label Proposition 10.3 itself as an unrestricted A_inf theorem or apply it to an arbitrary stabilizer scheme without checking the parahoric hypothesis."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/24",
+      "verdict": "confirmed",
+      "reason": "P03 is only the perfect-residue-field Dieudonné module. Definition 3.2.4 and the surrounding pp.22–23 setup need the crystal of the actual p-divisible group over O_K, evaluation on the hat-W PD thickening, Hodge filtration and the canonical comparison cited as KP18 Lemma 3.1.17. Add this construction and cited theorem separately, using the R07.2 crystalline/deformation supplier and R07.6 only for its additional applications. Preserve contravariance, the PD coefficient map and odd-prime hypotheses; a field module is not an integral crystal."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/25",
+      "verdict": "confirmed",
+      "reason": "The proof of Proposition 3.1.9, p.20, expressly uses KPZ Theorem 3.3.25 and the identification with Mloc in its proof of Theorem 3.2.15. M07 lists neither input and the extraction has no item for either. Add atomic cited contracts, with the actual point-change/direct-sum, group and prime hypotheses, and share them with the KPZ local-model extraction. The verification confirms the omission at this citation; acquisition and detailed closure of the original proof must remain explicit work, not disappear behind the label 'good embedding existence'."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/26",
+      "verdict": "confirmed",
+      "reason": "Proposition 3.1.14, p.21, invokes AGLR Theorem 7.23 to identify local-model geometric points with the admissible subset of the Witt affine flag quotient compatibly with the embedding. M05's special-fibre stratification does not state this map or comparison. Add the exact cited-result contract and Witt-geometry import, then connect M10 to it and M05. Keep algebraic equal-characteristic flags, Witt perfections and the integral scheme distinct; none is obtained by merely renaming another carrier."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/27",
+      "verdict": "confirmed",
+      "reason": "Section 3.4.1, pp.25–26, constructs b up to integral sigma-conjugacy and derives [σ^-1(b)] in B(G,{mu_y}) using the inverse-admissible-set identity and He16 Theorem 1.1. No extracted item supplies that derivation or the cited theorem before the ordinary normalization in D15. Add both, retaining the Frobenius convention and lattice calculation; make the admissible-double-coset hypothesis of N25/N26 explicit. He16's B(G) comparison must import the earlier pure admissible-set owner rather than recreate its definition."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/28",
+      "verdict": "confirmed",
+      "reason": "Section 3.2.2, p.22, cites Kisin10 Lemma 1.4.5 to produce the G-valued cocharacter from the tensor-compatible filtration. D02 and D05 presume that orbit without extracting the cited implication. Add its actual reductive/tensor-stabilizer and Fil^0 hypotheses as a cited input and wire it into the orbit and adaptedness definitions. This is a missing theorem, not a general claim that every filtration comes from the chosen subgroup."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/29",
+      "verdict": "confirmed",
+      "reason": "The p.23 setup asserts normality of the completed local-model ring and p.31 uses its irreducibility. M05 only states normality of components of the special fibre, explicitly excluding normality of the whole fibre. Extract total-space normality and its excellent-local-ring/completion consequence. A derivation via the flat DVR normal-generic/reduced-special criterion is possible in the stated Noetherian setting, but must actually state those hypotheses and excellence. Do not replace it by the false implication 'normal special-fibre components imply a normal fibre'."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/30",
+      "verdict": "confirmed",
+      "reason": "The p.19 and p.22 Grassmannian appears in the good-embedding and deformation definitions but has no item. At Mathlib 082e2d3, RingTheory/Grassmannian.lean:68 and :188 provide Module.Grassmannian and its functor, indexed by quotient rank n−d for the paper's rank-d submodules. Import these carriers. Correct the repair's current representability owner: accepted RS-27 assigns relative Grassmannian construction/universal property to ModularCurves 0G, with R09.1 importing it and adding smoothness/Plücker/flags. Add the GL/P identification and required consumer edges without replanning 0G."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/31",
+      "verdict": "confirmed",
+      "reason": "Section 3.4.4, p.27, adds tensors cutting out the integral Levi and asserts that (M,lambda)-adaptedness implies (G,mu_y)-adaptedness. D18/D19 do not give separate construction/comparison contracts or establish their hypotheses. Add both and the stronger adapted-lift output used in the proof. Qualification: integral tensor extension and acceptability/good-embedding compatibility must be proved for this Levi; the phrase 'clear' is not a proof for arbitrary subgroup models. Record an unresolved step as affecting the proof until closed, rather than certifying the finding's proposed 'affects nothing' classification in advance."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/32",
+      "verdict": "confirmed",
+      "reason": "The p.18 setup and p.29 application cite KPZ Remark 3.1.5 for automatic acceptability/local Hodge type of a Hodge-type Shimura datum at odd p. No item states it, and S03 incorrectly keeps acceptability as an additional hypothesis. Add the cited specialization contract with its actual assumptions, then derive this input before applying Proposition 3.1.12. Do not infer automatic acceptability for an arbitrary local cocharacter triple merely from the global Hodge-type case."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/33",
+      "verdict": "confirmed",
+      "reason": "The KMPS inputs cited in §§4.1.10,4.4.2,4.4.4 are absent as individual contracts. I read the author PDF: its Proposition 1.3.6 proves lift-independent tensors by parallel transport, Lemma 1.3.8 gives admissibility, and Corollary 1.3.15 gives density under locally integral special fibre; these correspond to the citation numbers 1.3.7,1.3.9,1.3.16 in KZ. Theorem 1.3.13 states the Newton-stratum consequences. Add these items, the F-isocrystal-with-G-structure input and the abelian-type transfer. Separate lift-independence from tensor extension over a singular special fibre, and record the version-number dictionary."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/34",
+      "verdict": "confirmed",
+      "reason": "The p.41 inference from torsion-free abelianized inertia coinvariants to torsion-free coinvariants of the compact central quotient is not valid: for the indicated odd-rank GU example the relation (n,−2) is primitive, giving Z, while the sign lattice gives Z/2. This tests the general inference, not the particular auxiliary theorem. I checked KPZ v1 Lemma 7.2.5's multiplier kernels. Repair through 1→Zc_G2→G3^ab→G^ab→1 and its cocharacter sequence. Correct Γ in the proposed homology argument to a finite quotient of inertia through which these lattices act; H1 is torsion and the induced kernel's coinvariants are free, so the connecting map vanishes. Add this proof and a v2-scoped sourceIssue."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/35",
+      "verdict": "confirmed",
+      "reason": "The p.38 proof of Corollary 4.3.4 cites 4.1.15(2), which is the diagram, rather than (1), the extension property. More substantially, that theorem requires very goodness, unavailable for G3 in Lemma 4.3.8. S28's S24 input is the wrong strongly acceptable model. Add a separate Hodge normalization-model extension contract proved by tower-level trivial prime-to-p Galois action, NOS, Siegel extension and normalization. Preserve the pro-level and DVR hypotheses: a finite-level point does not itself force trivial Tate-module inertia. Record both citation and proof-hypothesis gaps."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/36",
+      "verdict": "confirmed",
+      "reason": "Proposition 4.3.2, p.37, assumes an extending map of parahorics for its first conclusion; associated parahorics enter only the derived-isomorphism completion statement. S26 adds association to the first part, excluding the actual Siegel-map applications. Split the hypotheses as in the source: S26 keeps good embeddings and full-fixer equalities with an extending group map; S27 additionally requires a derived-group isomorphism, associated parahorics and neat levels. A central isogeny is not an isomorphism for that second conclusion."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/37",
+      "verdict": "confirmed",
+      "reason": "The extracted graph gives no consumers of S17, S40 or N21, but pp.40–46 use them. S37 takes S10, an unproved possibility in Remark 4.1.13, where the proof instead uses the auxiliary datum's global very goodness from S17. Replace that critical edge and wire N20/N21 for ordinary existence/transfer, S16 and S03 into S32, and reflex-field splitting S40 into the common-base diagram. Keep S10 explicitly as an unproved remark off the main proof path."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/38",
+      "verdict": "confirmed",
+      "reason": "Theorem 4.4.6's proof uses completed-local isomorphisms for both j1 and j2. S27 only covers the derived-isomorphism map j1; j2 has a central isogeny of derived groups and needs the quotient/component construction. Add the distinct j2 comparison contract using S22/S28/S41–S44 and the exact KP18 quotient hypotheses. The proposed repair is only conditional until freeness/étaleness at the chosen neat level is verified; neatness by itself is not a universal theorem about every finite group action. State the geometric-point completion and residue-field conditions explicitly."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/39",
+      "verdict": "confirmed",
+      "reason": "The p.37–38 functoriality proof cites PRb canonical-model axioms, uniqueness, shtukas and uniformization, PRa derived-isomorphism invariance, and SW20's integral local Shimura definition. None has its own extracted input contract. Add these and edges to S26/S27; distinguish a conjectural axiom package from the theorem that the specified models satisfy it. Keep local Shimura objects and their completions with their foundational owner and use a later global comparison, rather than rebuilding local shtukas in the Shimura application."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/40",
+      "verdict": "confirmed",
+      "reason": "Sections 4.1.5–4.1.7 and 4.4.7, pp.29–31,44, use the weakly polarized Siegel moduli, matched-multiplier moduli, Kisin's closed embedding and tensor-stabilizer/descent results, level-tensor promotion and Blasius–Wintenberger comparison. P08's generic realization phrase and S02/S04/S35 do not extract these contracts. Add each cited result and construction, reusing PELModuli for moduli foundations and preserving non-self-dual lattices and prime-to-p isogenies. Tensor stabilizers and comparisons must retain their integral base and coefficient maps, not merely rational-point statements."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/41",
+      "verdict": "confirmed",
+      "reason": "The pp.42–43 definition of the ordinary locus on G2 pulls back an abelian scheme and tensors through the integral Siegel map S29 on the model S22. S33 currently depends on the Hodge-case S04 and N17/S14, without those constructions or admissibility. Add S29/S22 and the KMPS admissibility contract; retain a separate Hodge-case Newton/ordinary-stratum item for the p.32 lifting theorem S09. These two definitions share the B(G) machinery but live on different integral models."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/42",
+      "verdict": "confirmed",
+      "reason": "I read Chin §2.1 and Theorem 4.6: plainness requires algebraicity and units at every finite place away from p, and its companions theorem applies to arithmetic irreducible/semisimple sheaves. E08 only states units at the coefficient prime; its note acknowledges the unfinished stronger check. Strengthen the input using algebraic Weil eigenvalues and their all-non-p unit property, then tensor/dual/subquotient closure and arithmetic semisimplification before E07/E10. Record the missing verification in the v2 argument as a proof qualification, not a counterexample to the independence theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/43",
+      "verdict": "confirmed",
+      "reason": "The p.54 base case constructs a curve through a point of the open KR stratum meeting the ordinary locus densely. C12 only treats a nonmaximal stratum and a strictly higher stratum, so it cannot supply this case. Add the base-case contract from the rational atlas/local curve lemma and unconditional S34 density; explain descent to arbitrary away-p quotient-stack level. Preserve the rational marked object and its residue field. Passing to a neat cover without controlling that residue field is not a substitute."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/44",
+      "verdict": "confirmed",
+      "reason": "Equation (5.1.1.1), p.48, identifies the tower torsor with the tensor-preserving Isom of the universal abelian Tate module. E08/E09 use this bridge, but their listed inputs only construct the tower/quotient and Weil facts. Add the actual comparison with the abelian scheme pulled back through S29, carrying tensor and Frobenius conventions, and make both consumers depend on it. A generic representation of a tower does not automatically have the abelian scheme's eigenvalues."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/45",
+      "verdict": "confirmed",
+      "reason": "The p.57 proof fixes an arbitrary maximal torus containing g_s and then asserts g_u lies in the unipotent radical of a Borel containing it. For u=[[1,1],[0,1]], the unique stable line is e1; a nonsplit torus represented by [[0,d],[1,0]] does not preserve it, even after splitting. Thus no such Borel contains that chosen torus. Choose a Borel in the centralizer compatible with the commuting Jordan parts and an adapted maximal torus over a finite extension, then perform the valuation argument. Add a sourceIssue for the proof step; the compact-element lemma remains plausible and is not disproved by this control."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/46",
+      "verdict": "confirmed",
+      "reason": "Definition 4.2.2 requires Hodge type in addition to derived and central-torus conditions. The p.58 construction proves it for H1 through Hom_ZH(W,W) and KP18 Lemma 4.6.22, absent from A09; A05 also omits the construction of its Shimura homomorphism. Extract both datum/embedding constructions and the cited input before asserting strong acceptability. A product of split derived factors and induced central tori alone does not supply a Hodge-type datum."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/47",
+      "verdict": "confirmed",
+      "reason": "The p.59 proof uses Serre's tensor construction and its realizations, but A11 only mentions it and the prerequisites omit Conrad. I acquired the actual source cited in the p.61 bibliography: Conrad, Gross–Zagier revisited, §7, particularly Theorem 7.2. The finding's proposed title 'Chow's K/k-image and K/k-trace...' is wrong. Construct A tensor_Q F in the isogeny category from a Z-order/lattice and prove independence, Tate-module/base-change and trace-polarization comparisons. The original A need not already have an F-action; the construction supplies the new one. Keep weak polarization versus principal polarization precise."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/48",
+      "verdict": "confirmed",
+      "reason": "Section 5.2.1, pp.48–49, transfers the local-model Schubert stratification through the adjoint diagram to the Shimura stack, including indexing, field of definition, completed-local comparison and the smooth top stratum. C12/E11 use those KR strata without a definition/property item. Add this separate transfer contract after S25 and the local-model stratification, carrying neat-scheme versus quotient-stack descent and the actual field of definition of lambda. It is not the same as M05's statement on the local model alone."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/49",
+      "verdict": "confirmed",
+      "reason": "Sections 6.1.3–6.1.4, pp.55–56, invoke Deligne82 Theorem 2.11 for absolute-Hodge invariance and common Galois factorization. P08 constructs realizations but does not state that Hodge cycles on abelian varieties are absolute. Add the cited theorem with its abelian-variety hypothesis and realization compatibilities, then connect A04 and the relevant tensor construction. Do not promote absolute-Hodge invariance to equality of the Mumford–Tate group and algebraic monodromy."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/50",
+      "verdict": "confirmed",
+      "reason": "Accepted RS-25 narrows SF.0 to missing relative Spec/Proj and imports audited morphism foundations, so route 12 cannot require rebuilding C21–C23 there. The local curve construction also needs no Lefschetz-pencil or vanishing-cycle machinery. Confirm the ownership defect, but reject the mutually contradictory repair alternatives that send all six items back to the same narrowed SF.0. Coalesce the residual scheme/curve adapters with the existing arithmetic-presentation candidate, importing Mathlib's chart core and naming the shared source contracts; keep them missing until actual stages exist. Do not create a competing three-item foundation or claim the candidate is already an accepted atlas layer."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/51",
+      "verdict": "confirmed",
+      "reason": "At Mathlib 082e2d3, IsSmoothAt.exists_notMem_isStandardSmooth (StandardSmoothOfFree.lean:104), RingHom.IsStandardSmooth.exists_etale_mvPolynomial (StandardSmooth.lean:260), and AlgebraicGeometry.Smooth.exists_isStandardSmooth (:97) provide the algebraic chart core. C21's proposed Jacobian proof would repeat it. Import these with finite-presentation/local-smooth hypotheses; keep Spec/affine-space packaging, rational translation and component restriction as adapters. L23's étale-relative-dimension equivalence is useful but does not identify this already-proved factorization."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/52",
+      "verdict": "confirmed",
+      "reason": "RS-17 assigns finite-cover function-field Chebotarev, with constant-field congruences, to FunctionFieldArithmetic:FA.5. Its DWP.3 narrowing imports that result and adds the compact l-adic exceptional-set step. P16 names DWP.3 alone and route 4 repeats the stale supplier. Change the finite-cover owner to FA.5 and specify which additional topological/compact l-adic consequence E10 actually uses. Preserve the constant-field degree restrictions and distinguish this theorem from number-field Chebotarev."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/53",
+      "verdict": "confirmed",
+      "reason": "D17's BG0-planned J_b definition depends on D15 in the finite-flat continuation, while D15 depends on BG's N26: a projected cycle. The equation defining J_b needs only G,b,σ, and the ordinary containment follows from normalized b and the Newton centralizer, not integral fixer equality. Remove D15 from the general definition. Split algebraic J_b/inner-Levi and rational-crystal automorphisms at BG0 from its action on an actual p-divisible group up to isogeny, which imports R07 classification. The proposed alternative retaining the entire isogeny application at BG0 would still overstate that owner's contract."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/54",
+      "verdict": "confirmed",
+      "reason": "R06.5's current text imports proper-smooth comparison and owns applications to abelian varieties and curves. P07 needs comparison for an arbitrary p-divisible group over O_K, not necessarily one already supplied by an abelian scheme. Use the R07.4 classification/generic-fibre contract and a named crystalline comparison export, then separately state the full-faithfulness/filtered-Frobenius module input used for D20's quasi-isogeny action. Do not use a proper-variety application stage as a proof of that more general interface or infer an integral automorphism from filtration preservation."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/55",
+      "verdict": "confirmed",
+      "reason": "BKT20/generic-mumford-tate-group already routes the minimal Q-group/tensor characterization and connected reductivity of a polarizable Hodge structure to the Hodge continuation. A01/A02 plan the same general result in route 9. Import that shared theory and retain only the abelian specialization and construction of a Hodge-type Shimura datum with the application owner. Keep the extraction's chosen H^1/dual-Tate convention consistently; switching to homology in this repair alone would reintroduce the recorded sign mismatch."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/56",
+      "verdict": "confirmed",
+      "reason": "KP18/pz-local-model-special-fibre currently sits in the Shimura continuation and states the tame Pappas–Zhu reduced-special-fibre/normal-components theorem. KZ M05 supplies a broader acceptable-local-model statement in the Satake continuation. These are not identical universal scopes, but the tame theorem is shared proof input and must have one local-model owner. Coalesce that specialization and import it into the Shimura application; preserve tameness and p∤pi_1derived in the PZ contract rather than silently extending it to every acceptable triple."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/57",
+      "verdict": "confirmed",
+      "reason": "BHKT19/41, Proposition 8.3, currently routes integral Chevalley restriction to LP3, while E02 and the KMPS candidate call for the characteristic-zero conjugacy quotient independently. Confirm the overlapping general theorem. Choose a shared group/invariant-theory supplier upstream of both applications, retaining the integral statement and highest-weight/lattice proof as well as characteristic-zero splitting/descent. Correct the repair's implicit scope jump: the Z theorem and arbitrary-coefficient base-change claims do not follow from the characteristic-zero definition of Conj_G. LP3's additional good-filtration/parameter invariant theory remains distinct."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/58",
+      "verdict": "confirmed",
+      "reason": "E04's definition of compatible lisse systems depends on E03, the Shimura Frobenius quotient; owner edges E03→E04 and E07→E11 then give Shimura→GS.6→Shimura. Define compatibility on an arbitrary eligible finite-field scheme using closed-point Frobenius and coefficient embeddings, with no Shimura prerequisite. Add a later specialization theorem from the Shimura tower after its construction. This removes the backward edge while preserving GS.6 as the companions supplier."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/59",
+      "verdict": "confirmed",
+      "reason": "C10 has S25, the Shimura diagram, as a prerequisite, but route 5 assigns it to R09.4 and C12 later imports it. These edges create Shimura→R09.4→Shimura. Extract a rational-object smooth-atlas theorem for the precise algebraic-stack class and field hypotheses, then apply it separately after S25. The extraction itself marks original LMB6.3 verification open; preserve that gate until its exact hypotheses are acquired, rather than replacing it with an unrestricted assertion about every stack."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/60",
+      "verdict": "confirmed",
+      "reason": "S20 is the general local-group fixer lemma with torsion-free abelianized inertia coinvariants as a hypothesis, but depends on the later auxiliary Shimura verification S19. S20→S25 and S19→S20 project to a cycle. Remove S19 from the general proof contract; retain it only in the Shimura application supplying the hypothesis. The pp.34–35 proof also needs the special derived-group structure/induced fundamental-group modules stated there, so do not strengthen it to a theorem from torsion-freeness alone."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/61",
+      "verdict": "confirmed",
+      "reason": "At Tau Ceti f790474, Positive.lean:278 defines posRootCone as the additive monoid of nonnegative integral simple-root sums; :283 gives its coefficient characterization and :346 proves pointedness. C25 proposes that same carrier and antisymmetry argument as missing work. Import these declarations, apply the flipped root pairing for coroots, and plan only the subtraction relation/order packaging and the integral-versus-rational lattice comparisons. C03's Stembridge step and folding theorems remain new; a library cone does not prove them."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/62",
+      "verdict": "confirmed",
+      "reason": "GS.1's current contract is the Beilinson–Drinfeld Grassmannian/classical Satake, not the algebraic parahoric twisted flag needed by C01/C13. KP18/twisted-affine-flag explicitly supplies the k[[t]] fpqc quotient and ind-scheme contract in the shared local-model candidate; GS0:loop-geometry mentions the related affine-flag ingredients. Replace the unsupported GS.1 import with that explicit source contract and the compatible existing loop ingredients. Do not claim that a mixed-characteristic v-sheaf construction alone is the full equal-characteristic parahoric ind-scheme theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/63",
+      "verdict": "confirmed",
+      "reason": "E14 depends only on the finite-group lemma E13, while the p.55 residue-field descent applies number-field Chebotarev in a Galois closure. The Tau Ceti Chebotarev Layer 10 explicitly plans infinitude of each Frobenius class and the non-Galois consequence. Add that planned cited input and its edge to E14, with primes outside a finite exceptional set and unramified Frobenius classes. P16/FA.5 is a different finite-field-curve theorem. The pinned number-field files provide Frobenius fibre scaffolding, not this density conclusion."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/64",
+      "verdict": "confirmed",
+      "reason": "Section 2.2.3, p.10, says positive roots for a difference of rational cocharacters; p.11 correctly uses positive coroots and N16 silently supplies that correction. Add a v2-scoped sourceIssue for the type mismatch, with the internal cross-check and bounded correction-search record. Do not present it as a demonstrated defect in the uncollated Annals revision or an assertion of priority."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/65",
+      "verdict": "confirmed",
+      "reason": "The p.11 proof uses the wrong mu label for the G' ordinary class and omits rational coefficients on the central Newton direction. Record these harmless slips and specify X_*(ker f)^I tensor Q (using the identity component as appropriate) in the proof. B(G,mu) versus B(G,{mu}) and reuse of w0 are notation ambiguities; they should be normalized locally rather than treated as separate false mathematical assertions. The next argument forces alpha=0, so the theorem is not contradicted."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/66",
+      "verdict": "confirmed",
+      "reason": "I checked the listed item locators against §§2.1–2.4 on pp.6–13. The affine-group exact sequence/Newton data are in 2.1.4, straightness and its criterion in 2.1.6, Adm and Kottwitz injectivity in 2.2.1, He comparison in 2.2.2, dominance/B(G,mu) in 2.2.3, and torus closure in 2.4.2. There is no 2.1.10. Apply the finding's locator dictionary, splitting N15's two source results, and retain 2.1.2 as an additional source for N02's first exact sequence."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/67",
+      "verdict": "confirmed",
+      "reason": "Lemma 2.4.11, p.17, concludes a closed immersion for the SL2 fixer under finite separable extension; R11 only states its primitive-vector proof step. R09 likewise weakens closed immersion to closed map. Lemma 2.1.9, p.9, requires the stated relative-Weyl element and straight translation, missing from N12. S37's input is a closed ordinary special-fibre point, not a point already special in the CM sense. Correct all four interfaces; retain the lattice calculation as R11's proof, with 0≤k<e and its valuation/primitivity check."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/68",
+      "verdict": "confirmed",
+      "reason": "The final paragraph of §3.2.5, p.23, explicitly defines global very goodness as very goodness at every local-model k-point. D07 only defines the pointed version, while S11/S17 use the global predicate. Add the global definition and implication to the pointed condition, with the same tensor-comparison choices and bases, and link those consumers."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/69",
+      "verdict": "confirmed",
+      "reason": "Page images 23–24 show the undefined A_E/a_E notation and the specialization written with field target K where an integral O_K map is needed for the p-divisible group. The paper's extraction sourceIssues does not record these fully. Qualification: the separate accepted errata E1 already records the A_E correction, so link that record rather than create a second erratum. Define the ideal on the correct reflex-base-changed ring and carry its quotient maps; correct D10's source/target and record the additional v2 slip with its scope."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/70",
+      "verdict": "confirmed",
+      "reason": "Page images 26,27,32 confirm 'roots' in the fundamental-group kernel where coroots are meant, 'Corollay 3.1.14' for Proposition 3.1.14, 'The proposition follows' in a lemma proof, and mu_h in the lift proof although §4.1.7 fixes the inverse class. Record the relevant v2 slips and keep mu_y=mu_h^-1 throughout the adapter. The finite-extension condition is standing local-field data used by Kisin theory; state it explicitly in the extracted theorem rather than claim this wording alone disproves a broader source result."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/71",
+      "verdict": "confirmed",
+      "reason": "Section 4.1.5, pp.29–30, constructs the Zariski closure, normalization and non-neat quotient stack. S02 points only to 4.1.2–4.1.3, which contain the embedding hypotheses. Change the main locator to 4.1.5 and list the earlier subsections only for setup."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/72",
+      "verdict": "confirmed",
+      "reason": "Lemma 4.1.4, p.29, concerns the centralizer of a maximal breve-Q_p-split torus, proves existence of a good Hodge embedding, and does not separately assume acceptability. S03's wording obscures all three points. Restore the exact field, existential embedding and standing p>2/parahoric/prime-to-p fundamental-group/R-smooth hypotheses, deriving acceptability from the cited Hodge-type specialization. Do not assert that every given global embedding extends."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/73",
+      "verdict": "confirmed",
+      "reason": "The p.35 and p.37 images and p.32/p.43 text confirm the wrong datum in the extension target, E2 in the E-embedding condition, the stale tensor index in I_x, and K instead of K' on the second product factor. Record these v2-scoped misprints with the corrected generic fibre/datum, field, tensor and level. Allocate sourceIssue ids from the actual final list rather than hard-code the finding's proposed E16–E19, which may collide with other repairs."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/74",
+      "verdict": "rejected",
+      "reason": "Rejected. The current report's line 59 and the JSON both classify E5 as a misprint affecting nothing, with the justification that the intended torsion-free property is used. The different label occurs in the explicitly retained earlier checkpoint beginning at line 93. Line 95 expressly says that this continuation supersedes earlier classifications. This is provenance history, not two competing current verdicts. The source's torsion/torsion-free slip is real and already recorded; the alleged current-file inconsistency does not require a fix."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/75",
+      "verdict": "confirmed",
+      "reason": "The p.31 deformation proof identifies Spf A with the versal deformation of the underlying p-divisible group and obtains a closed immersion by Serre–Tate; it does not identify it with a polarized Siegel deformation space. Page 32 gives I_x tensor Q_p⊂J_b, used in the action-lifting proof. Correct S05 and add that inclusion to S08. Correct S37's ordinary special-fibre input as in /67; specialness is a conclusion about the lift."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/76",
+      "verdict": "confirmed",
+      "reason": "Remark 4.1.12, p.32, supplies the characteristic-zero special-point convention and embedding-independence needed by S09/S37/S39; no extraction item does. Import the complex torus-factorization definition from ShimuraData D4 and the canonical-model Galois stability theorem. State the field/embedding hypothesis precisely: an arbitrary large characteristic-zero field need not embed in C. Use an admissible embedding or a descent/algebraic-point formulation and prove independence, rather than assume embeddings exist for every K."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/77",
+      "verdict": "confirmed",
+      "reason": "The p.52 page image prints +2x^-2 in the u_+ label twice. With c=−2/x the defining relation is c²+d+tau(d)=8/x², nonzero in odd characteristic; the inverse has top-right −6/x², unlike the displayed matrix. Replacing d by −2/x² gives relation zero and inverse top-right −2/x². I recomputed the full three-matrix product with that corrected inverse. Record this label misprint and correct C07's factorization API; the earlier errata review checked the displayed product but missed its inconsistent label."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/78",
+      "verdict": "confirmed",
+      "reason": "A10 only exports injectivity on Qbar-points, but the final p.59 comparison is over Q_l and needs the corresponding geometric-field adapter. Add injectivity over any algebraically closed characteristic-zero extension, with the same diagonal/central-product proof, then descend the equality of the Q_l-points. Alternatively supply the exact finite-map algebraicity contract. A rational image alone is not a rational preimage, and a general closed embedding must not be used to assert quotient finiteness without its reductive invariant-theory theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/79",
+      "verdict": "confirmed",
+      "reason": "Proposition 6.2.4(2), pp.57–58, says H'_Qp is a product of restrictions of split groups. A07 records only its very-special-integrality consequence, yet A09 needs (2) to check the derived-group condition of strong acceptability. Extract that clause separately and connect it to A09 with the equality of the derived groups; a chosen splitting extension by itself is not this Q_p restriction-of-scalars statement."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/80",
+      "verdict": "confirmed",
+      "reason": "I read Poonen's Theorem 3.3 and Corollary 3.4 in the public paper. The former allows quasiprojective X; the latter requires smooth projective geometrically integral X. The existing E11 review reason misidentifies quasi-projectivity as the obstruction: the chart can be shrunk affine. Correct the explanation to the actual projectivity/integrality hypotheses and keep the local same-field curve repair C20–C24. This confirms the review-reason defect, not a claim that Poonen's theorem is false."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/81",
+      "verdict": "rejected",
+      "reason": "Rejected for the same document-boundary reason as /74. The current report's first finding list labels E6–E9 as affecting nothing, and its opening records the independent accepted review. The conflicting labels and 'None has an independent-review verdict' occur in the earlier checkpoint, explicitly headed 'Checkpoint history (unchanged)' and superseded by the instruction at line 95. They describe the earlier state. Regenerating that history from current JSON would erase provenance; no current contradictory verdict is established."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/82",
+      "verdict": "confirmed",
+      "reason": "The actual pp.49–60 citations include HR08's stabilizer, Noot09's factorization, Deligne79's multiplier, Lusztig83's order and PR08's rank-one flag component, none individually present in the 17 prerequisites. KP18's current row restricts its read to 4.5.6 and Kisin10's row omits the new §6 uses. Add separate bibliographic entries/consumer locators and extend the why fields, while reporting read status honestly. A link back to KZ is a bibliographic lead, not an acquired original-source proof."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/83",
+      "verdict": "confirmed",
+      "reason": "N02 is missing in route 2 while N01 and the FS c6a-Iwahori–Weyl, GLX/D02 and He21/4 statements are planned at RG2.4. RS-31 explicitly retains affine/extended-Weyl and component identifications there. Align the shared exact-sequence/decomposition status and remove the duplicate construction route entry, after separating the earlier pi_1/inertia-Kottwitz input as in /6. Preserve relative/inertia versus split absolute lattice conventions; the FS split example alone is not the full ramified theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/84",
+      "verdict": "confirmed",
+      "reason": "At Mathlib 082e2d3, Base.lean line 240 introduces CharZero R and pairingIn_le_zero_of_ne at 335 remains in that section, with IsDomain, crystallographic and finite-index hypotheses. L21 omits characteristic zero. Add it to the statement and acceptance; L20 already carries it. The declaration name itself is correct."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/85",
+      "verdict": "confirmed",
+      "reason": "At Tau Ceti f790474, Dynamic/Parabolic.lean:344 defines Cocharacter.levi by the conjugation equalizer and Dynamic/Functor.lean:100 defines leviFunctor. N10 lists no supplier leads. Cite these as the existing subgroup/functor carrier, then retain the rational-cocharacter multiple comparison, representability, root-group description and Frobenius descent as the actual missing content. Those declarations alone do not already prove the full local Newton-Levi theorem."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/86",
+      "verdict": "confirmed",
+      "reason": "RS-27's owner table assigns affine Weil-restriction representability and base change to ModularCurves 0F and links it into RG2.0a. P10 names only RG2.0a. Split the supplier roles: 0F for finite-locally-free/affine finitely presented schemes, RG2.0a for group laws and finite-separable-field/Deligne-torus consequences. Preserve finite presentation (or the appropriate Noetherian specialization); do not strengthen the anchor to arbitrary nonaffine targets or arbitrary finite-type schemes over non-Noetherian bases."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/87",
+      "verdict": "confirmed",
+      "reason": "RS-31 retitles ReductiveGroupsPartII as the existing local-structure Part II of Tau Ceti ReductiveGroups. make_queue.paper_designs therefore queues the continuation of that anchor as DESIGN-ReductiveGroupsPartIII, as the current queue confirms. Route 9's Part II title and direct-parent-only brief collide with it. Use the Part III continuation identity/title and put the existing local-structure Part II first among imports, after resolving route 9's scope/cycle issues in /7 and /57."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/88",
+      "verdict": "confirmed",
+      "reason": "Accepted/promoted RS-02 gives the finite-flat parent the title 'Modular curves, following Katz–Mazur, Part II: finite flat groups and integral p-adic Hodge theory'; scripts/restructure.py applies it. Route 7 cites the old title. Update the parent name and ancestry and use the queue's actual continuation identity. Avoid treating the finding's awkward appended second 'Part II' as a newly approved title: derive the title from the current parent/queue convention and state explicitly which finite-flat stages are imported."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/89",
+      "verdict": "confirmed",
+      "reason": "The route briefs repeatedly use bare ids/stage abbreviations and paper-local continuation aliases. I checked make_queue.paper_designs and the six actual design ids in queue.json; those proposals are coalesced by parent, not emitted under their local aliases. Give each import its title and id/stage, map each alias to the real queued continuation, and preserve its source-item provenance. Do not mark a queued design as an accepted stage or lose the coalescence when changing labels."
+    },
+    {
+      "finding": "RT-PAPER-KISIN-ZHOU-25/90",
+      "verdict": "confirmed",
+      "reason": "At Tau Ceti f790474, DiagramPermutations.lean provides graphPermA (:61), cartanMatrix_A_graphPermA (:227) and DynkinType.diagramSymmetry (:365); SimplyConnectedRootDatum/DiagramAutomorphism.lean:267 gives diagramAut on the pinned simply connected model. C14/C16/C17 omit these carriers. Import them for the diagram action and Cartan-preserving laws, with the required transport to the actual root pairing and component decomposition. Their existence does not already formalize the orbit-sum folding or its integral-dominance comparisons."
+    }
+  ]
+}
