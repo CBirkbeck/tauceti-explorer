@@ -25,6 +25,9 @@ import Mathlib.FieldTheory.Minpoly.Finite
 import Mathlib.RingTheory.Polynomial.Eisenstein.Criterion
 import Mathlib.RingTheory.Polynomial.GaussLemma
 import Mathlib.CategoryTheory.CofilteredSystem
+import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.LinearAlgebra.Quotient.Defs
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 open CategoryTheory AlgebraicGeometry
 
@@ -1075,4 +1078,220 @@ lemma RootObject.arrow_scalar_equations {n : ℕ} [NeZero n]
       rootPowerCoefficient b eb l * (w : Γ(X, ⊤)) ^ n =
         rootPowerCoefficient a ea l := by sorry
 
+end TauCeti.RootStack
+
+/-!
+## Finite affine torsor comparison: kernel and cokernel
+
+Continuation for issue #3403, ChatGPT — gpt-6astra-20261002-c4d9.
+These are native algebraic candidates for RS.1/affine-chart and the finite
+frame-torsor input to RS.2/kummer-torsor-limit. They use the existing affine
+ring and Hopf coaction, not a replacement group scheme or torsor predicate.
+The handoff gives their proofs and their exact packet-integration boundary.
+No algebraic-stack or infinite-torsor signature is supplied by this fragment.
+NOT COMPILED; every admitted body is only a suggested form.
+-/
+namespace TauCeti.RootStack
+
+section AffineTorsorComparison
+
+variable {A : Type u} [CommRing A]
+open scoped TensorProduct
+
+/-- The action comparison on coordinate algebras, with the unchanged right
+factor. Its formula on pure tensors is specified below. -/
+def affineTorsorComparison (f : A) (n : ℕ) [NeZero n] :
+    (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
+      (MuHopf A n ⊗[A] AffineRing f n) := by sorry
+
+lemma affineTorsorComparison.tmul (f : A) (n : ℕ) [NeZero n]
+    (x y : AffineRing f n) :
+    affineTorsorComparison f n (x ⊗ₜ[A] y) =
+      affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y) := by sorry
+
+lemma affineTorsorComparison.left_root (f : A) (n : ℕ) [NeZero n] :
+    affineTorsorComparison f n
+      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ⊗ₜ[A]
+        (1 : AffineRing f n)) =
+      MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) := by sorry
+
+lemma affineTorsorComparison.right_factor (f : A) (n : ℕ) [NeZero n]
+    (y : AffineRing f n) :
+    affineTorsorComparison f n ((1 : AffineRing f n) ⊗ₜ[A] y) =
+      (1 : MuHopf A n) ⊗ₜ[A] y := by sorry
+
+lemma affineTorsorComparison.unique (f : A) (n : ℕ) [NeZero n]
+    (h : (AffineRing f n ⊗[A] AffineRing f n) →ₐ[A]
+      (MuHopf A n ⊗[A] AffineRing f n))
+    (hh : ∀ x y : AffineRing f n,
+      h (x ⊗ₜ[A] y) = affineCoaction f n x * ((1 : MuHopf A n) ⊗ₜ[A] y)) :
+    h = affineTorsorComparison f n := by sorry
+
+/-- Weighted permutation formula in the native monic tensor bases.
+No division by n, reducedness, or unit condition on f is used. -/
+lemma affineTorsorComparison.monomial (f : A) (n : ℕ) [NeZero n]
+    (i j : Fin n) :
+    affineTorsorComparison f n
+      (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ i.val ⊗ₜ[A]
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ j.val) =
+      f ^ ((i.val + j.val) / n) •
+        (MonoidAlgebra.single (Multiplicative.ofAdd (i.val : ZMod n)) (1 : A) ⊗ₜ[A]
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^
+            ((i.val + j.val) % n)) := by sorry
+
+/-- Every source tensor has unique monic-basis coefficients, including over
+the zero ring. In that case use the unique coefficient function directly. -/
+lemma affineTorsorComparison.source_coordinates (f : A) (n : ℕ) [NeZero n]
+    (z : AffineRing f n ⊗[A] AffineRing f n) :
+    ∃! c : (Fin n × Fin n) → A,
+      z = ∑ p : Fin n × Fin n, c p •
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val ⊗ₜ[A]
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by sorry
+
+/-- Character basis in the first factor and monic basis in the second. -/
+lemma affineTorsorComparison.target_coordinates (f : A) (n : ℕ) [NeZero n]
+    (z : MuHopf A n ⊗[A] AffineRing f n) :
+    ∃! c : (Fin n × Fin n) → A,
+      z = ∑ p : Fin n × Fin n, c p •
+        (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val) := by sorry
+
+/-- The nonwrapping source coefficients vanish; the wrapping coefficients
+lie in the annihilator of f. This also specifies the kernel comparison map. -/
+lemma affineTorsorComparison.kernel_coefficients (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    affineTorsorComparison f n
+      (∑ p : Fin n × Fin n, c p •
+        (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val ⊗ₜ[A]
+          AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) = 0 ↔
+      ∀ p : Fin n × Fin n,
+        if p.1.val + p.2.val < n then c p = 0 else f * c p = 0 := by sorry
+
+/-- Target coefficients below the diagonal, not all coefficients, must be
+multiples of f. This specifies the cokernel quotient map. -/
+lemma affineTorsorComparison.image_coefficients (f : A) (n : ℕ) [NeZero n]
+    (c : (Fin n × Fin n) → A) :
+    (∑ p : Fin n × Fin n, c p •
+      (MonoidAlgebra.single (Multiplicative.ofAdd (p.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val)) ∈
+      LinearMap.range (affineTorsorComparison f n).toLinearMap ↔
+      ∀ p : Fin n × Fin n, p.2.val < p.1.val → ∃ a : A, c p = f * a := by sorry
+
+/-- Native kernel, indexed by the wrapping source pairs. The coordinate
+formula specifies the equivalence, not just its abstract isomorphism class. -/
+theorem affineTorsorComparison.kernel_equiv (f : A) (n : ℕ) [NeZero n] :
+    ∃ e : (LinearMap.ker (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
+      ({p : Fin n × Fin n // n ≤ p.1.val + p.2.val} →
+        LinearMap.ker (f • (LinearMap.id : A →ₗ[A] A))),
+      ∀ (z : LinearMap.ker (affineTorsorComparison f n).toLinearMap)
+        (c : (Fin n × Fin n) → A)
+        (hc : (z : AffineRing f n ⊗[A] AffineRing f n) =
+          ∑ p : Fin n × Fin n, c p •
+            (AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.1.val ⊗ₜ[A]
+              AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ p.2.val))
+        (p : {p : Fin n × Fin n // n ≤ p.1.val + p.2.val}),
+        (e z p : A) = c p.val := by sorry
+
+/-- Native module cokernel, indexed by the strictly lower triangular target
+pairs. Its formula is the quotient of exactly those coefficients modulo f.
+This is not a quotient algebra or an orbit-space construction. -/
+theorem affineTorsorComparison.cokernel_equiv (f : A) (n : ℕ) [NeZero n] :
+    ∃ e : ((MuHopf A n ⊗[A] AffineRing f n) ⧸
+      LinearMap.range (affineTorsorComparison f n).toLinearMap) ≃ₗ[A]
+      ({p : Fin n × Fin n // p.2.val < p.1.val} →
+        A ⧸ (Ideal.span ({f} : Set A))),
+      ∀ (c : (Fin n × Fin n) → A)
+        (p : {p : Fin n × Fin n // p.2.val < p.1.val}),
+        e (Submodule.Quotient.mk (∑ q : Fin n × Fin n, c q •
+          (MonoidAlgebra.single (Multiplicative.ofAdd (q.1.val : ZMod n)) (1 : A) ⊗ₜ[A]
+            AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C f) ^ q.2.val))) p =
+          Ideal.Quotient.mk (Ideal.span ({f} : Set A)) (c p.val) := by sorry
+
+theorem affineTorsorComparison.injective_iff (f : A) (n : ℕ) [NeZero n] :
+    Function.Injective (affineTorsorComparison f n) ↔
+      n = 1 ∨ Function.Injective (fun a : A => f * a) := by sorry
+
+theorem affineTorsorComparison.surjective_iff (f : A) (n : ℕ) [NeZero n] :
+    Function.Surjective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
+
+theorem affineTorsorComparison.bijective_iff (f : A) (n : ℕ) [NeZero n] :
+    Function.Bijective (affineTorsorComparison f n) ↔ n = 1 ∨ IsUnit f := by sorry
+
+/-- The algebra equivalence is fixed by the original comparison and the
+inverse image of the character generator. This includes characteristic
+which divides n; no inverse of n occurs. -/
+theorem affineTorsorComparison.unit_inverse (v : Aˣ) (n : ℕ) [NeZero n] :
+    ∃ e : (AffineRing (v : A) n ⊗[A] AffineRing (v : A) n) ≃ₐ[A]
+        (MuHopf A n ⊗[A] AffineRing (v : A) n),
+      e.toAlgHom = affineTorsorComparison (v : A) n ∧
+      e.symm (MonoidAlgebra.single (TauCeti.RootsOfUnityGroup.generator n) (1 : A) ⊗ₜ[A]
+        (1 : AffineRing (v : A) n)) =
+        AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ⊗ₜ[A]
+          (algebraMap A (AffineRing (v : A) n) ((v⁻¹ : Aˣ) : A) *
+            AdjoinRoot.root (Polynomial.X ^ n - Polynomial.C (v : A)) ^ (n - 1)) ∧
+      ∀ b : AffineRing (v : A) n,
+        e.symm ((1 : MuHopf A n) ⊗ₜ[A] b) = (1 : AffineRing (v : A) n) ⊗ₜ[A] b := by sorry
+
+/-- Determinant of the matrix supplied by the monomial formula. The same
+pair ordering is used on rows and columns. -/
+theorem affineTorsorComparison.determinant (f : A) (n : ℕ) [NeZero n] :
+    let M : Matrix (Fin n × Fin n) (Fin n × Fin n) A :=
+      fun r c => if r.1 = c.1 ∧ r.2.val = (c.1.val + c.2.val) % n
+        then f ^ ((c.1.val + c.2.val) / n) else 0
+    Matrix.det M = (-1 : A) ^ ((n - 1) * (n * (n - 1) / 2)) *
+      f ^ (n * (n - 1) / 2) := by sorry
+
+/-- At the zero section over a field the loss of rank is exactly triangular. -/
+theorem affineTorsorComparison.zero_rank (k : Type u) [Field k]
+    (n : ℕ) [NeZero n] :
+    Module.finrank k (LinearMap.range (affineTorsorComparison (0 : k) n).toLinearMap) =
+      n * (n + 1) / 2 ∧
+    Module.finrank k (LinearMap.ker (affineTorsorComparison (0 : k) n).toLinearMap) =
+      n * (n - 1) / 2 := by sorry
+
+-- affineTorsorComparison.test_exponent_one: no unit condition on f.
+example (f : A) : Function.Bijective (affineTorsorComparison f 1) := by sorry
+
+-- affineTorsorComparison.test_zero_ring: the usual zero-ring unit convention.
+example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] :
+    Function.Bijective (affineTorsorComparison f n) := by sorry
+
+-- affineTorsorComparison.test_branch_kernel: an actual nonzero source tensor.
+example (k : Type u) [Field k] :
+    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (0 : k))
+    x ⊗ₜ[k] x ≠ 0 ∧ affineTorsorComparison (0 : k) 2 (x ⊗ₜ[k] x) = 0 := by sorry
+
+-- affineTorsorComparison.test_regular_nonunit: injective does not mean torsor.
+example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
+    ¬ Function.Surjective (affineTorsorComparison (2 : ℤ) 2) := by sorry
+
+-- affineTorsorComparison.test_nilpotent_parameter: nonzero f is not enough.
+example :
+    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (2 : ZMod 4))
+    let z := (2 : ZMod 4) • (x ⊗ₜ[ZMod 4] x)
+    z ≠ 0 ∧ affineTorsorComparison (2 : ZMod 4) 2 z = 0 := by sorry
+
+-- affineTorsorComparison.test_wild_unit: the chart is a torsor despite its
+-- nonzero nilpotent and despite 2 not being invertible in the base field.
+example :
+    let x := AdjoinRoot.root (Polynomial.X ^ 2 - Polynomial.C (1 : ZMod 2))
+    Function.Bijective (affineTorsorComparison (1 : ZMod 2) 2) ∧
+      x - 1 ≠ 0 ∧ (x - 1) ^ 2 = 0 := by sorry
+
+-- affineTorsorComparison.test_nonflat_kernel: coordinate maps base change,
+-- but their kernels need not commute with the nonflat coefficient change Z→F2.
+example : Function.Injective (affineTorsorComparison (2 : ℤ) 2) ∧
+    ¬ Function.Injective (affineTorsorComparison (0 : ZMod 2) 2) := by sorry
+
+-- affineTorsorComparison.test_cokernel_nonreduced: retain A/(f), not
+-- its reduction. The quotient for f=4 over Z/8 has an element of order four.
+example :
+    let C := ((MuHopf (ZMod 8) 2 ⊗[ZMod 8] AffineRing (4 : ZMod 8) 2) ⧸
+      LinearMap.range (affineTorsorComparison (4 : ZMod 8) 2).toLinearMap)
+    Nonempty (C ≃ₗ[ZMod 8]
+      ((ZMod 8) ⧸ (Ideal.span ({(4 : ZMod 8)} : Set (ZMod 8))))) ∧
+      ∃ z : C, (2 : ZMod 8) • z ≠ 0 ∧ (4 : ZMod 8) • z = 0 := by sorry
+
+end AffineTorsorComparison
 end TauCeti.RootStack
