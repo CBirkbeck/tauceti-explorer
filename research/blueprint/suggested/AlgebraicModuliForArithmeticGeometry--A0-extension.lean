@@ -1600,6 +1600,188 @@ noncomputable def presheaf : Cᵒᵖ ⥤ AddCommGrpCat.{max u v u' v'} where
     intro s
     exact (restrict_comp F f.unop g.unop s).symm
 
+/-- Local central families commute with the native descent transitions. -/
+theorem coverTransition {U : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U)))
+    {Y : C} (q : Y ⟶ U) {i j : R.arrows.category}
+    (f : Y ⟶ i.obj.left) (g : Y ⟶ j.obj.left)
+    (hf : f ≫ i.obj.hom = q) (hg : g ≫ j.obj.hom = q) :
+    (F.map f.op.toLoc).toFunctor.map
+        (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).hom ≫
+        ((F.toDescentData (fun k : R.arrows.category => k.obj.hom)).obj x).hom q f g hf hg =
+      ((F.toDescentData (fun k : R.arrows.category => k.obj.hom)).obj x).hom q f g hf hg ≫
+        (F.map g.op.toLoc).toFunctor.map
+          (eval F (𝟙 j.obj.left) ((F.map j.obj.hom.op.toLoc).toFunctor.obj x) (z j)).hom := by
+  let k : R.arrows.category := ⟨Over.mk q, hf ▸ R.downward_closed i.property f⟩
+  let fi : k ⟶ i := ⟨Over.homMk f hf⟩
+  let gj : k ⟶ j := ⟨Over.homMk g hg⟩
+  have hi : (F.map f.op.toLoc).toFunctor.map
+      (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).hom =
+      (val F (z k) Y (𝟙 Y)).val.app
+        ((F.map f.op.toLoc).toFunctor.obj ((F.map i.obj.hom.op.toLoc).toFunctor.obj x)) := by
+    change (F.map f.op.toLoc).toFunctor.map
+      ((val F (z i) i.obj.left (𝟙 _)).val.app _) = _
+    rw [compatible, Category.comp_id]
+    have h := congrArg (fun s : IntrinsicBandSection F Y =>
+      (val F s Y (𝟙 Y)).val.app
+        ((F.map f.op.toLoc).toFunctor.obj ((F.map i.obj.hom.op.toLoc).toFunctor.obj x)))
+      (hz k i fi)
+    simpa only [restrict_apply, Category.id_comp, fi, Over.homMk_left] using h
+  have hj : (F.map g.op.toLoc).toFunctor.map
+      (eval F (𝟙 j.obj.left) ((F.map j.obj.hom.op.toLoc).toFunctor.obj x) (z j)).hom =
+      (val F (z k) Y (𝟙 Y)).val.app
+        ((F.map g.op.toLoc).toFunctor.obj ((F.map j.obj.hom.op.toLoc).toFunctor.obj x)) := by
+    change (F.map g.op.toLoc).toFunctor.map
+      ((val F (z j) j.obj.left (𝟙 _)).val.app _) = _
+    rw [compatible, Category.comp_id]
+    have h := congrArg (fun s : IntrinsicBandSection F Y =>
+      (val F s Y (𝟙 Y)).val.app
+        ((F.map g.op.toLoc).toFunctor.obj ((F.map j.obj.hom.op.toLoc).toFunctor.obj x)))
+      (hz k j gj)
+    simpa only [restrict_apply, Category.id_comp, gj, Over.homMk_left] using h
+  dsimp only [Pseudofunctor.toDescentData, Pseudofunctor.DescentData.ofObj]
+  rw [hi, hj]
+  exact (CatCenter.naturality (val F (z k) Y (𝟙 Y)).val _).symm
+
+/-- An actual native descent isomorphism, without effectivity assumptions. -/
+noncomputable def coverIso {U : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) :
+    Aut ((F.toDescentData (fun k : R.arrows.category => k.obj.hom)).obj x) :=
+  Pseudofunctor.DescentData.isoMk
+    (fun i => eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i))
+    (fun {Y} q {i j} f g hf hg => coverTransition F R z hz x (Y := Y) q (i := i) (j := j) f g hf hg)
+
+lemma coverIso_hom_apply {U : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) (i : R.arrows.category) :
+    (coverIso F R z hz x).hom.hom i =
+      (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).hom := rfl
+
+lemma coverIso_one {U : C} (R : Sieve U) (x : F.obj (.mk (op U))) :
+    coverIso F R (fun _ => 1) (fun _ _ _ => map_one _) x = 1 := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  rfl
+
+lemma coverIso_inv {U : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) :
+    coverIso F R (fun i => (z i)⁻¹)
+      (fun i j g => by rw [map_inv, hz]) x = (coverIso F R z hz x)⁻¹ := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  exact congrArg Iso.hom ((eval F (𝟙 i.obj.left)
+    ((F.map i.obj.hom.op.toLoc).toFunctor.obj x)).map_inv (z i))
+
+/-- Descend both arrows and inverse using the existing fully faithful functor. -/
+noncomputable def coverAut (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) : Aut x :=
+  (F.isPrestackFor' R hR).fullyFaithful.preimageIso (coverIso F R z hz x)
+
+lemma coverAut_map_hom (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) (i : R.arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.map (coverAut F J R hR z hz x).hom =
+      (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).hom := by
+  exact congrArg (fun h => h.hom i)
+    ((F.isPrestackFor' R hR).fullyFaithful.map_preimage (coverIso F R z hz x).hom)
+
+lemma coverAut_unique (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) (a : Aut x)
+    (ha : ∀ i : R.arrows.category,
+      (F.map i.obj.hom.op.toLoc).toFunctor.map a.hom =
+        (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).hom) :
+    a = coverAut F J R hR z hz x := by
+  apply Iso.ext
+  apply (F.isPrestackFor' R hR).fullyFaithful.map_injective
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  exact (ha i).trans (coverAut_map_hom F J R hR z hz x i).symm
+
+lemma coverAut_one (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (x : F.obj (.mk (op U))) :
+    coverAut F J R hR (fun _ => 1) (fun _ _ _ => map_one _) x = 1 := by
+  symm
+  apply coverAut_unique
+  intro i
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map (𝟙 _) = 𝟙 _
+  exact (F.map i.obj.hom.op.toLoc).toFunctor.map_id _
+
+-- BandCoverTests.iso_one
+example {U : C} (R : Sieve U) (x : F.obj (.mk (op U))) :
+    coverIso F R (fun _ => 1) (fun _ _ _ => map_one _) x = 1 := coverIso_one F R x
+
+-- BandCoverTests.iso_inverse_component
+example {U : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) (i : R.arrows.category) :
+    (coverIso F R z hz x).inv.hom i =
+      (eval F (𝟙 i.obj.left) ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) (z i)).inv := rfl
+
+-- BandCoverTests.iso_empty
+example {U : C} (R : Sieve U) [IsEmpty R.arrows.category]
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) : coverIso F R z hz x = 1 := by
+  apply Iso.ext
+  apply Pseudofunctor.DescentData.hom_ext
+  intro i
+  exact isEmptyElim i
+
+-- BandCoverTests.aut_one
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (x : F.obj (.mk (op U))) :
+    coverAut F J R hR (fun _ => 1) (fun _ _ _ => map_one _) x = 1 :=
+  coverAut_one F J R hR x
+
+-- BandCoverTests.aut_existing
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (s : IntrinsicBandSection F U) (x : F.obj (.mk (op U))) :
+    coverAut F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) x = eval F (𝟙 U) x s := by
+  symm
+  apply coverAut_unique
+  intro i
+  have h := congrArg Iso.hom (eval_restrict F (𝟙 U) i.obj.hom x s)
+  change (F.map i.obj.hom.op.toLoc).toFunctor.map (eval F (𝟙 U) x s).hom = _ at h
+  simpa only [Category.comp_id, eval_reindex, Category.id_comp] using h
+
+-- BandCoverTests.aut_trivial_inertia
+example (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (x : F.obj (.mk (op U))) [Subsingleton (Aut x)] :
+    coverAut F J R hR z hz x = 1 := Subsingleton.elim _ _
+
 /-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
 theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
     (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
