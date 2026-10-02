@@ -56640,3 +56640,370 @@ Exact controls at48positive moduli check 16214 inverse_action_coefficients, 4718
 Two guarded generated files changed: the source-issue registry and errata register. Their full added record content, all distinct metadata and complete register diff were read. The registry adds21NeronModelsAndSemistableAbelianVarietiesPartII findings from Schroeer2023, Szydlo2003 and the2024Cossec–Dolgachev–Liedtke author manuscript; all9079prior registry records and other top-level data are unchanged. The added records have status awaiting review; the generated register lists them under already corrected in print and changes that count1202to1223, with the other counts unchanged. These findings and sources are outside this roadmap dependency route; none is adopted or independently reviewed here. The remaining77guarded inputs, four predecessor outputs and complete issue text are unchanged. Original claim5854791937 and unclaimed review390 remain the scope boundary.
 
 The separate partial signature file also compiled with zero errors and 5,621 expected placeholder warnings across 3,663 pinned source modules. It includes all 13 new named declarations and 19 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f9c1ee0bc4e3c815cd1a8b54552fddeae1cfa3d16155a3046fd14bcaf249aa71.
+
+
+## Actual global rational-circle Cartan automorphisms and value equivariance
+
+Thirteen L3 nodes construct actual global rational-circle Cartan automorphisms from the original finite actions, prove their all-level and group laws, and prove equivariance of the actual global Cartan value. All1,873predecessor nodes and1,199baseline records remain whole.
+
+Published186–188 uses compatible actual finite Cartan actions and the original inverse-coefficient values. The existing positive additive-order result supplies each point's canonical finite level. Native order divisibility and original projection/action restriction prove independence of that level. A common positive product modulus proves actual additivity, and the finite action laws give global identity, multiplication and inverse. Existing native additive equivalences then bundle the actual maps. Explicitly using the all-level point equality keeps the value-equivariance proof on its named APIs without unfolding the entire native limit; no recursion, transparency or linter options change. All native declarations used here are already indexed in the packet.
+
+### The actual common Cartan action on rational-circle points
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point` — `DirichletPadic.kubertCartanGlobalPoint`
+
+For g in the original Gamma_1 and actual circle point a, define T(g,a) by taking M=addOrderOf(a)>0, regarding a in the actual level-M kernel, applying A_M(pi_M(g)), and retaining its ambient circle point.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. The already proved positive additive order supplies the actual positive modulus M.
+2. Native multiplication by additive order kills a, placing it in the original level-M kernel.
+3. Apply the existing original finite projection and finite additive automorphism, then coerce its actual kernel point to the rational circle.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv`, `mathlib:pow_orderOf_eq_one`.
+
+**Uses:**
+
+- Kubert186–188, compatible Cartan actions and the injective-limit module: Extends every original finite Cartan automorphism to an actual automorphism of the entire rational circle, retaining containing-level consistency and group laws.
+- Kubert188, inverse-coefficient value formula2.9: Makes the actual global Cartan value equivariant for the source point action and the constructed native module-limit representation, before transport of the universal quotient action.
+
+**API:**
+
+- `kubertCartanGlobalPoint_level` (compatibility): For every positive N and actual level-N point x, T(g,x) is the ambient point of A_N(pi_N(g))(x), whether x is primitive, imprimitive or zero at N.
+- `kubertCartanGlobalPoint_zero` (compatibility): For every g in Gamma_1, T(g,0)=0 in the rational circle.
+- `kubertCartanGlobalPoint_add` (compatibility): For every original g and actual circle points a,b, T(g,a+b)=T(g,a)+T(g,b).
+- `kubertCartanGlobalPoint_one` (compatibility): For every actual circle point a, T(1,a)=a.
+- `kubertCartanGlobalPoint_mul` (compatibility): For actual g,h and circle point a, T(gh,a)=T(g,T(h,a)), with h acting first.
+- `kubertCartanGlobalPoint_inverse` (compatibility): For every actual g and circle point a, T(g inverse,T(g,a))=a.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.global_point_zero` (degenerate): Every actual common degree-one Cartan element fixes the actual zero circle point.
+- `SuggestedKubertGlobalCartanActionTests.global_point_unit_two` (computation): An actual common unit projecting to residue2 modulo5 sends1/5 to2/5. The point action uses the forward unit, whereas the finite coefficient formula uses its inverse.
+- `SuggestedKubertGlobalCartanActionTests.global_point_retains_imprimitive_half` (non-example): An actual common unit projecting to residue5 modulo6 fixes1/2, whose order is2. The global action retains imprimitive points at a containing level.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### Every containing level computes the same global point action
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level` — `DirichletPadic.kubertCartanGlobalPoint_level`
+
+For every positive N and actual level-N point x, T(g,x) is the ambient point of A_N(pi_N(g))(x), whether x is primitive, imprimitive or zero at N.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. The actual additive order M of x divides N by the kernel equation and native order divisibility.
+2. Original projection compatibility identifies pi_M(g) with the original reduction of pi_N(g).
+3. The established finite action restriction compares the two automorphisms at the same ambient point.
+4. Combine these equalities with the canonical definition of T.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point`, `DirichletPadicLFunctions:L3/kubert-cartan-limit-cartan-witt-product-projection-reduction`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-restriction`, `mathlib:orderOf_dvd_iff_pow_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_level_typed_api` (compatibility): For every positive N and actual level-N point x, T(g,x) is the ambient point of A_N(pi_N(g))(x), whether x is primitive, imprimitive or zero at N.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### Every common Cartan element fixes the actual zero point
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-zero` — `DirichletPadic.kubertCartanGlobalPoint_zero`
+
+For every g in Gamma_1, T(g,0)=0 in the rational circle.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Apply the all-level action formula at the actual zero point of level1.
+2. The original finite additive equivalence preserves zero; coercion retains that same ambient zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_zero_typed_api` (compatibility): For every g in Gamma_1, T(g,0)=0 in the rational circle.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The global point action preserves actual circle addition
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-add` — `DirichletPadic.kubertCartanGlobalPoint_add`
+
+For every original g and actual circle points a,b, T(g,a+b)=T(g,a)+T(g,b).
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Choose the positive common modulus N=addOrderOf(a) times addOrderOf(b).
+2. Native order divisibility puts both original points into the actual level-N kernel; their sum is the kernel sum.
+3. Use the all-level formula at a,b and a+b.
+4. The original finite A_N(pi_N(g)) is an additive equivalence, so it preserves this actual kernel sum; coercion gives the ambient equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-global-cartan-circle-order-pos`, `mathlib:orderOf_dvd_iff_pow_eq_one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_add_typed_api` (compatibility): For every original g and actual circle points a,b, T(g,a+b)=T(g,a)+T(g,b).
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The identity common Cartan element fixes every circle point
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-one` — `DirichletPadic.kubertCartanGlobalPoint_one`
+
+For every actual circle point a, T(1,a)=a.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Work at the positive actual order of a and apply the all-level formula.
+2. The original finite projection preserves the group identity.
+3. The existing finite Cartan identity automorphism fixes the actual kernel point a.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_one_typed_api` (compatibility): For every actual circle point a, T(1,a)=a.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### Common Cartan multiplication composes the global point actions
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-mul` — `DirichletPadic.kubertCartanGlobalPoint_mul`
+
+For actual g,h and circle point a, T(gh,a)=T(g,T(h,a)), with h acting first.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Put a into its actual positive-order kernel at N.
+2. Projection compatibility with multiplication and the existing finite action multiplication law identify A_N(pi_N(gh))(a) with A_N(pi_N(g))(A_N(pi_N(h))(a)).
+3. The inner image is already an actual level-N kernel point, so the all-level formula applies to it as well.
+4. Use the all-level formula again to identify the inner ambient point with T(h,a).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-action-cartan-circle-level-equiv-mul`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_mul_typed_api` (compatibility): For actual g,h and circle point a, T(gh,a)=T(g,T(h,a)), with h acting first.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### Inverse common Cartan action recovers every original point
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-inverse` — `DirichletPadic.kubertCartanGlobalPoint_inverse`
+
+For every actual g and circle point a, T(g inverse,T(g,a))=a.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. The global multiplication law identifies the composite with T(g inverse times g,a).
+2. Native group cancellation gives the identity element.
+3. The global identity law fixes a.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-mul`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalPoint_inverse_typed_api` (compatibility): For every actual g and circle point a, T(g inverse,T(g,a))=a.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The actual global Cartan additive automorphism of the rational circle
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv` — `DirichletPadic.kubertCartanGlobalCircleEquiv`
+
+For each original g in Gamma_1, construct an actual additive equivalence E(g) of the rational circle whose forward map is T(g), whose inverse is T(g inverse), and whose additive law is the proved global point additivity.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Use the actual point map and actual inverse-unit point map as the two underlying functions.
+2. The proved inverse law supplies both inverse equations, applying it to g and g inverse.
+3. The proved common-modulus additivity supplies the native additive-equivalence field.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-add`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-inverse`.
+
+**Uses:**
+
+- Kubert186–188, compatible Cartan actions and the injective-limit module: Extends every original finite Cartan automorphism to an actual automorphism of the entire rational circle, retaining containing-level consistency and group laws.
+- Kubert188, inverse-coefficient value formula2.9: Makes the actual global Cartan value equivariant for the source point action and the constructed native module-limit representation, before transport of the universal quotient action.
+
+**API:**
+
+- `kubertCartanGlobalCircleEquiv_apply` (compatibility): For every actual g and point a, E(g)(a)=T(g,a).
+- `kubertCartanGlobalCircleEquiv_symm` (compatibility): For every original g, E(g) inverse equals E(g inverse) as actual additive equivalences of the rational circle.
+- `kubertCartanGlobalCircleEquiv_one` (compatibility): E(1) is the identity additive equivalence of the rational circle.
+- `kubertCartanGlobalCircleEquiv_mul` (compatibility): For actual g,h, E(gh) equals E(g) composed with E(h), with h applied first.
+- `kubertCartanGlobalValue_equivariant` (compatibility): For any ring R, actual common g, actual rational-circle point a and arbitrary scalar function phi, V(E(g)(a))(phi)=rho_limit(g)(V(a)(phi)) in the actual Cartan module limit. The scalar function itself is unchanged, and no ordinary root-law hypothesis is required for this equivariance statement.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.global_circle_inverse_roundtrip` (characterisation): The actual global additive equivalence and its inverse recover every original circle point.
+- `SuggestedKubertGlobalCartanActionTests.global_circle_level_formula` (compatibility): The global additive equivalence agrees with the original finite Cartan automorphism at every containing level.
+- `SuggestedKubertGlobalCartanActionTests.global_inverse_is_three_modulo_five` (non-example): For an actual common unit projecting to2 modulo5, its inverse global automorphism sends1/5 to3/5, not2/5.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The global additive equivalence retains the original point map
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply` — `DirichletPadic.kubertCartanGlobalCircleEquiv_apply`
+
+For every actual g and point a, E(g)(a)=T(g,a).
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. The native additive equivalence was constructed with exactly T(g) as its forward function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalCircleEquiv_apply_typed_api` (compatibility): For every actual g and point a, E(g)(a)=T(g,a).
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The inverse global equivalence is the inverse-unit action
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-symm` — `DirichletPadic.kubertCartanGlobalCircleEquiv_symm`
+
+For every original g, E(g) inverse equals E(g inverse) as actual additive equivalences of the rational circle.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Use native additive-equivalence extensionality.
+2. The inverse function of E(g) is exactly the forward point map T(g inverse), also used by E(g inverse).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalCircleEquiv_symm_typed_api` (compatibility): For every original g, E(g) inverse equals E(g inverse) as actual additive equivalences of the rational circle.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The identity global Cartan equivalence is the actual identity
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-one` — `DirichletPadic.kubertCartanGlobalCircleEquiv_one`
+
+E(1) is the identity additive equivalence of the rational circle.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Apply additive-equivalence extensionality.
+2. The actual point maps agree by the proved global identity law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-one`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalCircleEquiv_one_typed_api` (compatibility): E(1) is the identity additive equivalence of the rational circle.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The global Cartan equivalences satisfy the group action law
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-mul` — `DirichletPadic.kubertCartanGlobalCircleEquiv_mul`
+
+For actual g,h, E(gh) equals E(g) composed with E(h), with h applied first.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Apply additive-equivalence extensionality at an arbitrary actual point.
+2. The actual point maps agree by the proved global multiplication law.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-mul`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalCircleEquiv_mul_typed_api` (compatibility): For actual g,h, E(gh) equals E(g) composed with E(h), with h applied first.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+### The global Cartan value intertwines the actual point and module actions
+
+`DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-value-equivariant` — `DirichletPadic.kubertCartanGlobalValue_equivariant`
+
+For any ring R, actual common g, actual rational-circle point a and arbitrary scalar function phi, V(E(g)(a))(phi)=rho_limit(g)(V(a)(phi)) in the actual Cartan module limit. The scalar function itself is unchanged, and no ordinary root-law hypothesis is required for this equivariance statement.
+
+**Hypotheses:** The degree is one. Gamma_1 is the original product over primes p of units in WittVector p (GaloisField p 1), with the established original finite projections pi_N to the original finite Cartan groups U(1,N). The points are actual elements of AddCircle(1:Q). At each positive N retain the established additive automorphism A_N(u) of the actual kernel of multiplication by N, its group laws and restriction to the same ambient point at a divisor level. The finite projections are compatible with every original reduction. Each actual circle point a has positive additive order. Use this actual order as its canonical finite level, rather than choosing a representative. When adding two points, their two positive orders have a common positive product modulus. Only the final value-equivariance statement needs a coefficient ring R. It uses the existing actual global value V(a)(phi), actual Cartan module limit and its proved native representation. The scalar phi is arbitrary here; no ordinary root law or normalization at zero is needed for equivariance. No topological-action or general-degree primitive-coordinate claim is made.
+
+**Proof:**
+
+1. Put a into its actual positive-order level N and identify E(g)(a) explicitly with the ambient image of A_N(pi_N(g)).
+2. The established all-level value formula computes its global value by I_N applied to the original finite value.
+3. The established finite-value action formula identifies that finite value with the original left regular action of pi_N(g), exactly the common finite representation rho_N(g).
+4. The actual limit representation formula carries this finite action through I_N.
+5. Use the all-level value formula at the original a to identify the result with rho_limit(g)(V(a)(phi)).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-circle-equiv-apply`, `DirichletPadicLFunctions:L3/kubert-global-action-cartan-global-point-level`, `DirichletPadicLFunctions:L3/kubert-global-cartan-cartan-global-value-level`, `DirichletPadicLFunctions:L3/kubert-degree-one-value-cartan-circle-value-action`, `DirichletPadicLFunctions:L3/kubert-limit-action-cartan-limit-representation-of`.
+
+**Tests:**
+
+- `SuggestedKubertGlobalCartanActionTests.cartanGlobalValue_equivariant_typed_api` (compatibility): For any ring R, actual common g, actual rational-circle point a and arbitrary scalar function phi, V(E(g)(a))(phi)=rho_limit(g)(V(a)(phi)) in the actual Cartan module limit. The scalar function itself is unchanged, and no ordinary root-law hypothesis is required for this equivariance statement.
+
+**Acceptance:** Any actual common unit projecting to residue2 modulo5 sends1/5 to2/5, while its inverse sends1/5 to3/5. A unit projecting to5 modulo6 fixes the imprimitive point1/2. Every common unit fixes0. The scalar function is unchanged in global-value equivariance: the inverse coefficient convention turns forward point action into the original left regular action on values.
+
+**Source:** Published186–188, compatible finite Cartan actions, Cartan-module maps(2.6)–(2.7), the injective limit and inverse-coefficient distribution formula(2.9). This checkpoint is the actual degree-one global action underlying those compatible finite actions. Constructs actual additive automorphisms of the entire rational circle from the original compatible finite Cartan actions, proves all-level agreement and group laws, and proves that the existing global Cartan value intertwines this point action with the actual limit representation. No primitive-only restriction or assumed global action is used.
+
+**Remaining:** The original common degree-one Cartan group now acts by actual additive automorphisms on the entire rational circle, with every containing-level formula, identity, ordered composition and inverse. The existing global Cartan value intertwines this actual point action with the actual module-limit representation for every scalar function. Next transport the existing universal ordinary-distribution quotient by these additive automorphisms and prove equivariance of the actual Cartan quotient map, then construct source character components and complete the independent lower-rank argument through Kubert186–199. Combine the bound with actual surjections and upper bounds for independence, freeness and internal/global equality. The global quotient map is not claimed injective or surjective, and no topological action is asserted. General-degree coherent primitive coordinates, unramified integer-ring identification and the general lambda fiber count remain open; FF.4 owns generic Galois-ring theory. Preserve parity ranks, Tate conventions, all Gamma, Coleman/LAD, Katz/Fermat, external[K-L], unidentified[L], Stickelberger, Ferrero–Greenberg and RD.6 boundaries, including the p=3,2/13 nonintegral-mean witness. All18gaps and16requests remain; zero stages close.
+
+### Actual global rational-circle Cartan automorphisms and value equivariance validation
+
+All 1873 predecessor nodes, 1199 baseline records, 26 findings, requests and sourceVersions remain whole. This checkpoint adds 13 nodes, 13 named suggested declarations and 17 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 2148 reachable nodes, 8933 edges and 1368 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0, ColemanIntegration:L0, PadicDifferentialEquationsAndRigidCohomology:RD.6, PadicDifferentialEquationsAndRigidCohomology:RD.6. Every new route terminates in the original finite Cartan actions and projections, native circle order, actual global values or the actual module-limit representation. No new supplier-stage leaf or assumed global action, compatibility or rank package is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3667 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete native probe retains5734 verbatim and adds two actual constructions and eleven complete lemmas. Totals are146definitions and1,215lemmas, plus two routine native primality instances and the retained complete digit non-example, with zero placeholders. The public append contains13named declarations and17typed tests, all new mathematical bodies placeholders. No new native import or library build occurs. The separate probe compiles against 3049 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. Full suggested module NOT COMPILED because the pinned TwistedDivisorSum artifact remains unavailable. Existing PMIA/Teichmuller artifacts remain hash-verified partial dependencies; no native library was built. General roadmap declarations remain unchecked.
+
+Exact controls at48positive moduli check 22963 canonical_level_agreement, 833273 global_additivity, 589491 global_composition, 22963 inverse_roundtrips, 33494 divisor_restriction, 589491 value_equivariance_coefficients. Unit2 modulo5 sends1/5 to2/5 and its inverse sends1/5 to3/5; unit5 modulo6 fixes the imprimitive point1/2. Integer5 and-7 agree at level12. Native proofs separately establish the actual common full-Witt global automorphisms and actual-limit equivariance. Exact rational and integer modular computations on all actual degree-one points and residue units at48positive levels. The canonical point level is its reduced denominator; native proofs establish the arbitrary common full-Witt action and actual-limit equivariance independently of these finite controls. The largest observed discrepancy is 0.
+
+Two guarded generated files changed: the source-issue registry and errata register. Their complete diff was read. The registry adds FunctionFieldArithmeticPartII/E1–E9 from Yun–Zhang2019; all9100previous records and the other top-level data remain unchanged. All nine records have status awaiting review. The generated register adds the new Picard-stack exactness finding under awaiting review and the eight collated findings under already corrected in print, changing those counts1777to1778 and1223to1231. These source claims are outside the present roadmap dependency route; none is adopted or independently reviewed. The other77guarded inputs, four predecessor outputs and complete issue text remain unchanged. Original claim5854791937 and unclaimed review390 remain the scope boundary.
+
+The separate partial signature file also compiled with zero errors and 5,651 expected placeholder warnings across 3,663 pinned source modules. It includes all 13 new named declarations and 17 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1fbf0880a80e8867db2cf862eec4aa003b166075ac52db9f8e2fb4b482bceecf.
