@@ -23,6 +23,7 @@ import Mathlib.AlgebraicGeometry.Morphisms.Proper
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs
 import Mathlib.RingTheory.Conductor
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass
 import Mathlib.Algebra.Polynomial.Degree.Operations
 import Mathlib.Data.ZMod.Basic
@@ -86,6 +87,88 @@ example (k E : Type u) [Field k] [Field E] [Algebra k E]
     (algebraMap k E).range.conductor = ⊥ := by sorry
 
 end Subring
+
+namespace TauCeti.GenusOne.AffinePinching
+
+variable {A B : Type u} [CommRing A] [CommRing B]
+
+/-- NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-comparison: comparison into the existing ring pullback.
+No image-ideal or injectivity hypothesis is required to construct the map. -/
+def commonIdealComparison (f : A →+* B) (I : Ideal A) :
+    CommRingCat.of A ⟶ (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt := by sorry
+
+lemma commonIdealComparison_fst (f : A →+* B) (I : Ideal A) (a : A) :
+    (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).fst.hom
+        ((commonIdealComparison f I).hom a) = f a := by sorry
+
+lemma commonIdealComparison_snd (f : A →+* B) (I : Ideal A) (a : A) :
+    (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).snd.hom
+        ((commonIdealComparison f I).hom a) = Ideal.Quotient.mk I a := by sorry
+
+lemma commonIdealComparison_unique (f : A →+* B) (I : Ideal A)
+    (h : CommRingCat.of A ⟶ (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).pt)
+    (hfst : h ≫ (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).fst =
+        CommRingCat.ofHom f)
+    (hsnd : h ≫ (CommRingCat.pullbackCone
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map))).snd =
+        CommRingCat.ofHom (Ideal.Quotient.mk I)) :
+    h = commonIdealComparison f I := by sorry
+
+-- commonIdealComparison.test_identity
+example (I : Ideal A) :
+    Function.Bijective (commonIdealComparison (RingHom.id A) I).hom := by sorry
+
+-- commonIdealComparison.test_zero_ideal
+example (f : A →+* B) :
+    Function.Bijective (commonIdealComparison f ⊥).hom := by sorry
+
+-- commonIdealComparison.test_noninjective_kernel
+example :
+    let f := Int.castRingHom (ZMod 2)
+    let c := commonIdealComparison f (RingHom.ker f)
+    c.hom (2 : ℤ) = c.hom 0 ∧ (2 : ℤ) ≠ 0 := by sorry
+
+-- commonIdealComparison.test_image_not_ideal
+example :
+    let f := (RingHom.id (ZMod 2)).prod (RingHom.id (ZMod 2))
+    ¬ Function.Surjective (commonIdealComparison f ⊤).hom := by sorry
+
+/-- NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel: the obstruction is an actual kernel intersection. -/
+lemma commonIdealComparison_kernel (f : A →+* B) (I : Ideal A) :
+    RingHom.ker (commonIdealComparison f I).hom = RingHom.ker f ⊓ I := by sorry
+
+/-- NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-pair-lifting: the image must already be an ideal. -/
+lemma commonIdealComparison_surjective (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A)) :
+    Function.Surjective (commonIdealComparison f I).hom := by sorry
+
+/-- NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-cartesian: Ferrand Lemma 1.3, including necessity. -/
+theorem commonIdeal_isPullback_iff (f : A →+* B) (I : Ideal A)
+    (himage : (I.map f : Set B) = f '' (I : Set A)) :
+    IsPullback (CommRingCat.ofHom f) (CommRingCat.ofHom (Ideal.Quotient.mk I))
+      (CommRingCat.ofHom (Ideal.Quotient.mk (I.map f)))
+      (CommRingCat.ofHom (Ideal.quotientMap (I.map f) f Ideal.le_comap_map)) ↔
+        RingHom.ker f ⊓ I = ⊥ := by sorry
+
+/-- NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-ring-cartesian: no finiteness, reducedness or Noetherianity. -/
+lemma conductorRing_isPullback (S : Subring B) :
+    IsPullback (CommRingCat.ofHom S.subtype)
+      (CommRingCat.ofHom (Ideal.Quotient.mk (S.conductor.comap S.subtype)))
+      (CommRingCat.ofHom (Ideal.Quotient.mk S.conductor))
+      (CommRingCat.ofHom (Ideal.quotientMap S.conductor S.subtype le_rfl)) := by sorry
+
+end TauCeti.GenusOne.AffinePinching
 
 namespace TauCeti.GenusOne
 
