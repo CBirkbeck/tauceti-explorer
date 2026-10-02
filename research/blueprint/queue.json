@@ -23663,12 +23663,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "superseded",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "Split on 2026-10-02 into one blueprint job per layer (BP-DirichletPadicLFunctions--L0 to --L4), each with its own review, and an assembly job. After six days and over 200 checkpoints the packet held 2,258 nodes, more than one review can check. The merged work carries over to the layer jobs."
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -23688,7 +23688,8 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Split on 2026-10-02 into one blueprint job per layer (BP-DirichletPadicLFunctions--L0 to --L4), each with its own review, and an assembly job. After six days and over 200 checkpoints the packet held 2,258 nodes, more than one review can check. The merged work carries over to the layer jobs."
   },
   {
    "id": "BP-EllipticCurveModularity",
