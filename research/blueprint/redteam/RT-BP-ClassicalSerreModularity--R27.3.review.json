@@ -1,0 +1,20 @@
+{
+  "redteam": "RT-BP-ClassicalSerreModularity--R27.3",
+  "findings": [
+    {
+      "finding": "RT-BP-ClassicalSerreModularity--R27.3/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed in the current 33-node packet at f5732d4. The imported dihedralType_residual gives the split unramified reduction of its standard integral induction, while orderThreeType_reduction asserts agreement with the residual Steinberg inertia module without an adapted lattice. DP v2 p6 defines compatibility by an actual stable integral lattice realizing the full residual inertia representation; Lemma2.3 pp12-13 uses this condition. Independently verified over Z[z]/(z^2+z+1) the two matrices D0=diag(z,z^2), F0=swap and D1=(z,0;z,z^2), F1=(1,z-1;0,-1), related by P=(1,0;1,z-1). Both have D^3=F^2=1 and FDF^-1=D^2, but reductions have inertia fixed-space dimensions2 and1. Equal characteristic-zero type and Frobenius trace therefore cannot discharge compatibility for the nonzero extension. Tie the split-reduction API to its standard lattice and require existence of an adapted stable lattice, with split/nonzero extension cases and unramified twists. The R08.6/export-away-from-p level-two local lift and R24.3/required-lift-types(4) are planned suppliers. KW I Theorem5.1(4) p10 permits p3,q2 and this residual local shape; verify its global hypotheses before using it, or explicitly prove DP compatibility from the local construction. Add both lattice reductions as tests, retaining the final type-change theorem and existing ownership. No source erratum is asserted."
+    },
+    {
+      "finding": "RT-BP-ClassicalSerreModularity--R27.3/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The raising-levels node recognizes the Steinberg exception but then claims the auxiliary system has the same dyadic conductor part as the original prime-to-p conductor. KW I Theorem5.1(2) p9 gives nonzero rank-one monodromy for p2,k4. Its unramified semisimple WD representation has conductor2-dim kerN=1, whereas the original prime-to-2 conductor has exponent0. Section8.4 pp17-18 only needs the final exponent <=r. Correct the proof to track the first system, intermediate residual representation at p-prime, second minimal lift at2, and final reduction separately. For p odd the first exponent equals the original dyadic exponent <=r by minimality away from p; for p2,k2 it is0; for p2,k4 it is1 and the theorem excludes r0. Reduction at coefficient primes different from2 cannot increase the conductor, and second-lift minimality uses the intermediate residual exponent, not the original representation. Thus final exponent <=second exponent <=first exponent <=r. Reuse R01.3 conductor/monodromy/reduction comparisons through the existing compatible-system interface. Include p2,k4,r1 and allow conductor drop; preserve Theorem3.4 unchanged. Exact arithmetic verified rank-one monodromy and 528 permitted bound/drop chains."
+    },
+    {
+      "finding": "RT-BP-ClassicalSerreModularity--R27.3/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed by direct statement reads at the exact pins. The suggested Standard note says modular forms are absent. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 Basic.lean defines ModularForm and CuspForm as slash-invariant holomorphic functions with boundedness/vanishing at cusps. Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 Newforms/Newform.lean defines HeckeRing.GL2.Newform N k, with nonzero level N inherited eigenform, new-subspace membership and first Fourier coefficient1. Narrow the note to the unavailable arithmetic Serre-weight, compatible-system and attached-Galois/modularity comparison interfaces, and name those analytic carriers as imports. Do not infer that their Galois comparison or Serre theorem is built. This is a low-severity library-status correction."
+    }
+  ]
+}
