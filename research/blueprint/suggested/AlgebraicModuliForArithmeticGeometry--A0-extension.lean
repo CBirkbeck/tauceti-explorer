@@ -4,7 +4,9 @@ definitive. These statements suggest Lean forms so contributors and reviewers
 can converge on names and signatures. Nothing here claims an implementation.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Not compiled.
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Full file not compiled.
+The Mathlib-only intrinsic-band extraction elaborates; its validation boundary
+is recorded in the reader and handoff.
 The final omission ledger names every interface requiring an unavailable
 supplier. No desired theorem is encoded as an unspecified Prop-valued field.
 -/
@@ -1436,8 +1438,11 @@ For a native descent datum D with associated coalgebra (N,d), the existing compa
 END NATIVE CHOSEN-OVERLAP OMISSIONS -/
 
 /-! Intrinsic-band continuation, Codex codex-rtOQ9t, Refs #672.
-Fifteen new packet leaves use existing CatCenter, units, Aut and slice-Hom
-descent. All signatures below are UNCOMPILED at the pinned commits.
+Seventeen packet leaves use existing CatCenter, units, Aut and slice-Hom
+descent. Codex codex-J6LwjP checked this block in a Mathlib-only extraction
+at the pinned commit: zero errors, 15 admitted-proof warnings. Foundational
+carrier/restriction/evaluation proofs are supplied; sheafness, locality and
+fixed-band uniqueness remain admitted. This does not validate the full file.
 The old intrinsic-band omission ledger is historical: the concrete section
 model below supplies a new route, while the old slice-glued carrier comparison
 still requires the imported SF1 interface. No proof or stage is closed.
@@ -1447,7 +1452,6 @@ namespace TauCeti.AlgebraicGeometry
 
 open CategoryTheory Opposite Bicategory
 
-universe v u v' u'
 variable {C : Type u} [Category.{v} C]
 variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
 
@@ -1458,9 +1462,24 @@ noncomputable def intrinsicBandSectionSubgroup (U : C) :
       (x : F.obj (.mk (op V))),
     (F.map g.op.toLoc).toFunctor.map ((z V f).val.app x) =
       (z W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x)}
-  one_mem' := by sorry
-  mul_mem' := by sorry
-  inv_mem' := by sorry
+  one_mem' := by
+    intro V W f g x
+    exact (F.map g.op.toLoc).toFunctor.map_id x
+  mul_mem' := by
+    intro s t hs ht V W f g x
+    change (F.map g.op.toLoc).toFunctor.map
+      ((t V f).val.app x ≫ (s V f).val.app x) =
+      (t W (g ≫ f)).val.app _ ≫ (s W (g ≫ f)).val.app _
+    rw [Functor.map_comp, hs V W f g x, ht V W f g x]
+  inv_mem' := by
+    intro s hs V W f g x
+    let e := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op V)))) (s V f)).app x
+    let e' := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op W)))) (s W (g ≫ f))).app
+      ((F.map g.op.toLoc).toFunctor.obj x)
+    have h : (F.map g.op.toLoc).toFunctor.mapIso e = e' := by
+      apply Iso.ext
+      exact hs V W f g x
+    exact congrArg Iso.inv h
 
 abbrev IntrinsicBandSection (U : C) := ↥(intrinsicBandSectionSubgroup F U)
 
@@ -1473,65 +1492,111 @@ theorem compatible {U : C} (s : IntrinsicBandSection F U)
     (V W : C) (f : V ⟶ U) (g : W ⟶ V) (x : F.obj (.mk (op V))) :
     (F.map g.op.toLoc).toFunctor.map ((val F s V f).val.app x) =
       (val F s W (g ≫ f)).val.app ((F.map g.op.toLoc).toFunctor.obj x) := by
-  sorry
+  exact s.property V W f g x
 
 /-- R09.4/band-center-ext. -/
 @[ext] theorem ext {U : C} (s t : IntrinsicBandSection F U)
     (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
       (val F s V f).val.app x = (val F t V f).val.app x) : s = t := by
-  sorry
+  apply Subtype.ext
+  funext V f
+  apply Units.ext
+  exact CatCenter.ext _ _ (h V f)
 
 /-- R09.4/band-center-commute; subgroup operations come from existing groups. -/
 noncomputable instance commGroup (U : C) : CommGroup (IntrinsicBandSection F U) :=
-  { inferInstanceAs (Group (IntrinsicBandSection F U)) with
-    mul_comm := by sorry }
+  { (inferInstance : Group (IntrinsicBandSection F U)) with
+    mul_comm := by
+      intro s t
+      apply Subtype.ext
+      funext V f
+      change s.val V f * t.val V f = t.val V f * s.val V f
+      apply Units.ext
+      apply CatCenter.ext
+      intro x
+      change ((s.val V f).val * (t.val V f).val).app x =
+        ((t.val V f).val * (s.val V f).val).app x
+      rw [CatCenter.mul_app', CatCenter.mul_app] }
 
 /-- R09.4/band-center-restrict: reindex the family, not the fibre functor. -/
 noncomputable def restrict {U V : C} (f : V ⟶ U) :
     IntrinsicBandSection F U →* IntrinsicBandSection F V where
-  toFun s := ⟨fun W a ↦ s.val W (a ≫ f), by sorry⟩
-  map_one' := by sorry
-  map_mul' := by sorry
+  toFun s := ⟨fun W a ↦ s.val W (a ≫ f), by
+    intro W X a g x
+    simpa only [Category.assoc] using s.property W X (a ≫ f) g x⟩
+  map_one' := by rfl
+  map_mul' := by intros; rfl
 
 theorem restrict_apply {U V W : C} (f : V ⟶ U)
     (s : IntrinsicBandSection F U) (a : W ⟶ V) :
-    val F (restrict F f s) W a = val F s W (a ≫ f) := by sorry
+    val F (restrict F f s) W a = val F s W (a ≫ f) := rfl
 
 /-- R09.4/band-center-restrict-id. -/
 theorem restrict_id {U : C} (s : IntrinsicBandSection F U) :
-    restrict F (𝟙 U) s = s := by sorry
+    restrict F (𝟙 U) s = s := by
+  apply ext
+  intro V f x
+  simp only [restrict_apply, Category.comp_id]
 
 /-- R09.4/band-center-restrict-comp. -/
 theorem restrict_comp {U V W : C} (f : V ⟶ U) (g : W ⟶ V)
     (s : IntrinsicBandSection F U) :
-    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by sorry
+    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by
+  apply ext
+  intro X a x
+  simp only [restrict_apply, Category.assoc]
 
 /-- R09.4/band-center-evaluation. -/
 noncomputable def eval {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V))) :
     IntrinsicBandSection F U →* Aut x where
   toFun s := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op V)))) (val F s V a)).app x
-  map_one' := by sorry
-  map_mul' := by sorry
+  map_one' := by apply Iso.ext; rfl
+  map_mul' := by intros; apply Iso.ext; rfl
 
 theorem eval_mul {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V)))
     (s t : IntrinsicBandSection F U) :
-    eval F a x (s * t) = eval F a x s * eval F a x t := by sorry
+    eval F a x (s * t) = eval F a x s * eval F a x t := (eval F a x).map_mul s t
 
 theorem eval_conjugation {U V : C} (a : V ⟶ U)
     {x y : F.obj (.mk (op V))} (e : x ≅ y) (s : IntrinsicBandSection F U) :
-    Aut.autMulEquivOfIso e (eval F a x s) = eval F a y s := by sorry
+    Aut.autMulEquivOfIso e (eval F a x s) = eval F a y s := by
+  apply Iso.ext
+  change e.inv ≫ (val F s V a).val.app x ≫ e.hom = (val F s V a).val.app y
+  rw [← CatCenter.naturality, e.inv_hom_id_assoc]
 
 theorem eval_restrict {U V W : C} (a : V ⟶ U) (g : W ⟶ V)
     (x : F.obj (.mk (op V))) (s : IntrinsicBandSection F U) :
     (F.map g.op.toLoc).toFunctor.mapAut x (eval F a x s) =
-      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s := by sorry
+      eval F (g ≫ a) ((F.map g.op.toLoc).toFunctor.obj x) s := by
+  apply Iso.ext
+  exact compatible F s V W a g x
+
+/-- R09.4/band-center-evaluation-central. No gerbe or abelian-inertia assumption. -/
+theorem eval_central {U V : C} (a : V ⟶ U) (x : F.obj (.mk (op V)))
+    (s : IntrinsicBandSection F U) (b : Aut x) :
+    eval F a x s * b = b * eval F a x s := by
+  apply Iso.ext
+  exact (val F s V a).val.naturality b.hom
+
+/-- R09.4/band-center-evaluation-reindex: the same arrow in two slice presentations. -/
+theorem eval_reindex {U V W : C} (f : V ⟶ U) (a : W ⟶ V)
+    (x : F.obj (.mk (op W))) (s : IntrinsicBandSection F U) :
+    eval F a x (restrict F f s) = eval F (a ≫ f) x s := rfl
 
 /-- Packaging used by R09.4/band-center-sheaf. -/
 noncomputable def presheaf : Cᵒᵖ ⥤ AddCommGrpCat.{max u v u' v'} where
   obj U := AddCommGrpCat.of (Additive (IntrinsicBandSection F U.unop))
   map f := AddCommGrpCat.ofHom (MonoidHom.toAdditive (restrict F f.unop))
-  map_id := by sorry
-  map_comp := by sorry
+  map_id := by
+    intro U
+    apply AddCommGrpCat.ext
+    intro s
+    exact restrict_id F s
+  map_comp := by
+    intro U V W f g
+    apply AddCommGrpCat.ext
+    intro s
+    exact (restrict_comp F f.unop g.unop s).symm
 
 /-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
 theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
@@ -1540,47 +1605,68 @@ theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
 
 variable (J : GrothendieckTopology C) [hGerbe : IsGerbe F J]
 
-/-- Concrete sheaf packaging; proof source is the preceding Hom-descent leaf. -/
 include hGerbe in
+/-- Concrete sheaf packaging; proof source is the preceding Hom-descent leaf. -/
 noncomputable def sheaf : Sheaf J AddCommGrpCat.{max u v u' v'} where
   obj := presheaf F
-  property := by sorry
+  property := isSheaf F J (IsGerbe.isIso_hom (F := F) (J := J))
 
-/-- R09.4/band-center-evaluation-injective. -/
 include hGerbe in
+/-- R09.4/band-center-evaluation-injective. -/
 theorem eval_injective (U : C) (x : F.obj (.mk (op U))) :
     Function.Injective (eval F (𝟙 U) x) := by sorry
 
 variable (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
 
-/-- R09.4/band-center-evaluation-surjective: local conjugation and refinements. -/
 include hGerbe hComm in
+/-- R09.4/band-center-evaluation-surjective: local conjugation and refinements. -/
 theorem eval_surjective (U : C) (x : F.obj (.mk (op U))) :
     Function.Surjective (eval F (𝟙 U) x) := by sorry
 
-/-- R09.4/band-center-evaluation-equivalence. -/
 include hGerbe hComm in
+/-- R09.4/band-center-evaluation-equivalence. -/
 noncomputable def evalEquiv (U : C) (x : F.obj (.mk (op U))) :
-    IntrinsicBandSection F U ≃* Aut x := by sorry
+    IntrinsicBandSection F U ≃* Aut x :=
+  MulEquiv.ofBijective (eval F (𝟙 U) x)
+    ⟨eval_injective F J U x, eval_surjective F J hComm U x⟩
 
 theorem evalEquiv_apply (U : C) (x : F.obj (.mk (op U)))
     (s : IntrinsicBandSection F U) :
-    evalEquiv F J hComm U x s = eval F (𝟙 U) x s := by sorry
+    evalEquiv F J hComm U x s = eval F (𝟙 U) x s := rfl
 
-/-- R09.4/band-center-banding: reuse the inherited actual banding structure. -/
 include hComm in
-noncomputable def banding : AbelianBanding F J (sheaf F J) := by sorry
+/-- R09.4/band-center-banding: reuse the inherited actual banding structure. -/
+noncomputable def banding : AbelianBanding F J (sheaf F J) where
+  autEquiv U x :=
+    { toFun a := evalEquiv F J hComm U x a.toAdd.toMul
+      invFun a := Multiplicative.ofAdd (Additive.ofMul ((evalEquiv F J hComm U x).symm a))
+      left_inv a := (evalEquiv F J hComm U x).left_inv a.toAdd.toMul
+      right_inv a := (evalEquiv F J hComm U x).right_inv a
+      map_mul' a b := (evalEquiv F J hComm U x).map_mul a.toAdd.toMul b.toAdd.toMul }
+  pullback := by
+    intro U V f x a
+    let s : IntrinsicBandSection F U := a.toAdd.toMul
+    change (F.map f.op.toLoc).toFunctor.mapAut x (eval F (𝟙 U) x s) =
+      eval F (𝟙 V) ((F.map f.op.toLoc).toFunctor.obj x) (restrict F f s)
+    apply Iso.ext
+    change (F.map f.op.toLoc).toFunctor.map ((val F s U (𝟙 U)).val.app x) =
+      (val F (restrict F f s) V (𝟙 V)).val.app _
+    rw [restrict_apply, Category.id_comp]
+    simpa only [Category.comp_id] using compatible F s U V (𝟙 U) f x
+  conjugation := by
+    intro U x y e a
+    exact eval_conjugation F (𝟙 U) e a.toAdd.toMul
 
 theorem banding_apply (U : C) (x : F.obj (.mk (op U)))
     (a : Multiplicative ((sheaf F J).obj.obj (op U))) :
-    (banding F J hComm).autEquiv U x a = eval F (𝟙 U) x a.toAdd.toMul := by sorry
+    (banding F J hComm).autEquiv U x a = eval F (𝟙 U) x a.toAdd.toMul := rfl
 
 variable {hComm}
 variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
 
-/-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
 include b in
-noncomputable def fromBanding (U : C) :
+/-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
+noncomputable def fromBanding (b : AbelianBanding F J A) (U : C) :
     Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U := by sorry
 
 theorem fromBanding_eval {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
@@ -1599,6 +1685,16 @@ theorem band_unique : ∃! e : A ≅ sheaf F J,
     ∀ (U : C) (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))),
       eval F (𝟙 U) x (((Sheaf.homEquiv e.hom).app (op U)) a.toAdd).toMul =
         b.autEquiv U x a := by sorry
+
+-- BandCenterTests.centralImage: also applies to nonabelian fibre groups.
+example {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
+    (s : IntrinsicBandSection F U) (b : Aut x) :
+    eval F f x s * b = b * eval F f x s := eval_central F f x s b
+
+-- BandEvaluationTests.reindexedArrow: restrictions use the actual composite arrow.
+example {U V W : C} (f : V ⟶ U) (a : W ⟶ V)
+    (x : F.obj (.mk (op W))) (s : IntrinsicBandSection F U) :
+    eval F a x (restrict F f s) = eval F (a ≫ f) x s := eval_reindex F f a x s
 
 end IntrinsicBandSections
 
@@ -1623,15 +1719,26 @@ example (U : C) (x : F.obj (.mk (op U))) (h : Subsingleton (Aut x)) :
 -- BandEvaluationTests.noncentral, with the actual transposition coordinate.
 example (U : C) (x : F.obj (.mk (op U)))
     (e : Aut x ≃* Equiv.Perm (Fin 3)) (s : IntrinsicBandSection F U) :
-    e (eval F (𝟙 U) x s) ≠ Equiv.swap (0 : Fin 3) 1 := by sorry
+    e (eval F (𝟙 U) x s) ≠ Equiv.swap (0 : Fin 3) 1 := by
+  intro h
+  have hc := congrArg e (eval_central F (𝟙 U) x s
+    (e.symm (Equiv.swap (1 : Fin 3) 2)))
+  simp only [map_mul, MulEquiv.apply_symm_apply, h] at hc
+  have hn : Equiv.swap (0 : Fin 3) 1 * Equiv.swap (1 : Fin 3) 2 ≠
+      Equiv.swap (1 : Fin 3) 2 * Equiv.swap (0 : Fin 3) 1 := by decide
+  exact hn hc
 
 example {U V W : C} (f : V ⟶ U) (g : W ⟶ V) (s : IntrinsicBandSection F U) :
-    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by sorry
+    restrict F g (restrict F f s) = restrict F (g ≫ f) s := by
+  apply ext
+  intro X a x
+  simp only [restrict_apply, Category.assoc]
 
 example {U V : C} (f : V ⟶ U) {x y : F.obj (.mk (op V))}
     (e e' : x ≅ y) (s : IntrinsicBandSection F U) :
     Aut.autMulEquivOfIso e (eval F f x s) =
-      Aut.autMulEquivOfIso e' (eval F f x s) := by sorry
+      Aut.autMulEquivOfIso e' (eval F f x s) := by
+  rw [eval_conjugation, eval_conjugation]
 
 example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b * a)
     (U : C) (x : F.obj (.mk (op U))) (e : Aut x ≃* Multiplicative (ZMod 3)) :
@@ -1648,7 +1755,10 @@ example (U : C) (x : F.obj (.mk (op U)))
     Nat.card (IntrinsicBandSection F U) = 1 := by sorry
 
 -- BandRestrictionTests.id applies, in particular, to the nonzero C3 section.
-example (U : C) (s : IntrinsicBandSection F U) : restrict F (𝟙 U) s = s := by sorry
+example (U : C) (s : IntrinsicBandSection F U) : restrict F (𝟙 U) s = s := by
+  apply ext
+  intro V f x
+  simp only [restrict_apply, Category.comp_id]
 
 -- BandComparisonTests.inversion: distinct fixed-band coordinates stay distinct.
 example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b b' : AbelianBanding F J A)
