@@ -1,0 +1,280 @@
+{
+  "redteam": "RT-PAPER-CARAIANI-SCHOLZE-24",
+  "findings": [
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a proof/supplier gap, not a counterexample to affineness. I read §§2.2–2.3 and pp. 38–46, inspecting pp. 19, 44–45 as images. With principal polarizations and one common G-similitude scalar, an honest isogeny invertible on a nonzero étale part has unit scalar; duality and the polarization degree identity then force it to be an isomorphism. Footnote 15 treats the outer parts separately and does not establish compatibility with that scalar. The word vacuous needs this nonzero-étale qualification. Replacing isogeny by quasi-isogeny alone is not a proof: the kernel construction and compactified transport must be established for the replacement. Record the gap under §18 and keep those proof gates explicit in IG.1–2."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The standing choice in §2.5.7, p. 27 requires the prime-to-q part of N to be at least 3 for each relevant good prime q. Item 21 reproduces the toroidal theorem without that ambient level condition. Restore the standing condition, together with the fan/base hypotheses, in the extraction and the compactification application; do not infer it merely from N ≥ 3."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed with scope qualification. §§2.8 and 5.1, pp. 35–36 and 64–65 specify F0, splitness in F0, the character varpi, its ramification in S and the sufficiently divisible prime-to-p level N0. Items 31–32 suppress part of this data. IG.5 gives the totally split residual obstruction, while the rational existence theorem uses the wider F0-split setting. State each branch separately, retain all hypotheses and request the wider application where needed; a specialization is still a valid planned result."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the unrecorded descent steps. Lemma 2.1.1, p. 12 already covers general neat compact open K, so the finding is wrong to restrict that lemma to principal congruence level. The final argument on p. 36 proves vanishing using the auxiliary principal prime-to-p level and enlarged bad-place set. Record the Hecke-equivariant level/descent and Hecke-algebra contraction needed to recover the stated general level. Use the all-N good-reduction comparison of Proposition 2.6.4 when p-power level is present. This is not evidence that Theorem 1.1 is false."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The ambient flag description in §§2.6–2.7 must specify the Hodge cocharacter and the dimension of the isotropic subspace, not all isotropic subspaces of arbitrary rank. For this datum the rank is n at every embedding, and d=[F+:Q]n². Item 24 and IG.3 should expose that type and its polarization/endomorphism conditions. The intended flag variety is recoverable from the setup; the correction makes the definition usable rather than disproving the theorem."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The proof of Proposition 2.2.4, pp. 16–17 uses bounded quasi-isogeny representatives and a finite truncation detecting the relevant p-divisible-group condition, with the cited Rapoport–Zink/Oort inputs. The extraction leaves those results inside a proof note. IG.0 has an effectivity target, but that does not identify these particular theorem interfaces. Add individual cited-input records and requests to the existing p-divisible/moduli suppliers, with the actual bounds and hypotheses, before crediting the application."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Propositions 3.3.4 and 3.3.8, pp. 46–50 distinguish the integral affine pro-Igusa normalization from its finite-level versions. Item 43 calls the general pro-cover finite; finiteness is only justified at the appropriate finite level, whereas integrality survives the limit. Separate the finite and perfect/pro-level statements and notation. The affinoid assertion on p. 59 also cites 3.3.8 where the argument needs the preceding affineness and integral normalization results. Preserve the correct integral statement rather than replacing it by a blanket non-finiteness assertion in degenerate finite cases."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an explicit finite-level target omission. §§3.2–3.3 include finite-level toroidal existence, formal charts and boundary descriptions in Theorems 3.2.4, 3.2.6, 3.3.12 and 3.3.15, in addition to their perfect limits. The extraction records them, but IG.2 does not specify the full finite-level package and compatibility maps. Expand its packet targets or requests before treating every one as covered. IG.1 already plans the finite-level open Igusa tower and must remain its owner."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. I read Theorem 4.2.1 and Corollary 4.2.2, pp. 52–53 against item 48 and IG.3. The boundary Hodge–Tate filtration is an explicit formula involving the multiplicative, abelian and étale pieces; merely identifying fibers does not state it. Add that formula, the isotropic filtration, rank/type and equivariance as an application of the common period-map supplier. Assign the common construction once and have IG.3 import it."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with the proposed routes reconciled. The setup of Theorem 4.1.1, Proposition 4.3.1 and Theorem 4.4.1 use SW13 Theorems A/B, not just a Hodge–Tate exact sequence. T2 currently plans the latter, and IG.3 applies classification without supplying it. The SW20 /100–101 route is the proposed prismatic Dieudonné extension; CS17 /53 is missing and suggests T2. Add the omitted cited inputs and choose one supplier with a PEL action/polarization adapter. Do not implement the classification independently in both directions. The rational crystalline full-faithfulness and integral classification statements must remain distinct."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 35 lists Lan–Stroh Theorem 2.3.3, whereas the construction and proofs in §3 also invoke Theorem 2.3.2, including its boundary-completion and proper-map package (p. 41). Read against the §3 construction, this is an omitted cited input, not an assertion that nothing whatsoever is planned in IG.2. Add the specific theorem and its well-positioned/fan hypotheses, then request or build its compactification specialization at the existing owner."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The page-66 image really prints rho_m = rho_(m-dual)|Art_F^(-1)|^(1-2n) without contragredience. The published ACC+ duality formulas, pp. 931–932, invert the roots; the correction therefore requires the dual representation as well as the displayed character twist. Without the dual it does not recover the specified Hecke polynomial. IG.5 already states the corrected dualization and eigenvalue dictionary. Record the source slip and cite/import that existing corrected application rather than constructing it again."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Theorem 6.4.1, pp. 84–87 has a Galois-existence assertion as well as the length obstruction. Its last case uses concentration and the rational result of §5. Current IG.6 describes the boundary formula and length conclusion but omits the existence theorem and has no direct or transitive dependency from IG.4 or IG.5. On the assembled 2,956-stage graph, adding those dependencies creates no reverse-path cycle. Add both theorem parts and a uniform lower-rank induction with the classical GL_r torsion input; do not mistake lower-rank boundary factorization alone for the missing last case."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 56 does not expose all standing §5.1 hypotheses of Theorem 5.1.2: F+ ≠ Q, the proper imaginary quadratic subfield, splitness of p, varpi and its ramification, S and the sufficiently small tame level. These occur explicitly on pp. 64–66 and matter to the transfer and Galois construction. Restore them and distinguish the totally split mod-ell ordinary obstruction from the wider rational theorem."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/15",
+      "verdict": "rejected",
+      "reason": "Rejected as the asserted missing twisted-source/proof gap. Arthur I §1, p. 327 explicitly works with a connected component of a possibly disconnected reductive group and gives cyclic examples; Arthur II §1, pp. 503–505 retains this setup and states its restriction to the connected or cyclic restriction-of-scalars component form. Thus the claim that these papers treat only connected reductive groups is false. CSnc pp. 72–74 explains the further cuspidality simplification, and current ET.4 explicitly imports the archived Arthur input through AS.6. Making the cited identity and its component hypotheses a separate extraction record would improve granularity, but the proposed new-source proof gap and mandatory replacement references are not established."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The Red^b construction, its dual trace identity and the local nontransfer obstruction are used on pp. 65–67 and 75–78 but are compressed into notes. ET.6 explicitly owns classical GL_m/inner-form comparison, and ET.7b owns the rational Igusa trace specialization. Add separate cited-result interfaces and import these owners, retaining Grothendieck-group signs, virtual multiplicities and all normalization conventions. The semisimple parameter assignment alone cannot supply the nontransfer theorem."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The actual uses of Labesse 1991 at infinity, Labesse 1999 for inverse transfer, Shin 2009 for acceptability/removal, and Hamacher 2019 for non-finite-type compact support appear on pp. 70–76 and 79. The extraction prerequisite list omits them. Add references and precise use/owner notes. This confirms a missing prerequisite ledger, not independent verification of every theorem in those additional papers."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed with a correction to the compound claim. The proof of Proposition 2.1.2 on p. 12 asserts H¹(Q,Gder)=0; simply connectedness does not kill the real-place classes. For SU(2,2), the determinant-compatible signatures (4,0), (2,2), (0,4) already refute the blanket assertion. The finding itself gives conflicting general counts; do not propagate its universal n+1 formula. The needed input is the locally trivial kernel/Hasse principle plus the precise twisting/torus reduction, not vanishing of all H¹. PEL M3 is the component-comparison owner and needs an explicit supplier/request. Record the false proof step without declaring the proposition false or treating an unverified ker¹ bijection as proved."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed for source registration and reconciliation, not for alleged automatic invalidity of planned status. The extraction has 52 items with an IG stage in planned, while its original review says 55; its sole source route names BG2–BG3. make_queue.py registers accepted source routes, so the detailed IG obligations are not passed through that route mechanism. Add/reconcile an IG source route and the missing requests and proof gates. Protocol permits planning through reviewed stage prose; absence of a finished blueprint by itself neither makes the status circular nor forces all 52 items to missing."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed with current packet status stated accurately. The BunG packet is partial and has no acceptance review; its nodes construct BunG strata and no flag-variety Newton-stratification theorem. That does not yet prove an accepted packet has dropped the obligation, but it exposes the route mismatch to be repaired before completion. The live BG3 also has no direct or transitive path to IG.3 or IG.4. Add the precise flag-stratum supplier/adapter and required imports; generic BunG stratification is not the whole statement of CSnc Theorem 2.7.3."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a decomposition/ownership correction. Separate flag Newton classification and dimension, Igusa/central-leaf dimension, BunG cohomological dimension, and the ordinary/maximal-class criterion. CS17 §§3.4–3.5 explicitly constructs the flag-to-B(G) map; live BG3 concerns automorphism v-groups and ell-cohomological dimension, a different invariant. BG1 owns the B(G) order/classification and ordinary criterion; the PEL ordinary/central-leaf application also needs its own supplier. Reconcile the existing CS17 and other paper routes before adding one exact adapter/import to IG.3–4. The proposed BG3 imports introduce no cycle in the checked graph."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The groups, elliptic endoscopic triples and explicit L-morphism in §5.2, pp. 67–68 belong to ET.0, whose live description names this very CSnc computation. Item 57 lists later ET stages without ET.0. Add the early owner/import, keeping transfer applications in their later stages. This is a route precision issue rather than a need for a second endoscopy definition."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 23 assigns the O+/p descent construction to DiamondEtaleCohomology C0. Live C0 explicitly stops before Theorem 14.12; C2 proves that theorem. CSnc p. 31 invokes 14.12(ii), together with agreement on analytic diamonds and continuity along limits. Route the construction through C2 and spell out those comparison/colimit statements. C0 remains the shared site supplier."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Items using the Raynaud extension and polarized uniformization must import NeronModelsAndSemistableAbelianVarieties R11.3: RS-32 assigns it that local construction, and C4 already requires it. Add an exact request for the non-discrete O_C/formal base scope used on pp. 54–57; a discrete-valuation theorem is not automatically this application. Keep global cusp gluing and integral compactification in C4/C5, not a duplicated local uniformization proof."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with status determined by the exact supplier rather than inherited labels. Item 2 sends the terminal torsion Galois existence theorem to TC.4 and IHG.2. TC.4 explicitly disclaims a new terminal theorem, and IHG.2 concerns derived Hecke image/nilpotence. Split the unitary/GL torsion theorem, the characteristic-zero input, determinant interpolation and polynomial conversion, using the current TC and AG2 suppliers and the independent Scholze/ACC+ routes. Any scope still not actually planned becomes a request/missing item; generic infrastructure must not stand in for the terminal arithmetic theorem."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Lemmas 6.4.2–6.4.3, pp. 85–86 use ordinary Hecke restriction r_P and integration r_M on derived invariants of smooth representations. IHG.2 is not that supplier. ALS.4 already plans boundary induction/Satake compatibility and TC.3 its determinant-facing application; record the explicit unnormalized maps, the pro-prime-to-ell exactness argument and their composition there. The existing ALS.4 dependency of IG.6 should be credited."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The duality input to the ordinary locally symmetric-space part is already owned by ALS.5:finite-level-duality, with orientation/coefficients and Hecke adjoints. EDC supplies the scheme/Igusa side; R02 is not a substitute for manifold duality. Add the finite-level ALS import and its compatibility with the common Hecke anti-involution/polynomial normalization. Avoid planning another general Poincaré-duality theory in IG."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The distinction in §2.1, p. 13 between a principal good-level PEL moduli model and higher/bad-level normalization is suppressed in item 8. PEL M4 explicitly owns normalization and its conditional finiteness/normality/flatness, while M2 owns fine moduli representability. Restore both construction scopes and their comparison; do not ascribe smoothness or a universal family to every normalization."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a hypothesis/source gap. Theorem 5.7.1 prints any place q on p. 77, but the inspected Caraiani theorem has p ≠ ell (arXiv 1010.2188v1, Theorem 1.1, pp. 1–2); CS17 also separates the coefficient-prime comparison. The references quoted here do not by themselves justify that stronger every-place wording. Restrict the recorded theorem to finite q not dividing ell, which includes the needed auxiliary p, or give an additional precise ell-adic theorem with all hypotheses. AG2.5 is the ramified local-global owner; ET.7a also needs the residual-spectrum classification input. Do not present the restricted check as disproving all stronger results in the literature."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed with normalization corrected exactly once. I compared CSnc pp. 74–77 with CS17 pp. 739–742 and Shin §5.5–5.6: Shin distinguishes n-Red (the normalized composite) from Red=n-Red tensor the half-modulus character, and Lemma 5.10 evaluates the latter at the original test function. Either twist the representation or multiply the test function, not both. The infinity functions on CSnc pp. 74–75 and Shin (6.7) use Xi(phi), so the trivial-coefficient parenthesis is unjustified for proper endoscopic terms (e.g. the 2+2 partition in rank four). Record both inherited discrepancies; rederive the local normalization and retain virtual constituents rather than claiming literal equality pi_j=Red(pi)."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Proposition 2.6.4, pp. 31–32 introduces the actual good-reduction locus through the integral model and formal generic fiber at every p-level, then compares its cohomology. Item 25 records the comparison without an atomic construction of that locus and tower. AdicSpacesPartII R2 supplies generic fibers; the Shimura suppliers must provide these specific models and compatible open loci. Add the construction and imports rather than identifying the good-reduction locus with the entire nonproper analytification."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The source asserts the existence of a completely slope-divisible representative with G-structure on p. 19, and the notation Ig^b depends on it. Item 14 defines slope divisibility but does not extract this existence theorem. Add the theorem as an IG.0 target and identify its PEL-compatible supplier/proof obligation. Oort–Zink for underlying groups alone does not certify simultaneous endomorphism and polarization compatibility; do not declare the assertion disproved."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The displayed formulas in §§2.4–2.5 corroborate the character/cocharacter mismatch, repeated formal-group kernel, base S versus S-prime, ideal versus its Spec, and the mistaken torsor base/group and part reference. Record the independent slips with their exact locators; merge the lattice correction with /38. A character-lattice choice is mathematically consequential for an API, so do not use an affects-nothing designation to conceal a wrong extracted definition. The remaining obvious notation slips can be classified separately."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The polarization convention on p. 14 identifies the multiplicative part with the Cartier dual of the étale part, not the étale group itself. Item 9 already writes the mathematically corrected formula but does not record that it corrected the source. Add the dual and the missing sourceIssue explicitly, with the OF involution and polarization compatibility, so subsequent definitions cannot silently follow the printed wrong pairing."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The source uses ordinary nonperfect finite-level Igusa objects and their perfect/pro-limit versions with different fonts, as checked on the p. 19 and 44 images and in §3. Item 15 reverses this convention. Normalize the notation once, recording the source convention and limit/perfection operations; coordinate with /40 rather than duplicating two notation repairs."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an import correction. Item 16 treats general Serre–Tate deformation theory as IG.0 alone. AbelianSchemesAndArithmeticModuli A4 expressly owns the equivalence with endomorphism and polarization structures and already feeds IG.0. Credit that construction and make IG the non-Noetherian/perfect-base specialization. A4 does not automatically establish every generalized base argument of Theorem 2.4.1."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed for missing prerequisites. The body invokes SW13, Mantovan 2005, Oort–Zink 2002, Hamacher 2015, Kottwitz 1992, Wedhorn 1999 and Lan 2016; they are absent from the prerequisite ledger. Add their citations, exact roles and shared owners, coordinating SW13 with /10 and Kottwitz with /18. I checked their invocation and omission, not every proof in these additional references."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The character-group formulas Hom(X,mu_p^m), extension maps X→B-dual and the explicit character wording on pp. 29 and 41 contradict the cocharacter wording elsewhere. The p. 49 sentence displays both conflicting descriptions together; the p. 58–59 torus-lattice description needs the same convention. Definition 3.2.9 and the Gamma definition also contain the named object/variable slips. Use a single sourceIssue for repeated lattice wording, coordinated with /33, and separate records for the other misprints."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. IG.2 points to Lemma 3.3.8 for affineness. The actual proof chain uses Theorem 3.3.2, Corollary 3.3.3, the affineness input of Lemma 3.1.3 and the integral affine normalization in Proposition 3.3.4. Lemma 3.3.8 is a boundary/finite-level result. Correct the locator and proof chain and retain the unresolved polarized-isogeny transport from /1 as a gate; a corrected citation is not a completed proof."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Items 34–54 rely on standing N prime to p, N ≥ 3, fan, base-field and complete-slope-divisibility/perfection conventions scattered through §§3–4; the deformation discussion begins over O_C/p-epsilon, not an unspecified field. State that shared setup once and reference it from each affected record. Keep finite-level, nonperfect, perfect and formal objects distinct, coordinating the typography correction with /35."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Lemma 4.4.2 on p. 59 assumes a proper diamond over Spd C, whereas item 51 lowers it to partial properness. Theorem 4.4.1 separately calls its target partially proper; the application must justify the stronger hypothesis using the proper toroidal tower and the closed fiber over the separated flag variety, in the exact diamond/relative-base scope. Restore the lemma and make that justification explicit; do not claim partial properness alone proves the criterion."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed. On pp. 77 and 82 the contributing representations need only be isobaric and the map is equivariant for the stabilizing boundary subgroup, not an action on one fixed fiber by the whole ambient group. Pages 86–87 also print KM without its superscript and apply the Q-group G to F-tensored adeles. Correct these statements/notation separately. Red^b yields virtual constituents, so replace the literal pi_j=Red assertion by occurrence in its Grothendieck expansion, with possible cancellation retained."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The two maps and cup product are constructed in §6.2.2, p. 81; §6.2.1 establishes parabolic induction. SourceIssue E10 points to the wrong subsection. Correct its locator, preserving the substance of its group-equivariance correction."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Remark 1.6, p. 6 invokes the boundary-vanishing/non-Eisenstein corollary via the ACC+ boundary package, which is not individually extracted. Add a cited-result/application record with the actual reducibility/Hecke hypotheses. ALS.4 and TC.3 already own generic boundary/Levi calculations; IG.7 supplies the particular conclusion. Do not create another boundary theory or replace a proved eigenvalue condition with the word non-Eisenstein alone."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed as extraction ownership clarification. RS-12 gives the residual no-cyclotomic-ratio predicate to AG2.7 and its rational Igusa obstruction to IG.5; RS-17 gives the relevant filtered-colimit nearby-cycle support extension to LPV.6. The live IG stages already import these suppliers. Update the affected item plans/notes to reflect that reuse, and import the IG.5 dual Hecke dictionary in IG.7. The finding does not establish that the current stages actually duplicate all these constructions."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 1 places the arithmetic locally symmetric space and its Borel–Serre compactification in IG.0. ALS.0 constructs components/symmetric spaces and ALS.2 the compactification and homotopy equivalence. Add those owners/imports, leaving IG.0 responsible only for the additional unitary datum/component comparison. This reuses existing plans rather than introducing a new geometric owner."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Theorem 4.6.1, pp. 60–63 proves the perverse lower bound on reductions of a cofinal collection of affinoid étale neighborhoods and their specified formal models. It does not provide one canonical special-fiber flag variety and global nearby-cycle formula. IG.4 wording should expose the local/cofinal model and finite-level/colimit construction, importing LPV.6 and the analytic comparison. This limits the claimed interface rather than asserting that no stronger formulation could ever exist."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the published supplier, independently of its extraction. ACC+ pp. 931–932 has §2.2.20, Proposition 2.2.21 and Corollary 2.2.22; pp. 948–949 has Theorem 2.4.10. CSnc uses older locator conventions for these inputs. Add a version crosswalk and cite published numbers in the extraction while preserving the numbers printed in CSnc as provenance. Do not change the substantive duality/vanishing statements merely to match numbering."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 18 names C1 in its explanatory note but omits it from planned; C1 owns rational cusp labels, incidence and stabilizers. Item 20 likewise needs that input for boundary closure relations. Add C1 to the extraction/import interface and keep the integral compactification itself at C5. This is a precise owner correction, not a new cusp-label construction."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed under the reviewed ownership decision. RS-05 assigns canonical compactification geometry to DiamondsAndVStacks D5 and its cohomology to DiamondEtaleCohomology C4. Current C4 prose still mentions constructing the envelope, so the extraction must record the reconciled ownership/request rather than read that stale overlap as permission to build it twice. Item 51 should import D5 geometry and retain only cohomological comparisons at C4; proposed roadmaps are corrected through their packets, never by editing the atlas base."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/51",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the missing toroidal perfectoid target, with the fix tightened. Item 22 bundles minimal and toroidal representability. S1/S2 explicitly build the minimal tower; S6 gives a toroidal tower diamond, which is not a theorem that this toroidal tower is perfectoid. Split the statements, credit existing minimal and Siegel inputs, and request the Lan-embedding/PEL toroidal adapter at the current owner. The toroidal theorem cannot be dropped from an extraction merely because this proof does not use it: record and route it, with its exact fan/cofinality hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/52",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The product/restriction-of-scalars identifications for B(G), admissibility and J_b used on pp. 64–65 are not a separate extraction item. CS17 /159 has already requested this interface at BG1; the live BG1 generic functoriality does not spell it out. Add the cited/derived result and reuse that single BG1 supplier, including its Newton/Kottwitz normalization, rather than duplicating the group classification in IG.5."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/53",
+      "verdict": "confirmed",
+      "reason": "Confirmed. C3 constructs Hecke extensions in characteristic zero with compatible fans; item 20 concerns finite integral minimal-compactification Hecke morphisms over the specified base. C5 supplies integral compactifications but does not explicitly state that whole extension/composition package. Add the integral theorem, hypotheses and a request to the existing compactification owner. Characteristic-zero C3 maps alone cannot be credited as integral extensions."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/54",
+      "verdict": "confirmed",
+      "reason": "Confirmed only for the abstract carrier and available involution infrastructure. At Mathlib 082e2d3 I read HeckeRing/Defs: IsHeckeTriple, HeckeCosetModule and HeckeRing; at Tau Ceti f790474 I read Associativity instSemiringHeckeRing/instRingHeckeRing and Commutativity HeckeAntiInvolution/ofAmbient/onHeckeCoset. They supply the general convolution carrier and coset operation. Unit-group commensurability, the unitary/global spherical identification, anti-multiplicativity of inversion and geometric actions remain applications to prove. The commutativity criterion requiring every double coset to be fixed is not applicable to inversion on arbitrary GL_n double cosets. Credit exact built pieces, not the full unitary anti-involution theorem."
+    },
+    {
+      "finding": "RT-PAPER-CARAIANI-SCHOLZE-24/55",
+      "verdict": "confirmed",
+      "reason": "Confirmed as supplier identification, not new ownership. CSnc §6.2.3, p. 83 uses Huber Corollary 3.5.14 at finite level before taking limits. The current partial ClassicalAdicEtaleCohomology packet already contains H1:formal-adic-comparison/generic-fibre-cohomology-3-5-14 with the exact completion data and bounded-below torsion comparison. Add that explicit import to item 66 and IG.6. The packet is not accepted or compiled, and the finite-level/pro-system limit and Hecke-equivariance application still need proof."
+    }
+  ]
+}
