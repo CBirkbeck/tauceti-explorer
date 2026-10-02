@@ -11880,7 +11880,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3378"
   },
   {
    "id": "REV-DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -23658,12 +23659,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
