@@ -47974,7 +47974,8 @@
     "FIX-RT-BP-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5556"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
@@ -48698,8 +48699,9 @@
     "FIX-RT-BP-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5558"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5558",
+   "finishedAt": "2026-10-02T03:40:15Z"
   },
   {
    "id": "RT-BP-SmallRamificationAndAbelianVarietyBaseCases",
