@@ -14,7 +14,7 @@
     "HodgeStructuresPartII:H.8"
   ],
   "status": "partial",
-  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit. Five further affine declaration plans decompose determinant differentiation, the trace row-action identity, coefficient/frame gauge compatibility, and determinant evaluation of the induced alternating operator. Global exterior-power/descent and all later-stage obligations remain open; changed suggested signatures elaborate with admitted-declaration bodies, not proofs. The generic matrix-unit Jacobi identity is imported once from ColemanPowerSeries:L1/derivation-determinant-unit.",
+  "summary": "Intrinsic ringed-site Higgs/constant-parameter connection continuation, preserving the twelve affine test nodes. The reserved definition, graded extension, curvature, transport and coefficient/filtration algebra are supplied as plans with explicit supplier boundaries. H.0 remains partial while supplier interfaces and full source decomposition remain open; H.1–H.8 stay unread. Eight coordinate determinant/gauge declarations add trace coefficients, trace curvature, flatness, dual/tensor compatibility and gauge-curvature invariance. The global exterior-power and determinant-line descent bridge remains explicit. Five further affine declaration plans decompose determinant differentiation, the trace row-action identity, coefficient/frame gauge compatibility, and determinant evaluation of the induced alternating operator. Global exterior-power/descent and all later-stage obligations remain open; changed suggested signatures elaborate with admitted-declaration bodies, not proofs. The generic matrix-unit Jacobi identity is imported once from ColemanPowerSeries:L1/derivation-determinant-unit. Ten action/ordered-nilpotence nodes import the built augmentation description, descend the symmetric action into the associative endomorphism algebra, identify exact augmentation-power annihilation and preserve the characteristic-two distinction between ordered and projected iterates. Global sheaf forms remain explicit omissions; spectral image algebras stay with the p-adic Simpson consumer.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -304,6 +304,146 @@
         "module": "TauCeti/LinearAlgebra/Determinant.lean",
         "provides": "Built special column-weight sum: Σ_r det(updateRow S r (j↦d_j S_rj))=(Σ_j d_j)det S. This is a near miss, NOT the arbitrary derivation formula or the general left row-action identity; no node replans this native statement.",
         "checked": "Entire pinned Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 module and hypotheses personally read by Codex codex-a71f92 on 2026-10-02; exact index matched."
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "Native dual Hom_A(Q,A); no new dual carrier.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorProduct.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+        "provides": "Native tensor map for linear contraction.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorProduct.rid",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Associator.lean",
+        "provides": "Right tensor unit equivalence E⊗A≅E.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.lift",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+        "provides": "Universal associative A-algebra lift; target need not commute.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.SymRel",
+        "kind": "inductive",
+        "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
+        "provides": "Native relation imposing commutation of degree-one generators.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:RingCon.ringConGen_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Congruence/Basic.lean",
+        "provides": "Generated congruence containment tested on the defining relation.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:RingCon.liftₐ",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Congruence/Hom.lean",
+        "provides": "Quotient algebra map into an associative semiring target.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:RingCon.liftₐ_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Congruence/Hom.lean",
+        "provides": "Evaluation of the descended map on representatives.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:RingCon.Quotient.hom_extₐ",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Congruence/Hom.lean",
+        "provides": "Quotient map extensionality, associative target.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.hom_ext",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+        "provides": "Equality of associative algebra maps from generator equality.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:TensorAlgebra.lift_ι_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean",
+        "provides": "Generator formula for the associative tensor lift.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:SymmetricAlgebra.algHom",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
+        "provides": "Actual tensor-to-symmetric quotient map.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:SymmetricAlgebra.induction",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
+        "provides": "Induction on scalars, generators, sums and products.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:SymmetricAlgebra.algebraMapInv",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
+        "provides": "Actual degree-zero augmentation, defined by lift of the zero linear map.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:SymmetricAlgebra.counitAlgHom_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Bialgebra/SymmetricAlgebra.lean",
+        "provides": "Native symmetric counit is algebraMapInv.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:Ideal.span_mul_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Product of generated ideals is generated by pairwise products.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.liftₐ",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Algebra map from an ideal quotient into a possibly noncommutative target.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.liftₐ_comp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Quotient representative/factorization formula.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "tauceti:TauCeti.HopfIdeal.mem_augmentation",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/HopfAlgebra/HopfIdeal/Augmentation.lean",
+        "provides": "Membership in the existing augmentation ideal is counit vanishing.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
+      },
+      {
+        "ref": "tauceti:TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/HopfAlgebra/SymmetricAlgebra/Augmentation.lean",
+        "provides": "Already built basis-free augmentation generation over every commutative ring; imported, never replanned.",
+        "checked": "Full selected statement and ambient hypotheses read by Codex codex-rtOQ9t on 2026-10-02 at the packet exact pins; checked against the declaration index. Affine Mathlib-only signatures are elaborated independently; no Tau Ceti build is certified."
       }
     ]
   },
@@ -340,7 +480,8 @@
         "PDF p.27 Lemma 3.11 and proof"
       ],
       "readingExtent": "Selected passages only; no correspondence or general nilpotence theorem established here.",
-      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs.",
+      "actionReading": "Fresh arXiv v3 Theorem 2.1 full statement with setup on printed pp.6–8 and full short Lemma 2.15 proof on pp.18–19. PDF bytes freshly retrieved at SHA-256 8b11e55bffbfb1835a6da8975272670c9465601c08640e06f3a566a459a1da79. No complete theorem proof or p-adic nilpotence proof claimed."
     },
     {
       "id": "Heuer25",
@@ -354,7 +495,8 @@
         "Printed pp.262–263 (PDF pp.2–3), Definition 1.2 and comparison scope"
       ],
       "readingExtent": "Definition and introduction only, not the correspondence proof.",
-      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs."
+      "continuationReading": "Same public bytes freshly retrieved on 2026-10-02 at the recorded SHA-256. EG: PDF pp.6,29–30 definitions/graded passage. LZ: PDF pp.5,7,20–22,24 selected definitions/API/transversality. Heuer: PDF pp.2,7,37 definitions; only those passages reread, not the correspondence proofs.",
+      "actionReading": "Fresh publisher HTML Definition 1.2(2) and complete Definition 4.1/Remark 4.2 formulas. Published 52-page PDF freshly retrieved at SHA-256 7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd; selected reading was HTML, not a new whole-PDF reading."
     },
     {
       "id": "StacksConnection",
@@ -2813,11 +2955,13 @@
       "proofSteps": [
         "Use finite local dual bases to identify contraction coefficients with A_i. The commuting comparison supplies the commutation relation.",
         "Apply the symmetric-algebra universal property into an associative O-algebra with commuting image; glue uniqueness.",
-        "Conversely a symmetric action gives commuting contractions, hence integrability by the exterior-basis comparison."
+        "Conversely a symmetric action gives commuting contractions, hence integrability by the exterior-basis comparison.",
+        "Use affine-symmetric-action for the associative endomorphism target: lift first to TensorAlgebra, kill SymRel using commuting contractions, and descend with RingCon.liftₐ. The pinned SymmetricAlgebra.lift has a commutative-target restriction and is not directly applicable to End(E)."
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.0/higgs-commuting",
-        "EnhancedDerivedSheaves:E1"
+        "EnhancedDerivedSheaves:E1",
+        "HodgeStructuresPartII:H.0/affine-symmetric-action"
       ],
       "library": {
         "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
@@ -4235,6 +4379,588 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-contractions",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Contraction of an affine twisted field",
+      "declaration": "TwistedHiggsBundle.affineContractions",
+      "statement": "For an A-linear θ:E→E⊗_A Q, construct the A-linear contraction map a_θ:V→End_A(E), a_θ(v)=(E⊗v)θ followed by the right tensor unit equivalence E⊗A≅E. This is the affine section formula of the existing twisted field, not a new Higgs or dual carrier.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "Use the native tensor map of id_E and v; compose with the native right tensor unit equivalence and θ.",
+        "Linearity in v follows on pure tensors from evaluation and scalar balancing; tensor induction proves it for arbitrary θ(e).",
+        "On local finite projective charts, evaluation separates tensor coefficients. Its sheaf/co-evaluation and gluing interface is the E1 supplier, not an assumption that global sections commute with tensor."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Dual",
+        "mathlib:TensorProduct.map",
+        "mathlib:TensorProduct.rid"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For an A-linear θ:E→E⊗_A Q, construct the A-linear contraction map a_θ:V→End_A(E), a_θ(v)=(E⊗v)θ followed by the right tensor unit equivalence E⊗A≅E. This is the affine section formula of the existing twisted field, not a new Higgs or dual carrier."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineContractions_apply",
+          "role": "projection",
+          "statement": "a_θ(v)(e) is exactly the tensor-map/right-unit formula."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineContractions_zero",
+          "role": "simp",
+          "statement": "The zero field gives the zero contraction map."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineContractions_add",
+          "role": "compatibility",
+          "statement": "Contraction of θ+η is a_θ+a_η."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineContractions.test_zero",
+          "kind": "degenerate",
+          "statement": "Every contraction of the zero field vanishes."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineContractions.test_line",
+          "kind": "computation",
+          "statement": "For E=Q=A, θ(e)=e⊗1 and v=id_A, the contraction sends e to e."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineContractions.test_zero_dual",
+          "kind": "computation",
+          "statement": "The zero functional contracts every field to zero."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-symmetric-action",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Symmetric action on an affine Higgs module",
+      "declaration": "TwistedHiggsBundle.affineSymmetricAction",
+      "statement": "Given an A-linear a:V→End_A(E) with pairwise commuting images, construct the unique A-algebra map α:S→End_A(E) satisfying α(ι(v))=a(v). For a=a_θ on finite locally free charts, this is the affine adapter of the existing integrable twisted Higgs symmetric action.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "Lift a through the built TensorAlgebra.lift, whose target is an associative semiring, so End(E) is allowed.",
+        "For each native TensorAlgebra.SymRel generator, the two images a(v)a(w) and a(w)a(v) agree. RingCon.ringConGen_le therefore places the symmetric congruence in the kernel of the tensor lift.",
+        "Descend using native RingCon.liftₐ. RingCon.liftₐ_mk and TensorAlgebra.lift_ι_apply give the generator formula.",
+        "Precompose any competing map with the surjective native symmetric quotient. TensorAlgebra.hom_ext and RingCon.Quotient.hom_extₐ give uniqueness. SymmetricAlgebra.lift and its algHom_ext have a commutative target restriction at this pin and cannot be applied directly to End(E)."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-contractions",
+        "mathlib:TensorAlgebra.lift",
+        "mathlib:TensorAlgebra.SymRel",
+        "mathlib:RingCon.ringConGen_le",
+        "mathlib:RingCon.liftₐ",
+        "mathlib:TensorAlgebra.hom_ext",
+        "mathlib:RingCon.Quotient.hom_extₐ"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Given an A-linear a:V→End_A(E) with pairwise commuting images, construct the unique A-algebra map α:S→End_A(E) satisfying α(ι(v))=a(v). For a=a_θ on finite locally free charts, this is the affine adapter of the existing integrable twisted Higgs symmetric action."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction_generator",
+          "role": "projection",
+          "statement": "α(ι(v))=a(v)."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction_unique",
+          "role": "extensionality",
+          "statement": "Any other A-algebra map with the same degree-one contractions equals α."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction_zero",
+          "role": "simp",
+          "statement": "For a=0, α is ε followed by the scalar map A→End(E)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction.test_zero",
+          "kind": "degenerate",
+          "statement": "For the zero field every degree-one generator acts by zero."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction.test_scalar",
+          "kind": "computation",
+          "statement": "For E=Q=A and a(id_A)=id_E, the distinguished generator acts as identity, so the action is not nilpotent on a nonzero line."
+        },
+        {
+          "name": "TwistedHiggsBundle.affineSymmetricAction.test_rank_zero",
+          "kind": "degenerate",
+          "statement": "On the zero module A^(Fin 0), every element of S acts by the zero endomorphism, including its unit."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/affine-symmetric-commuting",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Symmetric extension and commuting contractions",
+      "declaration": "TwistedHiggsBundle.affineSymmetricAction_iff_commute",
+      "statement": "An A-linear a:V→End_A(E) extends to an A-algebra map from S with generator values a iff a(v)a(w)=a(w)a(v) for every v,w. For a=a_θ and Q finite locally free, the existing exterior-coordinate theorem identifies this condition with θ∧θ=0.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "For the forward implication apply α to ι(v)ι(w)=ι(w)ι(v) in the native commutative symmetric algebra.",
+        "For the reverse implication use affineSymmetricAction; no commutative ring instance is introduced on End(E).",
+        "Apply the existing H.0/higgs-commuting exterior basis argument locally; its i<j coefficients work in characteristic two without dividing by 2."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-symmetric-action",
+        "HodgeStructuresPartII:H.0/higgs-commuting"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "An A-linear a:V→End_A(E) extends to an A-algebra map from S with generator values a iff a(v)a(w)=a(w)a(v) for every v,w. For a=a_θ and Q finite locally free, the existing exterior-coordinate theorem identifies this condition with θ∧θ=0."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/symmetric-action-word",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Evaluation of a word of Higgs contractions",
+      "declaration": "TwistedHiggsBundle.symmetricAction_word",
+      "statement": "If α(ι(v))=a(v), then for every finite ordered list (v₁,…,v_N), α(ι(v₁)⋯ι(v_N))=a(v₁)⋯a(v_N). The empty word acts as id_E. Endomorphism multiplication is composition, so the rightmost listed contraction applies first.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "The empty list uses α(1)=1 and the actual endomorphism unit.",
+        "Induct on list length using the algebra map multiplication law and the degree-one formula.",
+        "If a comes from an integrable field, commuting contractions permit reversal/reordering without changing this product; the ordered tensor-coordinate lemma below does not need that reordering."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-symmetric-action"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "If α(ι(v))=a(v), then for every finite ordered list (v₁,…,v_N), α(ι(v₁)⋯ι(v_N))=a(v₁)⋯a(v_N). The empty word acts as id_E. Endomorphism multiplication is composition, so the rightmost listed contraction applies first."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/symmetric-action-morphism",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Morphisms intertwine the symmetric action",
+      "declaration": "TwistedHiggsBundle.symmetricAction_morphism",
+      "statement": "For contraction maps a:V→End_A(E), b:V→End_A(F) and their generator-preserving actions α,β, an A-linear f:E→F satisfies f∘a(v)=b(v)∘f for every v iff f∘α(s)=β(s)∘f for every s∈S. For finite locally free Q these equalities identify Higgs-horizontal morphisms with intertwining the actual S-actions.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative.",
+        "F is another A-module. The action maps on both modules use the same coefficient dual V and the same symmetric algebra S."
+      ],
+      "proofSteps": [
+        "An intertwiner of all s intertwines degree-one generators.",
+        "For the converse, use native symmetric-algebra induction on scalars, generators, sums and products. A-linearity of f handles scalars; composing the two induction equalities handles products.",
+        "On finite local bases, dual evaluation identifies the generator equalities with (f⊗id_Q)θ_E=θ_F f. Restriction and equality of sheaf maps glue; this is not a new module category carrier."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/affine-contractions",
+        "HodgeStructuresPartII:H.0/affine-symmetric-action",
+        "mathlib:SymmetricAlgebra.induction",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For contraction maps a:V→End_A(E), b:V→End_A(F) and their generator-preserving actions α,β, an A-linear f:E→F satisfies f∘a(v)=b(v)∘f for every v iff f∘α(s)=β(s)∘f for every s∈S. For finite locally free Q these equalities identify Higgs-horizontal morphisms with intertwining the actual S-actions."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Ordered tensor coefficients detect vanishing",
+      "declaration": "TwistedHiggsBundle.iterate_coordinates",
+      "statement": "For every N≥0, an O-linear θ:E→E⊗Q with Q finite locally free has θ^[N]=0 iff every ordered word of N dual contractions vanishes, locally on each coefficient trivializing chart. In a basis θ=Σ_i A_i⊗q_i, the coefficient of q_(i₁)⊗⋯⊗q_(i_N) is A_(i₁)⋯A_(i_N); the most recently applied coefficient is the leftmost one. N=0 gives id_E, hence vanishing only for E=0. No integrability is required.",
+      "hypotheses": [
+        "A commutative ringed Grothendieck site (C,J,O). E is finite locally free and Q is finite locally free, possibly Ω¹⊗T with T invertible. All maps, tensor powers and algebra objects are sheaves, with restriction-compatible local formulas.",
+        "θ:E→E⊗Q is O-linear. Integrability is required only for the symmetric-action comparison, not for the ordered-coordinate lemma. No characteristic, reducedness, basis or nilpotence condition is built into θ.",
+        "Local finite bases are used on trivializing covers; no tensor of global sections is identified with sections of a sheaf tensor."
+      ],
+      "proofSteps": [
+        "Induct over the existing ordered iterate recursion, fixing the associators and the order of the newly inserted coefficient factor.",
+        "Use the native/local finite tensor basis: its distinct ordered tuples give independent coefficients, with no symmetrization, factorial or exterior projection.",
+        "Dual basis contractions extract those coefficients. Conversely arbitrary local dual sections are linear combinations of dual basis sections, so multilinearity gives every ordered word.",
+        "Equality of the maps is local and therefore glues. For N=0 use the tensor unit and identity, rather than imposing a positive bound on this coordinate lemma."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/ordered-iterate",
+        "HodgeStructuresPartII:H.0/affine-contractions",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ17",
+          "locator": "Theorem 2.1(i),(iii),(iv), printed p.7; Lemma 2.15 with its printed proof, pp.18–19",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every N≥0, an O-linear θ:E→E⊗Q with Q finite locally free has θ^[N]=0 iff every ordered word of N dual contractions vanishes, locally on each coefficient trivializing chart. In a basis θ=Σ_i A_i⊗q_i, the coefficient of q_(i₁)⊗⋯⊗q_(i_N) is A_(i₁)⋯A_(i_N); the most recently applied coefficient is the leftmost one. N=0 gives id_E, hence vanishing only for E=0. No integrability is required."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/augmentation-power-words",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Augmentation powers and contraction words",
+      "declaration": "TwistedHiggsBundle.augmentation_pow_iff_words",
+      "statement": "For every integer N≥0 and a generator-preserving action α:S→End_A(E), I^N⊆ker α iff every ordered product a(v₁)⋯a(v_N) is zero for all v₁,…,v_N∈V. Equivalently I^N annihilates E with its actual α-action. The exponent is the same on both sides; set-theoretic support on the zero section supplies no such exponent.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "Import the already built TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι. HopfIdeal.mem_augmentation and the built SymmetricAlgebra.counitAlgHom_eq identify its ideal with ker ε, where ε=algebraMapInv.",
+        "Induct on N using native Ideal.span_mul_span and ideal power multiplication: I^N is the ideal generated by all products of N degree-one generators. This is a deduction from the existing ideal operations, not a new augmentation or homogeneous grading plan.",
+        "Use symmetricAction_word and the fact that ker α is an ideal. Containment is equivalent to vanishing on those generators.",
+        "The zero endomorphism acts by zero on all e, and conversely equality of its evaluations detects a zero endomorphism. For N=0 the ideal is S and the empty endomorphism word is id_E; both vanish precisely for E=0."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/symmetric-action-word",
+        "tauceti:TauCeti.SymmetricAlgebra.augmentation_toIdeal_eq_span_range_ι",
+        "tauceti:TauCeti.HopfIdeal.mem_augmentation",
+        "mathlib:SymmetricAlgebra.counitAlgHom_eq",
+        "mathlib:Ideal.span_mul_span"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For every integer N≥0 and a generator-preserving action α:S→End_A(E), I^N⊆ker α iff every ordered product a(v₁)⋯a(v_N) is zero for all v₁,…,v_N∈V. Equivalently I^N annihilates E with its actual α-action. The exponent is the same on both sides; set-theoretic support on the zero section supplies no such exponent."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "theorem",
+      "title": "Ordered nilpotence equals augmentation annihilation",
+      "declaration": "TwistedHiggsBundle.nilpotence_iff_augmentation_power",
+      "statement": "For an integrable twisted Higgs field with Q finite locally free and its actual sheaf algebra action α:Sym_O(Q∨)→End_O(E), and a specified positive N, θ^[N]=0 iff (ker ε)^N acts by zero on E. The same N occurs on both sides in every characteristic and over nonreduced bases. This also identifies a specified ordered nilpotence bound with factorization of α through Sym_O(Q∨)/(ker ε)^N.",
+      "hypotheses": [
+        "A commutative ringed Grothendieck site (C,J,O). E is finite locally free and Q is finite locally free, possibly Ω¹⊗T with T invertible. All maps, tensor powers and algebra objects are sheaves, with restriction-compatible local formulas.",
+        "θ:E→E⊗Q is O-linear. Integrability is required only for the symmetric-action comparison, not for the ordered-coordinate lemma. No characteristic, reducedness, basis or nilpotence condition is built into θ.",
+        "Local finite bases are used on trivializing covers; no tensor of global sections is identified with sections of a sheaf tensor.",
+        "θ∧θ=0 and N>0. ε is the actual degree-zero augmentation of the symmetric sheaf algebra; annihilation is an equality of action maps, not an arbitrary stored predicate."
+      ],
+      "proofSteps": [
+        "Use symmetric-action and affineSymmetricAction to identify the local contraction action, retaining the actual coefficient sheaf Q and any Tate character.",
+        "On local finite charts apply ordered-coordinate-vanishing and augmentation-power-words. Integrability permits the listed contractions to commute; no projection onto Sym^N(Q) occurs.",
+        "Check equality and ideal-power annihilation locally. Restriction compatibility of the supplied sheaf algebra and module action glues the equivalence with the same N.",
+        "Apply the native quotient-action construction on affine charts and the E1 quotient/sheaf coherence for global factorization. The sheaf-level carrier and gluing remain named native omissions until supplied."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/symmetric-action",
+        "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
+        "HodgeStructuresPartII:H.0/augmentation-power-words",
+        "HodgeStructuresPartII:H.0/truncated-symmetric-action",
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "LZ17",
+          "locator": "Theorem 2.1(i),(iii),(iv), printed p.7; Lemma 2.15 with its printed proof, pp.18–19",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "For an integrable twisted Higgs field with Q finite locally free and its actual sheaf algebra action α:Sym_O(Q∨)→End_O(E), and a specified positive N, θ^[N]=0 iff (ker ε)^N acts by zero on E. The same N occurs on both sides in every characteristic and over nonreduced bases. This also identifies a specified ordered nilpotence bound with factorization of α through Sym_O(Q∨)/(ker ε)^N."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/truncated-symmetric-action",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "construction",
+      "title": "Action through a fixed augmentation quotient",
+      "declaration": "TwistedHiggsBundle.truncatedSymmetricAction",
+      "statement": "Given α:S→End_A(E), N≥0 and I^N⊆ker α, construct the unique A-algebra map β:S/I^N→End_A(E) satisfying β([s])=α(s). Such a generator-preserving factorization exists iff I^N⊆ker α. No radical quotient or unspecified larger nilpotence bound replaces I^N.",
+      "hypotheses": [
+        "A is a commutative ring; E and Q are A-modules. For this affine algebra no smoothness, characteristic-zero, reducedness, freeness or finite-generation assumption is imposed.",
+        "V=Hom_A(Q,A), S=Sym_A(V), ε:S→A is the canonical degree-zero augmentation, and I=ker ε. End_A(E) has its actual associative composition product and central A-algebra structure; it is not assumed commutative."
+      ],
+      "proofSteps": [
+        "Use the built Ideal.Quotient.liftₐ with the actual ideal I^N and the actual endomorphism algebra. Its associative semiring target is sufficient.",
+        "The containment supplies the required vanishing on the ideal; Quotient.liftₐ_comp gives the representative formula.",
+        "Every quotient class has a representative, giving uniqueness. Conversely any factorization kills I^N because its quotient representatives are zero.",
+        "For the zero module the bound N=0 is permitted because the target algebra is the zero algebra; positive bound conventions remain in IterateNul, not in this quotient construction."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/augmentation-power-words",
+        "mathlib:Ideal.Quotient.liftₐ",
+        "mathlib:Ideal.Quotient.liftₐ_comp"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Given α:S→End_A(E), N≥0 and I^N⊆ker α, construct the unique A-algebra map β:S/I^N→End_A(E) satisfying β([s])=α(s). Such a generator-preserving factorization exists iff I^N⊆ker α. No radical quotient or unspecified larger nilpotence bound replaces I^N."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ],
+      "api": [
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction_mk",
+          "role": "projection",
+          "statement": "β([s])=α(s)."
+        },
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction_unique",
+          "role": "extensionality",
+          "statement": "The representative formula uniquely determines β."
+        },
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction_exists_iff",
+          "role": "characterisation",
+          "statement": "A factorization through this exact quotient exists iff I^N⊆ker α."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction.test_generator",
+          "kind": "computation",
+          "statement": "When N=1, each degree-one generator acts by zero."
+        },
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction.test_scalar_rejected",
+          "kind": "non-example",
+          "statement": "On a nonzero Q-line with generator acting by identity, no positive augmentation power is killed."
+        },
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction.test_rank_zero",
+          "kind": "degenerate",
+          "statement": "The action on A^(Fin 0) kills every augmentation power, including I^0=S."
+        },
+        {
+          "name": "TwistedHiggsBundle.truncatedSymmetricAction.test_square_zero",
+          "kind": "computation",
+          "statement": "For Q=A=Q, a(v)=v(1)X with X nonzero and X²=0, the action kills I² but not I. A nonzero E12 gives this example."
+        }
+      ]
+    },
+    {
+      "id": "HodgeStructuresPartII:H.0/symmetric-projection-counterexample",
+      "parentStageId": "HodgeStructuresPartII:H.0",
+      "realises": [
+        "HodgeStructuresPartII:H.0"
+      ],
+      "kind": "lemma",
+      "title": "Symmetric projection loses ordered nilpotence",
+      "declaration": "TwistedHiggsBundle.symmetricProjection_charTwo_counterexample",
+      "statement": "Over k=F₂, take E=k[x,y]/(x²,y²), Q=kq₀⊕kq₁, and θ(e)=xe⊗q₀+ye⊗q₁. The two multiplication contractions commute and square to zero, but their product xy is nonzero. θ^[2](1)=xy⊗(q₀⊗q₁+q₁⊗q₀) is nonzero, whereas its image in E⊗Sym²(Q) is zero. In fact the projected second iterate is the zero map. The action has I²E≠0 and I³E=0. Thus symmetrized vanishing cannot replace ordered vanishing with the same exponent.",
+      "hypotheses": [
+        "The ground field is F₂. E has the actual basis (1,x,y,xy), with x²=y²=0; Q has its actual two-element basis. No division by 2 is available."
+      ],
+      "proofSteps": [
+        "Multiplication by x and y on the displayed four-dimensional module gives commuting matrices A,B with A²=B²=0 and AB=BA≠0.",
+        "The ordered degree-two tensor basis distinguishes q₀⊗q₁ and q₁⊗q₀, so their sum is nonzero. A dual tensor coefficient extracts xy from θ^[2](1).",
+        "In the symmetric quotient the two basis words agree, and 2=0. All diagonal coefficients also vanish, hence the projected map is zero.",
+        "All words of length three contain x² or y²; the mixed degree-two word acts nontrivially. Apply augmentation-power-words to get the exact bounds. The analogous finite regression over F₃ uses x³=y³=0: projected degree three vanishes while ordered degree three does not, and the ordered bound is five."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
+        "HodgeStructuresPartII:H.0/augmentation-power-words",
+        "mathlib:SymmetricAlgebra.algHom"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/Hodge/Higgs/ParameterConnection",
+        "namespace": "TauCeti.Hodge.ParameterConnection"
+      },
+      "sources": [
+        {
+          "sourceId": "Heuer25",
+          "locator": "Definition 1.2(2), printed p.262; Definition 4.1 and Remark 4.2, printed p.297",
+          "match": "Source motivation for the existing twisted Higgs object. The displayed algebraic statement and proof below are explicit deductions, not a separately named source theorem or a proof of the p-adic correspondence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Over k=F₂, take E=k[x,y]/(x²,y²), Q=kq₀⊕kq₁, and θ(e)=xe⊗q₀+ye⊗q₁. The two multiplication contractions commute and square to zero, but their product xy is nonzero. θ^[2](1)=xy⊗(q₀⊗q₁+q₁⊗q₀) is nonzero, whereas its image in E⊗Sym²(Q) is zero. In fact the projected second iterate is the zero map. The action has I²E≠0 and I³E=0. Thus symmetrized vanishing cannot replace ordered vanishing with the same exponent."
+      ],
+      "uses": [
+        {
+          "where": "Heuer25 Definition 1.2(2); LZ17 Theorem 2.1(i); the existing H.0 ordered-iterate and symmetric-action nodes",
+          "how": "Compare commuting contractions, actual symmetric action and ordered nilpotence without changing coefficient twists, exponent or characteristic."
+        }
+      ]
     }
   ],
   "requests": [
@@ -4254,6 +4980,7 @@
         "HodgeStructuresPartII:H.0",
         "HodgeStructuresPartII:H.0/connection-morphism",
         "HodgeStructuresPartII:H.0/coordinate-comparison",
+        "HodgeStructuresPartII:H.0/determinant-coordinate",
         "HodgeStructuresPartII:H.0/dual-curvature",
         "HodgeStructuresPartII:H.0/dual-nilpotence",
         "HodgeStructuresPartII:H.0/extension-balancing",
@@ -4269,21 +4996,23 @@
         "HodgeStructuresPartII:H.0/local-descent",
         "HodgeStructuresPartII:H.0/nilpotence-equivalence",
         "HodgeStructuresPartII:H.0/nilpotence-filtration",
+        "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
+        "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
         "HodgeStructuresPartII:H.0/ordered-iterate",
         "HodgeStructuresPartII:H.0/pullback-nilpotence",
         "HodgeStructuresPartII:H.0/reduced-line-nilpotence",
         "HodgeStructuresPartII:H.0/rees-parameter",
         "HodgeStructuresPartII:H.0/rees-specialization",
         "HodgeStructuresPartII:H.0/symmetric-action",
+        "HodgeStructuresPartII:H.0/symmetric-action-morphism",
         "HodgeStructuresPartII:H.0/tensor-balancing",
         "HodgeStructuresPartII:H.0/tensor-curvature",
         "HodgeStructuresPartII:H.0/tensor-nilpotence",
         "HodgeStructuresPartII:H.0/twisted-higgs",
         "HodgeStructuresPartII:H.0/unit-connection",
-        "HodgeStructuresPartII:key/higgs-parameter-connections",
-        "HodgeStructuresPartII:H.0/determinant-coordinate"
+        "HodgeStructuresPartII:key/higgs-parameter-connections"
       ],
-      "need": "Use the pinned SheafOfModules and locally free carriers; supply their missing underived sheaf tensor, finite locally free dual/evaluation, tensor-exactness for locally free coefficient sheaves, ringed-site pullback and monoidal coherence/descent. Presheaf tensorObj already exists. No new module-sheaf carrier is requested. Also supply finite locally free exterior powers and the determinant-line carrier with wedge universal properties and frame-change coherence; this job owns only the induced parameter operator and its comparison."
+      "need": "Use the pinned SheafOfModules and locally free carriers; supply their missing underived sheaf tensor, finite locally free dual/evaluation, tensor-exactness for locally free coefficient sheaves, ringed-site pullback and monoidal coherence/descent. Presheaf tensorObj already exists. No new module-sheaf carrier is requested. Also supply finite locally free exterior powers and the determinant-line carrier with wedge universal properties and frame-change coherence; this job owns only the induced parameter operator and its comparison. Also supply the sheaf symmetric algebra, sheaf endomorphism algebra, augmentation/ideal powers, quotient action and finite-dual coevaluation with restriction/descent coherence on these existing module-sheaf carriers. The affine associative-target lift is already obtainable from native TensorAlgebra and RingCon; do not create a second symmetric algebra, endomorphism algebra, grading or augmentation carrier."
     },
     {
       "supplier": "DerivedDeRhamCohomology:DD.1",
@@ -4324,7 +5053,8 @@
         "Discharge DD.1 finite split filtration/Rees carrier and specialization equations, then elaborate the global signatures listed in the suggested-file omission ledger.",
         "Freshly source-decompose all other H.0 definitions/proof inputs required by the full 149-item route inventory; the reserved carrier and its present algebra are supplied as plans, not implementation.",
         "Local determinant trace/curvature and the five determinant-derivative/gauge/alternating adapters are supplied as plans. Prove the global determinant/exterior-power comparison, restriction/descent and connection functoriality; also the coefficient-equivariance adapter for the p-adic Tate instance. No Tate-basis choice may erase Galois action. The generic Jacobi input is the existing ColemanPowerSeries:L1/derivation-determinant-unit plan, not a duplicated Hodge node.",
-        "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter."
+        "Supply the filtered-coefficient/period-lattice adapter for Liu–Zhu Definition 3.5–3.6: its t-adic filtration is not a bounded subbundle filtration over the original period ring. Import graded base-ring and Tate degree identifications from DD.1 and the p-adic consumer; the finite Griffiths/Rees specialization here does not discharge that adapter.",
+        "The action/ordered-augmentation branch has affine native signatures and explicit sheaf proof plans. Supply its missing E1 sheaf symmetric/endomorphism/augmentation quotient interfaces and ordered tensor-power coefficient gluing. Field/reduced-rank nilpotence bounds and the unbounded period/Tate adapter remain required work; the spectral image algebra is the PadicHodgeTheoryPartIIPadicSimpson consumer, not a duplicate Hodge carrier."
       ]
     },
     {
@@ -4491,6 +5221,15 @@
         "HodgeStructuresPartII:H.0/determinant-alternating-operator"
       ],
       "detail": "The five new affine plans now decompose the row-derivative/trace row-action formulas, with Jacobi imported from ColemanPowerSeries:L1/derivation-determinant-unit, determinant coefficient change, exact one-by-one gauge coherence and local alternating evaluation. Their changed Lean signatures elaborate with admitted-declaration bodies; proofs remain plans. Still import finite locally free exterior powers/determinant sheaves from E1; descend the induced alternating operator using the exterior universal property, identify its top-wedge frame with the local determinant-evaluation theorem, then use the planned det(G) gauge coherence to glue and prove restriction/pullback/functoriality. No global bridge is closed. Fixed determinant includes the specified line connection and identification; trace zero is only the Higgs local coefficient condition, not built into every parameter connection."
+    },
+    {
+      "title": "Ordered nilpotence global interfaces and rank-bound boundary",
+      "neededBy": [
+        "HodgeStructuresPartII:H.0/ordered-coordinate-vanishing",
+        "HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence",
+        "HodgeStructuresPartII:H.0/symmetric-action-morphism"
+      ],
+      "detail": "Native affine endomorphism-action and ideal-power forms are supplied; global tensor-power, sheaf symmetric algebra, endomorphism/augmentation quotient and gluing remain with E1. The coordinate lemma needs no integrability. The latest predecessor handoff also proves commuting-nilpotent field and reduced-ring rank bounds, finite image-algebra spanning and base-change counterexamples; these are retained as continuation leads, not silently counted as canonical nodes. Spectral image/coherence/twisting belong to the named p-adic Simpson consumer. Nonflat scalar extension need not preserve the image algebra, and nilpotence kernels need not be subbundles."
     }
   ],
   "sourceIssues": [
@@ -4574,7 +5313,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "not_read",
       "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-GAO-HABEGGER-19",
@@ -4593,7 +5333,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "not_read",
       "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-HEUER-25",
@@ -4610,7 +5351,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "partial",
       "note": "H.0 generic definitions and elementary transport/filtration algebra are decomposed here; source correspondence, moduli and other routed claims remain open. No full routed proof completion is claimed.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-QIAN-23",
@@ -4627,7 +5369,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "not_read",
       "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
@@ -4703,7 +5446,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "not_read",
       "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-BENOIST-19",
@@ -4729,7 +5473,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "not_read",
       "note": "Exact routed item ids preserved as obligations; selected fresh definition readings do not complete any routed item or source proof.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-ESNAULT-GROECHENIG-20",
@@ -4771,7 +5516,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "partial",
       "note": "H.0 generic definitions and elementary transport/filtration algebra are decomposed here; source correspondence, moduli and other routed claims remain open. No full routed proof completion is claimed.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     },
     {
       "paper": "PAPER-LIU-ZHU-17",
@@ -4789,7 +5535,8 @@
       "briefRead": "Complete accepted route brief read at cc8e6af71d89d29632dec19bbc36ffdbb76af6e2.",
       "decompositionStatus": "partial",
       "note": "H.0 generic definitions and elementary transport/filtration algebra are decomposed here; source correspondence, moduli and other routed claims remain open. No full routed proof completion is claimed.",
-      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained."
+      "continuationBriefRead": "Complete accepted brief reread at dc0c470bcc064a08d8d9161ea963afe12b2c4b8d on 2026-10-02; all original assigned ids retained.",
+      "actionBriefRead": "Complete joining brief read at b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76 on 2026-10-02 by codex-rtOQ9t; input IDs and decomposition statuses preserved."
     }
   ],
   "libraryAudit": {
@@ -4829,7 +5576,12 @@
         "job": "AUDIT-22"
       }
     ],
-    "inheritedAuditTree": "cc8e6af71d89d29632dec19bbc36ffdbb76af6e2"
+    "inheritedAuditTree": "cc8e6af71d89d29632dec19bbc36ffdbb76af6e2",
+    "actionContinuation": {
+      "tree": "b1a65cb0bd7a8cb7325bc1f77087c39bfa124e76",
+      "read": "Fresh parent L0–L3 target/evidence/duplicate notes and AUDIT-02 review metadata; fresh full E1 and D3 coverage entries and REV-AUDIT-22/10 metadata. No dedicated PartII, CR.1 or DD.1 entries exist in this coverage file. Actual CR.1/E1/DD.1/D3 stage descriptions and all eight accepted joining briefs were read. Native affine algebra is reused; global sheaf interfaces stay supplier requests.",
+      "search": "Selected pinned symmetric/tensor/congruence/ideal files and Tau Ceti symmetric-algebra uses read. Found the built augmentation generation theorem. The commutative-target SymmetricAlgebra.lift is a near miss for End(E); native TensorAlgebra.lift plus RingCon.liftₐ solves the affine route. No universal absence claim is made."
+    }
   },
   "upstreamNotes": [],
   "restructure": [
@@ -4845,177 +5597,297 @@
   ],
   "verification": {
     "leanCompiled": true,
-    "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
-    "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
-    "checks": [
-      "Indexed check_blueprint: zero errors, zero warnings.",
-      "Actual five-file intake and private-path/whitespace checks.",
-      "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
-      "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
-      "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
-      "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
-    ],
+    "reason": "The entire expanded Mathlib-only suggested file elaborated in an existing exact-pin Mathlib build with Lean v4.34.0-rc2: zero errors, 151 admitted-declaration warnings, no other warnings; all 58 native examples. No project/cache setup, library build or Lean server. No Tau Ceti build is required or certified. The two new global obligations remain omissions (one reuses an existing API entry).",
+    "mathematics": "All 70 nodes unchecked; H.0 partial and H.1–H.8 not_read. No formal implementation or closed stage.",
     "previousCheckpoint": {
       "leanCompiled": true,
-      "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
-      "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
-      "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
-      "checks": {
-        "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
-        "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
-        "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
-        "atlasProjection": {
-          "inheritedNodesPreserved": 47,
-          "newNodes": 8,
-          "routeManifestPreserved": true,
-          "totalNodes": 55,
-          "apiItems": 103,
-          "tests": 89,
-          "planets": 6,
-          "baselineDeclarations": 29,
-          "gaps": 10,
-          "requests": 4,
-          "requiredLayerEdges": 18,
-          "missingEdges": 0,
-          "pendingLinks": 0,
-          "skippedLinks": 0,
-          "stageDAG": {
+      "reason": "The entire changed suggested file elaborated with Lean v4.34.0-rc2 against an existing build at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: zero errors, 123 admitted-declaration warnings, no other warnings. All 48 native examples elaborate; all 35 global omission entries remain byte-identical. No library build, cache retrieval or language server was run. The initial nested-project invocation failed on the Aesop search path and auto-fetched redundant dependency copies; those copies were removed to recoverable trash, then the existing top-level project was used successfully.",
+      "mathematics": "All 60 declaration nodes remain unchecked; proofs are mathematical plans, not formalization. H.0 is partial, H.1–H.8 not_read; all 35 global omission entries remain.",
+      "checks": [
+        "Indexed check_blueprint: zero errors, zero warnings.",
+        "Actual five-file intake and private-path/whitespace checks.",
+        "All 55 previous nodes, 103 API items, 89 tests, six planets, sourceIssues, routeManifest, restructure and global omission ledger preserved.",
+        "Read-only actual build.assemble projection and full reachable declaration/request DAG including the Coleman Jacobi supplier.",
+        "6,303 exact Laurent-dual-number algebra regressions on 720 rank-0–3 pairs in characteristics 0, 2 and 3.",
+        "Full changed-file Lean elaboration, 123 admitted-declaration warnings only; mathematical proofs remain planned."
+      ],
+      "previousCheckpoint": {
+        "leanCompiled": true,
+        "reason": "Entire expanded suggested file elaborated against the existing exact-pin Mathlib build with Lean v4.34.0-rc2, only admitted-proof warnings. All imports are Mathlib; no Tau Ceti build is required or certified. All 35 global omissions remain, and no implementation status changes.",
+        "mathematics": "All nodes are declaration-sized plans. Intrinsic algebra uses specified exterior calculus and exact named supplier contracts; no complete stage or formal implementation claimed.",
+        "sourceIssueScope": "Inherited EG20/E10 receipt remains historical. This continuation reads a different author-preprint edition for fixed determinant and parameter definitions; no new source issue or complete version collation is claimed.",
+        "checks": {
+          "packetChecker": "0 errors, 0 warnings with the pinned declaration index",
+          "preservation": "All 47 predecessor node objects, 100 existing APIs, 85 existing tests, 149 routed input IDs, 15 baseline prefix records, 4 source prefix records, sourceIssues and restructure preserved exactly. The E1 request is extended precisely for exterior/determinant carriers; H.0 remaining text and a new gap identify the global bridge.",
+          "nativeParity": "Every new statement occurs verbatim in the reader; all eight node names, three construction API forms and four new examples have native declarations/forms. One existing gauge API is promoted without a duplicate declaration. The inherited global 35-node/65-API/54-test omission ledger remains unchanged.",
+          "atlasProjection": {
+            "inheritedNodesPreserved": 47,
+            "newNodes": 8,
+            "routeManifestPreserved": true,
+            "totalNodes": 55,
+            "apiItems": 103,
+            "tests": 89,
+            "planets": 6,
+            "baselineDeclarations": 29,
+            "gaps": 10,
+            "requests": 4,
+            "requiredLayerEdges": 18,
+            "missingEdges": 0,
+            "pendingLinks": 0,
+            "skippedLinks": 0,
+            "stageDAG": {
+              "vertices": 3022,
+              "edges": 8662,
+              "acyclic": true
+            },
+            "combinedDAG": {
+              "vertices": 3071,
+              "edges": 8862,
+              "acyclic": true
+            }
+          },
+          "concreteModels": {
+            "polynomialConnectionPairs": 270,
+            "laurentGaugeCases": 90,
+            "characteristics": [
+              "zero",
+              2,
+              3
+            ],
+            "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
+            "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+          },
+          "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
+        },
+        "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
+        "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
+        "elaborationContinuation": {
+          "agent": "Codex",
+          "session": "codex-J6LwjP",
+          "base": "ead8d4f",
+          "errors": 0,
+          "sorryWarnings": 106,
+          "nativeExamples": 44,
+          "globalNodesOmitted": 35,
+          "globalApiItemsOmitted": 65,
+          "globalTestsOmitted": 54,
+          "changes": [
+            "Use lam instead of the reserved lambda token in native identifiers.",
+            "Infer the frame as an implicit parameter in Connection methods.",
+            "Separate finite index universes from the coefficient-ring universe.",
+            "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
+          ],
+          "implementationStatus": "unchecked",
+          "exitCode": 0,
+          "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
+          "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
+        },
+        "historicalVerification": {
+          "packetChecker": "0 errors, 0 warnings with pinned declaration index",
+          "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
+          "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
+          "atlasProjection": {
             "vertices": 3022,
             "edges": 8662,
-            "acyclic": true
+            "requiredLayerEdges": 18,
+            "acyclic": true,
+            "pendingLinks": 0,
+            "skippedLinks": 0
           },
-          "combinedDAG": {
-            "vertices": 3071,
-            "edges": 8862,
-            "acyclic": true
-          }
+          "concreteModels": {
+            "passed": 20,
+            "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
+          },
+          "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
         },
-        "concreteModels": {
-          "polynomialConnectionPairs": 270,
-          "laurentGaugeCases": 90,
-          "characteristics": [
-            "zero",
+        "determinantContinuation": {
+          "agent": "Codex",
+          "session": "codex-J6LwjP",
+          "date": "2026-10-02",
+          "base": "72b8733",
+          "claim": "5952774707",
+          "bot": "5952777457",
+          "newNodes": 8,
+          "nativeGlobalOmissionsUnchanged": true,
+          "primaryEdition": "EG-author-2026",
+          "checksPending": false,
+          "exitCode": 0,
+          "seconds": 2.27,
+          "errors": 0,
+          "sorryWarnings": 118,
+          "otherWarnings": 0,
+          "nativeExamples": 48,
+          "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
+          "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+        }
+      },
+      "determinantDerivationContinuation": {
+        "agent": "Codex — codex-a71f92",
+        "issue": 3371,
+        "claim": 5953381486,
+        "confirmation": 5953384526,
+        "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
+        "addedNodes": [
+          "HodgeStructuresPartII:H.0/determinant-derivation-rows",
+          "HodgeStructuresPartII:H.0/determinant-row-action",
+          "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
+          "HodgeStructuresPartII:H.0/determinant-gauge",
+          "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+        ],
+        "originalNodesPreserved": 55,
+        "nativeBaselineCount": 43,
+        "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
+        "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
+        "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
+        "leanReceipt": {
+          "leanVersion": "v4.34.0-rc2",
+          "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
+          "errors": 0,
+          "sorryWarnings": 123,
+          "otherWarnings": 0,
+          "nativeExamples": 48,
+          "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
+        },
+        "modelReceipt": {
+          "seed": 3371,
+          "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
+          "ranks": [
+            0,
+            1,
             2,
             3
           ],
-          "scope": "Exact trace curvature, dual, Kronecker rank multiplicities and nonconstant invertible Laurent gauge transformations; nonflat connections with flat determinant and positive-characteristic trace loss. Algebraic regression only, not general proof.",
-          "receiptSha256": "c6e05c58d20ebdc98bde25972dd8eac496dd858e4a29df031c7c4d0b723eaef4"
+          "pairs": 720,
+          "assertions": 6303,
+          "scope": "Independent finite model regressions, not Lean proofs."
         },
-        "sourceExcerpts": "The eight new source excerpts are the same three-word literal in the freshly read author-preprint opening definition; no fresh certification of the inherited published/LZ/Heuer excerpts."
-      },
-      "historicalReceiptTree": "dc0c470bcc064a08d8d9161ea963afe12b2c4b8d",
-      "historicalReceiptScope": "Retained prior-worker model/source-excerpt/atlas-projection receipts; not rerun in the codex-J6LwjP elaboration continuation.",
-      "elaborationContinuation": {
-        "agent": "Codex",
-        "session": "codex-J6LwjP",
-        "base": "ead8d4f",
-        "errors": 0,
-        "sorryWarnings": 106,
-        "nativeExamples": 44,
-        "globalNodesOmitted": 35,
-        "globalApiItemsOmitted": 65,
-        "globalTestsOmitted": 54,
-        "changes": [
-          "Use lam instead of the reserved lambda token in native identifiers.",
-          "Infer the frame as an implicit parameter in Connection methods.",
-          "Separate finite index universes from the coefficient-ring universe.",
-          "Annotate polynomial scalar types and coerce inverses of matrix units explicitly."
-        ],
-        "implementationStatus": "unchecked",
-        "exitCode": 0,
-        "suggestedSha256": "cdf1b95ef9ab04bf23785ca2237351c811135d72e3683fc9116ab9ba9c87f35e",
-        "logSha256": "dd795b2ea3338409471533d2f4766c0755d17885156bd5ea6038fe0d0b2cb6f8"
-      },
-      "historicalVerification": {
-        "packetChecker": "0 errors, 0 warnings with pinned declaration index",
-        "preservation": "Current continuation: all 47 predecessor nodes, 100 APIs, 85 tests, 149 routed input ids, sources, baseline declarations, requests, gaps, coverage and restructure preserved exactly.",
-        "nameParity": "All 47 node ids, 100 API names and 85 test names occur in reader and suggested file; 35 global signatures are explicitly omitted, not elaborated",
-        "atlasProjection": {
-          "vertices": 3022,
-          "edges": 8662,
-          "requiredLayerEdges": 18,
+        "graphReceipt": {
+          "actualAssemblyStages": 2971,
+          "actualAssemblyEdges": 8663,
+          "requiredLayerEdges": 19,
+          "reachableDeclarationVertices": 128,
+          "skippedLinks": [],
+          "pendingLinks": [],
           "acyclic": true,
-          "pendingLinks": 0,
-          "skippedLinks": 0
-        },
-        "concreteModels": {
-          "passed": 20,
-          "scope": "Exact polynomial/matrix scalar Leibniz, additive extension, curvature and variable-parameter defect; tensor, dual, gauge, rescaling; characteristic-two commutator; ordered-word and nonreduced nilpotence examples; finite Griffiths Rees fibers. No general proof or Lean elaboration."
-        },
-        "sourceExcerpts": "All unique PDF excerpt strings confirmed after Unicode/whitespace normalization; Stacks ordinary-connection excerpt checked on tag 07J5."
-      },
-      "determinantContinuation": {
-        "agent": "Codex",
-        "session": "codex-J6LwjP",
-        "date": "2026-10-02",
-        "base": "72b8733",
-        "claim": "5952774707",
-        "bot": "5952777457",
-        "newNodes": 8,
-        "nativeGlobalOmissionsUnchanged": true,
-        "primaryEdition": "EG-author-2026",
-        "checksPending": false,
-        "exitCode": 0,
-        "seconds": 2.27,
-        "errors": 0,
-        "sorryWarnings": 118,
-        "otherWarnings": 0,
-        "nativeExamples": 48,
-        "suggestedSha256": "df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7",
-        "logSha256": "b80d7603656e0947d9747150790f767c08eaf021e9fcc846b064b789c708518c"
+          "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
+        }
       }
     },
-    "determinantDerivationContinuation": {
-      "agent": "Codex — codex-a71f92",
-      "issue": 3371,
-      "claim": 5953381486,
-      "confirmation": 5953384526,
-      "baseTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de",
-      "addedNodes": [
-        "HodgeStructuresPartII:H.0/determinant-derivation-rows",
-        "HodgeStructuresPartII:H.0/determinant-row-action",
-        "HodgeStructuresPartII:H.0/determinant-gauge-matrix",
-        "HodgeStructuresPartII:H.0/determinant-gauge",
-        "HodgeStructuresPartII:H.0/determinant-alternating-operator"
+    "nativeReceipt": {
+      "lean": "v4.34.0-rc2",
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "imports": "Mathlib only",
+      "errors": 0,
+      "admitted_declaration_warnings": 151,
+      "other_warnings": 0,
+      "examples": 58,
+      "native_sha256": "92d380f0b3fd13af0187b13920525b4e2ccc957872e27cf41d16eddf7a810f24",
+      "compiler_log_sha256": "b625bfec8c11ee32b9154fffad4ea7512a4a138d813bb894d3efda740fc89b51"
+    },
+    "finiteModels": {
+      "assertions": 11378,
+      "matrix_pairs": {
+        "2": {
+          "pairs": 256,
+          "commuting": 88
+        },
+        "3": {
+          "pairs": 6561,
+          "commuting": 945
+        }
+      },
+      "truncated_polynomial_modules": {
+        "2": {
+          "dimension": 4,
+          "ordered_bound": 3,
+          "symmetric_degree_p_zero": true,
+          "ordered_degree_p_nonzero": true
+        },
+        "3": {
+          "dimension": 9,
+          "ordered_bound": 5,
+          "symmetric_degree_p_zero": true,
+          "ordered_degree_p_nonzero": true
+        }
+      },
+      "scope": "Finite models only; no general ideal-power, sheaf, or source correspondence proof.",
+      "script_sha256": "5dfc681b5f0b4b707166a8a24d5d548ad7f63aa3d515af49fdbfc182880364cd"
+    },
+    "atlasProjection": {
+      "actual_assembler": true,
+      "declarations": 70,
+      "planets": 6,
+      "own_skipped_links": [],
+      "own_pending_links": [],
+      "stage_dag": {
+        "vertices": 3056,
+        "edges": 8663,
+        "acyclic": true
+      },
+      "own_declaration_dag": {
+        "vertices": 70,
+        "edges": 137,
+        "acyclic": true
+      },
+      "stages_and_reachable_declarations": {
+        "vertices": 3121,
+        "edges": 8914,
+        "acyclic": true
+      },
+      "reachable_declarations": 71,
+      "imported_declarations": [
+        "ColemanPowerSeries:L1/derivation-determinant-unit"
       ],
-      "originalNodesPreserved": 55,
-      "nativeBaselineCount": 43,
-      "sourceScope": "Selected EG author-version passages and full selected native statements only; no full-paper/edition-collation or source-erratum claim.",
-      "ownershipScope": "Parent Hodge and ReductiveGroups documents read fully; parent L0/L1/L3 built and L2 partly built AUDIT-02 verdicts imported; D3 not built and E1 partly built. CR.1/E1/DD.1/D3 stage descriptions reread. No HodgeStructuresPartII link-map entries found. Exact determinant-derivation search located ColemanPowerSeries:L1/derivation-determinant-unit in identical generality: its complete statement, hypotheses and proof outline were read and are imported rather than duplicated. Remaining finite row-derivative and row-action helpers support local alternating evaluation, not a replan of that unit Jacobi theorem.",
-      "remaining": "Global exterior/determinant carriers, induced sheaf operator, top-wedge comparison, restriction/descent/functoriality, CR.1/E1/DD.1 supplier requests, coefficient-equivariance and unbounded period-lattice/Tate adapter; H.1–H.8 source decomposition.",
-      "leanReceipt": {
-        "leanVersion": "v4.34.0-rc2",
-        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-        "sha256": "6e90608f1e0748728112b947e7f5f6bf3b1c55398d62235d80cdf7a6300ad290",
-        "errors": 0,
-        "sorryWarnings": 123,
-        "otherWarnings": 0,
-        "nativeExamples": 48,
-        "scope": "Full changed native file, not a global-sheaf implementation or proof certificate."
-      },
-      "modelReceipt": {
-        "seed": 3371,
-        "rings": "Q,F2,F3 Laurent polynomial rings with a nonzero square-zero epsilon",
-        "ranks": [
-          0,
-          1,
-          2,
-          3
+      "required_stage_pairs_reachable": 19,
+      "other_skipped_links": {
+        "GeneralAlgebraicKTheory": [
+          [
+            "SchemeKTheoryOperations:S.5",
+            "GeneralAlgebraicKTheory:K.6"
+          ],
+          [
+            "SchemeKTheoryOperations:S.6",
+            "GeneralAlgebraicKTheory:K.7"
+          ]
         ],
-        "pairs": 720,
-        "assertions": 6303,
-        "scope": "Independent finite model regressions, not Lean proofs."
+        "K2SymbolsBrauer": [
+          [
+            "ArithmeticKTheory:N.2",
+            "K2SymbolsBrauer:T.5"
+          ]
+        ],
+        "K3BlochGroups": [
+          [
+            "ArithmeticKTheory:N.3:ranks",
+            "K3BlochGroups:V.2"
+          ],
+          [
+            "ArithmeticKTheory:N.3:finite-generation",
+            "K3BlochGroups:V.2"
+          ],
+          [
+            "ArithmeticKTheory:N.5",
+            "K3BlochGroups:V.2"
+          ],
+          [
+            "ArithmeticKTheory:N.8",
+            "K3BlochGroups:V.5"
+          ]
+        ]
       },
-      "graphReceipt": {
-        "actualAssemblyStages": 2971,
-        "actualAssemblyEdges": 8663,
-        "requiredLayerEdges": 19,
-        "reachableDeclarationVertices": 128,
-        "skippedLinks": [],
-        "pendingLinks": [],
-        "acyclic": true,
-        "auditTree": "f9cfbaf2b11b46e79508bfaa1c4d60823bd266de"
-      }
-    }
+      "scope": "Actual in-memory pending packet/definition assembled with normal retirements, restructuring, link overlays and replaced-decomposition trimming. All stage graph and only this packet plus recursively used declaration graph checked; unrelated declaration graphs not audited.",
+      "script_sha256": "d04a67b35367b2a5521740f4c63e82189ce879091002b99fee94f4524238e558",
+      "other_skips_match_baseline": true
+    },
+    "preservation": "All 60 inherited node IDs and statements, all 103 inherited API items and 89 tests, all 149 routed IDs/statuses, sourceIssues, restructure, source/baseline prefixes and six planets preserved. Fifty-nine inherited node objects unchanged; symmetric-action only gains the precise TensorAlgebra/RingCon proof step/dependency. E1 supplier request gains precise global algebra/action/quotient interfaces. All nodes unchecked, zero closed stages.",
+    "checks": [
+      "Indexed packet checker: zero errors, zero warnings.",
+      "Five named deliverables, JSON/private-path/whitespace intake checks.",
+      "New node/API/test names and complete mathematical statements present in reader and native or explicit omission forms.",
+      "Actual in-memory build.assemble pending overlay; full stage graph and recursively used declaration graph acyclic; no own pending/skipped links; all 19 named stage prerequisites reachable; other seven skips exactly match baseline.",
+      "11,378 independent finite algebra assertions; finite scope only.",
+      "Full exact-pin Mathlib-only signature elaboration, with 151 admitted-declaration warnings only."
+    ]
   }
 }

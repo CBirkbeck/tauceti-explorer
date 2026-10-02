@@ -5,8 +5,11 @@ forms so that contributors and reviewers converge on names and signatures.
 Partial continuation for DESIGN-HodgeStructuresPartII, issue #3371.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-CURRENT VERSION COMPILED: the entire file elaborates with Lean v4.34.0-rc2
-against an existing build at the pinned Mathlib commit, with only sorry warnings.
+CURRENT ACTION CONTINUATION COMPILED: the entire expanded Mathlib-only file
+elaborates at the exact Mathlib pin with Lean v4.34.0-rc2: 0 errors,
+151 admitted-declaration warnings, no other warnings; all 58 native examples.
+This is a signature check, not proof or global sheaf implementation.
+Earlier compilation claims apply only to their recorded exact-file hashes.
 This checks native signatures, not proofs or the omitted global sheaf ledger.
 The preceding version's historical receipt applies only to SHA-256
  df692430d323e907f4a419970dbde6f4a72a6d354f5759a96a1c5a42c7c154e7.
@@ -31,6 +34,20 @@ import Mathlib.Data.Matrix.Basis
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Kronecker
+
+import Mathlib.LinearAlgebra.SymmetricAlgebra.Basic
+
+import Mathlib.LinearAlgebra.TensorProduct.Associator
+
+import Mathlib.LinearAlgebra.Dual.Defs
+
+import Mathlib.RingTheory.Congruence.Hom
+
+import Mathlib.RingTheory.Ideal.Quotient.Operations
+
+import Mathlib.RingTheory.Ideal.Operations
+
+import Mathlib.Data.ZMod.Basic
 
 noncomputable section
 open scoped Matrix
@@ -768,7 +785,8 @@ Hypotheses: A commutative ringed Grothendieck site (C,J,O) with a specified rela
 Missing inputs: EnhancedDerivedSheaves:E1; intrinsic global exterior/sheaf carriers and named preceding global declarations.
 API signature omitted: TwistedHiggsBundle.iterate_zero — The zeroth iterate is identity.
 API signature omitted: TwistedHiggsBundle.iterate_succ — The successor is θ⊗id after the preceding iterate, with the prescribed reassociation.
-API signature omitted: TwistedHiggsBundle.iterate_coordinates — In a finite local basis, θ^[N]=0 iff every word of N coefficients vanishes.
+-- node: HodgeStructuresPartII:H.0/ordered-coordinate-vanishing (promoted API, same omission)
+API signature omitted: TwistedHiggsBundle.iterate_coordinates — In a finite local basis, θ^[N]=0 iff every word of N coefficients vanishes. The promoted ordered-coordinate-vanishing node includes N=0 (id_E) and requires no integrability. Ordered coefficient tuples are distinct; the most recent contraction is the leftmost coefficient. Finite tensor-basis and sheaf restriction/gluing interfaces remain missing.
 API signature omitted: TwistedHiggsBundle.iterate_zero_field — The zero field has bound 1.
 test omitted: TwistedHiggsBundle.iterate.test_E12 — For E12dx on O², θ^[2]=0 but θ≠0.
 test omitted: TwistedHiggsBundle.iterate.test_zero — Zero field has bound 1, including the zero module.
@@ -867,4 +885,205 @@ Hypotheses: A commutative ringed Grothendieck site (C,J,O) with a specified rela
 Missing inputs: DerivedDeRhamCohomology:DD.1, EnhancedDerivedSheaves:E1; intrinsic global exterior/sheaf carriers and named preceding global declarations.
 
 End omission ledger. All named global obligations remain unchecked.
+-/
+
+noncomputable section
+open scoped TensorProduct
+namespace TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+universe u v w z
+variable {R : Type u} [CommRing R]
+variable {E : Type v} [AddCommGroup E] [Module R E]
+variable {Q : Type w} [AddCommGroup Q] [Module R Q]
+variable {F : Type z} [AddCommGroup F] [Module R F]
+
+-- node: HodgeStructuresPartII:H.0/affine-contractions
+def affineContractions (θ : E →ₗ[R] E ⊗[R] Q) :
+    Module.Dual R Q →ₗ[R] Module.End R E := sorry
+theorem affineContractions_apply (θ : E →ₗ[R] E ⊗[R] Q)
+    (v : Module.Dual R Q) (e : E) :
+    affineContractions θ v e = TensorProduct.rid R E
+      (TensorProduct.map (LinearMap.id : E →ₗ[R] E) v (θ e)) := sorry
+theorem affineContractions_zero :
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) = 0 := sorry
+theorem affineContractions_add (θ η : E →ₗ[R] E ⊗[R] Q) :
+    affineContractions (θ + η) = affineContractions θ + affineContractions η := sorry
+-- test: TwistedHiggsBundle.affineContractions.test_zero
+example (v : Module.Dual R Q) (e : E) :
+    affineContractions (0 : E →ₗ[R] E ⊗[R] Q) v e = 0 := sorry
+-- test: TwistedHiggsBundle.affineContractions.test_line
+example (e : R) :
+    affineContractions ((TensorProduct.rid R R).symm.toLinearMap)
+      (LinearMap.id : Module.Dual R R) e = e := sorry
+-- test: TwistedHiggsBundle.affineContractions.test_zero_dual
+example (θ : E →ₗ[R] E ⊗[R] Q) :
+    affineContractions θ (0 : Module.Dual R Q) = 0 := sorry
+
+/-- Affine adapter for the existing symmetric algebra, into actual endomorphisms.
+Global sheaf algebra/endomorphism and restriction coherence are supplied by E1.
+The affine lift uses existing native TensorAlgebra and RingCon objects. -/
+-- node: HodgeStructuresPartII:H.0/affine-symmetric-action
+def affineSymmetricAction (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (h : ∀ v w, Commute (a v) (a w)) :
+    SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E := sorry
+theorem affineSymmetricAction_generator
+    (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (h : ∀ v w, Commute (a v) (a w)) (v : Module.Dual R Q) :
+    affineSymmetricAction a h (SymmetricAlgebra.ι R _ v) = a v := sorry
+theorem affineSymmetricAction_unique
+    (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (h : ∀ v w, Commute (a v) (a w))
+    (β : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (hβ : ∀ v, β (SymmetricAlgebra.ι R _ v) = a v) :
+    β = affineSymmetricAction a h := sorry
+theorem affineSymmetricAction_zero
+    (h : ∀ v w : Module.Dual R Q, Commute
+      ((0 : Module.Dual R Q →ₗ[R] Module.End R E) v) ((0 : Module.Dual R Q →ₗ[R] Module.End R E) w))
+    (s : SymmetricAlgebra R (Module.Dual R Q)) :
+    affineSymmetricAction 0 h s =
+      algebraMap R (Module.End R E) (SymmetricAlgebra.algebraMapInv s) := sorry
+-- test: TwistedHiggsBundle.affineSymmetricAction.test_zero
+example (h : ∀ v w : Module.Dual R Q, Commute
+    ((0 : Module.Dual R Q →ₗ[R] Module.End R E) v) ((0 : Module.Dual R Q →ₗ[R] Module.End R E) w))
+    (v : Module.Dual R Q) :
+    affineSymmetricAction 0 h (SymmetricAlgebra.ι R _ v) = 0 := sorry
+-- test: TwistedHiggsBundle.affineSymmetricAction.test_scalar
+example (a : Module.Dual R R →ₗ[R] Module.End R R)
+    (h : ∀ v w, Commute (a v) (a w))
+    (ha : a (LinearMap.id : Module.Dual R R) = 1) :
+    affineSymmetricAction a h
+      (SymmetricAlgebra.ι R _ (LinearMap.id : Module.Dual R R)) = 1 := sorry
+-- test: TwistedHiggsBundle.affineSymmetricAction.test_rank_zero
+example (a : Module.Dual R Q →ₗ[R] Module.End R (Fin 0 → R))
+    (h : ∀ v w, Commute (a v) (a w))
+    (s : SymmetricAlgebra R (Module.Dual R Q)) :
+    affineSymmetricAction a h s = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/affine-symmetric-commuting
+theorem affineSymmetricAction_iff_commute
+    (a : Module.Dual R Q →ₗ[R] Module.End R E) :
+    (∃ α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E,
+      ∀ v, α (SymmetricAlgebra.ι R _ v) = a v) ↔
+    ∀ v w, Commute (a v) (a w) := sorry
+
+-- node: HodgeStructuresPartII:H.0/symmetric-action-word
+theorem symmetricAction_word
+    (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (hα : ∀ v, α (SymmetricAlgebra.ι R _ v) = a v)
+    (word : List (Module.Dual R Q)) :
+    α ((word.map (SymmetricAlgebra.ι R _)).prod) = (word.map a).prod := sorry
+
+-- node: HodgeStructuresPartII:H.0/symmetric-action-morphism
+theorem symmetricAction_morphism
+    (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (b : Module.Dual R Q →ₗ[R] Module.End R F)
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (β : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R F)
+    (hα : ∀ v, α (SymmetricAlgebra.ι R _ v) = a v)
+    (hβ : ∀ v, β (SymmetricAlgebra.ι R _ v) = b v)
+    (f : E →ₗ[R] F) :
+    (∀ v, f.comp (a v) = (b v).comp f) ↔
+    (∀ s, f.comp (α s) = (β s).comp f) := sorry
+
+-- node: HodgeStructuresPartII:H.0/augmentation-power-words
+theorem augmentation_pow_iff_words
+    (a : Module.Dual R Q →ₗ[R] Module.End R E)
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (hα : ∀ v, α (SymmetricAlgebra.ι R _ v) = a v) (N : ℕ) :
+    (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom ↔
+    ∀ word : Fin N → Module.Dual R Q, ((List.ofFn word).map a).prod = 0 := sorry
+
+-- node: HodgeStructuresPartII:H.0/truncated-symmetric-action
+def truncatedSymmetricAction
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (N : ℕ)
+    (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom) :
+    (SymmetricAlgebra R (Module.Dual R Q) ⧸
+      (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+        (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E := sorry
+theorem truncatedSymmetricAction_mk
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (N : ℕ) (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom)
+    (s : SymmetricAlgebra R (Module.Dual R Q)) :
+    truncatedSymmetricAction α N h (Ideal.Quotient.mk _ s) = α s := sorry
+theorem truncatedSymmetricAction_unique
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (N : ℕ) (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom)
+    (β : (SymmetricAlgebra R (Module.Dual R Q) ⧸
+      (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+        (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E)
+    (hβ : ∀ s, β (Ideal.Quotient.mk _ s) = α s) :
+    β = truncatedSymmetricAction α N h := sorry
+theorem truncatedSymmetricAction_exists_iff
+    (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E) (N : ℕ) :
+    (∃ β : (SymmetricAlgebra R (Module.Dual R Q) ⧸
+      (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+        (M := Module.Dual R Q)).toRingHom) ^ N) →ₐ[R] Module.End R E,
+      ∀ s, β (Ideal.Quotient.mk _ s) = α s) ↔
+    (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
+-- test: TwistedHiggsBundle.truncatedSymmetricAction.test_generator
+example (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R] Module.End R E)
+    (h : (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ 1 ≤ RingHom.ker α.toRingHom)
+    (v : Module.Dual R Q) :
+    truncatedSymmetricAction α 1 h (Ideal.Quotient.mk _
+      (SymmetricAlgebra.ι R _ v)) = 0 := sorry
+-- test: TwistedHiggsBundle.truncatedSymmetricAction.test_scalar_rejected
+example (α : SymmetricAlgebra ℚ (Module.Dual ℚ ℚ) →ₐ[ℚ] Module.End ℚ ℚ)
+    (ha : α (SymmetricAlgebra.ι ℚ _ (LinearMap.id : Module.Dual ℚ ℚ)) = 1)
+    (N : ℕ) (hN : 0 < N) :
+    ¬ (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := ℚ)
+      (M := Module.Dual ℚ ℚ)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
+-- test: TwistedHiggsBundle.truncatedSymmetricAction.test_rank_zero
+example (α : SymmetricAlgebra R (Module.Dual R Q) →ₐ[R]
+    Module.End R (Fin 0 → R)) (N : ℕ) :
+    (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := R)
+      (M := Module.Dual R Q)).toRingHom) ^ N ≤ RingHom.ker α.toRingHom := sorry
+
+/-- In F₂, xy+yx survives in the tensor algebra but dies in the symmetric algebra. -/
+-- node: HodgeStructuresPartII:H.0/symmetric-projection-counterexample
+theorem symmetricProjection_charTwo_counterexample :
+    let q₀ : Fin 2 → ZMod 2 := Pi.single 0 1
+    let q₁ : Fin 2 → ZMod 2 := Pi.single 1 1
+    let t := TensorAlgebra.ι (ZMod 2) q₀ * TensorAlgebra.ι (ZMod 2) q₁ +
+      TensorAlgebra.ι (ZMod 2) q₁ * TensorAlgebra.ι (ZMod 2) q₀
+    t ≠ 0 ∧ SymmetricAlgebra.algHom (ZMod 2) (Fin 2 → ZMod 2) t = 0 := sorry
+
+-- test: TwistedHiggsBundle.truncatedSymmetricAction.test_square_zero
+example {V : Type*} [AddCommGroup V] [Module ℚ V]
+    (X : Module.End ℚ V) (hX : X * X = 0) (hne : X ≠ 0)
+    (α : SymmetricAlgebra ℚ (Module.Dual ℚ ℚ) →ₐ[ℚ] Module.End ℚ V)
+    (hα : ∀ v, α (SymmetricAlgebra.ι ℚ _ v) = v 1 • X) :
+    (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := ℚ)
+      (M := Module.Dual ℚ ℚ)).toRingHom) ^ 2 ≤ RingHom.ker α.toRingHom ∧
+    ¬ (RingHom.ker (SymmetricAlgebra.algebraMapInv (R := ℚ)
+      (M := Module.Dual ℚ ℚ)).toRingHom) ≤ RingHom.ker α.toRingHom := sorry
+
+/-- Concrete four-basis module witnesses for the preceding counterexample;
+these are example fixtures, not a new planned carrier. -/
+def charTwoShiftX : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 2) :=
+  fun i j => if i.1 = 1 ∧ j.1 = 0 ∧ i.2 = j.2 then 1 else 0
+def charTwoShiftY : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) (ZMod 2) :=
+  fun i j => if i.2 = 1 ∧ j.2 = 0 ∧ i.1 = j.1 then 1 else 0
+theorem symmetricProjection_charTwo_action_counterexample :
+    charTwoShiftX * charTwoShiftX = 0 ∧ charTwoShiftY * charTwoShiftY = 0 ∧
+    charTwoShiftX * charTwoShiftY = charTwoShiftY * charTwoShiftX ∧
+    charTwoShiftX * charTwoShiftY ≠ 0 ∧
+    charTwoShiftX * charTwoShiftY + charTwoShiftY * charTwoShiftX = 0 ∧
+    ∀ word : Fin 3 → Fin 2,
+      ((List.ofFn word).map (fun i => if i = 0 then charTwoShiftX else charTwoShiftY)).prod = 0 := sorry
+
+end TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle
+
+/-
+node: HodgeStructuresPartII:H.0/ordered-augmentation-nilpotence
+signature omitted: TwistedHiggsBundle.nilpotence_iff_augmentation_power
+For an integrable twisted Higgs field with Q finite locally free and its actual sheaf algebra action α:Sym_O(Q∨)→End_O(E), and a specified positive N, θ^[N]=0 iff (ker ε)^N acts by zero on E. The same N occurs on both sides in every characteristic and over nonreduced bases. This also identifies a specified ordered nilpotence bound with factorization of α through Sym_O(Q∨)/(ker ε)^N.
+Hypotheses: A commutative ringed Grothendieck site (C,J,O). E is finite locally free and Q is finite locally free, possibly Ω¹⊗T with T invertible. All maps, tensor powers and algebra objects are sheaves, with restriction-compatible local formulas. θ:E→E⊗Q is O-linear. Integrability is required only for the symmetric-action comparison, not for the ordered-coordinate lemma. No characteristic, reducedness, basis or nilpotence condition is built into θ. Local finite bases are used on trivializing covers; no tensor of global sections is identified with sections of a sheaf tensor. θ∧θ=0 and N>0. ε is the actual degree-zero augmentation of the symmetric sheaf algebra; annihilation is an equality of action maps, not an arbitrary stored predicate.
+Missing inputs: EnhancedDerivedSheaves:E1 actual sheaf symmetric/endomorphism/augmentation quotient, ordered tensor powers and restriction/descent coherence. No arbitrary Proposition carrier stands in for these maps.
 -/
