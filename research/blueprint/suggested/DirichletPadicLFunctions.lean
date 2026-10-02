@@ -32085,3 +32085,175 @@ example (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : 
     kubertRationalCartanQuotientLinear N (QuotientAddGroup.mk' (kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) N 0) (FreeAbelianGroup.of a))=kubertRationalCartanValue N a := by sorry
 
 end DirichletPadic.SuggestedKubertCorrectedQuotientTests
+
+/- Corrected global values and the original ordinary quotient. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+lemma kubertRationalTorus_order_pos (a : Fin 1 → AddCircle (1 : ℚ)) : 0<addOrderOf a := by sorry
+
+noncomputable def kubertRationalCartanGlobalValue (a : Fin 1 → AddCircle (1 : ℚ)) :
+    kubertCartanLimitModule 1 ℚ := by sorry
+
+lemma kubertRationalCartanGlobalValue_level (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalCartanGlobalValue a.val=kubertCartanLimitOf 1 ℚ N (kubertRationalCartanValue N a) := by sorry
+
+lemma kubertRationalCartanGlobalValue_zero :
+    kubertRationalCartanGlobalValue 0=kubertCartanLimitOf 1 ℚ 1 1 := by sorry
+
+lemma kubertRationalCartanGlobalValue_level_root_sum (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    [Fintype {b : Fin 1 → AddCircle (1 : ℚ) // m • b=m • a.val}] :
+    (∑ b : {b : Fin 1 → AddCircle (1 : ℚ) // m • b=m • a.val},kubertRationalCartanGlobalValue b.val)=
+      kubertRationalCartanGlobalValue (m • a.val) := by sorry
+
+lemma kubertRationalCartanGlobalValue_root_sum (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ))
+    [Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}] :
+    (∑ b : {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a},kubertRationalCartanGlobalValue b.val)=
+      kubertRationalCartanGlobalValue a := by sorry
+
+noncomputable def kubertRationalCartanGlobalDistribution
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}] :
+    (FreeAbelianGroup (Fin 1 → AddCircle (1 : ℚ)) ⧸
+      DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0) →+
+        kubertCartanLimitModule 1 ℚ := by sorry
+
+lemma kubertRationalCartanGlobalDistribution_of
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (a : Fin 1 → AddCircle (1 : ℚ)) :
+    kubertRationalCartanGlobalDistribution (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of a))=kubertRationalCartanGlobalValue a := by sorry
+
+lemma kubertRationalCartanGlobalDistribution_level
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (z : FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸
+      kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0) :
+    kubertRationalCartanGlobalDistribution (kubertLevelToGlobal N 0 z)=
+      kubertCartanLimitOf 1 ℚ N (kubertRationalCartanQuotientValue N z) := by sorry
+
+lemma kubertRationalCartanGlobalValue_zero_ne_zero : kubertRationalCartanGlobalValue 0≠0 := by sorry
+
+lemma kubertRationalCartanGlobalDistribution_unique
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (f : (FreeAbelianGroup (Fin 1 → AddCircle (1 : ℚ)) ⧸
+      DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0) →+
+        kubertCartanLimitModule 1 ℚ)
+    (hf : ∀ a : Fin 1 → AddCircle (1 : ℚ), f (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of a))=kubertRationalCartanGlobalValue a) :
+    f=kubertRationalCartanGlobalDistribution := by sorry
+
+lemma kubertRationalCartanGlobalDistribution_zero_point_ne_zero
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}] :
+    kubertRationalCartanGlobalDistribution (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of (0 : Fin 1 → AddCircle (1 : ℚ))))≠0 := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertCorrectedGlobalTests
+open scoped Classical BigOperators
+noncomputable section
+-- zero_point_is_the_original_level_one_class
+example : kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)))=kubertCartanLimitOf 1 ℚ 1 1 := by sorry
+-- half_point_vanishes_but_zero_point_does_not
+example : kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((1/2 : ℚ) : AddCircle (1 : ℚ)))=0 ∧ kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)))≠0 := by sorry
+-- the_two_roots_of_one_third_sum_correctly
+example : kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)))+kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)))=kubertRationalCartanGlobalValue (fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))) := by sorry
+-- the_original_global_two_root_word_is_annihilated
+example [∀ (m : ℕ+) (a : (Fin 1 → AddCircle (1 : ℚ))), Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // (m : ℕ) • b=a}] : kubertRationalCartanGlobalDistribution ((QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (fun _ : Fin 1 => ((1/6 : ℚ) : AddCircle (1 : ℚ)))))+(QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (fun _ : Fin 1 => ((2/3 : ℚ) : AddCircle (1 : ℚ)))))-(QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (fun _ : Fin 1 => ((1/3 : ℚ) : AddCircle (1 : ℚ))))))=0 := by sorry
+-- the_zero_point_class_retains_the_full_level_six_sum
+example [∀ (m : ℕ+) (a : (Fin 1 → AddCircle (1 : ℚ))), Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // (m : ℕ) • b=a}] : kubertRationalCartanGlobalDistribution (QuotientAddGroup.mk' (kubertRelations (X := (Fin 1 → AddCircle (1 : ℚ))) (Set.univ : Set ℕ+) 0) (FreeAbelianGroup.of (fun _ : Fin 1 => ((0 : ℚ) : AddCircle (1 : ℚ)))))=kubertCartanLimitOf 1 ℚ 6 (1+MonoidAlgebra.single ((kubertCartanDegreeOneFiniteEquiv 6).symm (ZMod.unitOfCoprime 5 (by sorry))) (1 : ℚ)) := by sorry
+-- the_original_six_to_thirty_quotient_square_commutes
+example [∀ (m : ℕ+) (a : (Fin 1 → AddCircle (1 : ℚ))), Fintype {b : (Fin 1 → AddCircle (1 : ℚ)) // (m : ℕ) • b=a}] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker] [Fintype (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((30 : ℕ+) : ℕ)).ker] (z : (FreeAbelianGroup (nsmulAddMonoidHom (α := (Fin 1 → AddCircle (1 : ℚ))) ((6 : ℕ+) : ℕ)).ker ⧸ kubertInternalLevelRelations (X := (Fin 1 → AddCircle (1 : ℚ))) 6 0)) : kubertRationalCartanGlobalDistribution (kubertLevelToGlobal 30 0 (kubertInternalLevelMap 6 30 (by sorry) 0 z))=kubertCartanLimitOf 1 ℚ 6 (kubertRationalCartanQuotientValue 6 z) := by sorry
+end
+end DirichletPadic.SuggestedKubertCorrectedGlobalTests
+namespace DirichletPadic.SuggestedKubertCorrectedGlobalTests
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+
+-- rationalTorus_order_pos_typed_api
+example (a : Fin 1 → AddCircle (1 : ℚ)) : 0<addOrderOf a := by sorry
+
+-- rationalCartanGlobalValue_level_typed_api
+example (N : ℕ+)
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    kubertRationalCartanGlobalValue a.val=kubertCartanLimitOf 1 ℚ N (kubertRationalCartanValue N a) := by sorry
+
+-- rationalCartanGlobalValue_zero_typed_api
+example :
+    kubertRationalCartanGlobalValue 0=kubertCartanLimitOf 1 ℚ 1 1 := by sorry
+
+-- rationalCartanGlobalValue_level_root_sum_typed_api
+example (N : ℕ+)
+    [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (m : ℕ) (hmN : m ∣ (N : ℕ))
+    (a : (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    [Fintype {b : Fin 1 → AddCircle (1 : ℚ) // m • b=m • a.val}] :
+    (∑ b : {b : Fin 1 → AddCircle (1 : ℚ) // m • b=m • a.val},kubertRationalCartanGlobalValue b.val)=
+      kubertRationalCartanGlobalValue (m • a.val) := by sorry
+
+-- rationalCartanGlobalValue_root_sum_typed_api
+example (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ))
+    [Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}] :
+    (∑ b : {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a},kubertRationalCartanGlobalValue b.val)=
+      kubertRationalCartanGlobalValue a := by sorry
+
+-- rationalCartanGlobalDistribution_of_typed_api
+example
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (a : Fin 1 → AddCircle (1 : ℚ)) :
+    kubertRationalCartanGlobalDistribution (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of a))=kubertRationalCartanGlobalValue a := by sorry
+
+-- rationalCartanGlobalDistribution_level_typed_api
+example
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (N : ℕ+) [Fintype (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker]
+    (z : FreeAbelianGroup (nsmulAddMonoidHom (α := Fin 1 → AddCircle (1 : ℚ)) (N : ℕ)).ker ⧸
+      kubertInternalLevelRelations (X := Fin 1 → AddCircle (1 : ℚ)) N 0) :
+    kubertRationalCartanGlobalDistribution (kubertLevelToGlobal N 0 z)=
+      kubertCartanLimitOf 1 ℚ N (kubertRationalCartanQuotientValue N z) := by sorry
+
+-- rationalCartanGlobalValue_zero_ne_zero_typed_api
+example : kubertRationalCartanGlobalValue 0≠0 := by sorry
+
+-- rationalCartanGlobalDistribution_unique_typed_api
+example
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}]
+    (f : (FreeAbelianGroup (Fin 1 → AddCircle (1 : ℚ)) ⧸
+      DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0) →+
+        kubertCartanLimitModule 1 ℚ)
+    (hf : ∀ a : Fin 1 → AddCircle (1 : ℚ), f (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of a))=kubertRationalCartanGlobalValue a) :
+    f=kubertRationalCartanGlobalDistribution := by sorry
+
+-- rationalCartanGlobalDistribution_zero_point_ne_zero_typed_api
+example
+    [∀ (m : ℕ+) (a : Fin 1 → AddCircle (1 : ℚ)),
+      Fintype {b : Fin 1 → AddCircle (1 : ℚ) // (m : ℕ) • b=a}] :
+    kubertRationalCartanGlobalDistribution (QuotientAddGroup.mk'
+      (DirichletPadic.kubertRelations (X := Fin 1 → AddCircle (1 : ℚ)) (Set.univ : Set ℕ+) 0)
+      (FreeAbelianGroup.of (0 : Fin 1 → AddCircle (1 : ℚ))))≠0 := by sorry
+
+end DirichletPadic.SuggestedKubertCorrectedGlobalTests
