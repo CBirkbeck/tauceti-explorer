@@ -2,6 +2,14 @@
 
 Issue #1365. Claude Code, session cc-442dc5. The extraction is complete. Implementation and proof closure are not claimed.
 
+Confirmed red-team fixes applied by **Codex**, session `codex-rtOQ9t`, 2 October 2026, issue #5521. See the [fixes report](../redteam/RT-PAPER-BHATT-MATHEW-23.fixes.md). Counts, owners, all 102 items and seven route memberships, and the eight prior source issues/reviews are unchanged. These two findings concern the extraction's acceptance tests, not additional errors in the paper.
+
+Route 1's weight-one test now imports item /006 from PR.4/PR.5 and checks `Z/p(1)_{Spec Z_p} ≃ Rε_*μ_p ≃ fib(p:G_m→G_m)` in the derived category of étale sheaves, with ε the fppf-to-étale map. The cohomology sheaves are `H⁰=μ_p` and `H¹=coker(p:G_m→G_m)`. At the closed geometric point for p=3, the latter has the nonzero class of 4: in the strict henselization R of Z₃, an alleged cube root reduces to 1 modulo 3, hence is `1+3a`, whose cube is 1 modulo 9; 4 is not. This checks cohomology sheaves, rather than confusing them with global hypercohomology. A separate test restricts to Spec Q_p and recovers the ordinary étale μ_p in degree zero.
+
+Route 2's unit-symbol test now takes p=3 (or another odd prime) and `U=Spec Z_p[t,1/(t(1+pt))]`. Both entries are units; form `{1+pt,t}` on U[1/p] and restrict to the nearby-cycle sheaf `M^2_1=i^*R^2j_*(μ_p^{⊗2})` on `U_Fp=G_m,Fp`. With π=p and e=1, the test is `ρ₁(t dlog t)=ρ₁(dt)={1+pt,t}`. Bloch–Kato's map is initially a graded-filtration map; for this odd-prime test U²=0, so the class lies directly in U¹. Reject the symbol as a global unit test at t=0. The verifier notes that inverting 1+pt is unnecessary after p-henselization along the special fibre; the explicit open used here is a harmless choice that gives both units globally. The existing LocalFieldsPartIIKatoSwanConductors owner is retained.
+
+Fresh reading for this bounded repair: published pp. 2 and 23 (p. 2 also viewed), arXiv v2 pp. 2 and 24, Bloch–Kato printed pp. 110–111 and 122 (p. 122 also viewed). Their hashes and version limits are in the report and `repair.supportingReadings`; earlier source and review records remain historical. No new library audit, proof closure, Lean deliverable or compilation is claimed.
+
 Bhargav Bhatt and Akhil Mathew, *Syntomic complexes and p-adic étale Tate twists*, Forum Math. Pi 11 (2023), e1 (doi 10.1017/fmp.2022.21; arXiv 2202.04818).
 
 The result has **102 items: 1 library, 27 planned and 74 missing**. The missing items are routed exactly once, by seven routes:
