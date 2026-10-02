@@ -1,3 +1,5 @@
+import Mathlib.AlgebraicGeometry.Morphisms.Finite
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
 import Mathlib.GroupTheory.Perm.Fin
 import Mathlib.Algebra.BigOperators.Intervals
 import Mathlib.Data.Nat.ModEq
@@ -346,7 +348,7 @@ example [Subsingleton A] (f : A) (n : ℕ) [NeZero n] (b : AffineRing f n) :
   sorry
 
 /- BEGIN NATIVE FINITE ROOT TRANSITIONS -/
-open Module
+open Module AlgebraicGeometry
 
 def affineTransition (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
     AffineRing f n →ₐ[A] AffineRing f (n * m) := by
@@ -457,6 +459,19 @@ theorem affineTransitionFaithfullyFlat (f : A) (n m : ℕ) [NeZero n] [NeZero m]
     (let : Algebra (AffineRing f n) (AffineRing f (n * m)) :=
        (affineTransition f n m).toRingHom.toAlgebra;
      Module.FaithfullyFlat (AffineRing f n) (AffineRing f (n * m))) := by
+  sorry
+
+theorem affineTransitionSpecProperties (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) := by
+  sorry
+
+-- affineTransitionSpecProperties.test_wild
+example :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) := by
   sorry
 
 -- affineTransition.test_one
@@ -2062,6 +2077,8 @@ end TauCeti.RootStack
 /-
 Public verification archive, authored by Codex — codex-rtOQ9t.
 BEGIN ARCHIVED CHECKED FINITE ROOT TRANSITIONS
+import Mathlib.AlgebraicGeometry.Morphisms.Finite
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
 import Mathlib.GroupTheory.Perm.Fin
 import Mathlib.Algebra.BigOperators.Intervals
 import Mathlib.Data.Nat.ModEq
@@ -3781,7 +3798,7 @@ end TauCeti.RootStack
 
 namespace TauCeti.RootStack
 variable {A : Type u} [CommRing A]
-open Module
+open Module AlgebraicGeometry
 
 def affineTransition (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
     AffineRing f n →ₐ[A] AffineRing f (n * m) :=
@@ -3980,6 +3997,27 @@ theorem affineTransitionFaithfullyFlat (f : A) (n m : ℕ) [NeZero n] [NeZero m]
   let : Nonempty (Fin m) := ⟨⟨0, Nat.pos_of_ne_zero (NeZero.ne m)⟩⟩
   exact Module.FaithfullyFlat.of_linearEquiv _ _ (affineTransitionBasis f n m).repr
 
+theorem affineTransitionSpecProperties (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition f n m).toRingHom)) := by
+  let : Algebra (AffineRing f n) (AffineRing f (n*m)) :=
+    (affineTransition f n m).toRingHom.toAlgebra
+  refine ⟨?_, ?_⟩
+  · apply (IsFinite.SpecMap_iff _).mpr
+    change Module.Finite (AffineRing f n) (AffineRing f (n*m))
+    exact Module.Finite.of_basis (affineTransitionBasis f n m)
+  · apply (flat_and_surjective_SpecMap_iff _).mpr
+    change Module.FaithfullyFlat (AffineRing f n) (AffineRing f (n*m))
+    exact affineTransitionFaithfullyFlat f n m
+
+-- affineTransitionSpecProperties.test_wild
+example :
+    IsFinite (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Flat (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) ∧
+    Surjective (Spec.map (CommRingCat.ofHom (affineTransition (0 : ZMod 2) 2 2).toRingHom)) :=
+  affineTransitionSpecProperties _ _ _
+
 -- affineTransition.test_one
 example (f : A) (n : ℕ) [NeZero n] :
     affineTransition f n 1 =
@@ -4116,6 +4154,7 @@ example (f : A) (n m : ℕ) [NeZero n] [NeZero m] :
 #print axioms affineTransitionBasis.apply
 #print axioms affineTransitionBasis.repr
 #print axioms affineTransitionBasis.repr_symm
+#print axioms affineTransitionSpecProperties
 #print axioms affineTransitionFaithfullyFlat
 
 end TauCeti.RootStack
