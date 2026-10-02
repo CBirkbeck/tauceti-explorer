@@ -13,7 +13,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.5"
   ],
   "status": "partial",
-  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial.",
+  "summary": "Partial continuation: preserve all 61 inherited nodes and add eleven R03.3 declarations comparing the native stable-adic Rees module quotient with the actual associated graded module. Reuse native Rees carriers and quotient scalar descent; specify the coefficient denominator, piece inclusions, homogeneous action by the same graded ring, finite expansion, degree-zero generation, finite generation for finite M and the explicit regular-module specialization. All eight stages remain open. Graded Hilbert–Serre, dimension and every original source-route obligation remain gaps. The full Mathlib-only suggested file elaborates; all mathematical implementations remain unchecked. This continuation registers the native natural-indexed grading of the existing adic Rees ring and module through seven precise adapters, without changing the underlying carriers; polynomial induction remains open. Codex — codex-a71f92 integrates six finite-variable jet adapters from the plane-curve handoff: variable-ideal powers/order, denominator containment, native shifted map with projection, exact-order injectivity, right-exactness and the separate small-index branch. All 79 inherited nodes are unchanged; the general Hilbert–Serre and multiplicity comparisons remain open. This continuation adds the native total-jet kernel, polynomial equivalence, monomial basis and two-variable field-dimension computation; built double quotients and surjective scalar length restriction are cited without duplicate nodes. Codex — codex-5ebb6f adds the native series residue-field equivalence, coefficient surjectivity, extended-natural length comparison and finite-dimensional specialization, promotes the existing jet-finiteness API, and states total-jet R-module lengths. Seven declaration nodes and three APIs are added; all 89 inherited node objects remain unchanged. The residue and length foundation has an admission-free checked prototype; the submitted signatures and all implementation statuses remain unchecked. Integrates the credited finite plane-curve jet proof into nine unchecked native declarations, with all-index length and sharp cumulative postulation; scope remains partial. Codex — codex-rtOQ9t adds three reusable quotient-ring Hilbert–Samuel API lemmas and six actual boundary examples, refines the plane-curve adapter to their specialization, and retains all source/closure boundaries.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1550,6 +1550,48 @@
         "module": "Mathlib/RingTheory/Length.lean",
         "provides": "A surjective R-linear map M→P gives length_R(P)≤length_R(M), in extended naturals with no finite-length assumption.",
         "checked": "Full surrounding variable assumptions, statement and proof at lines 162–207 freshly read at Mathlib 082e2d3 on 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The native quotient ring map A→A/I is surjective for every ideal.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/RingTheory/Ideal/Quotient/Defs.lean:94–128. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:AlgEquiv.quotientBot",
+        "kind": "construction",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "The native quotient by the zero ideal is algebra-equivalent to the ring, for a commutative semiring coefficient ring, a ring algebra and its given scalar structure.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/RingTheory/Ideal/Quotient/Operations.lean:818–850. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:Complex.finrank_real_complex",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean",
+        "provides": "The actual complex numbers have real vector-space dimension two, with their native finite-dimensional instance.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean:1–43. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_zero",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "A subsingleton module has extended length zero over its scalar ring.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/RingTheory/Length.lean:28–56. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:Submodule.bot_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Operations.lean",
+        "provides": "Every nonzero natural power of the zero submodule of an algebra is zero.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/Algebra/Algebra/Operations.lean:327–342. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
+      },
+      {
+        "ref": "mathlib:Ideal.pow_mem_of_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Defs.lean",
+        "provides": "If a is in an ideal and n>0, then a^n is in that same ideal. This is not membership in its nth power.",
+        "checked": "Statement and relevant surrounding assumptions personally read at Mathlib 082e2d3 on 2026-10-02, Mathlib/RingTheory/Ideal/Defs.lean:65–87. Used by this comparison or its actual boundary examples; no new construction of the built carrier is planned."
       }
     ]
   },
@@ -2220,6 +2262,18 @@
       "readSections": [
         "Complete mathematical section definitions/statements/proofs read through the public primary source. This supplies generic length and indexing conventions, not the specialized sharp plane-curve formula."
       ]
+    },
+    {
+      "id": "QUOTIENT-LENGTH-00IU-rtOQ9t",
+      "title": "Length under a surjective scalar map",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online HTML downloaded 2026-10-02; selected passages personally read",
+      "url": "https://stacks.math.columbia.edu/tag/00IU",
+      "sha256": "418363ef436c9d4fad059bf24be2cd832947c9dcaa8623db885f93f126804232",
+      "accessDate": "2026-10-02",
+      "readSections": [
+        "Definition 10.52.1 and Lemmas 10.52.3 and 10.52.5, statements and proofs. This is a selected-passage read, not a fresh reading of the complete section. The quotient Hilbert–Samuel identity is derived using the pinned third isomorphism theorem, not attributed as a numbered Stacks result."
+      ]
     }
   ],
   "nodes": [
@@ -2840,6 +2894,21 @@
           "name": "TauCeti.HilbertSamuel.function_top",
           "role": "simp",
           "statement": "For q=A the raw function is zero; the ideal-of-definition hypotheses reject q=A over a nontrivial local ring."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_ringQuotient",
+          "role": "compatibility",
+          "statement": "For B=A/I and q=image(J), H(q,B,n)=length_A(A/(I+J^(n+1))) for every n≥0. The left side is length over B and the right side is length over A."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_ringQuotient_of_le",
+          "role": "simp",
+          "statement": "If I⊆J^(n+1), then H(image(J),A/I,n)=length_A(A/J^(n+1)). Thus an equation ideal already contained in the cutoff denominator leaves this actual jet length unchanged."
+        },
+        {
+          "name": "TauCeti.HilbertSamuel.function_ringQuotient_antitone",
+          "role": "functoriality",
+          "statement": "If I⊆I′, then H(image(J),A/I′,n)≤H(image(J),A/I,n), with each ideal image formed in its own actual quotient ring. This is an inequality in extended naturals and may be strict."
         }
       ],
       "tests": [
@@ -2862,6 +2931,36 @@
           "name": "HilbertSamuelTest.function_zero",
           "kind": "degenerate",
           "statement": "For the zero A-module and any ideal q the function is identically zero."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.unit_equation",
+          "kind": "degenerate",
+          "statement": "For every commutative A, ideal J and n≥0, H(image(J),A/A,n)=0, including a zero quotient ring."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.zero_equation",
+          "kind": "compatibility",
+          "statement": "For every commutative A, ideal J and n≥0, H(image(J),A/0,n)=H(J,A,n) in extended naturals."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.field_one",
+          "kind": "computation",
+          "statement": "For A=F₂, I=J=0 and every n≥0, H(image(J),A/I,n)=1, including the zeroth jet."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.strict_quotient",
+          "kind": "non-example",
+          "statement": "For A=F₂, J=0, n=0, I=0 and I′=A, H(image(J),A/I′,0)<H(image(J),A/I,0): the values are 0<1. Reversing quotient antitonicity is false."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.nonreduced_coefficients",
+          "kind": "compatibility",
+          "statement": "For A=(Z/4)[[x,y]], J=(x,y), I=(x³) and n=0, H(image(J),A/I,0)=length_A(A/J¹). No coefficient-domain hypothesis is available."
+        },
+        {
+          "name": "HilbertSamuelQuotientTest.nonsurjective_coefficients",
+          "kind": "non-example",
+          "statement": "For the native coefficient inclusion ℝ→ℂ, length_ℝ(ℂ)=2 while length_ℂ(ℂ)=1. Dropping the surjectivity premise from scalar-length equality is false."
         }
       ],
       "uses": [
@@ -2876,6 +2975,18 @@
         {
           "where": "PAPER-CARO-PASTEN-23/multiplicity, maintained key brief",
           "how": "The geometric consumer specializes the general module construction to O_C,x; the curve-order comparison remains a separate open application, not the definition."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-jet-length",
+          "how": "Specialize the general quotient-ring formula to A=k[[x,y]], I=(f) and J=(x,y); it isolates the quotient/scalar comparison from numerical jet counts."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/jet-below-equation-order and quotient-ring-function-below-ideal",
+          "how": "After the independent ideal-power/order theorem supplies containment, rewrite the low-index curve jet denominator. The general containment adapter itself does not assume or prove that theorem."
+        },
+        {
+          "where": "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-antitone",
+          "how": "Compare extra equations by the existing surjective map of ambient jets; the inequality direction and strict boundary test detect a reversed quotient map."
         }
       ],
       "planet": {
@@ -8359,9 +8470,8 @@
         "k is any field, R=k[[x,y]], v=(x,y), f is arbitrary, A=R/(f), q is the image of v and N∈ℕ."
       ],
       "proofSteps": [
-        "Unfold the existing function. Specialize Ideal.smul_top_eq_map to the regular A-module: the denominator q^(N+1)•top is the actual ideal q^(N+1). Transport along the quotient by equality, preserving its A-action.",
-        "Rewrite q^(N+1)=(v^(N+1)).map(R→A) with Ideal.map_pow. Use DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring R and the two ideals (f),v^(N+1). Its underlying R-linear equivalence acts by the identity on representatives.",
-        "Use LinearEquiv.length_eq over R. Module.length_eq_of_surjective for the actual surjection R→A compares A-length with the restricted R-length on this same quotient. Check the native algebra/scalar-tower instances; no arbitrary coefficient inclusion k→R has surjective image."
+        "Specialize quotient-ring-function to the ambient commutative ring k[[x,y]], the equation ideal (f), the variable ideal v and index N. This is the actual existing function and actual quotient-ring image ideal.",
+        "The resulting extended-natural identity is exactly the stated native curve-jet comparison. Unit and zero equations are included without a local or finite-length assumption. The built quotient/scalar facts in the inherited prerequisite list supply the generic adapter; no jet count, shifted-map or variable-ideal/order theorem is consumed here."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
@@ -8369,7 +8479,8 @@
         "mathlib:Ideal.map_pow",
         "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ",
         "mathlib:Module.length_eq_of_surjective",
-        "mathlib:LinearEquiv.length_eq"
+        "mathlib:LinearEquiv.length_eq",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function"
       ],
       "sources": [
         {
@@ -8647,6 +8758,151 @@
           "statement": "For k=F₂, f=0 and N=2, the actual function equals 6."
         }
       ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Quotient-ring Hilbert–Samuel comparison",
+      "kind": "lemma",
+      "statement": "For B=A/I and q=image(J), H(q,B,n)=length_A(A/(I+J^(n+1))) for every n≥0. The left side is length over B and the right side is length over A.",
+      "hypotheses": [
+        "A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption."
+      ],
+      "proofSteps": [
+        "Unfold the raw quotient-length function on the regular B-module. The existing ideal action on its top submodule is its actual ideal q^(n+1); transport the quotient along this equality.",
+        "Use Ideal.map_pow to identify q^(n+1) with the image of J^(n+1) under the native quotient map. Apply DoubleQuot.quotQuotEquivQuotSupₐ with coefficient ring A and ideals I,J^(n+1); its underlying A-linear equivalence identifies the actual double quotient with A/(I+J^(n+1)).",
+        "Ideal.Quotient.mk_surjective proves that A→B is surjective. Module.length_eq_of_surjective compares the B-length of the double quotient with its restricted A-length. LinearEquiv.length_eq then transports that length through the existing equivalence. No finite-length conversion or coefficient-field comparison is used."
+      ],
+      "acceptance": [
+        "For I=A the quotient is zero and the function is zero, with no nontrivial local-ring instance.",
+        "For I=0 recover the ambient regular-module function, even when that value is infinite."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/hilbert-samuel-function",
+        "mathlib:Ideal.smul_top_eq_map",
+        "mathlib:Ideal.map_pow",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:DoubleQuot.quotQuotEquivQuotSupₐ",
+        "mathlib:Module.length_eq_of_surjective",
+        "mathlib:LinearEquiv.length_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "QUOTIENT-LENGTH-00IU-rtOQ9t",
+          "locator": "Definition 10.52.1 and Lemmas 10.52.3, 10.52.5",
+          "excerpt": "then equality holds",
+          "match": "Use ordinary extended length and equality under the actual surjective quotient scalar map. The comparison below is a derived mathematical consequence on native quotient carriers."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Section 10.59 opening cumulative formula and ideal-of-definition variant",
+          "excerpt": "ideal of definition",
+          "match": "Retain the n+1 cumulative indexing. The raw function and this comparison are extended-natural identities beyond the finite local regime of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_ringQuotient"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-below-ideal",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Equation ideals below a jet cutoff",
+      "kind": "lemma",
+      "statement": "If I⊆J^(n+1), then H(image(J),A/I,n)=length_A(A/J^(n+1)). Thus an equation ideal already contained in the cutoff denominator leaves this actual jet length unchanged.",
+      "hypotheses": [
+        "A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption.",
+        "I⊆J^(n+1)."
+      ],
+      "proofSteps": [
+        "Apply quotient-ring-function to the actual quotient and image ideal.",
+        "The assumed containment gives I+J^(n+1)=J^(n+1). Rewrite only this denominator; no equation-order or basis theorem is required."
+      ],
+      "acceptance": [
+        "For A=(Z/4)[[x,y]], J=(x,y), I=(x³) and n=0, the same identity holds although the coefficient ring has zero divisors.",
+        "The containment is in the actual ideal power; no asserted order or dimension datum substitutes for it."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function"
+      ],
+      "sources": [
+        {
+          "sourceId": "QUOTIENT-LENGTH-00IU-rtOQ9t",
+          "locator": "Definition 10.52.1 and Lemmas 10.52.3, 10.52.5",
+          "excerpt": "then equality holds",
+          "match": "Use ordinary extended length and equality under the actual surjective quotient scalar map. The comparison below is a derived mathematical consequence on native quotient carriers."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Section 10.59 opening cumulative formula and ideal-of-definition variant",
+          "excerpt": "ideal of definition",
+          "match": "Retain the n+1 cumulative indexing. The raw function and this comparison are extended-natural identities beyond the finite local regime of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_ringQuotient_of_le"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function-antitone",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "title": "Hilbert–Samuel antitonicity in the equation ideal",
+      "kind": "lemma",
+      "statement": "If I⊆I′, then H(image(J),A/I′,n)≤H(image(J),A/I,n), with each ideal image formed in its own actual quotient ring. This is an inequality in extended naturals and may be strict.",
+      "hypotheses": [
+        "A is any commutative ring with identity, I and J are any ideals, B=A/I with its native quotient algebra structure, q=J.map(A→B), and n is a natural number. All lengths use the native scalar actions and take values in extended naturals. No field, local, Noetherian, proper-ideal or finite-length assumption.",
+        "I′ is another ideal of A and I⊆I′."
+      ],
+      "proofSteps": [
+        "Apply quotient-ring-function separately to I and I′.",
+        "The containment gives I+J^(n+1)⊆I′+J^(n+1). Use the existing A-linear Submodule.factor between these actual quotients, which is surjective by Submodule.factor_surjective.",
+        "Apply Module.length_le_of_surjective over A. All scalar rings now agree, so no comparison between unrelated quotient-ring module lengths is assumed."
+      ],
+      "acceptance": [
+        "For A=F₂, J=0, n=0, I=0 and I′=A, the resulting inequality is strictly 0<1.",
+        "Equal equation ideals give equality; reversing the containment reverses the applicable quotient map."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/quotient-ring-function",
+        "mathlib:Submodule.factor",
+        "mathlib:Submodule.factor_surjective",
+        "mathlib:Module.length_le_of_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "QUOTIENT-LENGTH-00IU-rtOQ9t",
+          "locator": "Definition 10.52.1 and Lemmas 10.52.3, 10.52.5",
+          "excerpt": "then equality holds",
+          "match": "Use ordinary extended length and equality under the actual surjective quotient scalar map. The comparison below is a derived mathematical consequence on native quotient carriers."
+        },
+        {
+          "sourceId": "STACKS-HS",
+          "locator": "Section 10.59 opening cumulative formula and ideal-of-definition variant",
+          "excerpt": "ideal of definition",
+          "match": "Retain the n+1 cumulative indexing. The raw function and this comparison are extended-natural identities beyond the finite local regime of the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/HilbertSamuel",
+        "namespace": "TauCeti.HilbertSamuel"
+      },
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.HilbertSamuel.function_ringQuotient_antitone"
     }
   ],
   "baselineCoverage": [
@@ -8774,7 +9030,8 @@
         "The reserved general multiplicity strand includes positivity and now the native graded-length definition, adic transition length step, cumulative extended/natural length identities, finite coefficient lengths, rational summation polynomial and conditional graded-to-cumulative tail theorem. Its remaining leaves are associated-graded ring/module structure and finiteness, graded numerical-polynomial induction, degree/dimension and Artin–Rees comparisons, finite top-dimensional localization lengths, regular-local domain theorem and geometric/complete-ring comparisons. Existence of the graded polynomial remains open, so cumulative polynomial existence and the full key definition are not certified closed.",
         "Discharge the nine adic graded-ring and eleven adic graded-module comparison proofs, then register the exact graded ring/module interfaces and decompose the graded Hilbert–Serre induction. Native Rees carriers and native quotient scalar descent are reused. All earlier local algebra, multiplicity, degree/dimension, completion and routed-paper obligations remain open.",
         "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open.",
-        "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open."
+        "The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open.",
+        "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open."
       ]
     },
     {
@@ -8964,11 +9221,11 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-curve-polynomial",
         "DeformationAndDerivedPatchingAlgebra:R03.3/plane-zero-equation-function"
       ],
-      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open."
+      "detail": "The native series residue-field equivalence, coefficient surjectivity and length_R=length_k comparison now have separate nodes and an admission-free proof prototype using the built local-ring restriction formula, including infinite lengths. The existing jet-finiteness API is promoted and total-jet R-length/numerical adapters are planned. The inherited variable-ideal, shifted-map, jet kernel/equivalence/basis and two-variable count bodies are still unchecked; therefore the numerical jet-length adapters remain conditional on them. Integrate the already-built quotient/scalar maps with the shifted sequence to prove all-index curve lengths, the full tangent-cone kernel, eventual-polynomial/dimension and general intrinsic/ambient multiplicity comparisons. General Hilbert–Serre, completion and all routed-paper obligations remain open. Retain f=0 and unit boundaries, positive characteristic and nonreduced equations. An arbitrary finite R-module is not thereby finite over k. The actual curve-jet comparison, shifted length balance, all-index cumulative/graded formulas, rational defect, sharp agreement and explicit cumulative-polynomial specialization now have separate native signatures and mathematical proof plans. Their submitted bodies and inherited ideal-power/order, shifted-sequence and jet basis/count bodies remain unchecked. Prove those native bodies, the tangent-cone kernel, curve dimension and intrinsic/ambient multiplicity comparisons. General Hilbert–Serre induction, degree/dimension, completion, Artin–Rees, associativity suppliers and all routed-paper obligations remain open. Current codex-rtOQ9t continuation: The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open."
     }
   ],
   "sourceIssues": [],
-  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure.",
+  "validationBoundary": "The original five baseline entries and baselineCoverage are preserved verbatim. The new declarations were inspected at the exact pin, with source blobs recorded. KW passages were parsed-only after failed screenshots. No Lean compilation or closed stage is asserted. Initial CI exposed that the checker treats any tauceti: prefix as a baseline declaration before testing stage IDs. The algebraic endpoint now has only baseline/local-node prerequisites, matching its five signatures. The local-field and framed-lifting extensions remain explicit requests, gaps and remainingExtensions; no upstream stage is falsely listed as a proved baseline theorem. The handoff's initial uploaded packet hash refers to the pre-CI version; the amended packet is validated by the new submission run. Continuation of 28 September 2026 (cc-39fac3): the suggested file was compiled at the pins with the v4.34.0-rc2 lean against the prebuilt Mathlib 082e2d3 oleans. Before this continuation it had one error, an elab_as_elim motive failure in the prime-filtration induction wrapper, fixed by passing (motive := motive). After the fix and the R03.3 additions it has 0 errors and only placeholder-proof warnings; the R03.4 intermediate-field signatures elaborate. Continuation by Codex — codex-a71f92, 2026-10-02: fresh selected source passages and sixteen additional pinned declaration statements inspected. The general polynomial theorem is not inferred from the pinned rational-series hilbertPoly API. New signatures not compiled; prior compilation receipts are historical only. All new nodes remain unchecked and all stages remain partial/not_read. Codex — codex-J6LwjP read all applicable DDPA AUDIT-17 entries, the accepted RS-08 keeps/links/owner decisions, the original roadmap and integrated P7 node. New baseline statements were read at the pin. This is a mathematical continuation, not an independent review of the earlier checkpoint or a new confirmation of the paper errata. Current codex-J6LwjP receipt: the entire suggested file elaborates with Lean v4.34.0-rc2 against existing Mathlib 082e2d3 oleans, 0 errors and 112 placeholder-proof warnings. No Tau Ceti module is imported or built. Prior no-compilation statements describe earlier checkpoints only. All mathematical implementations remain unchecked; none of the eight stages is closed. Codex — codex-a71f92 cumulative continuation: native quotient and Bernoulli statements freshly inspected at the pin. Only the cumulative-existence consumer is refined; 43 of 44 inherited nodes are unchanged. New signatures are uncompiled because the available source trees have no existing pinned build; the earlier compilation receipt is historical. All new nodes remain unchecked. Current codex-J6LwjP curve-jet integration preserves all 96 inherited node objects and the reserved key definition. New signatures elaborate but are admitted under section 13. Rerun finite exact arithmetic does not certify any formal-series theorem, tangent cone, dimension, multiplicity or source closure. Codex — codex-rtOQ9t: actual native proofs of the three new API lemmas and the unchanged planeCurve_jet_length signature, with six actual examples, checked separately without admissions. Canonical bodies remain admitted under section 13. Previous receipts retain their authorship and historical scope; no new routed-paper closure or independent review is claimed.",
   "keyDefinitionBoundary": {
     "reservedId": "DeformationAndDerivedPatchingAlgebra:key/hilbert-samuel-multiplicity",
     "status": "planned_with_gaps",
@@ -9786,6 +10043,97 @@
       "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
       "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
       "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109"
+    }
+  },
+  "quotientRingContinuation": {
+    "agent": "Codex — codex-rtOQ9t",
+    "date": "2026-10-02",
+    "winningClaim": 5961368083,
+    "confirmation": 5961370626,
+    "base": "9be0d75234d712fb5773663482ee55c38ac60ce0",
+    "status": "partial",
+    "nodesAdded": 3,
+    "apiAdded": 3,
+    "testsAdded": 6,
+    "unchangedNodeObjects": 103,
+    "inheritedNodeStatementsPreserved": 105,
+    "sourceBoundary": "Fresh selected Stacks length statements/proofs and cumulative-index passages, exact pinned quotient/length declarations, all applicable reviewed AUDIT-17 records and accepted RS-08 own keeps/owners/touching paths. Inherited complete source receipts are not presented as fresh routed-paper reads.",
+    "remaining": "The general quotient-ring comparison, equation-containment adapter, quotient antitonicity and exact existing plane-curve scalar comparison now have admission-free native proof prototypes and six checked boundary examples. Canonical signatures remain admitted and all nodes unchecked. The numerical jet counts, ideal-power/order theorem, shifted multiplication/exactness, tangent-cone kernel, curve dimension, intrinsic/ambient multiplicity, general Hilbert–Serre, completion, Artin–Rees, associativity and every inherited routed-paper obligation remain open.",
+    "validation": {
+      "native": {
+        "exitCode": 0,
+        "errors": 0,
+        "admissionWarnings": 0,
+        "otherWarnings": 0,
+        "availableGiB": 58,
+        "seconds": 1.8,
+        "maxRSSKiB": 2425820,
+        "lines": 128,
+        "examples": 6,
+        "sourceSha256": "cd8cb5cd1291a582f25dc0363a0a8d020b1bcc57b79766b3471388f2862d3c11",
+        "normalizedLogSha256": "f901d0ad0a2ba4c182afc6f647e156b6ce287af2fe0089f37bc8806aef50d4fb"
+      },
+      "canonical": {
+        "exitCode": 0,
+        "errors": 0,
+        "admissionWarnings": 294,
+        "otherWarnings": 0,
+        "availableGiB": 57,
+        "seconds": 23.61,
+        "maxRSSKiB": 3536460,
+        "lines": 2346,
+        "examples": 138,
+        "sourceSha256": "bf5a2054c6098ccb22efc2892b9641c060c7e64265e7504a0472ad9afcd9f6c2",
+        "normalizedLogSha256": "052ba610001182433b541592152c761f971ce57a3403c42cc9672615a8b93cba"
+      },
+      "graph": {
+        "actualAssembler": true,
+        "stageDAG": {
+          "vertices": 3003,
+          "edges": 8623,
+          "acyclic": true
+        },
+        "ownDeclarationDAG": {
+          "vertices": 108,
+          "edges": 166,
+          "acyclic": true
+        },
+        "stagesAndReachableDeclarations": {
+          "vertices": 3099,
+          "edges": 8787,
+          "acyclic": true
+        },
+        "reachableDeclarations": 109,
+        "externalDeclarations": [
+          "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+        ],
+        "reachableBaselineReferences": 197,
+        "unresolved": [],
+        "ownSkippedLinks": [],
+        "otherSkipsMatchOriginal": true,
+        "stageEdgesUnchanged": true,
+        "requiredStagePairs": 63,
+        "requiredStagePairsReachable": 63,
+        "inheritedMissingStagePairs": [],
+        "unchangedNodeObjects": 103,
+        "partDeclarations": 108,
+        "partPlanets": 13,
+        "roadmapDeclarations": 161,
+        "scriptSha256": "f91f4e23511a1215d22d29bc6b5c10a78d41fac86d3da92bc45f9d2413185f3a"
+      }
+    },
+    "proofArchive": "ARCHIVE_PENDING",
+    "proofBoundary": "The standalone 128-line native file has the exact three new theorem headers and exact existing planeCurve_jet_length header, six exact example headers and five axiom audits, with no admissions or nonstandard axioms. The complete canonical file elaborates with 294 admission warnings only; all node statuses stay unchecked.",
+    "pinnedSourceHashes": {
+      "Mathlib/RingTheory/Length.lean": "28058afb0a726d046c7ef25ef25f86707d64762129baf08106944bcde811b466",
+      "Mathlib/RingTheory/Ideal/Maps.lean": "a6cde2f875c2c8b9ea1aa57cf3aa654d5fd80981349de49f28556c77b56d9c11",
+      "Mathlib/RingTheory/Ideal/Quotient/Operations.lean": "25359917b64f9434dbff99f3033ecba35badb45d0a4e3468aead0ba87743d109",
+      "Mathlib/RingTheory/Ideal/Quotient/Defs.lean": "f906662e22c49025984808feb489892afe51914ccc7a10b95d5f162ef4fbfe1d",
+      "Mathlib/LinearAlgebra/Quotient/Basic.lean": "564aad5ee0111df700cb30aca030018f26939ed1c307f19ee6d9ac02b6bc4312",
+      "Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean": "bab7e57a9e0ae400e63b945280ac5c139e4f59d012fba52afaf3a155f3ddb0a2",
+      "Mathlib/RingTheory/Ideal/Defs.lean": "656d5aabba0ca74ab1fc906dc9cdf93b9fc6c6b25f0f155b58f261ec461e80d1",
+      "Mathlib/Algebra/Algebra/Operations.lean": "913909c0cc53d9f1a34cf059ee192a34bac9b6d62661a710a91bbc245a87f3cc",
+      "Mathlib/Algebra/Field/ZMod.lean": "5343882be47490c292c9da2f623221d3d0ea16e0ff252f0f944b4dffb07be5c3"
     }
   }
 }
