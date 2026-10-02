@@ -3,7 +3,7 @@
   "title": "Néron models and semistable abelian varieties, Part II: genus-one fibrations and rational elliptic surfaces",
   "area": "arithmeticgeometry",
   "parent": "NeronModelsAndSemistableAbelianVarieties",
-  "summary": "Extend the regular-model and component-group theory to genus-one fibrations over curves, finite-field nonsplit fibers and geometrically rational Jacobian surfaces. General Ferrand pinching supplies reusable conductor squares; excellent-DVR multiple fibers, global Weierstrass equations, Picard constancy and a corrected fourteen-model F₂ classification form the application chain. All classification conclusions retain an explicit completeness certificate.",
+  "summary": "Extend the regular-model and component-group theory to genus-one fibrations over curves, finite-field nonsplit fibers and geometrically rational Jacobian surfaces. General Ferrand pinching supplies reusable conductor squares; excellent-DVR multiple fibers, global Weierstrass equations, Picard constancy and a corrected fourteen-model F₂ classification form the application chain. All classification conclusions retain an explicit completeness certificate. The finite five-curve F₂ coefficient classification has an explicit sixteen-row witness table; scheme-presentation exports and the surface-model completeness certificate remain distinct inputs.",
   "readme": "This Part II begins after R11.2 and R11.4 and imports the existing StableReduction and EllipticCurves layers. The companion reader gives exact conventions, declaration contracts, API and tests. It does not prove the Enriques nonexistence theorem. The published eleven-model enumeration is replaced by fourteen candidates, with individual model verification separated from exhaustiveness.",
   "prerequisites": [
     "NeronModelsAndSemistableAbelianVarieties",
@@ -31,7 +31,7 @@
     {
       "key": "G.1",
       "title": "Genus-one fibers and finite-field forms",
-      "description": "Extend the imported smooth-curve minimal models to regular relatively minimal genus-one fibrations over a smooth proper curve, including quasielliptic generic fibers. Distinguish gcd multiplicity, the indecomposable divisor and the reduced subscheme. Define geometric Kodaira realization using the upstream equation-side symbols, with intersection and field-of-definition data. Construct nonsplit I₁ and I₂ over finite fields by pinching. Prove rational-component incidence counts and the five F₂ elliptic isomorphism classes.",
+      "description": "Extend the imported smooth-curve minimal models to regular relatively minimal genus-one fibrations over a smooth proper curve, including quasielliptic generic fibers. Distinguish gcd multiplicity, the indecomposable divisor and the reduced subscheme. Define geometric Kodaira realization using the upstream equation-side symbols, with intersection and field-of-definition data. Construct nonsplit I₁ and I₂ over finite fields by pinching. Prove rational-component incidence counts and the five F₂ elliptic isomorphism classes. Supply the native F₂ five-model family, binary discriminant branches, all sixteen smooth coefficient tuples and explicit forward triples in the eight-element native VariableChange group, their distinct projective counts and cyclic point-group generators. Keep the SF.3 pointed scheme/Weierstrass presentation and infinity-preserving comparison distinct from rational point-group isomorphism.",
       "requires": [
         "NeronModelsAndSemistableAbelianVarietiesPartII:G.0",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
@@ -114,7 +114,13 @@
       "accessed": "2026-10-02",
       "readSections": [
         "§§3,6,7–10 including proofs; relevant introductory qualifications and bibliography"
-      ]
+      ],
+      "continuationReading": {
+        "agent": "codex-rtOQ9t",
+        "date": "2026-10-02",
+        "extent": "Fresh v3 p11 in full, Proposition3.3/table and preceding genus-one/Lang paragraph; p12 viewed incidentally. Other reading extents retain their inherited attribution.",
+        "sha256": "ae6481f25627867473ba40db3b08e5f4b861de8aa103204eefc5ad1123a46d61"
+      }
     },
     {
       "id": "ferrand",
