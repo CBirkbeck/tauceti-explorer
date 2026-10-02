@@ -1,3 +1,82 @@
+# BP-AnabelianGeometryAndNonabelianChabauty — actual quotient cocycle descent checkpoint
+
+Codex — codex-a71f92; 2October2026; Refs #1020. Claim5960047412, confirmed by bot5960049306. Whole issue read before claiming and reread after confirmation. Audit base 804df52206c95795837fda47eb802cd55d9a1d1b includes the predecessor PR #5841.
+
+Publication base ca90231203e7a46dda900c23269053a78f3f929e: the four owned deliverables and governing instructions, reviewed library audit, reserved identifiers and roadmap input are unchanged. Checker, intake and complete atlas comparison were rerun against this base; the graph receipt below is unchanged. The public reconstruction recipe was executed against both immutable proof commits and reproduced the checked Native and Sketch bytes exactly.
+
+## Established sub-obligation and precise frontier
+
+All62 prior statements and62 complete node objects are unchanged. Seven declaration-sized nodes add actual quotient cocycle descent and uniqueness, actual cocycle inflation, both recovery identities, their genuine subtype equivalence, and exact N-fixed quotient gauge witnesses. Native Mathlib already supplies the quotient automorphism action on the native FixedPoints.subgroup N U, so no action or fixed-point carrier is replanned.
+
+For arbitrary normal N, a continuous nonabelian cocycle c identically1 on N descends to a continuous actual cocycle on G/N with values in U^N. The quotient lift is a function lift, never a homomorphism lift of the generally nonhomomorphic c. The native quotient-map criterion proves continuity; no section is chosen and no Hausdorff, closedness, openness, compactness or discrete-coefficient argument is smuggled in. Inflation composes the native quotient projection, quotient cocycle and fixed-subgroup inclusion. Both inverse identities are equality of actual cocycles. These statements hold for groups endowed with topologies and their automorphism action; continuous group operations/joint action are not needed for these cocycle-level maps.
+
+The fixed-witness lemma plus actual quotient induction proves an exact equivalence of global and U^N-valued quotient gauge witnesses. This does not yet define nonabelian H¹ inflation or prove H¹ injectivity. D3 actual pointed-set inflation and same-stage injectivity, D4 image=neutral restriction fibre, and D5 reverse-inclusion transitions/filtered-colimit bijection remain open. The additive/multiplicative canonical comparison to existing TauCeti descendZ1 is also open. General unipotent coefficient topologies and every NC.0 geometric omission remain unchanged. No stage or reserved key is closed.
+
+## Read scope and native ownership
+
+Read all seven reviewed AUDIT08 rows before planning, the current campaign document, all seven original stage descriptions/requires and seventeen touching extract edges; read all29 mentioning link-packet records. Those links are qualified negative screens, not fresh proofs of whole-source absence. All62 inherited mathematical statements and the relevant cocycle, fixed-value and gauge contracts were read. The full predecessor handoff, actual proof prefix and discrete-cocycle proof block were read, preserving their attribution. Nearby full HodgeStructures and JacobianChallenge documents were read for upstream convention/API/test density; their library-state prose is historical, not a new current-pin audit.
+
+Fresh author-hosted Poonen PDF SHA256 42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579 matches the retained edition. Parsed Definition1.3.14 and full Proposition1.3.15 proof on printedpp.11–12 (PDFpages25–26) were read. The direct-limit reduction is motivation; the exact normal-quotient nonabelian proof here is derived, not attributed as a printed theorem. Screenshot returned no viewable image; no visual collation or whole-book reading is claimed. Fresh Stacks0A2H coefficient-definition/stabilizer passages were read; its abelian-module convention does not give generic H¹ a group law. No new paper error or full-paper route closure is claimed.
+
+At exact Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, read the full OfQuotient file, its underlying normal-fixed-point action/coercion interface, native quotient topology, continuity criterion, coset relation/induction and representative/group formulas. Seven new named baseline citations reflect these positive interfaces. At exact TauCeti f790474821cf4256814db967cb154e7af3d0c369 read the Inflation file with its ambient hypotheses and proof: additive descendZ1, its representative formula and H¹ recovery are three additional baseline references, not new additive nodes. They do not apply to arbitrary noncommutative U. No full-library absence result is claimed from the focused search.
+
+All requests, sourceVersions/sourceIssues/sourceCoverage, historical continuation records, scope, restructure proposals and eleven planet objects are unchanged. RT-AREA-algebraicgeometry/8 keeps NS/Picard number with A2 and its existing request. Chen/BDMTV routes and the shared generic-height Part II boundary remain open and unchanged; no NC.3→NC.0 cycle or reverse height dependency is introduced.
+
+## Exact Lean receipts
+
+Current immutable native proof archive: c584042364b9d867c12929bda16c59766a0afcaf, only the suggested-file path. It is an additional parent of the final PR commit, and itself retains prior native proof commit7244a1e04a8dd65f6fabb2614cf1070cd1a99d4e as an additional parent. Full archive/imported file is not claimed compiled.
+
+Native extraction: 442lines,17 examples(8 inherited,9 new),19 kernel audits,0 errors/0 warnings, no admission dependency. SHA256 301b64014da2e7819d4734dd0d116cbd5d92ffcf1fba377427e8ea087ae1f59b; normalized Lean-output SHA256 59f546ce8f7977b334a01381145c48335d2773213d92247d2750edd14b86480a. Maximum RSS3462660KiB, elapsed0:02.69,62GiB available before final run. Every axiom list is contained in propext/Classical.choice/Quot.sound. All nineteen current named declarations and nine tests have actual proof bodies in the archive/extraction.
+
+Submitted Mathlib-only extraction: 1298lines,59 examples,0 errors,140 expected admission warnings,0 other warnings. SHA256 5121e8d1ad9f55a7317ddd1a94a8631e827c89746ee300782962d2e15e104ffe; normalized Lean-output SHA256 ec7deee6c684ff7021426b7a5ab2e4d75dbe5fe351baf8e48bb0adde7f7f6f34. Maximum RSS3496976KiB, elapsed0:05.21,62GiB available before final run. It removes exactly the TauCeti import and named Abelian section; all other actual suggested text remains. Current nineteen declaration and nine example bodies are admitted per PROTOCOL§13. **The full TauCeti-importing suggested file was not compiled**, because the exact pinned LowDegree compiled artifact remains absent. No library build/cache/update, Lake project or language server was used; one own Lean check ran at a time.
+
+Exact recipe below takes text from the two immutable proof commits and the final submitted suggested file. It returns strings, writes no repository file, and performs no library setup. A reviewer may save each returned string in their own scratch space and run it individually in an already existing exact-pin build after the WORKERS memory check. Logs normalize only the invocation path and exclude the resource footer.
+
+```python
+from pathlib import Path
+def reconstruct(prior, current, submitted):
+    # prior: immutable 7244a1e04a8dd65f6fabb2614cf1070cd1a99d4e suggested file.
+    # current: immutable current native-proof archive suggested file.
+    head = "\n".join(l for l in prior.splitlines() if l.startswith("import Mathlib.")) + "\n"
+    head += "import Mathlib.GroupTheory.GroupAction.OfQuotient\n"
+    prefix = prior[prior.index("noncomputable section"):
+                   prior.index("variable [IsTopologicalGroup U] [ContinuousSMul G U]")]
+    start = prior.index("-- Discrete cocycle descent continuation.")
+    stop = prior.index("end TauCeti.NonabelianCohomology", start)
+    native = head + prefix + "\nend Z1\nend Basic\n" + prior[start:stop]
+    start = current.index("-- Quotient cocycle descent continuation, Codex codex-a71f92.")
+    stop = current.index("end TauCeti.NonabelianCohomology", start)
+    native += current[start:stop] + "\nend TauCeti.NonabelianCohomology\n"
+    names = ["descend","descend_apply","descend_unique","inflate","inflate_apply",
+             "inflate_trivialOn","inflate_descend","descend_inflate","descend_one",
+             "inflate_one","descendEquiv","descendEquiv_apply","descendEquiv_symm_apply",
+             "descend_proof_independent","descend_gauge_iff","inflate_injective",
+             "descendEquiv_left_inv","descendEquiv_right_inv","descendEquiv_one"]
+    native += "\n".join("#print axioms TauCeti.NonabelianCohomology.Z1."+n
+                        for n in names) + "\n"
+    broad = "\n".join(l for l in submitted.splitlines()
+                       if not l.startswith("import TauCeti.")) + "\n"
+    a = broad.index("section Abelian")
+    z = broad.index("end Abelian", a) + len("end Abelian")
+    return native, broad[:a] + broad[z:]
+```
+
+## Current plan and atlas receipts
+
+69nodes:3 definitions,8 constructions,28 lemmas,24 theorems,6 comparisons. 72 total API items/59 tests;60 required definition/construction API items and50 required tests. Eleven planets,89 baseline references,9 gaps,16 requests. NC.0/NC.3 partial, five not_read, zero stages closed; all implementation statuses unchecked.
+
+Indexed checker0 errors/0 warnings, actual four-file intake0 problems, whitespace/private-path and exact62-node preservation checks pass. Every new mathematical statement/API/test appears in the reader, and every new test name is present in the suggested file. The exact extraction matches the actual file bytes; no dummy carrier, assumed cohomology proposition or True-valued theorem is inserted.
+
+Actual read-only assembler, retaining every other promoted part and forcing both the original/candidate packets for a fair checkpoint comparison: 2967 listed stage/planet vertices and8655 edges;69 own declarations and133 internal prerequisite edges;69 reachable declarations; endpoint-complete combined stage/parent/request/prerequisite graph3076 vertices/8893 edges. All three graphs are acyclic. All20 required roadmap, explicit stage-prerequisite and request-supplier paths are reachable. Own pending/skipped links empty, other skipped links and all stage edges unchanged. The additional backwards dependency traversal including baseline identifiers reaches176 identifiers, acyclic. Validator SHA2566cbcd78522e1ee11560edab7266dacd9d6d45800b7123429709afef3b74c84b6. No atlas/application/shared-worktree file was written.
+
+## Resume
+
+Construct the actual H¹ pointed-set inflation using these actual cocycle maps and exact fixed gauge witnesses, exposing base-point/representative formulas and proving same-stage injectivity. Respect the continuous-action hypotheses required to define that quotient action on continuous cocycles; import the pinned TauCeti native continuous fixed-quotient interface where its hypotheses apply. Prove image=neutral restriction fibre with the correct inverse neutralizing gauge; then build reverse-inclusion transitions and compact-discrete colimit bijection. Establish the canonical additive cocycle comparison with the existing TauCeti descent without replanning additive cohomology. Continue the earlier geometric G1, reserved étale K(π,1), source and API/granularity obligations exactly as retained below.
+
+## Retained predecessor handoff (historical)
+
+All following source/compile receipts and resume instructions describe the predecessor checkpoint, not this current run. They retain their original worker attribution.
+
 # BP-AnabelianGeometryAndNonabelianChabauty — native discrete cocycle killing checkpoint
 
 Codex — codex-J6LwjP; 2October2026; Refs #1020. Claim5959359411, bot confirmation5959362739. Full issue reread after bot confirmation. Read base `66270588b75628b25b1550d706f8587ebf227197`. The [immediately preceding full handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/66270588b75628b25b1550d706f8587ebf227197/research/blueprint/handoff/BP-AnabelianGeometryAndNonabelianChabauty.md) preserves the complete D1–D6/G1 mathematical arguments, finite regression program and earlier source-reading history. This checkpoint integrates the stated native preliminaries only; it does not replace the outstanding quotient/pointed-set/geometric proofs by an implementation claim.
