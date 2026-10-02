@@ -36,6 +36,8 @@ import Mathlib.RingTheory.Ideal.Operations
 import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.RingTheory.MvPowerSeries.Order
 import Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors
+import Mathlib.RingTheory.MvPowerSeries.Equiv
+import Mathlib.LinearAlgebra.Finsupp.VectorSpace
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.RingTheory.Support
 import Mathlib.Algebra.Polynomial.Roots
@@ -1928,4 +1930,120 @@ example :
       ¬ Function.Injective (shiftedJetMap f 1 1 (by decide) hd) := by sorry
 
 end Jets
+end TauCeti.HilbertSamuel
+
+/-! Total-degree jets (codex-rtOQ9t). The truncation algebra map, third
+isomorphism theorem and surjective scalar length comparison are built.
+Only their series-ideal kernel and coordinate/basis adapters are planned.
+All new definitions, APIs and tests are prototypes with admitted bodies. -/
+namespace TauCeti.HilbertSamuel
+noncomputable section TotalJets
+variable {σ k : Type*} [Finite σ] [CommRing k]
+local notation "R" => MvPowerSeries σ k
+local notation "v" => (Ideal.span (Set.range (MvPowerSeries.X : σ → R)))
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-kernel
+lemma truncTotalAlgHom_ker (r : ℕ) :
+    RingHom.ker (MvPowerSeries.truncTotalAlgHom σ k r).toRingHom = v ^ r := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-equivalence
+def totalJetEquiv (r : ℕ) :
+    (R ⧸ v ^ r) ≃ₐ[k]
+      (MvPolynomial σ k ⧸ MvPolynomial.idealOfVars σ k ^ r) := by sorry
+
+lemma totalJetEquiv_mk (r : ℕ) (g : R) :
+    totalJetEquiv (σ := σ) (k := k) r (Ideal.Quotient.mk (v ^ r) g) =
+      Ideal.Quotient.mk (MvPolynomial.idealOfVars σ k ^ r) (g.truncTotal r) := by sorry
+
+lemma totalJetEquiv_symm_mk (r : ℕ) (p : MvPolynomial σ k) :
+    (totalJetEquiv (σ := σ) (k := k) r).symm
+      (Ideal.Quotient.mk (MvPolynomial.idealOfVars σ k ^ r) p) =
+        Ideal.Quotient.mk (v ^ r) (p : R) := by sorry
+
+lemma totalJetEquiv_mul (r : ℕ) (a b : R ⧸ v ^ r) :
+    totalJetEquiv (σ := σ) (k := k) r (a * b) =
+      totalJetEquiv (σ := σ) (k := k) r a *
+        totalJetEquiv (σ := σ) (k := k) r b := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/total-jet-monomial-basis
+def totalJetBasis (r : ℕ) :
+    Module.Basis {α : σ →₀ ℕ // α.degree < r} k (R ⧸ v ^ r) := by sorry
+
+lemma totalJetBasis_apply (r : ℕ) (α : {α : σ →₀ ℕ // α.degree < r}) :
+    totalJetBasis (σ := σ) (k := k) r α =
+      Ideal.Quotient.mk (v ^ r) (MvPowerSeries.monomial α.val 1) := by sorry
+
+lemma totalJetBasis_repr_mk (r : ℕ) (g : R)
+    (α : {α : σ →₀ ℕ // α.degree < r}) :
+    (totalJetBasis (σ := σ) (k := k) r).repr (Ideal.Quotient.mk (v ^ r) g) α =
+      g.coeff α.val := by sorry
+
+lemma totalJetBasis_finite (r : ℕ) : Module.Finite k (R ⧸ v ^ r) := by sorry
+
+-- node: DeformationAndDerivedPatchingAlgebra:R03.3/plane-total-jet-finrank
+lemma planeTotalJet_finrank {k : Type*} [Field k] (r : ℕ) :
+    let q : Ideal (MvPowerSeries (Fin 2) k) := Ideal.span (Set.range MvPowerSeries.X)
+    Module.finrank k (MvPowerSeries (Fin 2) k ⧸ q ^ r) = Nat.choose (r + 1) 2 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.zero_cutoff
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    Subsingleton (MvPowerSeries (Fin 2) ℚ ⧸ q ^ 0) ∧
+      IsEmpty {α : Fin 2 →₀ ℕ // α.degree < 0} := by sorry
+
+-- test: HilbertSamuelTotalJetTest.residue_cutoff
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    totalJetEquiv (σ := Fin 2) (k := ℚ) 1 (Ideal.Quotient.mk (q ^ 1) 1) = 1 ∧
+      totalJetEquiv (σ := Fin 2) (k := ℚ) 1
+        (Ideal.Quotient.mk (q ^ 1) (MvPowerSeries.X 0)) = 0 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.total_not_rectangular
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    Ideal.Quotient.mk (q ^ 2) (MvPowerSeries.X 0 * MvPowerSeries.X 1) = 0 ∧
+      MvPowerSeries.trunc' ℚ
+        (Finsupp.single (0 : Fin 2) 1 + Finsupp.single 1 1)
+        (MvPowerSeries.X 0 * MvPowerSeries.X 1 : MvPowerSeries (Fin 2) ℚ) ≠ 0 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.basis_zero_cutoff
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) ℚ) := Ideal.span (Set.range MvPowerSeries.X)
+    ∀ g : MvPowerSeries (Fin 2) ℚ ⧸ q ^ 0,
+      (totalJetBasis (σ := Fin 2) (k := ℚ) 0).repr g = 0 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.basis_dual_variable
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    Ideal.Quotient.mk (q ^ 3) (MvPowerSeries.X 0 * MvPowerSeries.X 1) ≠ 0 ∧
+      Ideal.Quotient.mk (q ^ 3) (MvPowerSeries.X 0 ^ 3) = 0 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.basis_zero_divisors
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 4)) := Ideal.span (Set.range MvPowerSeries.X)
+    ∃ α : {α : Fin 2 →₀ ℕ // α.degree < 1},
+      (totalJetBasis (σ := Fin 2) (k := ZMod 4) 1).repr
+        (Ideal.Quotient.mk (q ^ 1) (MvPowerSeries.C 2)) α = 2 ∧
+      Ideal.Quotient.mk (q ^ 1) (MvPowerSeries.C 2) ≠ 0 := by sorry
+
+-- test: HilbertSamuelTotalJetTest.field_length_six
+example :
+    let q : Ideal (MvPowerSeries (Fin 2) (ZMod 2)) := Ideal.span (Set.range MvPowerSeries.X)
+    Module.length (ZMod 2) (MvPowerSeries (Fin 2) (ZMod 2) ⧸ q ^ 3) = 6 := by sorry
+
+-- Built interfaces are cited as baseline, never new blueprint nodes.
+-- Powers commute with the quotient ideal map; the third isomorphism theorem
+-- then identifies the actual curve jet with R/((f)+v^r).
+example (f : R) (r : ℕ) :
+    let I : Ideal R := Ideal.span {f}
+    let n := (v).map (Ideal.Quotient.mk I)
+    Nonempty (((R ⧸ I) ⧸ n ^ r) ≃ₐ[R] (R ⧸ (I ⊔ v ^ r))) := by sorry
+
+example (f : R) (r : ℕ) :
+    let I : Ideal R := Ideal.span {f}
+    let n := (v).map (Ideal.Quotient.mk I)
+    Module.length R ((R ⧸ I) ⧸ n ^ r) =
+      Module.length (R ⧸ I) ((R ⧸ I) ⧸ n ^ r) := by sorry
+
+end TotalJets
 end TauCeti.HilbertSamuel
