@@ -4,14 +4,16 @@ Marco D'Addezio, *Parabolicity conjecture of F-isocrystals*, [Annals of Mathemat
 
 Extraction by Claude Code, session `cc-fb70e5`, 29 September 2026 (issue #1097). Status: **complete**. Every missing item is routed once.
 
+Confirmed red-team fixes by Codex, session `codex-J6LwjP`, 2 October 2026 (issue #5499). The prior extraction review is historical; these changes await independent fix review.
+
 The machine-readable extraction is [PAPER-DADDEZIO-23.result.json](PAPER-DADDEZIO-23.result.json). It has:
-- 70 items: 7 planned, 63 missing;
-- 6 routes:
+- 74 items: 7 planned, 67 missing;
+- 7 routes:
   - one new Part II;
-  - two Part IIs coalesced with the accepted proposals of PAPER-TSUZUKI-23 and PAPER-ABE-18 (designs pending);
+  - three coalesced Part IIs: minimal slopes, crystalline companions and the shared arithmetic-D-module Crew prefix (designs pending);
   - three sources of existing layers;
 - 17 prerequisite entries;
-- 9 recorded mistakes: 8 misprints and 1 gap.
+- 16 source issues: 13 misprints, 2 errors and 1 gap, with new E15/E16 scoped only to arXiv v4.
 
 After the independent review (REV-PAPER-DADDEZIO-23, research/blueprint/reviews/REV-PAPER-DADDEZIO-23.md) the extraction has 70 items (7 planned, 63 missing) and 14 recorded mistakes, all confirmed. The review corrected it in place:
 - **Route 1** adds RD.5, the first stage downstream of RD.1, RD.2 and RD.3. It owns Kedlaya's full faithfulness, docility and semistable reduction.
@@ -20,15 +22,16 @@ After the independent review (REV-PAPER-DADDEZIO-23, research/blueprint/reviews/
 - **Items.** Remark 3.1.7 is no longer an item. Frobenius semisimplicity for abelian varieties over finite fields (item 71) is added. Twenty items gain statement, planned or note fixes.
 - **Five new findings (E10–E14)**, among them an error in the statement of Lemma 4.4.7 that affects nothing (E13).
 
-The two coalesced Part IIs below were accepted by the reviews of PAPER-TSUZUKI-23 (route 3) and PAPER-ABE-18 (route 2); their designs are pending. The sections below describe the extraction as submitted.
+The accepted supplier proposals remain the owners. The current routes below separate the new adapters and comparisons from their existing foundations; no new roadmap id is introduced by the fix.
 
 ## Sources read
 
 - **arXiv v4** (8 February 2023, "final version, to appear in Annals of Mathematics"), read in full: 30 pages. Item locators are v4's pages.
   - v4 was posted two days after acceptance (6 February 2023).
-  - The published PDF is not freely served and was not compared.
-- **Errata:** the Annals page lists no erratum, and Crossref records no update.
-- **Page images:** every mistake was checked on v4's page images.
+  - The original worker did not obtain the published PDF; it was also not acquired or collated for this fix. All new source issues concern v4 only.
+- **Fix reading:** [v4](https://arxiv.org/pdf/2012.12879v4), §2.2 p. 6, §3 pp. 7–11, pp. 19,24,27, with page images 6,10,19; [Abe v3](https://arxiv.org/pdf/1310.0528v3), §§2.4.15–2.4.20 pp. 86–88 and §§4.2.1–4.2.2 pp. 103–104. Full hashes and dates are in `sourceVersions`. This was a targeted rereading, not a full recursive proof audit.
+- **Bounded correction search, 2 October 2026:** arXiv still ends at v4; the [Annals page](https://annals.math.princeton.edu/2023/198-2/p03), [author publication list](https://daddezio.pages.math.cnrs.fr/papers.html), title-specific searches and Crossref update/relation fields revealed no relevant correction. No author corrigendum is claimed.
+- **Page images:** the original mistakes were checked on v4 images; the two new passages were likewise inspected on images 6,10,19. The published pagination was not collated.
 
 ## What the paper proves
 
@@ -59,7 +62,7 @@ The two coalesced Part IIs below were accepted by the reviews of PAPER-TSUZUKI-2
 
 **Planned (7 items).**
 - PadicDifferentialEquationsAndRigidCohomology:
-  - overconvergent and convergent F-isocrystals, and full faithfulness of restriction (RD.3);
+  - ordinary overconvergent/convergent coefficients and Frobenius structures (RD.3); crystalline comparison and F∞ additions are now separately missing /72 and /73. Full-faithfulness results remain separately located source inputs in their proven range;
   - (φ, ∇)-modules at the generic point (RD.1).
 - Dieudonné–Manin: VectorBundlesAndIsocrystals VB0. Mathlib has the rank-one classification.
 - Tannaka groups: MotivesAndAlgebraicCycles MC.6.
@@ -68,35 +71,64 @@ The two coalesced Part IIs below were accepted by the reviews of PAPER-TSUZUKI-2
 
 ## Routes
 
-1. **New Part II `PadicDifferentialEquationsPartIIMonodromyGroups`** (38 missing).
-   - Title: "P-adic differential equations, rigid cohomology and p-adic weights, Part II: monodromy groups of F-isocrystals and the parabolicity conjecture". Area: `padic`.
-   - **Contents:**
-     - Crew's groups, observable functors and scalar extension;
-     - Q_p^ur-structures (§3);
-     - λ, P_G(λ), Chevalley and Saavedra, and Propositions 4.3.2–4.3.5;
-     - the Lefschetz theorem and its lemmas, and the Bertini theorem;
-     - MS in all dimensions and parabolicity;
-     - all of §5.
-   - **Why a new Part II:** no layer or proposal plans monodromy groups of F-isocrystals. The ℓ-adic companion Part IIs treat lisse sheaves.
-2. **Coalesced Part II `PadicDifferentialEquationsPartIIMinimalSlope`** (13 missing), with PAPER-TSUZUKI-23's id, title, parent and area.
-   - **Contents:**
-     - the †-hull and MS, with Lemmas 4.1.4–4.1.8;
-     - the curve proof: Proposition 4.2.2, Lemmas 4.2.4 and 4.2.7, the rings and integral models, Lemmas 4.2.10–4.2.11, Proposition 4.2.12, Theorem 4.2.13;
-     - Kedlaya's étale covers;
-     - the Abe–Esnault Lefschetz theorem.
-   - **Why the split:** the higher-dimensional MS theorem goes to route 1. Its proof uses the monodromy theory, so putting it here would create a cycle.
-3. **Coalesced Part II `GlobalShtukasPartIICrystallineCompanions`** (1 missing), with PAPER-ABE-18's id, title, parent and area. Abe's Langlands correspondence for isocrystals, consumed by Theorem 5.3.3.
-4. **Source of PadicDifferentialEquationsAndRigidCohomology [RD.1, RD.2, RD.3]** (8 missing). The cited foundations, as PAPER-TSUZUKI-23 routes them:
-   - generic slope filtrations;
-   - Kedlaya's restriction theorem (4.1.6) and generic full faithfulness and freeness;
-   - de Jong's reverse filtration;
-   - Crew's unit-root correspondence;
-   - docility and semistable reduction;
-   - Étesse's overconvergence of R^1f_crys.
-5. **Source of FiniteFlatGroupsAndIntegralPadicHodgeTheory [R07.2]** (2 missing). BBM's crystalline Dieudonné module of A[p^∞], and de Jong's full faithfulness for Barsotti–Tate groups.
-6. **Source of AnalyticNumberTheory [AN.4]** (1 missing). Serre's Chebotarev density for schemes, as PAPER-SCHMIDT-STIX-16 routed it. (Corrected by the review: AN.4 is number-field only, and that precedent was rejected. The route now goes to FunctionFieldArithmetic FA.5, for the curve case the paper uses.)
+The order here matches the machine-readable result.
 
-## Source issues (`sourceIssues` E1–E9)
+| Route | Owner | Missing items and boundary |
+|---|---|---|
+| 1 | PadicDifferentialEquationsAndRigidCohomology RD.1–RD.3, RD.5 | 9: the eight existing foundations and new /72 crystalline model/Frobenius-bearing convergent comparison at RD.3, importing CR.3. Ordinary coefficient categories stay with the parent. |
+| 2 | FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 | 2: crystalline Dieudonné and de Jong full faithfulness; retain the existing CR.3 input request. |
+| 3 | FunctionFieldArithmetic FA.5 | 1: curve Chebotarev with constant-field degree restrictions. |
+| 4 | GlobalShtukasPartIICrystallineCompanions | 2: /19 imports Abe's **finite-order** theorem; /74 adds degree-character normalization and untwisting for the general /68 consumer. |
+| 5 | PadicDifferentialEquationsPartIIMinimalSlope | 13: the curve MS/†-hull theory, with the earlier E5 gap and Tsuzuki alternative retained. It imports no higher-dimensional DAD layer back. |
+| 6 | PadicDifferentialEquationsPartIIMonodromyGroups | 39: additional convergent/perfect-point/punctual groups, new early /73 F∞ construction, Λ, exact squares and correctly typed base change/intersection, higher-dimensional MS, Lefschetz, parabolicity and applications. |
+| 7 | PadicDifferentialEquationsPartIIArithmeticDModules | 1: /75 coalesces with Abe's already-promised overconvergent Crew/Weil prefix and adds the scoped coefficient/fibre and object-generated quotient comparison. |
+
+The new monodromy Part II retains its existing id/title/parent/area. Abe's arithmetic-D-module and crystalline-companion proposals and Tsuzuki's minimal-slope proposal likewise retain their identities. A shared early Crew prefix has one owner; the full D-module roadmap does not depend on the full DAD roadmap. The Bessel consumer imports basic overconvergent groups from this shared prefix, then any additional DAD comparisons or parabolicity results it needs.
+
+The following is the **proposed prefix order**, not a claim that these are live atlas edges:
+
+```mermaid
+flowchart LR
+  RD[RD.3 coefficient categories] --> Crew[Shared Crew prefix /75: arithmetic D-modules]
+  MC[MC.6 reconstruction] --> Crew
+  RD --> Cr[/72 crystalline comparison]
+  CR[CR.3 crystalline input] --> Cr
+  Cr --> Inf[/73 coherent F-infinity]
+  Crew --> Geo[/33 additional DAD groups]
+  Cr --> Geo
+  Inf --> Lambda[Lambda /37]
+  Lambda --> Exact[Exact square /41]
+  Geo --> Exact
+  Exact --> Base[/42 fibre comparison over K Omega]
+  Base --> Inter[/50 common-field intersection]
+  Inter --> Para[DAD parabolicity]
+  Curve[Curve MS supplier] --> Para
+  Crew --> D[Later arithmetic D-modules]
+  D --> Abe[Abe finite-order theorem /19]
+  Abe --> Twist[Degree-character adapter /74]
+  FA[FA.4 degree and reciprocity] --> Twist
+  Twist --> App[General cuspidal application /68]
+  Para --> App
+  Crew --> Bessel[Bessel overconvergent monodromy]
+```
+
+The previous review's CR.3→RD.3, CR.3→R07.2 and VB0→RD.3 requests are retained as requests. They are not silently declared implemented. /72 needs the early crystalline/Frobenius input, not the later crystalline duality successor.
+
+## Corrected interfaces
+
+**Finite-order theorem and general twisting adapter (/19, /74, /68).** Abe's Theorem 4.2.2 has finite-order central character on the automorphic side and finite-order determinant on the isocrystal side. Retain that theorem. For a general smooth central character use FA.4's idele class/degree theory: its degree-zero restriction has finite image, so write `χ_π=χ_fin·a^deg`. Choose `c^r=a^(-1)` and set `π_0=π⊗(χ_c∘det)`, with `χ_c=c^deg`. Apply Abe to π_0 and recover `E_π=E_{π_0}⊗κ_c^(-1)`.
+
+The new constant line κ_c must have Abe Frobenius `c^d` at a degree-d point. Abe §4.2.1 defines this Frobenius as the **inverse** of the linearized geometric operator, so κ_c has q-linearized operator `c^(-1)`, where q=p^s. Its local Hecke valuation shift is `d·v_p(c)`; its conventional p-Newton slope shift is `−v_p(c)/s`. The adapter must prove the convention comparison with the DAD slope API rather than identify these oppositely signed quantities. Tensoring with a line shifts all slopes by the same amount and carries the minimal-slope subobject through the tensor equivalence. Tests check degrees 1,2,3, central exponent r, inverse twisting and normalization-choice independence through finite-order twist compatibility. Rank one with `χ_p=p^deg` is the infinite-order test: normalize to 1 and recover κ_p with degree-d Frobenius p^d. /68 remains a theorem for **all** cuspidal representations.
+
+**Crystalline comparison and F∞ carrier (/1, /72, /73).** Item /1 now marks only covered ordinary coefficient categories as planned at RD.3. /72 imports the crystalline site/crystal data and Frobenius from CR.3 and separately plans the cited F^n-crystalline/convergent equivalence; it does not assert convergence of every bare crystal or overconvergence. Its supporting Kedlaya theorem remains a stated prerequisite.
+
+For /73 index positive integers by divisibility. At n|nm the transition keeps M and replaces Φ with `Φ^(m)`, using `Φ^(m)=Φ∘(F^n)^*(Φ^(m−1))`. Include pullback-composition identifications, identity/composition coherence for `n→nm→nml`, eventual morphisms at common multiples and their witness-independent composition, exact tensor/dual structure and the faithful forgetful functor. The transition is not assumed full: eigenvalues 1 and −1 acquire a new intertwiner after squaring. At n=2,m=2 the correct iteration uses F²-pullback and has source F⁴; the printed F-pullback cannot compose. For geometrically connected X record `End(1)=⋃_n K(k)^{σ^n}`; with the chosen F̄_p⊂k of §3 this is Q_p^ur, not its completion K(k). This prefix precedes Λ (/37), observability and the exact square (/41). Positive powers preserve normalized slopes.
+
+**Specified fibre field (/33, /35, /41, /42, /50).** Keep the category scalar extension over `K=K(k)`. The group from `ω_η:⟨M⟩→Vec_{K(Ω)}` is over K(Ω). Supply the tensor identification `V_M⊗_{Q_p^ur}K(Ω)≅ω_η(M)` and derive `G(M,η)≅G(M,V_M,η)⊗K(Ω)`. A descended K(k)-form is a separately named object. Extend the whole exact/cartesian square to K(Ω) and put both factors of /50 in the same `GL_{K(Ω)}(ω_η M)`; the intersection is a closed-subgroup fibre product there. The strict test uses `k=F̄_p`, `Ω=overline{k(t)}` and unit M: the trivial group's coordinate field is K(Ω), which cannot be identified with K(k). The categorical equivalence and parabolicity theorem remain. /51 and E8 now use the same ambient field.
+
+**Shared overconvergent Crew prefix (/75).** Accepted PAPER-ABE-18/25 already assigns `π_1^isoc=Aut^⊗(ω)` and its Weil form to the arithmetic-D-module Part II. Import that construction on the overlap. Compare only specified common overconvergent realizations, after choosing a common coefficient field L and a tensor fibre isomorphism β. If necessary an algebraic closure of K(Ω) can receive the Abe algebraic coefficient field through a chosen compatible embedding. Prove the relevant coefficient/base comparison, not an equivalence of all categories over arbitrary perfect bases. Restriction to ⟨M†⟩ gives the object-generated monodromy quotient, compatible with base change and β; a different β conjugates the embedding. The unit quotient is trivial even if the full fundamental group is not. Weight-2 representation of G_m tests the quotient z↦z². Extra convergent, perfect-point, punctual and parabolicity work remains in DAD; generic reconstruction stays at MC.6.
+
+## Source issues (`sourceIssues` E1–E16)
 
 **E5 (gap, the proof of Proposition 4.2.12, p. 17).**
 - The proof asserts that, "since Q_{W,n} is compact", inf{‖f_n(m)‖ : m ∈ Q_{W,n} ∖ pQ_{W,n}} = p^{−s_n} > 0. It deduces that the p^∞-torsion of P_W/f(Q_{W,n}) is killed by p^{s_n}.
@@ -113,8 +145,13 @@ The two coalesced Part IIs below were accepted by the reviews of PAPER-TSUZUKI-2
 - E4: Theorem 4.2.6(ii) writes M† for M†_alg.
 - E6: "a simple normal divisor of D" should read "a simple normal crossing divisor D".
 - E7: §4.4.10 takes Z ⊆ TX ×_X D′_S. The divisor D_S lies in Y, so it should be TY ×_Y D′_S, applied to each component.
-- E8: the proof of Theorem 4.4.12 calls G(M, η) normal in G(M†, η). The normality used is that of G(M†, η) in the arithmetic group.
+- E8: the proof of Theorem 4.4.12 calls G(M, η) normal in G(M†, η). The normality used is that of G(M†, η) in the arithmetic group. The fix additionally changes its group-level scalar field to K(Ω), as in E16; the original independent normality verdict is preserved.
 - E9: in Corollary 5.4.4, the identification M′_1 ≃ M′_2 carries ι to −ι.
+
+The original review added E10–E14; their records and verdicts remain in the JSON. They include E13's corrected prime-order cyclic scope for Lemma 4.4.7. The new entries have no self-authored review:
+
+- **E15 (misprint, affects nothing), v4 p. 6:** replace `F^*(Φ^(m−1))` in the power recursion by `(F^n)^*(Φ^(m−1))`. The n=2,m=2 source/target mismatch and the corrected coherence tests are in /73.
+- **E16 (error in stated group identities), v4 pp. 10,19:** the specified Ω-valued group comparison and intersection need K(Ω). Keep K(k) in the category equivalence. The source issue includes the strict-extension unit counterexample and propagates the correction to E8's scalar field on p. 24. No error is asserted against the uninspected published text, and no withdrawal of the categorical equivalence or parabolicity theorem is proposed.
 
 ## Prerequisites not yet covered
 
@@ -138,3 +175,12 @@ Every DOI was checked against Crossref.
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-DADDEZIO-23.result.json` reports no errors.
 - Every planned and route stage id exists in `data/atlas.json`.
 - Both Mathlib citations were found in the pinned index at Mathlib 082e2d3.
+
+
+## Fix validation and limitations
+
+Paper validation, intake checks for the three deliverables, shared source-issue/version validation and whitespace checks pass. Exact regression models check the Frobenius recursion and transition coherence, eventual rank-one morphisms, central twist/degree/eigenvalue/slope arithmetic, strict coefficient-field typing, object-generated quotient and prefix dependency order. They check finite models and planning contracts, not the full analytic, crystalline, Tannakian or automorphic proofs. All 67 missing items are routed once; /1 stays planned; item /38 stays removed and /71 stays present. The original source-issue verdicts are preserved, including E8's normality verdict.
+
+Pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reviewed FA.4/FA.5 audits were read; no reviewed RD.3/CR.3/MC.6 entries were present, which is not an absence certificate. Actual pinned `WittVector.Isocrystal`, its rank-one classification and `TauCeti.Tannaka.fgPointTensorIsoEquiv` were read. The latter reconstructs points of a commutative Hopf algebra from finite-comodule tensor automorphisms; it does not by itself construct these isocrystal categories or prove their comparison. Existing foundations are reused; no library-complete claim is added.
+
+Only the three issue deliverables are changed. No Lean file is required for this job; no suitable existing compiled build at the pins was available, so no Lean compilation was run. The downstream design must prove each new interface before importing it. See [the fixes report](../redteam/RT-PAPER-DADDEZIO-23.fixes.md) for the per-finding handoff and reproducible finite checks.
