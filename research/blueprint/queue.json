@@ -34397,7 +34397,8 @@
     "REV-PAPER-FINTZEN-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FINTZEN-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4072"
   },
   {
    "id": "RT-PAPER-ZHANG-21",
@@ -34487,7 +34488,8 @@
     "REV-PAPER-DIMITROV-GAO-HABEGGER-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4076"
   },
   {
    "id": "RT-PAPER-NGODAC-21",
@@ -34532,8 +34534,9 @@
     "REV-PAPER-NGODAC-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4078"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4078",
+   "finishedAt": "2026-10-02T04:15:01Z"
   },
   {
    "id": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -53492,8 +53495,9 @@
     "FIX-RT-AREA-padic-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5538"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5538",
+   "finishedAt": "2026-10-02T04:15:03Z"
   },
   {
    "id": "RT-AREA-padic-3",
