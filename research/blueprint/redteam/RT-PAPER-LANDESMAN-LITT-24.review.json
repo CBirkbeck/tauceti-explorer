@@ -1,0 +1,325 @@
+{
+  "redteam": "RT-PAPER-LANDESMAN-LITT-24",
+  "findings": [
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/1",
+      "verdict": "confirmed",
+      "reason": "Checked §3.1–3.2 (pp.20–23), Lemma 8.5.1 (p.42), items 26–28/111/115 and R04.1–2/R03.1–2/R02.2. Abstract-group Art_C deformations and normal-subgroup constancy are not the stated number-field G_{F,S} contracts. Split item 111, place the §3 results in an explicit shared abstract-deformation layer before their Hodge/mapping-class consumers, and keep arithmetic representability separate. Item 115 needs a discrete-group Hochschild–Serre contract in the cohomology owner; R02.2's present arithmetic/continuous wording does not itself certify all topological groups. Request this generalization once and import the finite central-extension work of InductionRestriction Layer 7; do not create the proposed R04-to-final-consumer cycle."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/2",
+      "verdict": "confirmed",
+      "reason": "Theorem 9.1.2 (p.45) and its proof (pp.46–47) use M_{g,n,Q}; item 77 already does, but route 1's brief, the report and item 75's note retain Qbar. A finitely generated characteristic-zero field cannot contain Qbar, so their generic-point hypothesis is vacuous. Correct all three copies to Q. The finite-orbit argument then restricts the arithmetic moduli action to the geometric subgroup; do not replace the arithmetic row of diagram (9.1) by a geometric row."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/3",
+      "verdict": "confirmed",
+      "reason": "Read the proposed MordellLawrenceVenkatesh LV.5 stage, its mapping-class-group/dehn-twist/birman-exact-sequence/capping-surjective nodes, restructure proposal and ownership gap. They already plan the infrastructure declared missing in items 113/128/129. GeometricTopology Layers 1/3/9 supply related upstream contracts, although Layer 3's full surface API is not certified merely by Layer 9's reference to it. Coordinate one owner with LV's proposed transfer/Part II decision; retain an explicit pending ownership request until resolved. The LV packet has needs_changes review and is not a completed library supplier. Do not independently re-plan its generic nodes or silently enact its restructuring."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/4",
+      "verdict": "confirmed",
+      "reason": "Read Mathlib Irreducible.lean:71/78, FDRep.lean:160 and SimpleModule/Isotypic.lean:56/178: Schur and isotypic carriers are built. InductionRestriction Layer 5 is finite-group Clifford theory, not the infinite-group contract in items 24/25/97. Item 109's completion/density and residual-finiteness predicate are built (Completion.lean:97/103; ResiduallyFinite.lean:33), but surface residual finiteness and extension exactness are separate. Jacobian Layer B explicitly states line-bundle duality, and AlgebraicCurves Layer 5 only line-bundle Clifford. Split the compound items. Qualification: StableReduction Layer 2 and contract J-B/SR-2 already own general relative trace/duality; request the explicit locally-free-sheaf Serre-duality and cup-product specialization there/SF.3 instead of claiming no owner or building a private Hodge copy. Item 48 can own the parabolic estimate."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/5",
+      "verdict": "confirmed",
+      "reason": "Read Tau Ceti haarProb, haarAverage, isUnitarizable, exists_isUnitary_congr, ContRepresentation.IsUnitary.isSemisimpleRepresentation and isCompact_unitaryGroup at f790474, plus Mathlib's Maschke complement/semisimplicity and H1IsoOfIsTrivial. These supply substantial content of item 99, so planned-only is inaccurate. Split built compact-group averaging/unitarizability from their application adapters. The finite-dimensional unitary semisimplicity theorem (Continuous/InvariantComplement.lean:198) needs no compactness of the acting group: ContRepresentation is an action by continuous linear operators (Mathlib Continuous/Basic.lean:55), so package the finite-dimensional action directly. An image-closure argument is optional here, not a mandatory new theorem. Do not label the whole remaining compact/discrete bridge built without checking its continuity/normalization hypotheses."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/6",
+      "verdict": "confirmed",
+      "reason": "At 082e2d3, H1InfRes/H1InfRes_exact (Functoriality.lean:365/393) give H1(Q,A^N) -> H1(G,A) -> H1(N,A), without a Q-invariant target; groupCohomologyIsoExt (Basic.lean:205) identifies Ext from the trivial representation. They do not state either complete claim in item 100. Reuse these built maps, separately prove the quotient action/invariant restriction and Ext1_G(V2,V1) identification with H1(G,Hom(V2,V1)). Specify the underlying-vector-space splitting hypothesis (automatic for the finite-dimensional complex representations here); the unrestricted assertion over arbitrary coefficient rings would be too strong."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/7",
+      "verdict": "confirmed",
+      "reason": "Notation 1.10.1 (p.10) imposes 2g-2+n>0 on the versal-family setup. Items 11/13/15/17/18 lose it. For the unpointed torus the asserted moduli-DM/Birman framework fails and point pushing is not injective. Restore the standing stable/hyperbolic range to these statements and briefs, rather than weakening the Birman sequence or changing their target groups."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/8",
+      "verdict": "confirmed",
+      "reason": "Corollary 1.6.1 (p.5) is deduced from Theorem 1.2.1 using punctured-surface free groups; it is not the claimed equivalence in the report/route-1 brief. Closed surface groups are not free, and a finite orbit under the surface mapping-class subgroup is weaker than a finite orbit under all outer automorphisms of a free group. Say consequence/corollary. This is a correction to the implication being advertised, not a counterexample to either true finiteness theorem."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/9",
+      "verdict": "confirmed",
+      "reason": "The §1.1/Corollary 1.2.3 isomonodromy dictionary has no separate item or deformation definition. Checked Cousin–Heu arXiv:1612.05779v4, introductory definitions and Theorem A, pp.3–4: the original contract includes a stable pointed curve, a mild logarithmic connection, and semisimplicity when rank>2. Add the definition of universal algebraic isomonodromic deformation and the cited theorem with these hypotheses, plus the mildness/gauge-transform reduction actually used. Do not turn the semisimple shorthand in the introduction into an unrestricted equivalence for arbitrary connections."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/10",
+      "verdict": "confirmed",
+      "reason": "Notation 1.10.3 (p.11) uses homotopy/cohomology of analytic DM stacks, while items 94/124 provide only ordinary spaces/local systems. The finite-étale-cover step in Lemmas 2.1.4 and 2.2.3 also needs an analytic-stack Riemann-existence interface. Add these explicit stack contracts using the existing CHEN-24/128 shared request, not a second private comparison theorem. Finite covers correspond to finite pi1-sets; connected covers correspond to conjugacy classes of subgroups, or actual subgroups with basepoints. Keep these distinctions in the API and tests."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/11",
+      "verdict": "confirmed",
+      "reason": "Read the surface notation at pp.2/10, the free-group corollary and items 7/19/112/113: they use but do not inventory the standard surface-group presentation, punctured freeness of rank 2g+n-1, and filling-puncture quotient. Add the carrier and these maps/results once. Coordinate them with the surface/free-presentation nodes already proposed in LV.5 (finding 3), importing upstream topology rather than establishing a competing foundation."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/12",
+      "verdict": "confirmed",
+      "reason": "Item 1 identifies semisimple orbit classes with points of a character variety; Lemma 4.3.2 uses closed reductive orbits, and Lemma 8.5.2 needs a finite-type parameter space. There is no representation-scheme/GIT-character-variety item supplying these contracts. Add definitions, scalar extension, fixed-determinant locus, semisimple-orbit/quotient comparison and the required finite-type hypotheses. Compare the accepted character-variety routes named by the finding and coordinate one generic owner; do not automatically redirect all consumers to this application roadmap or treat a GIT quotient as the naive orbit set for non-semisimple representations."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/13",
+      "verdict": "confirmed",
+      "reason": "The cited inputs are visible at pp.12–15/47–49 but absent from the 17 prerequisites; item 109 falsely says the two missing standalone results already have items. Add BGMW17, Lawrence–Litt19, Pikaart–de Jong95, Anderson74, SGA1, Waterhouse89 and the chosen Jordan source with use sites. Separate general completion, surface/free-group residual finiteness and exactness of completed extensions. Anderson's precise hypotheses, including the profinite-kernel centre condition, must be obtained before certifying that theorem: I did not obtain its full primary text, so this verdict confirms the inventory/closure omission, not the paper's unrestricted shorthand about centreless kernels."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/14",
+      "verdict": "confirmed",
+      "reason": "Lemma 2.1.4 (p.13) invokes Debarre Lemma 4.19 after passing to a scheme cover; no item states the dominant-map finite-index theorem. Add a cited input with a connected normal target and the finite-type complex-variety hypotheses needed here, together with the finite-cover descent step. Dominance already suffices for finite-index image in this setting; étaleness is not the reason it holds. This also supplies the correction to E3 in finding 42. Debarre's original proof is a prerequisite, not certified by this review."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/15",
+      "verdict": "confirmed",
+      "reason": "Theorem 4.2.1 (p.26) is a fixed-part result for an admissible graded-polarizable real VMHS. Item 34's pure-sounding output should explicitly be a real mixed Hodge structure, and evaluation should be a morphism of mixed structures. A constant direct sum of nonzero pieces of different weights disproves a literal single-weight interpretation. Record the wording issue against arXiv v4 only; do not claim the theorem is false if the author uses Hodge structure as an umbrella term, or that the unread published edition has the same misprint."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/16",
+      "verdict": "confirmed",
+      "reason": "The proof of Proposition 4.2.2 (p.26) explicitly uses admissibility of a polarizable pure real VHS and admissibility under the dual/tensor operations on the mixed variation. Items 30/36 and the Hodge brief do not state these inputs. Add the exact admissibility definition and these closure results in the shared Hodge continuation, with the quasi-projective/smooth-base and boundary hypotheses of the chosen source. They are separate theorems, not consequences of recording the carrier alone."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/17",
+      "verdict": "confirmed",
+      "reason": "Lemma 4.3.2 (pp.26–27) uses rigidity, reductive Zariski closure/closed conjugation orbit and Mochizuki Lemma 10.13 without separate inventory entries. Read the latter in Astérisque 309, printed p.101: its group-valued deformation requires a reductive group and a subgroup whose restriction is Zariski dense and rigid. Add these cited contracts with their hypotheses and the actual deformation/rigidity interface. The general GL deformation theorem 10.5 is not a substitute for preserving the reductive subgroup."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/18",
+      "verdict": "confirmed",
+      "reason": "Sections 4/6 need arbitrary real mixed structures and their morphisms. The reviewed AUDIT-02 and actual Tau Ceti Mixed/Basic.lean:72, DeligneSplitting.lean:81 and Strictness.lean:108 implement an integral/rational base-change model, not arbitrary real weight filtrations. Pure HodgeStructureOn and complexificationConjugation already provide a lattice-free conjugation interface. Reuse those and the built rational mixed theory, explicitly request the real mixed extension and its strictness/splitting/tensor interfaces, and update items 30/33 and the brief. Do not recode the rational theory or mistake it for the required real version."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/19",
+      "verdict": "confirmed",
+      "reason": "Item 105 includes the analytic Grassmannian and tangent Hom description used on pp.28–29/54. R09.1 plans the scheme Grassmannian/universal object, and R09.2 Hilbert/Quot functors, without the stated analytic tangent theorem. Mathlib Module.Grassmannian (Basic.lean:68/188) is a module quotient functor, not its scheme/analytic realization. Split the built functor, planned representability and missing analytic/tangent comparison. Its rank parameter is quotient rank: subspaces of rank s in rank r correspond to quotient rank r-s. Request the tangent/flag interface once, coordinating ShimuraData:D3."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a missing formalization bridge between item 37 and Lemma 8.5.2/item 68, not as evidence that the paper's standard word deformation is meaningless. Read Mochizuki Theorem 10.5 and proof (Astérisque 309, pp.98–99): it constructs continuous deformations/limit points in representation moduli. Lemma 8.5.2 consumes a connected finite-type algebraic family with constant determinant. Add the family definition and explicitly prove the same-fixed-determinant connected-component/algebraic-family bridge, including lifting from a character quotient when used. Do not simply strengthen Mochizuki's theorem to the proposed T-family and mark it established; do not report a published erratum solely because the paper leaves this routine interface implicit."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/21",
+      "verdict": "confirmed",
+      "reason": "Corollary 9.1.4 (p.46) states that the wider rank range concerns conditions (1),(3),(4): finite image, geometric origin and integral variation. Arithmeticity is condition (2) and is excluded from that enlarged range. The report says the last three conditions, which incorrectly includes arithmeticity. Replace that phrase by the numbered/named triple and keep the four-way equivalence only in the smaller range."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/22",
+      "verdict": "confirmed",
+      "reason": "Remark 9.2.5 (p.49), item 83 and the route/report infer failure of complete intersection from the absence of characteristic-zero lifts/non-flatness. That implication is invalid: Z_p[[x]]/(p) is a complete-intersection quotient by a nonzerodivisor and is not Z_p-flat. Retain only the non-flatness/no-characteristic-zero-lift consequence under explicit representability and residual hypotheses, and mark the advertised negative answer to Flach as unsupported by this argument. This checks a proof gap; it does not prove that the particular deformation rings in the paper are complete intersections."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/23",
+      "verdict": "confirmed",
+      "reason": "Corollary 9.2.2 (pp.48–49) uses geometric origin => arithmetic without a supplying item. Add the spreading/descent argument over a finitely generated characteristic-zero field, with geometric semisimplicity and the finite set of simple constituents (and thus semisimple subquotient types) made explicit. Arbitrary non-semisimple subquotients do not automatically have finitely many isomorphism classes. DWP.8 is a finite-field semisimplicity/weight contract, not by itself this characteristic-zero arithmetic descent theorem. Route the geometric-origin/arithmetic bridge to an early shared supplier, then import it into the corollary."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/24",
+      "verdict": "confirmed",
+      "reason": "Diagram (9.1), pp.46–47, uses DM stacks; item 108 and IG.0–1 supply scheme statements. Checked Stacks Tag 0BTX: its field exact sequence is explicitly for qcqs schemes with connected geometric base change. Add the stack fundamental-group/descent/exact-sequence interface, coordinating CHEN-24/128 for complex comparison, or run the proof after a finite étale level-scheme cover and finite extension of K. Corrected owner: foundational stack/étale machinery plus StableReductionPartII for pointed moduli; R09.4's elliptic/abelian scope does not own all M_{g,n}. This is an extraction bridge, not proof that the routine stack extension used by the authors is false."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/25",
+      "verdict": "confirmed",
+      "reason": "The three algebraically closed scalar-extension identifications on pp.46–47 include non-proper punctured curves/moduli, whereas the cited IG.1 proper-base-change contract is insufficient as written. Read SGA1 X Corollary 1.8 (proper) and XIII Proposition 4.6 (prime-to-characteristic Künneth under its desingularization hypotheses, giving the characteristic-zero scalar-extension consequence); these have different scopes. Add the characteristic-zero non-proper invariant and the tame punctured-family comparison/exactness separately, with compactification and characteristic restrictions. Do not extend unrestricted full pi1 invariance to non-proper positive-characteristic varieties."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/26",
+      "verdict": "confirmed",
+      "reason": "Item 108's complex étale/topological comparison is not stated in IG.0/IG.1. CHEN-24/128 already requests the stack version from the shared mapping-class/moduli interface. Import the scheme comparison from the actual upstream ComplexComparison finite-cover/Riemann-existence layers or add one explicit owner request, and reuse CHEN's stack request. Qualification: current ComplexComparisonPartII:C4 is coherent GAGA/Chow, not Riemann existence; replacing IG by C4 alone would preserve the gap. Split scheme, stack and arithmetic/base-change contracts instead of attaching them all to IG.1."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/27",
+      "verdict": "confirmed",
+      "reason": "Example 10.1.6 (pp.50–51) and item 85 need low-genus restrictions. For (g,n)=(1,1), the filled surface group is Z^2; on its truncated augmentation algebra inversion acts +1 on I^2/I^3 and -1 on I/I^2. Its -1 eigenspace gives a PMod_{1,1}-stable splitting because -I is central. At (0,3) the pure mapping-class action is trivial. Also the part-(1) quotient Lambda^3 H/H vanishes at genus 2 and part (3) has no nontrivial standard-module extension at genus 1. Restrict (1) to g>=3, (2) to n>0 with hyperbolic filled target 2g+n-3>0, and (3) to g>=2, or state the actual exceptions explicitly. Record the v4 example error, not a failure of the main theorem."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/28",
+      "verdict": "confirmed",
+      "reason": "Read LL22 arXiv:2202.00039v3, Lemma 7.5.1 and proof (pp.54–55): its proof uses hyperbolicity to exclude the unpunctured torus. Item 131 omits that standing condition. Finite-image semisimple representations of Z^2 are torsion characters; their unordered rank-r collections are Zariski dense in Sym^r((C*)^2), contradicting the unrestricted statement. Restore 2g-2+n>0 (and r>1), and retain the corresponding moduli/hyperbolicity conditions in item 77. Do not treat the shorthand printed lemma as an independent unrestricted theorem."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/29",
+      "verdict": "confirmed",
+      "reason": "Proposition A.1.7 (p.56) and item 136 invoke a Laplacian to extend sections on fibres. The flat metric from a unitary local system need not extend smoothly and positively to the Deligne extension: a rank-one residue alpha in (0,1) yields a local metric proportional to |z|^(2alpha). Use any smooth Hermitian metric on the extended holomorphic bundle, plus local constancy of the kernel dimension/Grauert or the relevant family elliptic theory. Keep the log-twist and smooth proper fibre hypotheses explicit. Correct the attribution to unitarity; this repairs the proof interface without changing the resulting cup-product formula."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/30",
+      "verdict": "confirmed",
+      "reason": "R09.4 explicitly limits its moduli targets to generalized elliptic curves and polarized abelian schemes. RT-AREA-etale/4's confirmed review, its Edit 2, BFP24 route 6 and DGH21 route 7 already identify StableReductionPartII as the shared pointed-moduli continuation. Item 106 still goes through LL route 5. Move it to that parent-grouped Part II and update both briefs, importing n-pointed families from upstream StableReduction Layer 3. Keep the hyperbolic range and separate smooth M_{g,n} from proper stable Mbar_{g,n}; M_{g,n} is not proper. Yuan route 10 is now a provisional checkpoint, so do not certify all old accepted/properness wording merely by repeating it."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/31",
+      "verdict": "confirmed",
+      "reason": "Item 125 and CHEN-24/127 concern the same general marked-genus Hurwitz object. CHEN route 7 explicitly imports it from the IG.5 extension, while LL route 1 plans it locally. Resolve the contradiction by sending the general Hurwitz request once to IG.5 and importing it here (or by recording another coordinated single-owner decision). The current IG.5 base description is not evidence that every arbitrary-genus theorem is built/planned already. Preserve the smooth tame locus and distinguish vertical automorphisms Z(H) from total stack isotropy and ramified boundary behavior."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/32",
+      "verdict": "confirmed",
+      "reason": "Item 104 is the ordinary sheaf-cohomology Leray sequence used in Proposition 2.3.4/§6. Read AlgebraicTopology Stage 5: it plans homological Serre/Cartan–Leray and Čech sequences, not this arbitrary sheaf-derived-pushforward contract. H0 is an adic/torsion-coefficient layer. DiamondsAndVStacks:D0 does explicitly own ordinary sites/modules, derived pushforwards and Leray. Retarget the planned item to D0 and add the analytic sheaf/local-coefficient instantiation and low-degree edge maps as explicit adapters. Do not invent a second general Leray sequence in the application."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/33",
+      "verdict": "confirmed",
+      "reason": "Item 107 combines a strict-boundary compactification of the DM moduli stack with its topological multitwist monodromy (p.40). R09.7's stated compactification targets are varieties, and a topology theorem is not supplied by blowing up. Split the moduli-stack compactification/normalization-resolution requirement into StableReductionPartII plus generic R09.7 imports, and put the Dehn-twist identification in the single mapping-class/topological supplier. Order it before the Hodge integrality consumer; do not make the foundational compactification depend on the final mapping-class finiteness theorem. Existing E18's resolution correction must survive."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/34",
+      "verdict": "confirmed",
+      "reason": "Read ShimuraData:D3 and the accepted BKT20/polarized-variation and BENOIST19/151 items: a VHS/local-system/holomorphic-filtration/transversality carrier already has an owner. Item 29's claim that no stage plans it and route 2's private-carrier instruction duplicate that plan. Import D3, and request the additional complex Hermitian polarization and real V direct-sum dual construction with the required opposedness. A rational/integral polarized VHS carrier is not automatically the full complex/real mixed variant; only the genuinely additional contracts remain missing."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/35",
+      "verdict": "confirmed",
+      "reason": "The Hodge consumers explicitly use item 127's quasi-unipotence definition, item 135's Ehresmann input and item 10's unitary adjoint construction (pp.38–39/55), while the brief places them downstream in route 1. Gao–Habegger19/26 and BKT20's quasi-unipotent-monodromy request already belong to the common Hodge continuation. Coordinate Ehresmann and general quasi-unipotence there/topology foundations, reusing compact unitary and local-coefficient carriers for item 10. The proposed fix is incomplete if it still has the Hodge engine importing final versal-family lemmas 15/16 from its consumer. Separate early curve/moduli/topology foundations from later application nodes and list a genuinely acyclic layer order; merge matching contracts, not merely similarly named theorems."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/36",
+      "verdict": "confirmed",
+      "reason": "Tau Ceti AlgebraicTopology/LocalCoefficient.lean:41/73/267/319/348 already defines the fundamental-groupoid functor carrier, pullback, monodromy and basepoint-change equivalence; AlgebraicTopology Stage 2 owns this direction. Item 124's all-missing/nowhere-planned note is inaccurate. Split these built inputs from the locally-constant-sheaf/groupoid and groupoid/representation equivalences under connected, locally path-connected, semilocally simply connected hypotheses. The existence of monodromyFunctor alone does not prove it is an equivalence. Keep the sheaf/stack adapters as missing explicit owner requests."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/37",
+      "verdict": "confirmed",
+      "reason": "Read DWP.7 (direct-image weights), GS.6 (GL_n over curves), ABE18's crystalline route and KP25 route 5. None of the first three is the higher-dimensional group-valued companion contract. KP20b arXiv:2009.07350v2, §6.1, Theorem 6.1 (pp.16–17), explicitly uses Drinfeld2018's pro-semisimple comparison to retain algebraic monodromy. Replace the DWP.7 supplier claim and coordinate the existing GlobalShtukasPartIICompanions proposal. Correction to the fix: add the Drinfeld2018/group-valued reconstruction contract actually consumed; Drinfeld2012 GL_n existence alone does not supply it. KP25's proposal/source gates are not an accepted closed theorem, and Abe's p-companions are a distinct tranche."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/38",
+      "verdict": "confirmed",
+      "reason": "Item 83/Remark 9.2.5 (p.49) derives the deformation-ring obstruction from Corollary 9.2.2, which depends on the paper's main finiteness theorem. It is an application of R04.1–2 representability, not a foundational representability lemma those stages should import from their final consumer. Keep the universal-ring input upstream and move this consequence to the paper's application route, with finding 22's weaker conclusion. Do not retain the proposed fix's items 26–28 at R04.1 in its present restricted scope: finding 1 requires a separate abstract-group deformation contract."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/39",
+      "verdict": "confirmed",
+      "reason": "Theorem 1.2.1 (p.2) is stated for all g,n,r>=0, whereas the versal-family path in Theorem 8.5.3 uses the stable range. The omitted cases are harmless: g=0 forces r=0 under the bound, and (g,n)=(1,0) permits only rank zero/one, handled by Proposition 2.3.1 (p.15). Add this explicit case split to item 2/the proof outline and record the limited proof-interface omission if retaining sourceIssues. Do not weaken the main theorem or claim a counterexample."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/40",
+      "verdict": "confirmed",
+      "reason": "In Proposition 2.3.4 (pp.17–18), killing the original E2^(2,0) and E2^(1,1) obstruction components does not alone imply that the pulled-back H2 class vanishes: the latter can newly lie in the filtration's top piece. A filtered map can vanish on associated graded and remain nonzero. Spell out successive base changes: first kill the H1-type component, identify the remaining class as inflated from the new base, then kill that H2 class there. Lemma 2.3.3 supports the second step. Record this proof completion without asserting the lifting theorem fails."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/41",
+      "verdict": "confirmed",
+      "reason": "Lemma 2.3.3 (pp.16–17) starts with a general complex variety and applies a smooth Artin K(pi,1)-neighborhood argument. State the smooth-base version of the supplying theorem and first restrict to a nonempty smooth dense open, transporting the chosen local-system/cohomology data as needed. Then use the finite étale neighborhood. The issue is a missing reduction in the proof/inventory, not an extension of the smooth neighborhood theorem to singular points. The full SGA4 primary proof was not checked here."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/42",
+      "verdict": "confirmed",
+      "reason": "E3's reason still says that dominance does not suffice for Corollary 1.3.1, despite its own review explaining the contrary. Read Corollary 1.3.1 (p.4), Proposition 2.1.3/Lemma 2.1.4 (pp.12–13), and E3 including its review. Dominance onto a normal moduli scheme cover gives finite-index fundamental-group image and the outer-action proof works. Remove the false sentence; retain étaleness in the paper's defined versality and in the period-map engine, where the infinitesimal moduli map is needed."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/43",
+      "verdict": "confirmed",
+      "reason": "The review corrected statements, but item 16/24 notes and route 1's brief still reuse C° for both total space and fibre, obscuring restriction maps. Item 28's note also retains the wrong B_n exponent. Compare pp.14/18/22–23: use script C° for the total family, C° for a fibre, and B_n=C[t]/(t^(n+1)), with compatible reductions. Propagate these conventions through notes and briefs, not just statements."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/44",
+      "verdict": "confirmed",
+      "reason": "Lemma 3.1.2 and its proof occupy p.21 of v4; p.22 starts §3.2. Correct item 27's pp.21–22 locator to p.21, keeping the section/lemma identifier."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/45",
+      "verdict": "confirmed",
+      "reason": "Remark 1.6.5 (p.5) states the characteristic-quotient consequence, but item 7 relegates it to a note. Add a separate theorem item: pull back a representation along the characteristic quotient, use preservation of the kernel by automorphisms and the finite-orbit hypothesis, then apply the free/surface theorem in its rank range. Keep characteristicity explicit; arbitrary quotients do not induce the same outer action."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/46",
+      "verdict": "confirmed",
+      "reason": "The fibre identifications in §5.1.5 (p.29) and the period-map engine need coherent cohomology/base change and compatibility of relative Deligne extension with restriction. They are not explicit dependencies of items 39/42/43/8. Reuse the planned cohomology/base-change and Grauert contracts of StableReduction Layer 2/Jacobian Layer C; add the analytic and logarithmic-extension compatibility/local-constancy adapters actually required for this unitary family. Do not mark the entire package missing, or infer canonical-extension compatibility from generic coherent base change alone."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/47",
+      "verdict": "confirmed",
+      "reason": "Proposition 4.2.2/Theorem 4.2.1 are stated for smooth quasi-projective bases (p.26), while Lemma 6.1.1 applies them to the versal base (pp.31–32) without spelling out that interface. Smoothness follows from étaleness to the smooth moduli stack; quasi-projectivity can be established through a suitable level-scheme cover or by shrinking to a dense affine open, preserving the needed finite-index/versal properties. Add that reduction/derived hypothesis to the proof outline. This is not evidence that a versal base is necessarily a counterexample or that the fixed-part theorem fails; do not turn an implicit standard reduction into an unsupported published-error allegation."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/48",
+      "verdict": "confirmed",
+      "reason": "The proof of Theorem 6.2.1 on p.34 twice writes R1 pi_* U_i, although U_i is a local system on the punctured total space. Both must use pi°; item 50's corrected statement does not inventory these further occurrences. Record the v4 notation misprints with those locators and maintain the punctured pushforward throughout the proof outline. Existing E16 on p.42 is a different occurrence."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/49",
+      "verdict": "confirmed",
+      "reason": "Checked the rendered p.29: the adjoint in Theorem 5.1.6 is the induced O_B-linear map bar-nabla of (5.3), not the full Gauss–Manin connection nabla_GM. Items 42/43/49 lose this distinction. Restore bar-nabla and explicitly identify its source F1H and target (H/F1H) tensor Omega_B^1; preserve nabla_GM for the connection. The Appendix A.1.1 equality concerns this induced map."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/50",
+      "verdict": "confirmed",
+      "reason": "Item 48's note still uses stable/costable language from Remark 5.2.5. Its own confirmed E12 and the hypotheses of Proposition 5.2.3/5.2.4 (p.31) require semistable/cosemistable. Propagate the existing correction to the note and every brief/proof use; do not create a second erratum entry for the same already-recorded issue."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/51",
+      "verdict": "confirmed",
+      "reason": "Item 47's isolated statement uses g/C without their defining hypotheses. The opening of §5.2 and Proposition 5.2.3 (p.30) fix a smooth proper geometrically connected genus-g curve, a reduced divisor D, and the parabolic conditions on that curve. Make these explicit in the extracted statement and retain the corrected semistability condition. A bare numerical inequality with an unbound g is not a usable target."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/52",
+      "verdict": "confirmed",
+      "reason": "Item 31 combines Deligne's extension and LL22's definition. The latter is cited at Definition 4.1.3 (p.24), whereas Notation 5.1.1 (pp.27–28) cites Deligne for the family extension. Give both actual locators and separate which convention/result each supports; the current locator attributes the LL22 citation to the wrong passage."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/53",
+      "verdict": "confirmed",
+      "reason": "Definition 8.1.1 (p.38) imposes quasi-unipotent boundary monodromy and Lemma 8.1.3 retains that setting. Proposition 8.2.1/item 60 proves the stronger H1-vanishing without explicitly imposing that boundary condition. Retain the vanishing, but qualify the conclusion using the paper's cohomological-rigidity terminology by quasi-unipotence. Lemma 8.3.3 supplies it in the finite étale, g>=3 setting before integrality. Do not infer it just from the arbitrary dominant étale versal-base hypothesis or claim that the later integrality argument therefore fails."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/54",
+      "verdict": "rejected",
+      "reason": "The proposed new proof gap is not necessary. The proof explicitly states that G -> PGL_r is finite (pp.40–41). For the actual matrix rho(alpha), base-change this finite morphism by its O_K-valued projectivization. The resulting finite O_K-algebra has an evaluation in C at that very lift; its image is finite/integral over O_K and has fraction field a finite extension K'/K. Every coordinate of the original lift therefore lies in O_{K'}, as required. Finitely many generators give one compositum. Adjoining mu_{rm} also explains how to compare an arbitrarily chosen torsor section with the original lift, but is not a missing hypothesis or compulsory repair to the existential conclusion. A blueprint may spell out this integrality argument without recording a source error."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/55",
+      "verdict": "confirmed",
+      "reason": "Read Mathlib NumberField.Embeddings.finite_of_norm_le (Embeddings.lean:109): integral elements whose norms under every embedding are bounded form a finite set. This is a built input to item 73/LL22 Lemma 7.2.1, not the entire matrix-representation theorem. Add the library citation and a remaining proof adapter: in a fixed integral basis, each conjugate representation preserves some positive Hermitian form, giving a uniform entry bound per embedding by compactness/conjugation. Do not assume every matrix entry is <=1 in the common integral basis. Then apply the finite-set theorem entrywise."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/56",
+      "verdict": "confirmed",
+      "reason": "Lemma 8.1.3 (p.39) cites EG18 Remark 2.4/KP20b Remark 4.8, but no item supplies their analytic middle-extension H1 comparison. Read EG18 arXiv:1711.06436v3, Remark 2.4 (p.6): for U=Xbar minus the boundary's singular locus, the cone of j!*L -> Rb_* a_*L is supported in codimension >=2 and concentrated in degrees >=2, yielding the comparison. Add this theorem once in the Hodge/analytic sheaf continuation, with the degree normalization and a_* versus derived pushforward distinguished. Étale intersection-complex plans do not automatically supply this complex analytic coefficient interface."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/57",
+      "verdict": "confirmed",
+      "reason": "Section 7.1 (p.35), item 52 and route 1's target claim need explicit inventory of Ivanov's virtual-H1 conjecture, the PW relation and the cited genus-two counterexample. Read Putman–Wieland's public author version (17 Oct 2012), Theorem C, pp.3–4: the implications have a genus shift and boundary/puncture restrictions, not a same-genus unconditional equivalence. Add that exact cited contract (matching the version's numbering), the open conjecture as an open target, and Markovic's counterexample as a prerequisite/cited item in its stated scope. Do not advertise a proof of Ivanov or the full PW conjecture from this paper's rank-bound result."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/58",
+      "verdict": "confirmed",
+      "reason": "Proposition 2.1.1 (p.12) treats semisimplification/semisimple constituents; it does not by itself certify that every quotient in a socle induction is MCG-finite. Item 126 separately supplies functoriality of the socle filtration and its quotient under representation isomorphisms. Correct item 12's note to cite that invariant-filtration argument plus Proposition 2.1.1 where applicable, preserving the genuine dependence on MCG-finiteness."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/59",
+      "verdict": "confirmed",
+      "reason": "Theorem 9.1.2 gives arithmetic => finite image in the small-rank range. Item 78's note attributes the entire equivalence to it. Add finite image => finite arithmetic orbit as a separate lemma, using topological finite generation of the geometric curve group and finitely many homomorphisms to a fixed finite group, up to conjugacy. This direction does not need the rank bound. Keep it distinct from the harder theorem."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/60",
+      "verdict": "confirmed",
+      "reason": "Notation A.1.2 (pp.54–55) and item 89 put the logarithmic complex on the compactification, while V is defined only on its open complement. State its derived object as Rj_* V and its restriction as the de Rham resolution of V on the open. Item 120 already gives the correct comparison; reuse it and its canonical-extension/local-eigenvalue conventions. The fix is a domain/derived-pushforward clarification, not a different cohomology theory."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/61",
+      "verdict": "confirmed",
+      "reason": "Remark 10.1.7 (p.51) compares a FLM threshold 2 sqrt(g-1) with the paper's sqrt(g+1). Their ratio tends to 2, so item 84's claim that both are asymptotic to sqrt(g) is false in the usual ratio-one sense. Say both have order sqrt(g), or give the distinct asymptotic constants. Preserve the different faithfulness/finiteness conclusions."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/62",
+      "verdict": "confirmed",
+      "reason": "Read §10 (pp.49–54) and all extraction items: the report/brief claim that its open questions are recorded as targets, but Questions 10.1.1/10.2.3/10.2.6/10.3.1 lack their own entries; Conjecture 10.2.8 occurs only inside item 87. Add explicitly open target items and the useful relation of Remark 10.2.9, or narrow the coverage claim. These are not established theorem targets and must not be queued as proofs of conjectures."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/63",
+      "verdict": "confirmed",
+      "reason": "Read both briefs and their actual supplier stages: the import lists omit exact titles/ids and fail to distinguish several foundational interfaces, including ordinary Leray, DM moduli, real mixed structures, coefficients in logarithmic comparison, and scheme/analytic Grassmannian tangent theory. Rewrite the briefs after the ownership corrections, naming precise suppliers and missing request contracts. C5's baseline logarithmic comparison is not automatically item 120's full local-coefficient theorem. Remove the false R04 §3 import and keep an acyclic foundational-to-application order; do not merely expand abbreviations while leaving the contracts wrong."
+    },
+    {
+      "finding": "RT-PAPER-LANDESMAN-LITT-24/64",
+      "verdict": "confirmed",
+      "reason": "Counted the accepted JSON directly: 139 items, with 124 missing, 11 planned and 4 library; route item counts are 67/46/4/5/2. The report still opens with 111 items and 49/37/3/5/2 routes, and its route-3 prose says three while four are assigned. Update the summary, coverage/library paragraphs and route explanations from the final corrected JSON, after all splits and rerouting. Do not freeze these pre-fix counts as the eventual corrected inventory."
+    }
+  ]
+}
