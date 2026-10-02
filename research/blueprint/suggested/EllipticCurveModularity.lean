@@ -77,8 +77,20 @@ example : ¬ (3 : ℤ) ∣ 2 := by decide
 R29.3–R29.6 at the level of newforms and Jacobians (owners: Tau Ceti ModularForms Layers 4, 5, 7, 8g;
 ModularCurvesPartII R14.5–R14.6; AutomorphicGaloisRepresentations R19.4, R19.6; ClassicalSerreModularity R27.6):
 
-theorem eq_of_eigenvalue_eq_across_levels (f : Newform M 2) (g : Newform M' 2) (hM : M ∣ N) (hM' : M' ∣ N)
-    (h : ∀ᶠ ℓ in cofinite, a_ℓ f = a_ℓ g) : M = M' ∧ HEq f g                                   -- strong-multiplicity-one-across-levels
+IMPORTED CONTRACT, not a local theorem/node:
+Owner: tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization
+Miyake 4.6.19, specialized to weight two and trivial character. The pinned fixed-level
+Newform.eq_of_forall_notMem_eigenvalue_eq does not supply this prime-agreement contract.
+
+theorem eq_of_eigenvalue_eq_across_levels {N M M' : ℕ} [NeZero N] [NeZero M] [NeZero M']
+    (f : HeckeRing.GL2.Newform M 2) (g : HeckeRing.GL2.Newform M' 2)
+    (hM : M ∣ N) (hM' : M' ∣ N) (hfχ : f.χ = 1) (hgχ : g.χ = 1)
+    (S : Finset ℕ)
+    (h : ∀ ℓ : ℕ, ℓ.Prime → ¬ ℓ ∣ N → ℓ ∉ S → A_ℓ(f) = A_ℓ(g)) :
+    M = M' ∧ HEq f g
+Here A_ℓ is the supplier's good Fourier coefficient; after M = M', compare the
+forms by transport. Only finitely many primes divide the nonzero N. The level-11/22 oldform
+acceptance belongs to newform-of-E, and is not a proof of this imported theorem.
 noncomputable def newformOf (E) : HeckeRing.GL2.Newform (conductor E) 2                          -- newform-of-E
 theorem newformOf_coeff_prime (ℓ) (hℓ : ¬ ℓ ∣ conductor E) : a_ℓ (newformOf E) = E.ap ℓ
 theorem newformOf_coeff_int (n) : a_n (newformOf E) ∈ Set.range (Int.cast : ℤ → ℂ)                   -- rational-coefficient-field
