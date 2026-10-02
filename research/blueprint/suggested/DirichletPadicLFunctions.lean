@@ -27039,3 +27039,121 @@ example  (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
       (kubertCartanCircleLevelEquiv N u y : AddCircle (1 : ℚ)) := by sorry
 end
 end DirichletPadic.SuggestedKubertDegreeOneCartanActionTests
+
+/- Actual degree-one Cartan-valued finite maps and level consistency. -/
+namespace DirichletPadic
+open scoped Classical BigOperators
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic DirichletPadic
+open DirichletPadic DirichletPadic
+
+lemma kubertCartanPrimitiveCoefficientEquiv_leftRegular (R : Type*) [Semiring R] (N : ℕ+)
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (x : kubertPrimitivePoints (AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N (Representation.leftRegular R _ u f)
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) x)=
+    kubertCartanPrimitiveCoefficientEquiv R N f
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ)
+        (kubertCartanCirclePrimitiveEquiv N u⁻¹ x)) := by sorry
+
+noncomputable def kubertCartanCircleValue (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) :
+    (AddCircle (1 : ℚ) → R) →ₗ[R] MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ) := by sorry
+
+lemma kubertCartanCircleValue_coeff (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N x φ).coeff u=φ (kubertCartanCircleLevelEquiv N u⁻¹ x : AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCartanCircleValue_restriction (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) (y : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (hxy : (x : AddCircle (1 : ℚ))=(y : AddCircle (1 : ℚ)))
+    (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanProductNorm 1 R M N hMN (kubertCartanCircleValue R M x φ)=kubertCartanCircleValue R N y φ := by sorry
+
+lemma kubertCartanCircleValue_action (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) (g : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanCircleValue R N (kubertCartanCircleLevelEquiv N g x) φ=
+      Representation.leftRegular R _ g (kubertCartanCircleValue R N x φ) := by sorry
+
+lemma kubertCartanCircleValue_primitive_coeff (R : Type*) [Semiring R] (N : ℕ+)
+    (φ : AddCircle (1 : ℚ) → R) (u v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N (kubertPrimitiveLevelEquiv _ (N : ℕ) (kubertCartanPrimitiveCircleEquiv N v)).val φ).coeff u=
+      φ (kubertCartanPrimitiveCircleEquiv N (u⁻¹*v) : AddCircle (1 : ℚ)) := by sorry
+
+lemma kubertCartanCircleValue_zero (R : Type*) [Semiring R] (N : ℕ+)
+    (φ : AddCircle (1 : ℚ) → R) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N 0 φ).coeff u=φ 0 := by sorry
+
+lemma kubertCartanCircleValue_sum (R : Type*) [Semiring R] (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanCircleValue R N x φ=∑ c : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),
+      MonoidAlgebra.single c⁻¹ (φ (kubertCartanCircleLevelEquiv N c x : AddCircle (1 : ℚ))) := by sorry
+
+lemma kubertCartanCircleValue_level_one (R : Type*) [Semiring R]
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanCircleValue R 1 x φ=MonoidAlgebra.single 1 (φ 0) := by sorry
+
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedKubertDegreeOneDistributionTests
+open scoped Classical BigOperators
+noncomputable section
+-- value_modulus_one
+example (R : Type*) [Semiring R] (φ : AddCircle (1 : ℚ) → R) : kubertCartanCircleValue R 1 0 φ=MonoidAlgebra.single 1 (φ 0) := by sorry
+-- value_zero_function
+example (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) : kubertCartanCircleValue R N x 0=0 := by sorry
+-- value_linear_combination
+example (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) (a : R) (φ ψ : AddCircle (1 : ℚ) → R) : kubertCartanCircleValue R N x (a • φ+ψ)=a • kubertCartanCircleValue R N x φ+kubertCartanCircleValue R N x ψ := by sorry
+-- zero_point_has_constant_coefficients
+example (N : ℕ+) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanCircleValue ℤ N 0 (fun _ => 1)).coeff u=1 := by sorry
+-- inverse_convention_modulus_five
+example : (kubertCartanCircleValue ℤ 5 (kubertPrimitiveLevelEquiv _ 5 (kubertCartanPrimitiveCircleEquiv 5 1)).val (fun z => if z=((3/5 : ℚ) : AddCircle (1 : ℚ)) then 1 else 0)).coeff ((kubertCartanDegreeOneFiniteEquiv 5).symm (ZMod.unitOfCoprime 2 (by decide : Nat.Coprime 2 5)))=1 := by sorry
+-- characteristic_two_constant_value
+example (u : (∀ p : (3 : ℕ).primeFactors, (TruncatedWittVector p.val ((3 : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) : (kubertCartanCircleValue (ZMod 2) 3 0 (fun _ => 1)).coeff u=1 := by sorry
+-- cartanPrimitiveCoefficientEquiv_leftRegular_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+)
+    (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) (f : MonoidAlgebra R (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ))
+    (x : kubertPrimitivePoints (AddCircle (1 : ℚ)) (N : ℕ)) :
+    kubertCartanPrimitiveCoefficientEquiv R N (Representation.leftRegular R _ u f)
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ) x)=
+    kubertCartanPrimitiveCoefficientEquiv R N f
+      (kubertPrimitiveEquiv (AddEquiv.piUnique (fun _ : Fin 1 => AddCircle (1 : ℚ))).symm (N : ℕ)
+        (kubertCartanCirclePrimitiveEquiv N u⁻¹ x)) := by sorry
+-- cartanCircleValue_coeff_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N x φ).coeff u=φ (kubertCartanCircleLevelEquiv N u⁻¹ x : AddCircle (1 : ℚ)) := by sorry
+-- cartanCircleValue_restriction_typed_api
+example  (R : Type*) [Semiring R]
+    (M N : ℕ+) (hMN : (M : ℕ) ∣ (N : ℕ))
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (M : ℕ)).ker) (y : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (hxy : (x : AddCircle (1 : ℚ))=(y : AddCircle (1 : ℚ)))
+    (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanProductNorm 1 R M N hMN (kubertCartanCircleValue R M x φ)=kubertCartanCircleValue R N y φ := by sorry
+-- cartanCircleValue_action_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+) (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) (g : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    kubertCartanCircleValue R N (kubertCartanCircleLevelEquiv N g x) φ=
+      Representation.leftRegular R _ g (kubertCartanCircleValue R N x φ) := by sorry
+-- cartanCircleValue_primitive_coeff_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+)
+    (φ : AddCircle (1 : ℚ) → R) (u v : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N (kubertPrimitiveLevelEquiv _ (N : ℕ) (kubertCartanPrimitiveCircleEquiv N v)).val φ).coeff u=
+      φ (kubertCartanPrimitiveCircleEquiv N (u⁻¹*v) : AddCircle (1 : ℚ)) := by sorry
+-- cartanCircleValue_zero_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+)
+    (φ : AddCircle (1 : ℚ) → R) (u : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)) :
+    (kubertCartanCircleValue R N 0 φ).coeff u=φ 0 := by sorry
+-- cartanCircleValue_sum_typed_api
+example  (R : Type*) [Semiring R] (N : ℕ+) [Fintype (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ)]
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) (N : ℕ)).ker) (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanCircleValue R N x φ=∑ c : (∀ p : (N : ℕ).primeFactors, (TruncatedWittVector p.val ((N : ℕ).factorization p.val) (GaloisField p.val ((1 : ℕ+) : ℕ)))ˣ),
+      MonoidAlgebra.single c⁻¹ (φ (kubertCartanCircleLevelEquiv N c x : AddCircle (1 : ℚ))) := by sorry
+-- cartanCircleValue_level_one_typed_api
+example  (R : Type*) [Semiring R]
+    (x : (nsmulAddMonoidHom (α := AddCircle (1 : ℚ)) ((1 : ℕ+) : ℕ)).ker)
+    (φ : AddCircle (1 : ℚ) → R) :
+    kubertCartanCircleValue R 1 x φ=MonoidAlgebra.single 1 (φ 0) := by sorry
+end
+end DirichletPadic.SuggestedKubertDegreeOneDistributionTests
