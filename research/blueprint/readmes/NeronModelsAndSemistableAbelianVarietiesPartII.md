@@ -1,3 +1,171 @@
+# Localization off the pinching ideal
+
+For a unital map f:A→B of arbitrary commutative rings and an ideal I⊂A, require that f(I) is already an ideal and that ker(f)∩I=0. The map f can have a kernel. For t∈I, multiplying a kernel element by t kills it. Multiplying any element of B by f(t) puts it in the actual image of I. The existing localization criteria therefore make the specified map A[1/t]→B[1/f(t)] bijective. Its native ring equivalence has the canonical forward map and a computable representative rule: if f(a)=f(t)b, its inverse sends[b] to a/t. This argument allows zero divisors, nilpotent elements and zero localizations.
+
+For a subring S⊂B and t in its ambient conductor, contracting the conductor supplies precisely these hypotheses. For A_q=k+qk[X], every qh lies in A_q. Thus for every polynomial q, its actual inclusion becomes bijective after inverting q, and the inverse sends[X] to(qX)/q. The result is valid for the split, irreducible and inseparable quadratic cases, and for q=0. A zero localization describes an empty principal open; it provides no nonemptiness assertion. The quadratic normalization target separately requires a monic degree-two polynomial.
+
+The geometric application still uses the supplier’s actual affine sections and basic opens, followed by finite normalization, two projective charts, the conductor ideal sheaf and its quotient structure-sheaf sequence. The localized ring calculation does not establish those geometric comparisons or close any stage. Ferrand’s complete localization argument is in Theorem5.1, printed p568; Lemma1.3 supplies the ideal/kernel hypotheses. The former §1.4 locator has been corrected.
+
+## Common ideal kills the kernel
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel-annihilation; declaration AffinePinching.commonIdeal_kill_kernel.
+
+If ker(f)∩I=0, t∈I and f(a)=0, then ta=0. This does not require f(I) to be an ideal.
+
+A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed.
+
+Proof: The element ta is in I because t∈I and in ker(f) because f(a)=0. The stated intersection equality makes it zero.
+
+Inputs: mathlib:Ideal.mul_mem_right.
+
+Acceptance: For the first projection Z×Z→Z and I=Z×0, t=(1,0) kills the entire kernel 0×Z.
+
+## Bijective localization of a common-ideal map
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective; declaration AffinePinching.commonIdeal_away_bijective.
+
+Suppose f(I) is already an ideal, expressed by map_f(I)=f(I) as underlying sets, and ker(f)∩I=0. For t∈I and any native localizations A_t,B_f(t), the canonical localization map A_t→B_f(t) is bijective. Zero divisors, nilpotent t and zero localizations are allowed.
+
+A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed.
+
+Proof: Apply the existing Away.map_injective_iff. The preceding annihilation lemma supplies the single exponent1 for every kernel element; the library criterion handles all fractions and denominator torsion. For b∈B, f(t)b belongs to map_f(I). The image-ideal equality lifts it to an actual a∈I with f(a)=f(t)b. Apply the existing Away.map_surjective_iff with exponent1.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-kernel-annihilation, mathlib:IsLocalization.Away.map, mathlib:IsLocalization.Away.map_injective_iff, mathlib:IsLocalization.Away.map_surjective_iff, mathlib:Ideal.mem_map_of_mem, mathlib:Ideal.mul_mem_right.
+
+Acceptance: The noninjective first projection Z×Z→Z becomes bijective away from (1,0) when I=Z×0. The identity of Z/4 remains bijective after inverting2, where both localizations are zero.
+
+## Common-ideal localization equivalence
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv; declaration AffinePinching.commonIdealAwayEquiv.
+
+Under the common-ideal image and kernel hypotheses, for t∈I define E:A_t≃B_f(t) as the native ring equivalence obtained from the canonical localization map and its proved bijectivity. Its forward map is that specified localization map; its inverse has the native ring-equivalence laws.
+
+A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed.
+
+Proof: Apply the existing RingEquiv.ofBijective to Away.map and common-ideal-away-bijective. Use native localization carriers, ring structures and inverse laws.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective, mathlib:RingEquiv.ofBijective, mathlib:IsLocalization.map_eq, mathlib:RingEquiv.ofBijective_apply.
+
+AffinePinching.commonIdealAwayEquiv_apply: E(x) is the canonical Away.map(f,t)(x); promoted to common-ideal-away-map.
+
+AffinePinching.commonIdealAwayEquiv_algebraMap: For a∈A, E([a])=[f(a)] in B_f(t).
+
+AffinePinching.commonIdealAwayEquiv_symm_algebraMap: For a∈A, E⁻¹([f(a)])=[a] in A_t.
+
+CommonIdealAwayEquiv.identity: For f=id_Z, I=Z and any t,a, E sends the actual localized image of a to that same image.
+
+CommonIdealAwayEquiv.inverse_fraction: For f=id_Z, I=Z and t=2, E⁻¹([3]) is the actual fraction6/2 in Z[1/2].
+
+CommonIdealAwayEquiv.noninjective: The first projection Z×Z→Z is not injective, but its localization away from (1,0) is bijective for I=Z×0.
+
+CommonIdealAwayEquiv.nilpotent: For f=id_(Z/4), I=Z/4 and t=2, the actual localized map is bijective and its localization carrier is subsingleton because2²=0.
+
+CommonIdealAwayEquiv.kernel_condition_necessary: The first projection Z×Z→Z localized at1 is not injective. With I=Z×Z its image is an ideal, but ker(f)∩I is nonzero.
+
+CommonIdealAwayEquiv.image_condition_necessary: The diagonal Z→Z×Z localized at1 is not surjective. With I=Z its kernel is zero, but the image of I is the diagonal subring and is not an ideal.
+
+Acceptance: The equivalence retains the actual section-ring map, rather than an arbitrary chosen isomorphism between the two carriers.
+
+## Specified forward localization map
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map; declaration AffinePinching.commonIdealAwayEquiv_apply.
+
+For every x∈A_t, E(x)=Away.map(f,t)(x), under the common-ideal hypotheses.
+
+A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed.
+
+Proof: Unfold only RingEquiv.ofBijective, whose forward function is the supplied map.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv, mathlib:RingEquiv.ofBijective_apply.
+
+Acceptance: This pins the forward map even when the localization carriers admit other automorphisms.
+
+## Inverse localized representative
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-inverse; declaration AffinePinching.commonIdealAwayEquiv_symm_of_mul.
+
+Under the common-ideal hypotheses, if f(a)=f(t)b, then E⁻¹([b])=a/t in the actual localization A_t. The witness a need not be selected canonically, need not lie in I and is not required to be unique before localization.
+
+A,B are arbitrary commutative rings with identity, including the zero ring; f:A→B is unital and I is an ideal of A. No injectivity, finiteness, reducedness, Noetherianity or regularity of t is assumed.
+
+Proof: Apply injectivity of E and its inverse law. The separately promoted forward-map equation and native map_mk′ send a/t to f(a)/f(t). The native eq_mk′_iff_mul_eq identifies this fraction with [b] using the witness equality; no cancellation of t in A or B is used.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-equiv, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-map, mathlib:IsLocalization.map_mk', mathlib:IsLocalization.eq_mk'_iff_mul_eq, mathlib:RingEquiv.apply_symm_apply.
+
+Acceptance: For t=2,a=6,b=3 and the identity map of Z, the inverse is6/2.
+
+## Conductor lies in the subring
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment; declaration Subring.conductor_le.
+
+For an arbitrary subring S⊂B, every element of its general ambient conductor c(S,B) belongs to S.
+
+Proof: Evaluate the defining condition b·x∈S at x=1. This promotes the inherited Subring.conductor_le API without introducing a second conductor.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor.
+
+Acceptance: No nonzero, finite or domain assumption is needed.
+
+## Localization at a conductor element
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective; declaration AffinePinching.conductor_away_bijective.
+
+For any commutative ring B, subring S⊂B and t∈S whose ambient value lies in c(S,B), the native map S_t→B_t induced by the subtype inclusion is bijective, for any native localization carriers.
+
+Proof: Contract the actual conductor to I⊂S. The native map-comap inequality and the promoted containment lemma show that map(I) equals the actual set image of I. The subtype inclusion is injective, so its kernel is zero. Apply the general common-ideal localization lemma to this I and t.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.0/common-ideal-away-bijective, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor-containment, mathlib:Ideal.map_comap_le, mathlib:Ideal.mem_map_of_mem, mathlib:Subring.subtype_injective, mathlib:RingHom.injective_iff_ker_eq_bot.
+
+Acceptance: A nilpotent conductor element is allowed; no equality with a principal ideal or finiteness of B/S is assumed.
+
+## Membership in the polynomial pinch
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership; declaration QuadraticPinch.mem_algebra.
+
+For every field k, polynomial q and f∈k[X], f∈A_q if and only if f=C(c)+qh for some c∈k and h∈k[X]. This is the promoted inherited membership API of the native subalgebra A_q, including q=0 and unit q.
+
+Proof: Use the existing bottom-subalgebra scalar-witness criterion after the actual quotient map. Equality modulo q is equivalent to divisibility by q, then rearrange f−C(c)=qh.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-algebra, mathlib:Subalgebra.comap, mathlib:AdjoinRoot.mkₐ, mathlib:AdjoinRoot.mk_eq_mk, mathlib:Algebra.mem_bot.
+
+Acceptance: For every q and h, qh∈A_q. No degree or monicity assumption is needed.
+
+## Polynomial pinch away from its divisor
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization; declaration QuadraticPinch.away_bijective.
+
+For every field k and polynomial q, the actual inclusion A_q→k[X] induces a bijection A_q[1/q]→k[X][1/q], for any native localization carriers. This holds for every q, including zero, units, inseparable, reducible and irreducible polynomials; quadratic normalization consumers retain their separate monic degree-two hypotheses.
+
+Proof: The promoted membership criterion gives q∈A_q and qh∈A_q for every h∈k[X]. Thus q is in the general ambient conductor, without needing to identify the whole conductor with(q). Apply conductor-away-bijective to the actual underlying subring and its subtype inclusion.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/conductor-away-bijective, NeronModelsAndSemistableAbelianVarietiesPartII:G.0/subring-conductor.
+
+QuadraticPinch.away_bijective.split: For q=X²−1 over Q, the actual pinch inclusion induces a bijection on any native localizations at q.
+
+QuadraticPinch.away_bijective.irreducible: For q=X²+X+1 over F₂, the same actual localization map is bijective; no rational conductor root is assumed.
+
+QuadraticPinch.away_bijective.cusp: For q=X² over F₂, the actual localization map is bijective despite the inseparability and cusp.
+
+QuadraticPinch.away_bijective.zero: For q=0 over F₂, the actual localization map is still bijective on any native localization carriers. This does not assert a nonempty open complement.
+
+Acceptance: The split quadratic over Q, irreducible quadratic over F₂, inseparable cusp polynomial over F₂ and q=0 all satisfy the same native localization statement.
+
+## Recover the polynomial coordinate
+
+NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization-generator; declaration QuadraticPinch.away_inverse_generator.
+
+For every field k and polynomial q, let E_q be the native RingEquiv.ofBijective of the actual localized pinch inclusion using quadratic-pinch-localization. Its inverse sends the ambient localized polynomial coordinate [X] to the actual fraction(qX)/q in A_q[1/q]. Both numerator and denominator are actual elements of A_q with membership witnesses. No monicity, separability, degree or nonzero hypothesis is used.
+
+Proof: Construct the native equivalence directly from the specified localized inclusion and its proved bijectivity. The promoted membership criterion supplies the numerator qX and denominator q as actual subtype elements. Apply the equivalence’s injectivity and inverse law. Native map_mk′ and eq_mk′_iff_mul_eq reduce the asserted inverse formula to Xq=qX in the ambient ring.
+
+Inputs: NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-localization, NeronModelsAndSemistableAbelianVarietiesPartII:G.1/quadratic-pinch-membership, mathlib:RingEquiv.ofBijective, mathlib:RingEquiv.ofBijective_apply, mathlib:RingEquiv.apply_symm_apply, mathlib:IsLocalization.map_mk', mathlib:IsLocalization.eq_mk'_iff_mul_eq.
+
+Acceptance: This recovers the affine coordinate on the complement, including the cusp, without asserting that the original inclusion is surjective.
+
+All208 planning nodes retain unchecked implementation status; G.0–G.6 remain partial. The two promoted inherited declarations keep their existing suggested forms. The eight new named declarations, two further API signatures and ten examples use admitted planning bodies. The exact independent Mathlib-only extraction elaborates; the full Tau Ceti importing file has not been compiled.
+
+---
+
 # Native counts over finite extensions — current checkpoint
 
 Codex codex-J6LwjP; 2 October 2026. This is a partial continuation of #3378 from commit 4a1f4b6f4dc475b67e029001f90053ff85163a04. Five specialized lemmas are added to G.1, using existing finite-field theorems. Generic embedding theory and chosen extensions stay library baseline inputs.
