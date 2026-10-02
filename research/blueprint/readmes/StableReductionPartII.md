@@ -3493,3 +3493,97 @@ Proof recovery and exact verification recipes are in the current handoff and
 The actual atlas assembly has unchanged stage edges, acyclic scoped graphs
 and all81 required supplier-stage paths reachable. Historical receipts above
 retain their original worker attribution; these are the current checks.
+
+## MC.2 continuation: ordered polynomial coordinates
+
+This continuation fixes the coordinate and basis maps in the existing quotient. For every commutative A, set F=X²+C(γY)X+C(δY²−q(s,t)), R=AdjoinRoot(F), u=root(F), v=of(Y). No noetherianity, nonzero-discriminant, reducedness or domain assumption is used. The polynomial quotient is untruncated in Y. The reserved moduli-curves definition and all geometric stages remain partial.
+
+The native A[Y]-linear equivalence E has inverse (p,q₁)↦of(p)+u·of(q₁). Over nontrivial A it specializes Mathlib’s monic power basis, reindexed by Fin 2, and its finite coordinate equivalence. Over subsingleton A the existing quotient and coefficient modules are subsingleton. This separate branch preserves the arbitrary-ring statement: natural degree two is asserted only in the nontrivial branch.
+
+The native basis B has B(0)=1, B(1)=u. Composing it with Mathlib’s polynomial monomial basis through the actual scalar tower gives an A-basis indexed by N×Fin 2, with vector vⁿuⁱ at (n,i). Its representation takes the n-th polynomial coefficient of the i-th B-coordinate. This supplies the existing polynomial-normal-form endpoint and both freeness statements; it supplies no complete normal form for the dual module.
+
+### Degree of the node polynomial
+
+`NodeSectionFactorization.PolynomialModel.polynomialNatDegree`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. If A is nontrivial, the outer natural degree of F is two. The zero ring is excluded only from this degree assertion.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-node-model`, `mathlib:Polynomial.natDegree_quadratic`.
+
+### Ordered polynomial coordinates
+
+`NodeSectionFactorization.PolynomialModel.polynomialCoordinates`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct the A[Y]-linear equivalence E:R≃A[Y]×A[Y] with E⁻¹(p,q₁)=of(p)+u·of(q₁), including the zero ring.
+
+Dependencies: `StableReductionPartII:MC.2/section-polynomial-monic`, `StableReductionPartII:MC.2/polynomial-degree-two`, `mathlib:AdjoinRoot.powerBasis'`, `mathlib:Module.Basis.reindex`, `mathlib:Module.Basis.equivFun`, `mathlib:LinearEquiv.finTwoArrow`, `mathlib:LinearEquiv.ofSubsingleton`, `mathlib:Module.subsingleton`.
+
+- `NodeSectionFactorization.PolynomialModel.polynomialCoordinates_of`: E(of(p))=(p,0).
+- `NodeSectionFactorization.PolynomialModel.polynomialCoordinates_root`: E(u)=(0,1).
+- `NodeSectionFactorization.PolynomialModel.polynomialCoordinates_symm`: E⁻¹(p,q₁)=of(p)+u·of(q₁).
+- `NodeSectionFactorization.PolynomialModel.polynomialCoordinates_reconstruction`: of(E(r)₀)+u·of(E(r)₁)=r.
+- `NodeSectionFactorization.PolynomialModel.polynomialCoordinates_unique`: There is a unique ordered coefficient pair representing r.
+
+- Test `NodeSectionFactorization.PolynomialModel.coordinatesZeroRing` (degenerate): Over Z/1Z, E(r)=(0,0) for every native quotient element r.
+- Test `NodeSectionFactorization.PolynomialModel.coordinatesCharacteristicTwoRoot` (computation): Over Z/2Z with γ=1,δ=s=t=0, E(u)=(0,1), in that order.
+- Test `NodeSectionFactorization.PolynomialModel.coordinatesNonreducedPolynomial` (computation): Over Z/4Z with all parameters zero, E(of(2Y⁹))=(2Y⁹,0).
+
+### Coordinate reconstruction map
+
+`NodeSectionFactorization.PolynomialModel.polynomialCoordinates_symm`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For all p,q₁∈A[Y], E⁻¹(p,q₁)=of(p)+u·of(q₁).
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-coordinate-equivalence`.
+
+### Reconstruction from ordered coordinates
+
+`NodeSectionFactorization.PolynomialModel.polynomialCoordinates_reconstruction`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every r, of(E(r)₀)+u·of(E(r)₁)=r.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-coordinate-inverse`.
+
+### Unique ordered coefficient pair
+
+`NodeSectionFactorization.PolynomialModel.polynomialCoordinates_unique`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every r there exists a unique ordered pair (p,q₁) with of(p)+u·of(q₁)=r.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-coordinate-reconstruction`, `StableReductionPartII:MC.2/polynomial-coordinate-inverse`.
+
+### The ordered basis one and root
+
+`NodeSectionFactorization.PolynomialModel.polynomialBasis`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct a native A[Y]-basis B indexed by Fin 2 with B(0)=1 and B(1)=u, including subsingleton A.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-coordinate-equivalence`, `mathlib:Module.Basis.ofEquivFun`, `mathlib:LinearEquiv.finTwoArrow`.
+
+- `NodeSectionFactorization.PolynomialModel.polynomialBasis_apply`: For every i∈Fin 2, B(i)=uⁱ.
+- `NodeSectionFactorization.PolynomialModel.polynomialBasis_zero`: B(0)=1.
+- `NodeSectionFactorization.PolynomialModel.polynomialBasis_one`: B(1)=u.
+
+- Test `NodeSectionFactorization.PolynomialModel.basisConstant` (characterisation): For every commutative A and every parameter tuple B(0)=1.
+- Test `NodeSectionFactorization.PolynomialModel.basisRoot` (characterisation): For every commutative A and every parameter tuple B(1)=u.
+- Test `NodeSectionFactorization.PolynomialModel.basisZeroRing` (degenerate): Over Z/1Z with zero parameters B(1)=0.
+
+### Values of the two-term basis
+
+`NodeSectionFactorization.PolynomialModel.polynomialBasis_apply`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every i∈Fin 2, B(i)=uⁱ.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-two-term-basis`, `StableReductionPartII:MC.2/polynomial-coordinate-inverse`.
+
+### Untruncated node monomial basis
+
+`NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. Construct a native A-basis indexed by N×Fin 2; its vector at (n,i) is vⁿuⁱ, with no bound on n. The A-action is the inherited polynomial/AdjoinRoot scalar tower.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-two-term-basis`, `mathlib:Polynomial.basisMonomials`, `mathlib:Module.Basis.smulTower`, `mathlib:Module.Basis.smulTower_repr`.
+
+- `NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_apply`: The (n,i)-vector is vⁿuⁱ.
+- `NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_tower`: This basis equals the pinned scalar-tower composition of the native polynomial monomial basis with B.
+- `NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_repr`: The coefficient at (n,i) is the n-th polynomial basis coordinate of the i-th B-coordinate of r.
+
+- Test `NodeSectionFactorization.PolynomialModel.monomialBasisUntruncated` (computation): Over Z/2Z, γ=1 and remaining parameters zero, the (37,0)-vector is v³⁷.
+- Test `NodeSectionFactorization.PolynomialModel.monomialBasisNonreduced` (computation): Over Z/4Z with zero parameters, the (3,1)-vector is v³u.
+- Test `NodeSectionFactorization.PolynomialModel.monomialBasisZeroRing` (degenerate): Over Z/1Z with zero parameters, the (37,1)-vector is zero.
+
+### Values of the node monomial basis
+
+`NodeSectionFactorization.PolynomialModel.polynomialMonomialBasis_apply`: In the inherited native node ring R=AdjoinRoot(F), F=X²+C(γY)X+C(δY²−q(s,t)), let u be its root and of:A[Y]→R its native coefficient map. For every n∈N and i∈Fin 2 the A-basis vector at (n,i) equals vⁿuⁱ.
+
+Dependencies: `StableReductionPartII:MC.2/polynomial-monomial-basis`, `StableReductionPartII:MC.2/polynomial-two-term-basis-values`, `mathlib:Module.Basis.smulTower_apply`, `mathlib:Polynomial.coe_basisMonomials`.
+
+The existing `normalForm` keeps its statement and reverses the unique-coordinate equality to its prescribed orientation; `normalFormFree` uses the two specified bases. Acceptance requires coordinate order, compatibility with native monic division and the existing coefficient action, the zero ring, nonreduced coefficients and arbitrarily high Y powers.
+
+Source: Knudsen, [arXiv:1106.1588v2 §3](https://arxiv.org/html/1106.1588v2#S3), the monic-division step preceding Proposition 3.1. The published setup is noetherian with unit discriminant. The stronger arbitrary-ring polynomial calculation here is justified by the checked specialization of pinned Mathlib, and does not strengthen the paper’s stable-reflexivity or completion conclusions. Full §3 setup and Proposition 3.1/Corollary 3.2 proofs were freshly reread; historical full-paper and Appendix readings retain their predecessor attribution.
+
+Next algebraic obligations are the complete dual coordinates and residue, the two prescribed cokernel maps with transpose/sign conventions, arbitrary coefficient-module Hom and Ext exchange, and canonical tensor-dual equivalences. Completed-local hulls, relative stable reflexivity, sheaf globalization, arbitrary-base approximation and MC.0–MC.7 moduli/positivity/Picard targets remain as recorded in the inherited gap and request ledgers.
