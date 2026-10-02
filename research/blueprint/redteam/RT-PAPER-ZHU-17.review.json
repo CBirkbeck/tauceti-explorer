@@ -1,0 +1,225 @@
+{
+  "redteam": "RT-PAPER-ZHU-17",
+  "findings": [
+    {
+      "finding": "RT-PAPER-ZHU-17/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed duplication and conflicting ownership/statuses by comparing the original and review-added statements against Zhu §§1.1–1.3 (pp. 413–425) and §2.4.5 (p. 453). G02 already includes Greenberg representability; G09–G23 overlap their named counterparts, and H04 overlaps the route-18 indexing inputs. Merge into canonical atomic items, retain aliases and redirect all consumers/routes before recomputing counts. Do not discard additional content: perfection-detects-schemes includes a scheme-detection criterion beyond A08's universal-homeomorphism assertion. Dual-group notation, abstract Cartan theory and its Witt-Grassmannian application need explicit shared ownership rather than blanket deletion."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed by rereading the statements/proofSteps alongside pp. 420, 434–438, 445, 457–458, 460–463 and the accepted sourceIssues. S07 and Q04 require nonempty intersections; S05's closure/intersection equality fails for empty intersections (take μ=0 and positive λ). Q01's half-level parabolic need not be maximal: in SL3 with highest coroot (1,0,−1), ceiling root valuations give, after conjugation by diag(1,1,ϖ), the inverse image of a proper parabolic stabilizing a line, strictly inside SL3(O). O08's H²-generation proof is false, although its sign conclusion is correct; replace it by the full graded torus-character polynomial calculation (Gr(2,4) already has dim H⁴=2 and dim H²=1). R06's canonical immersion lands in X_{σμ}(b); translation by b∘σ gives an abstract comparison with X_μ(b), not the stated canonical immersion. Use τ_i=σ^(−i)τ_0 in D07/D08, track the p^Z model scaling/choices in S10/S12, and formulate framing tensors with their Tate/filtration and G-valued Hodge-cocharacter conditions. Updating sourceIssues alone does not repair the mathematical items."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed narrower than a blanket claim of coverage. The assembled GS0 Witt-geometry node and FS21 extraction already plan semi-infinite orbits and the MV dimension theorem; GS4:rational-reductivity plans rational semisimplicity and IC parity. S04, S02 and IC-stalk-parity therefore need planned supplier references, with precise characteristic/carrier adapters. S07 also asserts the component-count/weight-multiplicity statement, which is additional work and must not be silently marked wholly planned from a dimension theorem. Check the named supplier's statement, split compound items, and reconcile the corresponding route-8 copies."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed a prospective route-level cycle, not an existing cycle of the assembled atlas. B02/B03 in Witt geometry consume E06/E13/E14, while E10 points back to G05. RT-AREA-etale/16 proposes a perfect-equivariant Part II importing Witt geometry; its move of B02/B03 leaves B04, their cohomological input, behind and is insufficient. Move B04 with that coefficient application, separate generic E10 from its Witt specialization, and separate the EDC.7 finite-model decomposition theorem from perfect-space transport before ordering the new Part II. BC4's M_{N,h} object is B14 from route 17, whose imports include GS0: its conjectural statement also needs relocation or a genuinely earlier independent construction. Test the resulting directed graph; do not cure these loops by deleting real inputs."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed the 22 SF.0 planned assignments are unsupported in the named stage/audit. SF.0 is scheme-level, while Appendix A constructs perfect algebraic spaces, finite-presentation models and their quotient theory. SF.1 supplies the ordinary algebraic-space carrier, not all this additional mathematics. GS0 explicitly requests Zhu's Appendix A foundations, and HE21/133–134 are missing there; the present route-1/2 mutual imports do not provide a proof order. Choose one upstream foundation owner after the ordinary carrier, import it into GS0 and the other consumers, and identify ordinary results already planned at SF.1 separately from their perfect-space extensions. Preserve the order A.30/A.31 use A.29. This is an ownership/status repair, not an instruction to duplicate everything at GS0."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed a proof-closure gap in the ramified reductive case of Theorem 1.4, pp. 425–426. Restriction of scalars along a ramified integer extension does not preserve reductivity: for a quadratic ramified extension, the special fibre of Res G_m has a nontrivial additive unipotent part. Thus the O_0 reductive case cannot justify ramified properness via that reduction. This does not disprove Theorem 1.4. Separate representability from properness, then supply properness using the §1.4.2 Demazure argument after representability, with base-change/descent and exact group hypotheses, or another complete proof. Record the gap without declaring the theorem false."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed absent and reversed load-bearing edges against §§1.2–1.4 and Appendix A. G29 needs the GL_n properness result G23 and the PR08/Alper inputs; G28's construction already uses representability from G29, so adding the whole G28→G29 edge would create a loop. Split representability and properness and order them separately. G24 uses G04, G17 uses the quotient Grassmannian/Tor input A263, and the Gabber input of R05 needs an actual supplier edge. The 104 named additions currently have no incoming edges. Merge Greenberg/Cartan duplicates before adding prerequisites, and distinguish an abstract decomposition theorem from the scheme-level Witt application."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed by comparing the prerequisites bibliography with Zhu's explicit invocations in §§1–3 and Appendix A, and the reference list pp. 489–492. Katz's slope-filtration input, Zhu16's equal-characteristic constructions, Kreidl's descent, Drinfeld–Gaitsgory, Gaitsgory, LV12/KL80, Conrad, Itoh and Manaresi are among omitted suppliers. Item-level citations do not replace the extraction's prerequisite bibliography. Record which exact invoked result is supplied or missing, with accessible version and proof location. MV07's weight functors are in §3, whereas §§4–5 supply convolution/fusion; correct that scope rather than citing the entire paper as a universal supplier. This verification checks Zhu's uses, not every theorem in each cited work."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed false equivariant degree bound by Zhu pp. 440–443 and the actual IH item. For μ=0 and G=SL₂, ordinary IH is in degree zero, but equivariant IH is H*(BSL₂)=Q̄_ℓ[c₂], unbounded above. Keep the [0,2(2ρ,μ)] bound only for ordinary intersection cohomology. State the equivariant result as a graded projective/free R_G module and obtain ordinary cohomology by augmentation with its hypotheses. It must not carry a finite total-degree bound."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed against Proposition 2.7, Corollary 2.8 and Lemma 2.11, pp. 436–439. S07's equidimensionality proof uses S11. Adding S11 to the current prerequisites creates Q02→S07→S11→Q07→Q02. The quasi-minuscule root calculation of Lemma 2.11 does not require the later MV component-count assertion; replace Q02's S07 edge by the independently established geometric inputs. Split dimension, nonempty equidimensionality and component count as needed; then insert the concentration edge in proof order and test acyclicity."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed against pp. 430–433. S01 already calls the category monoidal and asserts convolution perversity, but Proposition 2.2 (S08) is downstream of Q05/Q06 and uses S01's carrier. Separate the equivariant perverse abelian category and ambient derived convolution/associativity from closure in that category. Plan the monoidal Satake category only after S08, with explicit imports of the closure proof and unit/coherence. Simply adding S08 to the combined S01 creates circular prerequisites."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed by inspecting all 104 review-added items: none has prerequisites/ownerKey/consumers and no existing item cites one. Their source locators include genuinely load-bearing inputs, not merely bibliography. Connect canonical inputs after resolving /1: IC parity to S02, Gaitsgory and hyperbolic localization to the weight-functor argument, involution/finite-level constructions to the relevant §2.4 maps, and Appendix A suppliers to their proof users. S09 needs S02 and S17 needs the augmentation comparison/parity. Do not add S13 mechanically to S17 unless the chosen proof uses it; add only justified edges and recheck cycles."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed by Lemma 2.1's proof, p. 430: the parity argument invokes affine pavings of Demazure fibres, while G28 states geometric connectedness and no extracted item supplies the stronger assertion. Connectedness alone cannot imply IC parity. Record the exact paving theorem/proof gate and its geometric prerequisites under Witt-Grassmannian geometry, with GS4 parity as consumer. Do not move this special geometry into a generic coefficient theorem or claim the paving proved by the connected-fibre statement."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed by rereading Zhu pp. 438–439 and Ngo–Polo §8, manuscript pp. 18–20, Lemmas 8.1–8.3. Q02's outline says only to compute the punctured slice and omits the flag-variety decomposition and the resulting nonzero compactly supported cohomology of C. Record Q03/C, the cell decomposition, its root indexing, and the comparison needed for H_c^0(S_0,IC_θ). Preserve the distinction between 2|Δ_θ| root cells and |Δ_θ| surviving weight-zero contributions; use the accepted E53 correction when interpreting the displayed decomposition."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed from §§2.4–3, pp. 443–463. Proposition 2.21 has no inputs or users despite Corollary 2.22 relying on it; O10 needs the Θ involution from O10i, not only open-orbit normalization. The finite-level comparisons, naturality diagrams and ADLV/Rapoport–Zink inputs have similarly absent supplier edges. Connect each construction to its actual proof user after merging aliases and splitting carrier/structure as in /11. These are proof dependencies, not a licence to add every neighboring theorem to every item."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed against §3.1, pp. 455–460 and §3.2, pp. 460–463. The N≃Lie(N) input precedes the Levi reduction, so D05's D04/G19 dependencies are unsuitable; replace them with the actual group-theoretic inputs. The GL_h Rapoport–Zink supplier in R05 is the classical RZ96 case and does not require Kim's later p>2 Hodge-type representability R04. D12 needs the general convolution/dimension bound, not only the ω₁ case G21. R03 is over Nilp and cannot use the perfection carrier A14; import ordinary torsor/group-scheme foundations and state that base category explicitly."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed the missing proof interface between the equal-characteristic twisted IC trace and the algebraic P^{σ,⋄} in H07. Qualification: LV12 §7.2, manuscript p. 24, says the affine proof is essentially the same with affine flags; §7.1 also addresses twisting. Thus 'unproved' overstates the literature. LY13 arXiv §§2.1–2.2 elaborates the geometric construction and §6 proves the restricted (−q) identity; it does not supply a ready formalized comparison API. Extract the precise trace realization, normalization and hypotheses, and expand the affine adaptation as a proof gate feeding H07. LY's complex/Q construction cannot silently supply every positive-characteristic ℓ-adic version."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed against Remark 3.6 and Lemma 3.5, p. 458, and the current BG0/BG1 descriptions. Those stages do not plan the norm map/comparison in question; its construction is D07 under the ADLV/Weil-restriction route. Route the norm-on-σ-conjugacy-classes property to that same owner, import any ordinary isocrystal classification from BG, and use τ_i=σ^(−i)τ_0 consistently in the telescoping proof. General BG ownership of isocrystals does not itself plan this norm construction."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed duplicate approximation supply: current AdicCoefficientsAndComparisons:L2 already plans the scheme approximation theorem, while SF.0 does not name it; the algebraic-space extension needs the SF.1 carrier and additional work. Credit the existing scheme theorem, choose one owner for the extension, and make consumers import it. The assembled graph at base 3bd3241 has no SF.0/SF.1→L2 path and is acyclic, so the suggested L2→SF edge is not proven cyclic by the red-team's general warning. Recheck the actual graph, including any new Part II and upstream assumptions, after fixing ownership; a conjectured cycle must not be reported as an installed one."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed omissions by Appendix A, pp. 465–476: A.6 uses topological invariance of the étale site (Stacks 04DZ and the algebraic-space extension), the model arguments invoke the cited approximation/étale-radicial criterion, and quotient arguments use the 04S5-style diagonal/equivalence-relation criterion, ordinary affine torsor inputs and the cited classical affine-Grassmannian equivalence. Record each invoked supplier and link it to its consumer. Ordinary scheme-level inputs may already be library/planned imports; the perfect-space transport remains additional work. Do not infer all these full theorems from an étale topology definition."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed the erroneous dualization warning in A263. At Mathlib 082e2d3, Module.Grassmannian is a quotient-type module functor (finite projective quotient of specified rank), not merely the subspace convention assumed by the outline. Reuse that convention without an unnecessary dualization. This does not provide the representing relative Grassmann scheme: that is planned in the upstream ModularCurves roadmap, and its perfect algebraic-space/base extension still needs proof. Separate the built module functor, the planned ordinary geometric representability and Zhu Corollary A.23's missing transport."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed misrouting by comparison of G24/G25/G30/G33 with §§1.4.1–1.4.3, the RG2/BG stage texts and BS17's extraction. RG2 owns generic affine restriction of scalars, faithful representations and local Cartan structure, while GS0 owns the Witt-Grassmannian embedding/Res comparison and component geometry. G25 combines RG2.0a's planned Res construction with an additional Grassmannian comparison; split it. Abstract faithful representations or an affine group quotient may retain their general owner, but must not be mistaken for the Gr_G geometry adapter. Reconcile the BS17 references and import a single supplier rather than planning both copies."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed inaccurate route-18 import/proof claims. The current GS3:fusion and GS4:rational-reductivity already own the symmetric fibre-functor endpoint, and GS4 depends on GS3. Route 18 imports GS2:Satake-closure and GS4 while calling its alternative proof fusion-free; their current closures reach fusion. Keep the local Gelfand/Hecke proof as additional proof content with explicit dependencies, sharing the endpoint's owner. If an earlier independent lane is required, request and prove precisely the rational closure/semisimplicity it needs without relying on the later fusion lane. Changing the adjective or deleting genuine dependencies does not produce an independent proof."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed overstatement of missingness. At Mathlib 082e2d3, the PerfectRing hypotheses in WittVector.Complete give p-torsion-freeness, the p quotient equivalence, coefficient/divisibility criteria and p-adic completeness; truncation provides a short-corollary route to higher p-power quotients. Teichmuller gives the multiplicative lift and TeichmullerSeries finite partial expansions, but its header explicitly leaves uniqueness as a TODO. Credit exact declarations and retain expansion uniqueness and genuinely ramified/relative extensions as gaps or planned RF0 work. RF0's finite-local-field setting is narrower than arbitrary perfect k (/28), and BS17's stronger Witt characterization includes an additional universal property."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed the existence part of the elementary-divisor gap is largely built: WittVector is a DVR over a perfect field, and Submodule.exists_smith_normal_form_of_rank_eq in FreeModule/PID.lean diagonalizes a full-rank submodule of a finite free module over a PID. For lattices in the fraction vector space, clear negative denominators, use the rank/embedding hypotheses and write nonzero diagonal entries as uniformizer powers times units; absorb the units in bases. This adapter is a corollary, not the literal Witt-lattice theorem. The read declarations do not establish the claimed ordered exponent uniqueness or all relative-ring geometry; leave those uncredited rather than claiming a global library absence from a name search."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed omissions against Remark 1.15, p. 422, and the relative-position discussion §§1.1,1.4: G19's mixed N=1,2 description does not record the stated equal-characteristic Demazure/bounded comparisons. Add the exact small-N and n=2 comparison statements, with distinct hypotheses from a general mixed/equal-characteristic identification. Also record the relative-position product/dominance inequality used in convolution, with a valid lattice/minor proof outline and prerequisites. A Cauchy–Binet/valuation argument can supply that outline; it must not be passed off as an independently located citation for a nonexistent theorem."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed the carrier mismatch in L43→A01 by Appendix A.1.1, p. 464 and §1.1.2, p. 413. The definition uses fpqc descent, whereas L43 supplies fppfTopology. At the pinned Mathlib, Scheme.fpqcTopology is available and subcanonical. Replace the topology supplier/interface by fpqc with its exact scheme-family scope; keep fppf where later arguments specifically use it. The algebraic-space/perfect-site extension is still separate. Coordinate with /35 as one repair, not two new foundations."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed RF0's finite-local-field restriction by its stage text against G01 and Theorem 1.4. Zhu allows any perfect residue field k and a totally ramified extension of W(k); RF0 works with finite residue fields and finite extensions E/Q_p. For example an odd-p perfect closure of F_p(t) allows the Eisenstein extension adjoining a square root of p[t], with residue unit square class not coming from a fixed finite residue field. This cannot be identified with a fixed finite-E coefficient extension. Plan/import the ordinary Witt core, retain the arbitrary-perfect-base ramified extension separately, and do not resolve the scope mismatch by restricting k without source authority."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed imprecise locators by rereading §§2.1–2.3, pp. 430–443. Name category vs monoidal closure at pp. 430 and 433, convolution at pp. 431–432, semi-infinite orbit definitions pp. 433–434, and the §2.3 equivariant interface p. 441. The named Sat_G^0 item duplicates Q06 and should be merged. State Q_r for general μ as defined in the source, keeping the half-level intersection's minuscule specialization distinct. Iterated convolution belongs to §2.1.2 rather than §2.2. Refresh locators after canonicalizing items instead of retaining conflicting duplicate descriptions."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed a source-error bookkeeping/proof-closure gap after inspecting the published page images 428, 432, 438, 449 and 452 and adjacent text. The Θ diagram's c′ label, costalk rather than ordinary stalk in the degree formula, missing torus quotient, quarter/three-quarter mismatch, Corollary 2.8 attribution and §2.1.2 locator warrant precise records. Qualification: p. 432's terse induction requires the lower-stratum dimension estimate to be made explicit; I do not certify that outline alone as a newly proved source error. Apply §18's independent errata workflow, distinguish typography from proof obligations, preserve already recorded errors and allocate the next unused ID rather than blindly hardcoding E77."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed scope mismatch by H05/H06, GS1's finite-field ℓ-adic scope and LY13 arXiv pp. 8–10. The compact-group/based-loop orbit calculation uses complex topology and rational cohomology; GS1 does not automatically supply that theorem in its stated form. Separate the ordinary ℓ-adic Satake supplier, complex comparison/topological argument, and any spreading/specialization needed for Zhu's trace use. Credit only matching planned content and keep the remaining transport/proof interface as a gap, not a built consequence of the stage name."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omitted supplier by Zhu §2.5, p. 454, MV07 §7 (pp. 121–122) and the corrected Deligne–Milne text, pp. 15,24–25. DM Proposition 1.20 uses a faithful exact tensor functor, the unit condition and invertibility of rank-one objects to characterize rigidity; Proposition 2.20 gives algebraicity via a tensor generator, and Corollary 2.22 supplies connectedness in characteristic zero. Record these exact hypotheses and prerequisite edges. A direct evaluation/coevaluation proof is an alternative only if actually decomposed; merely naming Tannakian reconstruction does not close these steps."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed against Proposition 2.20, pp. 442–443. S17 records the augmented ordinary monoidal functor but omits the first assertion: equivariant H* itself has a canonical monoidal structure into projective R_G modules. Add that interface, its graded/projectivity and augmentation prerequisites, associativity/unit coherence and the opposite-space compatibility used in §2.4/O06. Do not conflate canonical equivariant monoidality with a finite total-degree bound (/9)."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed remaining labels/interfaces against pp. 447,450,452,457–460 and the pinned TauCeti cocharacter-pairing statement. G34/O05's uses still call Proposition 2.21 a theorem; 3.5/3.7 are lemmas, and O10i's proof diagram is on p. 450. D14 needs the finite-field/Frobenius convention it uses. L17's absolute-Galois pairing invariance does not by itself identify σ^iρ_H after the chosen positive-system transport; give that adapter explicitly. E17's printed field is a paraphrase rather than the literal displayed domain; record the exact expression under §18. These are distinct from an instruction to change an upstream declaration."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed the same fpqc/fppf mismatch as /27 and the missed usable library API. Read Scheme.fpqcTopology's subcanonical instance and the EffectiveEpi result for quasi-compact surjective flat scheme morphisms at Mathlib 082e2d3. Use them as scheme-level imports for A01 and quotient descent, with all hypotheses. They do not directly assert perfect algebraic-space descent. Fold this into the /27 correction and retain the generalization as missing/planned work, avoiding duplicate topology constructions."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed missed partial reuse by reading Mathlib's PerfectClosure.lift, smallEtaleTopology/Etale, dense_smoothLocus_of_perfectField, normalization/Zariski-main and valuative criteria, and TauCeti's smoothness-from-geometric-reducedness Hopf result. PerfectClosure's affine universal property has a CommRing source and perfect CommSemiring target, not just fields. Credit these exact ordinary/affine cases while retaining perfect algebraic-space transport. Zariski-main and properness statements retain their finite-type, separation, quasi-compactness/quasi-separatedness and quasi-finiteness hypotheses. A267 still needs reduced→geometrically reduced over a perfect field before the Hopf smoothness theorem; an unrelated reducedness claim is insufficient."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed by p. 482 and E29/E70: there is one php occurrence, while the sourceIssue table counts it twice with inconsistent replacements. The intended carrier is separated pfp, as the surrounding Appendix A.3 setup specifies. Keep a canonical correction and stable alias/reference redirects, remove the duplicate count, and preserve E29's separate E/E₀ coefficient-field slip. Do not drop a mixed record wholesale."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed stale nonexistent-sourceIssue references in B10 and remark-B5-ic-comparison, checked against Remark B.5, p. 484 and the original independent review. That review rejected the over-literal source-error interpretation; the point example diagnoses a claimed universal 'not closed' assertion but does not disprove the substantive comparison discussion. Remove or replace the stale reference with the accepted review's precise scope caveat and statement. This confirmation does not resurrect the rejected source error or certify a new erratum from the point example."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed the need for a later-literature update, with narrower conclusions than the finding's summary. In the public AGLR v2 manuscript (arXiv:2201.01234v2, revised 30 January 2026), Lemma 3.15 compares depth-0 schemes with classical local models using Theorem 1.9's hypotheses; Theorem 3.16 proves the minuscule admissible case assuming Theorem 1.9, including Cohen–Macaulayness/Frobenius splitting. Remark 3.17 records later progress removing certain comparison restrictions. Update BC3 with these exact restricted results, hypotheses and version, separating them from the unrestricted conjecture. Do not mark all of Zhu's Conjecture III proved, or every depth-n Schubert scheme covered, or advertise an unconditional stronger result without reading its supplier."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/40",
+      "verdict": "confirmed",
+      "reason": "Confirmed the extraction exceeds its source setup: Appendix A.3, pp. 478–482, treats separated pfp perfect algebraic spaces and ℓ≠p, whereas E04 says only a pfp perfect space. Restore those carrier/coefficient hypotheses throughout the transported constructible category, operations and perverse interfaces, and state the model assumptions. This establishes a source-faithfulness gap, not a theorem that perverse t-structures are impossible in every nonseparated setting."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing concrete supplier/title/stage imports in routes 13–15 and inconsistent route-17 boilerplate. Add item-level import lists, full current titles/stage IDs, proof order and explanations of each Part II's additional content. Reject the finding's subsidiary statement that no two new Part IIs import one another: its own cited briefs already contain such imports (including the route-17 Witt-Rapoport–Zink and route-18 Hecke inputs). The defect is incomplete/inconsistent bookkeeping and untested closure, not total absence of inter-Part-II imports. Recompute dependencies after /4,/5,/19,/23 rather than copying the red-team's blanket assertion."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the accepted RS-22 restructuring and current roadmap title: the parent is 'Hecke correspondences on the Fargues–Fontaine curve and local shtuka cohomology'. Use that parent title in route 15/17 Part II names and the report, preserving distinct extension subtitles and stable machine IDs. Do not treat a title repair as authority to change the parent roadmap's mathematical scope."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed the Markdown report still describes a shorter inventory and obsolete route titles/imports after the JSON grew to 324 items, 18 routes and 75 sourceIssues. Some opening counts explicitly say superseded, but the actual inventory and route sections are not a faithful current reader document. Regenerate/reconcile the item, route and source-error coverage sections from the final canonical JSON after the mathematical fixes and alias merges; ensure each surviving item/error is accounted for. Do not merely replace 217 by 324 while leaving the shortened lists."
+    },
+    {
+      "finding": "RT-PAPER-ZHU-17/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed inconsistent equal-characteristic Grassmannian supplier/status claims among Zhu, Kisin–Pappas18/P05 and Kisin–Pappas–Zhou26/P05. Current GlobalShtukas GS.1 plans a finite-field curve setting, whereas the other extraction invokes a broader field/carrier range; none of their status words alone proves the broad common construction is planned. Identify one ordinary affine-Grassmannian/lattice supplier, state its field, group and coefficient generality, and make each application import the matching specialization. Retain genuine generality extensions as gaps and avoid flipping every item to planned merely because a sibling extraction says so."
+    }
+  ]
+}
