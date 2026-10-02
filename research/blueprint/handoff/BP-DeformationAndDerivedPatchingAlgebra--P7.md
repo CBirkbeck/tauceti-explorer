@@ -1,3 +1,176 @@
+# #551 total-jet continuation — Codex, codex-rtOQ9t, 2 October 2026
+
+Partial checkpoint. Winning claim [5958284445](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5958284445), confirmed by [5958287924](https://github.com/CBirkbeck/tauceti-explorer/issues/551#issuecomment-5958287924). Audit base: `06d01f00ec9fc6dc86a2b939c1a02a0fe4494c4d`. Only the four issue deliverables changed. Every implementation remains unchecked and all eight stages remain open.
+
+The packet now has **89 nodes: 47 lemmas, sixteen theorems, eight definitions and eighteen constructions; 108 API items; 89 definition/construction tests plus seven lemma tests; 119 native examples; thirteen planets; 202 baseline references; fifteen gap groups and two unchanged supplier requests**. P7, R03.3 and R03.4 remain partial; five other scoped stages retain not_read status. All 85 inherited node objects, including the exact reserved general multiplicity definition, are unchanged. Source issues and supplier requests are unchanged.
+
+## What this checkpoint closes as a written plan
+
+Four R03.3 declaration nodes integrate J02 and the field-dimension part of J03 of the full predecessor worklist:
+
+- `total-jet-kernel`: the kernel of the already built truncTotalAlgHom is the algebraic variable ideal to the cutoff power. Its written coefficient proof covers arbitrary commutative k, finite σ, r=0 and zero series.
+- `total-jet-equivalence`: the actual k-algebra equivalence R/v^r ≃ k[X_i]/p^r, using the native first isomorphism theorem, polynomial representatives and the proven kernel equality. Forward and inverse representative formulas are fixed.
+- `total-jet-monomial-basis`: actual monomial classes indexed by degree<r; representation by low coefficients, independent of the representative; finiteness over k. The finite coordinate sum and coefficient map are explicitly inverse, so a mere dimension assertion cannot substitute for the basis.
+- `plane-total-jet-finrank`: for any field and every r≥0, dimension binom(r+1,2), obtained by t+1 pairs in degree t. Built length_eq_finrank then computes length **over k**.
+
+All six new APIs and seven packet tests have admitted native signatures. Tests distinguish the zero cutoff, residue cutoff, total versus inclusive rectangular truncation, mixed monomials over F₂ and nonzero nilpotent coefficients over Z/4. The two-variable r=3 field length is six.
+
+The generic third-isomorphism and surjective scalar restriction are already built. New baseline citations record Ideal.map_pow, DoubleQuot.quotQuotEquivQuotSupₐ and Module.length_eq_of_surjective, rather than adding duplicate nodes. They identify (R/(f))/n^r with R/((f)+v^r), and preserve its length under R→R/(f), on the actual native quotients and scalar towers.
+
+## Checked boundaries and exact receipts
+
+The indexed checker reports zero errors and zero warnings. Actual intake check-files passes for all four deliverables. The full Mathlib-only suggested file elaborates using an existing Lean 4.34.0-rc2 build at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`: **zero errors, 253 admitted-proof warnings, zero other warnings**, elapsed=23.61 maxrss=3541096. Available memory before the initial and final compilation was 69 GiB. No new Lake project, library build, cache download, language server or Tau Ceti import was used. Tau Ceti baseline statements retain their source pin `f790474821cf4256814db967cb154e7af3d0c369`.
+
+Final suggested file SHA-256: `d3615237cefa3ce05bf28587d0006351e72dd879c73971162b42b4d1f915f321`. Successful final compile-log SHA-256: `5429d0677cec6e66147c5b59ad075323c978e4f666a29baf07cc7784f1d28073`. Proposed definitions, APIs and examples in this continuation all use admitted bodies; this compilation checks their actual native types, not the mathematical proofs.
+
+Two separate native applications of the built double quotient and scalar length theorem were proved with no admitted axioms. Their printed axiom sets are exactly propext, Classical.choice and Quot.sound. Their checked source is archived in a block comment in the allowed suggested file at [commit 9bc8dab](https://github.com/CBirkbeck/tauceti-explorer/blob/9bc8dab8840a5ba9f68f6bb1f645aa91bd8e3d80/research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7.lean). To reproduce, read that immutable file and remove the outer block-comment delimiters around BEGIN CHECKED TOTAL JET BASELINE EXPERIMENT through END CHECKED TOTAL JET BASELINE EXPERIMENT; run the resulting complete file in the existing pinned build. No standalone Lean file is needed outside the allowed suggested file. Checked complete-file SHA-256 `963d788a81dc563021dfc6365b8605db52386d9dfce81d27af847ed8b91033ad`, fragment SHA-256 `923702cd7ecf0c4e7c3ec71d3c540c45c5c2aae5e9ee395965d37709a0e4c93e`, compile-log SHA-256 `5b14cb81263e55f196ed3494cdb9df00c9a52fe8f91fe462f3579f5409c924a5`; elapsed=23.71 maxrss=3534500. The final suggested file removes the private experiment and retains admitted baseline-application examples. These two proofs establish the built generic applications; they do not prove the new kernel or basis.
+
+The unchanged durable predecessor finite program below was reproduced: **507 models, 25,148 assertions**, including characteristics 2, 3, 5 and 7, the shifted bounds, nonreduced equation and nonprincipal initial-ideal counterexample. Script SHA-256 `ed9dc3d82ba5b988e95634bfd035821efcd4ebda2e552465c757e38b9df73a35`, output SHA-256 `058a580c33c92c372851ded432b1740fb069243fa5e19a24943c6a3c86b182d5`. Extract the existing Python block headed “12. Reproduction” to an own scratch script and execute it. Its finite checks are not proofs for arbitrary formal series.
+
+The actual repository assembler was called read-only with the current part overlaid beside the existing R03.6 part, with all other promoted packets/definitions unchanged. Actual stage graph: 3003 vertices and 8623 edges, acyclic. Own declaration graph: 89 vertices and 135 edges, acyclic. Combined stage/reachable-declaration graph: 3080 vertices and 8848 edges, acyclic, with 90 reachable declarations. Whole-roadmap declaration listing: 142, with nineteen planets; this part lists 89 and thirteen. No skipped links for this roadmap and all other skipped-link records match the control. Stage edges are unchanged.
+
+**Inherited supplier-path gap:** twelve of thirteen computed scope/request stage pairs are reachable. The requested LocalFieldsRamification layer 0 → R03.4 path is absent in the assembled stage graph, in both current and control projections. The existing local-field interpretation request and its gap now explicitly record this; no stage edge is fabricated or edited here. The new total-jet nodes add only same-stage declaration dependencies. The required external integrated depth node remains visible in the reachable declaration closure.
+
+## Fresh reading and remaining source obligations
+
+The issue was read in full before claim and again after the bot confirmed it. All eight current reviewed AUDIT-17 scope entries, applicable accepted RS-08 keeps and owner assignments, all eight atlas stage descriptions and touching edges, matching link/overlap records, the complete latest merged handoff and all 85 inherited node statements were personally read. Two nearby upstream roadmap documents had already been read in this continuous session (StableReduction and Jacobian); this continuation does not claim new full reads of the many routed papers.
+
+Fresh pinned source reads are itemized with file hashes and intervals in HS-TOTAL-JET-PIN. Bounded searches of both pinned trees located the built truncation, third-isomorphism and length restriction. No claim of exhaustive library absence is made. Public [Stacks 00K4](https://stacks.math.columbia.edu/tag/00K4) and [0AZU](https://stacks.math.columbia.edu/tag/0AZU) were freshly inspected through their mathematical sections. Their cumulative exponent conventions remain distinct; the inherited general definition uses n+1. Source issues retain their historical status; no new erratum or paper-route closure is asserted.
+
+The next mathematical work is the remaining J03 and the length part of J06: identify v as the constant-coefficient kernel over a field, use the actual residue action on finite v-filtration pieces, prove R-module length equals k-dimension for finite modules killed by v^r, then apply the already built double-quotient/scalar comparisons to the existing shifted sequence. A field-length computation cannot substitute for this comparison because k→R is not surjective.
+
+Continue J07–J16 with the full tangent-cone kernel, all-index curve lengths, eventual polynomial, dimension and compatibility with the existing general intrinsic and ambient multiplicities, retaining f=0/unit boundaries, positive characteristic and nonreduced equations. The general graded Hilbert–Serre induction still needs actual homogeneous kernels/cokernels, quotient scalars, finite lengths, the anchored polynomial and threshold; it is not closed by this finite-jet checkpoint. All perfect-complex, patching, depth, completion and routed-paper obligations in the preserved handoff and packet remain binding. Coherent duality keeps its existing external reserved owner.
+
+## Reproduce the actual assembler projection
+
+Run this standalone Python program from the repository root, storing it in an own disk-backed scratch directory. It uses the repository assembler and checks against the immutable audit base, including the inherited missing supplier path, complete unchanged node objects, scope and source/JSON boundaries. It writes only its own scratch receipt. Script SHA-256 `bdc303832123649543c03abf2ea3f740745daee849533651c8d7a8ec7b5d583a`.
+
+```python
+import json,sys,subprocess,hashlib,re
+from pathlib import Path
+from collections import defaultdict,deque
+root=Path.cwd();sys.path.insert(0,str(root/"scripts"));import build
+rid="DeformationAndDerivedPatchingAlgebra"
+stem=rid+"--P7"
+packetpath="research/blueprint/packets/"+stem+".json"
+roadmappath="research/blueprint/atlas/roadmaps/"+rid+".json"
+base="06d01f00ec9fc6dc86a2b939c1a02a0fe4494c4d"
+p=json.loads((root/packetpath).read_text());r=json.loads((root/roadmappath).read_text())
+old=json.loads(subprocess.check_output(["git","show",base+":"+packetpath],text=True))
+oldr=json.loads(subprocess.check_output(["git","show",base+":"+roadmappath],text=True))
+load=build.load_promoted
+def assemble(packet,definition):
+ def overlay(*a,**k):
+  ps,ds,defs=load(*a,**k)
+  return ([(n,v) for n,v in ps if n!=stem]+[(stem,packet)],
+   {**ds,stem:"research/blueprint/readmes/"+stem+".md"},
+   defs)
+ build.load_promoted=overlay
+ return build.assemble(require_distances=False)[0]
+a=assemble(p,r);control=assemble(old,oldr)
+def dag(vertices,edges):
+ vertices=set(vertices)|{x for e in edges for x in e};following=defaultdict(set);indegree=dict.fromkeys(vertices,0)
+ for s,t in set(edges):
+  following[s].add(t);indegree[t]+=1
+ q=deque(v for v in vertices if not indegree[v]);seen=[]
+ while q:
+  v=q.popleft();seen.append(v)
+  for w in following[v]:
+   indegree[w]-=1
+   if not indegree[w]:q.append(w)
+ assert len(seen)==len(vertices),("cycle",sorted(v for v in vertices if indegree[v])[:10])
+ return {"vertices":len(vertices),"edges":len(set(edges)),"acyclic":True}
+se={(e["source"],e["target"]) for e in a["stageEdges"]}
+ce={(e["source"],e["target"]) for e in control["stageEdges"]}
+assert se==ce
+stageids={s["id"] for s in a["stages"]}
+own={n["id"]:n for n in p["nodes"]}
+oe={(dep,n["id"]) for n in own.values() for dep in n.get("prerequisites",[]) if dep in own}
+stageDAG=dag(stageids,se);ownDAG=dag(own,oe)
+allnodes=dict(own)
+for folder in ("data/decompositions","data/blueprints","research/blueprint/packets"):
+ for path in sorted((root/folder).glob("*.json")):
+  for n in json.loads(path.read_text()).get("nodes",[]):allnodes.setdefault(n["id"],n)
+used=set(own);todo=list(own)
+while todo:
+ v=todo.pop()
+ for d in allnodes[v].get("prerequisites",[]):
+  if d in allnodes and d not in used:used.add(d);todo.append(d)
+edges=set(se)
+for v in used:
+ n=allnodes[v]
+ parent=n.get("parentStageId")
+ if parent:edges.add((parent,v))
+ for d in n.get("prerequisites",[]):
+  if d in stageids or d in used:edges.add((d,v))
+for request in p["requests"]:
+ for v in request["neededBy"]:edges.add((request["supplier"],v))
+combined=dag(stageids|used,edges)
+following=defaultdict(set)
+for s,t in se:following[s].add(t)
+def reachable(s,t):
+ todo=[s];seen=set()
+ while todo:
+  x=todo.pop()
+  if x==t:return True
+  if x not in seen:seen.add(x);todo+=list(following[x])
+ return False
+pairs=set()
+for stage in r['stages']:
+ for dep in stage.get('requires',[]):pairs.add((dep,rid+':'+stage['key']))
+def stage_of(v):
+ seen=set()
+ while v in allnodes and v not in seen:
+  seen.add(v);v=allnodes[v].get('parentStageId')
+ return v
+for n in own.values():
+ for d in n.get("prerequisites",[]):
+  if d in stageids and d not in allnodes and d!=stage_of(n['id']):pairs.add((d,stage_of(n['id'])))
+for req in p["requests"]:
+ for v in req["neededBy"]:
+  target=stage_of(v)
+  if req["supplier"]!=target:pairs.add((req["supplier"],target))
+missing=[(s,t) for s,t in pairs if not reachable(s,t)]
+inheritedMissing=[("tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",rid+":R03.4")]
+assert missing==inheritedMissing,missing
+assert p["requests"]==old["requests"]
+ar={x["id"]:x for x in a["roadmaps"]};cr={x["id"]:x for x in control["roadmaps"]}
+assert ar[rid]["blueprint"]["declarations"]==142
+assert ar[rid]["blueprint"]["planets"]==19
+assert ar[rid]["blueprint"]["skippedLinks"]==cr[rid]["blueprint"]["skippedLinks"]
+assert all(ar[x].get("blueprint",{}).get("skippedLinks")==cr[x].get("blueprint",{}).get("skippedLinks") for x in cr)
+for key in ("sourceIssues",):
+ assert p[key]==old[key],key
+on={n["id"]:n for n in old["nodes"]}
+for id,n in on.items():
+ for key in ("id","kind","statement","hypotheses","api","sources","implementationStatus","uses"):
+  assert own[id].get(key)==n.get(key),(id,key)
+ assert all(t in own[id].get("tests",[]) for t in n.get("tests",[]))
+ assert all(a in own[id].get("acceptance",[]) for a in n.get("acceptance",[]))
+assert p["baseline"]["declarations"][:len(old["baseline"]["declarations"])]==old["baseline"]["declarations"]
+unchanged=sum(own[id]==n for id,n in on.items())
+lean=(root/("research/blueprint/suggested/"+stem+".lean")).read_text()
+for node in p["nodes"][len(old["nodes"]):]:
+ for test in node.get("tests",[]):assert test["name"] in lean,test["name"]
+for node in p["nodes"][len(old["nodes"]):]:
+ for api in node.get("api",[]):assert api["name"].split(".")[-1] in lean,api["name"]
+allowed={packetpath,"research/blueprint/readmes/"+stem+".md","research/blueprint/suggested/"+stem+".lean","research/blueprint/handoff/BP-"+stem+".md"}
+changed=set(subprocess.check_output(["git","diff","--name-only",base],text=True).splitlines())
+assert changed<=allowed,changed
+for path in changed:
+ assert not re.search(r"/(?:home|tmp|Users)/|file"+"://",(root/path).read_text()),path
+result={"actualAssembler":True,"declarations":142,"partDeclarations":89,"partPlanets":13,"planets":19,"ownSkippedLinks":ar[rid]["blueprint"]["skippedLinks"],
+ "stageDAG":stageDAG,"ownDeclarationDAG":ownDAG,"stagesAndReachableDeclarations":combined,
+ "reachableDeclarations":len(used),"externalDeclarations":sorted(used-set(own)),
+ "requiredStagePairs":len(pairs),"requiredStagePairsReachable":len(pairs)-len(missing),"inheritedMissingStagePairs":missing,"stageEdgesUnchanged":True,
+ "otherSkipsMatchOriginal":True,"unchangedNodeObjects":unchanged,
+ "scriptSha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+Path(__file__).with_suffix(".json").write_text(json.dumps(result,indent=2)+"\n")
+print(json.dumps(result,indent=2))
+```
+
+## Complete predecessor handoff (unchanged)
+
 # Codex — codex-a71f92 jet-map continuation of #551
 
 Latest receipt first; the complete predecessor handoff and reproduction

@@ -1,6 +1,8 @@
 # Commutative algebra for deformation theory and patching — part P7
 
-Current continuation by Codex — `codex-5ebb6f`, 2 October 2026 (Section 12): 72 nodes (37 lemmas, sixteen theorems, eight definitions and eleven constructions), 83 API entries, 67 definition/construction tests plus four inherited lemma tests, 92 native examples, thirteen planets, 157 baseline references, fourteen gaps and two unchanged requests. Every stage remains open. The full Mathlib-only suggested file compiled with zero errors, 203 admitted-proof warnings and no other warnings.
+Current continuation by Codex — `codex-rtOQ9t`, 2 October 2026: 89 nodes (47 lemmas, sixteen theorems, eight definitions and eighteen constructions), 108 API items, 89 definition/construction tests plus seven lemma tests, 119 native examples, thirteen planets, 202 baseline references, fifteen gaps and two unchanged requests. All eight stages remain open and all implementations unchecked. The total-jet section gives four new declarations and imports the built double-quotient and surjective scalar length comparisons.
+
+Historical module continuation by Codex — `codex-5ebb6f`, 2 October 2026 (Section 12): 72 nodes (37 lemmas, sixteen theorems, eight definitions and eleven constructions), 83 API entries, 67 definition/construction tests plus four inherited lemma tests, 92 native examples, thirteen planets, 157 baseline references, fourteen gaps and two unchanged requests. Every stage remains open. The full Mathlib-only suggested file compiled with zero errors, 203 admitted-proof warnings and no other warnings.
 
 Historical ring continuation by Codex — `codex-J6LwjP`, 2 October 2026 (Section 11): 61 nodes (32 lemmas, fourteen theorems, eight definitions and seven constructions), 69 API entries, 55 definition/construction tests plus four inherited lemma tests, thirteen planets, 140 baseline references, fourteen gaps and two requests. All stages remain open. The current full suggested file compiled with zero errors and only admitted-proof warnings; earlier no-compilation statements below are dated history.
 
@@ -2543,3 +2545,76 @@ This is not a check of every accepted declaration graph. Fresh preflight
 confirmed all four target blobs and binding instructions/owner inputs were
 unchanged since the initial read base; no unrelated contribution is
 overwritten.
+
+
+## Total-degree jets and their actual monomial coordinates — codex-rtOQ9t
+
+For a finite variable set σ and any commutative coefficient ring k, put
+R=k[[X_i]], v=span{X_i} in R and p=idealOfVars in k[X_i]. These are algebraic
+ideals in the native rings. Over an arbitrary k, v is not asserted to be a
+maximal ideal. The cutoff r means total degree strictly below r. Hilbert–Samuel
+index N uses r=N+1, so the surface jet count is binom(N+2,2).
+
+The built `MvPowerSeries.truncTotalAlgHom` maps R into k[X_i]/p^r and is an
+algebra map over k[X_i]. `truncTotal` into the entire polynomial ring is a
+linear map; multiplication is preserved after the ideal quotient.
+
+| Declaration | Exact new contract |
+| --- | --- |
+| `truncTotalAlgHom_ker` | Its actual kernel is v^r, including r=0, zero series and empty σ. |
+| `totalJetEquiv` | The induced k-algebra equivalence R/v^r ≃ k[X_i]/p^r sends [g] to [truncTotal(r,g)] and sends a polynomial class back to its native series class. |
+| `totalJetBasis` | The basis is indexed by exponent vectors of total degree less than r, its vectors are the actual monomial classes and its representation coefficients are the coefficients of a representative series. |
+| `planeTotalJet_finrank` | For any field k and two variables, finrank_k(R/v^r)=binom(r+1,2), for every r≥0. |
+
+The kernel proof reads coefficients of degree below r using the built
+polynomial ideal-power criterion and then the preceding native order/variable
+ideal adapter. Polynomial representatives prove surjectivity, so the native
+algebra first isomorphism theorem supplies the equivalence. The inverse is
+polynomial inclusion; no completeness or characteristic hypothesis is added.
+
+For the basis, the built finite set of low-degree exponent vectors supplies
+finitely supported coordinates. A tuple maps to its finite monomial sum.
+Taking low coefficients of a series is well-defined modulo v^r. Both composites
+are identities: coefficients recover the tuple, while subtracting the finite
+sum leaves a series in v^r. Transport the native `Finsupp.basisSingleOne`
+through this coordinate equivalence. The APIs give basis-vector values,
+representation coefficients and native k-module finiteness. For two variables,
+degree t has t+1 exponent pairs; summing t=0,…,r−1 gives binom(r+1,2).
+The built `Module.length_eq_finrank` then gives this same finite **k-length**.
+
+The construction tests require the zero ring quotient and empty basis at r=0;
+at r=1 the constant class survives and each variable dies. At r=2, X_0X_1
+vanishes, whereas inclusive rectangular truncation with bound (1,1) retains it.
+At r=3 over F₂, its class survives and X_0³ vanishes, giving field length six.
+At r=1 over Z/4, the coordinate 2 and its constant class are nonzero. Thus the
+basis cannot require a coefficient domain, and it cannot omit mixed monomials.
+All six API items and all seven new packet tests have native suggested
+signatures; all proposed bodies are admitted.
+
+**Built quotient and scalar comparisons.** If I=(f), A=R/I and n=map(v),
+the native `Ideal.map_pow` and `DoubleQuot.quotQuotEquivQuotSupₐ` already give
+A/n^r ≃ R/(I+v^r), as R-algebras. The native surjectivity of R→A and
+`Module.length_eq_of_surjective` give length_R(A/n^r)=length_A(A/n^r).
+These generic declarations receive baseline citations, rather than new nodes.
+Separate checked native applications use only the usual kernel axioms;
+their immutable experiment receipt is linked in the handoff. The two final
+acceptance signatures are admitted like the other proposed tests.
+
+**Dependencies and acceptance.** These declarations realise R03.3 and use its
+existing variable-ideal-power/order node. They support the shifted jet sequence
+and the general Hilbert–Samuel owner; they add no stage edge. Accepted RS-08
+continues to assign general local algebra to R03.3 and completion/regularity
+comparisons to ModularCurves 4D. The generic perfect-complex, Milnor and other
+paper suppliers retain their existing owners and unread obligations.
+
+**Remaining proof boundary.** The k-length calculation does not identify
+R-module length with k-dimension: k→R is not surjective. Prove that comparison
+for finite R-modules killed by v^r using the finite v-filtration and the actual
+residue-field scalar action, then combine the built A-scalar and quotient
+comparisons with the shifted sequence. The all-index curve lengths, full
+tangent-cone kernel, dimension and general intrinsic/ambient multiplicity
+comparison remain required. The reserved Hilbert–Samuel definition retains
+its general finite-module scope and exact ID. The assembler graph is acyclic
+with unchanged stage edges and no skipped links for this roadmap; the inherited
+LocalFields layer-0 → R03.4 supplier path is absent in the assembled stage graph
+and remains a request, as recorded in the handoff.
