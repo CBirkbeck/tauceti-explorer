@@ -6414,10 +6414,148 @@ Native baseline statements read for this continuation:
 - mathlib:CategoryTheory.Over.homMk — An actual over-category arrow from its base arrow and triangle equation, used at common test objects of the sieve. Source: Mathlib/CategoryTheory/Comma/Over/Basic.lean.
 - mathlib:CategoryTheory.Functor.FullyFaithful.preimageIso — Lifts an actual isomorphism through a fully faithful functor by lifting both hom and inverse, with their identities proved by faithfulness. Source: Mathlib/CategoryTheory/Functor/FullyFaithful.lean.
 
-## Validation boundary for this continuation
+## Predecessor PR #5818 validation boundary
 
 The [separate native proof prototype](https://github.com/CBirkbeck/tauceti-explorer/blob/f0bb4f284aefaffe97578454ecf9a0588472103e/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean) contains proofs of nine new declarations and six new examples. Its narrow Mathlib-only extraction checks with zero errors, two unrelated inherited admission warnings, no other warnings and eleven kernel axiom audits without admission dependencies. Those audits include the two promoted existing compatibility/projection declarations. This is evidence for the specified component descent, not a completed proof of the central-section sheaf theorem.
 
 Under PROTOCOL §13 the submitted suggested file retains admitted bodies for all nine new declarations and six new examples. Its distinct complete intrinsic-band extraction checks with 32 examples, zero errors, 24 admitted-proof warnings and no other warnings. The earlier module/cohomology blocks and exact TauCeti cohomology import were excluded; the full suggested file is uncompiled. Exact source/log hashes and reproduction boundaries are in the packet continuation receipt and handoff.
 
 The packet has 144 nodes, 164 total API items, 157 total tests, 91 baseline declarations and ten planets. Definition/construction counts are 159 API items and 151 tests. All 138 inherited statements and 137 complete inherited node objects are preserved. The actual own-roadmap declaration DAG and transitive stage/declaration graph are acyclic, without unresolved references, pending links or skipped links for this packet. Four coverage rows remain partial, four not_read; nine gaps and 21 requests remain open.
+
+
+## Cover-family fibre-centre continuation — Codex codex-rtOQ9t
+
+This checkpoint adds four declaration leaves. A matching family on a covering sieve of a prestack now gives automorphisms natural in every fibre morphism, hence an actual unit of the fibre’s categorical centre. The construction retains its inverse. It works with empty and disconnected fibres, without gerbe, groupoid or abelian-inertia assumptions. It constructs one fibre-centre unit; the arbitrary-base compatibility needed for a global compatible central section remains open.
+
+The eight current library-audit rows, all 144 predecessor statements, the accepted RS-27 layer decisions and the confirmed area-finding claims/fixes were read. The audit’s partial/not-read boundaries are retained. D0 supplies generic prestacks/descent/stackification; SF1 supplies ordinary spaces/sites/diagonals. The gerbe reserved key, coherent-duality supplier, stable-curve supplier, 68 source routes and 21 requests are unchanged. No geometric point-site or root-gerbe fixture is newly instantiated.
+
+### Naturality of descended central automorphisms
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-naturality. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut_naturality.
+
+Statement: For a covering sieve R on U, a prestack F and a matching family z_i in ZF(V_i) on the native arrow category of R, every fibre morphism f:x→y obeys f≫coverAut(R,z,y).hom=coverAut(R,z,x).hom≫f. Quantify over all objects and all arrows; no gerbe, groupoid or abelian-inertia hypothesis is required.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism
+- mathlib:CategoryTheory.Pseudofunctor.DescentData.hom_ext
+- mathlib:CategoryTheory.Functor.FullyFaithful.map_injective
+- mathlib:CategoryTheory.CatCenter.naturality
+
+Proof outline:
+
+1. Apply the existing fully faithful toDescentData functor to the two composites and use its map_injective.
+2. Use native descent hom_ext to reduce to an arbitrary covering arrow i. Functor.map_comp and coverAut_map_hom identify the two composites with the two sides of naturality of the actual central unit z_i at the morphism F(i)(f).
+3. This detects naturality of the hom. NatIso.ofComponents supplies inverse naturality from the existing inverse identities.
+
+Acceptance: No selected representative object or connecting isomorphism replaces the universal quantifiers. This compares morphisms within F(U); arbitrary base restriction requires a separate proof.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) and [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F). The native proof is a derived completion for the inherited carrier, not an argument printed in the source’s omitted step.
+
+### Descending inverses of central families
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-inverse. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverAut_inv.
+
+Statement: Under the same covering/prestack and matching hypotheses, descending the pointwise inverse family z_i⁻¹ gives coverAut(R,z,x)⁻¹ for every x over U. The inverse family is matching because the existing reindexing homomorphisms preserve inverses.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique
+
+Proof outline:
+
+1. Map the original descended isomorphism along each covering arrow and use Iso.ext with coverAut_map_hom.
+2. Take Iso.inv of this equality. Evaluation is an existing monoid homomorphism, so map_inv identifies the required component of the inverse matching family.
+3. Invoke coverAut_unique and reverse the equality. Retain the existing reversed categorical multiplication convention.
+
+Acceptance: Both arrows are actual native automorphisms; no assertion of invertibility replaces the inverse.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) and [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F). The native proof is a derived completion for the inherited carrier, not an argument printed in the source’s omitted step.
+
+### Fibre-centre unit descended from a central family
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center. construction. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverCenter.
+
+Statement: For any covering sieve R on U, prestack F and matching family z_i∈ZF(V_i), construct c_R(z)∈units(CatCenter(F(U))). Its hom component at every x is coverAut(R,z,x).hom and its inverse component is coverAut(R,z,x).inv. The output is an actual invertible natural endomorphism of the identity functor of F(U), including empty and disconnected fibres.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-naturality
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-inverse
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism
+- mathlib:CategoryTheory.NatIso.ofComponents
+- mathlib:CategoryTheory.Aut.unitsEndEquivAut
+
+Proof outline:
+
+1. Use the preceding naturality lemma and the objectwise descended automorphisms in the native NatIso.ofComponents constructor for the identity functor.
+2. Apply the inverse of the existing unitsEndEquivAut multiplicative equivalence at that identity functor. Since CatCenter is its native endomorphism monoid, this yields the required centre unit without a new carrier.
+3. The native constructors give exact hom/inverse component formulae. Existing coverAut component/identity/inverse results give the component restriction, identity and inverse APIs.
+4. Identify the centre unit of restrictions of an existing s∈ZF(U) by its pullback components at every x; the result is precisely s(U,id), not yet the entire section s.
+
+Acceptance: This constructs one fibre-centre unit, not a global IntrinsicBandSection over all V→U. For an empty F(U), the centre unit is identity; this does not imply ZF(U) is trivial, since other fibres in the slice may be nonempty. The construction and uniqueness do not require connectedness of F(U).
+
+Used by AlgebraicModuliForArithmeticGeometry:R09.4/band-center-sheaf: Supplies the fibre-centre unit at each pulled-back covering sieve; compatibility under arbitrary base arrows remains a required input.
+
+Used by AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center-unique: The actual local components characterize this unit at all objects.
+
+API:
+
+- IntrinsicBandSections.coverCenter_app_hom (projection): The hom component at x is exactly coverAut(R,z,x).hom.
+- IntrinsicBandSections.coverCenter_app_inv (projection): The inverse component at x is exactly coverAut(R,z,x).inv.
+- IntrinsicBandSections.coverCenter_map_hom (compatibility): For every covering arrow i and x over U, F(i) maps c_R(z).val.app(x) to z_i(V_i,id).val.app(F(i)(x)).
+- IntrinsicBandSections.coverCenter_one (simp): The identity matching family gives the identity centre unit.
+- IntrinsicBandSections.coverCenter_inv (compatibility): The centre unit of the pointwise inverse matching family equals the inverse of the original centre unit.
+- IntrinsicBandSections.coverCenter_unique (characterisation): Any centre unit with the prescribed pullback hom components at every x and i equals c_R(z).
+- IntrinsicBandSections.coverCenter_existing (compatibility): For z_i=r_i(s) with s∈ZF(U), c_R(z)=s(U,id), using the exact native reindexing triangle identities.
+
+Tests:
+
+- BandCenterCoverTests.center_one (degenerate): On any covering sieve of a prestack, the identity local sections give the identity centre unit.
+- BandCenterCoverTests.center_inverse (compatibility): On any covering sieve, the actual centre unit constructed from inverse local sections is the inverse of the original unit.
+- BandCenterCoverTests.center_existing (compatibility): The matching restrictions of an existing central section recover exactly its fibre-centre component at (U,id), retaining the section instead of replacing it by an unspecified class.
+- BandCenterCoverTests.center_empty_fibre (degenerate): If the actual fibre F(U) is empty, the descended centre unit is identity for any matching local family. The cover need not be empty, and no conclusion about all central sections on C/U follows.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) and [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F). The native proof is a derived completion for the inherited carrier, not an argument printed in the source’s omitted step.
+
+### Uniqueness of a descended fibre-centre unit
+
+Declaration: AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center-unique. lemma. Native name: TauCeti.AlgebraicGeometry.IntrinsicBandSections.coverCenter_unique.
+
+Statement: For a covering sieve R of a prestack F and matching family z_i, a∈units(CatCenter(F(U))) equals c_R(z) if F(i)(a.val.app(x))=z_i(V_i,id).val.app(F(i)(x)) for every object x over U and every arrow i of R. Agreement at a single object is insufficient without additional connectedness hypotheses.
+
+Hypotheses: C is a small category with a fixed Grothendieck topology J, and F is the existing Cat-valued pseudofunctor. All indexed families have fixed sufficiently large universes. Additional prestack or covering assumptions are imposed only where stated.
+
+Prerequisites:
+
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-center
+- AlgebraicModuliForArithmeticGeometry:R09.4/band-center-cover-automorphism-unique
+- mathlib:CategoryTheory.Aut.unitsEndEquivAut
+- mathlib:CategoryTheory.CatCenter.ext
+
+Proof outline:
+
+1. Apply Units.ext, then the native CatCenter.ext over every x.
+2. Evaluate a through the native unitsEndEquivAut at the identity functor. Its component at x is an actual automorphism with precisely the assumed local hom components.
+3. Apply coverAut_unique at x and take Iso.hom to obtain the required equality.
+
+Acceptance: No gerbe or local-connectedness assumption is used or silently inferred.
+
+Sources: [Stacks Lemma 8.11.8](https://stacks.math.columbia.edu/tag/06NY) and [Definition 8.4.1](https://stacks.math.columbia.edu/tag/026F). The native proof is a derived completion for the inherited carrier, not an argument printed in the source’s omitted step.
+
+### Verification and remaining proof boundary
+
+The [immutable new proof block](https://github.com/CBirkbeck/tauceti-explorer/blob/61239b522c3a1eb4f4bc646f6b144aaa0d2b3ae7/research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--A0-extension.lean) and the predecessor’s actual cover proofs are combined by the reproducible handoff recipe. The narrow extraction has eleven examples, zero errors, two unused inherited admission warnings and no other warnings. All ten new kernel audits use only propext, Classical.choice and Quot.sound, with no admission dependency. This establishes the stated fibre-morphism naturality, exact centre-unit components, inverse, identity, uniqueness and existing-section agreement.
+
+The submitted new signatures and four examples have admitted bodies under PROTOCOL §13. Their separate 932-line Mathlib-only extraction has 36 examples, zero errors, 38 admission warnings and no other warnings. The full suggested file is uncompiled because the exact pinned TauCeti cohomology artifact is unavailable. Neither extraction proves the general sheaf theorem or the arbitrary-base restriction transports.
+
+The next proof is compatibility under every g:W→V of the centre units obtained on pullback sieves, checked on common covering refinements with native mapId/mapComp transports. Only then assemble a family in ZF(U) and use separatedness for uniqueness. Evaluation surjectivity, the locally glued inverse and SF1 slice comparison, connected/disconnected point-site fixtures, the restriction-chain site and nonneutral O(1) root gerbes remain open. The other eight gaps, all 21 requests, broader papers and all stage closures also remain open.
+
+Actual read-only atlas validation passes: 148 declarations, ten planets, all 24 scope/supplier stage paths reachable, stage/own/combined DAGs acyclic, no roadmap skipped links and unchanged other roadmap skips. All 144 earlier statements and 143 complete node objects are preserved; the central-section sheaf proof outline now imports the new fibre-centre leaves. Indexed packet and intake policy checks pass. Reproducible extraction/projection recipes and hashes are in the current handoff.
