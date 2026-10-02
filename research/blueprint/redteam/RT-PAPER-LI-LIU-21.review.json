@@ -1,0 +1,255 @@
+{
+  "redteam": "RT-PAPER-LI-LIU-21",
+  "findings": [
+    {
+      "finding": "RT-PAPER-LI-LIU-21/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a dependency defect in the proposed routes, not an existing assembled-stage cycle. Item 81 is an application using AIPF Definitions 6.2/6.8, Hypothesis 6.6, Proposition 6.9 and Corollary B.15; putting it in the supplier imported by AIPF reverses the dependency. Keep Lemma 7.3 in AIPF. Import generic Igusa geometry from IG.0–IG.1, CS17/117 (Corollary 6.1.4) from IG.4, and CS17/108 (Theorem 5.5.7) from the accepted compact-unitary Part II. Item 78 must distinguish these two suppliers; IG.5's current rational trace/genericity theorem is not the compact theorem."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Definition 4.1 supplies the generic cycles compared in Lemma 5.4; Definitions 6.5 and B.9 supply interfaces used by item 43. Routing these prerequisites downstream while importing 42–43 upstream makes the proposed construction circular. LZ22B/105–106 and /109 already assign global KR cycles and closures to UnitaryKudlaRapoportCycles. Use that owner for generic cycles and their model extensions; retain the AIPF comparison/application downstream. Alternatively explicitly separate a generic KR supplier from AIPF-specific bridges. A reference to a consumer's notation is not itself a cycle; the defect is requiring its construction as supplier input."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Proposition 3.6(1) is multiplicity one for the doubling principal series, (2) characterizes the hermitian space by the normalized doubling functional, and (3) is theta irreducibility/nonvanishing. Item 17 bundles all three under MP.3. Split them, assign generic doubling multiplicity one to the existing doubling Part II, and leave source-qualified theta theory with MP.3. The doubling-to-theta dichotomy bridge follows both suppliers; do not introduce a reciprocal import between their unsplit stages."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed against EHLS20 route 1 and CFK24 route 1, which designate the same AutomorphicLFunctionsAndLocalFactorsPartIIDoubling and explicitly retain only the EHLS-specific application at L4. Generic good sections, local doubling integrals, their functional, convergence and L-factor theory have that owner. Split item 16's generic local/archimedean factors from Li–Liu's global CM-field and normalization bookkeeping; not every clause of that item needs to move. MP.3 supplies Weil/Siegel–Weil sections, and the doubling owner supplies the analytic doubling method. Update the sibling LL22/DL24 imports without creating another general construction."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed after reading Definitions 4.1/4.8/6.11 and Lemma 5.2, including their rendered formulas. For a sufficiently small neat L′ with −1 absent, L={±1}L′ gives the same coarse Shimura variety, twice the volume, and half the orbit-sum theta cycle for an L-invariant test function. Thus the volume-normalized quadratic height differs by a factor two, and the claimed arbitrary-level pullback compatibility and fine representability are unavailable. E19's affects-nothing verdict is inadequate. Restrict the cycle colimit, model and height statements and their projection/degree arguments to a cofinal neat tower. DL24 Remark 4.51 itself states neat-level compatibility. This does not refute the theorem with the corrected neat-level convention."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. In Lemma 8.2, p may have another inert place in S; the characteristic function of its almost self-dual lattice is not invariant under the Weyl element in K_r, since Fourier transform has support on the dual lattice. At a split place of R\\R′ above p the test function is arbitrary and is also discarded by the displayed definition of the new function. The reduction therefore lacks the invariance it uses. Preserve all affected Weil-transformed local components; the almost self-dual case additionally needs a proved replacement reduction or an appropriately restricted theorem. Merely inserting an assertion of invariance, or fixing only the split-place omission, does not close the gap."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a proof gap, with the proposed repair still conditional. Final pp.48/51 replace the full KM theta/Eisenstein derivative by a sum over totally positive T1. Proposition 3.10 allows Diff={u} at an archimedean place with an indefinite block T1; Remark 3.12 addresses totally positive full matrices only. Liu11 Theorems 4.17/4.20 cover nonsingular indefinite matrices and empty-cycle Green functions, so these terms cannot simply be omitted before averaging over a non-product fundamental domain. Regularity of a paired 2r-tuple does not imply regularity of its r-subtuple. For globally degenerate Gram matrices the other definite real place and joint regular support supply a different vanishing argument. Record the missing negative-index/Green-form comparison; extending the summation in (10.1) requires proving that extension and its convergence, not treating the new formula as an established correction."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. E10 incorrectly transports DL24 Remark 4.50's cycle-eigencharacter correction into the test-function calculation of Lemma 11.1(1). The latter change of variables gives sum c_k times conjugate(phi(g h_k^{-1})); unitarity/adjointness yields chi_pi(t), not coefficient conjugation of chi_pi(t) or a blanket chi_pi-dual(t) substitution. Retain the published DL correction for cycle actions, distinguish inversion, adjoint and coefficient conjugation, and prove the dictionary connecting them. The red team's further inference that Lemma 4.4 alone changes the corrected cycle eigenvalue back to chi_pi is not established. The normalizations and the operator killing a cycle must carry the appropriate character, with nonvanishing proved. Lemma 7.3 also needs its conjugate-ideal version and the intermediate localized generic-fibre vanishing over K, not just the existential statement of Proposition 6.9(2)."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed. CS24 route 4 already supplies EtaleDualityAbsolutePurityPartII, with absolute cohomological purity and the regular arithmetic-scheme cycle-class application. EDC.2 explicitly limits itself to smooth relative purity. SF.2 is therefore not a second owner for item 79. Import the accepted absolute-purity supplier and update the report and AIPF dependencies; keep the separate Hochschild–Serre bridge distinct."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 64's note and route 1 brief themselves say to define the local index at SelmerComplexesAndPadicHeights, while routing it to AIPF; DL24 route 2/item 47 supplies the shared construction. Establish one Appendix-B local-index interface there, including Lemma B.3 with the correction in /29. AIPF may retain its global weighted sum, its model/intersection comparisons and B.4 application. LL22 and the separate p-adic AIPF sibling must import the same interface. Moving every model-specific part of Appendix B upstream is not necessary."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LIUETAL22's cited-local-euler-characteristic already identifies the pure weight −1 vanishing at SelmerIwasawaCohomology L1 and its cite-nekovar-4-2-2 gives the shared source. Item 84 duplicates that result and fails to identify Nek07b bibliographically. Record the weight −1 statement and its local Tate-duality/Euler-characteristic proof as an import, with the coefficient/residue primes distinct. Do not generalize it to arbitrary nonzero pure weight: Q_l(1), of weight −2, has a nonzero H2, so that shorthand is not the theorem used here."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Route 3 lacks the named imports required by Protocol §16. Its formal supported K-intersection construction is already assigned to FormalSupportedIntersections by Zhang21 route 10, while ordinary regular-scheme supported K0 products/filtrations belong to S.6/S.7, and moduli inputs come from route 2's supplier. Name these titles/ids, state the comparison interface, and import the formal K classes rather than silently rebuilding Zhang Appendix B inside KR cycles."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LZ22B/112 and /114 already supply KM forms, Green functions and Liu11's archimedean comparison in UnitaryKudlaRapoportCycles; item 61 and AIPF's construct wording create a second owner. Import the generic comparison there and retain AIPF's averaging/harmonic-current argument locally. Propagate the corrected Weil-index product sign. The correct locator for Li–Liu's footnote 20 in the inspected final PDF is p.46, not pp.47–48. This ownership correction does not by itself solve /7."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/14",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an excessive/incorrect supplier choice for this degree-zero input. Item 76 uses supported K0 Chern classes and agreement with refined cycle classes, not higher regulators or Quillen–Lichtenbaum. Import K0/support operations from S.6/S.7 and extend EDC.3's cycle-class interface to regular arithmetic schemes through the absolute-purity Part II. Do not claim that EDC.3's existing smooth-over-field description already proves this extension. Fresh assembly has 336 ancestors for M.8 and 86 for EDC.3; the red team's old numerical counts are not current and are not evidence for the mathematics."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/15",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an ambiguity to fix in the unsplit route instruction, not proof of an unavoidable or present graph cycle. MC.7's typed conjecture statement is a supplier for the AIPF instance, whereas importing AIPF's theorem proofs into that same unsplit supplier reverses the edge. Export the conditional cases from AIPF and let the register refer to them without a reverse proof import, as proposed. A separate theorem-register suffix downstream of AIPF would also be valid. The independent statements and the register must not be conflated in the design dependency graph."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/16",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The main paper p.17 invokes Liu11 p.869 to pass from the derivative of the doubling integral to L′ times normalized local factors. I read the original formula (2-9) on printed p.869: the vanishing of the central L-value removes the derivative-of-local-factors term. A prerequisite citation and construction-only item 14 do not record this key theorem under §16. Add the unfolding/derivative identity with its vanishing premise and compatible measures, using the shared doubling owner; its local normalized integrals are not all required to equal one."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/17",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Final pp.16–17 explicitly invoke Eischen–Liu's archimedean computation, Yamana's unramified computation and Liu's almost-unramified value/nonvanishing. Their outputs inside items 17–18 are not separate cited-result records. Add source-qualified items with the relevant local hypotheses and route the generic doubling evaluations through the shared doubling owner, importing the almost-unramified theta/local representation input at its existing owner. Preserve exactly the constants and chosen local measures used in the AIPF application."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/18",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The final source restricts these Hasse-invariant/new-vector statements to finite places in p.5, (H5), (G8) and Assumption 3.1(2); items 3/9/11/15 lose that restriction. At a real place of a positive definite rank 2r space, epsilon=(-1)^r, which gives the stated r=1 counterexample. Restore the finite-place quantifiers and record §11's analogous missing qualifier as a source misprint. The archimedean lowest-weight condition remains a separate input."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/19",
+      "verdict": "confirmed",
+      "reason": "Confirmed under Protocol §16's explicit requirement for a design brief. Route 1 names Theorems 1.5/1.7 and Corollary 1.9 but does not state their conclusions or their theorem-specific assumptions. Full statements elsewhere in extraction items 4–6 do not make this standalone brief exact, and its accepted review overstates what is in it. Add the localized nonvanishing, conditional height formula/theta occurrence, and new-vector formula with their separate hypotheses, while explicitly marking the convention/proof corrections confirmed here."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/20",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Gan–Ichino18 route 1's fourth component and Ichino–Prasanna23 route 4 assign the reusable Rallis formula, explicitly including unitary groups, to MetaplecticAutomorphicFormsPartIIShimuraWaldspurger. Item 7 is currently a second general construction in AIPF. Import that theorem; retain the exact equal-rank unitary specialization, Tamagawa measure and Li–Liu constants as an AIPF normalization lemma. The coherent vanishing in §11 must cite both this formula and the appropriate local nonvanishing/dichotomy statement."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/21",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The proof of Proposition 3.13, pp.20–21, needs the almost-L2 matrix-coefficient criterion but records it only in a proof sketch. SR.3 explicitly plans matrix-coefficient criteria for temperedness. Add an item with status planned there and import it. In the general formulation it is the absolute value that descends modulo the centre for a unitary central character; a coefficient with nontrivial central character is not literally a scalar function on Z\\G. For the nonsplit unitary group the centre is compact, so the stated integrability on G is compatible with this distinction."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/22",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an omitted cited input. Remark 1.4(1), pp.4–5, invokes Schmid's Theorem 1.3 to identify the Harish-Chandra-parameter condition with the specified K-type, connecting Assumptions 1.3 and 3.1. Add that equivalence with its uniqueness/parameter hypotheses and identify Schmid bibliographically. Import the existing EHLS/doubling holomorphic-discrete-series and minimal-K-type machinery, recording any exact comparison not supplied there as an extension; do not start an independent general discrete-series construction in AIPF."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/23",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Lemma 3.15, p.22, uses Matsushima and Borel–Wallach II.5.4; Proposition 6.9 uses Matsushima again. CS17/158 and current AS.4–AS.5/ALS.5 already plan the compact-quotient/cohomology comparison, so the proposed fix's alternative missing Matsushima status is inappropriate. Add a planned import for that formula. Separate the source-qualified one-dimensional middle-degree cohomology of all the cohomological U(n−1,1) discrete series needed here; a holomorphic-only EHLS statement does not cover every member. Any unplanned extension belongs with the existing relative Lie algebra/cohomology supplier."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/24",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Proposition 8.1 permits p=l but Lemma 8.3/B.13 concern coefficients invertible on the special fibre. Definition 6.3 instead directs this case through Remark B.11. Restrict the model-cohomology assertion to l′≠p and compute the index via an auxiliary coefficient prime, proving null-homology and tempering there for the actual correspondences. E13's (S^R)^0 factor and the geometric comparison supply the route to that proof; they do not license applying B.13 with p=l. Record the auxiliary-prime step as a proof gap until supplied."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/25",
+      "verdict": "confirmed",
+      "reason": "Confirmed as overlap requiring explicit reuse. LZ22B/36,/38,/42,/94,/105–106 already assign the smooth/semistable models, Drinfeld-level modifications, integral cycles and local arithmetic Siegel–Weil theorem to the same RSZ-moduli/KR suppliers. Multiple papers may be sources for one shared construction; the problem is these briefs repeatedly instruct their designers to construct it without identifying that shared API. Replace those commands with imports and precisely scoped Li–Liu specializations, including base-change and normalization bridges that the earlier source does not automatically supply."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/26",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Ramakrishnan's Theorem A is used in Propositions 6.9, Lemmas 7.3/9.2 without its own item, and BPLZZ21/56 records the same missing shared theorem. I read Theorem A and its tower hypothesis in the primary preprint. Degree-one places mean residue degree one over the base F, not absolute degree one over Q; a CM quadratic extension satisfies the stated normal-tower hypothesis. Add an exact source-qualified item and choose one strong-multiplicity-one owner, shared with BPLZZ21 (AL.3 is the natural analytic supplier), rather than alternating between AL.3 and ML.4. The pinned classical-newform theorem does not prove this GL_n assertion."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/27",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Notation (H9), Definition 4.1 and the p.40 orbit reindexing use existence/classification of a global hermitian space and Witt extension/transitivity. GN.2 already plans the relevant hermitian Hasse principle, as also routed in Zhang21/173. Add planned input items with the compatible local signatures/invariants and embedding hypotheses and import them. Do not treat the nearby coherent space or the single global orbit as a definition that removes these theorems."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/28",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Proposition 4.7, through (4.2), needs finite-dimensional holomorphic hermitian modular-form spaces to turn modularity into a finite Chow-valued expression. The finiteness assertion inside item 33 needs a separate input/status. AF.2 and BPLZZ21/33 supply the general finiteness direction. State the level, weight, holomorphy and cusp-growth/Koecher conditions needed for this holomorphic space; it can contain Eisenstein forms, so a cusp-form-only finiteness theorem is not an adequate replacement."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/29",
+      "verdict": "confirmed",
+      "reason": "Confirmed: with the canonical boundary-map normalization, restriction under K′/K scales the local index by e(K′/K). The right-hand equality in Lemma B.3's rendered diagram is false for ramified extension. DL24 Remark A.6 specifies that a uniformizer maps to −1, so the red team's +1 Kummer example must be sign-corrected; the scaling counterexample remains −1 versus −e, up to the cycle order convention. All identified uses take unramified extensions, so record a false overgeneral statement without claiming the main theorem fails from this alone. Correct item 64 and the shared local-index API to the e-scaling law."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/30",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a precise version correction. The paper cites LTXZZ arXiv v2, while the prerequisite names the published article. Reading v2 and v3 shows v2 Proposition 5.5.4 becomes v3 Proposition 5.6.4; v2 Lemma C.2.3 becomes v3 Lemma C.2.2. V3 Lemma C.2.4 is the different inner-form statement (v2 C.2.5), so it is not a blanket replacement for v2 C.2.3. Add the exact type/completion statements and the monodromy-compatible local–global theorem used in Lemma 9.2, importing LIUETAL22's existing unitary-type supplier and the automorphic-Galois supplier. Identify versions explicitly; the separate Ramakrishnan input is /26. I did not inspect the typeset Inventiones PDF."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/31",
+      "verdict": "confirmed",
+      "reason": "Confirmed. LTXZZ and CS17 have accepted extractions LIUETAL22 and CARAIANI-SCHOLZE17; the cited compact inputs are already individually routed there. The report nevertheless lists them as uncovered prerequisites. Replace the prospective extraction request with links to those covered sources and identify the v2/v3 locator mapping. A covered paper may still require a new exact theorem/application, but that is a scoped supplement, not a second whole-paper intake request."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/32",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three briefs need imported roadmap titles as well as ids, and route 3 needs the actual import list discussed in /12. Final footnote 18 requires K/E_u unramified, and footnote 19 relaxes conditions on both the place and the level at p; the route 2 paraphrase drops these qualifiers. Name the source-qualified model inputs and the exact base-change/level hypotheses, incorporating /1's corrected Igusa supplier rather than retaining the circular Lemma 7.3 import."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/33",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Current LPV.7 is an aggregate requiring both the semistable prefix and weight-dependent invariant-cycle suffix. Its semistable-curves substage explicitly covers the source-qualified higher-dimensional nearby-cycle/weight spectral sequence construction independently of DWP.7–8. Item 74 should import that precise construction, and record separately the E2-degeneration/weight assertion it uses. A constructed spectral sequence alone does not prove degeneration or general mixed-characteristic weight–monodromy."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/34",
+      "verdict": "confirmed",
+      "reason": "Confirmed as inconsistent coverage/status bookkeeping, with the proposed justification corrected. The compared records really use different statuses for the same supported-K0 and Hochschild–Serre inputs. S.7/gamma-in-coniveau is not GS87's rational multiplicativity on regular arithmetic schemes; retain that missing extension. But its part (a) covers all noetherian schemes, and p-adic/finite fields are fields, so the red team's all-field-scope argument does not justify both statuses. For item 72 the precise gap is the etale-to-continuous-Galois cohomology bridge, not an exclusion of local fields. Reconcile each statement against its actual supplier and add any missing bridge once; do not mechanically change every compared item to missing."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/35",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Route 2 contains items 35–41 and 85, hence eight, whereas the report says seven. Its existing/missing owner account also omits the accepted doubling, absolute-purity, compact-Igusa, Selmer-height and formal-intersection suppliers. Update the report to the corrected route/item counts and the one-owner imports decided above; do not preserve the old missingness summary after changing the JSON."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/36",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Section 3 uses the regularity of the Eisenstein family on the imaginary line to define its central value/derivative, and later formulas repeatedly use the local Whittaker integral (3.3). Item 14 omits the regularity statement and item 19 refers to the Whittaker definition only by number. Record both as explicit source-qualified items at the analytic doubling supplier, retaining parameter/section/measure hypotheses and the actual integral formula rather than planning a second Eisenstein theory in AIPF."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/37",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Taking m=n+1 and T=identity gives rank(T)>dim(V), so no local representation exists at any place; Diff is then all places, contradicting the asserted finiteness and exclusion of split places. Restrict the recorded (H4) finiteness assertion to the m≤n scope used here and record the source overgeneralization. The red team's broader rank(T)≤n extension needs a separately proved statement for degenerate Gram matrices and is not adopted automatically."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/38",
+      "verdict": "confirmed",
+      "reason": "Confirmed. (H5) requires nonempty R but Corollary 1.9 uses Lambda^empty and V_pi^[r]empty; Proposition 3.7 permits this specialization. Allow the empty set in the lattice/new-vector notation where its other hypotheses hold. Retain the separate nonempty R′ hypothesis for Proposition 3.10 and the at-least-two split auxiliary places in Theorem 1.5; an empty-R convention is not permission to drop those later assumptions."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/39",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Rendered final p.11 footnote 5 uses S_pi before pi is introduced, where the invariant-defined S is intended; the torsor is a direct sum of mu2 factors indexed by the indicated places. P.21 Notation 3.14(3) leaves w unspecified, and the archimedean partition must be tied to the place induced by the embedding. P.19's hermitian-space phrase should be over E, not F. Record these separate notation slips and restore the indexed torsor and place in items 9/24."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/40",
+      "verdict": "rejected",
+      "reason": "Rejected. Proposition 3.6 and its proof are indeed on final p.16 and Proposition 3.7 begins on p.17, but the locator pp.16–17 includes the entire cited statement/proof and does not assert that it ends on p.17. An inclusive locator with one extra page is usable and truthful; Protocol §16 does not require minimal page intervals. Narrowing to p.16 is optional editorial refinement, not an extraction error or a required fix."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/41",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a coefficient-ring notation defect to clarify. In final Lemma 5.2, E is the CM field and the objects, Hom spaces and CM actions are E-linear; its OF-linear wording imports the other references' field notation. State OE-linearity explicitly in item 35 and the source note. Compatibility with the E-linear level structures may already force it for admissible morphisms, so do not infer an additional counterexample to the represented functor merely from this phrase; the substantive representability issue is /5."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/42",
+      "verdict": "confirmed",
+      "reason": "Confirmed as defects in the split-place proof outline. Lemma 7.2 reduces to the untempered individual cycles, though (B.1) and B.10 require the applicable null-homology. Retain the s_i-pullbacks and prove the disjointness/vanishing for their actual Hecke-translated supports. At a split place above p in R′ use its local eta_v, not only eta^p. The final printed intersection/contradiction sentence also has the wrong direction. Item 55 must record this corrected argument rather than asserting B.10 applies to the raw cycles."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/43",
+      "verdict": "confirmed",
+      "reason": "Confirmed from the rendered displays (8.4)–(8.5), p.39. Definition 3.8 defines vol-natural globally; the local input here is the hyperspecial volume vol(L_underlined-u)=1 for the local Siegel–Weil measure. Record the notation correction and retain the chosen Haar normalization in the comparison; this does not change the global normalized-volume factor."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/44",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 48 confuses the bare Definition 6.3 index with its contribution to the global sum (6.1). State the finite contribution as log(q_u) times the local index and the archimedean contribution as twice the local index. This distinction explains the logarithm in Proposition 8.1 and the half in Proposition 10.1, and must appear in the normalization API."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/45",
+      "verdict": "confirmed",
+      "reason": "Confirmed. S is a subset of places of F, while u in Proposition 8.1 is an E-place. The rendered p.36 uses its underlined restriction to F in the condition not-in-S. Correct both item statements to that restriction; the unramified/ramified and residue-cardinality conventions must use the same field distinction."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/46",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The final paper p.34 uses RSZ20 Lemma 8.7 to exclude the relevant split-place special-fibre quasi-isogeny, a main-chain input for local-index vanishing. It is currently buried in item 55 and a prerequisite entry. Add a source-qualified theorem item with the split-place/moduli hypotheses, route it to the existing RSZ-moduli supplier, and import it in the split-place argument. This verifies the omission from the invoking primary source; it does not claim a new proof of RSZ's lemma."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/47",
+      "verdict": "confirmed",
+      "reason": "Confirmed. B.15(2) is applied to the generic fibre over K, whereas the recorded existence statement at E_u does not imply localized arithmetic cohomology vanishes after arbitrary restriction. Run the Proposition 6.9 proof over K: the geometric off-middle localization kills the H0/H2 spectral-sequence terms, and the pure weight −1 representation stays pure on finite restriction, giving H1=0 at l≠p. Include the changed level/Hecke subalgebra and dual-ideal convention needed by Lemma 7.3. Replace the unsupported invocation with this intermediate statement; do not reintroduce E12's false geometric-restriction injectivity."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/48",
+      "verdict": "confirmed",
+      "reason": "Confirmed. On p.52 the vanishing hypothesis is about homologically trivial Chow classes. It does not provide an annihilator for raw Z_T2. Choose the operator for the actual tempered class tilde-s2* Z_T2 in that subgroup, which is the class used by the next displayed pairing, and prove its eigencharacter normalization in the corrected convention of /8. Change item 4's proof note accordingly."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/49",
+      "verdict": "confirmed",
+      "reason": "Confirmed by rendered final pp.46–48/50–51, not merely extracted glyphs. Formula (11.1) erroneously keeps t on the right after expanding t into Hecke translates; the J and averaged-J displays omit the half carried by (10.3)/(10.4); the p.46 absolute-convergence display drops conjugation on the second Schwartz factor; and (11.4) has a stray r. Record the four localized slips. The missing half multiplies a quantity ultimately proved zero, so it does not by itself change that vanishing conclusion. These editorial repairs do not resolve the separate Fourier/Hecke proof gaps."
+    },
+    {
+      "finding": "RT-PAPER-LI-LIU-21/50",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The first normalized-height/global-index display of the joint proof is already on final p.52; item 5/6's proof locator confined to p.53 omits this substantive initial step. Use pp.52–53. Unlike /40, this locator excludes part of the evidence it purports to identify."
+    }
+  ]
+}
