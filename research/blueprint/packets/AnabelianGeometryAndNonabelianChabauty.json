@@ -12,7 +12,7 @@
     "AnabelianGeometryAndNonabelianChabauty:NC.6"
   ],
   "status": "partial",
-  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished. This continuation adds actual nonabelian H¹ inflation and same-normal-subgroup injectivity, with explicit quotient-action continuity and no stage closure. This checkpoint adds actual restriction, inverse-gauge normalization and nonabelian inflation image=neutral restriction fibre with a unique same-N source class; no stage closure is asserted.",
+  "summary": "Partial NC.0/NC.3 continuation: retain the reserved étale K(π,1) interface and all inherited source inventories; add the actual invariant-coset projection, connecting map, initial invariant-group exactness and quotient-level boundary fibres. No stage is closed or implementation claimed. The NC.0 continuation adds the direct finite-étale cohomological criterion, transfer to every finite cover, componentwise finite-étale invariance and two-cover coefficient dévissage with a separate constant-prime-field criterion. These extend the retained constant-coefficient criterion to prime-supported finite coefficients on connected noetherian schemes; the raw-homotopy equivalence retains its separate narrower scope. All stages and supplier proof leaves remain open. The characteristic-zero smooth-curve proof is now split into connected prime-degree covers, degree-two prime and prime-power killing, the geometric all-cover criterion, geometric killing-cover descent and separable-closure invariance. The curve theorem uses this cohomological route rather than raw homotopy. Generic curve, Picard/Kummer and limit interfaces are supplier requests, not completed foundations. The characteristic-zero product theorem retains its public statement and reserved owner, with three explicit finitary proof assemblies for finite positive-degree families, arbitrary product-cover classes and binary geometric closure. This discrete-descent checkpoint integrates the native one-fibre subgroup, compact normal-open killing, normal-coset/invariant-value and same-stage gauge-witness lemmas, plus simultaneous killing of finite varying-coefficient families. Quotient construction, pointed-set inflation/neutral-fibre exactness, colimits and the geometric degree-one dictionary remain open. This continuation completes actual normal-quotient cocycle descent/inflation and their inverse identities, using the already implemented native quotient action on U^N. The general cocycle-level equivalence and exact fixed gauge witnesses need neither compactness nor discreteness. The actual nonabelian H¹ map/injectivity/neutral fibre, finite-quotient transitions/colimits and canonical comparison to TauCeti's additive descent remain unfinished. This continuation adds actual nonabelian H¹ inflation and same-normal-subgroup injectivity, with explicit quotient-action continuity and no stage closure. This checkpoint adds actual restriction, inverse-gauge normalization and nonabelian inflation image=neutral restriction fibre with a unique same-N source class; no stage closure is asserted. Joint continuity of the native fixed-subgroup quotient action is specified for separately continuous multiplication on G. Inflation is packaged as a pointed equivalence with the neutral restriction fibre, without a separate quotient-action continuity input. All 85 previous node objects are preserved, and no stage is closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -681,6 +681,90 @@
         "module": "Mathlib/Topology/Algebra/MulAction.lean",
         "provides": "A subgroup with the native subtype topology inherits joint continuity of the original group action.",
         "checked": "Actual statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-02; exact name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.isOpenQuotientMap_mk",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
+        "provides": "Open quotient projection for any subgroup when multiplication on G is separately continuous, with no closedness requirement.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 55; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsOpenQuotientMap.prodMap",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions/SumProd.lean",
+        "provides": "The product of open quotient maps is an open quotient map.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 647; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsOpenQuotientMap.id",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Maps/OpenQuotient.lean",
+        "provides": "The identity map of any topological space is an open quotient map.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 35; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:IsOpenQuotientMap.continuous_comp_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Maps/OpenQuotient.lean",
+        "provides": "Continuity of a function is equivalent to continuity after precomposition by an open quotient map.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 64; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:continuous_induced_rng",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "Continuity into an induced topology is equivalent to continuity after the inducing function.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 781; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Continuous.smul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/MulAction.lean",
+        "provides": "The action of two continuous functions is continuous under joint ContinuousSMul.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 135; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:continuous_fst",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions/SumProd.lean",
+        "provides": "Native first product projection is continuous.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 68; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:continuous_snd",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions/SumProd.lean",
+        "provides": "Native second product projection is continuous.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 104; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Equiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "Construct a native equivalence with a specified forward map from its bijectivity proof.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 820; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Equiv.apply_symm_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "Applying an equivalence after its inverse recovers each target element.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 248; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Equiv.symm_apply_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "Applying the inverse after an equivalence recovers each source element.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 250; index corroborated. Codex codex-a71f92, 2026-10-02."
+      },
+      {
+        "ref": "mathlib:Equiv.injective",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "Every native equivalence has injective forward map.",
+        "checked": "Complete statement and relevant ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 178; index corroborated. Codex codex-a71f92, 2026-10-02."
       }
     ]
   },
@@ -695,7 +779,8 @@
       "readSections": [
         "Read §1 'Torsor spaces' in full (pp. 2–10): the topologies of Lemmas 1–5, continuous cochains and nonabelian H¹, Proposition 1 (torsors and H¹) with proof, Proposition 2 (representability) with the central-extension claim and its proof, the exact sequence of pointed sets and Proposition 3. §2–§3 not read.",
         "Fresh Codex codex-J6LwjP reading on 2026-10-02: printed pp. 5–10 in full, from Proposition 1 and continuous cocycle/gauge definitions through Propositions 2–3 and subgroup exactness. Earlier pp. 2–4 and later sections were not freshly read. Same arXiv v1 PDF SHA-256 independently verified.",
-        "Codex codex-rtOQ9t, 2026-10-02, actual H¹ inflation continuation: freshly read the complete continuous-cocycle and gauge-orbit definitions on printed p.6 and Proposition1 statement on p.5. Parsed Proposition1 proof was displayed through its end; no new torsor-classification closure or whole-paper reading is claimed. The independently downloaded exact v1 PDF has the retained SHA256. Inflation and same-N reflection are deductions, not a printed numbered Kim result."
+        "Codex codex-rtOQ9t, 2026-10-02, actual H¹ inflation continuation: freshly read the complete continuous-cocycle and gauge-orbit definitions on printed p.6 and Proposition1 statement on p.5. Parsed Proposition1 proof was displayed through its end; no new torsor-classification closure or whole-paper reading is claimed. The independently downloaded exact v1 PDF has the retained SHA256. Inflation and same-N reflection are deductions, not a printed numbered Kim result.",
+        "Codex codex-a71f92, 2026-10-02: exact v1 PDF independently hash-checked; complete selected parsed printed pp.5–7 definitions and Proposition1 proof read. No fresh complete Proposition2 proof, whole-paper read, published collation or Serre reading. Joint continuity and fibre equivalence are authored deductions."
       ]
     },
     {
@@ -5600,6 +5685,218 @@
         "name": "TauCeti.NonabelianCohomology.H1.existsUnique_inflate_of_restrict_eq_one"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Joint continuity of the fixed-subgroup quotient action",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.quotientFixedContinuousSMul",
+      "statement": "The native action (G/N) × U^N → U^N, ([g],u) ↦ g•u, is jointly continuous. Thus the native fixed subgroup with its induced topology has ContinuousSMul for G/N, without a separate quotient-action continuity input.",
+      "hypotheses": [
+        "G is a group with a topology and separately continuous multiplication; in particular every topological group satisfies this assumption.",
+        "U is a group with a topology and a jointly continuous G-action by group automorphisms.",
+        "N is an arbitrary normal subgroup. Use the native quotient topology on G/N and the native topology and quotient action on the fixed subgroup U^N. No compactness, open/closed N, discrete/finite coefficients or commutativity is assumed."
+      ],
+      "prerequisites": [
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:MulAction.coe_quotient_smul_fixedPoints",
+        "mathlib:ContinuousSMul",
+        "mathlib:continuous_subtype_val",
+        "mathlib:Continuous.comp",
+        "mathlib:QuotientGroup.isOpenQuotientMap_mk",
+        "mathlib:IsOpenQuotientMap.prodMap",
+        "mathlib:IsOpenQuotientMap.id",
+        "mathlib:IsOpenQuotientMap.continuous_comp_iff",
+        "mathlib:continuous_induced_rng",
+        "mathlib:Continuous.smul",
+        "mathlib:continuous_fst",
+        "mathlib:continuous_snd"
+      ],
+      "proofSteps": [
+        "QuotientGroup.isOpenQuotientMap_mk and IsOpenQuotientMap.id, followed by IsOpenQuotientMap.prodMap, provide the open quotient map G × U^N → (G/N) × U^N.",
+        "Apply IsOpenQuotientMap.continuous_comp_iff. The native quotient-action coercion law identifies the lifted action included in U with (g,u) ↦ g•u.",
+        "Use continuous_induced_rng for the native subgroup topology. Continuous.smul applied to continuous_fst and continuous_subtype_val composed with continuous_snd proves continuity of this ambient map in both arguments."
+      ],
+      "acceptance": [
+        "N need not be closed; no Hausdorffness of G/N is asserted.",
+        "No topology on U is changed to the discrete topology; continuity is joint, not just fixed-vector continuity."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction",
+          "match": "These definitions motivate the statement; the result is an authored deduction from the listed native library and packet interfaces, not a numbered Kim theorem. No new representability proof, torsor classification, Serre reading or whole-paper audit is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Inflation",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.quotientFixedContinuousSMul"
+      },
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.quotientFixedContinuousSMul.test_joint",
+          "kind": "compatibility",
+          "statement": "Under the stated hypotheses the actual map (G/N) × U^N → U^N sending (q,u) to q•u is continuous in the native product topology."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inflation preserves the distinguished cohomology class",
+      "kind": "lemma",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.inflate_one",
+      "statement": "Inflation sends the distinguished class of H¹(G/N,U^N) to the distinguished class of H¹(G,U). This promotes the existing inflation API without changing its signature.",
+      "hypotheses": [
+        "G is a group endowed with a topology. U is a topological group with a group-automorphism action of G whose joint action is continuous. H¹ is the actual twisted-conjugation orbit set of continuous nonabelian cocycles, with the class of the constant identity cocycle as base point.",
+        "N is any normal subgroup of G; G/N has the native quotient topology and acts by the native multiplicative action on the existing subgroup U^N. The joint quotient action on U^N is explicitly assumed continuous. No compactness, openness/closedness of N, finite/discrete coefficient group or commutativity assumption is imposed."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-cocycle-inflation-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1"
+      ],
+      "proofSteps": [
+        "Represent the distinguished class by the actual identity cocycle. Use the inflation representative API and quotient-cocycle-inflation-one, then identify the resulting identity-cocycle class with the distinguished point by definition."
+      ],
+      "acceptance": [
+        "The equality concerns the native gauge-orbit classes and the same normal subgroup."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction",
+          "match": "These definitions motivate the statement; the result is an authored deduction from the listed native library and packet interfaces, not a numbered Kim theorem. No new representability proof, torsor classification, Serre reading or whole-paper audit is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Inflation",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.inflate_one"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-neutral-equivalence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Inflation equivalence with the neutral restriction fibre",
+      "kind": "construction",
+      "declarationName": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv",
+      "statement": "Construct the native pointed-set equivalence H¹(G/N,U^N) ≃ {a ∈ H¹(G,U) | res_N(a)=1}. Its forward map is exactly a ↦ (inflate_N(a), res_N(inflate_N(a))=1), and its inverse recovers the unique same-N source class. Joint continuity of the quotient action follows from quotient-fixed-action-continuity, not an extra hypothesis. This is not an equivalence with all of H¹(G,U), nor a group isomorphism.",
+      "hypotheses": [
+        "G is a group with a topology and separately continuous multiplication; in particular every topological group satisfies this assumption.",
+        "U is a group with a topology and a jointly continuous G-action by group automorphisms.",
+        "N is an arbitrary normal subgroup. Use the native quotient topology on G/N and the native topology and quotient action on the fixed subgroup U^N. No compactness, open/closed N, discrete/finite coefficients or commutativity is assumed.",
+        "U is a topological group; this makes the actual coefficient gauge action on continuous cocycles available."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/quotient-fixed-action-continuity",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-one",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-injective",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-restriction-inflation",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-inflation-restriction-image",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/h1-gauge-class",
+        "mathlib:Equiv.ofBijective",
+        "mathlib:Equiv.apply_symm_apply",
+        "mathlib:Equiv.symm_apply_apply",
+        "mathlib:Equiv.injective"
+      ],
+      "proofSteps": [
+        "Provide the native quotient action's ContinuousSMul by quotient-fixed-action-continuity locally, without a global overlapping instance; the fixed subgroup inherits its native topological group structure.",
+        "Use h1-restriction-inflation to define actual inflation into the neutral-fibre subtype. h1-inflation-injective proves injectivity after forgetting the subtype proof.",
+        "h1-inflation-restriction-image provides an actual source class for every neutral restricted class; subtype extensionality gives surjectivity. Apply Equiv.ofBijective with this specified forward map.",
+        "Forward evaluation is definitional. Equiv.symm_apply_apply and Equiv.apply_symm_apply give the inverse APIs; forgetting the subtype proof yields their H¹ equalities. h1-inflation-one proves pointedness."
+      ],
+      "acceptance": [
+        "The inverse returns a class, not a preferred gauge element or cocycle representative.",
+        "No surjectivity of inflation onto all of H¹(G,U) is asserted."
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "arXiv:math/0409456v1 §1, printed pp.5–7, continuous cocycle/gauge definitions; authored library-based inflation–restriction deduction",
+          "match": "These definitions motivate the statement; the result is an authored deduction from the listed native library and packet interfaces, not a numbered Kim theorem. No new representability proof, torsor classification, Serre reading or whole-paper audit is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Inflation",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "NC.3 inflation–restriction and the existing same-N unique-preimage theorem",
+          "how": "Provide an actual equivalence and its inverse between genuine carriers, replacing separate existence/uniqueness arguments."
+        },
+        {
+          "where": "NC.3 quotient-level classes and local conditions",
+          "how": "Recover quotient classes from neutral restricted classes without adding literal triviality of a chosen representative as a hypothesis. Representability, transitions and Selmer conditions remain separate work."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_apply",
+          "role": "simp",
+          "statement": "For every a ∈ H¹(G/N,U^N), the underlying ambient class of inflateNeutralEquiv_N(a) is inflate_N(a)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_symm_inflate",
+          "role": "equivalence",
+          "statement": "For every a ∈ H¹(G/N,U^N), the inverse at the neutral-fibre element defined by inflate_N(a) equals a."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_apply_symm",
+          "role": "equivalence",
+          "statement": "For every b in the neutral restriction fibre, inflating its inverse image gives the underlying class of b."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv_one",
+          "role": "simp",
+          "statement": "inflateNeutralEquiv_N sends the distinguished source class to the distinguished ambient class with its proved neutral restriction."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_one",
+          "kind": "degenerate",
+          "statement": "The forward equivalence sends the distinguished quotient class to the neutral-fibre element with underlying class 1."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_representative",
+          "kind": "compatibility",
+          "statement": "For each actual quotient cocycle d, the underlying class of inflateNeutralEquiv_N([d]) is the genuine class [inflate_N(d)]."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_target_round_trip",
+          "kind": "characterisation",
+          "statement": "For an actual class a with res_N(a)=1, inflating the inverse image of (a,res_N(a)=1) gives a."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_nonneutral",
+          "kind": "non-example",
+          "statement": "Each quotient class a≠1 maps to an ambient class different from 1. The inherited kernel-checked discrete S₂→S₃ example supplies a genuinely nonneutral source class; collapsing the source to 1 fails this property."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.inflateNeutralEquiv.test_gauge_neutral",
+          "kind": "compatibility",
+          "statement": "For every x∈U the inverse at the neutral-fibre class represented by the genuine coboundary x·1 is the distinguished quotient class. The representing cocycle need not literally be 1, as the inherited S₃ conjugation example exhibits."
+        }
+      ]
     }
   ],
   "requests": [
@@ -5781,7 +6078,8 @@
         "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
         "Remaining nonabelian inflation–restriction extensions: arbitrary quotient-action continuity, transitions and colimit, canonical additive comparison. Serre I §5.8 was not freshly consulted; the neutral-fibre theorem here is an authored deduction from Kim’s definitions.",
         "The invariant-coset projection, actual connecting map and initial H⁰ exactness are now outlined with native carriers. Split continuous-cocycles, functoriality and central-extension and complete every inherited omitted API/test. Representability, local conditions, Selmer varieties and all recorded source-proof gaps remain open; no stage is closed.",
-        "Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open."
+        "Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open.",
+        "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open."
       ]
     },
     {
@@ -5906,7 +6204,7 @@
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.3"
       ],
-      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified. Current H¹ continuation: the actual pointed-set inflation and same-N injectivity are supplied under explicit quotient-action continuity. D4 neutral restriction fibre, D5 transitions/colimit, the canonical additive comparison and arbitrary-coefficient quotient-action continuity discharge remain open. Neutral-point reflection is not neutral-fibre exactness. Current neutral-fibre continuation supersedes only the D4-open wording: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open."
+      "detail": "The inherited exact-sequence ID is now one inclusion-kernel theorem, with six new nodes separating connecting construction/image/change, triviality, fixed-orbit fibres and normal exactness. All twenty prior IDs survive. continuous-cocycles, functoriality and central-extension still bundle independent declarations and need granular continuation; inherited omitted APIs/tests remain open. Twisting needs its target repointed at [c]. The promoted identity/inverse APIs and discrete one-fibre/killing lemmas are now declaration-sized and separately prototyped. D2 quotient action and actual quotient cocycle, D3 H¹ inflation map/injectivity, D4 neutral-fibre equality and D5 transition/colimit remain distinct missing interfaces. The pointwise gauge-witness theorem does not close them. Geometric degree-one G1 remains with existing IG.0/SF.2 requests and must not introduce an NC.3→NC.0 stage cycle. Current continuation: D2 actual quotient cocycles and their inverse equivalence are now supplied for arbitrary normal N; exact N-fixed quotient gauge witnesses are established. D3 actual H¹ inflation/injectivity, D4 neutral-fibre exactness and D5 colimits remain open. Native TauCeti additive descendZ1 is positive prior art; its canonical cocycle-conversion comparison and the full-file TauCeti build remain unverified. Current H¹ continuation: the actual pointed-set inflation and same-N injectivity are supplied under explicit quotient-action continuity. D4 neutral restriction fibre, D5 transitions/colimit, the canonical additive comparison and arbitrary-coefficient quotient-action continuity discharge remain open. Neutral-point reflection is not neutral-fibre exactness. Current neutral-fibre continuation supersedes only the D4-open wording: Actual subgroup restriction on continuous cocycles and native H¹ orbit sets, inverse-gauge normalization, image=neutral restriction fibre and unique same-N inflated class are supplied under explicit joint quotient-action continuity. General multiplicative quotient-action continuity discharge, reverse-inclusion transitions, compact-discrete filtered-colimit bijection and genuine additive cocycle conversion remain open. All representability, local-condition, source-proof, inherited API/granularity and geometric obligations remain open. Current quotient-action continuation supersedes continuity-open wording only in the stated scope: Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open."
     }
   ],
   "sourceIssues": [],
@@ -7121,5 +7419,90 @@
     },
     "matchedExtensionDeclarationAndExampleHeaders": 23,
     "atlasValidatorSha256": "5b9f7e73cf3ebe437a5fc980a7411203fe0dd3bf40b573625fdb72eb0c6ae443"
+  },
+  "quotientActionContinuityContinuation": {
+    "agent": "Codex — codex-a71f92",
+    "date": "2026-10-02",
+    "base": "9f4ec81d1839ece8d10129830133db03a6d5d430",
+    "claim": 5961993804,
+    "botConfirmation": 5961996040,
+    "addedNodes": 3,
+    "unchangedNodeObjects": 85,
+    "newBaselineDeclarations": 12,
+    "fullFileCompiled": false,
+    "remaining": "Joint multiplicative quotient-action continuity and the neutral-fibre equivalence are supplied for separately continuous multiplication on G (in particular topological groups), topological group U and jointly continuous ambient automorphism action. Earlier results for arbitrary group topologies retain their explicit quotient-action continuity hypothesis. Reverse-inclusion transitions, compact-discrete filtered-colimit bijection, canonical additive cocycle conversion, representability, local conditions, inherited API/granularity and geometric source/supplier obligations remain open.",
+    "checked": [
+      "Whole issue read before claim and after bot confirmation; all 85 incoming statement/hypothesis contracts, all 875 inherited native proof lines and full predecessor handoff read.",
+      "Current governing protocols, seven reviewed NC audit rows, seven stage contracts/requires, 17 touching atlas edges and reserved étale K(pi,1) entry read.",
+      "Twelve new Mathlib statements read with ambient hypotheses at the exact pin and index corroborated. Bounded TauCeti prior-art search in GroupAction and Topology/Algebra/Group found no matching multiplicative fixed-subgroup joint-continuity adapter in those searched files.",
+      "JacobianChallenge and StableReduction upstream documents read earlier during this continuous worker run, not freshly reread; no full fresh geometric, Chen, BDMTV or Selmer-source audit claimed.",
+      "Fresh exact Kim v1 PDF hash and selected complete pp.5–7 parsed reading; historical receipts retain their original attribution."
+    ],
+    "publicationBase": "a6094bd6d7c7856944d7cf3b905c7e9bf11d90fd",
+    "proofCommit": "ae4eb58975f105b473b80866a92fc160a328d876",
+    "native": {
+      "sourceSha256": "4312f7348e1e8b59a6fc5fa8fb7739bd3d5e21529e30015a5691fca6bd56b769",
+      "normalizedLeanOutputSha256": "c9c3801f16712cf733987ab7fb748218e45f1b5517fdc2d7037b54ee361623f4",
+      "lines": 980,
+      "examples": 36,
+      "kernelAudits": 54,
+      "errors": 0,
+      "warnings": 0,
+      "admissionWarnings": 0,
+      "admissionDependencies": false,
+      "resource": {
+        "elapsedSeconds": "5.59",
+        "maxRSSKiB": 3518332,
+        "availableGiBBeforeRun": 55
+      }
+    },
+    "submittedMathlib": {
+      "sourceSha256": "484fa590a4be17f04682b9e0d28c030b778cf6a7703d225c34b2439c51e0d67a",
+      "normalizedLeanOutputSha256": "2ba831793a8fe49509b530bf1a212174ad79272be54db704adf51dcd5a7afead",
+      "lines": 1572,
+      "examples": 78,
+      "errors": 0,
+      "warnings": 186,
+      "admissionWarnings": 186,
+      "otherWarnings": 0,
+      "admissionDependencies": "canonical bodies admitted",
+      "resource": {
+        "elapsedSeconds": "7.24",
+        "maxRSSKiB": 3544480,
+        "availableGiBBeforeRun": 56
+      }
+    },
+    "projection": {
+      "stage": {
+        "vertices": 3018,
+        "edges": 8655,
+        "acyclic": true
+      },
+      "own": {
+        "vertices": 88,
+        "edges": 188,
+        "acyclic": true
+      },
+      "combinedPrerequisites": {
+        "vertices": 3095,
+        "edges": 8879,
+        "acyclic": true
+      },
+      "virtualSupplierEndpoints": 51,
+      "reachableDeclarations": 88,
+      "unresolvedReferences": 0,
+      "planets": 11,
+      "ownSkippedLinks": [],
+      "pendingLinks": [],
+      "stageEdgesUnchanged": true,
+      "otherRoadmapSkippedPendingLinksUnchanged": true,
+      "requiredStagePairs": 20,
+      "requiredStagePairsReachable": 20,
+      "indexedCheckerErrors": 0,
+      "indexedCheckerWarnings": 0,
+      "intake": "pass",
+      "validatorSha256": "e2b201acc56f5091eae91f4f13478bb254a436edc15a367d403675ed780f7a84",
+      "immutableLoaderSha256": "491e127e5acacb7c821795bff8c05e18b32e20c18cbe90bf3f4f22d762040d8e"
+    }
   }
 }
