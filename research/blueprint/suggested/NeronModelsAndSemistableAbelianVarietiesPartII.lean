@@ -49,6 +49,8 @@ import TauCeti.AlgebraicGeometry.Curves.StableReduction.Model.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.PointCount
 
 import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.Algebra.MvPolynomial.Equiv
+import Mathlib.Algebra.Polynomial.Degree.SmallDegree
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.Algebra.Polynomial.RingDivision
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
@@ -1184,107 +1186,181 @@ example : algebra (Polynomial.X ^ 2 : k[X]) =
 
 -- Quadratic coordinate/basis continuation.
 lemma quadratic_natDegree (a b : k) :
-    (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b).natDegree = 2 := by sorry
+    (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b).natDegree = 2 := by
+  compute_degree!
 
 -- node: G.1/quadratic-pinch-coordinate-map
 def coordinateMap (a b : k) :
     (k[X] × k[X]) →ₗ[k]
-      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  let u : algebra q := ⟨q, (mem_algebra q q).mpr ⟨0, 1, by simp⟩⟩
+  let v : algebra q := ⟨Polynomial.X * q,
+    (mem_algebra q _).mpr ⟨0, Polynomial.X, by simp [mul_comm]⟩⟩
+  exact { toFun := fun z => Polynomial.aeval u z.1 + v * Polynomial.aeval u z.2
+          map_add' := fun x y => by simp [mul_add]; abel
+          map_smul' := fun c z => by simp }
 
 lemma coordinateMap_coe (a b : k) (z : k[X] × k[X]) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    (coordinateMap a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by sorry
+    (coordinateMap a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by
+  simp [coordinateMap, Polynomial.aeval_subalgebra_coe, Polynomial.comp_eq_aeval]
 
-lemma coordinateMap_bijective (a b : k) : Function.Bijective (coordinateMap a b) := by sorry
+lemma coordinateMap_bijective (a b : k) : Function.Bijective (coordinateMap a b) := by
+  let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  constructor
+  · intro z w he
+    apply pinch_normal_form_injective q (quadratic_natDegree a b)
+    have h := congrArg (fun f : algebra q => (f : k[X])) he
+    simpa only [coordinateMap_coe] using h
+  · intro f
+    obtain ⟨P, Q, h⟩ := pinch_spanning a b (f : k[X]) f.property
+    refine ⟨(P, Q), ?_⟩
+    apply Subtype.ext
+    simpa only [coordinateMap_coe] using h.symm
 
 -- node: G.1/quadratic-pinch-coordinates
 def coordinates (a b : k) :
     (k[X] × k[X]) ≃ₗ[k]
-      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by sorry
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) :=
+  LinearEquiv.ofBijective (coordinateMap a b) (coordinateMap_bijective a b)
 
 lemma coordinates_coe (a b : k) (z : k[X] × k[X]) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    (coordinates a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q := by sorry
+    (coordinates a b z : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q :=
+  coordinateMap_coe a b z
 
 lemma coordinates_symm_normal_form (a b : k)
     (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
     (f : k[X]) = ((coordinates a b).symm f).1.comp q +
-      Polynomial.X * q * ((coordinates a b).symm f).2.comp q := by sorry
+      Polynomial.X * q * ((coordinates a b).symm f).2.comp q := by
+  dsimp
+  rw [← coordinates_coe, LinearEquiv.apply_symm_apply]
 
 lemma coordinates_unique (a b : k)
     (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
     (z : k[X] × k[X]) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
     (f : k[X]) = z.1.comp q + Polynomial.X * q * z.2.comp q ↔
-      (coordinates a b).symm f = z := by sorry
+      (coordinates a b).symm f = z := by
+  dsimp
+  rw [← coordinates_coe]
+  constructor
+  · intro h
+    apply (coordinates a b).injective
+    rw [LinearEquiv.apply_symm_apply]
+    exact Subtype.ext h
+  · intro h
+    have hh := congrArg (fun w => (coordinates a b w : k[X])) h
+    simpa only [LinearEquiv.apply_symm_apply] using hh
 
 -- node: G.1/quadratic-pinch-basis
 def basis (a b : k) : Module.Basis (ℕ ⊕ ℕ) k
-    (algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) := by sorry
+    (algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :=
+  ((Polynomial.basisMonomials k).prod (Polynomial.basisMonomials k)).map (coordinates a b)
 
 lemma basis_inl (a b : k) (n : ℕ) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    (basis a b (Sum.inl n) : k[X]) = q ^ n := by sorry
+    (basis a b (Sum.inl n) : k[X]) = q ^ n := by
+  simp [basis, coordinates_coe, Module.Basis.prod_apply, Polynomial.coe_basisMonomials]
 
 lemma basis_inr (a b : k) (n : ℕ) :
     let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
-    (basis a b (Sum.inr n) : k[X]) = Polynomial.X * q ^ (n + 1) := by sorry
+    (basis a b (Sum.inr n) : k[X]) = Polynomial.X * q ^ (n + 1) := by
+  simp [basis, coordinates_coe, Module.Basis.prod_apply, Polynomial.coe_basisMonomials,
+    pow_succ', mul_assoc]
 
 -- node: G.1/quadratic-pinch-basis-repr
 lemma basis_repr (a b : k)
     (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b))
     (n : ℕ) :
     (basis a b).repr f (Sum.inl n) = ((coordinates a b).symm f).1.coeff n ∧
-    (basis a b).repr f (Sum.inr n) = ((coordinates a b).symm f).2.coeff n := by sorry
+    (basis a b).repr f (Sum.inr n) = ((coordinates a b).symm f).2.coeff n := by
+  constructor <;> rfl
 
 lemma basis_reconstruction (a b : k)
     (f : algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b)) :
-    Finsupp.linearCombination k (basis a b) ((basis a b).repr f) = f := by sorry
+    Finsupp.linearCombination k (basis a b) ((basis a b).repr f) = f :=
+  (basis a b).linearCombination_repr f
 
 lemma basis_degrees (a b : k) (n : ℕ) :
     (basis a b (Sum.inl n) : k[X]).natDegree = 2 * n ∧
-    (basis a b (Sum.inr n) : k[X]).natDegree = 2 * (n + 1) + 1 := by sorry
+    (basis a b (Sum.inr n) : k[X]).natDegree = 2 * (n + 1) + 1 := by
+  have hq := quadratic_natDegree a b
+  have hqne : (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b : k[X]) ≠ 0 := by
+    intro hz
+    rw [hz, Polynomial.natDegree_zero] at hq
+    omega
+  constructor
+  · rw [basis_inl, Polynomial.natDegree_pow, hq, Nat.mul_comm]
+  · rw [basis_inr, Polynomial.natDegree_X_mul (pow_ne_zero _ hqne), Polynomial.natDegree_pow, hq, Nat.mul_comm]
 
 -- test: QuadraticPinch.test_basis_cusp
 example (n : ℕ) :
     (basis (0 : k) 0 (Sum.inl n) : k[X]) = Polynomial.X ^ (2 * n) ∧
-    (basis (0 : k) 0 (Sum.inr n) : k[X]) = Polynomial.X ^ (2 * n + 3) := by sorry
+    (basis (0 : k) 0 (Sum.inr n) : k[X]) = Polynomial.X ^ (2 * n + 3) := by
+  constructor
+  · simp [basis_inl, pow_mul]
+  · rw [basis_inr]
+    simp only [Polynomial.C_0, zero_mul, add_zero, ← pow_mul, ← pow_succ']
+    congr 1
 
 -- test: QuadraticPinch.test_coordinates_inseparable
 example (P Q : (ZMod 2)[X]) :
-    (coordinates (0 : ZMod 2) 0).symm (coordinates 0 0 (P, Q)) = (P, Q) := by sorry
+    (coordinates (0 : ZMod 2) 0).symm (coordinates 0 0 (P, Q)) = (P, Q) :=
+  (coordinates 0 0).symm_apply_apply _
 
 -- test: QuadraticPinch.test_basis_char2_cross_term
 example :
-    (basis (1 : ZMod 2) 1 (Sum.inl 1) : (ZMod 2)[X]).coeff 1 = 1 := by sorry
+    (basis (1 : ZMod 2) 1 (Sum.inl 1) : (ZMod 2)[X]).coeff 1 = 1 := by
+  simp [basis_inl, Polynomial.coeff_one]
 
 -- test: QuadraticPinch.test_basis_unit_zero
 example :
     (basis (0 : k) 0 (Sum.inl 0) : k[X]) = 1 ∧
-    (coordinates (0 : k) 0).symm 0 = (0, 0) := by sorry
+    (coordinates (0 : k) 0).symm 0 = (0, 0) := by
+  constructor
+  · simp [basis_inl]
+  · change (coordinates (0 : k) 0).symm 0 = (0 : k[X] × k[X])
+    exact map_zero _
 
 -- test: QuadraticPinch.test_coordinates_not_multiplicative
 example :
     (coordinates (0 : k) 0 ((0, 1) * (0, 1)) : k[X]) ≠
-      (coordinates (0 : k) 0 (0, 1) : k[X]) * (coordinates (0 : k) 0 (0, 1) : k[X]) := by sorry
+      (coordinates (0 : k) 0 (0, 1) : k[X]) * (coordinates (0 : k) 0 (0, 1) : k[X]) := by
+  simp only [Prod.mul_def, mul_zero, mul_one, coordinates_coe, Polynomial.zero_comp,
+    Polynomial.one_comp, Polynomial.C_0, zero_mul, add_zero, zero_add, mul_one]
+  intro he
+  have h := congrArg (fun f : k[X] => f.coeff 3) he
+  norm_num [← pow_succ', ← pow_add] at h
 
 -- test: QuadraticPinch.test_map_zero
-example (a b : k) : coordinateMap a b (0, 0) = 0 := by sorry
+example (a b : k) : coordinateMap a b (0, 0) = 0 := by
+  change coordinateMap a b (0 : k[X] × k[X]) = 0
+  exact map_zero _
 
 -- test: QuadraticPinch.test_map_char2_generators
 example :
     (coordinateMap (1 : ZMod 2) 1 (Polynomial.X, 0) : (ZMod 2)[X]) =
       Polynomial.X ^ 2 + Polynomial.X + 1 ∧
     (coordinateMap (1 : ZMod 2) 1 (0, 1) : (ZMod 2)[X]) =
-      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by sorry
+      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by
+  simp [coordinateMap_coe]
 
 -- test: QuadraticPinch.test_map_not_identity
-example : (coordinateMap (0 : k) 0 (Polynomial.X, 0) : k[X]) ≠ Polynomial.X := by sorry
+example : (coordinateMap (0 : k) 0 (Polynomial.X, 0) : k[X]) ≠ Polynomial.X := by
+  simp only [coordinateMap_coe, Polynomial.X_comp, Polynomial.zero_comp,
+    Polynomial.C_0, zero_mul, add_zero, mul_zero]
+  intro he
+  have h := congrArg (fun f : k[X] => f.coeff 1) he
+  simp at h
 
 -- test: QuadraticPinch.test_basis_no_degree_one
-example (a b : k) (i : ℕ ⊕ ℕ) : (basis a b i : k[X]).natDegree ≠ 1 := by sorry
-
+example (a b : k) (i : ℕ ⊕ ℕ) : (basis a b i : k[X]).natDegree ≠ 1 := by
+  cases i with
+  | inl n => rw [(basis_degrees a b n).1]; omega
+  | inr n => rw [(basis_degrees a b n).2]; omega
 
 -- test: QuadraticPinch.test_split
 example (h : (2 : k) ≠ 0) (f : k[X]) :
@@ -1452,6 +1528,283 @@ example (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2)
     residue q hq hd ⟨Polynomial.X * q,hmem⟩ = 0 :=
   residue_normal_form q hq hd _ 0 Polynomial.X (by simp [mul_comm])
 
+-- Full bivariate presentation continuation.
+-- node: G.1/quadratic-pinch-v-chart
+noncomputable def inV : MvPolynomial (Fin 2) k ≃ₐ[k] k[X][X] :=
+  ((MvPolynomial.renameEquiv k (Equiv.swap (0 : Fin 2) 1)).trans
+    (MvPolynomial.finSuccEquiv k 1)).trans
+      (Polynomial.mapAlgEquiv (MvPolynomial.uniqueAlgEquiv k (Fin 1)))
+
+-- node: G.1/quadratic-pinch-v-chart-u
+lemma inV_U : inV (k := k) (MvPolynomial.X 0) = Polynomial.C Polynomial.X := by
+  simp only [inV, AlgEquiv.trans_apply, MvPolynomial.renameEquiv_apply,
+    MvPolynomial.rename_X, Equiv.swap_apply_left]
+  rw [show (1 : Fin 2) = (0 : Fin 1).succ from rfl, MvPolynomial.finSuccEquiv_X_succ]
+  simp [MvPolynomial.uniqueAlgEquiv]
+
+-- node: G.1/quadratic-pinch-v-chart-v
+lemma inV_V : inV (k := k) (MvPolynomial.X 1) = Polynomial.X := by
+  simp only [inV, AlgEquiv.trans_apply, MvPolynomial.renameEquiv_apply,
+    MvPolynomial.rename_X, Equiv.swap_apply_right, MvPolynomial.finSuccEquiv_X_zero]
+  simp
+
+-- node: G.1/quadratic-pinch-v-chart-relation
+lemma inV_relation (a b : k) :
+    inV (relation a b) = Polynomial.X ^ 2 +
+      Polynomial.C (Polynomial.C a * Polynomial.X) * Polynomial.X +
+      Polynomial.C (Polynomial.C b * Polynomial.X ^ 2 - Polynomial.X ^ 3) := by
+  simp only [relation, map_sub, map_add, map_mul, map_pow]
+  rw [inV_U, inV_V]
+  have hc (c : k) : inV (k := k) (MvPolynomial.C c) = Polynomial.C (Polynomial.C c) :=
+    (inV (k := k)).commutes c
+  rw [hc, hc]
+  ring
+
+-- node: G.1/quadratic-pinch-substitution
+noncomputable def substitution (a b : k) : MvPolynomial (Fin 2) k →ₐ[k] k[X] :=
+  let q := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  MvPolynomial.aeval ![q, Polynomial.X * q]
+
+-- node: G.1/quadratic-pinch-substitution-relation
+lemma substitution_relation (a b : k) : substitution a b (relation a b) = 0 := by
+  simp [substitution, relation]
+  ring
+
+-- node: G.1/quadratic-pinch-substitution-chart
+lemma substitution_inV (a b : k) (f : MvPolynomial (Fin 2) k) :
+    let q := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    substitution a b f =
+      Polynomial.eval₂ (Polynomial.aeval q).toRingHom (Polynomial.X * q) (inV f) := by
+  dsimp only
+  let q := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+  let η : k[X][X] →ₐ[k] k[X] :=
+    Polynomial.eval₂AlgHom (Polynomial.aeval q) (Polynomial.X * q) (fun _ => Commute.all _ _)
+  have he : substitution a b = η.comp (inV (k := k)).toAlgHom := by
+    apply MvPolynomial.algHom_ext
+    intro i
+    fin_cases i
+    · simp only [MvPolynomial.aeval_X, AlgHom.comp_apply, substitution]
+      change q = η (inV (k := k) (MvPolynomial.X (0 : Fin 2)))
+      rw [inV_U]
+      change q = Polynomial.eval₂ (Polynomial.aeval q).toRingHom (Polynomial.X * q)
+        (Polynomial.C (Polynomial.X : k[X]))
+      simp
+    · simp only [MvPolynomial.aeval_X, AlgHom.comp_apply, substitution]
+      change Polynomial.X * q = η (inV (k := k) (MvPolynomial.X (1 : Fin 2)))
+      rw [inV_V]
+      change Polynomial.X * q = Polynomial.eval₂ (Polynomial.aeval q).toRingHom
+        (Polynomial.X * q) (Polynomial.X : k[X][X])
+      simp
+  exact AlgHom.congr_fun he f
+
+-- node: G.1/quadratic-pinch-v-relation-monic
+lemma inV_relation_monic (a b : k) : (inV (relation a b)).Monic := by
+  rw [inV_relation]
+  monicity!
+
+-- node: G.1/quadratic-pinch-v-relation-degree
+lemma inV_relation_natDegree (a b : k) : (inV (relation a b)).natDegree = 2 := by
+  rw [inV_relation]
+  compute_degree!
+
+-- node: G.1/quadratic-pinch-v-remainder
+lemma inV_remainder_normal_form (a b : k) (F : k[X][X]) :
+    ∃ P Q : k[X], F %ₘ (inV (relation a b)) =
+      Polynomial.C P + Polynomial.X * Polynomial.C Q := by
+  have hn := Polynomial.natDegree_modByMonic_lt F (inV_relation_monic a b)
+    (by intro h; have hd := congrArg Polynomial.natDegree h
+        rw [inV_relation_natDegree] at hd; simp at hd)
+  rw [inV_relation_natDegree] at hn
+  let r := F %ₘ (inV (relation a b))
+  refine ⟨r.coeff 0, r.coeff 1, ?_⟩
+  change r = _
+  have hr : r.natDegree ≤ 1 := by change (F %ₘ (inV (relation a b))).natDegree ≤ 1; omega
+  calc r = Polynomial.C (r.coeff 1) * Polynomial.X + Polynomial.C (r.coeff 0) :=
+      Polynomial.eq_X_add_C_of_natDegree_le_one hr
+    _ = Polynomial.C (r.coeff 0) + Polynomial.X * Polynomial.C (r.coeff 1) := by ring
+
+-- node: G.1/quadratic-pinch-kernel-divisibility
+lemma substitution_eq_zero_iff_dvd (a b : k) (f : MvPolynomial (Fin 2) k) :
+    substitution a b f = 0 ↔ relation a b ∣ f := by
+  constructor
+  · intro hf
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    let g : k[X][X] := inV (relation a b)
+    let η : k[X][X] →ₐ[k] k[X] :=
+      Polynomial.eval₂AlgHom (Polynomial.aeval q) (Polynomial.X * q) (fun _ => Commute.all _ _)
+    have hη (z : MvPolynomial (Fin 2) k) : η (inV z) = substitution a b z :=
+      (substitution_inV a b z).symm
+    have hg : η g = 0 := by rw [hη, substitution_relation]
+    have hr : η (inV f %ₘ g) = 0 := by
+      have hh := congrArg η (Polynomial.modByMonic_add_div (inV f) g)
+      simp only [map_add, map_mul, hg, zero_mul, add_zero, hη, hf] at hh
+      exact hh
+    obtain ⟨P, Q, hform⟩ := inV_remainder_normal_form a b (inV f)
+    have hz : P.comp q + Polynomial.X * q * Q.comp q = 0 := by
+      change Polynomial.eval₂ (Polynomial.aeval q).toRingHom (Polynomial.X * q)
+        (inV f %ₘ g) = 0 at hr
+      rw [hform] at hr
+      simpa only [Polynomial.eval₂_add, Polynomial.eval₂_C, Polynomial.eval₂_mul,
+        Polynomial.eval₂_X, AlgHom.toRingHom_eq_coe, RingHom.coe_coe,
+        ← Polynomial.comp_eq_aeval] using hr
+    have hp : (P,Q) = (0,0) :=
+      pinch_normal_form_injective q (quadratic_natDegree a b) (by simpa using hz)
+    have hP : P = 0 := congrArg Prod.fst hp
+    have hQ : Q = 0 := congrArg Prod.snd hp
+    have hrzero : inV f %ₘ g = 0 := by simpa [hP, hQ] using hform
+    have hdvd : g ∣ inV f := (Polynomial.modByMonic_eq_zero_iff_dvd
+      (inV_relation_monic a b)).mp hrzero
+    obtain ⟨h, hh⟩ := hdvd
+    refine ⟨(inV (k := k)).symm h, ?_⟩
+    apply (inV (k := k)).injective
+    simpa only [map_mul, AlgEquiv.apply_symm_apply] using hh
+  · rintro ⟨h, rfl⟩
+    rw [map_mul, substitution_relation, zero_mul]
+
+-- node: G.1/quadratic-pinch-substitution-range
+lemma substitution_range (a b : k) :
+    (substitution a b).range =
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) := by
+  dsimp only [substitution]
+  rw [MvPolynomial.aeval_range, Matrix.range_cons_cons_empty, generation]
+
+-- node: G.1/quadratic-pinch-substitution-kernel
+lemma substitution_ker (a b : k) :
+    RingHom.ker (substitution a b) = Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by
+  ext f
+  rw [RingHom.mem_ker, Ideal.mem_span_singleton, substitution_eq_zero_iff_dvd]
+
+-- node: G.1/quadratic-pinch-substitution-to-algebra
+noncomputable def substitutionToAlgebra (a b : k) :
+    MvPolynomial (Fin 2) k →ₐ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) :=
+  (substitution a b).codRestrict _ (fun f => by
+    rw [← substitution_range a b]
+    exact ⟨f, rfl⟩)
+
+-- node: G.1/quadratic-pinch-substitution-coercion
+lemma substitutionToAlgebra_coe (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (substitutionToAlgebra a b f : k[X]) = substitution a b f := rfl
+
+-- node: G.1/quadratic-pinch-substitution-surjective
+lemma substitutionToAlgebra_surjective (a b : k) :
+    Function.Surjective (substitutionToAlgebra a b) := by
+  intro f
+  have hf : (f : k[X]) ∈ (substitution a b).range := by
+    rw [substitution_range]
+    exact f.property
+  obtain ⟨g, hg⟩ := hf
+  exact ⟨g, Subtype.ext hg⟩
+
+-- node: G.1/quadratic-pinch-restricted-kernel
+lemma substitutionToAlgebra_ker (a b : k) :
+    RingHom.ker (substitutionToAlgebra a b) =
+      Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by
+  rw [← substitution_ker a b]
+  ext f
+  simp only [RingHom.mem_ker]
+  exact ⟨fun h => congrArg Subtype.val h, fun h => Subtype.ext h⟩
+
+-- node: G.1/quadratic-pinch-quotient-equivalence
+noncomputable def presentationEquiv (a b : k) :
+    (MvPolynomial (Fin 2) k ⧸ Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k))) ≃ₐ[k]
+      algebra (Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b) :=
+  (Ideal.quotientEquivAlgOfEq k (substitutionToAlgebra_ker a b).symm).trans
+    (Ideal.quotientKerAlgEquivOfSurjective (substitutionToAlgebra_surjective a b))
+
+lemma presentationEquiv_mk (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (presentationEquiv a b (Ideal.Quotient.mk _ f) : k[X]) = substitution a b f := by
+  simp [presentationEquiv, Ideal.quotientEquivAlgOfEq_mk,
+    Ideal.quotientKerAlgEquivOfSurjective_mk, substitutionToAlgebra_coe]
+
+lemma presentationEquiv_symm_substitution (a b : k) (f : MvPolynomial (Fin 2) k) :
+    (presentationEquiv a b).symm (substitutionToAlgebra a b f) = Ideal.Quotient.mk _ f := by
+  apply (presentationEquiv a b).injective
+  apply Subtype.ext
+  simpa only [AlgEquiv.apply_symm_apply, substitutionToAlgebra_coe] using (presentationEquiv_mk a b f).symm
+
+lemma presentationEquiv_generators (a b : k) :
+    let q : k[X] := Polynomial.X ^ 2 + Polynomial.C a * Polynomial.X + Polynomial.C b
+    (presentationEquiv a b (Ideal.Quotient.mk _ (MvPolynomial.X 0)) : k[X]) = q ∧
+      (presentationEquiv a b (Ideal.Quotient.mk _ (MvPolynomial.X 1)) : k[X]) = Polynomial.X * q := by
+  simp [presentationEquiv_mk, substitution]
+
+-- test: QuadraticPinch.inV.test_cusp
+example : inV (relation (0 : k) 0) = Polynomial.X ^ 2 - Polynomial.C (Polynomial.X ^ 3) := by
+  simp [inV_relation, sub_eq_add_neg]
+
+-- test: QuadraticPinch.inV.test_char2_cross_term
+example : ((inV (relation (1 : ZMod 2) 1)).coeff 1).coeff 1 = 1 := by
+  simp only [inV_relation, Polynomial.coeff_add, Polynomial.coeff_C_mul_X,
+    Polynomial.coeff_X_pow, Polynomial.coeff_C]
+  norm_num
+
+-- test: QuadraticPinch.inV.test_orientation
+example : inV (k := k) (MvPolynomial.X 0) ≠ inV (MvPolynomial.X 1) := by
+  rw [inV_U, inV_V]
+  intro h
+  have hc := congrArg (fun p : k[X][X] => p.coeff 1) h
+  simp at hc
+
+-- test: QuadraticPinch.substitution.test_zero
+example (a b : k) : substitution a b 0 = 0 := map_zero _
+
+-- test: QuadraticPinch.substitution.test_char2_generators
+example :
+    substitution (1 : ZMod 2) 1 (MvPolynomial.X 0) = Polynomial.X ^ 2 + Polynomial.X + 1 ∧
+    substitution (1 : ZMod 2) 1 (MvPolynomial.X 1) =
+      Polynomial.X * (Polynomial.X ^ 2 + Polynomial.X + 1) := by
+  simp [substitution]
+
+-- test: QuadraticPinch.substitution.test_cubic_essential
+example : substitution (0 : k) 0 (MvPolynomial.X 1 ^ 2) ≠ 0 := by
+  simp [substitution]
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_zero
+example (a b : k) : substitutionToAlgebra a b 0 = 0 := map_zero _
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_inseparable_cubic
+example : (substitutionToAlgebra (0 : ZMod 2) 0 (MvPolynomial.X 1) : (ZMod 2)[X]) =
+    Polynomial.X ^ 3 := by
+  rw [substitutionToAlgebra_coe]
+  simp [substitution, pow_succ, mul_assoc]
+
+-- test: QuadraticPinch.substitutionToAlgebra.test_scalar
+example (a b c : k) : (substitutionToAlgebra a b (MvPolynomial.C c) : k[X]) = Polynomial.C c := by
+  rw [substitutionToAlgebra_coe]
+  simp [substitution]
+
+-- test: QuadraticPinch.presentationEquiv.test_zero
+example (a b : k) : presentationEquiv a b 0 = 0 := map_zero _
+
+-- test: QuadraticPinch.presentationEquiv.test_cusp_product
+example :
+    (presentationEquiv (0 : k) 0 (Ideal.Quotient.mk _ (MvPolynomial.X 1) ^ 2) : k[X]) =
+      Polynomial.X ^ 6 := by
+  rw [map_pow, Subalgebra.coe_pow, presentationEquiv_mk]
+  simp [substitution, mul_pow]
+  ring
+
+-- test: QuadraticPinch.presentationEquiv.test_nonzero_unit_coordinate
+example : (Ideal.Quotient.mk
+    (Ideal.span ({relation (0 : k) 0} : Set (MvPolynomial (Fin 2) k))) (MvPolynomial.X 0)) ≠ 0 := by
+  intro h
+  have he := congrArg (fun z => (presentationEquiv (0 : k) 0 z : k[X])) h
+  rw [presentationEquiv_mk] at he
+  simp only [map_zero, Subalgebra.coe_zero] at he
+  simp [substitution] at he
+
+-- test: QuadraticPinch.presentationEquiv.test_char2_inseparable
+example :
+    (presentationEquiv (0 : ZMod 2) 0).symm
+      (substitutionToAlgebra 0 0 (MvPolynomial.X 1 ^ 2)) =
+      Ideal.Quotient.mk _ (MvPolynomial.X 0 ^ 3) := by
+  rw [presentationEquiv_symm_substitution]
+  apply Ideal.Quotient.eq.mpr
+  rw [Ideal.mem_span_singleton]
+  exact ⟨1, by simp [relation]⟩
+
+-- node: G.1/quadratic-pinch-presentation
 -- node: G.1/quadratic-pinch-presentation
 /-- Canonical map, its image and its entire kernel, including inseparable quadratics. -/
 lemma presentation (a b : k) :
@@ -1459,7 +1812,10 @@ lemma presentation (a b : k) :
     let ψ : MvPolynomial (Fin 2) k →ₐ[k] k[X] :=
       MvPolynomial.aeval ![q, Polynomial.X * q]
     ψ.range = algebra q ∧
-      RingHom.ker ψ.toRingHom = Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by sorry
+      RingHom.ker ψ.toRingHom = Ideal.span ({relation a b} : Set (MvPolynomial (Fin 2) k)) := by
+  dsimp only
+  exact ⟨substitution_range a b, substitution_ker a b⟩
+
 
 -- node: G.1/quadratic-pinch-conductor
 lemma conductor (q : k[X]) (hq : q.Monic) (hd : q.natDegree = 2) :
