@@ -1829,6 +1829,104 @@ example (J : GrothendieckTopology C) [F.IsPrestack J]
     (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
       restrict F g.hom.left (z j) = z i) : coverCenter F J R hR z hz = 1 := by sorry
 
+/-! Arbitrary-base cover descent continuation, Codex codex-a71f92. -/
+/-- Base-change index into the original sieve's native arrow category. -/
+abbrev pullbackArrow {U V : C} (R : Sieve U) (a : V ⟶ U)
+    (i : (R.pullback a).arrows.category) : R.arrows.category :=
+  ⟨Over.mk (i.obj.hom ≫ a), i.property⟩
+
+/-- Compose fibre restrictions through the actual native pseudofunctor constraint. -/
+lemma center_map_comp {V W X : C} (g : W ⟶ V) (h : X ⟶ W)
+    (x : F.obj (.mk (op V))) (c : x ⟶ x)
+    (z : CatCenter (F.obj (.mk (op X))))
+    (hc : (F.map (h ≫ g).op.toLoc).toFunctor.map c =
+      z.app ((F.map (h ≫ g).op.toLoc).toFunctor.obj x)) :
+    (F.map h.op.toLoc).toFunctor.map ((F.map g.op.toLoc).toFunctor.map c) =
+      z.app ((F.map h.op.toLoc).toFunctor.obj ((F.map g.op.toLoc).toFunctor.obj x)) := by sorry
+/-- Fibre-centre component over every arrow a into the covered object. -/
+noncomputable def coverCenterAt (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    {V : C} (a : V ⟶ U) : (CatCenter (F.obj (.mk (op V))))ˣ := by sorry
+lemma coverCenterAt_map_hom (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    {V : C} (a : V ⟶ U) (x : F.obj (.mk (op V)))
+    (i : (R.pullback a).arrows.category) :
+    (F.map i.obj.hom.op.toLoc).toFunctor.map ((coverCenterAt F J R hR z hz a).val.app x) =
+      (val F (z (pullbackArrow R a i)) i.obj.left (𝟙 i.obj.left)).val.app
+        ((F.map i.obj.hom.op.toLoc).toFunctor.obj x) := by sorry
+/-- Arbitrary base restriction is detected on the pulled-back covering sieve. -/
+lemma centerFamily_congr {U X : C} (R : Sieve U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (q q' : X ⟶ U) (hq : R q) (hq' : R q') (e : q = q') :
+    z ⟨Over.mk q, hq⟩ = z ⟨Over.mk q', hq'⟩ := by sorry
+lemma coverCenterAt_compatible (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    {V W : C} (a : V ⟶ U) (g : W ⟶ V) (x : F.obj (.mk (op V))) :
+    (F.map g.op.toLoc).toFunctor.map ((coverCenterAt F J R hR z hz a).val.app x) =
+      (coverCenterAt F J R hR z hz (g ≫ a)).val.app
+        ((F.map g.op.toLoc).toFunctor.obj x) := by sorry
+lemma coverCenterAt_one (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun _ => 1) (fun _ _ _ => map_one _) a = 1 := by sorry
+lemma coverCenterAt_inv (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun i => (z i)⁻¹)
+      (fun i j g => by rw [map_inv, hz]) a = (coverCenterAt F J R hR z hz a)⁻¹ := by sorry
+/-- Compare the pulled-back fibre-centre unit to an already covered local section. -/
+lemma coverCenterAt_of_mem (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (i : R.arrows.category) {V : C} (a : V ⟶ i.obj.left) :
+    coverCenterAt F J R hR z hz (a ≫ i.obj.hom) = val F (z i) V a := by sorry
+/-- The simultaneous family is now an actual section of the inherited subgroup. -/
+noncomputable def glue (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) : IntrinsicBandSection F U := by sorry
+lemma glue_val (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) {V : C} (a : V ⟶ U) :
+    val F (glue F J R hR z hz) V a = coverCenterAt F J R hR z hz a := by sorry
+lemma glue_restrict (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) (i : R.arrows.category) :
+    restrict F i.obj.hom (glue F J R hR z hz) = z i := by sorry
+lemma glue_one (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) :
+    glue F J R hR (fun _ => 1) (fun _ _ _ => map_one _) = 1 := by sorry
+lemma glue_inv (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i) :
+    glue F J R hR (fun i => (z i)⁻¹) (fun i j g => by rw [map_inv, hz]) =
+      (glue F J R hR z hz)⁻¹ := by sorry
+lemma coverCenterAt_existing (J : GrothendieckTopology C) [F.IsPrestack J]
+    {U : C} (R : Sieve U) (hR : R ∈ J U) (s : IntrinsicBandSection F U)
+    {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) a = val F s V a := by sorry
+
 /-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
 theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
     (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
@@ -1868,6 +1966,51 @@ theorem ext_of_cover [F.IsPrestack J] {U : C} (s t : IntrinsicBandSection F U)
         (h W (g ≫ a) hg)
       simpa only [eval_reindex, Category.id_comp] using he)
   exact congrArg Iso.hom he
+
+/-! Unique gluing and prestack sheaf descent continuation. -/
+lemma glue_unique [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
+      restrict F g.hom.left (z j) = z i)
+    (s : IntrinsicBandSection F U)
+    (hs : ∀ i : R.arrows.category, restrict F i.obj.hom s = z i) :
+    s = glue F J R hR z hz := by sorry
+lemma glue_existing [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (s : IntrinsicBandSection F U) :
+    glue F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) = s := by sorry
+-- BandCenterPullbackTests.one
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U) {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun _ => 1) (fun _ _ _ => map_one _) a = 1 := by sorry
+-- BandCenterPullbackTests.inverse
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j), restrict F g.hom.left (z j) = z i)
+    {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun i => (z i)⁻¹) (fun i j g => by rw [map_inv, hz]) a =
+      (coverCenterAt F J R hR z hz a)⁻¹ := by sorry
+-- BandCenterPullbackTests.existing
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (s : IntrinsicBandSection F U) {V : C} (a : V ⟶ U) :
+    coverCenterAt F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) a = val F s V a := by sorry
+-- BandCenterGlueTests.one
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U) :
+    glue F J R hR (fun _ => 1) (fun _ _ _ => map_one _) = 1 := by sorry
+-- BandCenterGlueTests.inverse
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
+    (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j), restrict F g.hom.left (z j) = z i) :
+    glue F J R hR (fun i => (z i)⁻¹) (fun i j g => by rw [map_inv, hz]) =
+      (glue F J R hR z hz)⁻¹ := by sorry
+-- BandCenterGlueTests.existing
+example [F.IsPrestack J] {U : C} (R : Sieve U) (hR : R ∈ J U)
+    (s : IntrinsicBandSection F U) :
+    glue F J R hR (fun i => restrict F i.obj.hom s)
+      (fun i j g => by rw [restrict_comp, Over.w g.hom]) = s := by sorry
+/-- Sheaf descent for all prestacks; no groupoid assumption is necessary. -/
+theorem isSheaf_of_prestack [F.IsPrestack J] :
+    Presheaf.IsSheaf J (presheaf F) := by sorry
 
 variable [hGerbe : IsGerbe F J]
 
@@ -2367,3 +2510,4 @@ The nonneutral root-gerbe instance of
 BandCoefficientDetectionTests.noGlobalChoice still requires RootGerbe;
 the general injectivity theorem is proved without any object over U.
 -/
+
